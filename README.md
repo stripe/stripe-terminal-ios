@@ -1,6 +1,6 @@
 # stripe-pos-ios
 
-You can find the latest alpha release of the Point of Sale SDK on the [Releases page](https://github.com/stripe/stripe-pos-ios/releases). While the SDK is in private alpha, it will only be available for download as a zipped release package. In the future, it will also be available on Cocoapods and Carthage.
+While the Point of Sale SDK is in private alpha, it will only be available for download as a zipped release package. You can find the latest alpha release of SDK on the [Releases page](https://github.com/stripe/stripe-pos-ios/releases). (In the future, we'll also make the SDK available via the usual channels: Cocoapods and Carthage.)
 
 The zipped release package contains:
 
