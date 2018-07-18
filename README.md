@@ -21,5 +21,5 @@ You can also refer to these documentation pages:
 - Backend Reference: https://stripe.com/docs/point-of-sale/backend
 
 If you have any bug reports or feedback on the provided code and documentation, please either:
-- [File an issue](https://github.com/stripe/stripe-pos-ios/issues/new)
+- [File an issue here on Github](https://github.com/stripe/stripe-pos-ios/issues/new)
 - email bg@stripe.com (and cc charlessang@stripe.com)
