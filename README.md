@@ -16,7 +16,7 @@ Documentation:
 
 If you have any bug reports or feedback, you can:
 - [File an issue on Github](https://github.com/stripe/stripe-pos-ios/issues/new)
-- Email me directly: bg@stripe.com (please also cc charlessang@stripe.com)
+- Email me directly :blush: bg@stripe.com (please also cc charlessang@stripe.com)
 
 # Requirements
 The Stripe Point of Sale SDK is compatible with apps supporting iOS 10 and above.
