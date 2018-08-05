@@ -16,7 +16,7 @@ Documentation:
 
 Please send us lots of feedback! You can either:
 - [File an issue on Github](https://github.com/stripe/stripe-pos-ios/issues/new) (for minor bug reports, nits, or feature requests)
-- Email me directly: bg@stripe.com (please also cc charlessang@stripe.com) (for integration help or more serious bug reports)
+- Email me directly: bg@stripe.com (please also cc charlessang@stripe.com) (for integration help or blocking bug reports)
 - Email your account manager (for more general product questions)
 
 # Requirements
