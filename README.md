@@ -17,12 +17,12 @@ Please send us lots of feedback! You can either:
 
 ### Getting started
 - Point of Sale Overview: https://stripe.com/docs/point-of-sale
-- Backend Setup Guide: https://stripe.com/docs/point-of-sale/backend-setup
-- iOS SDK Setup Guide: https://stripe.com/docs/point-of-sale/ios-setup
+- Backend Setup Guide: https://stripe.com/docs/point-of-sale/backend
+- iOS SDK Setup Guide: https://stripe.com/docs/point-of-sale/ios
 - Your First Payment: https://stripe.com/docs/point-of-sale/first-payment
 
 ### Completing your integration
-- iOS SDK Reference: https://stripe.com/docs/point-of-sale/ios-reference
+- iOS SDK Reference: https://stripe.com/docs/point-of-sale/ios/reference
 - Common SDK Reference: https://stripe.com/docs/point-of-sale/sdk-reference
 - Chipper 2X User Guide: https://stripe.com/docs/point-of-sale/readers/chipper2x
 - Testing Your Integration: https://stripe.com/docs/point-of-sale/testing
