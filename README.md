@@ -3,10 +3,9 @@
 During the private alpha program, the iOS Point of Sale SDK will only be available using Carthage or manual installation. For more information on installing the SDK, see the [Setup Guide](https://stripe.com/docs/point-of-sale).
 
 This repository contains:
-1. The latest version of the pre-compiled iOS framework containing the Point of Sale SDK.
-2. An example app (in the `Example` directory).
-3. iOS API reference docs (in the `docs` directory; open `index.html` to view).
-4. A `CHANGELOG` file documenting changes from the previous version.
+1. An example app (in the `Example` directory).
+2. iOS API reference docs (in the `docs` directory; open `index.html` to view).
+3. A `CHANGELOG` file documenting changes from the previous version.
 
 Please send us lots of feedback! You can either:
 - [File an issue on Github](https://github.com/stripe/stripe-pos-ios/issues/new) (for minor bug reports, nits, or feature requests)
