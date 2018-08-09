@@ -30,6 +30,6 @@ Please send us lots of feedback! You can either:
 The Stripe Point of Sale SDK is compatible with apps supporting iOS 10 and above. The included Example app requires Xcode 9.
 
 ## Running the example app
+- Run `setup.sh` to install required dependencies
 - In `RootViewController.swift`, set your Stripe Account's test secret key. Note that this is for demonstration purposes only. You should NEVER store your account's secret API key in your app. For more information, see https://stripe.com/docs/keys
-- The dependencies for the Example app have been pre-downloaded, so you shouldn't need to run `carthage` to build the app.
 
