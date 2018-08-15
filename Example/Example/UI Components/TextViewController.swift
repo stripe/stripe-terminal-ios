@@ -71,7 +71,7 @@ class TextViewController: StackViewController {
             }
             let dateString = self.filenameFormatter.string(from: Date())
             let filename = "\(self.title ?? "StripePOS")_\(dateString).txt"
-            self.shareTextFile(contents: self.textView.text, filename: filename)
+            self.shareTextFile(contents: self.textView.text, from: self.shareButton, filename: filename)
         }
         self.shareButton = shareButton
 

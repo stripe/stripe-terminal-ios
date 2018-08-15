@@ -15,7 +15,7 @@ extension SCPReader {
     }
 }
 
-class ReaderViewController: StackViewController, SCPTerminalDelegate {
+class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscoveryDelegate {
 
     weak var terminal: SCPTerminal? {
         didSet {
@@ -23,6 +23,7 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate {
         }
     }
 
+    var lastConnectedSerial: String?
     let connectionView = StatusView<String>(title: "Connection Status", value: "")
     let discoverButton = ColoredButton(title: "Discover", color: UIColor.stripeGreen)
     let disconnectButton = ColoredButton(title: "Disconnect", color: UIColor.stripeRed)
@@ -100,11 +101,48 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate {
 
     // MARK: SCPTerminalDelegate
     func terminal(_ terminal: SCPTerminal, didChange connectionStatus: SCPConnectionStatus) {
+        switch connectionStatus {
+        case .busy:
+            break
+        case .connected:
+            self.lastConnectedSerial = terminal.connectedReader?.serialNumber
+            break
+        case .notConnected:
+            // attempt to re-connect to the last connected reader
+            let config = SCPDiscoveryConfiguration()
+            self.terminal?.discover(config, delegate: self) { error in
+                if let error = error {
+                    print("reconnect discover failed: \(error)")
+                }
+                else {
+                    print("reconnect discover succeeded")
+                }
+            }
+        }
         updateViews()
     }
 
     func terminalDidReportLowBatteryWarning(_ terminal: SCPTerminal) {
         self.showNotification(title: "Reader battery is low")
+    }
+
+    // MARK: SCPDiscoveryDelegate
+    // Note: we call discover from this view controller when SCPTerminal's
+    // connectionStatus changes to .notConnected (see above)
+    func terminal(_ terminal: SCPTerminal, didUpdateDiscoveryResults readers: [SCPReader]) {
+        guard let serial = lastConnectedSerial else { return }
+        for reader in readers {
+            if reader.serialNumber == serial {
+                terminal.connect(reader) { reader, error in
+                    if let error = error {
+                        print("reconnect failed: \(error)")
+                    }
+                    else {
+                        print("reconnect succeeded")
+                    }
+                }
+            }
+        }
     }
 
 }

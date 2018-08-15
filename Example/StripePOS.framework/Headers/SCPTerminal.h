@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, SCPSourceReadType) {
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"0.9";
+static NSString *const SCPSDKVersion = @"0.9.1";
 
 @class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentParameters, SCPReadSourceParameters;
 

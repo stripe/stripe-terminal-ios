@@ -18,7 +18,7 @@ extension UIViewController {
      Requests a value by presenting an action sheet with the given options.
      If "Cancel" is selected, `handler` will be called with `currentValue`.
      */
-    func presentValuePicker<T>(title: String?, options: [T], handler: @escaping (T?)->()) where T: CustomStringConvertible {
+    func presentValuePicker<T>(title: String?, options: [T], from sourceView: UIView?, handler: @escaping (T?)->()) where T: CustomStringConvertible {
         guard canPresentViewController() else { return }
 
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
@@ -32,6 +32,8 @@ extension UIViewController {
             handler(nil)
         })
         alertController.addAction(cancelAction)
+        alertController.popoverPresentationController?.sourceView = sourceView
+        alertController.popoverPresentationController?.sourceRect = sourceView?.bounds ?? .zero
         present(alertController, animated: true, completion: nil)
     }
 

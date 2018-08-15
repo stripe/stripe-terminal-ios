@@ -66,6 +66,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The reader declined the payment.
      */
     SCPErrorPaymentDeclinedByReader = 104,
+
+    /**
+     Integration errors
+     */
     /**
      Access to location services is currently disabled. This may be because:
      - The user disabled location services in the system settings.
@@ -78,7 +82,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      Make sure:
      - Your implementation of `getToken` calls the given completion block
      either a String or an error.
-     Your app strongly retains your SCPActivationTokenProvider.
+     - Your app strongly retains your SCPActivationTokenProvider.
      */
     SCPErrorActivationTokenProviderIntegrationError = 151,
     /**
@@ -86,6 +90,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      You must confirm a payment intent immediately after attaching a source.
      */
     SCPErrorConfirmInvalidIntent = 153,
+    /**
+     attachSource or confirmPaymentIntent was called with a nil PaymentIntent.
+     */
+    SCPErrorNilPaymentIntent = 154,
+
 
     /**
      READER ERRORS

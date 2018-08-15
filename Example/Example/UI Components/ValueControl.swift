@@ -129,9 +129,10 @@ class ValueControl<T>: BaseValueControl where T: LosslessStringConvertible {
         }
         super.init(frame: .zero)
         titleLabel.text = title
-        valueButton.onTap = {
+        valueButton.onTap = { [weak valueButton] in
             self.parentViewController?.presentValuePicker(title: self.titleLabel.text,
                                                           options: options,
+                                                          from: valueButton,
                                                           handler: { value in
                                                             if let v = value {
                                                                 self.value = v

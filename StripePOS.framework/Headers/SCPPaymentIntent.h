@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
 /**
  A payment intent.
  */
-@interface SCPPaymentIntent : NSObject <SCPJSONDecodable>
+@interface SCPPaymentIntent : NSObject <SCPJSONDecodable, NSCopying>
 
 /**
  The unique identifier for the intent.

@@ -13,7 +13,7 @@ extension UIViewController {
     /**
      Shares the given text as a text file
      */
-    func shareTextFile(contents: String, filename: String) {
+    func shareTextFile(contents: String, from sourceView: UIView?, filename: String) {
         guard let fileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename),
             let data = contents.data(using: .utf8) else {
                 return
@@ -25,6 +25,8 @@ extension UIViewController {
             presentAlert(title: "Error", message: "Couldn't write file")
         }
         let activityController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = sourceView
+        activityController.popoverPresentationController?.sourceRect = sourceView?.bounds ?? .zero
         let excludedTypes: [UIActivityType] = [
             .postToFlickr,
             .postToWeibo,

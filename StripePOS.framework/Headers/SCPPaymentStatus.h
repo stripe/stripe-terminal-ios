@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSUInteger, SCPPaymentStatus) {
     /**
-     SCPTerminal is not ready to start a payment. It may not be activated, or
-     a reader may not be connected.
+     SCPTerminal is not ready to start a payment. It may be busy with another
+     command, or a reader may not be connected.
      */
     SCPPaymentStatusNotReady,
     /**
@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, SCPPaymentStatus) {
      */
     SCPPaymentStatusAttachingSource,
     /**
-     SCPTerminal is in the process of confirming a payment intent.
+     SCPTerminal is in the process of confirming a PaymentIntent.
      */
     SCPPaymentStatusConfirmingPaymentIntent,
 };
