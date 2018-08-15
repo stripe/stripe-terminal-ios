@@ -1,6 +1,6 @@
 # stripe-pos-ios
 
-During the private alpha program, the iOS Point of Sale SDK will only be available using Carthage or manual installation. For more information on installing the SDK, see the [Setup Guide](https://stripe.com/docs/point-of-sale).
+During the private alpha program the iOS Point of Sale SDK will only be available using Carthage or manual installation. For more information on installing the SDK, see the [Setup Guide](https://stripe.com/docs/point-of-sale).
 
 This repository contains:
 1. An example app (in the `Example` directory).
@@ -32,4 +32,3 @@ The Stripe Point of Sale SDK is compatible with apps supporting iOS 10 and above
 ## Running the example app
 - Run `setup.sh` to install required dependencies
 - In `RootViewController.swift`, set your Stripe Account's test secret key. Note that this is for demonstration purposes only. You should NEVER store your account's secret API key in your app. For more information, see https://stripe.com/docs/keys
-
