@@ -76,9 +76,9 @@ class AltViewController: StackViewController, SCPReadCardDelegate {
         }
 
         let cancelReadButton = ColoredButton(title: "Cancel Read Source", color: UIColor.stripeRed) {
-            self.readSourceCancelable?.cancel() { success in
-                if !success {
-                    self.presentAlert(title: "Cancel Read Source Failed", message: "");
+            self.readSourceCancelable?.cancel() { error in
+                if let error = error {
+                    self.presentAlert(error: error)
                 }
             }
         }

@@ -69,24 +69,9 @@ typedef NS_ENUM(NSUInteger, SCPChargeStatus) {
 @property (nonatomic, readonly) NSDictionary *metadata;
 
 /**
- The email that the receipt for this charge was sent to.
- */
-@property (nonatomic, nullable, readonly) NSString *receiptEmail;
-
-/**
- The statement descriptor for the charge.
- */
-@property (nonatomic, nullable, readonly) NSString *statementDescriptor;
-
-/**
  The unique identifier for the charge.
  */
 @property (nonatomic, readonly) NSString *stripeId;
-
-/**
- Use stripeDescription for the string attached to the charge object.
- */
-@property (nonatomic, copy, readonly) NSString *description DEPRECATED_MSG_ATTRIBUTE("Did you mean to use stripeDescription?");
 
 /**
  You cannot directly instantiate `SCPCharge`. You should only use

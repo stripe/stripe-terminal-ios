@@ -85,23 +85,6 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
 @property (nonatomic, nullable, readonly) NSDictionary *metadata;
 
 /**
- Extra information about a payment intent. This will appear on your customer’s
- statement when this intent succeeds in creating a charge.
- */
-@property (nonatomic, nullable, readonly) NSString *statementDescriptor;
-
-/**
- An arbitrary string attached to the object. If you send a receipt email for
- this payment, the email will include the description.
- */
-@property (nonatomic, nullable, readonly) NSString *stripeDescription;
-
-/**
- Email address that the receipt for the resulting payment will be sent to.
- */
-@property (nonatomic, nullable, readonly) NSString *receiptEmail;
-
-/**
  Charges that were created by this PaymentIntent, if any.
  */
 @property (nonatomic, readonly) NSArray<SCPCharge *> *charges;

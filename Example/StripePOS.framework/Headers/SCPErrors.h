@@ -80,7 +80,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     /**
      There was an error communicating with the ActivationTokenProvider.
      Make sure:
-     - Your implementation of `getToken` calls the given completion block
+     - Your implementation of `getActivationToken` calls the given completion block
      either a String or an error.
      - Your app strongly retains your SCPActivationTokenProvider.
      */
@@ -94,7 +94,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      attachSource or confirmPaymentIntent was called with a nil PaymentIntent.
      */
     SCPErrorNilPaymentIntent = 154,
-
+    /**
+     Canceling a command failed.
+     */
+    SCPErrorCancelFailed = 155,
+    /**
+     A PaymentIntent was referenced using an invalid client secret.
+     */
+    SCPErrorInvalidClientSecret = 156,
 
     /**
      READER ERRORS
@@ -120,6 +127,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The reader is busy.
      */
     SCPErrorReaderBusy = 305,
+    /**
+     Could not communicate with the reader.
+     */
+    SCPErrorReaderCommunicationError = 306,
     /**
      Generic bluetooth error.
      */
@@ -197,7 +208,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorStripeAPIError = 902,
     /**
-     The API response could not be decoded.
+     The API response from Stripe could not be decoded.
      */
     SCPErrorStripeAPIResponseDecodingError = 903,
 };
@@ -247,6 +258,11 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorType;
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorParameter;
 
 /**
+ The HTTP status code of the response.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyHttpStatusCode;
+
+/**
  If a Stripe API request failed and the error has an associated payment intent,
  the payment intent will be returned under this key.
  */
@@ -256,6 +272,6 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIPaymentIntent;
  This error message comes from the reader. You probably shouldn't show this
  to your users, but may want to inspect it yourself.
  */
-FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyReaderErrorMessage;
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyOutcome;
 
 NS_ASSUME_NONNULL_END

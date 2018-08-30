@@ -31,19 +31,26 @@ NS_ASSUME_NONNULL_BEGIN
  The terminal's connection status changed.
 
  @param terminal    The originating terminal.
- @param status       The terminal's new connection status.
+ @param status      The terminal's new connection status.
  */
-- (void)terminal:(SCPTerminal *)terminal
-didChangeConnectionStatus:(SCPConnectionStatus)status;
+- (void)terminal:(SCPTerminal *)terminal didChangeConnectionStatus:(SCPConnectionStatus)status;
 
 /**
  The terminal's payment status changed.
 
  @param terminal    The originating terminal.
- @param status       The terminal's new payment status.
+ @param status      The terminal's new payment status.
  */
-- (void)terminal:(SCPTerminal *)terminal
-didChangePaymentStatus:(SCPPaymentStatus)status;
+- (void)terminal:(SCPTerminal *)terminal didChangePaymentStatus:(SCPPaymentStatus)status;
+
+/**
+ The terminal emitted a logline. You may use this optional callback to incorporate loglines
+ from the Stripe POS SDK into your own telemetry tooling.
+
+ @param terminal    The originating terminal.
+ @param logline     The logline.
+ */
+- (void)terminal:(SCPTerminal *)terminal didEmitLogline:(NSString *)logline;
 
 @end
 

@@ -56,9 +56,10 @@ class PaymentViewController: StackViewController, SCPReadCardDelegate, SCPTermin
             }
         }
         cancelButton.onTap = {
-            self.attachSourceCancelable?.cancel() { [weak self] canceled in
-                if !canceled {
-                    self?.presentAlert(title: "Error", message: "Cancel failed")
+            self.attachSourceCancelable?.cancel() { error in
+                if let error = error {
+                    print("cancel failed: \(error)")
+                    self.presentAlert(error: error)
                 }
             }
         }
@@ -120,12 +121,8 @@ class PaymentViewController: StackViewController, SCPReadCardDelegate, SCPTermin
         guard let terminal = self.terminal else {
             return
         }
-        if let cancelable = self.attachSourceCancelable {
-            self.cancelButton.isEnabled = !cancelable.completed
-        }
-        else {
-            self.cancelButton.isEnabled = false
-        }
+        self.cancelButton.isEnabled = self.attachSourceCancelable != nil
+
         guard let intent = self.intent else {
             startButton.isEnabled = true
             amountControl.isEnabled = true
@@ -147,7 +144,6 @@ class PaymentViewController: StackViewController, SCPReadCardDelegate, SCPTermin
             break
         case .ready:
             startButton.isEnabled = true
-            cancelButton.isEnabled = false
             switch intent.status {
             case .requiresSource:
                 startButton.setTitle("Start", for: .normal)

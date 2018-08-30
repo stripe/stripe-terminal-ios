@@ -21,7 +21,7 @@ class RootViewController: UITabBarController {
 
      @see https://stripe.com/docs/keys
      */
-    static var secretAPIKey: String? = nil
+    static var secretAPIKey: String? = "sk_test_fkGHWvi9zNJo81LT5CeCjUr0"
 
     let terminalVC = ReaderViewController()
     let paymentVC = PaymentViewController()
@@ -37,7 +37,7 @@ class RootViewController: UITabBarController {
 
         let config = SCPTerminalConfiguration()
         // To log events from the SDK to console:
-        // config.logLevel = .verbose
+         config.logLevel = .verbose
         let backend = FakeBackend(secretAPIKey: apiKey)
         self.apiClient = APIClient(backend: backend)
         self.terminal = SCPTerminal(configuration: config,

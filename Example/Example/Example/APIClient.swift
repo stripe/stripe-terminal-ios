@@ -18,8 +18,8 @@ class APIClient: NSObject, SCPActivationTokenProvider {
     }
     private let backend: FakeBackend
 
-    func getToken(_ posDeviceId: String, completion: @escaping SCPActivationTokenCompletionBlock) {
-        self.backend.createActivationToken(posDeviceId, completion: completion)
+    func getActivationToken(_ completion: @escaping SCPActivationTokenCompletionBlock) {
+        self.backend.createActivationToken(completion)
     }
 
     func capturePaymentIntent(_ paymentIntentId: String, completion: @escaping SCPErrorCompletionBlock) {

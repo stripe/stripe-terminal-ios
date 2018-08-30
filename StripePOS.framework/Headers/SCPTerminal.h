@@ -8,27 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SCPReadCardDelegate.h"
 #import "SCPBlocks.h"
+#import "SCPConnectionStatus.h"
 #import "SCPPaymentStatus.h"
+#import "SCPReadCardDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- The possible read types for attachSource and readSource.
- */
-typedef NS_ENUM(NSUInteger, SCPSourceReadType) {
-    /**
-     Read a card using any of the entry methods supported on the connected
-     reader.
-     */
-    SCPSourceReadTypeCard,
-};
-
-/**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"0.9.1";
+static NSString *const SCPSDKVersion = @"0.9.2";
 
 @class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentParameters, SCPReadSourceParameters;
 
@@ -46,6 +36,8 @@ static NSString *const SCPSDKVersion = @"0.9.1";
  optional `SCPCancelable` object. If this object is non-nil, the command was
  successfully started. You can request to stop the command by calling `cancel`
  on the returned object.
+
+ @see https://stripe.com/docs/point-of-sale/sdks/ios
  */
 @interface SCPTerminal : NSObject
 
@@ -76,11 +68,11 @@ static NSString *const SCPSDKVersion = @"0.9.1";
 
 /**
  Initializes `SCPTerminal` with the given configuration, activation token
- provider, and delegate. We suggest making your application's API client
- conform to `SCPActivationTokenProvider`.
+ provider, and delegate.
 
- For more information on preparing up your backend, refer to our docs at
- https://stripe.com/docs/point-of-sale
+ We suggest making your application's API client conform to `SCPActivationTokenProvider`.
+
+ @see https://stripe.com/docs/point-of-sale/sdks/ios#connect-your-activation-token-endpoint
 
  @param configuration           The configuration for the terminal.
 
@@ -101,10 +93,6 @@ static NSString *const SCPSDKVersion = @"0.9.1";
  `SCPDiscoveryDelegate` to handle displaying discovery results to your user and
  connecting to a selected reader.
 
- This command can be canceled, and returns an optional `SCPCancelable` object.
- If the returned object is nil, discovery did not start. To request that the
- command stop, call `cancel` on the returned `SCPCancelable` object.
-
  The discovery process will stop on its own when the `connect` method is
  successfully called, or if an error occurs (e.g. Bluetooth is disabled on the
  POS device). To end discovery after a specified time interval, set the
@@ -114,28 +102,28 @@ static NSString *const SCPSDKVersion = @"0.9.1";
  @param delegate        Your delegate for reader discovery.
  @param completion      The completion block called when the command completes.
  */
-- (nullable SCPCancelable *)discover:(SCPDiscoveryConfiguration *)configuration
-                            delegate:(id<SCPDiscoveryDelegate>)delegate
-                          completion:(SCPErrorCompletionBlock)completion;
+- (nullable SCPCancelable *)discoverReaders:(SCPDiscoveryConfiguration *)configuration
+                                   delegate:(id<SCPDiscoveryDelegate>)delegate
+                                 completion:(SCPErrorCompletionBlock)completion;
 
 /**
- When `connect` is called, `SCPTerminal` attempts to connect to the specified
- reader. If the connect succeeds, the completion block will be called
- with an updated `SCPReader` object and `connectionStatus` will change to
- `Connected`. If the connect fails, the completion block will be called with
- an error.
+ Attempts to connect to the given reader.
+
+ If the connect succeeds, the completion block will be called with an updated
+ `SCPReader` object and `connectionStatus` will change to `Connected`. If
+ the connect fails, the completion block will be called with an error.
 
  @param reader          The reader to connect to. This should be a reader
- recently returned to the `terminal:didUpdateDiscoveryResults:` method.
+ recently returned to the `terminal:didUpdateDiscoveredReaders:` method.
  @param completion      The completion block called when the command completes.
  */
 - (void)connect:(SCPReader *)reader completion:(SCPReaderCompletionBlock)completion;
 
 /**
- When `disconnect` is called, `SCPTerminal` attempts to disconnect from any
- currently connected reader. If the disconnect succeeds, the completion block
- is called with nil. If the disconnect fails, the completion block is called
- with an error.
+ Attempts to disconnect from the currently connected reader.
+
+ If the disconnect succeeds, the completion block is called with nil. If the
+ disconnect fails, the completion block is called with an error.
 
  @param completion      The completion block called when the command completes.
  */
@@ -144,29 +132,47 @@ static NSString *const SCPSDKVersion = @"0.9.1";
 /**
  Creates a new PaymentIntent with the given parameters.
 
- @param params          The parameters for the payment intent.
+ Note: If the information required to create a PaymentIntent isn't readily
+ available in your app, you can create the PaymentIntent on your server and use
+ the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
+
+ @see https://stripe.com/docs/point-of-sale/sdks/first-payment#create-a-paymentintent
+
+ @param params          The parameters for the PaymentIntent to be created.
  @param completion      The completion block called when the command completes.
  */
 - (void)createPaymentIntent:(SCPPaymentParameters *)params
                  completion:(SCPPaymentIntentCompletionBlock)completion;
 
 /**
+ Retrieves a PaymentIntent with a client secret.
+
+ If the information required to create a PaymentIntent isn't readily available
+ in your app, you can create the PaymentIntent on your server and use this
+ method to retrieve the PaymentIntent in your app.
+
+ @see https://stripe.com/docs/api#retrieve_payment_intent
+
+ @param clientSecret    The client secret of the PaymentIntent to be retrieved.
+ @param completion      The completion block called when the command completes.
+ */
+- (void)retrievePaymentIntent:(NSString *)clientSecret
+                   completion:(SCPPaymentIntentCompletionBlock)completion;
+
+/**
  Attaches a source to the given payment intent.
 
- This command can be canceled, and returns a nullable `SCPCancelable` object.
- If the returned object is nil, the attach source command did not start. To
- request that the command stop, call `cancel` on the returned `SCPCancelable`
- object.
+ You must provide a ReadCardDelegate to handle events related to reading
+ a card.
+
+ @see https://stripe.com/docs/point-of-sale/sdks/ios/reference#handling-card-events
 
  If attaching a source fails, the completion block will be called with an
- AttachSourceError. After resolving the error, you should call attachSource
- again to either try the same card again, or try a different card. The error's
- paymentIntent object will have a RequiresSource, indicating you should call
- attachSource again to try to read another card.
-
- If attaching a source succeeds, the completion block will be called with a
- PaymentIntent with status RequiresConfirmation, indicating that you should
- call confirmPaymentIntent to finish the payment.
+ error. After resolving the error, you may call attachSource again to either
+ try the same card again, or try a different card. If attaching a source
+ succeeds, the completion block will be called with a PaymentIntent with
+ status RequiresConfirmation, indicating that you should call
+ confirmPaymentIntent to finish the payment.
 
  @param intent      The payment intent to attach a source to.
  @param delegate    Your delegate for handling read card events.
@@ -177,17 +183,19 @@ static NSString *const SCPSDKVersion = @"0.9.1";
                               completion:(SCPPaymentIntentCompletionBlock)completion;
 
 /**
- Confirms a payment intent. You should call this immediately after receiving a
- PaymentIntent with status RequiresConfirmation from `attachSource.
+ Confirms a payment intent. Call this immediately after receiving a
+ PaymentIntent from attachSource.
 
  If confirming the intent fails, the completion block will be called with a
  ConfirmError. You should inspect the status of the error's paymentIntent object
  to decide how to proceed:
  - RequiresSource: the source was declined. Call attachSource to try attaching
  a different source to the PaymentIntent.
- - RequiresConfirm: the confirm failed but can be retried. Inspect the error's
+ - RequiresConfirmation: the confirm failed but can be retried. Inspect the error's
  code and call confirmPaymentIntent again when the underlying issue has been
  addressed.
+
+ @see https://stripe.com/docs/point-of-sale/sdks/common#retrying-payments
 
  If confirming the intent succeeds, the completion block will be called with a
  PaymentIntent object with status RequiresCapture, indicating that a charge was

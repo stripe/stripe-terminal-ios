@@ -27,7 +27,7 @@ import Alamofire
                                 ])
 
     let baseURL = URL(string: "https://api.stripe.com/v1/")!
-    let apiKey: String
+    var apiKey: String
 
     init(secretAPIKey: String) {
         self.apiKey = secretAPIKey
@@ -36,17 +36,14 @@ import Alamofire
     /**
      Creates a POS activation token
      */
-    func createActivationToken(_ posDeviceIdentifier: String, completion: @escaping (String?, Error?) -> Void) {
-        let url = self.baseURL.appendingPathComponent("pos_activation_token")
+    func createActivationToken(_ completion: @escaping (String?, Error?) -> Void) {
+        let url = self.baseURL.appendingPathComponent("point_of_sale/activation_token")
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(self.apiKey)",
         ]
-        let params: [String: Any] = [
-            "pos_device_id": posDeviceIdentifier,
-        ]
         Alamofire.request(url,
                           method: .post,
-                          parameters: params,
+                          parameters: nil,
                           headers: headers)
             .validate(statusCode: 200..<300)
             .responseJSON { response in

@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPAddress;
-
 /**
  The various log levels for the SDK.
  */

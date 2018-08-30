@@ -23,10 +23,12 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
         }
     }
 
-    var lastConnectedSerial: String?
+    static var lastConnectedSerial: String?
     let connectionView = StatusView<String>(title: "Connection Status", value: "")
     let discoverButton = ColoredButton(title: "Discover", color: UIColor.stripeGreen)
     let disconnectButton = ColoredButton(title: "Disconnect", color: UIColor.stripeRed)
+    static var loglines: [String] = []
+    static let maxLoglines = 500
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,8 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
             self.present(navController, animated: true, completion: nil)
         }
         disconnectButton.onTap =  {
+            // clear last connected serial so we don't reconnect
+            ReaderViewController.lastConnectedSerial = nil
             self.terminal?.disconnect { error in
                 if let error = error {
                     print("Disconnect failed: \(error)")
@@ -78,6 +82,11 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
         guard let terminal = self.terminal else { return }
         terminal.terminalDelegate = self
 
+        // prune logs
+        let loglines = ReaderViewController.loglines
+        if loglines.count > ReaderViewController.maxLoglines {
+            ReaderViewController.loglines = Array(loglines.suffix(ReaderViewController.maxLoglines))
+        }
         updateViews()
     }
 
@@ -105,17 +114,19 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
         case .busy:
             break
         case .connected:
-            self.lastConnectedSerial = terminal.connectedReader?.serialNumber
+            ReaderViewController.lastConnectedSerial = terminal.connectedReader?.serialNumber
             break
         case .notConnected:
             // attempt to re-connect to the last connected reader
-            let config = SCPDiscoveryConfiguration()
-            self.terminal?.discover(config, delegate: self) { error in
-                if let error = error {
-                    print("reconnect discover failed: \(error)")
-                }
-                else {
-                    print("reconnect discover succeeded")
+            if ReaderViewController.lastConnectedSerial != nil {
+                let config = SCPDiscoveryConfiguration()
+                self.terminal?.discoverReaders(config, delegate: self) { error in
+                    if let error = error {
+                        print("reconnect discover failed: \(error)")
+                    }
+                    else {
+                        print("reconnect discover succeeded")
+                    }
                 }
             }
         }
@@ -129,8 +140,8 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
     // MARK: SCPDiscoveryDelegate
     // Note: we call discover from this view controller when SCPTerminal's
     // connectionStatus changes to .notConnected (see above)
-    func terminal(_ terminal: SCPTerminal, didUpdateDiscoveryResults readers: [SCPReader]) {
-        guard let serial = lastConnectedSerial else { return }
+    func terminal(_ terminal: SCPTerminal, didUpdateDiscoveredReaders readers: [SCPReader]) {
+        guard let serial = ReaderViewController.lastConnectedSerial else { return }
         for reader in readers {
             if reader.serialNumber == serial {
                 terminal.connect(reader) { reader, error in
@@ -143,6 +154,10 @@ class ReaderViewController: StackViewController, SCPTerminalDelegate, SCPDiscove
                 }
             }
         }
+    }
+
+    func terminal(_ terminal: SCPTerminal, didEmitLogline logline: String) {
+        ReaderViewController.loglines.append(logline)
     }
 
 }

@@ -46,7 +46,7 @@ class SettingsViewController: StackViewController, SCPUpdateReaderDelegate {
     }
 
     // MARK: SCPUpdateReaderDelegate
-    func terminal(_ terminal: SCPTerminal, readerUpdateAvailable readerUpdate: SCPReaderUpdate, installUpdate: @escaping SCPBoolCompletionBlock) {
+    func terminal(_ terminal: SCPTerminal, readerUpdateAvailable readerUpdate: SCPReaderUpdate, installUpdate: @escaping SCPInstallUpdateCompletionBlock) {
         presentAlert(title: "Update available", message: readerUpdate.estimatedUpdateTime.description) { response in
             installUpdate(response)
         }

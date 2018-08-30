@@ -6,21 +6,15 @@
 //  Copyright © 2017 Stripe. All rights reserved.
 //
 
-#import "SCPCharge.h"
-#import "SCPConnectionStatus.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class
-CLLocation,
-SCPAttachSourceError,
-SCPCardPresentSource,
+@class SCPCardPresentSource,
 SCPCardSource,
-SCPCharge,
 SCPConfirmError,
 SCPReader,
-SCPPaymentIntent,
-SCPRefund;
+SCPPaymentIntent;
 
 /**
  A block called with an activation token or an error.
@@ -32,18 +26,12 @@ SCPRefund;
 typedef void (^SCPActivationTokenCompletionBlock)(NSString * __nullable token, NSError * __nullable error);
 
 /**
- A block called with a boolean value.
+ A block called with a boolean value indicating whether the SDK should install an available update.
 
- @param success     Whether the operation was successful.
+ @param installUpdate     A boolean value indicating whether the SDK should install the available
+ update.
  */
-typedef void (^SCPBoolCompletionBlock)(BOOL success);
-
-/**
- A block called with a selected reader object.
-
- @param reader      The reader to select, or nil to cancel connecting to a reader.
- */
-typedef void (^SCPSelectReaderCompletionBlock)(SCPReader * __nullable reader);
+typedef void (^SCPInstallUpdateCompletionBlock)(BOOL installUpdate);
 
 /**
  A block called with a card source.
@@ -83,22 +71,6 @@ typedef void (^SCPConfirmPaymentIntentCompletionBlock)(SCPPaymentIntent * __null
  @param error       An error if one occurred, or nil.
  */
 typedef void (^SCPPaymentIntentCompletionBlock)(SCPPaymentIntent * __nullable intent, NSError * __nullable error);
-
-/**
- A block called with a location or an error.
-
- @param location    The location, or nil.
- @param error       An error if one occurred, or nil.
- */
-typedef void (^SCPLocationCompletionBlock)(CLLocation * __nullable location, NSError * __nullable error);
-
-/**
- A block called with a refund or an error.
-
- @param refund      A refund object, or nil.
- @param error       An error if one occurred, or nil.
- */
-typedef void (^SCPRefundCompletionBlock)(SCPRefund * __nullable refund, NSError * __nullable error);
 
 /**
  A block called with a reader object or an error.

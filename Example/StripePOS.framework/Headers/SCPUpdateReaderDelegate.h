@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)terminal:(SCPTerminal *)terminal
 readerUpdateAvailable:(SCPReaderUpdate *)readerUpdate
-   installUpdate:(SCPBoolCompletionBlock)installUpdate;
+   installUpdate:(SCPInstallUpdateCompletionBlock)installUpdate;
 
 /**
  The terminal reported progress on a reader update.

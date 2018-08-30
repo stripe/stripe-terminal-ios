@@ -19,16 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Indicates whether the command has completed. After the command has completed,
- subsequenc calls to cancel will fail.
+ subsequent calls to cancel will fail.
  */
 @property (nonatomic, readonly) BOOL completed;
 
 /**
  Attempts to cancel the action in progress. If the action could not be canceled,
- e.g. it has already completed, the completion block will be called with NO.
- If the cancel was successful, the completion block will be called with YES.
+ e.g. it has already completed, the completion block will be called with an
+ error. Otherwise, the completion block will be called with nil.
  */
-- (void)cancel:(SCPBoolCompletionBlock)completion;
+- (void)cancel:(SCPErrorCompletionBlock)completion;
 
 @end
 

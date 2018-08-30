@@ -64,7 +64,7 @@ class ReaderDiscoveryViewController: UpdatingResultsViewController<SCPReader>, S
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.discoverCancelable = terminal.discover(self.configuration, delegate: self) { error in
+        self.discoverCancelable = terminal.discoverReaders(self.configuration, delegate: self) { error in
             if let error = error {
                 self.presentAlert(error: error)
             }
@@ -73,14 +73,15 @@ class ReaderDiscoveryViewController: UpdatingResultsViewController<SCPReader>, S
 
     @objc func discoverSwitchAction() {
         if let cancelable = discoverCancelable {
-            cancelable.cancel { success in
-                if success {
+            cancelable.cancel { error in
+                if let error = error {
+                    self.presentAlert(error: error)
                     self.discoverCancelable = nil
                 }
             }
         }
         else {
-            self.discoverCancelable = terminal.discover(self.configuration, delegate: self) { error in
+            self.discoverCancelable = terminal.discoverReaders(self.configuration, delegate: self) { error in
                 if let error = error {
                     self.presentAlert(error: error)
                     self.discoverCancelable = nil
@@ -91,12 +92,12 @@ class ReaderDiscoveryViewController: UpdatingResultsViewController<SCPReader>, S
 
     @objc func dismissAction() {
         if let cancelable = discoverCancelable {
-            cancelable.cancel { success in
-                if success {
-                    self.dismiss(animated: true, completion: nil)
+            cancelable.cancel { error in
+                if let error = error {
+                    self.presentAlert(error: error)
                 }
                 else {
-                    self.presentAlert(title: "Could not cancel discovery", message: "")
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
@@ -120,7 +121,7 @@ class ReaderDiscoveryViewController: UpdatingResultsViewController<SCPReader>, S
     }
 
     // MARK: SCPDiscoveryDelegate
-    func terminal(_ terminal: SCPTerminal, didUpdateDiscoveryResults readers: [SCPReader]) {
+    func terminal(_ terminal: SCPTerminal, didUpdateDiscoveredReaders readers: [SCPReader]) {
         self.results = readers
     }
 

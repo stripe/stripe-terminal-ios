@@ -10,8 +10,6 @@
 
 #import "SCPBlocks.h"
 
-@class SCPAddress;
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -25,19 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
  For more information, follow the integration guide at
  https://stripe.com/docs/point-of-sale
  */
-@protocol SCPActivationTokenProvider <NSObject>
+@protocol SCPActivationTokenProvider
 
 /**
- On your backend, reset the terminal with the given pos_device_id and return the
- activation_token from the response to your app. In your app, call the
+ On your backend, use the v1/point_of_sale/activation_token endpoint to create an activation
+ token, and return the activation_token from the response to your app. In your app, call the
  completion block with the activation token, or an error if one occurred.
-
- @param posDeviceId     Pass this to your backend to create an activation token
- for the specified POS device.
 
  @param completion      Call this with an activation token, or an error if one occurred.
  */
-- (void)getToken:(NSString *)posDeviceId completion:(SCPActivationTokenCompletionBlock)completion;
+- (void)getActivationToken:(SCPActivationTokenCompletionBlock)completion;
 
 @end
 
