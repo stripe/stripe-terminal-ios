@@ -1,7 +1,5 @@
 # Stripe Terminal iOS SDK
 
-https://stripe.com/docs/terminal/ios
-
 ## Requirements
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
@@ -12,8 +10,6 @@ The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
 ## Installation
 
-```
-TODO
-```
+https://stripe.com/docs/terminal/ios#install
 
 
