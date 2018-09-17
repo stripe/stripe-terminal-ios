@@ -1,6 +1,8 @@
-# Stripe Terminal iOS SDK
+# Stripe Terminal iOS SDK <img src="https://img.shields.io/badge/Beta-brightgreen.svg">
 
 https://stripe.com/terminal
+
+Request a [Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
 ## Requirements
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
