@@ -1,4 +1,4 @@
-# Stripe Terminal iOS SDK <img src="https://img.shields.io/badge/Beta 1-brightgreen.svg">
+# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 1-brightgreen.svg">
 
 [Request a Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
