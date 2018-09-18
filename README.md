@@ -6,9 +6,8 @@
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
 ## Try the example app
-The Stripe Terminal SDK includes an example iOS app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. To get started:
+This repository includes an example iOS app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. To get started:
 
-Navigate to Stripe Terminal iOS on [GitHub](https://github.com/stripe/stripe-terminal-ios) and clone the repository.
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. In `RootViewController.swift`, set your Stripe Account's test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should _never_ store your Stripe account's secret API key in your own app. For more information, see https://stripe.com/docs/keys
 3. Build and run the app. The Stripe Terminal SDK includes a simple Reader Simulator, so you can get started without any physical hardware.
