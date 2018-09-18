@@ -50,17 +50,17 @@ bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/i
 
 When new versions of the SDK are released, repeat steps one and two to update your installation
 
-### Configuring your app
+### Configure your app
 
 Location services must be enabled in order to use the iOS SDK. Add the `NSLocationWhenInUseUsageDescription` key to your app’s Info.plist file. Xcode displays this key as “Privacy - Location When In Use Usage Description”. Write an appropriate description for your app (e.g., "Location access is required in order to accept payments.").
 
-Note: Stripe needs to know where payments occur to reduce risks associated with those charges and to minimize disputes. If the SDK can’t determine the iOS device’s location, payments are disabled until location access is restored.
+> Note: Stripe needs to know where payments occur to reduce risks associated with those charges and to minimize disputes. If the SDK can’t determine the iOS device’s location, payments are disabled until location access is restored.
 
 For your app to run in the background and remain connected to the reader, add this key-value pair to your `Info.plist` file:
 - Key: `UIBackgroundModes` (Required background modes)
 - Value: `bluetoooth-central` (Uses Bluetooth LE accessories)
 
-For your app to pass validation when submitting to the app store, add the following key-value pairs as well:
+For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:
 - Privacy - Bluetooth Peripheral Usage Description
   - Key: `NSBluetoothPeripheralUsageDescription`
   - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
