@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                           = 'StripeTerminal'
   s.version                        = '1.0-b1'
-  s.summary                        = 'The programmable point of sale'
+  s.summary                        = 'The programmable point of sale.'
   s.homepage                       = 'https://stripe.com/terminal'
   s.authors                        = { 'Stripe' => 'support+github@stripe.com' }
   s.source                         = { :git => 'https://github.com/stripe/stripe-terminal-ios.git', :tag => "v1.0-b1" }
