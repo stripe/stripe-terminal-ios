@@ -14,9 +14,6 @@ This repository includes an example iOS app, which you can use to familiarize yo
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
-## Install the SDK
-https://stripe.com/docs/terminal/ios#install
-
 ## Documentation
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
 
