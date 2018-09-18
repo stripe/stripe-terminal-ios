@@ -17,4 +17,7 @@ Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses
 ## Install the SDK
 https://stripe.com/docs/terminal/ios#install
 
+## Documentation
+- [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
+
 
