@@ -7,41 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C139B01A21151A560077FF36 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139B01921151A560077FF36 /* Color.swift */; };
-		C14C014920D4963E00100A57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14C014820D4963E00100A57 /* SettingsViewController.swift */; };
+		C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; };
+		C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
+		C152F7782149ECA30078BD07 /* CreateSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */; };
+		C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F77B214A18C00078BD07 /* StripeCurrencies.swift */; };
 		C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40A02094F07B009CE87C /* AppDelegate.swift */; };
 		C16F40A62094F07B009CE87C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A42094F07B009CE87C /* Main.storyboard */; };
 		C16F40A82094F07C009CE87C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		C16F40AB2094F07C009CE87C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A92094F07C009CE87C /* LaunchScreen.storyboard */; };
-		C16F40BA2094F0A1009CE87C /* PaymentIntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B32094F0A1009CE87C /* PaymentIntentViewController.swift */; };
 		C16F40BB2094F0A1009CE87C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B42094F0A1009CE87C /* APIClient.swift */; };
 		C16F40BC2094F0A1009CE87C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B52094F0A1009CE87C /* RootViewController.swift */; };
-		C16F40BD2094F0A1009CE87C /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B62094F0A1009CE87C /* PaymentViewController.swift */; };
-		C16F40BE2094F0A1009CE87C /* AltViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B72094F0A1009CE87C /* AltViewController.swift */; };
-		C16F40BF2094F0A1009CE87C /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B82094F0A1009CE87C /* ReaderViewController.swift */; };
-		C16F40C02094F0A1009CE87C /* StripePOS+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B92094F0A1009CE87C /* StripePOS+CustomStringConvertible.swift */; };
-		C16F40CE2094F0AD009CE87C /* UIViewController+TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C22094F0AD009CE87C /* UIViewController+TextViewController.swift */; };
-		C16F40CF2094F0AD009CE87C /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C32094F0AD009CE87C /* UIViewController+UIAlertController.swift */; };
-		C16F40D02094F0AD009CE87C /* UIStackView+StripePOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C42094F0AD009CE87C /* UIStackView+StripePOS.swift */; };
-		C16F40D12094F0AD009CE87C /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C52094F0AD009CE87C /* StatusView.swift */; };
-		C16F40D22094F0AD009CE87C /* PasteboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C62094F0AD009CE87C /* PasteboardStore.swift */; };
-		C16F40D32094F0AD009CE87C /* UIViewController+UNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C72094F0AD009CE87C /* UIViewController+UNNotificationCenter.swift */; };
-		C16F40D42094F0AD009CE87C /* ValueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C82094F0AD009CE87C /* ValueControl.swift */; };
-		C16F40D52094F0AD009CE87C /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40C92094F0AD009CE87C /* StackViewController.swift */; };
-		C16F40D62094F0AD009CE87C /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40CA2094F0AD009CE87C /* TextViewController.swift */; };
-		C16F40D72094F0AD009CE87C /* UIViewController+UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40CB2094F0AD009CE87C /* UIViewController+UIActivityViewController.swift */; };
-		C16F40D82094F0AD009CE87C /* UITabBarItem+StripePOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40CC2094F0AD009CE87C /* UITabBarItem+StripePOS.swift */; };
-		C16F40D92094F0AD009CE87C /* ColoredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40CD2094F0AD009CE87C /* ColoredButton.swift */; };
 		C16F40E72094F208009CE87C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E52094F208009CE87C /* Alamofire.framework */; };
 		C16F40E82094F208009CE87C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E52094F208009CE87C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C16F40E92094F208009CE87C /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E62094F208009CE87C /* Stripe.framework */; };
 		C16F40EA2094F208009CE87C /* Stripe.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E62094F208009CE87C /* Stripe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C18ECE4A20DF6C6500854447 /* FakeBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECE4920DF6C6500854447 /* FakeBackend.swift */; };
-		C1C44ECA20ADD85300DECE4B /* StripePOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C44EC920ADD85300DECE4B /* StripePOS.framework */; };
-		C1C44ECB20ADD85300DECE4B /* StripePOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1C44EC920ADD85300DECE4B /* StripePOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C1D7648420FFAFC3000A4B94 /* UpdatingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7648320FFAFC3000A4B94 /* UpdatingResultsViewController.swift */; };
+		C18ECE4A20DF6C6500854447 /* BackendSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECE4920DF6C6500854447 /* BackendSimulator.swift */; };
+		C1B4BCA421423D8600E2ECE6 /* ReaderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */; };
+		C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */; };
+		C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */; };
+		C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D3A023214208800095A07B /* ReaderViewController.swift */; };
+		C1D3A026214209050095A07B /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D3A025214209050095A07B /* Static.framework */; };
+		C1D3A0272142090D0095A07B /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1D3A025214209050095A07B /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1D7649421001086000A4B94 /* ReaderDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */; };
-		C1F7751520D474CA00E0E14E /* MeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F7751420D474CA00E0E14E /* MeterView.swift */; };
+		C1DE30D521438E9900A3026F /* AppEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30CF21438E9800A3026F /* AppEventViewController.swift */; };
+		C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */; };
+		C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D221438E9800A3026F /* UIView+Layout.swift */; };
+		C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F78BDA2144F0830094BE37 /* CustomViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,9 +43,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C1D3A0272142090D0095A07B /* Static.framework in Embed Frameworks */,
 				C16F40E82094F208009CE87C /* Alamofire.framework in Embed Frameworks */,
 				C16F40EA2094F208009CE87C /* Stripe.framework in Embed Frameworks */,
-				C1C44ECB20ADD85300DECE4B /* StripePOS.framework in Embed Frameworks */,
+				C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,40 +54,31 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C139B01921151A560077FF36 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		C14C014820D4963E00100A57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C106AD1921485AD300EB471C /* StripeTerminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripeTerminal.framework; sourceTree = SOURCE_ROOT; };
+		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
+		C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSourceViewController.swift; sourceTree = "<group>"; };
+		C152F77B214A18C00078BD07 /* StripeCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCurrencies.swift; sourceTree = "<group>"; };
 		C16F409D2094F07B009CE87C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C16F40A02094F07B009CE87C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C16F40A52094F07B009CE87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C16F40A72094F07C009CE87C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C16F40AA2094F07C009CE87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C16F40AC2094F07C009CE87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C16F40B32094F0A1009CE87C /* PaymentIntentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentIntentViewController.swift; sourceTree = "<group>"; };
 		C16F40B42094F0A1009CE87C /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C16F40B52094F0A1009CE87C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		C16F40B62094F0A1009CE87C /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		C16F40B72094F0A1009CE87C /* AltViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltViewController.swift; sourceTree = "<group>"; };
-		C16F40B82094F0A1009CE87C /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
-		C16F40B92094F0A1009CE87C /* StripePOS+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StripePOS+CustomStringConvertible.swift"; sourceTree = "<group>"; };
-		C16F40C22094F0AD009CE87C /* UIViewController+TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TextViewController.swift"; sourceTree = "<group>"; };
-		C16F40C32094F0AD009CE87C /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
-		C16F40C42094F0AD009CE87C /* UIStackView+StripePOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+StripePOS.swift"; sourceTree = "<group>"; };
-		C16F40C52094F0AD009CE87C /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		C16F40C62094F0AD009CE87C /* PasteboardStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardStore.swift; sourceTree = "<group>"; };
-		C16F40C72094F0AD009CE87C /* UIViewController+UNNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UNNotificationCenter.swift"; sourceTree = "<group>"; };
-		C16F40C82094F0AD009CE87C /* ValueControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueControl.swift; sourceTree = "<group>"; };
-		C16F40C92094F0AD009CE87C /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		C16F40CA2094F0AD009CE87C /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		C16F40CB2094F0AD009CE87C /* UIViewController+UIActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIActivityViewController.swift"; sourceTree = "<group>"; };
-		C16F40CC2094F0AD009CE87C /* UITabBarItem+StripePOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+StripePOS.swift"; sourceTree = "<group>"; };
-		C16F40CD2094F0AD009CE87C /* ColoredButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredButton.swift; sourceTree = "<group>"; };
 		C16F40E52094F208009CE87C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C16F40E62094F208009CE87C /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = Carthage/Build/iOS/Stripe.framework; sourceTree = "<group>"; };
-		C18ECE4920DF6C6500854447 /* FakeBackend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeBackend.swift; sourceTree = "<group>"; };
-		C1C44EC920ADD85300DECE4B /* StripePOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripePOS.framework; sourceTree = SOURCE_ROOT; };
-		C1D7648320FFAFC3000A4B94 /* UpdatingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingResultsViewController.swift; sourceTree = "<group>"; };
+		C18ECE4920DF6C6500854447 /* BackendSimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendSimulator.swift; sourceTree = "<group>"; };
+		C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderHeaderView.swift; sourceTree = "<group>"; };
+		C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPaymentViewController.swift; sourceTree = "<group>"; };
+		C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		C1D3A023214208800095A07B /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		C1D3A025214209050095A07B /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderDiscoveryViewController.swift; sourceTree = "<group>"; };
-		C1F7751420D474CA00E0E14E /* MeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterView.swift; sourceTree = "<group>"; };
+		C1DE30CF21438E9800A3026F /* AppEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEventViewController.swift; sourceTree = "<group>"; };
+		C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
+		C1DE30D221438E9800A3026F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		C1F78BDA2144F0830094BE37 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D3A026214209050095A07B /* Static.framework in Frameworks */,
 				C16F40E72094F208009CE87C /* Alamofire.framework in Frameworks */,
 				C16F40E92094F208009CE87C /* Stripe.framework in Frameworks */,
-				C1C44ECA20ADD85300DECE4B /* StripePOS.framework in Frameworks */,
+				C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,9 +99,10 @@
 		C16F40942094F07B009CE87C = {
 			isa = PBXGroup;
 			children = (
-				C1C44EC920ADD85300DECE4B /* StripePOS.framework */,
+				C106AD1921485AD300EB471C /* StripeTerminal.framework */,
 				C16F409F2094F07B009CE87C /* Example */,
 				C16F409E2094F07B009CE87C /* Products */,
+				C1D3A025214209050095A07B /* Static.framework */,
 				C16F40E52094F208009CE87C /* Alamofire.framework */,
 				C16F40E62094F208009CE87C /* Stripe.framework */,
 			);
@@ -133,8 +119,21 @@
 		C16F409F2094F07B009CE87C /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				C16F40B22094F0A1009CE87C /* Example */,
-				C16F40C12094F0AD009CE87C /* UI Components */,
+				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
+				C1D3A023214208800095A07B /* ReaderViewController.swift */,
+				C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */,
+				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
+				C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */,
+				C16F40B42094F0A1009CE87C /* APIClient.swift */,
+				C18ECE4920DF6C6500854447 /* BackendSimulator.swift */,
+				C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */,
+				C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */,
+				C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */,
+				C1DE30CF21438E9800A3026F /* AppEventViewController.swift */,
+				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
+				C1DE30D221438E9800A3026F /* UIView+Layout.swift */,
+				C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */,
+				C152F77B214A18C00078BD07 /* StripeCurrencies.swift */,
 				C16F40A02094F07B009CE87C /* AppDelegate.swift */,
 				C16F40A42094F07B009CE87C /* Main.storyboard */,
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
@@ -143,46 +142,6 @@
 			);
 			path = Example;
 			sourceTree = "<group>";
-		};
-		C16F40B22094F0A1009CE87C /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
-				C16F40B42094F0A1009CE87C /* APIClient.swift */,
-				C18ECE4920DF6C6500854447 /* FakeBackend.swift */,
-				C16F40B82094F0A1009CE87C /* ReaderViewController.swift */,
-				C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */,
-				C16F40B62094F0A1009CE87C /* PaymentViewController.swift */,
-				C16F40B32094F0A1009CE87C /* PaymentIntentViewController.swift */,
-				C16F40B72094F0A1009CE87C /* AltViewController.swift */,
-				C16F40B92094F0A1009CE87C /* StripePOS+CustomStringConvertible.swift */,
-				C14C014820D4963E00100A57 /* SettingsViewController.swift */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		C16F40C12094F0AD009CE87C /* UI Components */ = {
-			isa = PBXGroup;
-			children = (
-				C16F40C22094F0AD009CE87C /* UIViewController+TextViewController.swift */,
-				C16F40C32094F0AD009CE87C /* UIViewController+UIAlertController.swift */,
-				C16F40C42094F0AD009CE87C /* UIStackView+StripePOS.swift */,
-				C1D7648320FFAFC3000A4B94 /* UpdatingResultsViewController.swift */,
-				C16F40C52094F0AD009CE87C /* StatusView.swift */,
-				C1F7751420D474CA00E0E14E /* MeterView.swift */,
-				C16F40C62094F0AD009CE87C /* PasteboardStore.swift */,
-				C16F40C72094F0AD009CE87C /* UIViewController+UNNotificationCenter.swift */,
-				C16F40C82094F0AD009CE87C /* ValueControl.swift */,
-				C16F40C92094F0AD009CE87C /* StackViewController.swift */,
-				C16F40CA2094F0AD009CE87C /* TextViewController.swift */,
-				C16F40CB2094F0AD009CE87C /* UIViewController+UIActivityViewController.swift */,
-				C16F40CC2094F0AD009CE87C /* UITabBarItem+StripePOS.swift */,
-				C16F40CD2094F0AD009CE87C /* ColoredButton.swift */,
-				C139B01921151A560077FF36 /* Color.swift */,
-			);
-			name = "UI Components";
-			path = "Example/UI Components";
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -195,6 +154,7 @@
 				C16F409A2094F07B009CE87C /* Frameworks */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				C16F40E42094F170009CE87C /* Embed Frameworks */,
+				C1CA4ED621435808004AE041 /* integrate frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +177,7 @@
 				TargetAttributes = {
 					C16F409C2094F07B009CE87C = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -252,37 +213,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C1CA4ED621435808004AE041 /* integrate frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "integrate frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C16F40992094F07B009CE87C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C16F40BC2094F0A1009CE87C /* RootViewController.swift in Sources */,
-				C16F40D12094F0AD009CE87C /* StatusView.swift in Sources */,
-				C16F40D52094F0AD009CE87C /* StackViewController.swift in Sources */,
 				C1D7649421001086000A4B94 /* ReaderDiscoveryViewController.swift in Sources */,
-				C1D7648420FFAFC3000A4B94 /* UpdatingResultsViewController.swift in Sources */,
-				C16F40D22094F0AD009CE87C /* PasteboardStore.swift in Sources */,
-				C16F40BD2094F0A1009CE87C /* PaymentViewController.swift in Sources */,
-				C16F40D62094F0AD009CE87C /* TextViewController.swift in Sources */,
-				C16F40BF2094F0A1009CE87C /* ReaderViewController.swift in Sources */,
-				C16F40C02094F0A1009CE87C /* StripePOS+CustomStringConvertible.swift in Sources */,
-				C18ECE4A20DF6C6500854447 /* FakeBackend.swift in Sources */,
-				C16F40CE2094F0AD009CE87C /* UIViewController+TextViewController.swift in Sources */,
-				C16F40D02094F0AD009CE87C /* UIStackView+StripePOS.swift in Sources */,
-				C16F40BE2094F0A1009CE87C /* AltViewController.swift in Sources */,
-				C16F40BA2094F0A1009CE87C /* PaymentIntentViewController.swift in Sources */,
-				C16F40D42094F0AD009CE87C /* ValueControl.swift in Sources */,
-				C14C014920D4963E00100A57 /* SettingsViewController.swift in Sources */,
-				C139B01A21151A560077FF36 /* Color.swift in Sources */,
+				C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */,
+				C1B4BCA421423D8600E2ECE6 /* ReaderHeaderView.swift in Sources */,
+				C18ECE4A20DF6C6500854447 /* BackendSimulator.swift in Sources */,
+				C1DE30D521438E9900A3026F /* AppEventViewController.swift in Sources */,
+				C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */,
+				C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */,
+				C152F7782149ECA30078BD07 /* CreateSourceViewController.swift in Sources */,
+				C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */,
+				C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */,
+				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
-				C1F7751520D474CA00E0E14E /* MeterView.swift in Sources */,
-				C16F40D92094F0AD009CE87C /* ColoredButton.swift in Sources */,
-				C16F40CF2094F0AD009CE87C /* UIViewController+UIAlertController.swift in Sources */,
-				C16F40D82094F0AD009CE87C /* UITabBarItem+StripePOS.swift in Sources */,
+				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
+				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
 				C16F40BB2094F0A1009CE87C /* APIClient.swift in Sources */,
-				C16F40D72094F0AD009CE87C /* UIViewController+UIActivityViewController.swift in Sources */,
-				C16F40D32094F0AD009CE87C /* UIViewController+UNNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,10 +403,10 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.stripe.pos-example.Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -456,10 +424,10 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.stripe.pos-example.Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -1,26 +1,51 @@
 # CHANGELOG
 
-## Important changes
-- The `getToken` method has been renamed to `getActivationToken`, and the `posDeviceId` parameter has been removed.
-- **Migrating**:
-  - In your app, rename `getToken` to `getActivationToken`, and remove the `posDeviceId` parameter.
-  - On your backend, call `v1/point_of_sale/activation_token` to create an activation token. (Note that the endpoint has been renamed). You do not need to pass any parameters to this method.
+- The framework has been renamed "StripeTerminal". You will need to remove `StripePOS.framework` from your app, and add the new `StripeTerminal` framework.
+- Endpoints have also been (backwards-compatibly) renamed. Please update your backend to use `v1/terminal/activation_token`. Your existing integration will continue working, but we will be migrating all users off the legacy `/point_of_sale/activation_token` and `pos_activation_token` endpoints.
+- The `SCP` prefix has been removed from all types in Swift. Xcode should provide helpful errors to help migrate your Swift files.
+- `ActivationTokenProvider` has been renamed `ConnectionTokenProvider`, and `getToken` has been renamed `fetchConnectionToken`, for clarity.
+- `connect` has been renamed `connectReader`, and `disconnect` has been renamed `disconnectReader`, for clarity.
 
-- The `cancel` method on `SCPCancelable` now uses a nullable `NSError` in its completion block instead of a `BOOL`, to improve usability.
-- **Migrating**: when canceling a command, check if `error` is non-nil instead of checking if `success` is false.
+## Reader Input
+We've replaced all references to reading a "card" with more general names centered around "Reader Input".
 
-- The `discover` method has been renamed to `discoverReaders`
-- **Migrating**: replace `discover` with `discoverReaders`
+- The `attachSource:readCardDelegate:completion` method has been renamed `collectPaymentMethod:delegate:completion:`.
+- `ReadCardDelegate` has been renamed `ReaderInputDelegate`.
+- The `didBeginWaitingForCard` delegate method has been renamed `didBeginWaitingForReaderInput`.
+- The `CardPresentationType` enum has been replaced with an option set, `ReaderInputOptions`.
+- The `ReadCardPrompt` enum has been renamed `ReaderInputPrompt`.
+- The `didRequestReadCardPrompt` delegate method has been renamed `didRequestReaderInputPrompt`.
+- The `readSource:readCardDelegate:completion` method has been renamed `readSource:delegate:completion:`.
+- Additional prompts have been added to `ReaderInputPrompt`, to make it clearer how to proceed in various card presentation scenarios. For example, the SDK will now surface a "Try Another Read Method" prompt if the presented card could not be read.
 
-- The `terminal:didUpdateDiscoveryResults:` delegate method has been renamed to `terminal:didUpdateDiscoveredReaders:`
-- **Migrating**: replace `didUpdateDiscoveryResults` with `didUpdateDiscoveredReaders`
+## Detecting unexpected disconnects
+`TerminalDelegate` has a new optional `didDisconnectUnexpectedlyFromReader` delegate method, which you can use to handle unexpected disconnects (e.g. if the reader runs out of battery, or is powered off).
 
-- We've noticed that App Store validation now detects usage of microphone access APIs in our internal reader hardware library. In your Info.plist, please add this key-value pair:
-  - Key: `NSMicrophoneUsageDescription` (Privacy - Microphone Usage Description)
-  - Value: "Microphone access is required in order to connect to supported audio input card readers."
+If you were previously using the `didChangeConnectionStatus` method to detect unexpected disconnects, please start using this new delegate method. ConnectionStatus changes cannot be used to reliably determine when a reader disconnects unexpectedly.
+
+## Switching accounts
+We've added a new `clearConnectionToken` method. You should use this to switch accounts in your app, e.g. to switch between using test and live Stripe API keys on your backend. Please note that you should only initialize a Terminal once in your app. Behavior is undefined if you create multiple Terminal instances.
+
+In order to switch accounts in your app:
+
+- if a reader is connected, call `disconnect`
+- call `clearConnectionToken`
+- call `discover` and `connect` to connect to a reader. The `connect` call will request a new activation token from your provider.
+
+An overview of the lifecycle of a connection token:
+
+- When a Terminal is initialized, the SDK attempts to proactively request
+a connection token from your backend server.
+- Under the hood, when `connect` is called, the SDK uses the connection token
+along with reader information to create a reader session.
+- Subsequent calls to `connect` require a new connection token. If you
+disconnect from a reader, and then call `connect` again, the SDK will request
+a connection token from your backend server.
+- When your app becomes active, the SDK will attempt to proactively request
+a connection token from your backend server as needed.
 
 ## Other changes
-- `SCPActivationTokenProvider` no longer requires conformance to `NSObjectProtocol` in your Swift app.
-- `SCPTerminalDelegate` has a new optional `didEmitLogline:` method, which you can use to incorporate loglines from the Stripe POS SDK into your own telemetry tooling.
-- `SCPAddress` was unused, and has been removed.
-- `SCPTerminal` has a new `retrievePaymentIntent` method, which you can use to retrieve a PaymentIntent created on your backend. If the information required to create a PaymentIntent isn't readily available in your app, you can create the PaymentIntent on your backend, and pass the ID of the PaymentIntent to your app.
+- `PaymentParameters` has been renamed `PaymentIntentParameters`
+- The `createKeyedSourceWithSTPPaymentCardTextField` method has been renamed to be less verbose.
+- The `connect` method will now error if location access is disabled – surfacing this error earlier is a better user (and developer) experience.
+- The `didChange(_,status:)` methods have been renamed to `didChange(_,connectionStatus:)` and `didChange(_,paymentStatus:)` in Swift.

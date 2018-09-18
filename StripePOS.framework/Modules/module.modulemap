@@ -1,6 +1,0 @@
-framework module StripePOS {
-  umbrella header "StripePOS.h"
-
-  export *
-  module * { export * }
-}

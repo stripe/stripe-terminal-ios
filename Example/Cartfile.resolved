@@ -1,2 +1,3 @@
 github "alamofire/alamofire" "4.7.0"
 github "stripe/stripe-ios" "v12.1.0"
+github "venmo/static" "v2.5.0"
