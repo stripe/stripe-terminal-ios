@@ -10,7 +10,7 @@ This repository includes an example iOS app, which you can use to familiarize yo
 
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. In `RootViewController.swift`, set your Stripe Account's test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should _never_ store your Stripe account's secret API key in your own app. For more information, see https://stripe.com/docs/keys
-3. Build and run the app. The Stripe Terminal SDK includes a simple Reader Simulator, so you can get started without any physical hardware.
+3. Build and run the app. Stripe Terminal comes with a simple reader simulator, so you can get started without any physical hardware.
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
