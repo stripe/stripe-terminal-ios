@@ -27,13 +27,18 @@ NS_SWIFT_NAME(ConnectionTokenCompletionBlock)
 typedef void (^SCPConnectionTokenCompletionBlock)(NSString * __nullable token, NSError * __nullable error);
 
 /**
- A block called with a boolean value indicating whether the SDK should install an available update.
+ A block called with a boolean value indicating whether the SDK should begin
+ installing an available reader software update.
 
- @param installUpdate     A boolean value indicating whether the SDK should install the available
- update.
+ If an update is initiated, the reader will become unresponsive until the
+ update is complete. In some cases, you will need to restart the reader at the
+ end of the update.
+
+ @param installUpdate     A boolean value indicating whether the SDK should
+ proceed with the udpate.
  */
-NS_SWIFT_NAME(InstallUpdateCompletionBlock)
-typedef void (^SCPInstallUpdateCompletionBlock)(BOOL installUpdate);
+NS_SWIFT_NAME(InstallUpdateBlock)
+typedef void (^SCPInstallUpdateBlock)(BOOL installUpdate);
 
 /**
  A block called with a card source.

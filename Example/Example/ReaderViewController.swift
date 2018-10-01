@@ -10,12 +10,6 @@ import UIKit
 import Static
 import StripeTerminal
 
-extension DeviceType: CustomStringConvertible {
-    public var description: String {
-        return Terminal.string(from: self)
-    }
-}
-
 class ReaderViewController: TableViewController, TerminalDelegate {
 
     private let terminal: Terminal
@@ -115,8 +109,18 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         self.present(navController, animated: true, completion: nil)
     }
 
+    internal func showUpdateReader() {
+        let vc = UpdateReaderViewController(terminal: terminal)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.navigationBar.isTranslucent = false
+        if #available(iOS 11.0, *) {
+            navController.navigationBar.prefersLargeTitles = true
+        }
+        self.present(navController, animated: true, completion: nil)
+    }
+
     internal func showDeviceTypes() {
-        let vc = DeviceTypeViewController(selectedDeviceType: ReaderViewController.deviceType)
+        let vc = DeviceTypeViewController(deviceType: ReaderViewController.deviceType)
         vc.onSelectedDevice = { type in
             ReaderViewController.deviceType = type
             self.updateContent()
@@ -154,19 +158,26 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                     Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
                         self.showStartPayment()
                         }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                    Row(text: "Store card for future use", detailText: "Create a source by reading a card", selection: { [unowned self] in
+                    Row(text: "Store card for future use", detailText: "Create a source by reading a card.", selection: { [unowned self] in
                         self.showCreateSource()
-                        }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
+                        }, accessory: .none, cellClass: SubtitleCell.self),
+                    Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
+                        self.showUpdateReader()
+                        }, accessory: .none, cellClass: SubtitleCell.self),
                     ]),
             ]
         }
     }
-
-
 
     // MARK: SCPTerminalDelegate
     func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
         headerView.connectionStatus = status
     }
 
+}
+
+extension DeviceType: CustomStringConvertible {
+    public var description: String {
+        return Terminal.stringFromDeviceType(self)
+    }
 }

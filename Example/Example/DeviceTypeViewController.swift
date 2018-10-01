@@ -10,13 +10,13 @@ import Foundation
 import StripeTerminal
 import Static
 
-class DeviceTypeViewController: TableViewController, TerminalDelegate {
+class DeviceTypeViewController: TableViewController {
 
     var onSelectedDevice: (DeviceType) -> () = { _ in }
     let deviceType: DeviceType
 
-    init(selectedDeviceType: DeviceType) {
-        deviceType = selectedDeviceType
+    init(deviceType: DeviceType) {
+        self.deviceType = deviceType
         super.init(style: .grouped)
         title = "Device Type"
     }
@@ -37,7 +37,7 @@ class DeviceTypeViewController: TableViewController, TerminalDelegate {
                     self.onSelectedDevice(.readerSimulator)
                     self.navigationController?.popViewController(animated: true)
                     }, accessory: (deviceType == .readerSimulator ? .checkmark : .none)),
-                ], footer: "Discover a simulated reader provided by the Stripe Terminal SDK. Select this option to try out the SDK without connecting to a physical reader."),
+                ], footer: "Discover a simulated reader provided by the Stripe Terminal SDK. Select this option to try out the SDK without using physical reader hardware."),
             Section(header: "", rows: [
                 Row(text: "Chipper 2X", selection: { [unowned self] in
                     self.onSelectedDevice(.chipper2X)

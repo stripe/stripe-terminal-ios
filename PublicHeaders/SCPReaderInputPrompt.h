@@ -44,6 +44,10 @@ typedef NS_ENUM(NSUInteger, SCPReaderInputPrompt) {
      use a different card.
      */
     SCPReaderInputPromptTryAnotherReadMethod,
+    /**
+     The card is invalid. Try another card.
+     */
+    SCPReaderInputPromptTryAnotherCard,
 } NS_SWIFT_NAME(ReaderInputPrompt);
 
 NS_ASSUME_NONNULL_END

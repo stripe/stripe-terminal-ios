@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, SCPPaymentStatus) {
     /**
      Terminal is in the process of collecting a payment method for a PaymentIntent.
      */
-    SCPPaymentStatusAttachingSource,
+    SCPPaymentStatusCollectingPaymentMethod,
     /**
      Terminal is in the process of confirming a PaymentIntent.
      */

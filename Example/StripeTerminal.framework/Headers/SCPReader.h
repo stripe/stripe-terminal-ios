@@ -21,7 +21,7 @@ NS_SWIFT_NAME(Reader)
 /**
  The reader's battery level (in the range [0, 1]). If the reader does not
  have a battery or the battery level is unknown, the value of this property
- will be 1.
+ will be 1 or 0.
  */
 @property (nonatomic, readonly) float batteryLevel;
 
@@ -34,6 +34,12 @@ NS_SWIFT_NAME(Reader)
  The reader's serial number.
  */
 @property (nonatomic, readonly) NSString *serialNumber;
+
+/**
+ The reader's current device software version, or nil if this information is
+ unavailable.
+ */
+@property (nonatomic, nullable, readonly) NSString *deviceSoftwareVersion;
 
 /**
  You cannot directly instantiate this class.

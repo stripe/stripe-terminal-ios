@@ -69,6 +69,9 @@
                 <a href="../Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
@@ -130,13 +133,22 @@
             <a href="../Reader Updates.html">Reader Updates</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/SCPUpdateReaderDelegate.html">SCPUpdateReaderDelegate</a>
+                <a href="../Protocols/SCPUpdateReaderSoftwareDelegate.html">SCPUpdateReaderSoftwareDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SCPReaderUpdate.html">SCPReaderUpdate</a>
+                <a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SCPUpdateReaderSoftwareParameters.html">SCPUpdateReaderSoftwareParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SCPUpdateReaderSoftwareEnvironment.html">SCPUpdateReaderSoftwareEnvironment</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -205,9 +217,6 @@
               <li class="nav-group-task">
                 <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPCardSourceCompletionBlock">SCPCardSourceCompletionBlock</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPInstallUpdateCompletionBlock">SCPInstallUpdateCompletionBlock</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -244,6 +253,83 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportReaderEvent:info:"></a>
+                    <a name="//apple_ref/objc/Method/-terminal:didReportReaderEvent:info:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportReaderEvent:info:">-terminal:didReportReaderEvent:info:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The terminal reported an event from the reader (e.g. a card was inserted).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
+    <span class="nf">didReportReaderEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a></span><span class="p">)</span><span class="nv">event</span>
+                    <span class="nf">info</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">info</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didReport</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">ReaderEvent</span><span class="p">,</span> <span class="nv">info</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>terminal</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The originating terminal.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader event.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>info</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Additional info associated with the event, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -327,7 +413,7 @@ Be sure to either set a timeout or make it possible to cancel calls to
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didDisconnectUnexpectedlyFrom</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didDisconnectUnexpectedlyFromReader</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -571,7 +657,7 @@ tooling.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

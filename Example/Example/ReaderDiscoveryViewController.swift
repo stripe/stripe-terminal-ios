@@ -17,7 +17,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
     private let config: DiscoveryConfiguration
     private var discoverCancelable: Cancelable? = nil
     private weak var cancelButton: UIBarButtonItem?
-    private let headerView = Section.Extremity.view(ActivityIndicatorHeaderView(title: "NEARBY READERS"))
+    private let activityIndicatorView = ActivityIndicatorHeaderView(title: "NEARBY READERS")
 
     init(terminal: Terminal, discoveryConfig: DiscoveryConfiguration) {
         self.terminal = terminal
@@ -37,6 +37,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
         navigationItem.leftBarButtonItem = cancelButton
 
         updateContent(readers: [])
+        activityIndicatorView.activityIndicator.startAnimating()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +46,9 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
         discoverCancelable = terminal.discoverReaders(config, delegate: self) { error in
             if let error = error {
                 print("discoverReaders failed: \(error)")
-                self.presentAlert(error: error)
+                self.presentAlert(error: error) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
@@ -57,7 +60,8 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             })
         }
         dataSource.sections = [
-            Section(header: headerView, rows: rows)
+            Section(header: Section.Extremity.view(activityIndicatorView),
+                    rows: rows)
         ]
     }
 

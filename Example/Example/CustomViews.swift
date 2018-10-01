@@ -22,6 +22,18 @@ open class RedButtonCell: ButtonCell {
     }
 }
 
+open class MethodStartCell: UITableViewCell, Cell {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        self.textLabel?.font = UIFont(name: "Menlo", size: UIFont.smallSystemFontSize)
+        self.backgroundColor = UIColor.groupTableViewBackground
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
 open class LogEventCell: UITableViewCell, Cell {
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -261,19 +273,27 @@ class LinkTextView: UIView {
 class ActivityIndicatorHeaderView: UIView {
 
     let activityIndicator = UIActivityIndicatorView(style: .gray)
+    var title: String {
+        didSet {
+            label.text = title.uppercased()
+        }
+    }
+
     private lazy var label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-        label.textColor = UIColor.darkGray
+        label.textColor = UIColor(red: 0.42, green: 0.42, blue: 0.44, alpha: 1.0)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
+
     init(title: String) {
+        self.title = title
         super.init(frame: .zero)
 
-        label.text = title
+        label.text = title.uppercased()
         let stack = UIStackView(arrangedSubviews: [
             label,
             activityIndicator,
@@ -282,7 +302,6 @@ class ActivityIndicatorHeaderView: UIView {
         stack.distribution = .equalSpacing
 
         addSubview(stack)
-        activityIndicator.startAnimating()
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets(top: 14, left: 16, bottom: 6, right: 16)

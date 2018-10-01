@@ -13,17 +13,18 @@
 #import "SCPDeviceType.h"
 #import "SCPPaymentStatus.h"
 #import "SCPReaderInputDelegate.h"
+#import "SCPReaderEvent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0-b1";
+static NSString *const SCPSDKVersion = @"1.0.0-b2";
 
-@class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters;
+@class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters, SCPUpdateReaderSoftwareParameters;
 
-@protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPUpdateReaderDelegate;
+@protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPUpdateReaderSoftwareDelegate;
 
 /**
  The Terminal object that is made available by the Stripe Terminal SDK exposes
@@ -270,21 +271,29 @@ NS_SWIFT_NAME(Terminal)
                             completion:(SCPCardPresentSourceCompletionBlock)completion;
 
 /**
- Checks for a reader update and prompts your app to begin installing the update.
+ Checks for a reader software update, and prompts your app to begin installing
+ the update.
  
- If an update is available, the completion block will be called with nil.
- the delegate's  `readerUpdateAvailable:` method will be called, and you will
- have the opportunity to either begin or cancel the update.
+ If an update is available, the completion block will be called with nil,
+ indicating that checking for a software update succeeded. Your delegate's
+ `readerSoftwareUpdateAvailable:` method will be called, and you will have
+ the opportunity to notify your user, and then begin or cancel the update.
 
- If no update is available, or an error occurs checking for an update, the
- completion block will be called with an error.
- 
+ If an error occurs checking for an update (e.g. because no software update is
+ available), the completion block will be called with an error.
+
+ You must implement the ability to update your reader's software in your app.
+ Though we expect required software updates to be very rare, by using Stripe
+ Terminal, you are obligated to include this functionality.
+
+ @param params      The parameters for the update
  @param delegate    Your delegate for handling update events.
  @param completion  The completion block called when checking for an update
  completes.
  */
-- (void)updateReader:(id<SCPUpdateReaderDelegate>)delegate
-          completion:(SCPErrorCompletionBlock)completion;
+- (nullable SCPCancelable *)updateReaderSoftware:(SCPUpdateReaderSoftwareParameters *)params
+                                        delegate:(id<SCPUpdateReaderSoftwareDelegate>)delegate
+                                      completion:(SCPErrorCompletionBlock)completion;
 
 /**
  Note: you must first install the Stripe iOS SDK to use this method.
@@ -305,30 +314,36 @@ NS_SWIFT_NAME(Terminal)
  Returns an unlocalized string for the given reader input options, e.g.
  "Swipe / Insert"
  */
-+ (NSString *)stringFromReaderInputOptions:(SCPReaderInputOptions)options;
++ (NSString *)stringFromReaderInputOptions:(SCPReaderInputOptions)options NS_SWIFT_NAME(stringFromReaderInputOptions(_:));
 
 /**
  Returns an unlocalized string for the given reader input prompt, e.g.
  "Retry Card"
  */
-+ (NSString *)stringFromReaderInputPrompt:(SCPReaderInputPrompt)prompt;
++ (NSString *)stringFromReaderInputPrompt:(SCPReaderInputPrompt)prompt NS_SWIFT_NAME(stringFromReaderInputPrompt(_:));
+
+/**
+ Returns an unlocalized string for the given reader event, e.g.
+ "Card Inserted"
+ */
++ (NSString *)stringFromReaderEvent:(SCPReaderEvent)event NS_SWIFT_NAME(stringFromReaderEvent(_:));
 
 /**
  Returns an unlocalized string for the given connection status, e.g.
  "Connecting"
  */
-+ (NSString *)stringFromConnectionStatus:(SCPConnectionStatus)state;
++ (NSString *)stringFromConnectionStatus:(SCPConnectionStatus)status NS_SWIFT_NAME(stringFromConnectionStatus(_:));
 
 /**
  Returns an unlocalized string for the given payment status, e.g.
  "Not Ready"
  */
-+ (NSString *)stringFromPaymentStatus:(SCPPaymentStatus)state;
++ (NSString *)stringFromPaymentStatus:(SCPPaymentStatus)status NS_SWIFT_NAME(stringFromPaymentStatus(_:));
 
 /**
  Returns an unlocalized string for the given device type.
  */
-+ (NSString *)stringFromDeviceType:(SCPDeviceType)deviceType;
++ (NSString *)stringFromDeviceType:(SCPDeviceType)deviceType NS_SWIFT_NAME(stringFromDeviceType(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

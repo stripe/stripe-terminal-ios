@@ -10,6 +10,7 @@
 
 #import "SCPBlocks.h"
 #import "SCPTerminal.h"
+#import "SCPReaderEvent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,17 @@ NS_SWIFT_NAME(TerminalDelegate)
 @protocol SCPTerminalDelegate <NSObject>
 
 @optional
+/**
+ The terminal reported an event from the reader (e.g. a card was inserted).
+
+ @param terminal    The originating terminal.
+ @param event       The reader event.
+ @param info        Additional info associated with the event, or nil.
+ */
+- (void)terminal:(SCPTerminal *)terminal
+didReportReaderEvent:(SCPReaderEvent)event
+            info:(nullable NSDictionary *)info;
+
 /**
  The reader's battery is low.
 
@@ -39,7 +51,7 @@ NS_SWIFT_NAME(TerminalDelegate)
  @param terminal    The originating terminal.
  @param reader      The previously connected reader.
  */
-- (void)terminal:(SCPTerminal *)terminal didDisconnectUnexpectedlyFromReader:(SCPReader *)reader;
+- (void)terminal:(SCPTerminal *)terminal didDisconnectUnexpectedlyFromReader:(SCPReader *)reader NS_SWIFT_NAME(terminal(_:didDisconnectUnexpectedlyFromReader:));
 
 /**
  The terminal's connection status changed.

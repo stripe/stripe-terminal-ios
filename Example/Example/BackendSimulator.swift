@@ -52,7 +52,7 @@ import Alamofire
                 switch response.result {
                 case .success(let value):
                     if let json = value as? [String: AnyObject] {
-                        if let token = json["connection_token"] as? String {
+                        if let token = json["secret"] as? String {
                             completion(token, nil)
                         }
                         else if json["error"] != nil {

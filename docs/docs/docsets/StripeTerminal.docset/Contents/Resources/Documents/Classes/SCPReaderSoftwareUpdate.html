@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SCPReaderUpdate Class Reference</title>
+    <title>SCPReaderSoftwareUpdate Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/SCPReaderUpdate" class="dashAnchor"></a>
-    <a title="SCPReaderUpdate Class Reference"></a>
+    <a name="//apple_ref/objc/Class/SCPReaderSoftwareUpdate" class="dashAnchor"></a>
+    <a title="SCPReaderSoftwareUpdate Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StripeTerminal Docs</a></p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StripeTerminal Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SCPReaderUpdate Class Reference
+        SCPReaderSoftwareUpdate Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -67,6 +67,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
@@ -130,13 +133,22 @@
             <a href="../Reader Updates.html">Reader Updates</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/SCPUpdateReaderDelegate.html">SCPUpdateReaderDelegate</a>
+                <a href="../Protocols/SCPUpdateReaderSoftwareDelegate.html">SCPUpdateReaderSoftwareDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SCPReaderUpdate.html">SCPReaderUpdate</a>
+                <a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SCPUpdateReaderSoftwareParameters.html">SCPUpdateReaderSoftwareParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SCPUpdateReaderSoftwareEnvironment.html">SCPUpdateReaderSoftwareEnvironment</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -205,9 +217,6 @@
               <li class="nav-group-task">
                 <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPCardSourceCompletionBlock">SCPCardSourceCompletionBlock</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPInstallUpdateCompletionBlock">SCPInstallUpdateCompletionBlock</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -231,11 +240,11 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SCPReaderUpdate</h1>
+            <h1>SCPReaderSoftwareUpdate</h1>
               <div class="declaration">
                 <div class="language">
                   <pre class="highlight objective_c"><code>
-<span class="k">@interface</span> <span class="nc">SCPReaderUpdate</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+<span class="k">@interface</span> <span class="nc">SCPReaderSoftwareUpdate</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -248,9 +257,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPReaderUpdate(py)estimatedUpdateTime"></a>
+                    <a name="/c:objc(cs)SCPReaderSoftwareUpdate(py)estimatedUpdateTime"></a>
                     <a name="//apple_ref/objc/Property/estimatedUpdateTime" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPReaderUpdate(py)estimatedUpdateTime">estimatedUpdateTime</a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderSoftwareUpdate(py)estimatedUpdateTime">estimatedUpdateTime</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -280,9 +289,74 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPReaderUpdate(im)init"></a>
+                    <a name="/c:objc(cs)SCPReaderSoftwareUpdate(py)deviceSoftwareVersion"></a>
+                    <a name="//apple_ref/objc/Property/deviceSoftwareVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderSoftwareUpdate(py)deviceSoftwareVersion">deviceSoftwareVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The target version for the update.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">deviceSoftwareVersion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deviceSoftwareVersion</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPReaderSoftwareUpdate(cm)stringFromUpdateTimeExtimate:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromUpdateTimeExtimate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderSoftwareUpdate(cm)stringFromUpdateTimeExtimate:">+stringFromUpdateTimeExtimate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given update time estimate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromUpdateTimeExtimate</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a></span><span class="p">)</span><span class="nv">estimate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">fromUpdateTimeExtimate</span> <span class="nv">estimate</span><span class="p">:</span> <span class="kt">UpdateTimeEstimate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPReaderSoftwareUpdate(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPReaderUpdate(im)init">-init</a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderSoftwareUpdate(im)init">-init</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -307,9 +381,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPReaderUpdate(im)new"></a>
+                    <a name="/c:objc(cs)SCPReaderSoftwareUpdate(im)new"></a>
                     <a name="//apple_ref/objc/Method/-new" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPReaderUpdate(im)new">-new</a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderSoftwareUpdate(im)new">-new</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -336,7 +410,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

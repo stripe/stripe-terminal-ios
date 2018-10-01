@@ -68,6 +68,9 @@
                 <a href="Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
@@ -129,13 +132,22 @@
             <a href="Reader Updates.html">Reader Updates</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/SCPUpdateReaderDelegate.html">SCPUpdateReaderDelegate</a>
+                <a href="Protocols/SCPUpdateReaderSoftwareDelegate.html">SCPUpdateReaderSoftwareDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SCPReaderUpdate.html">SCPReaderUpdate</a>
+                <a href="Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SCPUpdateReaderSoftwareParameters.html">SCPUpdateReaderSoftwareParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SCPUpdateReaderSoftwareEnvironment.html">SCPUpdateReaderSoftwareEnvironment</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -204,9 +216,6 @@
               <li class="nav-group-task">
                 <a href="Blocks.html#/c:SCPBlocks.h@T@SCPCardSourceCompletionBlock">SCPCardSourceCompletionBlock</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Blocks.html#/c:SCPBlocks.h@T@SCPInstallUpdateCompletionBlock">SCPInstallUpdateCompletionBlock</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -231,7 +240,7 @@
         <section>
           <section class="section">
             
-            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-1-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 1-brightgreen.svg"></h1>
+            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-2-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 2-brightgreen.svg"></h1>
 
 <p><a href="https://stripe.com/terminal#request-invite">Request a Beta invite</a> to get started with Stripe Terminal.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
@@ -239,25 +248,103 @@
 <p>The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.</p>
 <h2 id='try-the-example-app' class='heading'>Try the example app</h2>
 
-<p>The Stripe Terminal SDK includes an example iOS app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. To get started:</p>
+<p>The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the <a href="https://stripe-terminal-app.herokuapp.com/">TestFlight Beta</a> to download the example app directly.</p>
 
-<p>Navigate to the Stripe Terminal SDK on <a href="https://github.com/stripe/stripe-terminal-ios">GitHub</a> and clone the repository.</p>
+<p>To build the example app from source:</p>
 
 <ol>
 <li>Navigate to the <code>Example</code> folder, and open <code>Example.xcodeproj</code>.</li>
 <li>In <code>RootViewController.swift</code>, set your Stripe Account&rsquo;s test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should <em>never</em> store your Stripe account&rsquo;s secret API key in your own app. For more information, see <a href="https://stripe.com/docs/keys">https://stripe.com/docs/keys</a></li>
-<li>Build and run the app. The Stripe Terminal SDK includes a reader simulator, so you can get started without any physical hardware</li>
+<li>Build and run the app. Stripe Terminal comes with a simple reader simulator, so you can get started without any physical hardware.</li>
 </ol>
 
 <p>Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We&rsquo;ve included pre-built dependencies using Swift 4.2. You may need to run <code>./setup.sh</code> to re-build the app&rsquo;s dependencies for your environment.</p>
-<h2 id='install-the-sdk' class='heading'>Install the SDK</h2>
+<h2 id='installation' class='heading'>Installation</h2>
 
-<p><a href="https://stripe.com/docs/terminal/ios#install">https://stripe.com/docs/terminal/ios#install</a></p>
+<p>We recommend that you install the SDK using Cocoapods. If you prefer to install the library manually, please use the latest version from our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page.</p>
+<h3 id='cocoapods' class='heading'>Cocoapods</h3>
+
+<ol>
+<li><p>If you haven&rsquo;t already, install the latest version of <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>.</p></li>
+<li><p>Add this line to your Podfile:</p>
+<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0-b2'
+</code></pre></li>
+<li><p>Run the following command:</p>
+<pre class="highlight plaintext"><code>pod install
+</code></pre></li>
+</ol>
+
+<p>From now on, don&rsquo;t forget to use the <code>*.xcworkspace</code> file to open your project in Xcode, instead of the <code>.xcodeproj</code> file.</p>
+
+<p>In the future, to update to the latest version of the SDK, just run:</p>
+<pre class="highlight plaintext"><code>pod update StripeTerminal
+</code></pre>
+<h3 id='manual' class='heading'>Manual</h3>
+
+<ol>
+<li><p>Navigate to our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page, download StripeTerminal.framework.zip, and unzip it.</p></li>
+<li><p>Drag <code>StripeTerminal.framework</code> to the Embedded Binaries section of your Xcode project’s General settings. Make sure to select <q>Copy items if needed</q>.</p></li>
+<li><p>Navigate to the Build Phases section of your Xcode project settings, and create a new Run Script Build Phase. Paste the following snippet into the text field:</p>
+<pre class="highlight plaintext"><code>bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate_framework.sh
+</code></pre></li>
+</ol>
+
+<p>When new versions of the SDK are released, repeat steps one and two to update your installation</p>
+<h3 id='configure-your-app' class='heading'>Configure your app</h3>
+
+<p>Location services must be enabled in order to use the iOS SDK. Add the following key-value pair to your app&rsquo;s <code>Info.plist</code> file:</p>
+
+<ul>
+<li>Privacy - Location When In Use Usage Description
+
+<ul>
+<li>Key: <code>NSLocationWhenInUseUsageDescription</code></li>
+<li>Value: <q>Location access is required in order to accept payments.</q></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Note: Stripe needs to know where payments occur to reduce risks associated with those charges and to minimize disputes. If the SDK can’t determine the iOS device’s location, payments are disabled until location access is restored.</p>
+</blockquote>
+
+<p>For your app to run in the background and remain connected to the reader, add this key-value pair to your <code>Info.plist</code> file:</p>
+
+<ul>
+<li>Required background modes
+
+<ul>
+<li>Key: <code>UIBackgroundModes</code></li>
+<li>Value: <code>bluetoooth-central</code> (Uses Bluetooth LE accessories)</li>
+</ul></li>
+</ul>
+
+<p>For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:</p>
+
+<ul>
+<li>Privacy - Bluetooth Peripheral Usage Description
+
+<ul>
+<li>Key: <code>NSBluetoothPeripheralUsageDescription</code></li>
+<li>Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”</li>
+</ul></li>
+<li>Privacy - Microphone Usage Description
+
+<ul>
+<li>Key: <code>NSMicrophoneUsageDescription</code></li>
+<li>Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”</li>
+</ul></li>
+</ul>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<ul>
+<li><a href="https://stripe.com/docs/terminal/ios">Getting Started</a></li>
+<li><a href="https://stripe.github.io/stripe-terminal-ios/docs/index.html">API Reference</a></li>
+</ul>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

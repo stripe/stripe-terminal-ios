@@ -37,6 +37,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         self.paymentParams = paymentParams
         super.init(style: .grouped)
         self.title = "Testing"
+        tableView.separatorInset = .zero
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -53,16 +54,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
-        updateContent()
 
-        if let terminal = RootViewController.terminal {
-            headerView.connectedReader = terminal.connectedReader
-            headerView.connectionStatus = terminal.connectionStatus
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         guard let terminal = RootViewController.terminal,
             let apiClient = RootViewController.apiClient else {
                 return
@@ -72,9 +64,14 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
             return
         }
 
+        headerView.connectedReader = terminal.connectedReader
+        headerView.connectionStatus = terminal.connectionStatus
+        updateContent()
+
         // 1. create PaymentIntent
+        var createEvent = LogEvent(method: .createPaymentIntent)
+        self.events.append(createEvent)
         self.terminal.createPaymentIntent(self.paymentParams) { intent, createError in
-            var createEvent = LogEvent(method: .createPaymentIntent)
             if let error = createError {
                 createEvent.result = .errored
                 createEvent.object = error
@@ -87,8 +84,9 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                 self.events.append(createEvent)
 
                 // 2. collectPaymentMethod
+                var collectEvent = LogEvent(method: .collectPaymentMethod)
+                self.events.append(collectEvent)
                 self.collectPaymentMethodCancelable = self.terminal.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
-                    var collectEvent = LogEvent(method: .collectPaymentMethod)
                     self.collectPaymentMethodCancelable = nil
                     if let error = attachError {
                         collectEvent.result = .errored
@@ -102,8 +100,9 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                         self.events.append(collectEvent)
 
                         // 3. confirm PaymentIntent
+                        var confirmEvent = LogEvent(method: .confirmPaymentIntent)
+                        self.events.append(confirmEvent)
                         self.terminal.confirmPaymentIntent(intent) { confirmedIntent, confirmError in
-                            var confirmEvent = LogEvent(method: .confirmPaymentIntent)
                             if let error = confirmError {
                                 confirmEvent.result = .errored
                                 confirmEvent.object = error
@@ -117,6 +116,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
 
                                 // 4. send to backend for capture
                                 var captureEvent = LogEvent(method: .capturePaymentIntent)
+                                self.events.append(captureEvent)
                                 apiClient.capturePaymentIntent(intent.stripeId) { captureError in
                                     if let error = captureError {
                                         captureEvent.result = .errored
@@ -148,11 +148,17 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
             Section(header: Section.Extremity.view(logHeaderView), rows: events.map { event in
-                return Row(text: event.description, detailText: event.method.rawValue, selection: { [unowned self] in
-                    let vc = LogEventViewController(event: event)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    }, accessory: .disclosureIndicator,
-                       cellClass: LogEventCell.self)
+                switch event.result {
+                case .started:
+                    return Row(text: event.method.rawValue,
+                               cellClass: MethodStartCell.self)
+                default:
+                    return Row(text: event.description, detailText: event.method.rawValue, selection: { [unowned self] in
+                        let vc = LogEventViewController(event: event)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        }, accessory: .disclosureIndicator,
+                           cellClass: LogEventCell.self)
+                }
             })
         ]
     }
@@ -163,8 +169,9 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
 
     @objc func cancelAction() {
         // cancel collectPaymentMethod
+        var event = LogEvent(method: .cancelCollectPaymentMethod)
+        self.events.append(event)
         collectPaymentMethodCancelable?.cancel { error in
-            var event = LogEvent(method: .cancelCollectPaymentMethod)
             if let error = error {
                 event.result = .errored
                 event.object = error
@@ -182,16 +189,22 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         headerView.connectionStatus = status
     }
 
+    func terminal(_ terminal: Terminal, didReport event: ReaderEvent, info: [AnyHashable : Any]?) {
+        var logEvent = LogEvent(method: .readerEvent)
+        logEvent.result = .message(Terminal.stringFromReaderEvent(event))
+        events.append(logEvent)
+    }
+
     // MARK: ReadCardDelegate
     func terminal(_ terminal: Terminal, didBeginWaitingForReaderInput inputOptions: ReaderInputOptions) {
         var event = LogEvent(method: .waitingForReaderInput)
-        event.result = .message(Terminal.string(from: inputOptions))
+        event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
         events.append(event)
     }
 
     func terminal(terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
         var event = LogEvent(method: .readSourcePrompt)
-        event.result = .message(Terminal.string(from: inputPrompt))
+        event.result = .message(Terminal.stringFromReaderInputPrompt(inputPrompt))
         events.append(event)
     }
 

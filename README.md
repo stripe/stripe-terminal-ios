@@ -1,4 +1,4 @@
-# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 1-brightgreen.svg">
+# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 2-brightgreen.svg">
 
 [Request a Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
@@ -6,7 +6,9 @@
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
 ## Try the example app
-This repository includes an example iOS app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. To get started:
+The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the [TestFlight Beta](https://stripe-terminal-app.herokuapp.com/) to download the example app directly.
+
+To build the example app from source:
 
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. In `RootViewController.swift`, set your Stripe Account's test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should _never_ store your Stripe account's secret API key in your own app. For more information, see https://stripe.com/docs/keys
@@ -23,7 +25,7 @@ We recommend that you install the SDK using Cocoapods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.0-b1'
+pod 'StripeTerminal', '1.0-b2'
 ```
 
 3. Run the following command:
@@ -35,7 +37,7 @@ From now on, don't forget to use the `*.xcworkspace` file to open your project i
 
 In the future, to update to the latest version of the SDK, just run:
 ```
-pod update Stripe
+pod update StripeTerminal
 ```
 
 ### Manual
@@ -76,8 +78,6 @@ For your app to pass validation when submitting to the App Store, add the follow
   - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
 
 
-
 ## Documentation
+- [Getting Started](https://stripe.com/docs/terminal/ios)
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
-
-

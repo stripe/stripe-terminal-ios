@@ -133,6 +133,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorReaderCommunicationError = 306,
     /**
+     The reader is waiting for input.
+     */
+    SCPErrorReaderWaitingForInput = 307,
+    /**
      Generic bluetooth error.
      */
     SCPErrorBluetoothError = 320,
@@ -154,18 +158,32 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorBluetoothConnectTimedOut = 324,
     /**
-     Generic reader update error.
+     Generic reader software update error.
      */
-    SCPErrorReaderUpdateFailed = 380,
+    SCPErrorReaderSoftwareUpdateFailed = 380,
     /**
-     Updating the reader failed because the reader's battery is
-     too low. Charge the reader before installing the update.
+     Updating the reader software failed because the reader's battery is
+     too low. Charge the reader before trying again.
      */
-    SCPErrorReaderUpdateFailedBatteryLow = 381,
+    SCPErrorReaderSoftwareUpdateFailedBatteryLow = 381,
     /**
-     Updating the reader failed because no update is required.
+     No reader software updates are available.
      */
-    SCPErrorNoReaderUpdateRequired = 382,
+    SCPErrorNoAvailableReaderSoftwareUpdate = 382,
+    /**
+     Updating the reader software failed because there was an error
+     communicating with the reader.
+     */
+    SCPErrorReaderSoftwareUpdateFailedReaderError = 383,
+    /**
+     Updating the reader software failed because there was an error
+     communicating with the update server.
+     */
+    SCPErrorReaderSoftwareUpdateFailedServerError = 384,
+    /**
+     Updating the reader software failed because the update was interrupted.
+     */
+    SCPErrorReaderSoftwareUpdateFailedInterrupted = 385,
 
     /**
      CARD ERRORS

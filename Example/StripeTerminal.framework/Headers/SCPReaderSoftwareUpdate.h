@@ -1,5 +1,5 @@
 //
-//  SCPReaderUpdate.h
+//  SCPReaderSoftwareUpdate.h
 //  StripeTerminal
 //
 //  Created by Ben Guo on 12/21/17.
@@ -39,13 +39,23 @@ typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
 /**
  An object representing a reader update.
  */
-NS_SWIFT_NAME(ReaderUpdate)
-@interface SCPReaderUpdate : NSObject
+NS_SWIFT_NAME(ReaderSoftwareUpdate)
+@interface SCPReaderSoftwareUpdate : NSObject
 
 /**
  The estimated amount of time for the update.
  */
 @property (nonatomic, readonly) SCPUpdateTimeEstimate estimatedUpdateTime;
+
+/**
+ The target version for the update.
+ */
+@property (nonatomic, readonly) NSString *deviceSoftwareVersion;
+
+/**
+ Returns an unlocalized string for the given update time estimate.
+ */
++ (NSString *)stringFromUpdateTimeExtimate:(SCPUpdateTimeEstimate)estimate;
 
 /**
  You cannot directly instantiate this class.

@@ -12,12 +12,14 @@ import StripeTerminal
 
 struct LogEvent: CustomStringConvertible {
     enum Result: CustomStringConvertible {
+        case started
         case succeeded
         case errored
         case message(String)
 
         var description: String {
             switch self {
+            case .started: return "started"
             case .succeeded: return "succeeded"
             case .errored: return "errored"
             case .message(let string): return string
@@ -34,11 +36,12 @@ struct LogEvent: CustomStringConvertible {
         case waitingForReaderInput = "delegate.didBeginWaitingForReaderInput"
         case readSourcePrompt = "delegate.didRequestReaderInputPrompt"
         case readSource = "terminal.readSource"
+        case readerEvent = "delegate.didReportReaderEvent"
     }
 
     let method: Method
     var object: Any? = nil
-    var result: Result = .succeeded
+    var result: Result = .started
 
     init(method: Method) {
         self.method = method
@@ -48,43 +51,49 @@ struct LogEvent: CustomStringConvertible {
     var description: String {
         var string = ""
         switch method {
-        case .waitingForReaderInput:
-            return result.description
-        case .readSourcePrompt:
+        case .waitingForReaderInput,
+             .readerEvent,
+             .readSourcePrompt:
             return result.description
         case .createPaymentIntent:
             switch result {
+            case .started: string = "Create PaymentIntent"
             case .succeeded: string = "Created PaymentIntent"
             case .errored: string = "Create PaymentIntent Failed"
             case .message(let message): string = message
             }
         case .collectPaymentMethod:
             switch result {
-            case .succeeded: string = "Collected Payment Method"
-            case .errored: string = "Collect Payment Method Failed"
+            case .started: string = "Collect PaymentMethod"
+            case .succeeded: string = "Collected PaymentMethod"
+            case .errored: string = "Collect PaymentMethod Failed"
             case .message(let message): string = message
             }
         case .confirmPaymentIntent:
             switch result {
+            case .started: string = "Confirm PaymentIntent"
             case .succeeded: string = "Confirmed PaymentIntent"
             case .errored: string = "Confirm PaymentIntent Failed"
             case .message(let message): string = message
             }
         case .capturePaymentIntent:
             switch result {
+            case .started: string = "Capture PaymentIntent"
             case .succeeded: string = "Captured PaymentIntent"
             case .errored: string = "Capture PaymentIntent Failed"
             case .message(let message): string = message
             }
         case .readSource:
             switch result {
+            case .started: string = "Read Source"
             case .succeeded: string = "Created Source"
             case .errored: string = "Read Source Failed"
             case .message(let message): string = message
             }
         case .cancelCollectPaymentMethod:
             switch result {
-            case .succeeded: string = "Collect Payment Method Canceled"
+            case .started: string = "Cancel Collect PaymentMethod"
+            case .succeeded: string = "Canceled Collect PaymentMethod"
             case .errored: string = "Cancel Collect Payment Method Failed"
             case .message(let message): string = message
             }

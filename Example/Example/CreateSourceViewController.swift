@@ -51,21 +51,19 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        headerView.connectedReader = terminal.connectedReader
-        headerView.connectionStatus = terminal.connectionStatus
-        updateContent()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         terminal.terminalDelegate = self
         if completed || terminal.paymentStatus != .ready {
             return
         }
 
+        headerView.connectedReader = terminal.connectedReader
+        headerView.connectionStatus = terminal.connectionStatus
+        updateContent()
+
         let params = ReadSourceParameters()
+        var readEvent = LogEvent(method: .readSource)
+        self.events.append(readEvent)
         self.collectPaymentMethodCancelable = self.terminal.readSource(params, delegate: self) { source, error in
-            var readEvent = LogEvent(method: .readSource)
             self.collectPaymentMethodCancelable = nil
             if let error = error {
                 readEvent.result = .errored
@@ -91,11 +89,17 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
             Section(header: Section.Extremity.view(logHeaderView), rows: events.map { event in
-                return Row(text: event.description, detailText: event.method.rawValue, selection: { [unowned self] in
-                    let vc = LogEventViewController(event: event)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    }, accessory: .disclosureIndicator,
-                       cellClass: LogEventCell.self)
+                switch event.result {
+                case .started:
+                    return Row(text: event.method.rawValue,
+                               cellClass: MethodStartCell.self)
+                default:
+                    return Row(text: event.description, detailText: event.method.rawValue, selection: { [unowned self] in
+                        let vc = LogEventViewController(event: event)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        }, accessory: .disclosureIndicator,
+                           cellClass: LogEventCell.self)
+                }
             })
         ]
     }
@@ -106,8 +110,9 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
 
     @objc func cancelAction() {
         // cancel collectPaymentMethod
+        var event = LogEvent(method: .cancelCollectPaymentMethod)
+        self.events.append(event)
         collectPaymentMethodCancelable?.cancel { error in
-            var event = LogEvent(method: .cancelCollectPaymentMethod)
             if let error = error {
                 event.result = .errored
                 event.object = error
@@ -127,13 +132,13 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
     // MARK: ReadCardDelegate
     func terminal(_ terminal: Terminal, didBeginWaitingForReaderInput inputOptions: ReaderInputOptions) {
         var event = LogEvent(method: .waitingForReaderInput)
-        event.result = .message(Terminal.string(from: inputOptions))
+        event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
         events.append(event)
     }
 
     func terminal(terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
         var event = LogEvent(method: .readSourcePrompt)
-        event.result = .message(Terminal.string(from: inputPrompt))
+        event.result = .message(Terminal.stringFromReaderInputPrompt(inputPrompt))
         events.append(event)
     }
 

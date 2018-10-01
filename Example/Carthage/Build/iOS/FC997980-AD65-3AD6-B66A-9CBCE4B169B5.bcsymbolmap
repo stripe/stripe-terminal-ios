@@ -21,12 +21,11 @@ _stringByRemovingCharactersFromSet
 +[STPCardValidator currentYear]
 +[STPCardValidator currentMonth]
 Apple LLVM version 10.0.0 (clang-1000.11.45.2)
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardValidator.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios
-NSMakeRange
-/Applications/Xcode-10.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardValidator.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios
 stringByRemovingCharactersFromSet
 NSMaxRange
+/Applications/Xcode-10.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 +[STPSourceCardDetails decodedObjectFromAPIResponse:]
 -[STPSourceCardDetails initWithDictionary:]
 +[STPSourceCardDetails stringToThreeDSecureStatusMapping]
@@ -57,16 +56,18 @@ l_OBJC_PROTOCOL_$_NSObject
 l_OBJC_LABEL_PROTOCOL_$_NSObject
 l_OBJC_PROTOCOL_$_STPAPIResponseDecodable
 l_OBJC_LABEL_PROTOCOL_$_STPAPIResponseDecodable
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceCardDetails.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceCardDetails.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceCardDetails.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceCardDetails.h
 -[UINavigationBar(Stripe_Theme) stp_theme]
 -[UINavigationBar(Stripe_Theme) setStp_theme:]
 -[UINavigationBar(Stripe_Theme) stp_setTheme:]
 -[UINavigationBar(Stripe_Theme) stp_artificialHairlineView]
 -[UINavigationBar(Stripe_Theme) stp_hairlineImageView]
 -[UINavigationBar(Stripe_Theme) stp_hairlineImageView:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UINavigationBar+Stripe_Theme.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UINavigationBar+Stripe_Theme.m
 linkUINavigationBarThemeCategory
+CGRectMake
+/Applications/Xcode-10.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
 -[STPSourcePoller initWithAPIClient:clientSecret:sourceID:timeout:completion:]
 -[STPSourcePoller dealloc]
 -[STPSourcePoller pollAfter:lastError:]
@@ -132,7 +133,7 @@ ___block_descriptor_tmp.103
 _OBJC_IVAR_$_STPSourcePoller._latestSource
 _OBJC_IVAR_$_STPSourcePoller._dataTask
 _OBJC_IVAR_$_STPSourcePoller._timer
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourcePoller.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourcePoller.m
 __destroy_helper_block_
 __copy_helper_block_
 __60-[STPSourcePoller cleanupAndFireCompletionWithSource:error:]_block_invoke
@@ -198,15 +199,15 @@ l_OBJC_PROTOCOL_$_UIPickerViewDelegate
 l_OBJC_LABEL_PROTOCOL_$_UIPickerViewDelegate
 l_OBJC_PROTOCOL_$_UIPickerViewDataSource
 l_OBJC_LABEL_PROTOCOL_$_UIPickerViewDataSource
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressFieldTableViewCell.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressFieldTableViewCell.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressFieldTableViewCell.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressFieldTableViewCell.h
 STPLocalizedString
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLocalizationUtils.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLocalizationUtils.h
 __74-[STPAddressFieldTableViewCell initWithType:contents:lastInList:delegate:]_block_invoke
 +[NSDecimalNumber(Stripe_Currency) stp_currenciesWithNoDecimal]
 +[NSDecimalNumber(Stripe_Currency) stp_decimalNumberWithAmount:currency:]
 -[NSDecimalNumber(Stripe_Currency) stp_amountWithCurrency:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSDecimalNumber+Stripe_Currency.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSDecimalNumber+Stripe_Currency.m
 linkNSDecimalNumberCurrencyCategory
 +[STPAddress shippingInfoForChargeWithAddress:shippingMethod:]
 -[STPAddress sanitizedPhoneStringFromCNPhoneNumber:]
@@ -271,9 +272,9 @@ _OBJC_IVAR_$_STPAddress._line2
 _OBJC_IVAR_$_STPAddress._allResponseFields
 l_OBJC_PROTOCOL_$_STPFormEncodable
 l_OBJC_LABEL_PROTOCOL_$_STPFormEncodable
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddress.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAddress.h
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPFormEncodable.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddress.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAddress.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPFormEncodable.h
 stringIfHasContentsElseNil
 -[STPPaymentMethodsInternalViewController initWithConfiguration:customerContext:theme:prefilledInformation:shippingAddress:paymentMethodTuple:delegate:]
 -[STPPaymentMethodsInternalViewController createAndSetupViews]
@@ -343,12 +344,13 @@ l_OBJC_PROTOCOL_$_UITableViewDelegate
 l_OBJC_LABEL_PROTOCOL_$_UITableViewDelegate
 l_OBJC_PROTOCOL_$_STPAddCardViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPAddCardViewControllerDelegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsInternalViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsInternalViewController.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsInternalViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsInternalViewController.h
 __63-[STPPaymentMethodsInternalViewController setCustomFooterView:]_block_invoke
 -[UIImage(Stripe) stp_jpegDataWithMaxFileSize:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIImage+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIImage+Stripe.m
 linkUIImageCategory
+CGSizeMake
 -[STPCoreScrollViewController createScrollView]
 -[STPCoreScrollViewController createAndSetupViews]
 -[STPCoreScrollViewController viewDidLoad]
@@ -357,10 +359,10 @@ linkUIImageCategory
 -[STPCoreScrollViewController scrollView]
 -[STPCoreScrollViewController .cxx_destruct]
 _OBJC_IVAR_$_STPCoreScrollViewController._scrollView
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreScrollViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreScrollViewController+Private.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreScrollViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreScrollViewController+Private.h
 -[UIView(Stripe_SafeAreaBounds) stp_boundsWithHorizontalSafeAreaInsets]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIView+Stripe_SafeAreaBounds.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIView+Stripe_SafeAreaBounds.m
 linkUIViewSafeAreaBoundsCategory
 -[STPTextFieldDelegateProxy textField:shouldChangeCharactersInRange:replacementString:]
 -[STPTextFieldDelegateProxy unformattedStringForString:]
@@ -406,8 +408,8 @@ _OBJC_IVAR_$_STPFormTextField._formDelegate
 _OBJC_IVAR_$_STPFormTextField._preservesContentsOnPaste
 _OBJC_IVAR_$_STPFormTextField._delegateProxy
 _OBJC_IVAR_$_STPFormTextField._textFormattingBlock
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormTextField.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormTextField.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormTextField.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormTextField.h
 __46-[STPFormTextField setAutoFormattingBehavior:]_block_invoke_2
 __46-[STPFormTextField setAutoFormattingBehavior:]_block_invoke
 +[NSObject(Aspects) stp_aspect_hookSelector:withOptions:usingBlock:error:]
@@ -474,18 +476,18 @@ _stp_aspect_swizzleForwardInvocation
 _stp_aspect_hookedGetClass
 __stp_aspect_modifySwizzledClasses
 ___stp_aspect_swizzleClassInPlace_block_invoke
-___copy_helper_block_.409
-___destroy_helper_block_.410
+___copy_helper_block_.411
+___destroy_helper_block_.412
 ____stp_aspect_modifySwizzledClasses_block_invoke
 ___STP_ASPECTS_ARE_BEING_CALLED__
 ___stp_aspect_hookedGetClass_block_invoke
 ___stp_aspect_remove_block_invoke
-___copy_helper_block_.460
-___destroy_helper_block_.461
+___copy_helper_block_.462
+___destroy_helper_block_.463
 _stp_aspect_undoSwizzleClassInPlace
 ___stp_aspect_undoSwizzleClassInPlace_block_invoke
-___copy_helper_block_.472
-___destroy_helper_block_.473
+___copy_helper_block_.474
+___destroy_helper_block_.475
 _OBJC_IVAR_$_STPAspectTracker._trackedClass
 _OBJC_IVAR_$_STPAspectTracker._selectorNames
 _OBJC_IVAR_$_STPAspectTracker._selectorNamesToSubclassTrackers
@@ -505,20 +507,20 @@ l_OBJC_LABEL_PROTOCOL_$_STPAspectInfo
 _stp_aspect_performLocked.aspect_lock
 _stp_aspect_isSelectorAllowedAndTrack.disallowedSelectorList
 _stp_aspect_isSelectorAllowedAndTrack.pred
-___block_descriptor_tmp.345
+___block_descriptor_tmp.347
 _stp_aspect_getSwizzledClassesDict.swizzledClassesDict
 _stp_aspect_getSwizzledClassesDict.pred
-___block_descriptor_tmp.390
-___block_literal_global.391
-___block_descriptor_tmp.413
+___block_descriptor_tmp.392
+___block_literal_global.393
+___block_descriptor_tmp.415
 __stp_aspect_modifySwizzledClasses.swizzledClasses
 __stp_aspect_modifySwizzledClasses.pred
-___block_descriptor_tmp.414
-___block_literal_global.415
-___block_descriptor_tmp.438
-___block_descriptor_tmp.462
-___block_descriptor_tmp.475
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAspects.m
+___block_descriptor_tmp.416
+___block_literal_global.417
+___block_descriptor_tmp.440
+___block_descriptor_tmp.464
+___block_descriptor_tmp.477
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAspects.m
 __stp_aspect_undoSwizzleClassInPlace_block_invoke
 stp_aspect_undoSwizzleForwardInvocation
 stp_aspect_undoSwizzleClassInPlace
@@ -544,6 +546,7 @@ __stp_aspect_isSelectorAllowedAndTrack_block_invoke
 stp_aspect_getContainerForObject
 __stp_aspect_add_block_invoke
 stp_aspect_prepareClassAndHookSelector
+stp_aspect_getMsgForwardIMP
 stp_aspect_hookClass
 stp_aspect_isSelectorAllowedAndTrack
 stp_aspect_performLocked
@@ -616,8 +619,8 @@ l_OBJC_PROTOCOL_$_SFSafariViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_SFSafariViewControllerDelegate
 l_OBJC_PROTOCOL_$_STPURLCallbackListener
 l_OBJC_LABEL_PROTOCOL_$_STPURLCallbackListener
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPRedirectContext.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPRedirectContext.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPRedirectContext.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPRedirectContext.h
 __40-[STPRedirectContext handleURLCallback:]_block_invoke
 __54-[STPRedirectContext handleWillForegroundNotification]_block_invoke
 __66-[STPRedirectContext safariViewController:didCompleteInitialLoad:]_block_invoke
@@ -639,23 +642,23 @@ __65-[STPRedirectContext performAppRedirectIfPossibleWithCompletion:]_block_invo
 _OBJC_IVAR_$_STPPaymentCardTextFieldCell._paymentField
 _OBJC_IVAR_$_STPPaymentCardTextFieldCell._theme
 _OBJC_IVAR_$_STPPaymentCardTextFieldCell._inputAccessoryView
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldCell.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldCell.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldCell.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldCell.h
 -[PKPayment(Stripe) stp_isSimulated]
 +[PKPayment(Stripe) stp_testTransactionIdentifier]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PKPayment+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PKPayment+Stripe.m
 linkPKPaymentCategory
 +[STPStringUtils parseRangesFromString:withTags:completion:]
 ___60+[STPStringUtils parseRangesFromString:withTags:completion:]_block_invoke
 ___60+[STPStringUtils parseRangesFromString:withTags:completion:]_block_invoke.14
 +[STPStringUtils parseRangeFromString:withTag:completion:]
 ___block_descriptor_tmp.16
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPStringUtils.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPStringUtils.m
 __60+[STPStringUtils parseRangesFromString:withTags:completion:]_block_invoke.14
 __60+[STPStringUtils parseRangesFromString:withTags:completion:]_block_invoke
 +[STPMultipartFormDataEncoder multipartFormDataForParts:boundary:]
 +[STPMultipartFormDataEncoder generateBoundary]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataEncoder.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataEncoder.m
 +[STPCard brandFromString:]
 +[STPCard stringFromBrand:]
 +[STPCard stringToFundingMapping]
@@ -723,8 +726,8 @@ l_OBJC_PROTOCOL_$_STPInternalAPIResponseDecodable
 l_OBJC_LABEL_PROTOCOL_$_STPInternalAPIResponseDecodable
 l_OBJC_PROTOCOL_$_STPPaymentMethod
 l_OBJC_LABEL_PROTOCOL_$_STPPaymentMethod
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCard.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCard.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCard.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCard.h
 +[Stripe setDefaultPublishableKey:]
 +[Stripe defaultPublishableKey]
 +[STPAPIClient apiVersion]
@@ -794,6 +797,8 @@ ___copy_helper_block_.455
 ___destroy_helper_block_.456
 -[STPAPIClient(Sources) stopPollingSourceWithId:]
 ___49-[STPAPIClient(Sources) stopPollingSourceWithId:]_block_invoke
+___copy_helper_block_.460
+___destroy_helper_block_.461
 +[STPAPIClient(Customers) apiClientWithEphemeralKey:]
 +[STPAPIClient(Customers) retrieveCustomerUsingKey:completion:]
 ___63+[STPAPIClient(Customers) retrieveCustomerUsingKey:completion:]_block_invoke
@@ -830,11 +835,12 @@ ___block_descriptor_tmp.356
 ___block_descriptor_tmp.430
 ___block_descriptor_tmp.437
 ___block_descriptor_tmp.457
+___block_descriptor_tmp.462
 ___block_descriptor_tmp.480
 ___block_descriptor_tmp.483
 ___block_descriptor_tmp.492
 ___block_descriptor_tmp.499
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient.m
 __72+[STPAPIClient(Customers) deleteSource:fromCustomerUsingKey:completion:]_block_invoke
 __67+[STPAPIClient(Customers) addSource:toCustomerUsingKey:completion:]_block_invoke
 __76+[STPAPIClient(Customers) updateCustomerWithParameters:usingKey:completion:]_block_invoke
@@ -845,8 +851,8 @@ __70-[STPAPIClient(Sources) retrieveSourceWithId:clientSecret:completion:]_block
 __59-[STPAPIClient(Sources) createSourceWithParams:completion:]_block_invoke
 __55-[STPAPIClient(Upload) uploadImage:purpose:completion:]_block_invoke_2
 __55-[STPAPIClient(Upload) uploadImage:purpose:completion:]_block_invoke
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient+Private.h
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAPIClient.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient+Private.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAPIClient.h
 __28+[STPAPIClient validateKey:]_block_invoke
 __53-[STPAPIClient createTokenWithParameters:completion:]_block_invoke
 __28+[STPAPIClient sharedClient]_block_invoke
@@ -893,8 +899,8 @@ ___block_descriptor_tmp.91
 _OBJC_IVAR_$_STPEphemeralKeyManager._customerKey
 _OBJC_IVAR_$_STPEphemeralKeyManager._lastEagerKeyRefresh
 _OBJC_IVAR_$_STPEphemeralKeyManager._createKeyPromise
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKeyManager.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKeyManager.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKeyManager.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKeyManager.h
 __41-[STPEphemeralKeyManager getCustomerKey:]_block_invoke.69
 __41-[STPEphemeralKeyManager getCustomerKey:]_block_invoke.63
 __41-[STPEphemeralKeyManager getCustomerKey:]_block_invoke.59
@@ -947,8 +953,8 @@ _OBJC_IVAR_$_STPBankAccount._metadata
 _OBJC_IVAR_$_STPBankAccount._status
 _OBJC_IVAR_$_STPBankAccount._stripeID
 _OBJC_IVAR_$_STPBankAccount._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBankAccount.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPBankAccount.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBankAccount.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPBankAccount.h
 -[STPKeyboardDetectingViewController initWithKeyboardFrameBlock:scrollView:]
 -[STPKeyboardDetectingViewController dealloc]
 -[STPKeyboardDetectingViewController loadView]
@@ -976,9 +982,10 @@ _OBJC_IVAR_$_STPKeyboardDetectingViewController._currentBottomInsetChange
 _OBJC_IVAR_$_STPKeyboardDetectingViewController._lastKeyboardFrame
 _OBJC_IVAR_$_STPKeyboardDetectingViewController._lastResponder
 ___block_descriptor_tmp.131
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_KeyboardAvoiding.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_KeyboardAvoiding.m
 linkUIViewControllerKeyboardAvoidingCategory
 __80-[UIViewController(Stripe_KeyboardAvoiding) stp_keyboardDetectingViewController]_block_invoke
+CGPointMake
 __64-[STPKeyboardDetectingViewController textFieldWillBeginEditing:]_block_invoke
 -[STPAddCardViewController init]
 -[STPAddCardViewController initWithConfiguration:theme:]
@@ -1100,6 +1107,7 @@ ___block_descriptor_tmp.307
 ___block_descriptor_tmp.310
 ___block_descriptor_tmp.314
 _OBJC_IVAR_$_STPAddCardViewController._customFooterView
+___block_descriptor_tmp.345
 ___block_descriptor_tmp.358
 ___block_descriptor_tmp.363
 ___block_descriptor_tmp.412
@@ -1120,8 +1128,8 @@ l_OBJC_PROTOCOL_$_STPCardIOProxyDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPCardIOProxyDelegate
 l_OBJC_PROTOCOL_$_STPPaymentCardTextFieldDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPPaymentCardTextFieldDelegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddCardViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAddCardViewController.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddCardViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPAddCardViewController.h
 __47-[STPAddCardViewController useShippingAddress:]_block_invoke
 __65-[STPAddCardViewController paymentCardTextFieldDidEndEditingCVC:]_block_invoke
 __67-[STPAddCardViewController paymentCardTextFieldDidBeginEditingCVC:]_block_invoke
@@ -1140,7 +1148,7 @@ _countOfCharactersFromSetInString
 +[STPPostalCodeValidator formattedSanitizedUSZipCodeFromString:usage:]
 +[STPPostalCodeValidator postalCodeIsRequiredForCountryCode:]
 +[STPPostalCodeValidator countriesWithNoPostalCodes]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPostalCodeValidator.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPostalCodeValidator.m
 countOfCharactersFromSetInString
 -[STPUserInformation copyWithZone:]
 -[STPUserInformation billingAddress]
@@ -1152,13 +1160,13 @@ _OBJC_IVAR_$_STPUserInformation._billingAddress
 _OBJC_IVAR_$_STPUserInformation._shippingAddress
 l_OBJC_PROTOCOL_$_NSCopying
 l_OBJC_LABEL_PROTOCOL_$_NSCopying
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPUserInformation.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPUserInformation.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPUserInformation.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPUserInformation.h
 +[STPBundleLocator stripeResourcesBundle]
 ___41+[STPBundleLocator stripeResourcesBundle]_block_invoke
 _stripeResourcesBundle.ourBundle
 _stripeResourcesBundle.onceToken
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBundleLocator.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBundleLocator.m
 __41+[STPBundleLocator stripeResourcesBundle]_block_invoke
 -[STPSwitchTableViewCell initWithStyle:reuseIdentifier:]
 -[STPSwitchTableViewCell setTheme:]
@@ -1181,19 +1189,19 @@ _OBJC_IVAR_$_STPSwitchTableViewCell._switchView
 _OBJC_IVAR_$_STPSwitchTableViewCell._captionLabel
 _OBJC_IVAR_$_STPSwitchTableViewCell._theme
 _OBJC_IVAR_$_STPSwitchTableViewCell._delegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSwitchTableViewCell.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSwitchTableViewCell.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSwitchTableViewCell.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSwitchTableViewCell.h
 -[STPCoreTableViewController createScrollView]
 -[STPCoreTableViewController tableView]
 -[STPCoreTableViewController viewWillAppear:]
 -[STPCoreTableViewController updateAppearance]
 -[STPCoreTableViewController tableView:heightForHeaderInSection:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreTableViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreTableViewController.m
 -[UIBarButtonItem(Stripe) stp_setTheme:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIBarButtonItem+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIBarButtonItem+Stripe.m
 linkUIBarButtonItemCategory
 +[NSError(Stripe) stp_errorFromStripeResponse:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/StripeError.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/StripeError.m
 linkNSErrorCategory
 -[STPShippingMethodsViewController initWithShippingMethods:selectedShippingMethod:currency:theme:]
 -[STPShippingMethodsViewController createAndSetupViews]
@@ -1231,8 +1239,8 @@ _OBJC_IVAR_$_STPShippingMethodsViewController._delegate
 _OBJC_IVAR_$_STPShippingMethodsViewController._imageView
 _OBJC_IVAR_$_STPShippingMethodsViewController._doneItem
 _OBJC_IVAR_$_STPShippingMethodsViewController._headerView
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodsViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodsViewController.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodsViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodsViewController.h
 -[STPPaymentMethodTableViewCell initWithStyle:reuseIdentifier:]
 -[STPPaymentMethodTableViewCell layoutSubviews]
 -[STPPaymentMethodTableViewCell configureForNewCardRowWithTheme:]
@@ -1258,7 +1266,7 @@ _OBJC_IVAR_$_STPPaymentMethodTableViewCell._titleLabel
 _OBJC_IVAR_$_STPPaymentMethodTableViewCell._checkmarkIcon
 _OBJC_IVAR_$_STPPaymentMethodTableViewCell._paymentMethod
 _OBJC_IVAR_$_STPPaymentMethodTableViewCell._theme
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTableViewCell.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTableViewCell.m
 -[STPShippingAddressViewController init]
 -[STPShippingAddressViewController initWithPaymentContext:]
 -[STPShippingAddressViewController initWithConfiguration:theme:currency:shippingAddress:selectedShippingMethod:prefilledInformation:]
@@ -1335,8 +1343,8 @@ _OBJC_IVAR_$_STPShippingAddressViewController._nextItem
 _OBJC_IVAR_$_STPShippingAddressViewController._activityIndicator
 l_OBJC_PROTOCOL_$_STPShippingMethodsViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPShippingMethodsViewControllerDelegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingAddressViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPShippingAddressViewController.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingAddressViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPShippingAddressViewController.h
 __54-[STPShippingAddressViewController useBillingAddress:]_block_invoke
 __41-[STPShippingAddressViewController next:]_block_invoke
 __47-[STPShippingAddressViewController setLoading:]_block_invoke
@@ -1345,13 +1353,13 @@ __47-[STPShippingAddressViewController setLoading:]_block_invoke
 ___61-[STPAPIClient(ApplePay) createSourceWithPayment:completion:]_block_invoke
 +[STPAPIClient(ApplePay) addressParamsFromPKContact:]
 +[STPAPIClient(ApplePay) parametersForPayment:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient+ApplePay.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIClient+ApplePay.m
 linkSTPAPIClientApplePayCategory
 __61-[STPAPIClient(ApplePay) createSourceWithPayment:completion:]_block_invoke
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDispatchFunctions.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDispatchFunctions.m
 stpDispatchToMainThreadIfNecessary
 -[STPCustomer(SourceTuple) filteredSourceTupleForUIWithConfiguration:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomer+SourceTuple.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomer+SourceTuple.m
 linkSTPCustomerSourceTupleCategory
 +[STPTelemetryClient shouldSendTelemetry]
 +[STPTelemetryClient sharedInstance]
@@ -1380,12 +1388,12 @@ _sharedInstance.sharedClient
 _sharedInstance.onceToken
 _OBJC_IVAR_$_STPTelemetryClient._urlSession
 _OBJC_IVAR_$_STPTelemetryClient._appOpenTime
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPTelemetryClient.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPTelemetryClient.m
 __36+[STPTelemetryClient sharedInstance]_block_invoke
 -[UIViewController(Stripe_NavigationItemProxy) setStp_navigationItemProxy:]
 -[UIViewController(Stripe_NavigationItemProxy) stp_navigationItemProxy]
 _kSTPNavigationItemProxyKey
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_NavigationItemProxy.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_NavigationItemProxy.m
 linkUIViewControllerNavigationItemProxyCategory
 +[STPTheme initialize]
 +[STPTheme defaultTheme]
@@ -1441,8 +1449,8 @@ _OBJC_IVAR_$_STPTheme._font
 _OBJC_IVAR_$_STPTheme._emphasisFont
 _OBJC_IVAR_$_STPTheme._translucentNavigationBar
 _OBJC_IVAR_$_STPTheme._internalBarStyle
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPTheme.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPTheme.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPTheme.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPTheme.h
 __24+[STPTheme defaultTheme]_block_invoke
 -[STPShippingMethodTableViewCell initWithStyle:reuseIdentifier:]
 -[STPShippingMethodTableViewCell setTheme:]
@@ -1471,8 +1479,8 @@ _OBJC_IVAR_$_STPShippingMethodTableViewCell._amountLabel
 _OBJC_IVAR_$_STPShippingMethodTableViewCell._checkmarkIcon
 _OBJC_IVAR_$_STPShippingMethodTableViewCell._numberFormatter
 _OBJC_IVAR_$_STPShippingMethodTableViewCell._shippingMethod
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodTableViewCell.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodTableViewCell.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodTableViewCell.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPShippingMethodTableViewCell.h
 +[STPSourceOwner decodedObjectFromAPIResponse:]
 -[STPSourceOwner address]
 -[STPSourceOwner setAddress:]
@@ -1502,8 +1510,8 @@ _OBJC_IVAR_$_STPSourceOwner._verifiedEmail
 _OBJC_IVAR_$_STPSourceOwner._verifiedName
 _OBJC_IVAR_$_STPSourceOwner._verifiedPhone
 _OBJC_IVAR_$_STPSourceOwner._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceOwner.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceOwner.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceOwner.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceOwner.h
 -[STPCoreViewController init]
 -[STPCoreViewController initWithNibName:bundle:]
 -[STPCoreViewController initWithCoder:]
@@ -1524,8 +1532,8 @@ _OBJC_IVAR_$_STPSourceOwner._allResponseFields
 -[STPCoreViewController .cxx_destruct]
 _OBJC_IVAR_$_STPCoreViewController._theme
 _OBJC_IVAR_$_STPCoreViewController._cancelItem
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreViewController.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreViewController+Private.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCoreViewController+Private.h
 +[STPSource stringToTypeMapping]
 +[STPSource typeFromString:]
 +[STPSource stringFromType:]
@@ -1605,8 +1613,8 @@ _OBJC_IVAR_$_STPSource._cardDetails
 _OBJC_IVAR_$_STPSource._sepaDebitDetails
 _OBJC_IVAR_$_STPSource._stripeID
 _OBJC_IVAR_$_STPSource._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSource.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSource.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSource.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSource.h
 -[STPPaymentContext initWithCustomerContext:]
 -[STPPaymentContext initWithCustomerContext:configuration:theme:]
 -[STPPaymentContext initWithAPIAdapter:]
@@ -1846,6 +1854,7 @@ ___block_descriptor_tmp.395
 ___block_descriptor_tmp.401
 ___block_descriptor_tmp.404
 ___block_descriptor_tmp.407
+___block_descriptor_tmp.413
 ___block_descriptor_tmp.423
 ___block_descriptor_tmp.427
 ___block_descriptor_tmp.432
@@ -1863,8 +1872,8 @@ l_OBJC_PROTOCOL_$_STPPaymentMethodsViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPPaymentMethodsViewControllerDelegate
 l_OBJC_PROTOCOL_$_STPShippingAddressViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPShippingAddressViewControllerDelegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentContext.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentContext.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentContext.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentContext.h
 __35-[STPPaymentContext requestPayment]_block_invoke.433
 __35-[STPPaymentContext requestPayment]_block_invoke_2.420
 __35-[STPPaymentContext requestPayment]_block_invoke.419
@@ -1990,8 +1999,8 @@ ___block_descriptor_tmp.138
 _OBJC_IVAR_$_STPCustomerContext._apiClient
 l_OBJC_PROTOCOL_$_STPBackendAPIAdapter
 l_OBJC_LABEL_PROTOCOL_$_STPBackendAPIAdapter
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomerContext.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCustomerContext.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomerContext.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCustomerContext.h
 __58-[STPCustomerContext detachSourceFromCustomer:completion:]_block_invoke_2.127
 __58-[STPCustomerContext detachSourceFromCustomer:completion:]_block_invoke.126
 __58-[STPCustomerContext detachSourceFromCustomer:completion:]_block_invoke_2
@@ -2021,7 +2030,7 @@ __39-[STPCustomerContext retrieveCustomer:]_block_invoke
 -[UITableViewCell(Stripe_Borders) stp_setBottomBorderHidden:]
 -[UITableViewCell(Stripe_Borders) stp_setFakeSeparatorColor:]
 -[UITableViewCell(Stripe_Borders) stp_setFakeSeparatorLeftInset:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UITableViewCell+Stripe_Borders.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UITableViewCell+Stripe_Borders.m
 linkUITableViewCellBordersCategory
 -[STPSourceReceiver description]
 +[STPSourceReceiver decodedObjectFromAPIResponse:]
@@ -2041,8 +2050,8 @@ _OBJC_IVAR_$_STPSourceReceiver._amountCharged
 _OBJC_IVAR_$_STPSourceReceiver._amountReceived
 _OBJC_IVAR_$_STPSourceReceiver._amountReturned
 _OBJC_IVAR_$_STPSourceReceiver._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceReceiver.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceReceiver.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceReceiver.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceReceiver.h
 +[STPCustomer customerWithStripeID:defaultSource:sources:]
 -[STPCustomer description]
 +[STPCustomer decodedObjectFromAPIResponse:]
@@ -2073,8 +2082,8 @@ _OBJC_IVAR_$_STPCustomer._shippingAddress
 _OBJC_IVAR_$_STPCustomer._allResponseFields
 _OBJC_IVAR_$_STPCustomerDeserializer._error
 _OBJC_IVAR_$_STPCustomerDeserializer._customer
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomer.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCustomer.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCustomer.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCustomer.h
 -[STPPaymentCardTextField initWithCoder:]
 -[STPPaymentCardTextField initWithFrame:]
 -[STPPaymentCardTextField commonInit]
@@ -2286,8 +2295,8 @@ l_OBJC_PROTOCOL_$_UITextInputTraits
 l_OBJC_LABEL_PROTOCOL_$_UITextInputTraits
 l_OBJC_PROTOCOL_$_UIKeyInput
 l_OBJC_LABEL_PROTOCOL_$_UIKeyInput
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextField.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentCardTextField.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextField.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentCardTextField.h
 STPNonLocalizedString
 __51-[STPPaymentCardTextField updateImageForFieldType:]_block_invoke
 __71-[STPPaymentCardTextField layoutViewsToFocusField:animated:completion:]_block_invoke
@@ -2308,8 +2317,8 @@ __32-[STPPaymentCardTextField clear]_block_invoke
 _OBJC_IVAR_$_STPConnectAccountParams._tosShownAndAccepted
 _OBJC_IVAR_$_STPConnectAccountParams._legalEntity
 _OBJC_IVAR_$_STPConnectAccountParams.additionalAPIParameters
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPConnectAccountParams.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPConnectAccountParams.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPConnectAccountParams.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPConnectAccountParams.h
 -[STPMultipartFormDataPart composedData]
 -[STPMultipartFormDataPart data]
 -[STPMultipartFormDataPart setData:]
@@ -2324,8 +2333,8 @@ _OBJC_IVAR_$_STPMultipartFormDataPart._name
 _OBJC_IVAR_$_STPMultipartFormDataPart._filename
 _OBJC_IVAR_$_STPMultipartFormDataPart._contentType
 _OBJC_IVAR_$_STPMultipartFormDataPart._data
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataPart.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataPart.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataPart.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPMultipartFormDataPart.h
 +[STPImageLibrary applePayCardImage]
 +[STPImageLibrary amexCardImage]
 +[STPImageLibrary dinersClubCardImage]
@@ -2347,7 +2356,7 @@ _OBJC_IVAR_$_STPMultipartFormDataPart._data
 +[STPImageLibrary(Private) safeImageNamed:templateIfAvailable:]
 +[STPImageLibrary(Private) brandImageForCardBrand:template:]
 +[STPImageLibrary(Private) imageWithTintColor:forImage:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPImageLibrary.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPImageLibrary.m
 +[STPFormEncoder stringByReplacingSnakeCaseWithCamelCase:]
 ___58+[STPFormEncoder stringByReplacingSnakeCaseWithCamelCase:]_block_invoke
 +[STPFormEncoder dictionaryForObject:]
@@ -2380,7 +2389,7 @@ ___block_descriptor_tmp.100
 _OBJC_IVAR_$_STPQueryStringPair._field
 _OBJC_IVAR_$_STPQueryStringPair._value
 ___block_descriptor_tmp.210
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormEncoder.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFormEncoder.m
 __STPQueryStringPairsFromKeyAndValue_block_invoke
 STPQueryStringPairsFromKeyAndValue
 STPQueryStringPairsFromDictionary
@@ -2393,7 +2402,7 @@ __58+[STPFormEncoder stringByReplacingSnakeCaseWithCamelCase:]_block_invoke
 +[STPColorUtils perceivedBrightnessForColor:]
 +[STPColorUtils brighterColor:color2:]
 +[STPColorUtils colorIsBright:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPColorUtils.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPColorUtils.m
 -[STPSourceParams init]
 -[STPSourceParams type]
 -[STPSourceParams setType:]
@@ -2450,9 +2459,9 @@ _OBJC_IVAR_$_STPSourceParams._owner
 _OBJC_IVAR_$_STPSourceParams._redirect
 _OBJC_IVAR_$_STPSourceParams._token
 _OBJC_IVAR_$_STPSourceParams._redirectMerchantName
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceParams.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceParams+Private.h
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceParams.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceParams.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceParams+Private.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceParams.h
 +[STPPaymentConfiguration initialize]
 +[STPPaymentConfiguration sharedConfiguration]
 ___46+[STPPaymentConfiguration sharedConfiguration]_block_invoke
@@ -2496,8 +2505,8 @@ _OBJC_IVAR_$_STPPaymentConfiguration._createCardSources
 _OBJC_IVAR_$_STPPaymentConfiguration._publishableKey
 _OBJC_IVAR_$_STPPaymentConfiguration._appleMerchantIdentifier
 _OBJC_IVAR_$_STPPaymentConfiguration._stripeAccount
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentConfiguration.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentConfiguration.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentConfiguration.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentConfiguration.h
 __46+[STPPaymentConfiguration sharedConfiguration]_block_invoke
 -[STPVerificationParams description]
 +[STPVerificationParams rootObjectName]
@@ -2575,17 +2584,17 @@ _OBJC_IVAR_$_STPLegalEntityParams._phoneNumber
 _OBJC_IVAR_$_STPLegalEntityParams._ssnLast4
 _OBJC_IVAR_$_STPLegalEntityParams._taxIdRegistrar
 _OBJC_IVAR_$_STPLegalEntityParams._entityTypeString
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLegalEntityParams.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPLegalEntityParams.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLegalEntityParams.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPLegalEntityParams.h
 -[STPPaymentActivityIndicatorView initWithFrame:]
 -[STPPaymentActivityIndicatorView setTintColor:]
 -[STPPaymentActivityIndicatorView layoutSubviews]
 -[STPPaymentActivityIndicatorView setHidesWhenStopped:]
 -[STPPaymentActivityIndicatorView setAnimating:animated:]
 ___57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke
-___57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke.81
-___copy_helper_block_.82
-___destroy_helper_block_.83
+___57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke.83
+___copy_helper_block_.84
+___destroy_helper_block_.85
 -[STPPaymentActivityIndicatorView setAnimating:]
 -[STPPaymentActivityIndicatorView animating]
 -[STPPaymentActivityIndicatorView hidesWhenStopped]
@@ -2595,10 +2604,10 @@ ___destroy_helper_block_.83
 _OBJC_IVAR_$_STPPaymentActivityIndicatorView._indicatorLayer
 _OBJC_IVAR_$_STPPaymentActivityIndicatorView._hidesWhenStopped
 _OBJC_IVAR_$_STPPaymentActivityIndicatorView._animating
-___block_descriptor_tmp.84
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentActivityIndicatorView.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentActivityIndicatorView.h
-__57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke.81
+___block_descriptor_tmp.86
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentActivityIndicatorView.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentActivityIndicatorView.h
+__57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke.83
 __57-[STPPaymentActivityIndicatorView setAnimating:animated:]_block_invoke
 -[UIViewController(Stripe_Promises) stp_willAppearPromise]
 ___58-[UIViewController(Stripe_Promises) stp_willAppearPromise]_block_invoke
@@ -2607,7 +2616,7 @@ ___57-[UIViewController(Stripe_Promises) stp_didAppearPromise]_block_invoke
 ___copy_helper_block_.21
 ___destroy_helper_block_.22
 ___block_descriptor_tmp.23
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_Promises.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_Promises.m
 linkUIViewControllerPromisesCategory
 __57-[UIViewController(Stripe_Promises) stp_didAppearPromise]_block_invoke
 __58-[UIViewController(Stripe_Promises) stp_willAppearPromise]_block_invoke
@@ -2661,7 +2670,7 @@ ___block_descriptor_tmp.65
 _OBJC_IVAR_$_STPAnalyticsClient._urlSession
 _OBJC_IVAR_$_STPAnalyticsClient._apiUsage
 _OBJC_IVAR_$_STPAnalyticsClient._additionalInfoSet
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAnalyticsClient.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAnalyticsClient.m
 __40+[STPAnalyticsClient initializeIfNeeded]_block_invoke.57
 __40+[STPAnalyticsClient initializeIfNeeded]_block_invoke.49
 __40+[STPAnalyticsClient initializeIfNeeded]_block_invoke.41
@@ -2695,17 +2704,17 @@ _OBJC_IVAR_$_STPSectionHeaderView._theme
 _OBJC_IVAR_$_STPSectionHeaderView._buttonInsets
 _OBJC_IVAR_$_STPSectionHeaderView._title
 _OBJC_IVAR_$_STPSectionHeaderView._buttonHidden
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSectionHeaderView.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSectionHeaderView.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSectionHeaderView.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSectionHeaderView.h
 +[STPLocalizationUtils localizedStripeStringForKey:]
 ___52+[STPLocalizationUtils localizedStripeStringForKey:]_block_invoke
 _localizedStripeStringForKey:.useMainBundle
 _localizedStripeStringForKey:.onceToken
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLocalizationUtils.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPLocalizationUtils.m
 __52+[STPLocalizationUtils localizedStripeStringForKey:]_block_invoke
 -[NSArray(Stripe) stp_boundSafeObjectAtIndex:]
 -[NSArray(Stripe) stp_arrayByRemovingNulls]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSArray+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSArray+Stripe.m
 linkNSArrayCategory
 -[STPSourceSEPADebitDetails description]
 +[STPSourceSEPADebitDetails decodedObjectFromAPIResponse:]
@@ -2726,13 +2735,13 @@ _OBJC_IVAR_$_STPSourceSEPADebitDetails._fingerprint
 _OBJC_IVAR_$_STPSourceSEPADebitDetails._mandateReference
 _OBJC_IVAR_$_STPSourceSEPADebitDetails._mandateURL
 _OBJC_IVAR_$_STPSourceSEPADebitDetails._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceSEPADebitDetails.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceSEPADebitDetails.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceSEPADebitDetails.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceSEPADebitDetails.h
 -[UIViewController(Stripe_ParentViewController) stp_parentViewControllerOfClass:]
 -[UIViewController(Stripe_ParentViewController) stp_isTopNavigationController]
 -[UIViewController(Stripe_ParentViewController) stp_isAtRootOfNavigationController]
 -[UIViewController(Stripe_ParentViewController) stp_previousViewControllerInNavigation]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_ParentViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIViewController+Stripe_ParentViewController.m
 linkUIViewControllerParentViewControllerCategory
 -[STPAddressViewModel initWithRequiredBillingFields:]
 -[STPAddressViewModel initWithRequiredShippingFields:]
@@ -2784,8 +2793,8 @@ _OBJC_IVAR_$_STPAddressViewModel._showingPostalCodeCell
 _OBJC_IVAR_$_STPAddressViewModel._geocodeInProgress
 l_OBJC_PROTOCOL_$_STPAddressFieldTableViewCellDelegate
 l_OBJC_LABEL_PROTOCOL_$_STPAddressFieldTableViewCellDelegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressViewModel.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressViewModel.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressViewModel.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAddressViewModel.h
 __57-[STPAddressViewModel updateCityAndStateFromZipCodeCell:]_block_invoke_2
 __57-[STPAddressViewModel updateCityAndStateFromZipCodeCell:]_block_invoke
 __54-[STPAddressViewModel updatePostalCodeCellIfNecessary]_block_invoke_2
@@ -2800,7 +2809,7 @@ __54-[STPAddressViewModel updatePostalCodeCellIfNecessary]_block_invoke
 +[STPPhoneNumberValidator formattedRedactedPhoneNumberForString:]
 +[STPPhoneNumberValidator formattedRedactedPhoneNumberForString:forCountryCode:]
 +[STPPhoneNumberValidator formattedPhoneNumberForString:forCountryCode:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPhoneNumberValidator.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPhoneNumberValidator.m
 +[STPCardIOUtilitiesProxy proxiedClass]
 +[STPCardIOUtilitiesProxy proxiedClassExists]
 +[STPCardIOCreditCardInfoProxy proxiedClass]
@@ -2841,7 +2850,7 @@ _OBJC_IVAR_$_STPCardIOPaymentViewControllerProxy._hideCardIOLogo
 _OBJC_IVAR_$_STPCardIOPaymentViewControllerProxy._disableManualEntryButtons
 _OBJC_IVAR_$_STPCardIOPaymentViewControllerProxy._scannedImageDuration
 _OBJC_IVAR_$_STPCardIOProxy._delegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardIOProxy.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardIOProxy.m
 __71-[STPCardIOProxy userDidProvideCreditCardInfo:inPaymentViewController:]_block_invoke
 -[STPToken description]
 -[STPToken debugDescription]
@@ -2869,17 +2878,17 @@ _OBJC_IVAR_$_STPToken._card
 _OBJC_IVAR_$_STPToken._bankAccount
 _OBJC_IVAR_$_STPToken._created
 _OBJC_IVAR_$_STPToken._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPToken.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPToken.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPToken.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPToken.h
 -[STPApplePayPaymentMethod image]
 -[STPApplePayPaymentMethod templateImage]
 -[STPApplePayPaymentMethod label]
 -[STPApplePayPaymentMethod isEqual:]
 -[STPApplePayPaymentMethod hash]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPApplePayPaymentMethod.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPApplePayPaymentMethod.m
 +[STPEmailAddressValidator stringIsValidPartialEmailAddress:]
 +[STPEmailAddressValidator stringIsValidEmailAddress:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEmailAddressValidator.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEmailAddressValidator.m
 -[NSDictionary(Stripe) stp_dictionaryByRemovingNulls]
 ___53-[NSDictionary(Stripe) stp_dictionaryByRemovingNulls]_block_invoke
 -[NSDictionary(Stripe) stp_dictionaryByRemovingNonStrings]
@@ -2892,7 +2901,7 @@ ___58-[NSDictionary(Stripe) stp_dictionaryByRemovingNonStrings]_block_invoke
 -[NSDictionary(Stripe) stp_numberForKey:]
 -[NSDictionary(Stripe) stp_stringForKey:]
 -[NSDictionary(Stripe) stp_urlForKey:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSDictionary+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSDictionary+Stripe.m
 linkNSDictionaryCategory
 __58-[NSDictionary(Stripe) stp_dictionaryByRemovingNonStrings]_block_invoke
 __53-[NSDictionary(Stripe) stp_dictionaryByRemovingNulls]_block_invoke
@@ -2903,11 +2912,11 @@ __53-[NSDictionary(Stripe) stp_dictionaryByRemovingNulls]_block_invoke
 -[STPPaymentContextAmountModel .cxx_destruct]
 _OBJC_IVAR_$_STPPaymentContextAmountModel._paymentAmount
 _OBJC_IVAR_$_STPPaymentContextAmountModel._paymentSummaryItems
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentContextAmountModel.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentContextAmountModel.m
 -[NSMutableURLRequest(Stripe) stp_addParametersToURL:]
 -[NSMutableURLRequest(Stripe) stp_setFormPayload:]
 -[NSMutableURLRequest(Stripe) stp_setMultipartFormData:boundary:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSMutableURLRequest+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSMutableURLRequest+Stripe.m
 linkNSMutableURLRequestCategory
 -[STPDelegateProxy init]
 -[STPDelegateProxy respondsToSelector:]
@@ -2918,8 +2927,8 @@ linkNSMutableURLRequestCategory
 -[STPDelegateProxy setDelegate:]
 -[STPDelegateProxy .cxx_destruct]
 _OBJC_IVAR_$_STPDelegateProxy._delegate
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDelegateProxy.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDelegateProxy.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDelegateProxy.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPDelegateProxy.h
 +[STPBINRange allRanges]
 ___24+[STPBINRange allRanges]_block_invoke
 -[STPBINRange matchesNumber:]
@@ -2952,15 +2961,15 @@ _OBJC_IVAR_$_STPBINRange._length
 _OBJC_IVAR_$_STPBINRange._brand
 _OBJC_IVAR_$_STPBINRange._qRangeLow
 _OBJC_IVAR_$_STPBINRange._qRangeHigh
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBINRange.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBINRange.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBINRange.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBINRange.h
 __33+[STPBINRange binRangesForBrand:]_block_invoke
 __45+[STPBINRange mostSpecificBINRangeForNumber:]_block_invoke
 __34+[STPBINRange binRangesForNumber:]_block_invoke
 __24+[STPBINRange allRanges]_block_invoke
 +[UIToolbar(Stripe_InputAccessory) stp_inputAccessoryToolbarWithTarget:action:]
 -[UIToolbar(Stripe_InputAccessory) stp_setEnabled:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIToolbar+Stripe_InputAccessory.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIToolbar+Stripe_InputAccessory.m
 linkUIToolbarInputAccessoryCategory
 +[STPEphemeralKey decodedObjectFromAPIResponse:]
 -[STPEphemeralKey hash]
@@ -2988,8 +2997,8 @@ _OBJC_IVAR_$_STPEphemeralKey._secret
 _OBJC_IVAR_$_STPEphemeralKey._expires
 _OBJC_IVAR_$_STPEphemeralKey._customerID
 _OBJC_IVAR_$_STPEphemeralKey._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKey.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKey.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKey.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPEphemeralKey.h
 -[STPPaymentCardTextFieldViewModel setCardNumber:]
 -[STPPaymentCardTextFieldViewModel setRawExpiration:]
 -[STPPaymentCardTextFieldViewModel rawExpiration]
@@ -3019,8 +3028,8 @@ _OBJC_IVAR_$_STPPaymentCardTextFieldViewModel._cvc
 _OBJC_IVAR_$_STPPaymentCardTextFieldViewModel._postalCode
 _OBJC_IVAR_$_STPPaymentCardTextFieldViewModel._postalCodeCountryCode
 _OBJC_IVAR_$_STPPaymentCardTextFieldViewModel._postalCodeRequired
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldViewModel.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldViewModel.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldViewModel.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentCardTextFieldViewModel.h
 +[STPSourceRedirect stringToStatusMapping]
 +[STPSourceRedirect statusFromString:]
 +[STPSourceRedirect stringFromStatus:]
@@ -3039,8 +3048,8 @@ _OBJC_IVAR_$_STPSourceRedirect._returnURL
 _OBJC_IVAR_$_STPSourceRedirect._status
 _OBJC_IVAR_$_STPSourceRedirect._url
 _OBJC_IVAR_$_STPSourceRedirect._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceRedirect.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceRedirect.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceRedirect.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceRedirect.h
 -[STPCardParams init]
 -[STPCardParams last4]
 -[STPCardParams setAddress:]
@@ -3083,13 +3092,13 @@ _OBJC_IVAR_$_STPCardParams._expMonth
 _OBJC_IVAR_$_STPCardParams._expYear
 _OBJC_IVAR_$_STPCardParams._cvc
 _OBJC_IVAR_$_STPCardParams._currency
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardParams.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCardParams.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPCardParams.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPCardParams.h
 -[NSURLComponents(Stripe) stp_queryItemsDictionary]
 -[NSURLComponents(Stripe) setStp_queryItemsDictionary:]
 ___55-[NSURLComponents(Stripe) setStp_queryItemsDictionary:]_block_invoke
 -[NSURLComponents(Stripe) stp_matchesURLComponents:]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSURLComponents+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSURLComponents+Stripe.m
 linkNSURLComponentsCategory
 __55-[NSURLComponents(Stripe) setStp_queryItemsDictionary:]_block_invoke
 -[STPPaymentResult initWithSource:]
@@ -3097,8 +3106,8 @@ __55-[NSURLComponents(Stripe) setStp_queryItemsDictionary:]_block_invoke
 -[STPPaymentResult setSource:]
 -[STPPaymentResult .cxx_destruct]
 _OBJC_IVAR_$_STPPaymentResult._source
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentResult.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentResult.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentResult.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentResult.h
 +[STPPaymentMethodTuple tupleWithPaymentMethods:selectedPaymentMethod:]
 +[STPPaymentMethodTuple tupleWithPaymentMethods:selectedPaymentMethod:addApplePayMethod:]
 -[STPPaymentMethodTuple selectedPaymentMethod]
@@ -3108,8 +3117,8 @@ _OBJC_IVAR_$_STPPaymentResult._source
 -[STPPaymentMethodTuple .cxx_destruct]
 _OBJC_IVAR_$_STPPaymentMethodTuple._selectedPaymentMethod
 _OBJC_IVAR_$_STPPaymentMethodTuple._paymentMethods
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTuple.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTuple.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTuple.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodTuple.h
 -[STPBlockBasedApplePayDelegate paymentAuthorizationViewController:didAuthorizePayment:completion:]
 ___99-[STPBlockBasedApplePayDelegate paymentAuthorizationViewController:didAuthorizePayment:completion:]_block_invoke
 ___99-[STPBlockBasedApplePayDelegate paymentAuthorizationViewController:didAuthorizePayment:completion:]_block_invoke_2
@@ -3157,7 +3166,7 @@ _OBJC_IVAR_$_STPBlockBasedApplePayDelegate._createSource
 l_OBJC_PROTOCOL_$_PKPaymentAuthorizationViewControllerDelegate
 l_OBJC_LABEL_PROTOCOL_$_PKPaymentAuthorizationViewControllerDelegate
 _kSTPBlockBasedApplePayDelegateAssociatedObjectKey
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PKPaymentAuthorizationViewController+Stripe_Blocks.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PKPaymentAuthorizationViewController+Stripe_Blocks.m
 linkPKPaymentAuthorizationViewControllerBlocksCategory
 __104-[STPBlockBasedApplePayDelegate paymentAuthorizationViewController:didSelectShippingContact:completion:]_block_invoke
 __103-[STPBlockBasedApplePayDelegate paymentAuthorizationViewController:didSelectShippingMethod:completion:]_block_invoke
@@ -3256,11 +3265,11 @@ l_OBJC_LABEL_PROTOCOL_$_STPPaymentMethodsInternalViewControllerDelegate
 ___block_descriptor_tmp.335
 ___block_descriptor_tmp.343
 ___block_descriptor_tmp.349
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsViewController.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPaymentMethodsViewController.m
 __123-[STPPaymentMethodsViewController(Private) initWithConfiguration:apiAdapter:loadingPromise:theme:shippingAddress:delegate:]_block_invoke.344
 __123-[STPPaymentMethodsViewController(Private) initWithConfiguration:apiAdapter:loadingPromise:theme:shippingAddress:delegate:]_block_invoke.338
 __123-[STPPaymentMethodsViewController(Private) initWithConfiguration:apiAdapter:loadingPromise:theme:shippingAddress:delegate:]_block_invoke
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentMethodsViewController.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPPaymentMethodsViewController.h
 __84-[STPPaymentMethodsViewController internalViewControllerDidCreateSource:completion:]_block_invoke_2
 __84-[STPPaymentMethodsViewController internalViewControllerDidCreateSource:completion:]_block_invoke
 __59-[STPPaymentMethodsViewController finishWithPaymentMethod:]_block_invoke_3
@@ -3283,7 +3292,7 @@ ___copy_helper_block_.12
 ___destroy_helper_block_.13
 ___block_descriptor_tmp.9
 ___block_descriptor_tmp.14
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UINavigationController+Stripe_Completion.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UINavigationController+Stripe_Completion.m
 linkUINavigationControllerCompletionCategory
 __89-[UINavigationController(Stripe_Completion) stp_popToViewController:animated:completion:]_block_invoke
 __86-[UINavigationController(Stripe_Completion) stp_popViewControllerAnimated:completion:]_block_invoke
@@ -3372,12 +3381,12 @@ _OBJC_IVAR_$_STPPromise._value
 _OBJC_IVAR_$_STPPromise._error
 ___block_descriptor_tmp.134
 ___block_descriptor_tmp.139
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPromise.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPromise.m
 __30-[STPVoidPromise voidFlatMap:]_block_invoke
 __32-[STPVoidPromise voidOnSuccess:]_block_invoke
 __35-[STPVoidPromise voidCompleteWith:]_block_invoke.128
 __35-[STPVoidPromise voidCompleteWith:]_block_invoke
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPromise.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPPromise.h
 __20-[STPPromise asVoid]_block_invoke.86
 __20-[STPPromise asVoid]_block_invoke
 __22-[STPPromise flatMap:]_block_invoke.77
@@ -3398,7 +3407,7 @@ __22-[STPPromise succeed:]_block_invoke
 -[NSString(Stripe) stp_safeSubstringFromIndex:]
 -[NSString(Stripe) stp_reversedString]
 ___38-[NSString(Stripe) stp_reversedString]_block_invoke
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSString+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSString+Stripe.m
 linkNSStringCategory
 __38-[NSString(Stripe) stp_reversedString]_block_invoke
 +[Stripe(STPURLCallbackHandlerAdditions) handleStripeURLCallbackWithURL:]
@@ -3421,7 +3430,7 @@ _OBJC_IVAR_$_STPURLCallback._listener
 _shared.handler
 _shared.onceToken
 _OBJC_IVAR_$_STPURLCallbackHandler._callbacks
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPURLCallbackHandler.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPURLCallbackHandler.m
 __31+[STPURLCallbackHandler shared]_block_invoke
 +[NSError(StripePrivate) stp_genericFailedToParseResponseError]
 +[NSError(StripePrivate) stp_genericConnectionError]
@@ -3434,7 +3443,7 @@ __31+[STPURLCallbackHandler shared]_block_invoke
 +[NSError(StripePrivate) stp_cardErrorDeclinedUserMessage]
 +[NSError(StripePrivate) stp_unexpectedErrorMessage]
 +[NSError(StripePrivate) stp_cardErrorProcessingErrorUserMessage]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSError+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSError+Stripe.m
 linkNSErrorPrivateCategory
 +[STPAPIRequest postWithAPIClient:endpoint:parameters:deserializer:completion:]
 +[STPAPIRequest postWithAPIClient:endpoint:parameters:deserializers:completion:]
@@ -3449,7 +3458,7 @@ ___67+[STPAPIRequest parseResponse:body:error:deserializers:completion:]_block_i
 ___67+[STPAPIRequest parseResponse:body:error:deserializers:completion:]_block_invoke_2
 ___copy_helper_block_.54
 ___destroy_helper_block_.55
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIRequest.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPAPIRequest.m
 __67+[STPAPIRequest parseResponse:body:error:deserializers:completion:]_block_invoke_2
 __67+[STPAPIRequest parseResponse:body:error:deserializers:completion:]_block_invoke
 __82+[STPAPIRequest deleteWithAPIClient:endpoint:parameters:deserializers:completion:]_block_invoke
@@ -3465,7 +3474,7 @@ _stp_asciiDigitCharacterSet.cs
 _stp_asciiDigitCharacterSet.onceToken
 _stp_invertedAsciiDigitCharacterSet.cs
 _stp_invertedAsciiDigitCharacterSet.onceToken
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSCharacterSet+Stripe.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSCharacterSet+Stripe.m
 linkNSCharacterSetCategory
 __60+[NSCharacterSet(Stripe) stp_invertedAsciiDigitCharacterSet]_block_invoke
 __52+[NSCharacterSet(Stripe) stp_asciiDigitCharacterSet]_block_invoke
@@ -3495,11 +3504,11 @@ _OBJC_IVAR_$_STPFile._purpose
 _OBJC_IVAR_$_STPFile._size
 _OBJC_IVAR_$_STPFile._type
 _OBJC_IVAR_$_STPFile._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFile.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPFile.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPFile.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPFile.h
 +[NSBundle(Stripe_AppName) stp_applicationName]
 +[NSBundle(Stripe_AppName) stp_applicationVersion]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/NSBundle+Stripe_AppName.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/NSBundle+Stripe_AppName.m
 linkNSBundleAppNameCategory
 -[STPValidatedTextField setDefaultColor:]
 -[STPValidatedTextField setErrorColor:]
@@ -3518,10 +3527,10 @@ _OBJC_IVAR_$_STPValidatedTextField._defaultColor
 _OBJC_IVAR_$_STPValidatedTextField._errorColor
 _OBJC_IVAR_$_STPValidatedTextField._placeholderColor
 _OBJC_IVAR_$_STPValidatedTextField._validText
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPValidatedTextField.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPValidatedTextField.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPValidatedTextField.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPValidatedTextField.h
 -[UIView(Stripe_FirstResponder) stp_findFirstResponder]
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/UIView+Stripe_FirstResponder.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/UIView+Stripe_FirstResponder.m
 linkUIViewFirstResponderCategory
 -[STPBankAccountParams init]
 -[STPBankAccountParams last4]
@@ -3554,8 +3563,8 @@ _OBJC_IVAR_$_STPBankAccountParams._routingNumber
 _OBJC_IVAR_$_STPBankAccountParams._country
 _OBJC_IVAR_$_STPBankAccountParams._currency
 _OBJC_IVAR_$_STPBankAccountParams._accountHolderName
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBankAccountParams.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPBankAccountParams.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPBankAccountParams.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPBankAccountParams.h
 +[STPSourceVerification stringToStatusMapping]
 +[STPSourceVerification statusFromString:]
 +[STPSourceVerification stringFromStatus:]
@@ -3571,6 +3580,6 @@ _OBJC_IVAR_$_STPBankAccountParams._accountHolderName
 _OBJC_IVAR_$_STPSourceVerification._attemptsRemaining
 _OBJC_IVAR_$_STPSourceVerification._status
 _OBJC_IVAR_$_STPSourceVerification._allResponseFields
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceVerification.m
-/Users/bg/temp/stripe-terminal-ios/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceVerification.h
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/STPSourceVerification.m
+/Users/bg/stripe/stripe-pos-ios/Examples/Example/Carthage/Checkouts/stripe-ios/Stripe/PublicHeaders/STPSourceVerification.h
 /Users/bg/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A254a/stripe-ios/v12.1.0/Build/Intermediates.noindex/ArchiveIntermediates/StripeiOS/IntermediateBuildFilesPath/Stripe.build/Release-iphoneos/StripeiOS.build/DerivedSources/Stripe_vers.c

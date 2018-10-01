@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.frameworks                     = 'Foundation', 'Security', 'CoreBluetooth', 'CoreLocation', 'CoreAudio', 'MediaPlayer', 'ExternalAccessory'
   s.requires_arc                   = true
   s.platform                       = :ios
-  s.ios.deployment_target          = '10.0'
+  s.ios.deployment_target          = '9.0'
   s.source                         = { :http => 'https://github.com/stripe/stripe-terminal-ios/releases/download/v1.0-b1/StripeTerminal.framework.zip' }
   s.ios.vendored_frameworks        = 'StripeTerminal.framework'
   s.license      = { :type => 'MIT', :text => <<-LICENSE

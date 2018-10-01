@@ -69,6 +69,9 @@
                 <a href="../Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
@@ -130,13 +133,22 @@
             <a href="../Reader Updates.html">Reader Updates</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/SCPUpdateReaderDelegate.html">SCPUpdateReaderDelegate</a>
+                <a href="../Protocols/SCPUpdateReaderSoftwareDelegate.html">SCPUpdateReaderSoftwareDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SCPReaderUpdate.html">SCPReaderUpdate</a>
+                <a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SCPUpdateReaderSoftwareParameters.html">SCPUpdateReaderSoftwareParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SCPUpdateReaderSoftwareEnvironment.html">SCPUpdateReaderSoftwareEnvironment</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -204,9 +216,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPCardSourceCompletionBlock">SCPCardSourceCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Blocks.html#/c:SCPBlocks.h@T@SCPInstallUpdateCompletionBlock">SCPInstallUpdateCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1233,9 +1242,9 @@ card.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPTerminal(im)updateReader:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-updateReader:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)updateReader:completion:">-updateReader:completion:</a>
+                    <a name="/c:objc(cs)SCPTerminal(im)updateReaderSoftware:delegate:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-updateReaderSoftware:delegate:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)updateReaderSoftware:delegate:completion:">-updateReaderSoftware:delegate:completion:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1243,21 +1252,29 @@ card.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks for a reader update and prompts your app to begin installing the update.</p>
+                        <p>Checks for a reader software update, and prompts your app to begin installing
+the update.</p>
 
-<p>If an update is available, the completion block will be called with nil.
-the delegate&rsquo;s  <code>readerUpdateAvailable:</code> method will be called, and you will
-have the opportunity to either begin or cancel the update.</p>
+<p>If an update is available, the completion block will be called with nil,
+indicating that checking for a software update succeeded. Your delegate&rsquo;s
+<code>readerSoftwareUpdateAvailable:</code> method will be called, and you will have
+the opportunity to notify your user, and then begin or cancel the update.</p>
 
-<p>If no update is available, or an error occurs checking for an update, the
-completion block will be called with an error.</p>
+<p>If an error occurs checking for an update (e.g. because no software update is
+available), the completion block will be called with an error.</p>
+
+<p>You must implement the ability to update your reader&rsquo;s software in your app.
+Though we expect required software updates to be very rare, by using Stripe
+Terminal, you are obligated to include this functionality.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPUpdateReaderDelegate.html">SCPUpdateReaderDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">updateReaderSoftware</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPUpdateReaderSoftwareParameters.html">SCPUpdateReaderSoftwareParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">params</span>
+            <span class="nf">delegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPUpdateReaderSoftwareDelegate.html">SCPUpdateReaderSoftwareDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
           <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
@@ -1266,6 +1283,18 @@ completion block will be called with an error.</p>
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>params</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The parameters for the update</p>
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -1397,7 +1426,7 @@ entered card details.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">from</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">ReaderInputOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderInputOptions</span><span class="p">(</span><span class="n">_</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">ReaderInputOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1430,7 +1459,40 @@ entered card details.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">from</span> <span class="nv">prompt</span><span class="p">:</span> <span class="kt">ReaderInputPrompt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderInputPrompt</span><span class="p">(</span><span class="n">_</span> <span class="nv">prompt</span><span class="p">:</span> <span class="kt">ReaderInputPrompt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromReaderEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:">+stringFromReaderEvent:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given reader event, e.g.
+<q>Card Inserted</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a></span><span class="p">)</span><span class="nv">event</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">ReaderEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1458,12 +1520,12 @@ entered card details.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromConnectionStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span><span class="p">)</span><span class="nv">state</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromConnectionStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">from</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">ConnectionStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromConnectionStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">ConnectionStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1491,12 +1553,12 @@ entered card details.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromPaymentStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span><span class="p">)</span><span class="nv">state</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromPaymentStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">from</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">PaymentStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromPaymentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">PaymentStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1528,7 +1590,7 @@ entered card details.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">from</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromDeviceType</span><span class="p">(</span><span class="n">_</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1594,7 +1656,7 @@ entered card details.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
