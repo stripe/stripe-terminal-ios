@@ -6,7 +6,7 @@
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
 ## Try the example app
-The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the [TestFlight Beta](https://stripe-terminal-app.herokuapp.com/) to download the app.
+The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the [TestFlight Beta](https://stripe-terminal-app.herokuapp.com/) to download the example app directly.
 
 To build the example app from source:
 
