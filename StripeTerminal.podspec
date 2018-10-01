@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name                           = 'StripeTerminal'
-  s.version                        = '1.0-b1'
+  s.version                        = '1.0-b2'
   s.summary                        = 'The programmable point of sale.'
   s.homepage                       = 'https://stripe.com/terminal'
   s.authors                        = { 'Stripe' => 'support+github@stripe.com' }
-  s.source                         = { :git => 'https://github.com/stripe/stripe-terminal-ios.git', :tag => "v1.0-b1" }
+  s.source                         = { :git => 'https://github.com/stripe/stripe-terminal-ios.git', :tag => "v1.0.0-b1" }
   s.frameworks                     = 'Foundation', 'Security', 'CoreBluetooth', 'CoreLocation', 'CoreAudio', 'MediaPlayer', 'ExternalAccessory'
   s.requires_arc                   = true
   s.platform                       = :ios
