@@ -72,10 +72,12 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 - Privacy - Bluetooth Peripheral Usage Description
   - Key: `NSBluetoothPeripheralUsageDescription`
-  - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
+  - Value: “Bluetooth access is required in order to connect to supported card readers.”
 - Privacy - Microphone Usage Description
   - Key: `NSMicrophoneUsageDescription`
-  - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
+  - Value: “Microphone access is required in order to connect to supported card readers.”
+  
+> Note: Although we do not currently support any audio-jack card readers, you'll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation.
 
 
 ## Documentation
