@@ -17,6 +17,11 @@ NS_SWIFT_NAME(ReadSourceParameters)
 @interface SCPReadSourceParameters : NSObject
 
 /**
+ Optional set of key-value pairs attached to the object. The default is nil.
+ */
+@property (nonatomic, copy, nullable, readwrite) NSDictionary *metadata;
+
+/**
  To create the source on a conected account, set this property to the ID of the
  account for which the request is being made. The default is nil.
  

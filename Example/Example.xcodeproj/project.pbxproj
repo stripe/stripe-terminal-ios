@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
 		C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; };
 		C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
 		C106AD1921485AD300EB471C /* StripeTerminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripeTerminal.framework; sourceTree = SOURCE_ROOT; };
 		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				C1D3A023214208800095A07B /* ReaderViewController.swift */,
+				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
 				C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
 				C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */,
@@ -259,6 +262,7 @@
 				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
 				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
 				C16F40BB2094F0A1009CE87C /* APIClient.swift in Sources */,
+				6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

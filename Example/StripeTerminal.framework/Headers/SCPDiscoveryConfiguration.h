@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SCPDeviceType.h"
+#import "SCPDiscoveryMethod.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,15 +20,46 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 @interface SCPDiscoveryConfiguration : NSObject
 
 /**
- The timeout for discovery, in seconds. If the value is 0, discovery will not
- timeout. Default is 0 (no timeout).
+ Initializes a discovery configuration with the given device type.
+ The the discovery method is the default for that device type.
+
+ @param deviceType      The device type to discover.
+ */
+- (instancetype)initWithDeviceType:(SCPDeviceType)deviceType;
+
+/**
+ Initializes a discovery configuration with the given device type and discovery method.
+ 
+ @param deviceType      The device type to discover.
+ @param method          The discovery method to use.
+ */
+- (nullable instancetype)initWithDeviceType:(SCPDeviceType)deviceType method:(SCPDiscoveryMethod)method;
+
+/**
+ The timeout (in seconds) after which discoverReeaders should fail. If the
+ value is 0 (the default), discoverReaders will never timeout.
  */
 @property (nonatomic, assign, readwrite) NSUInteger timeout;
 
 /**
- The reader's device type. Default is Chipper2X.
+ The reader device type to discover.
  */
-@property (nonatomic, assign, readwrite) SCPDeviceType deviceType;
+@property (nonatomic, readonly) SCPDeviceType deviceType;
+
+/**
+ The method by which to discover readers.
+ */
+@property (nonatomic, readonly) SCPDiscoveryMethod method;
+
+/**
+ Use `initWithDeviceType:`
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ Use `initWithDeviceType:`
+ */
+- (instancetype)new NS_UNAVAILABLE;
 
 @end
 

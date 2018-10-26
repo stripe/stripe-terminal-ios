@@ -14,13 +14,14 @@
 #import "SCPPaymentStatus.h"
 #import "SCPReaderInputDelegate.h"
 #import "SCPReaderEvent.h"
+#import "SCPDiscoveryMethod.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-b2";
+static NSString *const SCPSDKVersion = @"1.0.0-b3";
 
 @class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters, SCPUpdateReaderSoftwareParameters;
 
@@ -245,7 +246,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion        The completion block called when the cancel completes.
  */
 - (void)cancelPaymentIntent:(SCPPaymentIntent *)paymentIntent
-                 completion:(SCPPaymentIntentCompletionBlock)completion;
+                 completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(cancelPaymentIntent(_:completion:));
 
 /**
  Reads a payment method with the given parameters and returns a Stripe source.
@@ -344,6 +345,11 @@ NS_SWIFT_NAME(Terminal)
  Returns an unlocalized string for the given device type.
  */
 + (NSString *)stringFromDeviceType:(SCPDeviceType)deviceType NS_SWIFT_NAME(stringFromDeviceType(_:));
+
+/**
+ Returns an unlocalized string for the given discovery method.
+ */
++ (NSString *)stringFromDiscoveryMethod:(SCPDiscoveryMethod)method NS_SWIFT_NAME(stringFromDiscoveryMethod(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

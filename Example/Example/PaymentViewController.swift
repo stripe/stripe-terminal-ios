@@ -21,9 +21,9 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
     private weak var doneButton: UIBarButtonItem?
     private var completed = false
 
-    private var collectPaymentMethodCancelable: Cancelable? = nil {
+    private var cancelable: Cancelable? = nil {
         didSet {
-            cancelButton?.isEnabled = (collectPaymentMethodCancelable != nil)
+            cancelButton?.isEnabled = (cancelable != nil)
         }
     }
     private var events: [LogEvent] = [] {
@@ -86,8 +86,8 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                 // 2. collectPaymentMethod
                 var collectEvent = LogEvent(method: .collectPaymentMethod)
                 self.events.append(collectEvent)
-                self.collectPaymentMethodCancelable = self.terminal.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
-                    self.collectPaymentMethodCancelable = nil
+                self.cancelable = self.terminal.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
+                    self.cancelable = nil
                     if let error = attachError {
                         collectEvent.result = .errored
                         collectEvent.object = error
@@ -171,13 +171,14 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         // cancel collectPaymentMethod
         var event = LogEvent(method: .cancelCollectPaymentMethod)
         self.events.append(event)
-        collectPaymentMethodCancelable?.cancel { error in
+        cancelable?.cancel { error in
             if let error = error {
                 event.result = .errored
                 event.object = error
             }
             else {
                 event.result = .succeeded
+                self.dismiss(animated: true, completion: nil)
             }
             self.events.append(event)
         }
@@ -189,7 +190,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         headerView.connectionStatus = status
     }
 
-    func terminal(_ terminal: Terminal, didReport event: ReaderEvent, info: [AnyHashable : Any]?) {
+    func terminal(_ terminal: Terminal, didReportReaderEvent event: ReaderEvent, info: [AnyHashable : Any]?) {
         var logEvent = LogEvent(method: .readerEvent)
         logEvent.result = .message(Terminal.stringFromReaderEvent(event))
         events.append(logEvent)

@@ -43,7 +43,7 @@ class DeviceTypeViewController: TableViewController {
                     self.onSelectedDevice(.chipper2X)
                     self.navigationController?.popViewController(animated: true)
                 }, accessory: (deviceType == .chipper2X ? .checkmark : .none)),
-                ], footer: "Discover card readers by scanning for nearby bluetooth devices. \n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the system Settings > Bluetooth page."),
+                ], footer: "Discover card readers by scanning for nearby bluetooth devices. \n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page."),
         ]
     }
 

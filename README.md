@@ -1,4 +1,4 @@
-# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 2-brightgreen.svg">
+# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 3-brightgreen.svg">
 
 [Request a Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
@@ -25,7 +25,7 @@ We recommend that you install the SDK using Cocoapods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.0-b2'
+pod 'StripeTerminal', '1.0-b3'
 ```
 
 3. Run the following command:
@@ -47,7 +47,7 @@ pod update StripeTerminal
 
 3. Navigate to the Build Phases section of your Xcode project settings, and create a new Run Script Build Phase. Paste the following snippet into the text field:
 ```
-bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh"
+bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate_framework.sh"
 ```
 
 When new versions of the SDK are released, repeat steps one and two to update your installation
@@ -72,11 +72,11 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 - Privacy - Bluetooth Peripheral Usage Description
   - Key: `NSBluetoothPeripheralUsageDescription`
-  - Value: “Bluetooth access is required in order to connect to supported card readers.”
+  - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
 - Privacy - Microphone Usage Description
   - Key: `NSMicrophoneUsageDescription`
   - Value: “Microphone access is required in order to connect to supported card readers.”
-  
+
 > Note: Although we do not currently support any audio-jack card readers, you'll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation.
 
 

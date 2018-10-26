@@ -22,6 +22,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     static var deviceType: DeviceType = .chipper2X
+    static var discoveryMethod: DiscoveryMethod = .bluetoothProximity
 
     private let headerView = ReaderHeaderView()
 
@@ -51,10 +52,9 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        guard let terminal = RootViewController.terminal else { return }
+        guard let terminal = RootViewController.terminal,
+            let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
 
-        let config = DiscoveryConfiguration()
-        config.deviceType = ReaderViewController.deviceType
         let discoveryVC = ReaderDiscoveryViewController(terminal: terminal, discoveryConfig: config)
         discoveryVC.onConnectedToReader = { reader in
             self.connectedReader = reader
@@ -127,6 +127,15 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    internal func showDiscoveryMethods() {
+        let vc = DiscoveryMethodViewController(method: ReaderViewController.discoveryMethod)
+        vc.onSelectedMethod = { method in
+            ReaderViewController.discoveryMethod = method
+            self.updateContent()
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     private func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
@@ -141,7 +150,12 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                 Section(header: "Device Type", rows: [
                     Row(text: ReaderViewController.deviceType.description, selection: { [unowned self] in
                         self.showDeviceTypes()
-                    }, accessory: .disclosureIndicator),
+                        }, accessory: .disclosureIndicator),
+                    ]),
+                Section(header: "Discovery Method", rows: [
+                    Row(text: ReaderViewController.discoveryMethod.description, selection: { [unowned self] in
+                        self.showDiscoveryMethods()
+                        }, accessory: .disclosureIndicator),
                     ]),
             ]
         }
@@ -149,7 +163,6 @@ class ReaderViewController: TableViewController, TerminalDelegate {
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(header: rdrConnectionTitle, rows: [
-                    // TODO: red text
                     Row(text: "Disconnect", selection: { [unowned self] in
                         self.disconnectFromReader()
                         }, cellClass: RedButtonCell.self),
@@ -179,5 +192,11 @@ class ReaderViewController: TableViewController, TerminalDelegate {
 extension DeviceType: CustomStringConvertible {
     public var description: String {
         return Terminal.stringFromDeviceType(self)
+    }
+}
+
+extension DiscoveryMethod: CustomStringConvertible {
+    public var description: String {
+        return Terminal.stringFromDiscoveryMethod(self)
     }
 }
