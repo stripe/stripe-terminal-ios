@@ -10,11 +10,10 @@ import Foundation
 import Alamofire
 import StripeTerminal
 
-class APIClient: NSObject, ConnectionTokenProvider {
+class APIClient: ConnectionTokenProvider {
 
     init(backend: BackendSimulator) {
         self.backend = backend
-        super.init()
     }
     private let backend: BackendSimulator
 
