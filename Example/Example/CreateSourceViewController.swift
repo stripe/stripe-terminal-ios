@@ -19,9 +19,9 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
     private var completed = false
 
     private let terminal: Terminal
-    private var collectPaymentMethodCancelable: Cancelable? = nil {
+    private var cancelable: Cancelable? = nil {
         didSet {
-            cancelButton?.isEnabled = (collectPaymentMethodCancelable != nil)
+            cancelButton?.isEnabled = (cancelable != nil)
         }
     }
     private var events: [LogEvent] = [] {
@@ -63,8 +63,8 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         let params = ReadSourceParameters()
         var readEvent = LogEvent(method: .readSource)
         self.events.append(readEvent)
-        self.collectPaymentMethodCancelable = self.terminal.readSource(params, delegate: self) { source, error in
-            self.collectPaymentMethodCancelable = nil
+        self.cancelable = self.terminal.readSource(params, delegate: self) { source, error in
+            self.cancelable = nil
             if let error = error {
                 readEvent.result = .errored
                 readEvent.object = error
@@ -110,9 +110,10 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
 
     @objc func cancelAction() {
         // cancel collectPaymentMethod
-        var event = LogEvent(method: .cancelCollectPaymentMethod)
+        // todo: rename
+        var event = LogEvent(method: .cancelReadSource)
         self.events.append(event)
-        collectPaymentMethodCancelable?.cancel { error in
+        cancelable?.cancel { error in
             if let error = error {
                 event.result = .errored
                 event.object = error

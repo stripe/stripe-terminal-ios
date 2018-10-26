@@ -28,9 +28,7 @@ NS_SWIFT_NAME(TerminalDelegate)
  @param event       The reader event.
  @param info        Additional info associated with the event, or nil.
  */
-- (void)terminal:(SCPTerminal *)terminal
-didReportReaderEvent:(SCPReaderEvent)event
-            info:(nullable NSDictionary *)info;
+- (void)terminal:(SCPTerminal *)terminal didReportReaderEvent:(SCPReaderEvent)event info:(nullable NSDictionary *)info NS_SWIFT_NAME(terminal(_:didReportReaderEvent:info:));
 
 /**
  The reader's battery is low.

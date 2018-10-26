@@ -19,11 +19,11 @@ NS_SWIFT_NAME(Reader)
 @interface SCPReader : NSObject
 
 /**
- The reader's battery level (in the range [0, 1]). If the reader does not
- have a battery or the battery level is unknown, the value of this property
- will be 1 or 0.
+ The reader's battery level, represented as a boxed float in the range [0, 1].
+ If the reader does not have a battery, or the battery level is unknown, this
+ value is nil.
  */
-@property (nonatomic, readonly) float batteryLevel;
+@property (nonatomic, nullable, readonly) NSNumber *batteryLevel;
 
 /**
  The reader's device type.

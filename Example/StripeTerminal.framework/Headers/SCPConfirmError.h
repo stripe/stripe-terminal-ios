@@ -42,10 +42,16 @@ NS_SWIFT_NAME(ConfirmError)
 @property (nonatomic, nullable, readonly) SCPPaymentIntent *paymentIntent;
 
 /**
- If the confirm failed because the underlying charge request errored,
+ If the confirm failed because the underlying network request errored,
  this property contains additional details about the error.
  */
 @property (nonatomic, nullable, readonly) NSError *requestError;
+
+/**
+ If the confirm failed because the payment method was declined, this property
+ contains the decline code.
+ */
+@property (nonatomic, nullable, readonly) NSString *declineCode;
 
 /**
  You cannot directly instantiate this class.

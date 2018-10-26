@@ -70,6 +70,11 @@ NS_SWIFT_NAME(CardPresentSource)
 @property (nonatomic, readonly) SCPReceiptData *receiptData;
 
 /**
+ Set of key-value pairs attached to the object.
+ */
+@property (nonatomic, nullable, readonly) NSDictionary *metadata;
+
+/**
  (Only applicable to EMV payments) The authorization data from the card
  issuer.
  */

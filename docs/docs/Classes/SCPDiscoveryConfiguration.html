@@ -72,10 +72,13 @@
                 <a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+                <a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
@@ -223,6 +226,9 @@
             <a href="../Other Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Other Constants.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Other Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
             </ul>
@@ -257,6 +263,122 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDeviceType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:">-initWithDeviceType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a discovery configuration with the given device type.
+The the discovery method is the default for that device type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The device type to discover.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:method:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDeviceType:method:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:method:">-initWithDeviceType:method:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a discovery configuration with the given device type and discovery method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
+                                     <span class="nf">method</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">method</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The device type to discover.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The discovery method to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)timeout"></a>
                     <a name="//apple_ref/objc/Property/timeout" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)timeout">timeout</a>
@@ -267,8 +389,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The timeout for discovery, in seconds. If the value is 0, discovery will not
-timeout. Default is 0 (no timeout).</p>
+                        <p>The timeout (in seconds) after which discoverReeaders should fail. If the
+value is 0 (the default), discoverReaders will never timeout.</p>
 
                       </div>
                       <div class="declaration">
@@ -300,19 +422,105 @@ timeout. Default is 0 (no timeout).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The reader&rsquo;s device type. Default is Chipper2X.</p>
+                        <p>The reader device type to discover.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span> <span class="n">deviceType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span> <span class="n">deviceType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)method"></a>
+                    <a name="//apple_ref/objc/Property/method" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)method">method</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method by which to discover readers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span> <span class="n">method</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use <code>initWithDeviceType:</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)new"></a>
+                    <a name="//apple_ref/objc/Method/-new" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)new">-new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use <code>initWithDeviceType:</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span> <span class="n">new</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -324,7 +532,7 @@ timeout. Default is 0 (no timeout).</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

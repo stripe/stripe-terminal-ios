@@ -72,10 +72,13 @@
                 <a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+                <a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
@@ -223,6 +226,9 @@
             <a href="../Other Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Other Constants.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Other Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
             </ul>
@@ -256,9 +262,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@SCPError@SCPErrorUnexpectedError"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorUnexpectedError" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedError">SCPErrorUnexpectedError</a>
+                    <a name="/c:@E@SCPError@SCPErrorUnexpectedSdkError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnexpectedSdkError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedSdkError">SCPErrorUnexpectedSdkError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -268,19 +274,19 @@
                       <div class="abstract">
                         <p>GENERIC ERRORS</p>
 
-<p>An unexpected error occurred.</p>
+<p>Unexpected SDK error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnexpectedError</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnexpectedSdkError</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedError</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedSdkError</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -290,9 +296,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@SCPError@SCPErrorSDKError"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorSDKError" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorSDKError">SCPErrorSDKError</a>
+                    <a name="/c:@E@SCPError@SCPErrorUnknownReaderError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnknownReaderError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnknownReaderError">SCPErrorUnknownReaderError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -300,19 +306,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generic SDK error.</p>
+                        <p>Unexpected reader error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSDKError</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnknownReaderError</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sdkError</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownReaderError</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -322,9 +328,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@SCPError@SCPErrorReaderError"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorReaderError" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderError">SCPErrorReaderError</a>
+                    <a name="/c:@E@SCPError@SCPErrorUnknownNetworkError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnknownNetworkError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnknownNetworkError">SCPErrorUnknownNetworkError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -332,83 +338,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generic reader error.</p>
+                        <p>Unexpected network error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderError</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnknownNetworkError</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerError</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@SCPError@SCPErrorCardError"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorCardError" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardError">SCPErrorCardError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Generic card error.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardError</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardError</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@SCPError@SCPErrorNetworkError"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorNetworkError" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorNetworkError">SCPErrorNetworkError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Generic network error.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNetworkError</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkError</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownNetworkError</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -541,6 +483,39 @@ the decline, including the decline code.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">paymentDeclinedByReader</span> <span class="o">=</span> <span class="mi">104</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorTerminatedByReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTerminatedByReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTerminatedByReader">SCPErrorTerminatedByReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader terminated the command. This can occur if a card from a previous
+payment was left in the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTerminatedByReader</span> <span class="o">=</span> <span class="mi">105</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">terminatedByReader</span> <span class="o">=</span> <span class="mi">105</span></code></pre>
 
                         </div>
                       </div>
@@ -1637,7 +1612,7 @@ communicating with the update server.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-01)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
  We suggest making your application's API client conform to this protocol.
 
  For more information on setting up your backend server, follow the integration
- guide at https://stripe.com/docs/terminal/backend
+ guide at https://stripe.com/docs/terminal/ios#connection-token
  */
 NS_SWIFT_NAME(ConnectionTokenProvider)
 @protocol SCPConnectionTokenProvider

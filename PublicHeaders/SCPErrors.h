@@ -26,25 +26,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      GENERIC ERRORS
      */
     /**
-     An unexpected error occurred.
+     Unexpected SDK error.
      */
-    SCPErrorUnexpectedError = 0,
+    SCPErrorUnexpectedSdkError = 1,
     /**
-     Generic SDK error.
+     Unexpected reader error.
      */
-    SCPErrorSDKError = 1,
+    SCPErrorUnknownReaderError = 3,
     /**
-     Generic reader error.
+     Unexpected network error.
      */
-    SCPErrorReaderError = 3,
-    /**
-     Generic card error.
-     */
-    SCPErrorCardError = 6,
-    /**
-     Generic network error.
-     */
-    SCPErrorNetworkError = 9,
+    SCPErrorUnknownNetworkError = 9,
 
     /**
      SDK ERRORS
@@ -67,6 +59,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The reader declined the payment. Try another card.
      */
     SCPErrorPaymentDeclinedByReader = 104,
+    /**
+     The reader terminated the command. This can occur if a card from a previous
+     payment was left in the reader.
+     */
+    SCPErrorTerminatedByReader = 105,
 
     /**
      Integration errors
@@ -273,6 +270,11 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorCode;
  @see https://stripe.com/docs/api#errors-type
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorType;
+
+/**
+ The documentation URL for the error returned by the Stripe API.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIDocUrl;
 
 /**
  The parameter the error relates to if the error is parameter-specific.

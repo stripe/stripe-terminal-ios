@@ -31,6 +31,7 @@ struct LogEvent: CustomStringConvertible {
         case createPaymentIntent = "terminal.createPaymentIntent"
         case collectPaymentMethod = "terminal.collectPaymentMethod"
         case cancelCollectPaymentMethod = "terminal.cancelCollectPaymentMethod"
+        case cancelReadSource = "terminal.cancelReadSource"
         case confirmPaymentIntent = "terminal.confirmPaymentIntent"
         case capturePaymentIntent = "backend.capturePaymentIntent"
         case waitingForReaderInput = "delegate.didBeginWaitingForReaderInput"
@@ -95,6 +96,13 @@ struct LogEvent: CustomStringConvertible {
             case .started: string = "Cancel Collect PaymentMethod"
             case .succeeded: string = "Canceled Collect PaymentMethod"
             case .errored: string = "Cancel Collect Payment Method Failed"
+            case .message(let message): string = message
+            }
+        case .cancelReadSource:
+            switch result {
+            case .started: string = "Cancel Read Source"
+            case .succeeded: string = "Canceled Read Source"
+            case .errored: string = "Cancel Read Source Failed"
             case .message(let message): string = message
             }
         }
