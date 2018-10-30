@@ -22,7 +22,7 @@ class RootViewController: UINavigationController, TerminalDelegate {
 
      @see https://stripe.com/docs/keys
      */
-    static var secretAPIKey: String? = nil;
+    static var secretAPIKey: String? = "sk_test_TK9psyaRp0g2pU9XUkSSdpvv";
 
     static var apiClient: APIClient?
     static var terminal: Terminal?

@@ -10,7 +10,11 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReaderViewController: TableViewController, TerminalDelegate {
+class ReaderViewController: TableViewController, TerminalDelegate, DiscoveryDelegate {
+    func terminal(_ terminal: Terminal, didUpdateDiscoveredReaders readers: [Reader]) {
+        print("hello!!!")
+    }
+    
 
     private let terminal: Terminal
 
@@ -52,18 +56,21 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        if let config = DiscoveryConfiguration(deviceType: .chipper2X, method: .bluetoothProximity) {
-            terminal.discoverReaders(config, delegate: self) { error in
-                if let error = error {
-                    self.print("Failed to discover: \(error)")
-                }
-                else {
-                    self.print("Finished discovering readers")
-                }
-            }
-        }
+//        if let config = DiscoveryConfiguration(deviceType: .chipper2X, method: .bluetoothProximity) {
+//            terminal.discoverReaders(config, delegate: self) { error in
+//                if let error = error {
+//                    print("Failed to discover: \(error)")
+//                }
+//                else {
+//                    print("Finished discovering readers")
+//                }
+//            }
+//        }
         guard let terminal = RootViewController.terminal,
-            let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
+            let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else {
+                print ("fail...")
+                return
+        }
 
         let discoveryVC = ReaderDiscoveryViewController(terminal: terminal, discoveryConfig: config)
         discoveryVC.onConnectedToReader = { reader in
