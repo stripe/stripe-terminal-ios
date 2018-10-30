@@ -52,16 +52,6 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        if let config = DiscoveryConfiguration(deviceType: .chipper2X, method: .bluetoothProximity) {
-            terminal.discoverReaders(config, delegate: self) { error in
-                if let error = error {
-                    self.print("Failed to discover: \(error)")
-                }
-                else {
-                    self.print("Finished discovering readers")
-                }
-            }
-        }
         guard let terminal = RootViewController.terminal,
             let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
 
