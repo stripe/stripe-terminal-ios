@@ -37,11 +37,12 @@ import Alamofire
     /**
      Creates a Terminal Connection Token
      */
-    func createConnectionToken(_ completion: @escaping (String?, Error?) -> Void) {
+    func createConnectionToken(stripeAccount: String? = nil, completion: @escaping (String?, Error?) -> Void) {
         let url = self.baseURL.appendingPathComponent("terminal/connection_tokens")
-        let headers: HTTPHeaders = [
+        var headers: HTTPHeaders = [
             "Authorization": "Bearer \(self.apiKey)",
         ]
+        headers["Stripe-Account"] = stripeAccount
         Alamofire.request(url,
                           method: .post,
                           parameters: nil,
