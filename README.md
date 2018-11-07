@@ -77,7 +77,7 @@ For your app to pass validation when submitting to the App Store, add the follow
   - Key: `NSMicrophoneUsageDescription`
   - Value: “Microphone access is required in order to connect to supported card readers.”
 
-> Note: Although we do not currently support any audio-jack card readers, you'll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation.
+> Note: Although we do not currently support any audio-jack card readers, you'll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation, as our underlying hardware SDK accesses these APIs. Since the SDK never actually uses microphone access, your users will never see a prompt for the microphone permission.
 
 
 ## Documentation
