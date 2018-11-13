@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-b3";
+static NSString *const SCPSDKVersion = @"1.0.0-b4";
 
 @class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters, SCPUpdateReaderSoftwareParameters;
 
@@ -249,12 +249,21 @@ NS_SWIFT_NAME(Terminal)
                  completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(cancelPaymentIntent(_:completion:));
 
 /**
- Reads a payment method with the given parameters and returns a Stripe source.
+ Reads a payment method with the given parameters and returns a source.
 
- Note that sources created using this method cannot be charged. Use
- `collectPaymentMethod` and `confirmPaymentIntent` if you are collecting a
- payment from a customer. Use this method to read payment details without
- charging the customer.
+ **NOTE: Most integrations should **not** use `readSource`.**
+
+ You should create a `PaymentIntent` and use the associated `collectPaymentMethod`
+ and `confirmPaymentIntent` methods if you are simply collecting a payment from
+ a customer.
+
+ You can use `readSource` to read payment details and defer payment for later.
+ To do this, you will need to turn the "card present" source into a
+ "card not present" source, which you can use to charge the customer online.
+
+ Note that if you use this method to defer a payment, the transaction will
+ *not* receive the beneficial rates and liability shift associated with card
+ present transactions.
 
  If reading a source fails, the completion block will be called with an error
  containing details about the failure. If reading a source succeeds, the
@@ -262,7 +271,7 @@ NS_SWIFT_NAME(Terminal)
  the ID of the source to your backend for further processing. For example,
  you can use source's fingerprint to look up a charge created using the same
  card.
- 
+
  @param parameters  The parameters for reading the source.
  @param delegate    Your delegate for handling reader input events.
  @param completion  The completion block called when the command completes.

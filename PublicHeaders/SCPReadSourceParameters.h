@@ -12,6 +12,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Parameters for reading a source.
+
+ **NOTE: Most integrations should **not** use `readSource`.**
+
+ You should create a `PaymentIntent` and use the associated `collectPaymentMethod`
+ and `confirmPaymentIntent` methods if you are simply collecting a payment from
+ a customer.
+
+ You can use `readSource` to read payment details and defer payment for later.
+ To do this, you will need to turn the "card present" source into a
+ "card not present" source, which you can use to charge the customer online.
+
+ Note that if you use this method to defer a payment, the transaction will
+ *not* receive the beneficial rates and liability shift associated with card
+ present transactions.
  */
 NS_SWIFT_NAME(ReadSourceParameters)
 @interface SCPReadSourceParameters : NSObject

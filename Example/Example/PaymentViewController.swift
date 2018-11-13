@@ -117,7 +117,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                                 // 4. send to backend for capture
                                 var captureEvent = LogEvent(method: .capturePaymentIntent)
                                 self.events.append(captureEvent)
-                                apiClient.capturePaymentIntent(intent.stripeId, stripeAccount: nil) { captureError in
+                                apiClient.capturePaymentIntent(intent.stripeId) { captureError in
                                     if let error = captureError {
                                         captureEvent.result = .errored
                                         captureEvent.object = error

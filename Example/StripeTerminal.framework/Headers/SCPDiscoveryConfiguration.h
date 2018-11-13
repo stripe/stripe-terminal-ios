@@ -29,6 +29,11 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 
 /**
  Initializes a discovery configuration with the given device type and discovery method.
+
+ Note that this initializer returns an optional value because not all deviceType
+ and method combinations are valid. For the Chipper 2X, we recommend using the
+ bluetoothProximity discovery method, which lets you discover a single reader by
+ holding it next to the iOS device.
  
  @param deviceType      The device type to discover.
  @param method          The discovery method to use.
@@ -36,8 +41,12 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 - (nullable instancetype)initWithDeviceType:(SCPDeviceType)deviceType method:(SCPDiscoveryMethod)method;
 
 /**
- The timeout (in seconds) after which discoverReeaders should fail. If the
+ The timeout (in seconds) after which discoverReaders should fail. If the
  value is 0 (the default), discoverReaders will never timeout.
+
+ Note that setting a timeout is not currently supported when using:
+ - The BluetoothProximity DiscoveryMethod
+ - The ReaderSimulator DeviceType
  */
 @property (nonatomic, assign, readwrite) NSUInteger timeout;
 
