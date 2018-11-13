@@ -11,30 +11,27 @@ import StripeTerminal
 
 class RootViewController: UINavigationController, TerminalDelegate {
     /**
-     NOTE: A backend simulator has been included as part of the example app for
-     demonstration purposes only.
+     To get started with this demo, you'll need to first deploy an instance of
+     our provided example backend:
 
-     Secret API keys should be kept confidential and stored only on your own
-     servers. Your account’s secret API key can perform any API request to
-     Stripe without restriction.
+     https://github.com/stripe/example-terminal-backend
 
-     You should _never_ hardcode your secret API key into your own app.
+     After deploying your backend, replace nil on the line below with the URL
+     of your Heroku app.
 
-     @see https://stripe.com/docs/keys
+     static var backendUrl: String? = "https://your-app.herokuapp.com"
      */
-    static var secretAPIKey: String? = nil;
+    static var backendUrl: String? = nil
 
     static var apiClient: APIClient?
     static var terminal: Terminal?
-    let backend: BackendSimulator
 
     init() {
-        guard let apiKey = RootViewController.secretAPIKey,
-            apiKey.hasPrefix("sk_test") else {
-                fatalError("You must provide a secret testmode API key to run this app.")
+        guard let backendUrl = RootViewController.backendUrl else {
+            fatalError("You must provide a backend URL to run this app.")
         }
-        backend = BackendSimulator(secretAPIKey: apiKey)
-        let apiClient = APIClient(backend: backend)
+        let apiClient = APIClient()
+        apiClient.baseURLString = backendUrl
         RootViewController.apiClient = apiClient
         super.init(nibName: nil, bundle: nil)
         navigationBar.isTranslucent = false

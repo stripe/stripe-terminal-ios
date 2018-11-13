@@ -151,7 +151,8 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     SCPErrorBluetoothDisconnected = 323,
     /**
      Connecting to the bluetooth device timed out. Make sure the device is
-     powered on and in range.
+     powered on, in range, and not connected to another app or device. If this
+     error continues to occur, you may need to charge the device.
      */
     SCPErrorBluetoothConnectTimedOut = 324,
     /**

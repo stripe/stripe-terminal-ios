@@ -193,6 +193,9 @@
               <li class="nav-group-task">
                 <a href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -225,9 +228,6 @@
             <a href="Other Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Other Constants.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Other Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
             </ul>
@@ -246,7 +246,7 @@
         <section>
           <section class="section">
             
-            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-3-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 3-brightgreen.svg"></h1>
+            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-4-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 4-brightgreen.svg"></h1>
 
 <p><a href="https://stripe.com/terminal#request-invite">Request a Beta invite</a> to get started with Stripe Terminal.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
@@ -256,24 +256,25 @@
 
 <p>The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the <a href="https://testflight.apple.com/join/NYXuDNuT">TestFlight Beta</a> to download the example app directly (you&rsquo;ll need to open the link on an iOS device).</p>
 
-<p>To build the example app from source:</p>
+<p>To build the example app from source, you&rsquo;ll need to:</p>
 
 <ol>
 <li>Navigate to the <code>Example</code> folder, and open <code>Example.xcodeproj</code>.</li>
-<li>In <code>RootViewController.swift</code>, set your Stripe Account&rsquo;s test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should <em>never</em> store your Stripe account&rsquo;s secret API key in your own app. For more information, see <a href="https://stripe.com/docs/keys">https://stripe.com/docs/keys</a></li>
-<li>Build and run the app. Stripe Terminal comes with a simple reader simulator, so you can get started without any physical hardware.</li>
+<li>Navigate to our <a href="https://github.com/stripe/example-terminal-backend">example backend</a> and click the button to deploy it on Heroku.</li>
+<li>In <code>RootViewController.swift</code>, set the URL of the Heroku app you just deployed.</li>
+<li>Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.</li>
 </ol>
 
 <p>Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We&rsquo;ve included pre-built dependencies using Swift 4.2. You may need to run <code>./setup.sh</code> to re-build the app&rsquo;s dependencies for your environment.</p>
 <h2 id='installation' class='heading'>Installation</h2>
 
-<p>We recommend that you install the SDK using Cocoapods. If you prefer to install the library manually, please use the latest version from our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page.</p>
-<h3 id='cocoapods' class='heading'>Cocoapods</h3>
+<p>We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page.</p>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <ol>
 <li><p>If you haven&rsquo;t already, install the latest version of <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>.</p></li>
 <li><p>Add this line to your Podfile:</p>
-<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0.0-b3'
+<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0.0-b4'
 </code></pre></li>
 <li><p>Run the following command:</p>
 <pre class="highlight plaintext"><code>pod install
@@ -342,7 +343,7 @@
 </ul>
 
 <blockquote>
-<p>Note: Although we do not currently support any audio-jack card readers, you&rsquo;ll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation.</p>
+<p>Note: Although we do not currently support any audio-jack card readers, you&rsquo;ll still need to add a Microphone Usage Description to your Info.plist to pass App Store validation, as our underlying hardware SDK accesses these APIs. Since the SDK never actually uses microphone access, your users will never see a prompt for the microphone permission.</p>
 </blockquote>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
@@ -354,7 +355,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-10-26)</p>
+          <p>&copy; 2018 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2018-11-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

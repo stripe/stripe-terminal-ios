@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Implement this protocol to handle a continually updating list
- of discovered readers. You must pass a `SCPDiscoveryDelegate`
+ of discovered readers. You must pass a `DiscoveryDelegate`
  when calling `discoverReaders`.
  */
 NS_SWIFT_NAME(DiscoveryDelegate)
@@ -27,11 +27,32 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  - `discoverReaders` is canceled
  - `connect` is called with a discovered reader
 
+ You should *not* cache the `Reader` objects in the readers array. In other
+ words, after calling `connectReader` with a discovered reader, you should not
+ attempt to cache and re-use the `Reader` object. The connectivity information
+ associated with the discovered `Reader` object will become stale.
+
+ == Bluetooth Scan ==
+
+ When discovering a reader using this method, the `didUpdateDiscoveredReaders`
+ delegate method will be called multiple times as the Bluetooth scan
+ proceeds.
+
  Your app should display an updating list of discovered readers if
  your user is connecting to a reader for the first time.
+
  Otherwise, you may automatically select a previously saved reader.
- Once a selection has been made, call the `connect` method to begin
+ Once a selection has been made, call the `connectReader` method to begin
  connecting to the reader.
+
+ == Bluetooth Proximity ==
+
+ When discovering a reader using this method, the `didUpdateDiscoveredReaders`
+ delegate method will be called twice. It will be called for the first time
+ when the reader is initially discovered. The reader's LEDs will begin
+ flashing. After a short delay, `didUpdateDiscoveredReaders` will be called
+ a second time with an updated reader object, populated with additional
+ info about the device, like its battery level.
 
  @param terminal        The originating SCPTerminal.
  @param readers         The discovered readers.

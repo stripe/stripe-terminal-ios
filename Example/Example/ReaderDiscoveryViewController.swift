@@ -17,7 +17,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
     private let config: DiscoveryConfiguration
     private var discoverCancelable: Cancelable? = nil
     private weak var cancelButton: UIBarButtonItem?
-    private let activityIndicatorView = ActivityIndicatorHeaderView(title: "NEARBY READERS")
+    private let activityIndicatorView = ActivityIndicatorHeaderView(title: "HOLD READER NEARBY")
 
     init(terminal: Terminal, discoveryConfig: DiscoveryConfiguration) {
         self.terminal = terminal
@@ -54,15 +54,55 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
     }
 
     private func updateContent(readers: [Reader]) {
-        let rows = readers.map { reader in
-            Row(text: reader.serialNumber, selection: { [unowned self] in
-                self.connect(to: reader)
-            })
+        if readers.count == 0 {
+            switch (self.config.method) {
+            case .bluetoothProximity:
+                activityIndicatorView.title = "HOLD READER NEARBY"
+                break
+            case .bluetoothScan:
+                activityIndicatorView.title = "NEARBY READERS"
+                break
+            }
+            dataSource.sections = [
+                Section(header: Section.Extremity.view(activityIndicatorView),
+                        rows: [])
+            ]
         }
-        dataSource.sections = [
-            Section(header: Section.Extremity.view(activityIndicatorView),
-                    rows: rows)
-        ]
+        else {
+            switch (self.config.method) {
+            case .bluetoothProximity:
+                activityIndicatorView.title = "DISCOVERED READER"
+                break
+            case .bluetoothScan:
+                activityIndicatorView.title = "NEARBY READERS"
+                break
+            }
+            let rows = readers.map { reader -> Row in
+                if let battery = reader.batteryLevel {
+                    let detailText = "🔋 \(abs(battery.floatValue*100))%"
+                    return Row(text: reader.serialNumber, detailText: detailText, selection: { [unowned self] in
+                        self.connect(to: reader)
+                    })
+                }
+                else {
+                    return Row(text: reader.serialNumber, selection: { [unowned self] in
+                        self.connect(to: reader)
+                    })
+                }
+            }
+            let footer: Section.Extremity?
+            if let softwareVersion = readers.first?.deviceSoftwareVersion {
+                footer = Section.Extremity.title("Reader software: \(softwareVersion)")
+            }
+            else {
+                footer = nil
+            }
+            dataSource.sections = [
+                Section(header: Section.Extremity.view(activityIndicatorView),
+                        rows: rows,
+                        footer: footer)
+            ]
+        }
     }
 
     // 2. connect to a selected reader

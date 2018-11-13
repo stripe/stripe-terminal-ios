@@ -1,4 +1,4 @@
-# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 3-brightgreen.svg">
+# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 4-brightgreen.svg">
 
 [Request a Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
@@ -8,18 +8,19 @@ The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the [TestFlight Beta](https://testflight.apple.com/join/NYXuDNuT) to download the example app directly (you'll need to open the link on an iOS device).
 
-To build the example app from source:
+To build the example app from source, you'll need to:
 
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
-2. In `RootViewController.swift`, set your Stripe Account's test secret API key. A backend simulator has been included as part of the example app for demonstration purposes only. Note that you should _never_ store your Stripe account's secret API key in your own app. For more information, see https://stripe.com/docs/keys
-3. Build and run the app. Stripe Terminal comes with a simple reader simulator, so you can get started without any physical hardware.
+2. Navigate to our [example backend](https://github.com/stripe/example-terminal-backend) and click the button to deploy it on Heroku.
+3. In `RootViewController.swift`, set the URL of the Heroku app you just deployed.
+3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
 ## Installation
-We recommend that you install the SDK using Cocoapods. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
+We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
 
-### Cocoapods
+### CocoaPods
 
 1. If you haven't already, install the latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 

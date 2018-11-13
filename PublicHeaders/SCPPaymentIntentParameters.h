@@ -77,13 +77,6 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 @property (nonatomic, copy, nullable, readwrite) NSNumber *applicationFeeAmount;
 
 /**
- To create a direct charge on a connected account, set this to the ID of the
- account for which the request is being made. The default is nil.
- @see https://stripe.com/docs/connect/direct-charges
- */
-@property (nonatomic, copy, nullable, readwrite) NSString *stripeAccount;
-
-/**
  A string that identifies the resulting payment as part of a group.
  @see https://stripe.com/docs/connect/charges-transfers#grouping-transactions
  */
@@ -95,8 +88,21 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 
  At capture time, use transfer_data[amount] to specify the amount that will be
  transferred automatically when a charge succeeds.
+
+ When `transferDataDestination` is specified, `onBehalfOf` must also be
+ specified and must match the destination of the transfer.
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *transferDataDestination;
+
+/**
+ The Stripe account ID for which these funds are intended.
+
+ When `transferDataDestination` is specified, `onBehalfOf` must also be
+ specified and must match the destination of the transfer.
+
+ For details, see https://stripe.com/docs/connect/charges-transfers#on-behalf-of
+ */
+@property (nonatomic, copy, nullable, readwrite) NSString *onBehalfOf;
 
 /**
  Initializes SCPPaymentIntentParameters with the given parameters.
