@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 12/21/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -44,7 +47,7 @@ NS_SWIFT_NAME(ConnectionTokenProvider)
  @param completion      Call this with a connection token, or an error if
  creating the connection token failed.
  */
-- (void)fetchConnectionToken:(SCPConnectionTokenCompletionBlock)completion;
+- (void)fetchConnectionToken:(SCPConnectionTokenCompletionBlock)completion NS_SWIFT_NAME(fetchConnectionToken(_:));
 
 @end
 

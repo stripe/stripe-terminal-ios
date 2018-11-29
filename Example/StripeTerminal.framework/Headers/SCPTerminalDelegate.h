@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 11/1/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -35,7 +38,7 @@ NS_SWIFT_NAME(TerminalDelegate)
 
  @param terminal    The originating terminal.
  */
-- (void)terminalDidReportLowBatteryWarning:(SCPTerminal *)terminal;
+- (void)terminalDidReportLowBatteryWarning:(SCPTerminal *)terminal NS_SWIFT_NAME(terminalDidReportLowBatteryWarning(_:));
 
 /**
  The terminal disconnected unexpectedly from the reader.
@@ -82,7 +85,7 @@ NS_SWIFT_NAME(TerminalDelegate)
  @param terminal    The originating terminal.
  @param logline     The logline.
  */
-- (void)terminal:(SCPTerminal *)terminal didEmitLogline:(NSString *)logline;
+- (void)terminal:(SCPTerminal *)terminal didEmitLogline:(NSString *)logline NS_SWIFT_NAME(terminal(_:didEmitLogline:));
 
 @end
 

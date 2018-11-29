@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 8/3/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 

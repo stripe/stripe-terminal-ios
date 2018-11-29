@@ -1,24 +1,37 @@
-1.0.0-b4
+1.0.0-b5
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0-b4'
+pod 'StripeTerminal', '1.0.0-b5'
 ```
 
-### API updates
-- When using the `transferDataDestination` parameter to create a `PaymentIntent`, you you must also specify the `onBehalfOf` parameter, and this must match the destination account. This makes it explicit that charges are settled in the country of the specified account, and that the connected account’s address and phone number show up on the customer’s credit card statement. For more information, see https://stripe.com/docs/connect/charges-transfers#on-behalf-of
-- The `stripeAccount` property on `SCPPaymentIntentParameters` has been removed. To create a PaymentIntent via the SDK on behalf of a connected account, you should set the `Stripe-Account` header when creating a connection token on your backend. The SDK will inherit this connected account setting from the connection token, and use the same `Stripe-Account` header whenever it creates or confirms a PaymentIntent.
+## Reader software update: audio feedback
+We've released an (optional) reader update that enables beeps when a card is inserted and when the transaction completes.
+- After this update, the reader will emit a single beep when a card is inserted, and two beeps when the transaction is complete. Currently, the reader only emits these beeps for contactless transactions.
+- The reader will also issue two beeps, recurring at a 5 second interval, if the inserted card is left in the reader after the transaction has completed.
 
-### Pairing improvements
-We've made some updates to the Bluetooth Proximity discovery method. If you your app will be used in a busy environment, with multiple iOS devices pairing to multiple available readers at the same time, **we highly recommend using the bluetooth proximity discovery method**.
-- After a reader has been discovered using the proximity method, the LEDs located above the reader's power button will start flashing multiple colors. After discovering the reader, your app should prompt the user to tap a button to connect to the reader. You may want to tell your user to confirm that the reader is flashing.
-- When discovering a reader using the Bluetooth Proximity method, the `didUpdateDiscoveredReaders` delegate method will be called twice. It will be called for the first time when the reader is initially discovered. The reader's LEDs will begin flashing. After a short delay, `didUpdateDiscoveredReaders` will be called a second time with an updated reader object, populated with additional info about the device, like its battery level.
-- `BluetoothProximity` is now the default discovery method when initializing `DiscoveryConfiguration` with a device type.
+Note: you will need to update your readers in order to enable this feature. You can update your readers by implementing the SDK's `updateReaderSoftware` [workflow](https://stripe.com/docs/terminal/ios/workflows#reader-updates), or by using the provided example app, which includes the ability to update readers. You can download the Example app directly on [TestFlight](https://testflight.apple.com/join/NYXuDNuT), or build it from source.
 
-### Integration tips
-- If you are using `readSource` method to defer a payment for later, note that the transaction will *not* receive the beneficial rates and liability shift associated with card present transactions. **Most integrations should not use `readSource`**. If you are simply collecting a payment from a customer, you should create a `PaymentIntent` and use the associated `collectPaymentMethod` and `confirmPaymentIntent` methods.
-- Make sure your integration **captures the PaymentIntent**, and does so on your backend. Our example app previously included a client-side `BackendSimulator` class, for demonstration purposes only. You should be sure not to do this in your own app. Secret API keys should be kept confidential and stored only on your own servers. Your account’s secret API key can perform any API request to Stripe without restriction, and you should never hardcode your secret API key into your app. The example app now uses an example backend that you can easily deploy to Heroku: https://github.com/stripe/example-terminal-backend
+You'll need to perform a series of 2 updates in order to enable this functionality on your reader.
 
-### Other changes
-- The timeout for reading a card with `collectPaymentMethod` has been increased from 1 minute to 5 minutes. If reading a card times out, `collectPaymentMethod` will fail with the error code `SCPErrorCardReadTimedOut`.
-- 
+- The current `deviceSoftwareVersion` should look something like this:
+  - `1.00.03.32-SZZZ_Generic_v35-30000`
+- The first update will update the firmware on your reader to `1.00.03.34`.
+  - This firmware adds the ability to beep during contact card presentation.
+  - The version for this update will look something like this:
+    - `1.00.03.34-SZZZ_Generic_v35-30000`
+- The second update will update the configuration of your reader to `SZZZ_Generic_v37`
+  - This configuration enables beeps on card insert, transaction complete, and card left in reader.
+  - The version for this update will look something like this:
+    - `1.00.03.34-SZZZ_Generic_v37-30000`
+
+## Other updates
+- `retrievePaymentIntent` has been renamed in Swift to make it clearer that you must pass a `clientSecret` as the first argument.
+- When `discoverReaders` is canceled, the completion block will now be called with `nil`. Previously, canceling `discoverReaders` would result in the completion block producing an error with code `SCPErrorCanceled`. This was surprising to several users, so we've changed the behavior of this method. Note that canceling `collectPaymentMethod` still produces an error with code `SCPErrorCanceled`.
+- We've fixed [an issue](https://github.com/stripe/stripe-terminal-ios/issues/16) where connecting to a reader immediately after discovery would fail when using the `BluetoothDiscovery` method.
+- The `didRequestReaderInputPrompt` delegate method has been modified in Swift to be consistent with other delegate methods.
+```
+-    func terminal(terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
++    func terminal(_ terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
+```
+

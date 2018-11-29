@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 11/3/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -35,7 +38,7 @@ NS_SWIFT_NAME(ReaderInputDelegate)
  @param inputOptions        The armed input options on the reader.
  */
 - (void)terminal:(SCPTerminal *)terminal
-didBeginWaitingForReaderInput:(SCPReaderInputOptions)inputOptions;
+didBeginWaitingForReaderInput:(SCPReaderInputOptions)inputOptions NS_SWIFT_NAME(terminal(_:didBeginWaitingForReaderInput:));
 
 /**
  This method is called to request that a prompt be displayed in your app.
@@ -50,7 +53,7 @@ didBeginWaitingForReaderInput:(SCPReaderInputOptions)inputOptions;
  @param inputPrompt         The input prompt to display to the user.
  */
 - (void)terminal:(SCPTerminal *)terminal didRequestReaderInputPrompt:(SCPReaderInputPrompt)inputPrompt
-NS_SWIFT_NAME(terminal(terminal:didRequestReaderInputPrompt:));
+NS_SWIFT_NAME(terminal(_:didRequestReaderInputPrompt:));
 
 @end
 

@@ -130,14 +130,14 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         headerView.connectionStatus = status
     }
 
-    // MARK: ReadCardDelegate
+    // MARK: ReaderInputDelegate
     func terminal(_ terminal: Terminal, didBeginWaitingForReaderInput inputOptions: ReaderInputOptions) {
         var event = LogEvent(method: .waitingForReaderInput)
         event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
         events.append(event)
     }
 
-    func terminal(terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
+    func terminal(_ terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
         var event = LogEvent(method: .readSourcePrompt)
         event.result = .message(Terminal.stringFromReaderInputPrompt(inputPrompt))
         events.append(event)

@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 7/28/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -21,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-b4";
+static NSString *const SCPSDKVersion = @"1.0.0-b5";
 
 @class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters, SCPUpdateReaderSoftwareParameters;
 
@@ -95,7 +98,7 @@ NS_SWIFT_NAME(Terminal)
  disconnect from a reader, and then call `connect` again, the SDK will fetch
  another connection token.
  */
-- (void)clearConnectionToken;
+- (void)clearConnectionToken NS_SWIFT_NAME(clearConnectionToken());
 
 /**
  Begins discovering readers matching the given configuration.
@@ -108,19 +111,16 @@ NS_SWIFT_NAME(Terminal)
  The discovery process will stop on its own when the terminal successfully
  connects to a reader, if the command is canceled, or if an error occurs.
 
- To end discovery after a specified time interval, set the `timeout` property
- on your DiscoveryConfiguration.
+ Note that if `discoverReaders` is canceled, the completion block will be called
+ with nil (rather than a `Canceled` error).
 
- Be sure to either set a timeout, or make it possible to cancel `discover` in
- your app's UI.
- 
  @param configuration   The configuration for reader discovery.
  @param delegate        Your delegate for reader discovery.
  @param completion      The completion block called when the command completes.
  */
 - (nullable SCPCancelable *)discoverReaders:(SCPDiscoveryConfiguration *)configuration
                                    delegate:(id<SCPDiscoveryDelegate>)delegate
-                                 completion:(SCPErrorCompletionBlock)completion;
+                                 completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(discoverReaders(_:delegate:completion:));
 
 /**
  Attempts to connect to the given reader.
@@ -149,7 +149,7 @@ NS_SWIFT_NAME(Terminal)
  
  @param completion      The completion block called when the command completes.
  */
-- (void)disconnectReader:(SCPErrorCompletionBlock)completion;
+- (void)disconnectReader:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(disconnectReader(_:));
 
 /**
  Creates a new PaymentIntent with the given parameters.
@@ -162,7 +162,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion      The completion block called when the command completes.
  */
 - (void)createPaymentIntent:(SCPPaymentIntentParameters *)parameters
-                 completion:(SCPPaymentIntentCompletionBlock)completion;
+                 completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(createPaymentIntent(_:completion:));
 
 /**
  Retrieves a PaymentIntent with a client secret.
@@ -177,7 +177,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion      The completion block called when the command completes.
  */
 - (void)retrievePaymentIntent:(NSString *)clientSecret
-                   completion:(SCPPaymentIntentCompletionBlock)completion;
+                   completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(retrievePaymentIntent(clientSecret:completion:));
 
 /**
  Collects a payment method for the given PaymentIntent.
@@ -189,6 +189,9 @@ NS_SWIFT_NAME(Terminal)
  If collecting a payment method succeeds, the completion block will be called
  with a PaymentIntent with status RequiresConfirmation, indicating that you
  should call confirmPaymentIntent to finish the payment.
+
+ Note that if `collectPaymentMethod` is canceled, the completion block will be
+ called with a `Canceled` error.
  
  @param paymentIntent       The PaymentIntent to collect a payment method for.
  @param delegate            Your delegate for handling reader input events.
@@ -196,7 +199,7 @@ NS_SWIFT_NAME(Terminal)
  */
 - (nullable SCPCancelable *)collectPaymentMethod:(SCPPaymentIntent *)paymentIntent
                                         delegate:(id<SCPReaderInputDelegate>)delegate
-                                      completion:(SCPPaymentIntentCompletionBlock)completion;
+                                      completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(collectPaymentMethod(_:delegate:completion:));
 
 /**
  Confirms a PaymentIntent. Call this immediately after receiving a
@@ -233,7 +236,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion      The completion block called when the confirm completes.
  */
 - (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
-                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion;
+                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(confirmPaymentIntent(_:completion:));
 
 /**
  Cancels a PaymentIntent.
@@ -278,7 +281,7 @@ NS_SWIFT_NAME(Terminal)
  */
 - (nullable SCPCancelable *)readSource:(SCPReadSourceParameters *)parameters
                               delegate:(id<SCPReaderInputDelegate>)delegate
-                            completion:(SCPCardPresentSourceCompletionBlock)completion;
+                            completion:(SCPCardPresentSourceCompletionBlock)completion NS_SWIFT_NAME(readSource(_:delegate:completion:));
 
 /**
  Checks for a reader software update, and prompts your app to begin installing
@@ -303,7 +306,7 @@ NS_SWIFT_NAME(Terminal)
  */
 - (nullable SCPCancelable *)updateReaderSoftware:(SCPUpdateReaderSoftwareParameters *)params
                                         delegate:(id<SCPUpdateReaderSoftwareDelegate>)delegate
-                                      completion:(SCPErrorCompletionBlock)completion;
+                                      completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(updateReaderSoftware(_:delegate:completion:));
 
 /**
  Note: you must first install the Stripe iOS SDK to use this method.
@@ -318,7 +321,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion  The completion block called when the command completes.
  */
 - (void)createKeyedSource:(id)paymentCardTextField
-               completion:(SCPCardSourceCompletionBlock)completion;
+               completion:(SCPCardSourceCompletionBlock)completion NS_SWIFT_NAME(createKeyedSource(_:completion:));
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.

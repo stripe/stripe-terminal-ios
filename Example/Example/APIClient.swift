@@ -22,6 +22,7 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
+    // MARK: ConnectionTokenProvider
     func fetchConnectionToken(_ completion: @escaping ConnectionTokenCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("connection_token")
         Alamofire.request(url, method: .post, parameters: [:])
