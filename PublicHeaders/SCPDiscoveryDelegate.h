@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 11/1/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -57,7 +60,7 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  @param terminal        The originating SCPTerminal.
  @param readers         The discovered readers.
  */
-- (void)terminal:(SCPTerminal *)terminal didUpdateDiscoveredReaders:(NSArray<SCPReader *>*)readers;
+- (void)terminal:(SCPTerminal *)terminal didUpdateDiscoveredReaders:(NSArray<SCPReader *>*)readers NS_SWIFT_NAME(terminal(_:didUpdateDiscoveredReaders:));
 
 @end
 

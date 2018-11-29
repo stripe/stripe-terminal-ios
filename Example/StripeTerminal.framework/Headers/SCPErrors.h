@@ -5,6 +5,9 @@
 //  Created by Ben Guo on 7/26/17.
 //  Copyright © 2017 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 #import <Foundation/Foundation.h>
 
@@ -113,14 +116,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorAlreadyConnectedToReader = 301,
     /**
-     An incompatible reader was detected. Connect a reader matching the
-     deviceType specified in SCPTerminalConfiguration.
+     An incompatible reader was detected. You can only use the Stripe Terminal
+     iOS SDK with one of Stripe's pre-certified readers. For more information,
+     see https://stripe.com/docs/terminal/readers
      */
     SCPErrorIncompatibleReader = 302,
-    /**
-     No reader was discovered.
-     */
-    SCPErrorNoReadersDetected = 303,
     /**
      The reader is busy.
      */

@@ -5,6 +5,9 @@
 //  Created by Evan Sandler on 10/17/18.
 //  Copyright © 2018 Stripe. All rights reserved.
 //
+//  Use of this SDK is subject to the Stripe Terminal Terms:
+//  https://stripe.com/terminal/legal
+//
 
 NS_ASSUME_NONNULL_BEGIN
 
