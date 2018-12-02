@@ -73,6 +73,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
     }
 
     private func installUpdate() {
+        UIApplication.shared.isIdleTimerDisabled = true
         installUpdateBlock?(true)
     }
 
@@ -137,6 +138,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
 
     @objc func cancelAction() {
         if installUpdateBlock != nil {
+            UIApplication.shared.isIdleTimerDisabled = false
             dismiss(animated: true, completion: nil)
         }
         else if let cancelable = updateCancelable {
@@ -147,11 +149,13 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
             }
         }
         else {
+            UIApplication.shared.isIdleTimerDisabled = false
             dismiss(animated: true, completion: nil)
         }
     }
 
     @objc func doneAction() {
+        UIApplication.shared.isIdleTimerDisabled = false
         dismiss(animated: true, completion: nil)
     }
 
@@ -185,6 +189,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
         updateContent()
         cancelButton?.isEnabled = false
         doneButton?.isEnabled = true
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 
 }
