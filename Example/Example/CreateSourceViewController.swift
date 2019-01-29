@@ -18,7 +18,6 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
     private weak var doneButton: UIBarButtonItem?
     private var completed = false
 
-    private let terminal: Terminal
     private var cancelable: Cancelable? = nil {
         didSet {
             cancelButton?.isEnabled = (cancelable != nil)
@@ -30,8 +29,7 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         }
     }
 
-    init(terminal: Terminal) {
-        self.terminal = terminal
+    init() {
         super.init(style: .grouped)
         self.title = "Testing"
     }
@@ -51,19 +49,19 @@ class CreateSourceViewController: TableViewController, TerminalDelegate, ReaderI
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        terminal.terminalDelegate = self
-        if completed || terminal.paymentStatus != .ready {
+        Terminal.shared.delegate = self
+        if completed || Terminal.shared.paymentStatus != .ready {
             return
         }
 
-        headerView.connectedReader = terminal.connectedReader
-        headerView.connectionStatus = terminal.connectionStatus
+        headerView.connectedReader = Terminal.shared.connectedReader
+        headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
 
         let params = ReadSourceParameters()
         var readEvent = LogEvent(method: .readSource)
         self.events.append(readEvent)
-        self.cancelable = self.terminal.readSource(params, delegate: self) { source, error in
+        self.cancelable = Terminal.shared.readSource(params, delegate: self) { source, error in
             self.cancelable = nil
             if let error = error {
                 readEvent.result = .errored

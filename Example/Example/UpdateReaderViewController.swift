@@ -10,13 +10,11 @@ import UIKit
 import Static
 import StripeTerminal
 
-class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateReaderSoftwareDelegate {
+class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderSoftwareUpdateDelegate {
 
     private let headerView = ReaderHeaderView()
-    private let terminal: Terminal
     private weak var doneButton: UIBarButtonItem?
     private weak var cancelButton: UIBarButtonItem?
-    private var environment: UpdateReaderSoftwareEnvironment = .production
     private var checkingForUpdate: Bool = false {
         didSet {
             updateContent()
@@ -32,8 +30,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
     private var updateProgress: Float? = nil
     private var updateCancelable: Cancelable? = nil
 
-    init(terminal: Terminal) {
-        self.terminal = terminal
+    init() {
         super.init(style: .grouped)
         self.title = "Update Reader"
     }
@@ -53,17 +50,15 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        terminal.terminalDelegate = self
-        headerView.connectedReader = terminal.connectedReader
-        headerView.connectionStatus = terminal.connectionStatus
+        Terminal.shared.delegate = self
+        headerView.connectedReader = Terminal.shared.connectedReader
+        headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
     }
 
     private func checkForUpdate() {
-        let params = UpdateReaderSoftwareParameters()
-        params.environment = self.environment
         checkingForUpdate = true
-        updateCancelable = terminal.updateReaderSoftware(params, delegate: self) { error in
+        updateCancelable = Terminal.shared.checkForReaderSoftwareUpdate(delegate: self) { error in
             if let error = error {
                 self.updateCancelable = nil
                 self.presentAlert(error: error)
@@ -73,21 +68,11 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
     }
 
     private func installUpdate() {
-        UIApplication.shared.isIdleTimerDisabled = true
         installUpdateBlock?(true)
     }
 
-    internal func showEnvironments() {
-        let vc = UpdateEnvironmentViewController(environment: environment)
-        vc.onSelectedEnvironment = { env in
-            self.environment = env
-            self.updateContent()
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-
     private func updateContent() {
-        let currentVersion = terminal.connectedReader?.deviceSoftwareVersion ?? "unknown"
+        let currentVersion = Terminal.shared.connectedReader?.deviceSoftwareVersion ?? "unknown"
         let canInstallUpdate = installUpdateBlock != nil
         let updateButtonText: String
         let updateFooter: String
@@ -124,11 +109,6 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
         }
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-            Section(header: "Environment", rows: [
-                Row(text: self.environment.description, selection: { [unowned self] in
-                    self.showEnvironments()
-                    }, accessory: .disclosureIndicator),
-                ]),
             Section(header: "Current Version", rows: [
                 Row(text: currentVersion, cellClass: Value1Cell.self)
                 ]),
@@ -138,7 +118,6 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
 
     @objc func cancelAction() {
         if installUpdateBlock != nil {
-            UIApplication.shared.isIdleTimerDisabled = false
             dismiss(animated: true, completion: nil)
         }
         else if let cancelable = updateCancelable {
@@ -149,13 +128,11 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
             }
         }
         else {
-            UIApplication.shared.isIdleTimerDisabled = false
             dismiss(animated: true, completion: nil)
         }
     }
 
     @objc func doneAction() {
-        UIApplication.shared.isIdleTimerDisabled = false
         dismiss(animated: true, completion: nil)
     }
 
@@ -164,7 +141,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
         headerView.connectionStatus = status
     }
 
-    // MARK: UpdateReaderSoftwareDelegate
+    // MARK: ReaderSoftwareUpdateDelegate
     func terminal(_ terminal: Terminal, readerSoftwareUpdateAvailable update: ReaderSoftwareUpdate, installUpdate: @escaping InstallUpdateBlock) {
         self.update = update
         self.installUpdateBlock = installUpdate
@@ -189,16 +166,6 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, UpdateR
         updateContent()
         cancelButton?.isEnabled = false
         doneButton?.isEnabled = true
-        UIApplication.shared.isIdleTimerDisabled = false
     }
 
-}
-
-extension UpdateReaderSoftwareEnvironment: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .production: return "Production"
-        case .test: return "Test"
-        }
-    }
 }

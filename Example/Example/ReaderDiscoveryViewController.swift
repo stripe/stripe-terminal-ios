@@ -13,14 +13,12 @@ import StripeTerminal
 class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
     var onConnectedToReader: (Reader) -> () = { _ in }
-    private let terminal: Terminal
     private let config: DiscoveryConfiguration
     private var discoverCancelable: Cancelable? = nil
     private weak var cancelButton: UIBarButtonItem?
     private let activityIndicatorView = ActivityIndicatorHeaderView(title: "HOLD READER NEARBY")
 
-    init(terminal: Terminal, discoveryConfig: DiscoveryConfiguration) {
-        self.terminal = terminal
+    init(discoveryConfig: DiscoveryConfiguration) {
         self.config = discoveryConfig
         super.init(style: .grouped)
         self.title = "Discovery"
@@ -43,13 +41,14 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // 1. discover readers
-        discoverCancelable = terminal.discoverReaders(config, delegate: self) { error in
+        discoverCancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
             if let error = error {
                 print("discoverReaders failed: \(error)")
                 self.presentAlert(error: error) { _ in
                     self.dismiss(animated: true, completion: nil)
                 }
             }
+            self.discoverCancelable = nil;
         }
     }
 
@@ -107,13 +106,13 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
     // 2. connect to a selected reader
     private func connect(to reader: Reader) {
-        self.terminal.connectReader(reader) { reader, error in
+        Terminal.shared.connectReader(reader) { reader, error in
             if let reader = reader {
+                self.discoverCancelable = nil
                 self.onConnectedToReader(reader)
             }
             else if let error = error {
                 self.presentAlert(error: error)
-                self.discoverCancelable = nil
             }
         }
     }
@@ -127,6 +126,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
                 else {
                     self.dismiss(animated: true, completion: nil)
                 }
+                self.discoverCancelable = nil
             }
         }
         else {

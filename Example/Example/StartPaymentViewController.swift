@@ -61,8 +61,7 @@ class StartPaymentViewController: TableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // pop if no reader is connected
-        guard let terminal = RootViewController.terminal,
-            terminal.connectedReader != nil else {
+        guard Terminal.shared.connectedReader != nil else {
             navigationController?.popViewController(animated: true)
             return
         }
@@ -70,10 +69,9 @@ class StartPaymentViewController: TableViewController {
     }
 
     internal func startPayment() {
-        guard let terminal = RootViewController.terminal else { return }
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
                                                     currency: currencyView.currency)
-        let vc = PaymentViewController(terminal: terminal, paymentParams: paymentParams)
+        let vc = PaymentViewController(paymentParams: paymentParams)
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationBar.isTranslucent = false
         if #available(iOS 11.0, *) {

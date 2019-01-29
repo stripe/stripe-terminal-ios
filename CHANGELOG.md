@@ -1,37 +1,75 @@
-1.0.0-b5
+1.0.0-b6
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0-b5'
+pod 'StripeTerminal', '1.0.0-b6'
 ```
 
-## Reader software update: audio feedback
-We've released an (optional) reader update that enables beeps when a card is inserted and when the transaction completes.
-- After this update, the reader will emit a single beep when a card is inserted, and two beeps when the transaction is complete. Currently, the reader only emits these beeps for contactless transactions.
-- The reader will also issue two beeps, recurring at a 5 second interval, if the inserted card is left in the reader after the transaction has completed.
+## Singleton initializer
 
-Note: you will need to update your readers in order to enable this feature. You can update your readers by implementing the SDK's `updateReaderSoftware` [workflow](https://stripe.com/docs/terminal/ios/workflows#reader-updates), or by using the provided example app, which includes the ability to update readers. You can download the Example app directly on [TestFlight](https://testflight.apple.com/join/NYXuDNuT), or build it from source.
+`SCPTerminal` is now a singleton, and you will need to update your integration.
 
-You'll need to perform a series of 2 updates in order to enable this functionality on your reader.
-
-- The current `deviceSoftwareVersion` should look something like this:
-  - `1.00.03.32-SZZZ_Generic_v35-30000`
-- The first update will update the firmware on your reader to `1.00.03.34`.
-  - This firmware adds the ability to beep during contact card presentation.
-  - The version for this update will look something like this:
-    - `1.00.03.34-SZZZ_Generic_v35-30000`
-- The second update will update the configuration of your reader to `SZZZ_Generic_v37`
-  - This configuration enables beeps on card insert, transaction complete, and card left in reader.
-  - The version for this update will look something like this:
-    - `1.00.03.34-SZZZ_Generic_v37-30000`
-
-## Other updates
-- `retrievePaymentIntent` has been renamed in Swift to make it clearer that you must pass a `clientSecret` as the first argument.
-- When `discoverReaders` is canceled, the completion block will now be called with `nil`. Previously, canceling `discoverReaders` would result in the completion block producing an error with code `SCPErrorCanceled`. This was surprising to several users, so we've changed the behavior of this method. Note that canceling `collectPaymentMethod` still produces an error with code `SCPErrorCanceled`.
-- We've fixed [an issue](https://github.com/stripe/stripe-terminal-ios/issues/16) where connecting to a reader immediately after discovery would fail when using the `BluetoothDiscovery` method.
-- The `didRequestReaderInputPrompt` delegate method has been modified in Swift to be consistent with other delegate methods.
+Before:
 ```
--    func terminal(terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
-+    func terminal(_ terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
+let terminal = Terminal(configuration: terminalConfig,
+                        tokenProvider: apiClient,
+                        delegate: self)
 ```
 
+After:
+```
+// required
+Terminal.setTokenProvider(apiClient)
+// optional – set a listener to incorporate SDK logs into your own logs
+Terminal.setLogListener({ ... })
+// optional – set a delegate to receive status updates from the SDK
+Terminal.shared.delegate = self
+```
+
+If you rely on destroying and recreating `SCPTerminal` instances to clear state (for example, to switch between different Stripe accounts in your app), you should instead use the `clearCachedCredentials` method.
+
+`SCPTerminalConfiguration` has also been removed, and the `logLevel` property that was previously on `SCPTerminalConfiguration` is now a property on `SCPTerminal`.
+
+## Loglines
+
+The `terminal:didEmitLogline` method on `SCPTerminalDelegate` has been removed, and replaced with a static `setLogListener` method on `Terminal` class.
+
+Previously, this delegate method was always called on the main thread. Now, the block you provide may be called from any thread.
+
+You can use this optional method to listen for logs from the Stripe Terminal SDK and incorporate them into your own remote logs. Note that these loglines are subject to change, and provided for informational and debugging purposes only. You should not depend on them for behavior in your app.
+
+To print internal logs from the SDK to the console, you can set logLevel to `.verbose` on the Terminal instance.
+
+## createKeyedSource
+
+The `createKeyedSource` method has been removed. If you were previously using this functionality, you will need to update your integration to use the [Stripe iOS SDK](https://github.com/stripe/stripe-ios) to handle this flow.
+
+## updateReaderSoftware -> checkForReaderSoftwareUpdate
+
+The `updateReaderSoftware` method has been renamed `checkForReaderSoftwareUpdate`, to make it clearer that this method only checks for any available reader software update. If an update is available, your delegate's `readerSoftwareUpdateAvailable` method will be called.
+- The `UpdateReaderSoftwareParameters` class has been removed. When you call `checkForReaderSoftwareUpdate`, you'll need to pass a `ReaderSoftwareUpdateDelegate` and a `completion` block.
+- `SCPUpdateReaderSoftwareDelegate` has been renamed `SCPReaderSoftwareUpdateDelegate`, for consistency with the `SCPReaderSoftwareUpdate` class.
+
+## Discovery & Connecting to Readers
+
+This update adds some additional checks to the discovery & connect process. You will
+receive errors for some common integration mistakes:
+
+- You must be actively discovering readers in order to connect to one. Calling
+`SCPTerminal connectReader:` after canceling the `discoverReaders` cancelable will now
+fail with `SCPErrorMustBeDiscoveringToConnect`
+- Calling `SCPTerminal connectReader:` with a Reader from a different discovery process
+will fail with `SCPErrorCannotConnectToUndiscoveredReader`.
+
+We found & fixed a bug affecting reader discovery after a failed connect. The `Terminal`
+is still discovering readers, but in previous beta releases it wasn't delivering updates
+to the `DiscoveryDelegate`.
+
+## Reader Session reuse, and clearConnectionToken -> clearCachedCredentials
+
+`SCPTerminal` now caches & re-uses the reader session when reconnecting to the same
+reader. This speeds up reconnection and makes it less likely to fail in spotty network
+conditions.
+
+Because of this, the public `clearConnectionToken` method that's necessary when changing
+between testmode/livemode or between different accounts has been renamed for clarity.

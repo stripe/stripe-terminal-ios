@@ -1,5 +1,5 @@
 //
-//  PaymentLogViewController.swift
+//  PaymentViewController.swift
 //  Example
 //
 //  Created by Ben Guo on 9/6/18.
@@ -12,7 +12,6 @@ import StripeTerminal
 
 class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputDelegate {
 
-    private let terminal: Terminal
     private let paymentParams: PaymentIntentParameters
 
     private let headerView = ReaderHeaderView()
@@ -32,8 +31,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         }
     }
 
-    init(terminal: Terminal, paymentParams: PaymentIntentParameters) {
-        self.terminal = terminal
+    init(paymentParams: PaymentIntentParameters) {
         self.paymentParams = paymentParams
         super.init(style: .grouped)
         self.title = "Testing"
@@ -55,23 +53,22 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        guard let terminal = RootViewController.terminal,
-            let apiClient = RootViewController.apiClient else {
+        guard let apiClient = RootViewController.apiClient else {
                 return
         }
-        terminal.terminalDelegate = self
-        if completed || terminal.paymentStatus != .ready {
+        Terminal.shared.delegate = self
+        if completed || Terminal.shared.paymentStatus != .ready {
             return
         }
 
-        headerView.connectedReader = terminal.connectedReader
-        headerView.connectionStatus = terminal.connectionStatus
+        headerView.connectedReader = Terminal.shared.connectedReader
+        headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
 
         // 1. create PaymentIntent
         var createEvent = LogEvent(method: .createPaymentIntent)
         self.events.append(createEvent)
-        self.terminal.createPaymentIntent(self.paymentParams) { intent, createError in
+        Terminal.shared.createPaymentIntent(self.paymentParams) { intent, createError in
             if let error = createError {
                 createEvent.result = .errored
                 createEvent.object = error
@@ -86,7 +83,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                 // 2. collectPaymentMethod
                 var collectEvent = LogEvent(method: .collectPaymentMethod)
                 self.events.append(collectEvent)
-                self.cancelable = self.terminal.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
+                self.cancelable = Terminal.shared.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
                     self.cancelable = nil
                     if let error = attachError {
                         collectEvent.result = .errored
@@ -102,7 +99,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
                         // 3. confirm PaymentIntent
                         var confirmEvent = LogEvent(method: .confirmPaymentIntent)
                         self.events.append(confirmEvent)
-                        self.terminal.confirmPaymentIntent(intent) { confirmedIntent, confirmError in
+                        Terminal.shared.confirmPaymentIntent(intent) { confirmedIntent, confirmError in
                             if let error = confirmError {
                                 confirmEvent.result = .errored
                                 confirmEvent.object = error

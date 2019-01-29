@@ -7,8 +7,7 @@
 //
 
 /**
- This header contains APIs used for internal development. The "Dev" example
- app includes this header to access these APIs.
+ This header contains APIs used for internal development.
  */
 
 #pragma mark - SCPReader
@@ -17,9 +16,9 @@
 @property (nonatomic, copy, nullable, readwrite) NSDictionary *hardwareInfo;
 @end
 
-#pragma mark - SCPTerminalConfiguration
+#pragma mark - SCPTerminal
 
-@interface SCPTerminalConfiguration (Development)
+@interface SCPTerminal (Development)
 
 /**
  Enables:

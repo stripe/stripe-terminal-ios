@@ -25,52 +25,22 @@ FOUNDATION_EXPORT NSString * const SCPErrorDomain;
  Possible error codes for NSError objects under the SCPErrorDomain domain.
  */
 typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
-    /**
-     GENERIC ERRORS
-     */
-    /**
-     Unexpected SDK error.
-     */
-    SCPErrorUnexpectedSdkError = 1,
-    /**
-     Unexpected reader error.
-     */
-    SCPErrorUnknownReaderError = 3,
-    /**
-     Unexpected network error.
-     */
-    SCPErrorUnknownNetworkError = 9,
 
     /**
-     SDK ERRORS
+     INTEGRATION ERRORS
      */
     /**
-     The SDK is busy executing another command.
+     The SDK is busy executing another command. The SDK can only execute a
+     single command at a time. You can use the `paymentStatus` or
+     `connectionStatus` properties on your `SCPTerminal` instance (or the
+     corresponding delegate methods) to determine if the SDK is ready to accept
+     another command.
      */
     SCPErrorBusy = 100,
     /**
-     The command was canceled.
+     The command was canceled by your app.
      */
     SCPErrorCanceled = 102,
-    /**
-     The Stripe API declined the payment.
-     Inspect SCPConfirmError's requestError property for more information about
-     the decline, including the decline code.
-     */
-    SCPErrorPaymentDeclinedByStripeAPI = 103,
-    /**
-     The reader declined the payment. Try another card.
-     */
-    SCPErrorPaymentDeclinedByReader = 104,
-    /**
-     The reader terminated the command. This can occur if a card from a previous
-     payment was left in the reader.
-     */
-    SCPErrorTerminatedByReader = 105,
-
-    /**
-     Integration errors
-     */
     /**
      Access to location services is currently disabled. This may be because:
      - The user disabled location services in the system settings.
@@ -79,13 +49,16 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorLocationServicesDisabled = 150,
     /**
-     There was an error communicating with the ConnectionTokenProvider.
-     Make sure:
-     - Your implementation of `fetchConnectionToken` calls the given completion block
-     either a String or an error.
-     - Your app strongly retains your ConnectionTokenProvider.
+     Your implementation of `fetchConnectionToken` called the completion block
+     with (nil, nil). Please make sure your integration completes with either
+     a connection token or an error.
      */
-    SCPErrorConnectionTokenProviderIntegrationError = 151,
+    SCPErrorConnectionTokenProviderCompletedWithNothing = 151,
+    /**
+     Your implementation of `fetchConnectionToken` called the completion block
+     with an error.
+     */
+    SCPErrorFetchConnectionTokenCompletedWithError = 152,
     /**
      confirmPaymentIntent was called with an unknown or invalid PaymentIntent.
      You must confirm a PaymentIntent immediately after collecting a payment method.
@@ -103,6 +76,18 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      A PaymentIntent was referenced using an invalid client secret.
      */
     SCPErrorInvalidClientSecret = 156,
+    /**
+     The SDK must be actively Discovering Readers in order to successfully
+     connect to a reader. See documentation on `SCPTerminal` methods
+     `discoverReaders:delegate:completion:` and `connectReader:completion:`
+     */
+    SCPErrorMustBeDiscoveringToConnect = 157,
+    /**
+     Before connecting to a reader, it must have already been discovered in the
+     current discovery session. Trying to connect to a reader from a previous
+     discovery session is not supported.
+     */
+    SCPErrorCannotConnectToUndiscoveredReader = 158,
 
     /**
      READER ERRORS
@@ -182,32 +167,45 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      Updating the reader software failed because the update was interrupted.
      */
     SCPErrorReaderSoftwareUpdateFailedInterrupted = 385,
+    
+    /**
+     UNEXPECTED ERRORS
+     */
+    /**
+     Unexpected SDK error.
+     */
+    SCPErrorUnexpectedSdkError = 500,
 
     /**
-     CARD ERRORS
+     PAYMENT ERRORS
      */
+    /**
+     The Stripe API declined the payment.
+     Inspect SCPConfirmError's requestError property for more information about
+     the decline, including the decline code.
+     */
+    SCPErrorPaymentDeclinedByStripeAPI = 600,
+    /**
+     The reader declined the payment. Try another card.
+     */
+    SCPErrorPaymentDeclinedByReader = 650,
     /**
      The card is not a chip card.
      */
-    SCPErrorCardInsertNotRead = 600,
+    SCPErrorCardInsertNotRead = 651,
     /**
      The swipe could not be read.
      */
-    SCPErrorCardSwipeNotRead = 601,
+    SCPErrorCardSwipeNotRead = 652,
     /**
      Reading a card timed out.
      */
-    SCPErrorCardReadTimedOut = 602,
+    SCPErrorCardReadTimedOut = 653,
     /**
      The card was removed during the transaction.
      */
-    SCPErrorCardRemoved = 603,
-    /**
-     The text field contained invalid card cata. Make sure
-     [STPPaymentCardTextField isValid] returns YES before passing it to
-     `createKeyedSource`.
-     */
-    SCPErrorInvalidPaymentCardTextField = 650,
+    SCPErrorCardRemoved = 654,
+
 
     /**
      NETWORK ERRORS
@@ -228,6 +226,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The API response from Stripe could not be decoded.
      */
     SCPErrorStripeAPIResponseDecodingError = 903,
+    /**
+     Generic network error
+     */
+    SCPErrorInternalNetworkError = 904,
+    
 } NS_SWIFT_NAME(ErrorCode);
 
 #pragma mark - UserInfo keys
