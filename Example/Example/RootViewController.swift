@@ -24,7 +24,6 @@ class RootViewController: UINavigationController, TerminalDelegate {
     static var backendUrl: String? = nil
 
     static var apiClient: APIClient?
-    static var terminal: Terminal?
 
     init() {
         guard let backendUrl = RootViewController.backendUrl else {
@@ -47,14 +46,10 @@ class RootViewController: UINavigationController, TerminalDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let apiClient = RootViewController.apiClient else { return }
-        let config = TerminalConfiguration()
-        // Log events from the SDK to the console
-        config.logLevel = .verbose
-        let terminal = Terminal(configuration: config,
-                                tokenProvider: apiClient,
-                                delegate: self)
-        RootViewController.terminal = terminal
-        let vc = ReaderViewController(terminal: terminal)
+        Terminal.setTokenProvider(apiClient)
+        // To log events from the SDK to the console:
+//        Terminal.shared.logLevel = .verbose
+        let vc = ReaderViewController()
         self.pushViewController(vc, animated: false)
     }
 

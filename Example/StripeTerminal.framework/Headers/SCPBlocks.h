@@ -14,7 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPCardPresentSource,
-SCPCardSource,
 SCPConfirmError,
 SCPReader,
 SCPPaymentIntent;
@@ -30,6 +29,14 @@ NS_SWIFT_NAME(ConnectionTokenCompletionBlock)
 typedef void (^SCPConnectionTokenCompletionBlock)(NSString * __nullable token, NSError * __nullable error);
 
 /**
+ A block called with a logline from the SDK.
+
+ @param logline     An internal logline from the SDK.
+ */
+NS_SWIFT_NAME(LogListenerBlock)
+typedef void (^SCPLogListenerBlock)(NSString * _Nonnull logline);
+
+/**
  A block called with a boolean value indicating whether the SDK should begin
  installing an available reader software update.
 
@@ -42,15 +49,6 @@ typedef void (^SCPConnectionTokenCompletionBlock)(NSString * __nullable token, N
  */
 NS_SWIFT_NAME(InstallUpdateBlock)
 typedef void (^SCPInstallUpdateBlock)(BOOL installUpdate);
-
-/**
- A block called with a card source.
-
- @param source      A card source.
- @param error       An error if one occurred, or nil.
- */
-NS_SWIFT_NAME(CardSourceCompletionBlock)
-typedef void (^SCPCardSourceCompletionBlock)(SCPCardSource * __nullable source, NSError * __nullable error);
 
 /**
  A block called with a card present source.

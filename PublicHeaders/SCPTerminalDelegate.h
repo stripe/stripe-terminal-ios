@@ -77,16 +77,6 @@ NS_SWIFT_NAME(TerminalDelegate)
  */
 - (void)terminal:(SCPTerminal *)terminal didChangePaymentStatus:(SCPPaymentStatus)status NS_SWIFT_NAME(terminal(_:didChangePaymentStatus:));
 
-/**
- The terminal emitted a logline. You may use this optional callback to
- incorporate loglines from the Stripe Terminal SDK into your own telemetry
- tooling.
-
- @param terminal    The originating terminal.
- @param logline     The logline.
- */
-- (void)terminal:(SCPTerminal *)terminal didEmitLogline:(NSString *)logline NS_SWIFT_NAME(terminal(_:didEmitLogline:));
-
 @end
 
 NS_ASSUME_NONNULL_END

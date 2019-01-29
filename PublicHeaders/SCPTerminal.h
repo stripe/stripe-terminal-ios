@@ -18,17 +18,22 @@
 #import "SCPReaderInputDelegate.h"
 #import "SCPReaderEvent.h"
 #import "SCPDiscoveryMethod.h"
+#import "SCPLogLevel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-b5";
+static NSString *const SCPSDKVersion = @"1.0.0-b6";
 
-@class SCPCancelable, SCPDiscoveryConfiguration, SCPTerminalConfiguration, SCPPaymentIntentParameters, SCPReadSourceParameters, SCPUpdateReaderSoftwareParameters;
+@class SCPCancelable,
+SCPDiscoveryConfiguration,
+SCPPaymentIntentParameters,
+SCPReadSourceParameters,
+SCPUpdateReaderSoftwareParameters;
 
-@protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPUpdateReaderSoftwareDelegate;
+@protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPReaderSoftwareUpdateDelegate;
 
 /**
  The Terminal object that is made available by the Stripe Terminal SDK exposes
@@ -42,14 +47,52 @@ NS_SWIFT_NAME(Terminal)
 @interface SCPTerminal : NSObject
 
 /**
- The terminal's delegate.
+ Sets the token provider for the shared (singleton) Terminal instance.
+ 
+ You must set a token provider before calling `shared` to initialize the
+ Terminal singleton.
+ 
+ Note that you may only set a token provider *before* requesting the shared
+ Terminal instance for the first time. In order to switch accounts in your app,
+ e.g. to switch between live and test Stripe API keys on your backend, refer
+ to the documentation for the `clearCachedCredentials` method on the shared
+ Terminal instance.
+ 
+ @see SCPConnectionTokenProvider
  */
-@property (nonatomic, weak, nullable, readwrite) id<SCPTerminalDelegate> terminalDelegate;
++ (void)setTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(setTokenProvider(_:));
 
 /**
- The configuration used to initialize the terminal.
+ Sets a block to listen for logs from the shared Terminal instance (optional).
+ 
+ You can use this optional method to listen for logs from the Stripe Terminal
+ SDK and incorporate them into your own remote logs. Note that these logs
+ are subject to change, and provided for informational and debugging purposes
+ only. You should not depend on them for behavior in your app. Also note that
+ the block you provide may be called from any thread.
+
+ To print internal logs from the SDK to the console, you can set logLevel to
+ `.verbose` on the Terminal instance.
  */
-@property (nonatomic, readonly) SCPTerminalConfiguration *configuration;
++ (void)setLogListener:(SCPLogListenerBlock)listener;
+
+/**
+ Returns the shared (singleton) Terminal instance.
+ 
+ Before accessing the singleton for the first time, you must first call
+ `setTokenProvider` and `setDelegate`.
+ */
+@property (class, nonatomic, readonly) SCPTerminal *shared;
+
+/**
+ The terminal's delegate (optional).
+ 
+ Set this to handle events from the Terminal instance.
+ */
+@property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> delegate;
+
+/// Deprecated: terminalDelegate has been renamed to delegate
+@property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> terminalDelegate __attribute__((deprecated("terminalDelegate has been renamed to delegate", "delegate")));
 
 /**
  Information about the connected reader, or nil if no reader is connected.
@@ -62,43 +105,42 @@ NS_SWIFT_NAME(Terminal)
 @property (nonatomic, readonly) SCPConnectionStatus connectionStatus;
 
 /**
+ The log level for the SDK. The default value is None.
+ */
+@property (nonatomic, assign, readwrite) SCPLogLevel logLevel;
+
+/**
  The terminal's current payment status.
  */
 @property (nonatomic, readonly) SCPPaymentStatus paymentStatus;
 
 /**
- Initializes a terminal with the given configuration, connection token
- provider, and delegate.
-
- @param configuration           The configuration for the terminal.
- @param tokenProvider           Your connection token provider.
- @param delegate                The terminal's delegate.
- */
-- (instancetype)initWithConfiguration:(SCPTerminalConfiguration *)configuration
-                        tokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider
-                             delegate:(id<SCPTerminalDelegate>)delegate;
-
-/**
- Clears the current connection token. You can use this method to switch
- accounts in your app, e.g. to switch between live and test Stripe API keys on
- your backend.
+ Clears the current connection token, saved reader sessions, and any other
+ cached credentials. You can use this method to switch accounts in your app,
+ e.g. to switch between live and test Stripe API keys on your backend.
  
  In order to switch accounts in your app:
  - if a reader is connected, call `disconnect`
- - call `clearConnectionToken`
+ - configure the `tokenProvider` to return connection tokens for the new account
+ - call `clearCachedCredentials`
  - call `discover` and `connect` to connect to a reader. The `connect` call will
- request a new connection token from your backend server.
+ request a new connection token from your backend server via the token provider.
  
  An overview of the lifecycle of a connection token under the hood:
  - When a Terminal is initialized, the SDK attempts to proactively request
  a connection token from your backend server.
  - When `connect` is called, the SDK uses the connection token and reader
  information to create a reader session.
- - Subsequent calls to `connect` require a new connection token. If you
- disconnect from a reader, and then call `connect` again, the SDK will fetch
- another connection token.
+ - Subsequent calls to `connect` will re-use the reader session if this `SCPTerminal`
+ has successfully connected to the reader already. Otherwise, it will require a
+ new connection token when you call `connect` again.
  */
-- (void)clearConnectionToken NS_SWIFT_NAME(clearConnectionToken());
+- (void)clearCachedCredentials NS_SWIFT_NAME(clearCachedCredentials());
+
+/// `clearConnectionToken` has been renamed to `clearCachedCredentials`
+- (void)clearConnectionToken NS_SWIFT_NAME(clearConnectionToken())
+__attribute__((deprecated("clearConnectionToken has been renamed to clearCachedCredentials",
+                          "clearCachedCredentials")));
 
 /**
  Begins discovering readers matching the given configuration.
@@ -109,7 +151,7 @@ NS_SWIFT_NAME(Terminal)
  connecting to a selected reader.
 
  The discovery process will stop on its own when the terminal successfully
- connects to a reader, if the command is canceled, or if an error occurs.
+ connects to a reader, if the command is canceled, or if a discovery error occurs.
 
  Note that if `discoverReaders` is canceled, the completion block will be called
  with nil (rather than a `Canceled` error).
@@ -130,6 +172,10 @@ NS_SWIFT_NAME(Terminal)
  `Connected`.
 
  If the connect fails, the completion block will be called with an error.
+
+ The terminal must be actively discovering readers in order to connect to one.
+ The discovery process will stop if this connection request succeeds, otherwise
+ the terminal will continue discovering.
 
  Under the hood, the SDK uses the `fetchConnectionToken` method you defined
  to fetch a connection token if it does not already have one. It then uses the
@@ -232,7 +278,7 @@ NS_SWIFT_NAME(Terminal)
  has been authorized but not yet settled, or captured. On your backend, capture
  the confirmed PaymentIntent.
 
- @param paymentIntent   The PaymentIntent confirm.
+ @param paymentIntent   The PaymentIntent to confirm.
  @param completion      The completion block called when the confirm completes.
  */
 - (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
@@ -285,7 +331,7 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Checks for a reader software update, and prompts your app to begin installing
- the update.
+ the update if one is available.
  
  If an update is available, the completion block will be called with nil,
  indicating that checking for a software update succeeded. Your delegate's
@@ -299,29 +345,12 @@ NS_SWIFT_NAME(Terminal)
  Though we expect required software updates to be very rare, by using Stripe
  Terminal, you are obligated to include this functionality.
 
- @param params      The parameters for the update
  @param delegate    Your delegate for handling update events.
  @param completion  The completion block called when checking for an update
  completes.
  */
-- (nullable SCPCancelable *)updateReaderSoftware:(SCPUpdateReaderSoftwareParameters *)params
-                                        delegate:(id<SCPUpdateReaderSoftwareDelegate>)delegate
-                                      completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(updateReaderSoftware(_:delegate:completion:));
-
-/**
- Note: you must first install the Stripe iOS SDK to use this method.
- @see https://stripe.com/docs/mobile/ios#getting-started
- 
- Creates a card source using the contents of STPPaymentCardTextField. If the
- field is not valid, the completion block is called with an error.
- 
- @param paymentCardTextField    The STPPaymentCardTextField in which a user has
- entered card details.
- 
- @param completion  The completion block called when the command completes.
- */
-- (void)createKeyedSource:(id)paymentCardTextField
-               completion:(SCPCardSourceCompletionBlock)completion NS_SWIFT_NAME(createKeyedSource(_:completion:));
+- (nullable SCPCancelable *)checkForReaderSoftwareUpdate:(id<SCPReaderSoftwareUpdateDelegate>)delegate
+                                              completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(checkForReaderSoftwareUpdate(delegate:completion:));
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.

@@ -12,8 +12,6 @@ import StripeTerminal
 
 class ReaderViewController: TableViewController, TerminalDelegate {
 
-    private let terminal: Terminal
-
     private var connectedReader: Reader? = nil {
         didSet {
             headerView.connectedReader = connectedReader
@@ -26,8 +24,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
 
     private let headerView = ReaderHeaderView()
 
-    init(terminal: Terminal) {
-        self.terminal = terminal
+    init() {
         super.init(style: .grouped)
         self.title = "Terminal"
     }
@@ -43,19 +40,18 @@ class ReaderViewController: TableViewController, TerminalDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        terminal.terminalDelegate = self
-        connectedReader = terminal.connectedReader
-        headerView.connectionStatus = terminal.connectionStatus
+        Terminal.shared.delegate = self
+        connectedReader = Terminal.shared.connectedReader
+        headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
     }
 
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        guard let terminal = RootViewController.terminal,
-            let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
+        guard let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
 
-        let discoveryVC = ReaderDiscoveryViewController(terminal: terminal, discoveryConfig: config)
+        let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
         discoveryVC.onConnectedToReader = { reader in
             self.connectedReader = reader
             if let _ = discoveryVC.presentedViewController {
@@ -80,9 +76,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     private func disconnectFromReader() {
-        guard let terminal = RootViewController.terminal else { return }
-
-        terminal.disconnectReader { error in
+        Terminal.shared.disconnectReader { error in
             if let error = error {
                 print("Disconnect failed: \(error)")
                 self.presentAlert(error: error)
@@ -100,7 +94,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     internal func showCreateSource() {
-        let vc = CreateSourceViewController(terminal: terminal)
+        let vc = CreateSourceViewController()
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationBar.isTranslucent = false
         if #available(iOS 11.0, *) {
@@ -110,7 +104,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     internal func showUpdateReader() {
-        let vc = UpdateReaderViewController(terminal: terminal)
+        let vc = UpdateReaderViewController()
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationBar.isTranslucent = false
         if #available(iOS 11.0, *) {
