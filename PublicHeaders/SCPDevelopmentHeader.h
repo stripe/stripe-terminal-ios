@@ -6,6 +6,10 @@
 //  Copyright © 2017 Stripe. All rights reserved.
 //
 
+@import Foundation;
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  This header contains APIs used for internal development.
  */
@@ -28,3 +32,5 @@
 @property (nonatomic, assign) BOOL devModeEnabled;
 
 @end
+
+NS_ASSUME_NONNULL_END

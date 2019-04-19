@@ -22,6 +22,13 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     static var deviceType: DeviceType = .chipper2X
     static var discoveryMethod: DiscoveryMethod = .bluetoothProximity
 
+    #if targetEnvironment(simulator)
+    static var simulated: Bool = true
+    #else
+    static var simulated: Bool = false
+    #endif
+
+
     private let headerView = ReaderHeaderView()
 
     init() {
@@ -49,8 +56,9 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        guard let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType, method: ReaderViewController.discoveryMethod) else { return }
-
+        let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType,
+                                            discoveryMethod: ReaderViewController.discoveryMethod,
+                                            simulated: ReaderViewController.simulated)
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
         discoveryVC.onConnectedToReader = { reader in
             self.connectedReader = reader
@@ -93,8 +101,8 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    internal func showCreateSource() {
-        let vc = CreateSourceViewController()
+    internal func showReadReusableCard() {
+        let vc = ReadReusableCardViewController()
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationBar.isTranslucent = false
         if #available(iOS 11.0, *) {
@@ -151,6 +159,11 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                         self.showDiscoveryMethods()
                         }, accessory: .disclosureIndicator),
                     ]),
+                Section(header: "", rows: [
+                    Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.simulated) { enabled in
+                        ReaderViewController.simulated = enabled
+                        }),
+                    ], footer: "The SDK comes with the ability to simulate behavior without using physical hardware. This makes it easy to quickly test your integration end-to-end, from connecting a reader to taking payments."),
             ]
         }
         else {
@@ -165,8 +178,8 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                     Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
                         self.showStartPayment()
                         }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                    Row(text: "Store card for future use", detailText: "Create a source by reading a card.", selection: { [unowned self] in
-                        self.showCreateSource()
+                    Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
+                        self.showReadReusableCard()
                         }, accessory: .none, cellClass: SubtitleCell.self),
                     Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
                         self.showUpdateReader()
@@ -179,6 +192,11 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: SCPTerminalDelegate
     func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
         headerView.connectionStatus = status
+    }
+
+    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)")
+        connectedReader = nil
     }
 
 }

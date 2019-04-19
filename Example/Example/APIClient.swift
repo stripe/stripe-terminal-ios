@@ -12,6 +12,7 @@ import StripeTerminal
 
 class APIClient: NSObject, ConnectionTokenProvider {
 
+    // This comes from `AppDelegate.backendUrl`, set URL there
     var baseURLString: String? = nil
 
     private var baseURL: URL {
@@ -29,19 +30,18 @@ class APIClient: NSObject, ConnectionTokenProvider {
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in
                 switch responseJSON.result {
-                case .success(let json):
-                    if let json = json as? [String: AnyObject],
-                        let secret = json["secret"] as? String {
-                        completion(secret, nil)
-                    }
-                    else {
-                        let error = NSError(domain: "example",
-                                            code: 1,
-                                            userInfo: [
-                                                NSLocalizedDescriptionKey: "Failed to decode connection token"
-                            ])
-                        completion(nil, error)
-                    }
+                case .success(let json as [String: AnyObject]) where json["secret"] is String:
+                    completion((json["secret"] as! String), nil)
+                case .success(_),
+                     .failure where responseJSON.response?.statusCode == 402:
+                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to decode connection token"
+                    let error = NSError(domain: "example",
+                                        code: 1,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description
+                        ])
+                    completion(nil, error)
                 case .failure(let error):
                     completion(nil, error)
                 }
@@ -57,8 +57,42 @@ class APIClient: NSObject, ConnectionTokenProvider {
                 switch response.result {
                 case .success:
                     completion(nil)
+                case .failure where response.response?.statusCode == 402:
+                    let description = response.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to capture PaymentIntent"
+                    let error = NSError(domain: "example",
+                                        code: 2,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description,
+                                            ])
+                    completion(error)
                 case .failure(let error):
                     completion(error)
+                }
+        }
+    }
+
+    func attachPaymentMethod(_ paymentMethodId: String, completion: @escaping ([String: AnyObject]?, Error?) -> ()) {
+        let url = self.baseURL.appendingPathComponent("attach_payment_method_to_customer")
+        Alamofire.request(url, method: .post,
+                          parameters: ["payment_method_id": paymentMethodId])
+            .validate(statusCode: 200..<300)
+            .responseJSON { responseJSON in
+                switch responseJSON.result {
+                case .success(let json as [String: AnyObject]):
+                    completion(json, nil)
+                case .success(_),
+                     .failure where responseJSON.response?.statusCode == 402:
+                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to decode PaymentMethod & Customer"
+                    let error = NSError(domain: "example",
+                                        code: 3,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description,
+                                            ])
+                    completion(nil, error)
+                case .failure(let error):
+                    completion(nil, error)
                 }
         }
     }

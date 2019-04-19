@@ -45,7 +45,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             if let error = error {
                 print("discoverReaders failed: \(error)")
                 self.presentAlert(error: error) { _ in
-                    self.dismiss(animated: true, completion: nil)
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
             }
             self.discoverCancelable = nil;
@@ -54,7 +54,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
     private func updateContent(readers: [Reader]) {
         if readers.count == 0 {
-            switch (self.config.method) {
+            switch (self.config.discoveryMethod) {
             case .bluetoothProximity:
                 activityIndicatorView.title = "HOLD READER NEARBY"
                 break
@@ -68,7 +68,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             ]
         }
         else {
-            switch (self.config.method) {
+            switch (self.config.discoveryMethod) {
             case .bluetoothProximity:
                 activityIndicatorView.title = "DISCOVERED READER"
                 break
@@ -124,13 +124,13 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
                     print("cancel discoverReaders failed: \(error)")
                 }
                 else {
-                    self.dismiss(animated: true, completion: nil)
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
                 self.discoverCancelable = nil
             }
         }
         else {
-            dismiss(animated: true, completion: nil)
+            presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
 

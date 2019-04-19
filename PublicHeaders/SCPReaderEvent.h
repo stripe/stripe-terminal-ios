@@ -1,5 +1,5 @@
 //
-//  SCPConnectionStatus.h
+//  SCPReaderEvent.h
 //  StripeTerminal
 //
 //  Created by Ben Guo on 8/25/17.

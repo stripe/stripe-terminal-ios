@@ -11,8 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  The various funding sources for a card.
+
+ @see https://stripe.com/docs/api/cards/object#card_object-funding
  */
 typedef NS_ENUM(NSInteger, SCPCardFundingType) {
     /**
@@ -35,3 +39,5 @@ typedef NS_ENUM(NSInteger, SCPCardFundingType) {
      */
     SCPCardFundingTypeOther,
 } NS_SWIFT_NAME(CardFundingType);
+
+NS_ASSUME_NONNULL_END

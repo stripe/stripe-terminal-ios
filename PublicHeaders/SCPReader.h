@@ -16,7 +16,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Information about a reader.
+ Information about a reader that has been discovered or connected to the SDK.
  */
 NS_SWIFT_NAME(Reader)
 @interface SCPReader : NSObject

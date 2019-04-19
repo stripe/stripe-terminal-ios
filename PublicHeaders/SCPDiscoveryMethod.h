@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The possible methods for discovering a reader.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
  */
 typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
     /**

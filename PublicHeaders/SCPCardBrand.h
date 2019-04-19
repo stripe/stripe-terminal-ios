@@ -11,8 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  The various card brands for a card.
+
+ @see https://stripe.com/docs/api/cards/object#card_object-brand
  */
 typedef NS_ENUM(NSInteger, SCPCardBrand) {
     /**
@@ -50,3 +54,5 @@ typedef NS_ENUM(NSInteger, SCPCardBrand) {
      */
     SCPCardBrandUnknown,
 } NS_SWIFT_NAME(CardBrand);
+
+NS_ASSUME_NONNULL_END

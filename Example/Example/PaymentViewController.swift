@@ -10,7 +10,7 @@ import UIKit
 import Static
 import StripeTerminal
 
-class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputDelegate {
+class PaymentViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate {
 
     private let paymentParams: PaymentIntentParameters
 
@@ -53,9 +53,6 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        guard let apiClient = RootViewController.apiClient else {
-                return
-        }
         Terminal.shared.delegate = self
         if completed || Terminal.shared.paymentStatus != .ready {
             return
@@ -71,53 +68,53 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         Terminal.shared.createPaymentIntent(self.paymentParams) { intent, createError in
             if let error = createError {
                 createEvent.result = .errored
-                createEvent.object = error
+                createEvent.object = .error(error as NSError)
                 self.events.append(createEvent)
                 self.complete()
             }
             else if let intent = intent {
                 createEvent.result = .succeeded
-                createEvent.object = intent
+                createEvent.object = .paymentIntent(intent)
                 self.events.append(createEvent)
 
                 // 2. collectPaymentMethod
                 var collectEvent = LogEvent(method: .collectPaymentMethod)
                 self.events.append(collectEvent)
-                self.cancelable = Terminal.shared.collectPaymentMethod(intent, delegate: self) { intentWithSource, attachError in
+                self.cancelable = Terminal.shared.collectPaymentMethod(intent, delegate: self) { intentWithPaymentMethod, attachError in
                     self.cancelable = nil
                     if let error = attachError {
                         collectEvent.result = .errored
-                        collectEvent.object = error
+                        collectEvent.object = .error(error as NSError)
                         self.events.append(collectEvent)
                         self.complete()
                     }
-                    else if let intent = intentWithSource {
+                    else if let intent = intentWithPaymentMethod {
                         collectEvent.result = .succeeded
-                        collectEvent.object = intent
+                        collectEvent.object = .paymentIntent(intent)
                         self.events.append(collectEvent)
 
                         // 3. confirm PaymentIntent
-                        var confirmEvent = LogEvent(method: .confirmPaymentIntent)
-                        self.events.append(confirmEvent)
-                        Terminal.shared.confirmPaymentIntent(intent) { confirmedIntent, confirmError in
-                            if let error = confirmError {
-                                confirmEvent.result = .errored
-                                confirmEvent.object = error
-                                self.events.append(confirmEvent)
+                        var processEvent = LogEvent(method: .processPayment)
+                        self.events.append(processEvent)
+                        Terminal.shared.processPayment(intent) { processedIntent, processError in
+                            if let error = processError {
+                                processEvent.result = .errored
+                                processEvent.object = .error(error as NSError)
+                                self.events.append(processEvent)
                                 self.complete()
                             }
-                            else if let intent = confirmedIntent {
-                                confirmEvent.result = .succeeded
-                                confirmEvent.object = intent
-                                self.events.append(confirmEvent)
+                            else if let intent = processedIntent {
+                                processEvent.result = .succeeded
+                                processEvent.object = .paymentIntent(intent)
+                                self.events.append(processEvent)
 
                                 // 4. send to backend for capture
                                 var captureEvent = LogEvent(method: .capturePaymentIntent)
                                 self.events.append(captureEvent)
-                                apiClient.capturePaymentIntent(intent.stripeId) { captureError in
+                                AppDelegate.apiClient?.capturePaymentIntent(intent.stripeId) { captureError in
                                     if let error = captureError {
                                         captureEvent.result = .errored
-                                        captureEvent.object = error
+                                        captureEvent.object = .error(error as NSError)
                                     }
                                     else {
                                         captureEvent.result = .succeeded
@@ -171,7 +168,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
         cancelable?.cancel { error in
             if let error = error {
                 event.result = .errored
-                event.object = error
+                event.object = .error(error as NSError)
             }
             else {
                 event.result = .succeeded
@@ -188,21 +185,28 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderInputD
     }
 
     func terminal(_ terminal: Terminal, didReportReaderEvent event: ReaderEvent, info: [AnyHashable : Any]?) {
-        var logEvent = LogEvent(method: .readerEvent)
+        var logEvent = LogEvent(method: .reportReaderEvent)
         logEvent.result = .message(Terminal.stringFromReaderEvent(event))
         events.append(logEvent)
     }
 
-    // MARK: ReaderInputDelegate
-    func terminal(_ terminal: Terminal, didBeginWaitingForReaderInput inputOptions: ReaderInputOptions) {
-        var event = LogEvent(method: .waitingForReaderInput)
+    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+        var logEvent = LogEvent(method: .reportReaderEvent)
+        logEvent.result = .message("Disconnected from reader: \(reader.serialNumber)")
+        events.append(logEvent)
+        presentAlert(title: "Reader disconnected!", message: "")
+    }
+
+    // MARK: ReaderDisplayDelegate
+    func terminal(_ terminal: Terminal, didRequestReaderInput inputOptions: ReaderInputOptions) {
+        var event = LogEvent(method: .requestReaderInput)
         event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
         events.append(event)
     }
 
-    func terminal(_ terminal: Terminal, didRequestReaderInputPrompt inputPrompt: ReaderInputPrompt) {
-        var event = LogEvent(method: .readSourcePrompt)
-        event.result = .message(Terminal.stringFromReaderInputPrompt(inputPrompt))
+    func terminal(_ terminal: Terminal, didRequestReaderDisplayMessage inputPrompt: ReaderDisplayMessage) {
+        var event = LogEvent(method: .requestReaderDisplayMessage)
+        event.result = .message(Terminal.stringFromReaderDisplayMessage(inputPrompt))
         events.append(event)
     }
 

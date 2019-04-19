@@ -65,6 +65,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -74,13 +77,13 @@
                 <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPReaderInputDelegate.html">SCPReaderInputDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -112,13 +115,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPCardPresentSource.html">SCPCardPresentSource</a>
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPConfirmError.html">SCPConfirmError</a>
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPReceiptData.html">SCPReceiptData</a>
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
@@ -133,13 +139,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPReadSourceParameters.html">SCPReadSourceParameters</a>
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPSource.html">SCPSource</a>
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
             </ul>
           </li>
@@ -154,9 +163,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -208,12 +214,6 @@
             <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCardPresentSourceCompletionBlock">SCPCardPresentSourceCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmPaymentIntentCompletionBlock">SCPConfirmPaymentIntentCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
               </li>
               <li class="nav-group-task">
@@ -226,7 +226,24 @@
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
               </li>
             </ul>
           </li>
@@ -241,9 +258,6 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
-              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other Protocols.html#/c:objc(pl)SCPUpdateReaderSoftwareDelegate">SCPUpdateReaderSoftwareDelegate</a>
               </li>
@@ -264,6 +278,11 @@
                 </div>
               </div>
             <p>Configuration for discovering readers.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a>
+
+</div>
 
           </div>
         </section>
@@ -275,9 +294,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithDeviceType:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:">-initWithDeviceType:</a>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:simulated:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDeviceType:simulated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:simulated:">-initWithDeviceType:simulated:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,20 +304,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a discovery configuration with the given device type.
-The the discovery method is the default for that device type.</p>
+                        <p>Initializes a discovery configuration with the given device type, selecting
+the default discovery method for the device type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
+                                 <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -315,6 +335,21 @@ The the discovery method is the default for that device type.</p>
                               <td>
                                 <div>
                                   <p>The device type to discover.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>simulated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether to use simulated discovery to discover a
+device simulator. The SDK comes with the ability to simulate behavior without
+using physical hardware. This makes it easy to quickly test your integration
+end-to-end, from pairing with a reader to taking payments.</p>
                                 </div>
                               </td>
                             </tr>
@@ -327,9 +362,9 @@ The the discovery method is the default for that device type.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:method:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithDeviceType:method:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:method:">-initWithDeviceType:method:</a>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:discoveryMethod:simulated:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDeviceType:discoveryMethod:simulated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:discoveryMethod:simulated:">-initWithDeviceType:discoveryMethod:simulated:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -339,23 +374,34 @@ The the discovery method is the default for that device type.</p>
                       <div class="abstract">
                         <p>Initializes a discovery configuration with the given device type and discovery method.</p>
 
-<p>Note that this initializer returns an optional value because not all deviceType
-and method combinations are valid. For the Chipper 2X, we recommend using the
-bluetoothProximity discovery method, which lets you discover a single reader by
-holding it next to the iOS device.</p>
+<p>Note that not all deviceType and discovery method combinations are valid. If
+the specified configuration is invalid, <code>discoverReaders</code> will fail.</p>
+
+<table><thead>
+<tr>
+<th>DeviceType</th>
+<th>valid DiscoveryMethods</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>chipper2X</td>
+<td>bluetoothProximity (recommended), bluetoothScan</td>
+</tr>
+</tbody></table>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
-                                     <span class="nf">method</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">method</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
+                           <span class="nf">discoveryMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">discoveryMethod</span>
+                                 <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -378,12 +424,27 @@ holding it next to the iOS device.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>method</em>
+                                <em>discoveryMethod</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>The discovery method to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>simulated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether to use simulated discovery to discover a
+device simulator. The SDK comes with the ability to simulate behavior without
+using physical hardware. This makes it easy to quickly test your integration
+end-to-end, from pairing with a reader to taking payments.</p>
                                 </div>
                               </td>
                             </tr>
@@ -409,12 +470,9 @@ holding it next to the iOS device.</p>
                         <p>The timeout (in seconds) after which discoverReaders should fail. If the
 value is 0 (the default), discoverReaders will never timeout.</p>
 
-<p>Note that setting a timeout is not currently supported when using:</p>
-
-<ul>
-<li>The BluetoothProximity DiscoveryMethod</li>
-<li>The ReaderSimulator DeviceType</li>
-</ul>
+<p>Note that setting a timeout is not currently supported when using the
+BluetoothProximity DiscoveryMethod, or any simulated discovery. If you set
+a timeout when using these configurations, the timeout will be ignored.</p>
 
                       </div>
                       <div class="declaration">
@@ -468,9 +526,9 @@ value is 0 (the default), discoverReaders will never timeout.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)method"></a>
-                    <a name="//apple_ref/objc/Property/method" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)method">method</a>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)discoveryMethod"></a>
+                    <a name="//apple_ref/objc/Property/discoveryMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)discoveryMethod">discoveryMethod</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -485,12 +543,48 @@ value is 0 (the default), discoverReaders will never timeout.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span> <span class="n">method</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span> <span class="n">discoveryMethod</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)simulated"></a>
+                    <a name="//apple_ref/objc/Property/simulated" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)simulated">simulated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether to use simulated discovery to discover a device simulator.</p>
+
+<p>The Terminal SDK comes with the ability to simulate behavior without using
+physical hardware. This makes it easy to quickly test your integration
+end-to-end, from pairing with a reader to taking payments.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">simulated</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -567,7 +661,7 @@ value is 0 (the default), discoverReaders will never timeout.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-01-28)</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-04-18)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
