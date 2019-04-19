@@ -83,5 +83,5 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 
 ## Documentation
-- [Getting Started](https://stripe.com/docs/terminal/ios)
+- [Getting Started](https://stripe.com/docs/terminal/sdk/ios)
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
