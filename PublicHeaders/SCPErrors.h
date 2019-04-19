@@ -36,176 +36,195 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      corresponding delegate methods) to determine if the SDK is ready to accept
      another command.
      */
-    SCPErrorBusy = 100,
+    SCPErrorBusy = 1000,
+    /**
+     Canceling a command failed because the command already completed.
+     */
+    SCPErrorCancelFailedAlreadyCompleted = 1010,
+    /**
+     No reader is connected. Connect to a reader before trying again.
+     */
+    SCPErrorNotConnectedToReader = 1100,
+    /**
+     Already connected to a reader.
+     */
+    SCPErrorAlreadyConnectedToReader = 1110,
+    /**
+     Your implementation of `fetchConnectionToken` called the completion block
+     with (nil, nil). Please make sure your integration completes with either
+     a connection token or an error.
+     */
+    SCPErrorConnectionTokenProviderCompletedWithNothing = 1510,
+    /**
+     processPayment was called with an unknown or invalid PaymentIntent.
+     You must process a payment immediately after collecting a payment method.
+     */
+    SCPErrorProcessInvalidPaymentIntent = 1530,
+    /**
+     collectPaymentMethod or processPayment was called with a nil PaymentIntent.
+     */
+    SCPErrorNilPaymentIntent = 1540,
+    /**
+     A PaymentIntent was referenced using an invalid client secret.
+     */
+    SCPErrorInvalidClientSecret = 1560,
+    /**
+     The SDK must be actively Discovering Readers in order to successfully
+     connect to a reader. See documentation on `SCPTerminal` methods
+     `discoverReaders:delegate:completion:` and `connectReader:completion:`
+     */
+    SCPErrorMustBeDiscoveringToConnect = 1570,
+    /**
+     Before connecting to a reader, it must have already been discovered in the
+     current discovery session. Trying to connect to a reader from a previous
+     discovery session is not supported.
+     */
+    SCPErrorCannotConnectToUndiscoveredReader = 1580,
+    /**
+     discoverReaders was called using an invalid DiscoveryConfiguration. Your app selected a discovery method that is incompatible with the selected device type.
+     */
+    SCPErrorInvalidDiscoveryConfiguration = 1590,
+    /**
+     collectPaymentMethod was called with a `nil` ReaderDisplayDelegate, but
+     the connected reader does not have a built-in display, and requires that
+     your app support displaying messages from the reader to your user.
+     */
+    SCPErrorNilReaderDisplayDelegate = 1850,
+    /**
+     installUpdate was passed a `nil` SCPReaderSoftwareUpdate.
+     */
+    SCPErrorNilUpdate = 1860,
+
+    /**
+     USER ERRORS
+     */
     /**
      The command was canceled by your app.
      */
-    SCPErrorCanceled = 102,
+    SCPErrorCanceled = 2020,
+
     /**
      Access to location services is currently disabled. This may be because:
      - The user disabled location services in the system settings.
      - The user denied access to location services for your app.
      - The user's device is in Airplane Mode and unable to gather location data.
      */
-    SCPErrorLocationServicesDisabled = 150,
+    SCPErrorLocationServicesDisabled = 2200,
     /**
-     Your implementation of `fetchConnectionToken` called the completion block
-     with (nil, nil). Please make sure your integration completes with either
-     a connection token or an error.
+     Bluetooth disabled on this iOS device. Enable bluetooth in Settings.
      */
-    SCPErrorConnectionTokenProviderCompletedWithNothing = 151,
+    SCPErrorBluetoothDisabled = 2320,
     /**
-     Your implementation of `fetchConnectionToken` called the completion block
-     with an error.
+     Scanning for bluetooth devices timed out.
      */
-    SCPErrorFetchConnectionTokenCompletedWithError = 152,
+    SCPErrorBluetoothScanTimedOut = 2330,
     /**
-     confirmPaymentIntent was called with an unknown or invalid PaymentIntent.
-     You must confirm a PaymentIntent immediately after collecting a payment method.
+     Bluetooth Low Energy is unsupported on this iOS device. Use a different
+     iOS device that supports BLE (also known as Bluetooth 4.0)
      */
-    SCPErrorConfirmInvalidIntent = 153,
+    SCPErrorBluetoothLowEnergyUnsupported = 2340,
     /**
-     collectPaymentMethod or confirmPaymentIntent was called with a nil PaymentIntent.
+     No reader software updates are available.
      */
-    SCPErrorNilPaymentIntent = 154,
+    SCPErrorNoAvailableReaderSoftwareUpdate = 2640,
     /**
-     Canceling a command failed.
+     Updating the reader software failed because the reader's battery is
+     too low. Charge the reader before trying again.
      */
-    SCPErrorCancelFailed = 155,
+    SCPErrorReaderSoftwareUpdateFailedBatteryLow = 2650,
     /**
-     A PaymentIntent was referenced using an invalid client secret.
+     Updating the reader software failed because the update was interrupted.
      */
-    SCPErrorInvalidClientSecret = 156,
+    SCPErrorReaderSoftwareUpdateFailedInterrupted = 2660,
     /**
-     The SDK must be actively Discovering Readers in order to successfully
-     connect to a reader. See documentation on `SCPTerminal` methods
-     `discoverReaders:delegate:completion:` and `connectReader:completion:`
+     The card is not a chip card.
      */
-    SCPErrorMustBeDiscoveringToConnect = 157,
+    SCPErrorCardInsertNotRead = 2810,
     /**
-     Before connecting to a reader, it must have already been discovered in the
-     current discovery session. Trying to connect to a reader from a previous
-     discovery session is not supported.
+     The swipe could not be read.
      */
-    SCPErrorCannotConnectToUndiscoveredReader = 158,
+    SCPErrorCardSwipeNotRead = 2820,
+    /**
+     Reading a card timed out.
+     */
+    SCPErrorCardReadTimedOut = 2830,
+    /**
+     The card was removed during the transaction.
+     */
+    SCPErrorCardRemoved = 2840,
 
     /**
      READER ERRORS
      */
     /**
-     No reader is connected. Connect to a reader before trying again.
-     */
-    SCPErrorNotConnectedToReader = 300,
-    /**
-     Already connected to a reader.
-     */
-    SCPErrorAlreadyConnectedToReader = 301,
-    /**
-     An incompatible reader was detected. You can only use the Stripe Terminal
-     iOS SDK with one of Stripe's pre-certified readers. For more information,
-     see https://stripe.com/docs/terminal/readers
-     */
-    SCPErrorIncompatibleReader = 302,
-    /**
      The reader is busy.
      */
-    SCPErrorReaderBusy = 305,
+    SCPErrorReaderBusy = 3010,
+    /**
+     Canceling the command failed because the reader is busy.
+     */
+    SCPErrorCancelFailedReaderBusy = 3020,
+    /**
+     An incompatible reader was detected. You can only use the Stripe Terminal
+     iOS SDK with one of Stripe's pre-certified readers.
+     
+     @see https://stripe.com/docs/terminal/readers
+     */
+    SCPErrorIncompatibleReader = 3030,
     /**
      Could not communicate with the reader.
      */
-    SCPErrorReaderCommunicationError = 306,
-    /**
-     The reader is waiting for input.
-     */
-    SCPErrorReaderWaitingForInput = 307,
+    SCPErrorReaderCommunicationError = 3060,
     /**
      Generic bluetooth error.
      */
-    SCPErrorBluetoothError = 320,
-    /**
-     Bluetooth disabled on mobile device. Enable bluetooth in Settings.
-     */
-    SCPErrorBluetoothDisabled = 321,
-    /**
-     Scanning for bluetooth devices timed out.
-     */
-    SCPErrorBluetoothScanTimedOut = 322,
-    /**
-     The Bluetooth device was disconnected during an operation.
-     */
-    SCPErrorBluetoothDisconnected = 323,
+    SCPErrorBluetoothError = 3200,
     /**
      Connecting to the bluetooth device timed out. Make sure the device is
      powered on, in range, and not connected to another app or device. If this
      error continues to occur, you may need to charge the device.
      */
-    SCPErrorBluetoothConnectTimedOut = 324,
+    SCPErrorBluetoothConnectTimedOut = 3210,
+    /**
+     The Bluetooth device was disconnected unexpectedly.
+     */
+    SCPErrorBluetoothDisconnected = 3230,
     /**
      Generic reader software update error.
      */
-    SCPErrorReaderSoftwareUpdateFailed = 380,
-    /**
-     Updating the reader software failed because the reader's battery is
-     too low. Charge the reader before trying again.
-     */
-    SCPErrorReaderSoftwareUpdateFailedBatteryLow = 381,
-    /**
-     No reader software updates are available.
-     */
-    SCPErrorNoAvailableReaderSoftwareUpdate = 382,
+    SCPErrorReaderSoftwareUpdateFailed = 3800,
     /**
      Updating the reader software failed because there was an error
      communicating with the reader.
      */
-    SCPErrorReaderSoftwareUpdateFailedReaderError = 383,
+    SCPErrorReaderSoftwareUpdateFailedReaderError = 3830,
     /**
      Updating the reader software failed because there was an error
      communicating with the update server.
      */
-    SCPErrorReaderSoftwareUpdateFailedServerError = 384,
-    /**
-     Updating the reader software failed because the update was interrupted.
-     */
-    SCPErrorReaderSoftwareUpdateFailedInterrupted = 385,
-    
+    SCPErrorReaderSoftwareUpdateFailedServerError = 3840,
+
     /**
      UNEXPECTED ERRORS
      */
     /**
      Unexpected SDK error.
      */
-    SCPErrorUnexpectedSdkError = 500,
+    SCPErrorUnexpectedSdkError = 5000,
 
     /**
      PAYMENT ERRORS
      */
     /**
      The Stripe API declined the payment.
-     Inspect SCPConfirmError's requestError property for more information about
+     Inspect SCPProcessPaymentError's requestError property for more information about
      the decline, including the decline code.
      */
-    SCPErrorPaymentDeclinedByStripeAPI = 600,
+    SCPErrorPaymentDeclinedByStripeAPI = 6000,
     /**
      The reader declined the payment. Try another card.
      */
-    SCPErrorPaymentDeclinedByReader = 650,
-    /**
-     The card is not a chip card.
-     */
-    SCPErrorCardInsertNotRead = 651,
-    /**
-     The swipe could not be read.
-     */
-    SCPErrorCardSwipeNotRead = 652,
-    /**
-     Reading a card timed out.
-     */
-    SCPErrorCardReadTimedOut = 653,
-    /**
-     The card was removed during the transaction.
-     */
-    SCPErrorCardRemoved = 654,
-
+    SCPErrorPaymentDeclinedByReader = 6500,
 
     /**
      NETWORK ERRORS
@@ -213,23 +232,28 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     /**
      The SDK is not connected to the internet.
      */
-    SCPErrorNotConnectedToInternet = 900,
+    SCPErrorNotConnectedToInternet = 9000,
     /**
      The underlying request timed out.
      */
-    SCPErrorRequestTimedOut = 901,
+    SCPErrorRequestTimedOut = 9010,
     /**
      The underlying request returned an API error.
      */
-    SCPErrorStripeAPIError = 902,
+    SCPErrorStripeAPIError = 9020,
     /**
      The API response from Stripe could not be decoded.
      */
-    SCPErrorStripeAPIResponseDecodingError = 903,
+    SCPErrorStripeAPIResponseDecodingError = 9030,
     /**
      Generic network error
      */
-    SCPErrorInternalNetworkError = 904,
+    SCPErrorInternalNetworkError = 9040,
+    /**
+     Your implementation of `fetchConnectionToken` called the completion block
+     with an error.
+     */
+    SCPErrorConnectionTokenProviderCompletedWithError = 9050,
     
 } NS_SWIFT_NAME(ErrorCode);
 

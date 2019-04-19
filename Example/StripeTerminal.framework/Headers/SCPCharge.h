@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, SCPChargeStatus) {
     SCPChargeStatusFailed,
 } NS_SWIFT_NAME(ChargeStatus);
 
-@class SCPCardPresentSource;
+@class SCPPaymentMethodDetails;
 
 /**
  An object representing a Stripe charge.
@@ -56,9 +56,9 @@ typedef NS_ENUM(NSUInteger, SCPChargeStatus) {
 @property (nonatomic, readonly) SCPChargeStatus status;
 
 /**
- The card present source associated with the charge.
+ The payment method details associated with the charge.
  */
-@property (nonatomic, nullable, readonly) SCPCardPresentSource *cardPresentSource;
+@property (nonatomic, nullable, readonly) SCPPaymentMethodDetails *paymentMethodDetails;
 
 /**
  A string describing the charge, displayed in the Stripe dashboard and in

@@ -1,18 +1,18 @@
-# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 4-brightgreen.svg">
+# Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta-brightgreen.svg">
 
 [Request a Beta invite](https://stripe.com/terminal#request-invite) to get started with Stripe Terminal.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 9 and above.
 
 ## Try the example app
-The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. 
+The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
 
 To build the example app from source, you'll need to:
 
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. Navigate to our [example backend](https://github.com/stripe/example-terminal-backend) and click the button to deploy it on Heroku.
-3. In `RootViewController.swift`, set the URL of the Heroku app you just deployed.
+3. In `AppDelegate.swift`, set the URL of the Heroku app you just deployed.
 3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
@@ -26,7 +26,7 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0-b6'
+pod 'StripeTerminal', '1.0.0-rc1'
 ```
 
 3. Run the following command:
@@ -67,7 +67,8 @@ For your app to run in the background and remain connected to the reader, add th
 
 - Required background modes
   - Key: `UIBackgroundModes`
-  - Value: `bluetoooth-central` (Uses Bluetooth LE accessories)
+  - Value: `bluetoooth-central` (Uses Bluetooth LE accessories) 
+  - Note the value is actually an array that you will need to add `bluetooth-central` to.
 
 For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:
 

@@ -15,7 +15,7 @@
 #import "SCPConnectionStatus.h"
 #import "SCPDeviceType.h"
 #import "SCPPaymentStatus.h"
-#import "SCPReaderInputDelegate.h"
+#import "SCPReaderDisplayDelegate.h"
 #import "SCPReaderEvent.h"
 #import "SCPDiscoveryMethod.h"
 #import "SCPLogLevel.h"
@@ -25,12 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-b6";
+static NSString *const SCPSDKVersion = @"1.0.0-rc1";
 
 @class SCPCancelable,
 SCPDiscoveryConfiguration,
 SCPPaymentIntentParameters,
-SCPReadSourceParameters,
+SCPReadReusableCardParameters,
 SCPUpdateReaderSoftwareParameters;
 
 @protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPReaderSoftwareUpdateDelegate;
@@ -50,17 +50,24 @@ NS_SWIFT_NAME(Terminal)
  Sets the token provider for the shared (singleton) Terminal instance.
  
  You must set a token provider before calling `shared` to initialize the
- Terminal singleton.
+ Terminal singleton. We recommend calling `setTokenProvider` in your
+ AppDelegate's `application:didFinishLaunchingWithOptions:` method.
+ Alternatively, you can wrap your call to `setTokenProvider` with a
+ `dispatch_once` in Objective-C, or use a static constructor in Swift.
  
  Note that you may only set a token provider *before* requesting the shared
  Terminal instance for the first time. In order to switch accounts in your app,
  e.g. to switch between live and test Stripe API keys on your backend, refer
  to the documentation for the `clearCachedCredentials` method on the shared
  Terminal instance.
- 
- @see SCPConnectionTokenProvider
  */
 + (void)setTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(setTokenProvider(_:));
+
+
+/**
+ Returns true if a token provider has been set.
+ */
++ (BOOL)hasTokenProvider;
 
 /**
  Sets a block to listen for logs from the shared Terminal instance (optional).
@@ -90,9 +97,6 @@ NS_SWIFT_NAME(Terminal)
  Set this to handle events from the Terminal instance.
  */
 @property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> delegate;
-
-/// Deprecated: terminalDelegate has been renamed to delegate
-@property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> terminalDelegate __attribute__((deprecated("terminalDelegate has been renamed to delegate", "delegate")));
 
 /**
  Information about the connected reader, or nil if no reader is connected.
@@ -127,20 +131,15 @@ NS_SWIFT_NAME(Terminal)
  request a new connection token from your backend server via the token provider.
  
  An overview of the lifecycle of a connection token under the hood:
- - When a Terminal is initialized, the SDK attempts to proactively request
+ - When the Terminal singleton is initialized, the SDK attempts to proactively request
  a connection token from your backend server.
  - When `connect` is called, the SDK uses the connection token and reader
  information to create a reader session.
- - Subsequent calls to `connect` will re-use the reader session if this `SCPTerminal`
+ - Subsequent calls to `connect` will re-use the reader session if the SDK
  has successfully connected to the reader already. Otherwise, it will require a
  new connection token when you call `connect` again.
  */
 - (void)clearCachedCredentials NS_SWIFT_NAME(clearCachedCredentials());
-
-/// `clearConnectionToken` has been renamed to `clearCachedCredentials`
-- (void)clearConnectionToken NS_SWIFT_NAME(clearConnectionToken())
-__attribute__((deprecated("clearConnectionToken has been renamed to clearCachedCredentials",
-                          "clearCachedCredentials")));
 
 /**
  Begins discovering readers matching the given configuration.
@@ -155,6 +154,8 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
 
  Note that if `discoverReaders` is canceled, the completion block will be called
  with nil (rather than a `Canceled` error).
+
+ @see https://stripe.com/docs/terminal/readers/connecting
 
  @param configuration   The configuration for reader discovery.
  @param delegate        Your delegate for reader discovery.
@@ -181,6 +182,8 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  to fetch a connection token if it does not already have one. It then uses the
  connection token and reader information to create a reader session.
 
+ @see https://stripe.com/docs/terminal/readers/connecting
+
  @param reader          The reader to connect to. This should be a reader
  recently returned to the `didUpdateDiscoveredReaders:` method.
  @param completion      The completion block called when the command completes.
@@ -192,6 +195,8 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  
  If the disconnect succeeds, the completion block is called with nil. If the
  disconnect fails, the completion block is called with an error.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
  
  @param completion      The completion block called when the command completes.
  */
@@ -203,7 +208,9 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  Note: If the information required to create a PaymentIntent isn't readily
  available in your app, you can create the PaymentIntent on your server and use
  the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
- 
+
+ @see https://stripe.com/docs/terminal/payments#create
+
  @param parameters      The parameters for the PaymentIntent to be created.
  @param completion      The completion block called when the command completes.
  */
@@ -217,7 +224,7 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  in your app, you can create the PaymentIntent on your server and use this
  method to retrieve the PaymentIntent in your app.
  
- @see https://stripe.com/docs/api#retrieve_payment_intent
+ @see https://stripe.com/docs/terminal/payments#create
  
  @param clientSecret    The client secret of the PaymentIntent to be retrieved.
  @param completion      The completion block called when the command completes.
@@ -228,61 +235,76 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
 /**
  Collects a payment method for the given PaymentIntent.
 
+ Note: `collectPaymentMethod` does not apply any changes to the PaymentIntent
+ API object. Updates to the PaymentIntent are local to the SDK, and persisted
+ in-memory.
+
  If collecting a payment method fails, the completion block will be called with
  an error. After resolving the error, you may call collectPaymentMethod again to either
  try the same card again, or try a different card.
 
  If collecting a payment method succeeds, the completion block will be called
- with a PaymentIntent with status RequiresConfirmation, indicating that you
- should call confirmPaymentIntent to finish the payment.
+ with a PaymentIntent with status `.requiresConfirmation`, indicating that you
+ should call `processPayment` to finish the payment.
 
  Note that if `collectPaymentMethod` is canceled, the completion block will be
  called with a `Canceled` error.
- 
+
+ @see https://stripe.com/docs/terminal/payments#collect
+
  @param paymentIntent       The PaymentIntent to collect a payment method for.
+
  @param delegate            Your delegate for handling reader input events.
+ Providing a ReaderDisplayDelegate is required when the connected reader doesn't
+ have a built-in display (e.g., the BBPOS Chipper 2X BT). These readers will
+ request that your app display messages during the `collectPaymentMethod`
+ process (e.g., "Remove card") via this delegate.
+
  @param completion          The completion block called when the command completes.
  */
 - (nullable SCPCancelable *)collectPaymentMethod:(SCPPaymentIntent *)paymentIntent
-                                        delegate:(id<SCPReaderInputDelegate>)delegate
+                                        delegate:(nullable id<SCPReaderDisplayDelegate>)delegate
                                       completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(collectPaymentMethod(_:delegate:completion:));
 
 /**
- Confirms a PaymentIntent. Call this immediately after receiving a
- PaymentIntent from collectPaymentMethod.
- 
- When confirming a PaymentIntent fails, the SDK returns an error that includes
- the updated PaymentIntent. Your app should inspect the updated PaymentIntent
+ Processes a payment after collecting a payment method succeeds.
+
+ === Synchronous capture ===
+
+ Stripe Terminal uses two-step card payments to prevent unintended and duplicate
+ payments. When `processPayment` completes successfully, a charge has been
+ authorized on the customer's card, but not yet been "captured". Your app must
+ **synchronously notify your backend** to capture the PaymentIntent
+ in order to settle the funds to your account.
+
+ === Handling failures ===
+
+ When `processPayment` fails, the SDK returns an error that includes the
+ updated PaymentIntent. Your app should inspect the updated PaymentIntent
  to decide how to retry the payment.
 
- If the updated PaymentIntent is `nil`, the request to Stripe's servers timed
+ 1. If the updated PaymentIntent is `nil`, the request to Stripe's servers timed
  out and the PaymentIntent's status is unknown. We recommend that you retry
- confirming the original PaymentIntent. If you instead choose to abandon the
- original PaymentIntent and create a new one, do not to capture the original
- PaymentIntent. If you do, you might charge your customer twice.
+ `processPayment` with the original PaymentIntent. If you instead choose to
+ abandon the original PaymentIntent and create a new one, **do not capture**
+ the original PaymentIntent. If you do, you might charge your customer twice.
 
- If the updated PaymentIntent's status is still `requires_confirmation` (e.g.,
+ 2. If the updated PaymentIntent's status is still `.requiresConfirmation` (e.g.,
  the request failed because your app is not connected to the internet), you
- can call `confirmPaymentIntent` again with the updated PaymentIntent to retry
+ can call `processPayment` again with the updated PaymentIntent to retry
  the request.
 
- If the updated PaymentIntent's status changes to `requires_source` (e.g., the
+ 3. If the updated PaymentIntent's status changes to `.requiresPaymentMethod` (e.g., the
  request failed because the card was declined), call `collectPaymentMethod` with the
  updated PaymentIntent to try charging another card.
 
- If confirming the PaymentIntent succeeds, the completion block will be called
- with a PaymentIntent object with status RequiresCapture,
-
- Stripe Terminal uses two-step card payments to prevent unintended and duplicate
- payments. When the SDK returns a confirmed PaymentIntent to your app, a charge
- has been authorized but not yet settled, or captured. On your backend, capture
- the confirmed PaymentIntent.
+ @see https://stripe.com/docs/terminal/payments#process
 
  @param paymentIntent   The PaymentIntent to confirm.
  @param completion      The completion block called when the confirm completes.
  */
-- (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
-                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(confirmPaymentIntent(_:completion:));
+- (void)processPayment:(SCPPaymentIntent *)paymentIntent
+            completion:(SCPProcessPaymentCompletionBlock)completion NS_SWIFT_NAME(processPayment(_:completion:));
 
 /**
  Cancels a PaymentIntent.
@@ -290,6 +312,8 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  If the cancel request succeeds, the completion block will be called with the
  updated PaymentIntent object with status Canceled. If the cancel request
  fails, the completion block will be called with an error.
+
+ @see https://stripe.com/docs/terminal/payments/refunds
  
  @param paymentIntent     The PaymentIntent to cancel.
  @param completion        The completion block called when the cancel completes.
@@ -298,59 +322,83 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
                  completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(cancelPaymentIntent(_:completion:));
 
 /**
- Reads a payment method with the given parameters and returns a source.
+ Reads a card with the given parameters and returns a PaymentMethod.
 
- **NOTE: Most integrations should **not** use `readSource`.**
+ **NOTE: Most integrations should **not** use `readReusableCard`.**
 
  You should create a `PaymentIntent` and use the associated `collectPaymentMethod`
- and `confirmPaymentIntent` methods if you are simply collecting a payment from
+ and `processPayment` methods if you are simply collecting a payment from
  a customer.
 
- You can use `readSource` to read payment details and defer payment for later.
- To do this, you will need to turn the "card present" source into a
- "card not present" source, which you can use to charge the customer online.
+ You can use `readReusableCard` to read payment details and defer payment for later.
+ The PaymentMethod created by this method will have type `card`, suitable for
+ use with online payments.
 
  Note that if you use this method to defer a payment, the transaction will
  *not* receive the beneficial rates and liability shift associated with card
  present transactions.
 
- If reading a source fails, the completion block will be called with an error
- containing details about the failure. If reading a source succeeds, the
- completion block will be called with a `CardPresentSource`. You should send
- the ID of the source to your backend for further processing. For example,
- you can use source's fingerprint to look up a charge created using the same
+ If reading a card fails, the completion block will be called with an error
+ containing details about the failure. If reading a card succeeds, the
+ completion block will be called with a `PaymentMethod`. You should send
+ the ID of the payment method to your backend for further processing. For example,
+ you can use the fingerprint to look up charges created using the same
  card.
 
- @param parameters  The parameters for reading the source.
+ @see https://stripe.com/docs/terminal/online-payments
+
+ @param parameters  The parameters for reading the card.
  @param delegate    Your delegate for handling reader input events.
  @param completion  The completion block called when the command completes.
  */
-- (nullable SCPCancelable *)readSource:(SCPReadSourceParameters *)parameters
-                              delegate:(id<SCPReaderInputDelegate>)delegate
-                            completion:(SCPCardPresentSourceCompletionBlock)completion NS_SWIFT_NAME(readSource(_:delegate:completion:));
+- (nullable SCPCancelable *)readReusableCard:(SCPReadReusableCardParameters *)parameters
+                                    delegate:(id<SCPReaderDisplayDelegate>)delegate
+                                  completion:(SCPPaymentMethodCompletionBlock)completion NS_SWIFT_NAME(readReusableCard(_:delegate:completion:));
 
 /**
- Checks for a reader software update, and prompts your app to begin installing
- the update if one is available.
- 
- If an update is available, the completion block will be called with nil,
- indicating that checking for a software update succeeded. Your delegate's
- `readerSoftwareUpdateAvailable:` method will be called, and you will have
- the opportunity to notify your user, and then begin or cancel the update.
+ Checks for a reader software update, and returns an update object if an update
+ is available.
 
- If an error occurs checking for an update (e.g. because no software update is
- available), the completion block will be called with an error.
+ If an update is available, the completion block will be called with a
+ ReaderSoftwareUpdate object, indicating that a software update is available.
+ The update object contains information about the update that you can display
+ to the user, such as the estimated installation time.
+
+ If an error occurs while checking for an update (e.g. because no software
+ update is available), the completion block will be called with an error.
+
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+
+ @param completion  The completion block called when checking for an update
+ completes.
+ */
+- (nullable SCPCancelable *)checkForUpdate:(SCPReaderSoftwareUpdateCompletionBlock)completion NS_SWIFT_NAME(checkForUpdate(_:));
+
+/**
+ Installs the provided update, and calls the completion block when the
+ installation has completed.
+
+ If an error occurs while installing the update (e.g. because the update was
+ interrupted), the completion block will be called with an error. If the update
+ completed successfully, the completion block will be called with nil.
+ You must pass a delegate to handle events as the update proceeds. In your app,
+ you should display the progress of the update to the user. You should also
+ instruct the user to wait for the update to complete: "Do not leave this page,
+ and keep the reader in range and powered on until the update is complete."
 
  You must implement the ability to update your reader's software in your app.
  Though we expect required software updates to be very rare, by using Stripe
  Terminal, you are obligated to include this functionality.
 
- @param delegate    Your delegate for handling update events.
- @param completion  The completion block called when checking for an update
- completes.
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+
+ @param update  The reader update.
+ @param delegate  Your delegate for handling update events.
+ @param completion  The completion block called when the update completes.
  */
-- (nullable SCPCancelable *)checkForReaderSoftwareUpdate:(id<SCPReaderSoftwareUpdateDelegate>)delegate
-                                              completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(checkForReaderSoftwareUpdate(delegate:completion:));
+- (nullable SCPCancelable *)installUpdate:(SCPReaderSoftwareUpdate *)update
+                                 delegate:(id<SCPReaderSoftwareUpdateDelegate>)delegate
+                               completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(installUpdate(_:delegate:completion:));
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.
@@ -362,7 +410,7 @@ __attribute__((deprecated("clearConnectionToken has been renamed to clearCachedC
  Returns an unlocalized string for the given reader input prompt, e.g.
  "Retry Card"
  */
-+ (NSString *)stringFromReaderInputPrompt:(SCPReaderInputPrompt)prompt NS_SWIFT_NAME(stringFromReaderInputPrompt(_:));
++ (NSString *)stringFromReaderDisplayMessage:(SCPReaderDisplayMessage)prompt NS_SWIFT_NAME(stringFromReaderDisplayMessage(_:));
 
 /**
  Returns an unlocalized string for the given reader event, e.g.

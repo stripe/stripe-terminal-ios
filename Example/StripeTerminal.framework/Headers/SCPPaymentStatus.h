@@ -12,27 +12,29 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- The possible payment statuses for a terminal.
+ The possible payment statuses for the SDK.
+
+ @see https://stripe.com/docs/terminal/payments
  */
 typedef NS_ENUM(NSUInteger, SCPPaymentStatus) {
     /**
-     Terminal is not ready to start a payment. It may be busy with another
+     The SDK is not ready to start a payment. It may be busy with another
      command, or a reader may not be connected.
      */
     SCPPaymentStatusNotReady,
     /**
-     Terminal is ready to start a payment. Create a PaymentIntent, and then
-     call collectPaymentMethod to begin reading a card.
+     The SDK is ready to start a payment.
      */
     SCPPaymentStatusReady,
     /**
-     Terminal is in the process of collecting a payment method for a PaymentIntent.
+     The SDK is waiting for input from the customer (e.g., for a card to
+     be presented to the reader)
      */
-    SCPPaymentStatusCollectingPaymentMethod,
+    SCPPaymentStatusWaitingForInput,
     /**
-     Terminal is in the process of confirming a PaymentIntent.
+     The SDK is processing a payment.
      */
-    SCPPaymentStatusConfirmingPaymentIntent,
+    SCPPaymentStatusProcessing,
 } NS_SWIFT_NAME(PaymentStatus);
 
 NS_ASSUME_NONNULL_END

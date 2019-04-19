@@ -32,23 +32,24 @@ code_sign() {
   # Use the current code_sign_identitiy
   echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
   echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1"
-  /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+  /usr/bin/codesign --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --preserve-metadata=identifier,entitlements "$1"
 }
 
 # Set working directory to product’s embedded frameworks 
-cd "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+cd "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" || (echo "error: could not cd to ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}"; exit 1)
 
 if [ "$ACTION" = "install" ]; then
   echo "Copy .bcsymbolmap files to .xcarchive"
   find . -name '*.bcsymbolmap' -type f -exec mv {} "${CONFIGURATION_BUILD_DIR}" \;
 else
   # Delete *.bcsymbolmap files from framework bundle unless archiving
-  find . -name '*.bcsymbolmap' -type f -exec rm -rf "{}" +\;
+  find . -name '*.bcsymbolmap' -type f -exec rm -rf "{}" \;
 fi
 
 echo "Stripping frameworks"
 
-for file in $(find . -type f -perm +111); do
+while IFS= read -r -d '' file
+do
   # Skip non-dynamic libraries
   if ! [[ "$(file "$file")" == *"dynamically linked shared library"* ]]; then
     continue
@@ -69,4 +70,4 @@ for file in $(find . -type f -perm +111); do
       code_sign "${file}"
     fi
   fi
-done
+done <   <(find . -type f -perm +111 -print0)

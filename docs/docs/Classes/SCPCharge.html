@@ -65,6 +65,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -74,13 +77,13 @@
                 <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPReaderInputDelegate.html">SCPReaderInputDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -112,13 +115,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPCardPresentSource.html">SCPCardPresentSource</a>
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPConfirmError.html">SCPConfirmError</a>
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPReceiptData.html">SCPReceiptData</a>
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
@@ -133,13 +139,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPReadSourceParameters.html">SCPReadSourceParameters</a>
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPSource.html">SCPSource</a>
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
             </ul>
           </li>
@@ -154,9 +163,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -208,12 +214,6 @@
             <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCardPresentSourceCompletionBlock">SCPCardPresentSourceCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmPaymentIntentCompletionBlock">SCPConfirmPaymentIntentCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
               </li>
               <li class="nav-group-task">
@@ -226,7 +226,24 @@
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
               </li>
             </ul>
           </li>
@@ -241,9 +258,6 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
-              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other Protocols.html#/c:objc(pl)SCPUpdateReaderSoftwareDelegate">SCPUpdateReaderSoftwareDelegate</a>
               </li>
@@ -375,9 +389,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPCharge(py)cardPresentSource"></a>
-                    <a name="//apple_ref/objc/Property/cardPresentSource" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPCharge(py)cardPresentSource">cardPresentSource</a>
+                    <a name="/c:objc(cs)SCPCharge(py)paymentMethodDetails"></a>
+                    <a name="//apple_ref/objc/Property/paymentMethodDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCharge(py)paymentMethodDetails">paymentMethodDetails</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -385,7 +399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The card present source associated with the charge.</p>
+                        <p>The payment method details associated with the charge.</p>
 
                       </div>
                       <div class="declaration">
@@ -393,12 +407,12 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/SCPCardPresentSource.html">SCPCardPresentSource</a></span> <span class="o">*</span><span class="n">cardPresentSource</span><span class="p">;</span></code></pre>
+    <span class="n"><a href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a></span> <span class="o">*</span><span class="n">paymentMethodDetails</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cardPresentSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPCardPresentSource.html">SCPCardPresentSource</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentMethodDetails</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -572,7 +586,7 @@ email receipts.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-01-28)</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-04-18)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

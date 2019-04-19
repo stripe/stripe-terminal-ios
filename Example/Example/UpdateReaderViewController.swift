@@ -15,20 +15,19 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
     private let headerView = ReaderHeaderView()
     private weak var doneButton: UIBarButtonItem?
     private weak var cancelButton: UIBarButtonItem?
-    private var checkingForUpdate: Bool = false {
-        didSet {
-            updateContent()
-        }
-    }
 
-    private var installUpdateBlock: ((Bool) -> ())? = nil {
-        didSet {
-            updateContent()
-        }
-    }
     private var update: ReaderSoftwareUpdate? = nil
     private var updateProgress: Float? = nil
-    private var updateCancelable: Cancelable? = nil
+    private var checkForUpdateCancelable: Cancelable? = nil {
+        didSet {
+            updateContent()
+        }
+    }
+    private var installUpdateCancelable: Cancelable? = nil {
+        didSet {
+            updateContent()
+        }
+    }
 
     init() {
         super.init(style: .grouped)
@@ -57,23 +56,38 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
     }
 
     private func checkForUpdate() {
-        checkingForUpdate = true
-        updateCancelable = Terminal.shared.checkForReaderSoftwareUpdate(delegate: self) { error in
+        checkForUpdateCancelable = Terminal.shared.checkForUpdate({ (update, error) in
             if let error = error {
-                self.updateCancelable = nil
                 self.presentAlert(error: error)
             }
-            self.checkingForUpdate = false
-        }
+
+            self.update = update
+            self.checkForUpdateCancelable = nil
+        })
     }
 
     private func installUpdate() {
-        installUpdateBlock?(true)
+        guard let update = self.update else { return }
+        installUpdateCancelable = Terminal.shared.installUpdate(update, delegate: self, completion: { error in
+            if let e = error {
+                self.presentAlert(error: e)
+            }
+            self.updateProgress = nil
+            if self.installUpdateCancelable != nil {
+                if error == nil {
+                    self.presentAlert(title: "Update successful", message: "The reader may restart at the end of the update. If this happens, reconnect the app to the reader.")
+                    self.cancelButton?.isEnabled = false
+                    self.doneButton?.isEnabled = true
+                    self.update = nil
+                }
+                self.installUpdateCancelable = nil
+            }
+        })
     }
 
     private func updateContent() {
         let currentVersion = Terminal.shared.connectedReader?.deviceSoftwareVersion ?? "unknown"
-        let canInstallUpdate = installUpdateBlock != nil
+        let canInstallUpdate = update != nil
         let updateButtonText: String
         let updateFooter: String
         let updateRow: Row
@@ -85,9 +99,13 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
                 updateFooter = "Update progress: \(percent)%\n\n⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete."
                 updateRow = Row(text: "⏱ Update in progress")
             }
+            else if installUpdateCancelable != nil {
+                updateFooter = "Starting to install update..."
+                updateRow = Row(text: "Installing Update")
+            }
             else {
                 updateButtonText = "Install update"
-                let updateEstimate = ReaderSoftwareUpdate.string(fromUpdateTimeExtimate: update.estimatedUpdateTime)
+                let updateEstimate = ReaderSoftwareUpdate.string(from: update.estimatedUpdateTime)
                 updateFooter = "Target version:\n\(updateVersion)\n\nThe reader will become unresponsive until the update is complete. Estimated update time: \(updateEstimate)"
                 updateRow = Row(text: updateButtonText, selection: { [unowned self] in
                     self.installUpdate()
@@ -96,7 +114,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         }
         else {
             updateButtonText = "Check for update"
-            if checkingForUpdate {
+            if checkForUpdateCancelable != nil {
                 updateFooter = "Checking for update..."
                 updateRow = Row(text: updateButtonText)
             }
@@ -117,17 +135,15 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
     }
 
     @objc func cancelAction() {
-        if installUpdateBlock != nil {
-            dismiss(animated: true, completion: nil)
-        }
-        else if let cancelable = updateCancelable {
+        if let cancelable = checkForUpdateCancelable ?? installUpdateCancelable {
+            self.cancelButton?.isEnabled = false
             cancelable.cancel { error in
+                self.cancelButton?.isEnabled = true
                 if let error = error {
                     self.presentAlert(error: error)
                 }
             }
-        }
-        else {
+        } else {
             dismiss(animated: true, completion: nil)
         }
     }
@@ -141,31 +157,17 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         headerView.connectionStatus = status
     }
 
-    // MARK: ReaderSoftwareUpdateDelegate
-    func terminal(_ terminal: Terminal, readerSoftwareUpdateAvailable update: ReaderSoftwareUpdate, installUpdate: @escaping InstallUpdateBlock) {
-        self.update = update
-        self.installUpdateBlock = installUpdate
-        updateContent()
+    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)") { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        headerView.connectedReader = nil
     }
+
+    // MARK: ReaderSoftwareUpdateDelegate
 
     func terminal(_ terminal: Terminal, didReportReaderSoftwareUpdateProgress progress: Float) {
         updateProgress = progress
         updateContent()
     }
-
-    func terminal(_ terminal: Terminal, didCompleteReaderSoftwareUpdate error: Error?) {
-        if let e = error {
-            presentAlert(error: e)
-        }
-        else {
-            presentAlert(title: "Update successful", message: "If the reader is still unresponsive, you may need to restart or reconnect to the reader.")
-        }
-        installUpdateBlock = nil
-        updateProgress = nil
-        updateCancelable = nil
-        updateContent()
-        cancelButton?.isEnabled = false
-        doneButton?.isEnabled = true
-    }
-
 }

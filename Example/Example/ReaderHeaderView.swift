@@ -91,9 +91,10 @@ class ReaderHeaderView: UIView {
         }
         switch connectionStatus {
         case .notConnected:
+            // handled above when connectedReader == nil
             break;
-        case .busy:
-            subtitleLabel.text = "Connected, busy"
+        case .connecting:
+            subtitleLabel.text = "Connecting"
             break;
         case .connected:
             subtitleLabel.text = "Connected, idle"

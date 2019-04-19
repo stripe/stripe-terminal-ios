@@ -13,9 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCardPresentSource,
-SCPConfirmError,
+@class SCPPaymentMethod,
+SCPProcessPaymentError,
 SCPReader,
+SCPReaderSoftwareUpdate,
 SCPPaymentIntent;
 
 /**
@@ -36,28 +37,16 @@ typedef void (^SCPConnectionTokenCompletionBlock)(NSString * __nullable token, N
 NS_SWIFT_NAME(LogListenerBlock)
 typedef void (^SCPLogListenerBlock)(NSString * _Nonnull logline);
 
-/**
- A block called with a boolean value indicating whether the SDK should begin
- installing an available reader software update.
 
- If an update is initiated, the reader will become unresponsive until the
- update is complete. In some cases, you will need to restart the reader at the
- end of the update.
-
- @param installUpdate     A boolean value indicating whether the SDK should
- proceed with the udpate.
- */
-NS_SWIFT_NAME(InstallUpdateBlock)
-typedef void (^SCPInstallUpdateBlock)(BOOL installUpdate);
 
 /**
- A block called with a card present source.
+ A block called with a PaymentMethod.
 
- @param source      A card present source.
- @param error       An error if one occurred, or nil.
+ @param paymentMethod  A PaymentMethod object, or nil if an error occurred.
+ @param error          An error if one occurred, or nil.
  */
-NS_SWIFT_NAME(CardPresentSourceCompletionBlock)
-typedef void (^SCPCardPresentSourceCompletionBlock)(SCPCardPresentSource * __nullable source, NSError * __nullable error);
+NS_SWIFT_NAME(PaymentMethodCompletionBlock)
+typedef void (^SCPPaymentMethodCompletionBlock)(SCPPaymentMethod * __nullable paymentMethod, NSError * __nullable error);
 
 /**
  A block called with an optional error.
@@ -68,13 +57,13 @@ NS_SWIFT_NAME(ErrorCompletionBlock)
 typedef void (^SCPErrorCompletionBlock)(NSError * __nullable error);
 
 /**
- A block called with a PaymentIntent or a confirm error.
+ A block called with a PaymentIntent or a ProcessPaymentError
 
  @param intent      The PaymentIntent, or nil.
  @param error       An error if one occurred, or nil.
  */
-NS_SWIFT_NAME(ConfirmPaymentIntentCompletionBlock)
-typedef void (^SCPConfirmPaymentIntentCompletionBlock)(SCPPaymentIntent * __nullable intent, SCPConfirmError * __nullable error);
+NS_SWIFT_NAME(ProcessPaymentCompletionBlock)
+typedef void (^SCPProcessPaymentCompletionBlock)(SCPPaymentIntent * __nullable intent, SCPProcessPaymentError * __nullable error);
 
 /**
  A block called with a PaymentIntent or an error.
@@ -93,5 +82,14 @@ typedef void (^SCPPaymentIntentCompletionBlock)(SCPPaymentIntent * __nullable in
  */
 NS_SWIFT_NAME(ReaderCompletionBlock)
 typedef void (^SCPReaderCompletionBlock)(SCPReader * __nullable reader, NSError * __nullable error);
+
+/**
+ A block called with a ReaderSoftwareUpdate or an error.
+
+ @param update      An update object, or nil.
+ @param error       An error if one occurred, or nil.
+ */
+NS_SWIFT_NAME(ReaderSoftwareUpdateCompletionBlock)
+typedef void (^SCPReaderSoftwareUpdateCompletionBlock)(SCPReaderSoftwareUpdate * __nullable update, NSError * __nullable error);
 
 NS_ASSUME_NONNULL_END

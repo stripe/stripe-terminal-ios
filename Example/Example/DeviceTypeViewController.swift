@@ -33,17 +33,11 @@ class DeviceTypeViewController: TableViewController {
     private func updateContent() {
         dataSource.sections = [
             Section(header: "", rows: [
-                Row(text: "Reader Simulator", selection: { [unowned self] in
-                    self.onSelectedDevice(.readerSimulator)
-                    self.navigationController?.popViewController(animated: true)
-                    }, accessory: (deviceType == .readerSimulator ? .checkmark : .none)),
-                ], footer: "Discover a simulated reader provided by the Stripe Terminal SDK. Select this option to try out the SDK without using physical reader hardware."),
-            Section(header: "", rows: [
                 Row(text: "Chipper 2X", selection: { [unowned self] in
                     self.onSelectedDevice(.chipper2X)
                     self.navigationController?.popViewController(animated: true)
                 }, accessory: (deviceType == .chipper2X ? .checkmark : .none)),
-                ], footer: "Discover card readers by scanning for nearby bluetooth devices. \n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page."),
+                ], footer: "Discover the BBPOS Chipper 2X BT.\n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page."),
         ]
     }
 

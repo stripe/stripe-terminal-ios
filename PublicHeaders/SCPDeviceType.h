@@ -13,16 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The possible device types for a reader.
+
+ @see https://stripe.com/docs/terminal/readers
  */
 typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     /**
      Chipper 2X
      */
     SCPDeviceTypeChipper2X,
-    /**
-     A reader simulator.
-     */
-    SCPDeviceTypeReaderSimulator,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

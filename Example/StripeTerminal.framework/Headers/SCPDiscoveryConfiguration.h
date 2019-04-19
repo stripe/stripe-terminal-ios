@@ -18,38 +18,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Configuration for discovering readers.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
  */
 NS_SWIFT_NAME(DiscoveryConfiguration)
 @interface SCPDiscoveryConfiguration : NSObject
 
 /**
- Initializes a discovery configuration with the given device type.
- The the discovery method is the default for that device type.
+ Initializes a discovery configuration with the given device type, selecting
+ the default discovery method for the device type.
 
- @param deviceType      The device type to discover.
+ @param deviceType          The device type to discover.
+ @param simulated           Whether to use simulated discovery to discover a
+ device simulator. The SDK comes with the ability to simulate behavior without
+ using physical hardware. This makes it easy to quickly test your integration
+ end-to-end, from pairing with a reader to taking payments.
  */
-- (instancetype)initWithDeviceType:(SCPDeviceType)deviceType;
+- (instancetype)initWithDeviceType:(SCPDeviceType)deviceType
+                         simulated:(BOOL)simulated;
 
 /**
  Initializes a discovery configuration with the given device type and discovery method.
 
- Note that this initializer returns an optional value because not all deviceType
- and method combinations are valid. For the Chipper 2X, we recommend using the
- bluetoothProximity discovery method, which lets you discover a single reader by
- holding it next to the iOS device.
- 
- @param deviceType      The device type to discover.
- @param method          The discovery method to use.
+ Note that not all deviceType and discovery method combinations are valid. If
+ the specified configuration is invalid, `discoverReaders` will fail.
+
+ | DeviceType | valid DiscoveryMethods                               |
+ | ---------- | -----------------------------------------------------|
+ | chipper2X  | bluetoothProximity (recommended), bluetoothScan      |
+
+ @param deviceType          The device type to discover.
+ @param discoveryMethod     The discovery method to use.
+ @param simulated           Whether to use simulated discovery to discover a
+ device simulator. The SDK comes with the ability to simulate behavior without
+ using physical hardware. This makes it easy to quickly test your integration
+ end-to-end, from pairing with a reader to taking payments.
  */
-- (nullable instancetype)initWithDeviceType:(SCPDeviceType)deviceType method:(SCPDiscoveryMethod)method;
+- (instancetype)initWithDeviceType:(SCPDeviceType)deviceType
+                   discoveryMethod:(SCPDiscoveryMethod)discoveryMethod
+                         simulated:(BOOL)simulated;
 
 /**
  The timeout (in seconds) after which discoverReaders should fail. If the
  value is 0 (the default), discoverReaders will never timeout.
 
- Note that setting a timeout is not currently supported when using:
- - The BluetoothProximity DiscoveryMethod
- - The ReaderSimulator DeviceType
+ Note that setting a timeout is not currently supported when using the
+ BluetoothProximity DiscoveryMethod, or any simulated discovery. If you set
+ a timeout when using these configurations, the timeout will be ignored.
  */
 @property (nonatomic, assign, readwrite) NSUInteger timeout;
 
@@ -61,7 +76,16 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 /**
  The method by which to discover readers.
  */
-@property (nonatomic, readonly) SCPDiscoveryMethod method;
+@property (nonatomic, readonly) SCPDiscoveryMethod discoveryMethod;
+
+/**
+ Whether to use simulated discovery to discover a device simulator.
+
+ The Terminal SDK comes with the ability to simulate behavior without using
+ physical hardware. This makes it easy to quickly test your integration
+ end-to-end, from pairing with a reader to taking payments.
+ */
+@property (nonatomic, readonly) BOOL simulated;
 
 /**
  Use `initWithDeviceType:`

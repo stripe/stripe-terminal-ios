@@ -31,17 +31,28 @@ struct LogEvent: CustomStringConvertible {
         case createPaymentIntent = "terminal.createPaymentIntent"
         case collectPaymentMethod = "terminal.collectPaymentMethod"
         case cancelCollectPaymentMethod = "terminal.cancelCollectPaymentMethod"
-        case cancelReadSource = "terminal.cancelReadSource"
-        case confirmPaymentIntent = "terminal.confirmPaymentIntent"
+        case readReusableCard = "terminal.readReusableCard"
+        case cancelReadReusableCard = "terminal.cancelReadReusableCard"
+        case processPayment = "terminal.processPayment"
         case capturePaymentIntent = "backend.capturePaymentIntent"
-        case waitingForReaderInput = "delegate.didBeginWaitingForReaderInput"
-        case readSourcePrompt = "delegate.didRequestReaderInputPrompt"
-        case readSource = "terminal.readSource"
-        case readerEvent = "delegate.didReportReaderEvent"
+        case requestReaderInput = "delegate.didRequestReaderInput"
+        case requestReaderDisplayMessage = "delegate.didRequestReaderDisplayMessage"
+        case reportReaderEvent = "delegate.didReportReaderEvent"
+        case reportUnexpectedReaderDisconnect = "delegate.didReportUnexpectedReaderDisconnect"
+        case attachPaymentMethod = "backend.attachPaymentMethod"
+    }
+
+    enum AssociatedObject {
+        case none
+        case error(NSError)
+        case json([String: AnyObject])
+        case paymentIntent(PaymentIntent)
+        case paymentMethod(PaymentMethod)
+        case object(CustomStringConvertible)
     }
 
     let method: Method
-    var object: Any? = nil
+    var object: AssociatedObject = .none
     var result: Result = .started
 
     init(method: Method) {
@@ -52,9 +63,10 @@ struct LogEvent: CustomStringConvertible {
     var description: String {
         var string = ""
         switch method {
-        case .waitingForReaderInput,
-             .readerEvent,
-             .readSourcePrompt:
+        case .requestReaderInput,
+             .reportReaderEvent,
+             .reportUnexpectedReaderDisconnect,
+             .requestReaderDisplayMessage:
             return result.description
         case .createPaymentIntent:
             switch result {
@@ -70,9 +82,9 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Collect PaymentMethod Failed"
             case .message(let message): string = message
             }
-        case .confirmPaymentIntent:
+        case .processPayment:
             switch result {
-            case .started: string = "Confirm PaymentIntent"
+            case .started: string = "Process Payment"
             case .succeeded: string = "Confirmed PaymentIntent"
             case .errored: string = "Confirm PaymentIntent Failed"
             case .message(let message): string = message
@@ -84,11 +96,11 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Capture PaymentIntent Failed"
             case .message(let message): string = message
             }
-        case .readSource:
+        case .readReusableCard:
             switch result {
-            case .started: string = "Read Source"
-            case .succeeded: string = "Created Source"
-            case .errored: string = "Read Source Failed"
+            case .started: string = "Read Reusable Card"
+            case .succeeded: string = "Created Reusable Card"
+            case .errored: string = "Read Reusable Card Failed"
             case .message(let message): string = message
             }
         case .cancelCollectPaymentMethod:
@@ -98,11 +110,18 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Cancel Collect Payment Method Failed"
             case .message(let message): string = message
             }
-        case .cancelReadSource:
+        case .cancelReadReusableCard:
             switch result {
-            case .started: string = "Cancel Read Source"
-            case .succeeded: string = "Canceled Read Source"
-            case .errored: string = "Cancel Read Source Failed"
+            case .started: string = "Cancel Read Reusable Card"
+            case .succeeded: string = "Canceled Read Reusable Card"
+            case .errored: string = "Cancel Read Reusable Card Failed"
+            case .message(let message): string = message
+            }
+        case .attachPaymentMethod:
+            switch result {
+            case .started: string = "Attach PaymentMethod"
+            case .succeeded: string = "Attached PaymentMethod"
+            case .errored: string = "Attach PaymentMethod Failed"
             case .message(let message): string = message
             }
         }
@@ -110,18 +129,18 @@ struct LogEvent: CustomStringConvertible {
     }
 
     var resultDetail: String {
-        if let error = object as? Error {
+        if case .error(let error) = object {
             return error.localizedDescription
         }
-        else if let _ = object as? PaymentIntent {
+        else if case .paymentIntent = object {
             return description
         }
         else {
             switch method {
-            case .waitingForReaderInput:
+            case .requestReaderInput:
                 return "ReaderInputOptions: \(result)"
-            case .readSourcePrompt:
-                return "ReaderInputPrompt: \(result)"
+            case .requestReaderDisplayMessage:
+                return "ReaderDisplayMessage: \(result)"
             default:
                 return description
             }
@@ -129,7 +148,7 @@ struct LogEvent: CustomStringConvertible {
     }
 
     var paymentIntentStatus: String? {
-        if let intent = object as? PaymentIntent {
+        if case .paymentIntent(let intent) = object {
             if intent.status == .requiresConfirmation {
                 return "requires_confirmation"
             }
@@ -142,15 +161,53 @@ struct LogEvent: CustomStringConvertible {
         }
         return nil
     }
+}
+
+extension LogEvent.AssociatedObject {
+    var title: String {
+        switch self {
+        case .none: return "NONE"
+        case .error: return "ERROR"
+        case .json: return "OBJECT"
+        case .paymentIntent: return "PAYMENTINTENT"
+        case .paymentMethod: return "PAYMENTMETHOD"
+        case .object: return "OBJECT"
+        }
+    }
+
+    var description: String? {
+        switch self {
+        case .none:
+            return nil
+        case .error(let error):
+            return prettyPrint(json: error.userInfo)
+        case .json(let json):
+            return prettyPrint(json: json)
+        case .paymentIntent(let intent) where intent.status == .requiresConfirmation:
+            return nil
+        case .paymentIntent(let intent):
+            return prettyPrint(json: intent.originalJSON)
+        case .paymentMethod(let paymentMethod):
+            return prettyPrint(json: paymentMethod.originalJSON)
+        case .object(let object):
+            return object.description
+        }
+    }
 
     func prettyPrint(json: [AnyHashable: Any]) -> String? {
         var sanitizedJson: [AnyHashable: Any] = [:]
-        for (key, value) in json {
-            if let jsonable = value as? JSONDecodable {
-                sanitizedJson[key] = jsonable.originalJSON
-            }
-            else if let describable = value as? CustomStringConvertible {
-                sanitizedJson[key] = describable.description
+        if JSONSerialization.isValidJSONObject(json) {
+            // easy case: most of the times this method is called is using a dict that came from JSON
+            sanitizedJson = json
+        } else {
+            for (key, value) in json {
+                if JSONSerialization.isValidJSONObject(value) {
+                    sanitizedJson[key] = value
+                } else if let jsonable = value as? JSONDecodable {
+                    sanitizedJson[key] = jsonable.originalJSON
+                } else if let describable = value as? CustomStringConvertible {
+                    sanitizedJson[key] = describable.description
+                }
             }
         }
         do {
@@ -161,42 +218,6 @@ struct LogEvent: CustomStringConvertible {
             return json.description
         }
     }
-
-    var objectTitle: String {
-        if let _ = object as? NSError {
-            return "ERROR"
-        }
-        else if let _ = object as? PaymentIntent {
-            return "PAYMENTINTENT"
-        }
-        else if let _ = object as? CardPresentSource {
-            return "SOURCE"
-        }
-        else {
-            return "OBJECT"
-        }
-    }
-
-    var objectDescription: String? {
-        guard let object = object else { return nil }
-        if let apiObject = object as? JSONDecodable,
-            let prettyJson = prettyPrint(json: apiObject.originalJSON) {
-            if let intent = object as? PaymentIntent,
-                intent.status == .requiresConfirmation {
-                return nil
-            }
-            return prettyJson
-        }
-        else if let error = object as? NSError {
-            return prettyPrint(json: error.userInfo)
-        }
-        else if let describable = object as? CustomStringConvertible {
-            return describable.description
-        }
-        return nil
-    }
-
-
 }
 
 class LogEventViewController: TableViewController {
@@ -228,9 +249,9 @@ class LogEventViewController: TableViewController {
             let section = Section(header: "STATUS", rows: [], footer: Section.Extremity.autoLayoutView(view))
             sections.append(section)
         }
-        if let description = event.objectDescription {
+        if let description = event.object.description {
             let view = MonospaceTextView(text: description)
-            let title = event.objectTitle
+            let title = event.object.title
             let header = Section.Extremity.title(title)
             let section = Section(header: header, rows: [], footer: Section.Extremity.autoLayoutView(view))
             sections.append(section)

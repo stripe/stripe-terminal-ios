@@ -64,6 +64,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPCancelable.html">SCPCancelable</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -73,13 +76,13 @@
                 <a class="nav-group-task-link" href="Classes/SCPReader.html">SCPReader</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/SCPReaderInputDelegate.html">SCPReaderInputDelegate</a>
+                <a class="nav-group-task-link" href="Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/SCPReaderInputPrompt.html">SCPReaderInputPrompt</a>
+                <a class="nav-group-task-link" href="Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -111,13 +114,16 @@
                 <a class="nav-group-task-link" href="Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPCardPresentSource.html">SCPCardPresentSource</a>
+                <a class="nav-group-task-link" href="Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPConfirmError.html">SCPConfirmError</a>
+                <a class="nav-group-task-link" href="Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPReceiptData.html">SCPReceiptData</a>
+                <a class="nav-group-task-link" href="Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPCardBrand.html">SCPCardBrand</a>
@@ -132,13 +138,16 @@
                 <a class="nav-group-task-link" href="Enums/SCPChargeStatus.html">SCPChargeStatus</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPReadSourceParameters.html">SCPReadSourceParameters</a>
+                <a class="nav-group-task-link" href="Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+                <a class="nav-group-task-link" href="Classes/SCPCardDetails.html">SCPCardDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPSource.html">SCPSource</a>
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
             </ul>
           </li>
@@ -153,9 +162,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Reader Updates.html#/c:SCPBlocks.h@T@SCPInstallUpdateBlock">SCPInstallUpdateBlock</a>
               </li>
             </ul>
           </li>
@@ -207,12 +213,6 @@
             <a class="nav-group-name-link" href="Blocks.html">Blocks</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCardPresentSourceCompletionBlock">SCPCardPresentSourceCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConfirmPaymentIntentCompletionBlock">SCPConfirmPaymentIntentCompletionBlock</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
               </li>
               <li class="nav-group-task">
@@ -225,7 +225,24 @@
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
               </li>
             </ul>
           </li>
@@ -241,9 +258,6 @@
             <a class="nav-group-name-link" href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other Protocols.html#/c:objc(pl)SCPUpdateReaderSoftwareDelegate">SCPUpdateReaderSoftwareDelegate</a>
               </li>
             </ul>
@@ -255,22 +269,22 @@
         <section class="section">
           <div class="section-content">
             
-            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-4-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta 4-brightgreen.svg"></h1>
+            <h1 id='stripe-terminal-ios-img-src-https-img-shields-io-badge-beta-brightgreen-svg' class='heading'>Stripe Terminal iOS <img src="https://img.shields.io/badge/Beta-brightgreen.svg"></h1>
 
 <p><a href="https://stripe.com/terminal#request-invite">Request a Beta invite</a> to get started with Stripe Terminal.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
-<p>The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.</p>
+<p>The Stripe Terminal iOS SDK is compatible with apps supporting iOS 9 and above.</p>
 <h2 id='try-the-example-app' class='heading'>Try the example app</h2>
 
-<p>The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration. Join the <a href="https://testflight.apple.com/join/NYXuDNuT">TestFlight Beta</a> to download the example app directly (you&rsquo;ll need to open the link on an iOS device).</p>
+<p>The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.</p>
 
 <p>To build the example app from source, you&rsquo;ll need to:</p>
 
 <ol>
 <li>Navigate to the <code>Example</code> folder, and open <code>Example.xcodeproj</code>.</li>
 <li>Navigate to our <a href="https://github.com/stripe/example-terminal-backend">example backend</a> and click the button to deploy it on Heroku.</li>
-<li>In <code>RootViewController.swift</code>, set the URL of the Heroku app you just deployed.</li>
+<li>In <code>AppDelegate.swift</code>, set the URL of the Heroku app you just deployed.</li>
 <li>Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.</li>
 </ol>
 
@@ -283,7 +297,7 @@
 <ol>
 <li><p>If you haven&rsquo;t already, install the latest version of <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>.</p></li>
 <li><p>Add this line to your Podfile:</p>
-<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0.0-b6'
+<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0.0-rc1'
 </code></pre></li>
 <li><p>Run the following command:</p>
 <pre class="highlight plaintext"><code>pod install
@@ -324,15 +338,14 @@
 </blockquote>
 
 <p>For your app to run in the background and remain connected to the reader, add this key-value pair to your <code>Info.plist</code> file:</p>
-
-<ul>
 <li>Required background modes
-
-<ul>
 <li>Key: <code>UIBackgroundModes</code></li>
 <li>Value: <code>bluetoooth-central</code> (Uses Bluetooth LE accessories)</li>
-</ul></li>
-</ul>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Note the value is actually an array that you will need to add <code>bluetooth-central</code> to.
+
+</div></li>
 
 <p>For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:</p>
 
@@ -368,7 +381,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-01-28)</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-04-18)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

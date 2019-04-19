@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The estimated amount of time for an update. Note that these times are estimates;
  actual times may vary depending on your network connection.
+
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
  */
 typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
     /**
@@ -34,13 +36,15 @@ typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
      */
     SCPUpdateTimeEstimate2To5Minutes,
     /**
-     The update should take 5-10 minutes to complete.
+     The update should take 5-15 minutes to complete.
      */
-    SCPUpdateTimeEstimate5To10Minutes,
+    SCPUpdateTimeEstimate5To15Minutes,
 } NS_SWIFT_NAME(UpdateTimeEstimate);
 
 /**
  An object representing a reader update.
+
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
  */
 NS_SWIFT_NAME(ReaderSoftwareUpdate)
 @interface SCPReaderSoftwareUpdate : NSObject
@@ -58,7 +62,7 @@ NS_SWIFT_NAME(ReaderSoftwareUpdate)
 /**
  Returns an unlocalized string for the given update time estimate.
  */
-+ (NSString *)stringFromUpdateTimeExtimate:(SCPUpdateTimeEstimate)estimate;
++ (NSString *)stringFromUpdateTimeEstimate:(SCPUpdateTimeEstimate)estimate;
 
 /**
  You cannot directly instantiate this class.

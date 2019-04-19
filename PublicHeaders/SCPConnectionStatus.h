@@ -12,21 +12,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- The possible connection statuses for a terminal.
+ The possible reader connection statuses for the SDK.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
  */
 typedef NS_ENUM(NSUInteger, SCPConnectionStatus) {
     /**
-     Terminal is not connected to a reader.
+     The SDK is not connected to a reader.
      */
     SCPConnectionStatusNotConnected,
     /**
-     Terminal is connected to a reader.
+     The SDK is connected to a reader.
      */
     SCPConnectionStatusConnected,
     /**
-     Terminal is busy processing a command.
+     The SDK is currently connecting to a reader.
      */
-    SCPConnectionStatusBusy,
+    SCPConnectionStatusConnecting,
 } NS_SWIFT_NAME(ConnectionStatus);
 
 NS_ASSUME_NONNULL_END

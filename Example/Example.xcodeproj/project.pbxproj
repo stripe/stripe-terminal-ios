@@ -12,7 +12,7 @@
 		C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
 		C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */; };
-		C152F7782149ECA30078BD07 /* CreateSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */; };
+		C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */; };
 		C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F77B214A18C00078BD07 /* StripeCurrencies.swift */; };
 		C16651B721963C51006EFACF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16651B621963C51006EFACF /* APIClient.swift */; };
 		C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40A02094F07B009CE87C /* AppDelegate.swift */; };
@@ -56,7 +56,7 @@
 		C106AD1921485AD300EB471C /* StripeTerminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripeTerminal.framework; sourceTree = SOURCE_ROOT; };
 		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
-		C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSourceViewController.swift; sourceTree = "<group>"; };
+		C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadReusableCardViewController.swift; sourceTree = "<group>"; };
 		C152F77B214A18C00078BD07 /* StripeCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCurrencies.swift; sourceTree = "<group>"; };
 		C16651B621963C51006EFACF /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C16F409D2094F07B009CE87C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,6 @@
 				C16651B621963C51006EFACF /* APIClient.swift */,
 				C16F40A02094F07B009CE87C /* AppDelegate.swift */,
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
-				C152F7772149ECA20078BD07 /* CreateSourceViewController.swift */,
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
 				C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */,
 				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
@@ -130,6 +129,7 @@
 				C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */,
 				C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */,
 				C1D3A023214208800095A07B /* ReaderViewController.swift */,
+				C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */,
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
 				C152F77B214A18C00078BD07 /* StripeCurrencies.swift */,
@@ -239,7 +239,7 @@
 				C1DE30D521438E9900A3026F /* LogEventViewController.swift in Sources */,
 				C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */,
 				C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */,
-				C152F7782149ECA30078BD07 /* CreateSourceViewController.swift in Sources */,
+				C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */,
 				C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */,
 				C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */,
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
@@ -399,7 +399,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,7 +420,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,75 +1,54 @@
-1.0.0-b6
+1.0.0-rc1
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0-b6'
+pod 'StripeTerminal', '1.0.0-rc1'
 ```
 
-## Singleton initializer
+## DiscoveryConfiguration
 
-`SCPTerminal` is now a singleton, and you will need to update your integration.
+The initializers for DiscoveryConfiguration have changed. Rather than specifying a `readerSimulator` device type, you can now specify that the configuration is `simulated`. This allows for the SDK to simulate all device type and discovery method combinations. The `readerSimulator` device type has been removed.
 
-Before:
-```
-let terminal = Terminal(configuration: terminalConfig,
-                        tokenProvider: apiClient,
-                        delegate: self)
-```
+Previously, the `init(deviceType:method:)` was nullable, and would return nil if an invalid device type and discovery method combination was provided. That method has been replaced with `init(deviceType:discoveryMethod:simulator:)`, which is no longer nullable. If an invalid device type and discovery method combination is provided, the subsequent call to `discoverReaders` will fail with `SCPErrorInvalidDiscoveryConfiguration`.
 
-After:
-```
-// required
-Terminal.setTokenProvider(apiClient)
-// optional – set a listener to incorporate SDK logs into your own logs
-Terminal.setLogListener({ ... })
-// optional – set a delegate to receive status updates from the SDK
-Terminal.shared.delegate = self
-```
+## PaymentMethods
 
-If you rely on destroying and recreating `SCPTerminal` instances to clear state (for example, to switch between different Stripe accounts in your app), you should instead use the `clearCachedCredentials` method.
+This release uses [PaymentMethods](https://stripe.com/docs/api/payment_methods) instead of [Sources](https://stripe.com/docs/api/sources). They're similar concepts, but it means we've shuffled things around. In b6 (and earlier), a `Source` would be added to your `PaymentIntent` during `Terminal.confirmPaymentIntent()`, or a standalone `card_present` `Source` could be created via `Terminal.readSource()`.
 
-`SCPTerminalConfiguration` has also been removed, and the `logLevel` property that was previously on `SCPTerminalConfiguration` is now a property on `SCPTerminal`.
+### Terminal.processPayment()
 
-## Loglines
+The `Terminal.confirmPaymentIntent()` method has been replaced by `Terminal.processPayment()`. In this flow, the `CardPresentSource` class has been replaced by `CardPresentDetails`:
 
-The `terminal:didEmitLogline` method on `SCPTerminalDelegate` has been removed, and replaced with a static `setLogListener` method on `Terminal` class.
+- The returned `PaymentIntent` no longer has a `CardPresentSource` property. Instead, find the `CardPresentDetails` object on the `Charge`(s) in `PaymentIntent.charges`.
+- Each `Charge` has a `PaymentMethodDetails` object, with transaction-specific details about the payment method used. For the StripeTerminal SDK `collectPaymentMethod` & `processPayment` flow, these `PaymentMethodDetails` will be of `type == .cardPresent`, and their `cardPresent` property has the `CardPresentDetails`.
+- The `CardPresentSource.stripeId`, `CardPresentSource.metadata`, and `CardPresentSource.name` properties are not available on `CardPresentDetails`.
+- `CardPresentSource.receiptData` is now `CardPresentDetails.receipt`, and the class name has changed from `ReceiptData` to `ReceiptDetails`.
 
-Previously, this delegate method was always called on the main thread. Now, the block you provide may be called from any thread.
+There are a couple other misc related changes:
 
-You can use this optional method to listen for logs from the Stripe Terminal SDK and incorporate them into your own remote logs. Note that these loglines are subject to change, and provided for informational and debugging purposes only. You should not depend on them for behavior in your app.
+- The `PaymentIntentStatusRequiresSource` status has been renamed `PaymentIntentStatusRequiresPaymentMethod`.
+- The `ReceiptDetails.mid` and `ReceiptDetails.tid` properties have been removed.
 
-To print internal logs from the SDK to the console, you can set logLevel to `.verbose` on the Terminal instance.
+### Terminal.readReusableCard()
 
-## createKeyedSource
+The `Terminal.readSource()` method has been replaced by `Terminal.readReusableCard()`. A successful `readReusableCard` call returns a `PaymentMethod` instead of a `CardPresentSource`.
 
-The `createKeyedSource` method has been removed. If you were previously using this functionality, you will need to update your integration to use the [Stripe iOS SDK](https://github.com/stripe/stripe-ios) to handle this flow.
+The returned payment method is of `type == .card`, instead of `cardPresent`. It's no longer necessary to convert the payment method first, these `PaymentMethod`s are immediately usable for online charges, and can be reused.
 
-## updateReaderSoftware -> checkForReaderSoftwareUpdate
+Properties from the `CardPresentSource` are now found either on the top-level `PaymentMethod` (ex: `stripeId`), or inside the `PaymentMethod`'s `card: CardDetails` property (ex: `brand` or `fingerprint`).
 
-The `updateReaderSoftware` method has been renamed `checkForReaderSoftwareUpdate`, to make it clearer that this method only checks for any available reader software update. If an update is available, your delegate's `readerSoftwareUpdateAvailable` method will be called.
-- The `UpdateReaderSoftwareParameters` class has been removed. When you call `checkForReaderSoftwareUpdate`, you'll need to pass a `ReaderSoftwareUpdateDelegate` and a `completion` block.
-- `SCPUpdateReaderSoftwareDelegate` has been renamed `SCPReaderSoftwareUpdateDelegate`, for consistency with the `SCPReaderSoftwareUpdate` class.
 
-## Discovery & Connecting to Readers
+## Unexpected reader disconnects
 
-This update adds some additional checks to the discovery & connect process. You will
-receive errors for some common integration mistakes:
+The `terminal:didDisconnectUnexpectedlyFromReader:` method has been renamed `terminal:didReportUnexpectedReaderDisconnect:`, and is now required. Your app should handle this method, and notify your user that the reader has disconnected. You may also want to start the `discoverReaders` process when your app handles this method. Your app can automatically attempt to discover and connect to the previously connected reader, or display UI for your user to re-connect to a reader.
 
-- You must be actively discovering readers in order to connect to one. Calling
-`SCPTerminal connectReader:` after canceling the `discoverReaders` cancelable will now
-fail with `SCPErrorMustBeDiscoveringToConnect`
-- Calling `SCPTerminal connectReader:` with a Reader from a different discovery process
-will fail with `SCPErrorCannotConnectToUndiscoveredReader`.
+## Reader Update API
 
-We found & fixed a bug affecting reader discovery after a failed connect. The `Terminal`
-is still discovering readers, but in previous beta releases it wasn't delivering updates
-to the `DiscoveryDelegate`.
+The `terminal:checkForReaderSoftwareUpdate` has been renamed and split into two calls: `terminal:checkForUpdate` and `terminal:installUpdate`. Instead of calling `terminal:checkForReaderSoftwareUpdate` and receiving the update via `readerSoftwareUpdateDelegate:readerSoftwareUpdateAvailable`, `terminal:checkForUpdate` accepts a completion which is passed the update if one is available. Once you have an update you will have to call `terminal:installUpdate`. We are deprecating `readerSoftwareUpdateDelegate:didCompleteReaderSoftwareUpdate`.  Instead you will pass a completion to `terminal:installUpdate` which will be passed nil upon successful completion and an error otherwise.
 
-## Reader Session reuse, and clearConnectionToken -> clearCachedCredentials
+## Other changes
 
-`SCPTerminal` now caches & re-uses the reader session when reconnecting to the same
-reader. This speeds up reconnection and makes it less likely to fail in spotty network
-conditions.
-
-Because of this, the public `clearConnectionToken` method that's necessary when changing
-between testmode/livemode or between different accounts has been renamed for clarity.
+- The SDK will now request location permissions from the user when your app connects to a reader for the first time. (Feedback from https://github.com/stripe/stripe-terminal-ios/issues/26)
+- We've fixed issues where `connectReader` took a long time under certain conditions.
+- Bugfix: In some situations, the `completion:` blocks for `collectPaymentMethod` and `readSource` could execute more than once: reporting a failure followed by a success [#28](https://github.com/stripe/stripe-terminal-ios/issues/28).
+- Added a `hasTokenProvider` getter, in case you want to check whether you've set a token provider before accessing the `shared` Terminal singleton. (Feedback from https://github.com/stripe/stripe-terminal-ios/issues/26)

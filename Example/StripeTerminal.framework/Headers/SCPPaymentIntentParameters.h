@@ -15,21 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Parameters for creating a PaymentIntent.
+
+ @see https://stripe.com/docs/api/payment_intents/create
  */
 NS_SWIFT_NAME(PaymentIntentParameters)
 @interface SCPPaymentIntentParameters : NSObject
 
 /**
  The amount of the payment, provided in the currency's smallest unit.
- 
- @see https://stripe.com/docs/currencies#zero-decimal
  */
 @property (nonatomic, readonly) NSUInteger amount;
 
 /**
  Three-letter ISO currency code, in lowercase. Must be a supported currency.
-
- @see https://stripe.com/docs/currencies
  */
 @property (nonatomic, readonly) NSString *currency;
 
@@ -58,7 +56,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 /**
  Email address that the receipt for the resulting payment will be sent to.
 
- @see https://stripe.com/docs/dashboard/receipts
+ @see https://stripe.com/docs/terminal/checkout/receipts
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *receiptEmail;
 
@@ -81,6 +79,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 
 /**
  A string that identifies the resulting payment as part of a group.
+
  @see https://stripe.com/docs/connect/charges-transfers#grouping-transactions
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *transferGroup;
@@ -103,7 +102,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  When `transferDataDestination` is specified, `onBehalfOf` must also be
  specified and must match the destination of the transfer.
 
- For details, see https://stripe.com/docs/connect/charges-transfers#on-behalf-of
+ @see https://stripe.com/docs/connect/charges-transfers#on-behalf-of
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *onBehalfOf;
 
@@ -111,7 +110,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  Initializes SCPPaymentIntentParameters with the given parameters.
 
  @param amount      The amount of the payment, provided in the currency's
- smallest unit. @see https://stripe.com/docs/currencies#zero-decimal.
+ smallest unit.
 
  Note: in testmode, only amounts ending in "00" will be approved. All other
  amounts will be declined by the Stripe API.

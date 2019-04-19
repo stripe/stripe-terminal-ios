@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
  Implement this protocol to handle a continually updating list
  of discovered readers. You must pass a `DiscoveryDelegate`
  when calling `discoverReaders`.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
  */
 NS_SWIFT_NAME(DiscoveryDelegate)
 @protocol SCPDiscoveryDelegate <NSObject>

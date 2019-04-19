@@ -14,23 +14,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPConfirmError, SCPCardPresentSource;
+@class SCPCharge, SCPProcessPaymentError;
 
 /**
  The possible statuses for a PaymentIntent.
+
+ https://stripe.com/docs/api/payment_intents/object#payment_intent_object-status
  */
 typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
     /**
-     Next step: collect a payment method for the PaymentMethod by calling
-     collectPaymentMethod.
+     Next step: collect a payment method by calling `collectPaymentMethod`.
      */
-    SCPPaymentIntentStatusRequiresSource,
+    SCPPaymentIntentStatusRequiresPaymentMethod,
     /**
-     Next step: confirm the PaymentIntent by calling confirmPaymentIntent.
+     Next step: process the payment by calling `processPayment`.
      */
     SCPPaymentIntentStatusRequiresConfirmation,
     /**
-     Next step: capture the PaymentIntent on your backend.
+     Next step: capture the PaymentIntent on your backend via the Stripe API.
      */
     SCPPaymentIntentStatusRequiresCapture,
     /**
@@ -44,10 +45,15 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
 } NS_SWIFT_NAME(PaymentIntentStatus);
 
 /**
- A PaymentIntent is an object that represents your intent to collect payment
- from a customer, tracking the lifecycle of the payment process through each
- step. Each PaymentIntent typically correlates with a single “cart” or customer
- session in your application.
+ A PaymentIntent tracks the process of collecting a payment from your customer.
+ We recommend that you create exactly one PaymentIntent for each order or
+ customer session in your system. You can reference the PaymentIntent later to
+ see the history of payment attempts for a particular session.
+
+ A PaymentIntent transitions through multiple statuses throughout its lifetime
+ and ultimately creates at most one successful charge.
+
+ https://stripe.com/docs/api/payment_intents
  */
 NS_SWIFT_NAME(PaymentIntent)
 @interface SCPPaymentIntent : NSObject <SCPJSONDecodable, NSCopying>
@@ -70,6 +76,7 @@ NS_SWIFT_NAME(PaymentIntent)
 /**
  The amount to be collected by this PaymentIntent, provided in the currency's
  smallest unit.
+ 
  @see https://stripe.com/docs/currencies#zero-decimal
  */
 @property (nonatomic, readonly) NSUInteger amount;
@@ -78,12 +85,6 @@ NS_SWIFT_NAME(PaymentIntent)
  The currency of the payment.
  */
 @property (nonatomic, readonly) NSString *currency;
-
-/**
- The card present source associated with the charge. This value will be nil
- until the PaymentIntent has been successfully confirmed.
- */
-@property (nonatomic, nullable, readonly) SCPCardPresentSource *cardPresentSource;
 
 /**
  Set of key-value pairs attached to the object.
