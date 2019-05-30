@@ -51,9 +51,9 @@ didRequestReaderInput:(SCPReaderInputOptions)inputOptions NS_SWIFT_NAME(terminal
  @see SCPReaderDisplayMessage
 
  @param terminal            The originating terminal.
- @param inputPrompt         The input prompt to display to the user.
+ @param displayMessage      The message to display to the user.
  */
-- (void)terminal:(SCPTerminal *)terminal didRequestReaderDisplayMessage:(SCPReaderDisplayMessage)inputPrompt NS_SWIFT_NAME(terminal(_:didRequestReaderDisplayMessage:));
+- (void)terminal:(SCPTerminal *)terminal didRequestReaderDisplayMessage:(SCPReaderDisplayMessage)displayMessage NS_SWIFT_NAME(terminal(_:didRequestReaderDisplayMessage:));
 
 @end
 

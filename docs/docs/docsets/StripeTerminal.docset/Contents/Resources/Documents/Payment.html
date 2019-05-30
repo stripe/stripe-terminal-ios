@@ -139,6 +139,9 @@
                 <a class="nav-group-task-link" href="Enums/SCPChargeStatus.html">SCPChargeStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
               </li>
               <li class="nav-group-task">
@@ -240,26 +243,10 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Classes.html">Other Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Other Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Protocols.html">Other Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Other Protocols.html#/c:objc(pl)SCPUpdateReaderSoftwareDelegate">SCPUpdateReaderSoftwareDelegate</a>
               </li>
             </ul>
           </li>
@@ -731,6 +718,52 @@ payment method.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPPaymentMethodDetails"></a>
+                    <a name="//apple_ref/objc/Class/SCPPaymentMethodDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentMethodDetails">SCPPaymentMethodDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Details about a PaymentMethod at a specific time. ex: at time of transaction
+for a Charge.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/api/charges/object#charge_object-payment_method_details">https://stripe.com/docs/api/charges/object#charge_object-payment_method_details</a>
+
+</div>
+
+<p>Unlike an SCPPaymentMethod, the details object does not have a <code>stripeId</code>,
+and only exists as a sub-object of another Stripe object.</p>
+
+                        <a href="Classes/SCPPaymentMethodDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPPaymentMethodDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPPaymentMethodDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPReadReusableCardParameters"></a>
                     <a name="//apple_ref/objc/Class/SCPReadReusableCardParameters" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPReadReusableCardParameters">SCPReadReusableCardParameters</a>
@@ -924,8 +957,8 @@ to Customer objects to store instrument details for future payments.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-04-18)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-05-30)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

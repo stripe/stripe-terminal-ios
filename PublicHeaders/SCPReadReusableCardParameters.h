@@ -36,6 +36,11 @@ NS_SWIFT_NAME(ReadReusableCardParameters)
 @interface SCPReadReusableCardParameters : NSObject
 
 /**
+ Optional parameter: attach the new PaymentMethod to Customer with this id
+ */
+@property (nonatomic, copy, nullable, readwrite) NSString *customer;
+
+/**
  Optional set of key-value pairs attached to the object. The default is nil.
  */
 @property (nonatomic, copy, nullable, readwrite) NSDictionary *metadata;

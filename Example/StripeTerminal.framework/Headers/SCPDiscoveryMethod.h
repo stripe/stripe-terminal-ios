@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
     /**
      Bluetooth Proximity
 
-     If you your app will be used in a busy environment with multiple iOS
+     If your app will be used in a busy environment with multiple iOS
      devices pairing to multiple available readers at the same time, we
      recommend using this discovery method.
 

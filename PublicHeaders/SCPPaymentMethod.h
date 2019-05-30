@@ -51,6 +51,11 @@ NS_SWIFT_NAME(PaymentMethod)
 @property (nonatomic, nullable, readonly) SCPCardDetails *card;
 
 /**
+ The Customer that this PaymentMethod is attached to, or nil.
+ */
+@property (nonatomic, nullable, readonly) NSString *customer;
+
+/**
  Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
 
  @see https://stripe.com/docs/api#metadata

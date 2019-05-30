@@ -94,6 +94,13 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      installUpdate was passed a `nil` SCPReaderSoftwareUpdate.
      */
     SCPErrorNilUpdate = 1860,
+    /**
+     You are using an out of date and unsupported SDK version. Please update to
+     the most recent version of the SDK.
+
+     @see https://github.com/stripe/stripe-terminal-ios/blob/master/CHANGELOG.md
+     */
+    SCPErrorUnsupportedSDK = 1870,
 
     /**
      USER ERRORS
@@ -124,10 +131,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorBluetoothLowEnergyUnsupported = 2340,
     /**
-     No reader software updates are available.
-     */
-    SCPErrorNoAvailableReaderSoftwareUpdate = 2640,
-    /**
      Updating the reader software failed because the reader's battery is
      too low. Charge the reader before trying again.
      */
@@ -152,6 +155,19 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The card was removed during the transaction.
      */
     SCPErrorCardRemoved = 2840,
+    /**
+     A card can only be used for one transaction, and must be removed after
+     being read. Otherwise, subsequent `collectPaymentMethod` attempts will fail
+     with this error.
+
+     Your TerminalDelegate will receive `terminal:didReportReaderEvent:info:`
+     with `SCPReaderEventCardRemoved` when the card is removed.
+
+     Additionally, with configuration `SZZZ_Generic_v37`, the Chipper will
+     beep until the card is removed.
+     https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases
+     */
+    SCPErrorCardLeftInReader = 2850,
 
     /**
      READER ERRORS
@@ -160,10 +176,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The reader is busy.
      */
     SCPErrorReaderBusy = 3010,
-    /**
-     Canceling the command failed because the reader is busy.
-     */
-    SCPErrorCancelFailedReaderBusy = 3020,
     /**
      An incompatible reader was detected. You can only use the Stripe Terminal
      iOS SDK with one of Stripe's pre-certified readers.
@@ -203,6 +215,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      communicating with the update server.
      */
     SCPErrorReaderSoftwareUpdateFailedServerError = 3840,
+    /**
+     You are using an out of date and unsupported reader version. Please update
+     your reader to the most recent version of the bbpos reader.
+     @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases
+     */
+    SCPErrorUnsupportedReaderVersion = 3850,
 
     /**
      UNEXPECTED ERRORS
@@ -254,6 +272,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      with an error.
      */
     SCPErrorConnectionTokenProviderCompletedWithError = 9050,
+
+    /**
+     The current session has expired and the reader must be reconnected. If this
+     error is received terminal will attempt to disconnect the card reader.
+     You can check if the reader was successfully disconnect by checking
+     terminal.connectionStatus.
+     */
+    SCPErrorSessionExpired = 9060,
     
 } NS_SWIFT_NAME(ErrorCode);
 
