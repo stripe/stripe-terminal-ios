@@ -26,7 +26,7 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0-rc1'
+pod 'StripeTerminal', '1.0.0-rc2'
 ```
 
 3. Run the following command:
@@ -83,5 +83,5 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 
 ## Documentation
-- [Getting Started](https://stripe.com/docs/terminal/sdk/ios)
+- [Getting Started](https://stripe.com/docs/terminal/ios)
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)

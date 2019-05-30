@@ -139,6 +139,9 @@
                 <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
               </li>
               <li class="nav-group-task">
@@ -240,26 +243,10 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Protocols.html#/c:objc(pl)SCPUpdateReaderSoftwareDelegate">SCPUpdateReaderSoftwareDelegate</a>
               </li>
             </ul>
           </li>
@@ -719,6 +706,44 @@ your app support displaying messages from the reader to your user.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnsupportedSDK"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnsupportedSDK" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnsupportedSDK">SCPErrorUnsupportedSDK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>You are using an out of date and unsupported SDK version. Please update to
+the most recent version of the SDK.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://github.com/stripe/stripe-terminal-ios/blob/master/CHANGELOG.md">https://github.com/stripe/stripe-terminal-ios/blob/master/CHANGELOG.md</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorCanceled"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorCanceled" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorCanceled">SCPErrorCanceled</a>
@@ -879,38 +904,6 @@ iOS device that supports BLE (also known as Bluetooth 4.0)</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothLowEnergyUnsupported</span> <span class="o">=</span> <span class="mi">2340</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@SCPError@SCPErrorNoAvailableReaderSoftwareUpdate"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorNoAvailableReaderSoftwareUpdate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorNoAvailableReaderSoftwareUpdate">SCPErrorNoAvailableReaderSoftwareUpdate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>No reader software updates are available.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNoAvailableReaderSoftwareUpdate</span> <span class="o">=</span> <span class="mi">2640</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noAvailableReaderSoftwareUpdate</span> <span class="o">=</span> <span class="mi">2640</span></code></pre>
 
                         </div>
                       </div>
@@ -1113,6 +1106,47 @@ too low. Charge the reader before trying again.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardLeftInReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardLeftInReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardLeftInReader">SCPErrorCardLeftInReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A card can only be used for one transaction, and must be removed after
+being read. Otherwise, subsequent <code>collectPaymentMethod</code> attempts will fail
+with this error.</p>
+
+<p>Your TerminalDelegate will receive <code>terminal:didReportReaderEvent:info:</code>
+with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
+
+<p>Additionally, with configuration <code>SZZZ_Generic_v37</code>, the Chipper will
+beep until the card is removed.
+<a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorReaderBusy"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorReaderBusy" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorReaderBusy">SCPErrorReaderBusy</a>
@@ -1138,38 +1172,6 @@ too low. Charge the reader before trying again.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerBusy</span> <span class="o">=</span> <span class="mi">3010</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@SCPError@SCPErrorCancelFailedReaderBusy"></a>
-                    <a name="//apple_ref/objc/Case/SCPErrorCancelFailedReaderBusy" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@SCPError@SCPErrorCancelFailedReaderBusy">SCPErrorCancelFailedReaderBusy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Canceling the command failed because the reader is busy.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCancelFailedReaderBusy</span> <span class="o">=</span> <span class="mi">3020</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cancelFailedReaderBusy</span> <span class="o">=</span> <span class="mi">3020</span></code></pre>
 
                         </div>
                       </div>
@@ -1436,6 +1438,44 @@ communicating with the update server.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedServerError</span> <span class="o">=</span> <span class="mi">3840</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnsupportedReaderVersion"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnsupportedReaderVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnsupportedReaderVersion">SCPErrorUnsupportedReaderVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>You are using an out of date and unsupported reader version. Please update
+your reader to the most recent version of the bbpos reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
 
                         </div>
                       </div>
@@ -1739,6 +1779,41 @@ with an error.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorSessionExpired"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorSessionExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorSessionExpired">SCPErrorSessionExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current session has expired and the reader must be reconnected. If this
+error is received terminal will attempt to disconnect the card reader.
+You can check if the reader was successfully disconnect by checking
+terminal.connectionStatus.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1747,8 +1822,8 @@ with an error.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-04-18)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-05-30)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

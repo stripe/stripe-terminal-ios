@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0-rc1";
+static NSString *const SCPSDKVersion = @"1.0.0-rc2";
 
 @class SCPCancelable,
 SCPDiscoveryConfiguration,
@@ -364,8 +364,9 @@ NS_SWIFT_NAME(Terminal)
  The update object contains information about the update that you can display
  to the user, such as the estimated installation time.
 
- If an error occurs while checking for an update (e.g. because no software
- update is available), the completion block will be called with an error.
+ If an error occurs while checking for an update, the completion block will be
+ called with an error. If there are no updates available and no errors occur,
+ the completion block will be called with `(nil, nil)`.
 
  @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
 
@@ -407,10 +408,10 @@ NS_SWIFT_NAME(Terminal)
 + (NSString *)stringFromReaderInputOptions:(SCPReaderInputOptions)options NS_SWIFT_NAME(stringFromReaderInputOptions(_:));
 
 /**
- Returns an unlocalized string for the given reader input prompt, e.g.
+ Returns an unlocalized string for the given reader display message, e.g.
  "Retry Card"
  */
-+ (NSString *)stringFromReaderDisplayMessage:(SCPReaderDisplayMessage)prompt NS_SWIFT_NAME(stringFromReaderDisplayMessage(_:));
++ (NSString *)stringFromReaderDisplayMessage:(SCPReaderDisplayMessage)message NS_SWIFT_NAME(stringFromReaderDisplayMessage(_:));
 
 /**
  Returns an unlocalized string for the given reader event, e.g.

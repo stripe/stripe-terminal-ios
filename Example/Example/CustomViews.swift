@@ -294,12 +294,14 @@ class ActivityIndicatorHeaderView: UIView {
         super.init(frame: .zero)
 
         label.text = title.uppercased()
+        // https://useyourloaf.com/blog/stack-views-and-multi-line-labels/
+        activityIndicator.setContentHuggingPriority(.required - 1, for: .horizontal)
         let stack = UIStackView(arrangedSubviews: [
             label,
             activityIndicator,
             ])
         stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
 
         addSubview(stack)
 

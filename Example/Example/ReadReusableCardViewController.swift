@@ -162,9 +162,9 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
         events.append(event)
     }
 
-    func terminal(_ terminal: Terminal, didRequestReaderDisplayMessage inputPrompt: ReaderDisplayMessage) {
+    func terminal(_ terminal: Terminal, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         var event = LogEvent(method: .requestReaderDisplayMessage)
-        event.result = .message(Terminal.stringFromReaderDisplayMessage(inputPrompt))
+        event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
         events.append(event)
     }
 

@@ -59,6 +59,15 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, readonly) NSString *fingerprint;
 
 /**
+ ID of a `card` PaymentMethod that may be attached to a Customer for future
+ transactions. Only present if it was possible to generate a `card`
+ PaymentMethod.
+
+ @see https://stripe.com/docs/terminal/payments/saving-cards#saving-payment-intent-card
+ */
+@property (nonatomic, nullable, readonly) NSString *generatedCard;
+
+/**
  Receipt information for the card present transaction. Only present for EMV
  transactions.
  */

@@ -60,7 +60,9 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                                             discoveryMethod: ReaderViewController.discoveryMethod,
                                             simulated: ReaderViewController.simulated)
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
-        discoveryVC.onConnectedToReader = { reader in
+        discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
+            guard let discoveryVC = discoveryVC else { return }
+
             self.connectedReader = reader
             if let _ = discoveryVC.presentedViewController {
                 discoveryVC.dismiss(animated: true) {

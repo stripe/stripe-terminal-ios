@@ -84,7 +84,8 @@ NS_SWIFT_NAME(ReaderCompletionBlock)
 typedef void (^SCPReaderCompletionBlock)(SCPReader * __nullable reader, NSError * __nullable error);
 
 /**
- A block called with a ReaderSoftwareUpdate or an error.
+ A block called with a ReaderSoftwareUpdate or an error. If there is no update
+ and no error the block will be called with `(nil, nil)`.
 
  @param update      An update object, or nil.
  @param error       An error if one occurred, or nil.

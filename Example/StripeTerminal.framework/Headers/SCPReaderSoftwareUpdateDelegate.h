@@ -42,10 +42,4 @@ didReportReaderSoftwareUpdateProgress:(float)progress NS_SWIFT_NAME(terminal(_:d
 
 @end
 
-/// Deprecated: UpdateReaderSoftwareDelegate has been renamed to ReaderSoftwareUpdateDelegate
-NS_SWIFT_NAME(UpdateReaderSoftwareDelegate)
-__attribute__((deprecated("UpdateReaderSoftwareDelegate has been renamed to ReaderSoftwareUpdateDelegate", "SCPReaderSoftwareUpdateDelegate")))
-@protocol SCPUpdateReaderSoftwareDelegate <SCPReaderSoftwareUpdateDelegate>
-@end
-
 NS_ASSUME_NONNULL_END

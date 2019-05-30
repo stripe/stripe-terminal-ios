@@ -230,6 +230,12 @@ __attribute__((deprecated("SCPErrorFetchConnectionTokenCompletedWithError has be
 extern const SCPError SCPErrorReaderWaitingForInput
 OBJC_UNAVAILABLE("SCPErrorReaderWaitingForInput never happened, and was removed");
 
+extern const SCPError SCPErrorCancelFailedReaderBusy
+OBJC_UNAVAILABLE("SCPErrorCancelFailedReaderBusy has been removed");
+
+extern const SCPError SCPErrorNoAvailableReaderSoftwareUpdate
+OBJC_UNAVAILABLE("SCPErrorNoAvailableReaderSoftwareUpdate has been removed. Instead `(nil, nil)` will be passed to `ReaderSoftwareUpdateCompletionBlock` when there is no update.");
+
 #pragma mark - SCPPaymentStatus
 
 extern const SCPPaymentStatus SCPPaymentStatusCollectingPaymentMethod
@@ -264,5 +270,11 @@ __attribute__((deprecated("SCPInstallUpdateBlock has been deleted.")));
 __attribute__((deprecated("The typo `extimate` been fixed, use `estimate` instead", "stringFromUpdateTimeEstimate:")));
 
 @end
+
+NS_SWIFT_NAME(UpdateReaderSoftwareDelegate)
+__attribute__((deprecated("UpdateReaderSoftwareDelegate has been renamed to ReaderSoftwareUpdateDelegate", "SCPReaderSoftwareUpdateDelegate")))
+@protocol SCPUpdateReaderSoftwareDelegate <SCPReaderSoftwareUpdateDelegate>
+@end
+
 
 NS_ASSUME_NONNULL_END

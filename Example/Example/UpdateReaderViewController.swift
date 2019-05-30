@@ -61,6 +61,10 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
                 self.presentAlert(error: error)
             }
 
+            if update == nil {
+                self.presentAlert(title: "No update necessary.", message: "Your reader is already up to date!")
+            }
+
             self.update = update
             self.checkForUpdateCancelable = nil
         })
