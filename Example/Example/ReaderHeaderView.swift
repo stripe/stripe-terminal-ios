@@ -95,10 +95,12 @@ class ReaderHeaderView: UIView {
             break;
         case .connecting:
             subtitleLabel.text = "Connecting"
-            break;
+        case .connected where connectedReader?.simulated ?? false:
+            subtitleLabel.text = "Connected, simulated"
         case .connected:
-            subtitleLabel.text = "Connected, idle"
-            break;
+            subtitleLabel.text = "Connected"
+        @unknown default:
+            subtitleLabel.text = "\(connectionStatus)"
         }
     }
 

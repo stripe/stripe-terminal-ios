@@ -34,6 +34,14 @@ NS_SWIFT_NAME(Reader)
 @property (nonatomic, readonly) SCPDeviceType deviceType;
 
 /**
+ True if this is a simulated reader.
+
+ `DiscoveryConfiguration` objects with `simulated = true` produce simulated
+ Readers.
+ */
+@property (nonatomic, readonly) BOOL simulated;
+
+/**
  The reader's serial number.
  */
 @property (nonatomic, readonly) NSString *serialNumber;

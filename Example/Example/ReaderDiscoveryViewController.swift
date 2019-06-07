@@ -57,10 +57,10 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             switch (self.config.discoveryMethod) {
             case .bluetoothProximity:
                 activityIndicatorView.title = "HOLD READER NEARBY"
-                break
             case .bluetoothScan:
                 activityIndicatorView.title = "NEARBY READERS"
-                break
+            @unknown default:
+                activityIndicatorView.title = "READERS"
             }
             dataSource.sections = [
                 Section(header: Section.Extremity.view(activityIndicatorView),
@@ -71,10 +71,10 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             switch (self.config.discoveryMethod) {
             case .bluetoothProximity:
                 activityIndicatorView.title = "DISCOVERED READER"
-                break
             case .bluetoothScan:
                 activityIndicatorView.title = "NEARBY READERS"
-                break
+            @unknown default:
+                activityIndicatorView.title = "READERS"
             }
             let rows = readers.map { reader -> Row in
                 if let battery = reader.batteryLevel {
