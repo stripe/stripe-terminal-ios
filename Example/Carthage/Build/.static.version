@@ -1,9 +1,10 @@
 {
-  "commitish" : "v2.5.0",
+  "commitish" : "v4.0.0",
   "iOS" : [
     {
       "name" : "Static",
-      "hash" : "84449f21756267f8ea1739bb25c049cc89a9cefa6e7eb7445095c05b5cc03d58"
+      "hash" : "9883ce068323d99e16100f4e7b880a1dc06c7b3baca8969e6dbb93db4d9640ec",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]
 }

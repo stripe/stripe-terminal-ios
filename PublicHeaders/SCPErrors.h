@@ -95,10 +95,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorNilUpdate = 1860,
     /**
-     You are using an out of date and unsupported SDK version. Please update to
-     the most recent version of the SDK.
+     terminal.connectReader was called from an unsupported version of the SDK.
+     In order to fix this you will need to update your app to the most reacent
+     version of the SDK. We suggest you prompt your user to update their app,
+     assuming there is an update app version with a supported version of our SDK.
 
-     @see https://github.com/stripe/stripe-terminal-ios/blob/master/CHANGELOG.md
+     @see https://github.com/stripe/stripe-terminal-ios/releases/latest
      */
     SCPErrorUnsupportedSDK = 1870,
 
@@ -216,9 +218,13 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorReaderSoftwareUpdateFailedServerError = 3840,
     /**
-     You are using an out of date and unsupported reader version. Please update
-     your reader to the most recent version of the bbpos reader.
-     @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases
+     terminal.processPayment was called from a reader with an unsupported reader
+     version. You will need to update your reader to the most recent version in
+     order to accept payments. We suggest you prompt your user update the reader
+     via the update flow that you have implemented using terminal.checkForUpdate
+     and terminal.installUpdate.
+
+     @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
      */
     SCPErrorUnsupportedReaderVersion = 3850,
 
@@ -274,10 +280,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     SCPErrorConnectionTokenProviderCompletedWithError = 9050,
 
     /**
-     The current session has expired and the reader must be reconnected. If this
-     error is received terminal will attempt to disconnect the card reader.
-     You can check if the reader was successfully disconnect by checking
-     terminal.connectionStatus.
+     The current session has expired and the reader must be disconnected and
+     reconnected. The SDK will attempt to auto-disconnect for you and you should
+     instruct your user to reconnect it. didReportUnexpectedReaderDisconnect
+     will be called if the sdk is able to successfully auto-disconnect. If it
+     does not successfully auto-disconnect (didReportUnexpectedReaderDisconnect
+     will not be called and connectionStatus will still be connected) you can
+     attempt again via terminal.disconnectReader or you can instruct your user
+     to disconnect manually by turning the reader off. Note this error will only
+     occur in one of the following calls: terminal.readReusableCard,
+     terminal.createPaymentIntent, terminal.retrievePaymentIntent,
+     terminal.processPayment, and terminal.cancelPaymentIntent.
      */
     SCPErrorSessionExpired = 9060,
     

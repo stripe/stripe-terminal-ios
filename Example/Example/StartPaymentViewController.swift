@@ -33,8 +33,10 @@ class StartPaymentViewController: TableViewController {
         }
         else {
             switch ReaderViewController.deviceType {
-                case .chipper2X:
-                    headerString = "Collect a card payment using a physical Stripe test card and the Chipper 2X."
+            case .chipper2X:
+                headerString = "Collect a card payment using a physical Stripe test card and the Chipper 2X."
+            @unknown default:
+                headerString = "Collect a card payment using a physical Stripe test card and reader."
             }
         }
         self.startSection = Section(header: "$1.00", rows: [
