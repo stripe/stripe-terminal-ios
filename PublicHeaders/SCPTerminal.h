@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.0.0";
+static NSString *const SCPSDKVersion = @"1.0.1";
 
 @class SCPCancelable,
 SCPDiscoveryConfiguration,
@@ -36,23 +36,23 @@ SCPUpdateReaderSoftwareParameters;
 @protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPReaderSoftwareUpdateDelegate;
 
 /**
- The Terminal object that is made available by the Stripe Terminal SDK exposes
+ The `SCPTerminal` object that is made available by the Stripe Terminal SDK exposes
  a generic interface for discovering readers, connecting to a reader, and
  creating payments.
 
- Note: You should only initialize a Terminal once in your app. Behavior is
- undefined if you create multiple Terminal instances.
+ The `SCPTerminal` object is a singleton, and you cannot create multiple
+ `SCPTerminal` instances.
  */
 NS_SWIFT_NAME(Terminal)
 @interface SCPTerminal : NSObject
 
 /**
- Sets the token provider for the shared (singleton) Terminal instance.
+ Sets the token provider for the shared (singleton) `SCPTerminal` instance.
  
  You must set a token provider before calling `shared` to initialize the
- Terminal singleton. We recommend calling `setTokenProvider` in your
+ Terminal singleton. We recommend calling `setTokenProvider:` in your
  AppDelegate's `application:didFinishLaunchingWithOptions:` method.
- Alternatively, you can wrap your call to `setTokenProvider` with a
+ Alternatively, you can wrap your call to `setTokenProvider:` with a
  `dispatch_once` in Objective-C, or use a static constructor in Swift.
  
  Note that you may only set a token provider *before* requesting the shared
@@ -65,7 +65,7 @@ NS_SWIFT_NAME(Terminal)
 
 
 /**
- Returns true if a token provider has been set.
+ Returns true if a token provider has been set, through `setTokenProvider:`
  */
 + (BOOL)hasTokenProvider;
 
@@ -78,8 +78,8 @@ NS_SWIFT_NAME(Terminal)
  only. You should not depend on them for behavior in your app. Also note that
  the block you provide may be called from any thread.
 
- To print internal logs from the SDK to the console, you can set logLevel to
- `.verbose` on the Terminal instance.
+ To print internal logs from the SDK to the console, you can set `logLevel` to
+ `SCPLogLevelVerbose` on the Terminal instance.
  */
 + (void)setLogListener:(SCPLogListenerBlock)listener;
 
@@ -87,7 +87,7 @@ NS_SWIFT_NAME(Terminal)
  Returns the shared (singleton) Terminal instance.
  
  Before accessing the singleton for the first time, you must first call
- `setTokenProvider` and `setDelegate`.
+ `setTokenProvider:` and `setDelegate:`.
  */
 @property (class, nonatomic, readonly) SCPTerminal *shared;
 
@@ -99,7 +99,7 @@ NS_SWIFT_NAME(Terminal)
 @property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> delegate;
 
 /**
- Information about the connected reader, or nil if no reader is connected.
+ Information about the connected `SCPReader`, or nil if no reader is connected.
  */
 @property (nonatomic, nullable, readonly) SCPReader *connectedReader;
 
@@ -109,7 +109,7 @@ NS_SWIFT_NAME(Terminal)
 @property (nonatomic, readonly) SCPConnectionStatus connectionStatus;
 
 /**
- The log level for the SDK. The default value is None.
+ The log level for the SDK. The default value is `.none`.
  */
 @property (nonatomic, assign, readwrite) SCPLogLevel logLevel;
 
@@ -124,11 +124,12 @@ NS_SWIFT_NAME(Terminal)
  e.g. to switch between live and test Stripe API keys on your backend.
  
  In order to switch accounts in your app:
- - if a reader is connected, call `disconnect`
- - configure the `tokenProvider` to return connection tokens for the new account
+ - if a reader is connected, call `disconnectReader:`
+ - configure the `tokenProvider` object to return connection tokens for the new account.
+ The `tokenProvider` is implemented by your code, and you can do this however you want.
  - call `clearCachedCredentials`
- - call `discover` and `connect` to connect to a reader. The `connect` call will
- request a new connection token from your backend server via the token provider.
+ - call `discoverReaders` and `connectReader` to connect to a reader. The `connect` call
+ will request a new connection token from your backend server via the token provider.
  
  An overview of the lifecycle of a connection token under the hood:
  - When the Terminal singleton is initialized, the SDK attempts to proactively request
@@ -144,16 +145,16 @@ NS_SWIFT_NAME(Terminal)
 /**
  Begins discovering readers matching the given configuration.
 
- When `discover` is called, the terminal begins scanning for readers using
- the settings in the given DiscoveryConfiguration. You must implement
- `DiscoveryDelegate` to handle displaying discovery results to your user and
+ When `discoverReaders` is called, the terminal begins scanning for readers using
+ the settings in the given `SCPDiscoveryConfiguration`. You must implement
+ `SCPDiscoveryDelegate` to handle displaying discovery results to your user and
  connecting to a selected reader.
 
  The discovery process will stop on its own when the terminal successfully
  connects to a reader, if the command is canceled, or if a discovery error occurs.
 
  Note that if `discoverReaders` is canceled, the completion block will be called
- with nil (rather than a `Canceled` error).
+ with `nil` (rather than an `SCPErrorCanceled` error).
 
  @see https://stripe.com/docs/terminal/readers/connecting
 
@@ -170,7 +171,7 @@ NS_SWIFT_NAME(Terminal)
 
  If the connect succeeds, the completion block will be called with the
  connected reader, and the terminal's `connectionStatus` will change to
- `Connected`.
+ `.connected`.
 
  If the connect fails, the completion block will be called with an error.
 
@@ -193,7 +194,7 @@ NS_SWIFT_NAME(Terminal)
 /**
  Attempts to disconnect from the currently connected reader.
  
- If the disconnect succeeds, the completion block is called with nil. If the
+ If the disconnect succeeds, the completion block is called with `nil`. If the
  disconnect fails, the completion block is called with an error.
 
  @see https://stripe.com/docs/terminal/readers/connecting
@@ -203,7 +204,7 @@ NS_SWIFT_NAME(Terminal)
 - (void)disconnectReader:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(disconnectReader(_:));
 
 /**
- Creates a new PaymentIntent with the given parameters.
+ Creates a new `SCPPaymentIntent` with the given parameters.
  
  Note: If the information required to create a PaymentIntent isn't readily
  available in your app, you can create the PaymentIntent on your server and use
@@ -218,7 +219,7 @@ NS_SWIFT_NAME(Terminal)
                  completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(createPaymentIntent(_:completion:));
 
 /**
- Retrieves a PaymentIntent with a client secret.
+ Retrieves a `SCPPaymentIntent` with a client secret.
  
  If the information required to create a PaymentIntent isn't readily available
  in your app, you can create the PaymentIntent on your server and use this
@@ -233,19 +234,19 @@ NS_SWIFT_NAME(Terminal)
                    completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(retrievePaymentIntent(clientSecret:completion:));
 
 /**
- Collects a payment method for the given PaymentIntent.
+ Collects a payment method for the given `SCPPaymentIntent`.
 
  Note: `collectPaymentMethod` does not apply any changes to the PaymentIntent
  API object. Updates to the PaymentIntent are local to the SDK, and persisted
  in-memory.
 
  If collecting a payment method fails, the completion block will be called with
- an error. After resolving the error, you may call collectPaymentMethod again to either
- try the same card again, or try a different card.
+ an error. After resolving the error, you may call `collectPaymentMethod` again
+ to either try the same card again, or try a different card.
 
  If collecting a payment method succeeds, the completion block will be called
  with a PaymentIntent with status `.requiresConfirmation`, indicating that you
- should call `processPayment` to finish the payment.
+ should call `processPayment:completion:` to finish the payment.
 
  Note that if `collectPaymentMethod` is canceled, the completion block will be
  called with a `Canceled` error.
@@ -255,7 +256,7 @@ NS_SWIFT_NAME(Terminal)
  @param paymentIntent       The PaymentIntent to collect a payment method for.
 
  @param delegate            Your delegate for handling reader input events.
- Providing a ReaderDisplayDelegate is required when the connected reader doesn't
+ Providing an `SCPReaderDisplayDelegate` is required when the connected reader doesn't
  have a built-in display (e.g., the BBPOS Chipper 2X BT). These readers will
  request that your app display messages during the `collectPaymentMethod`
  process (e.g., "Remove card") via this delegate.
@@ -269,7 +270,8 @@ NS_SWIFT_NAME(Terminal)
 /**
  Processes a payment after collecting a payment method succeeds.
 
- === Synchronous capture ===
+ Synchronous capture
+ -------------------
 
  Stripe Terminal uses two-step card payments to prevent unintended and duplicate
  payments. When `processPayment` completes successfully, a charge has been
@@ -277,10 +279,11 @@ NS_SWIFT_NAME(Terminal)
  **synchronously notify your backend** to capture the PaymentIntent
  in order to settle the funds to your account.
 
- === Handling failures ===
+ Handling failures
+ -----------------
 
  When `processPayment` fails, the SDK returns an error that includes the
- updated PaymentIntent. Your app should inspect the updated PaymentIntent
+ updated `SCPPaymentIntent`. Your app should inspect the updated PaymentIntent
  to decide how to retry the payment.
 
  1. If the updated PaymentIntent is `nil`, the request to Stripe's servers timed
@@ -307,7 +310,7 @@ NS_SWIFT_NAME(Terminal)
             completion:(SCPProcessPaymentCompletionBlock)completion NS_SWIFT_NAME(processPayment(_:completion:));
 
 /**
- Cancels a PaymentIntent.
+ Cancels an `SCPPaymentIntent`.
  
  If the cancel request succeeds, the completion block will be called with the
  updated PaymentIntent object with status Canceled. If the cancel request
@@ -324,9 +327,9 @@ NS_SWIFT_NAME(Terminal)
 /**
  Reads a card with the given parameters and returns a PaymentMethod.
 
- **NOTE: Most integrations should **not** use `readReusableCard`.**
+ **NOTE: Most integrations should not use `readReusableCard`.**
 
- You should create a `PaymentIntent` and use the associated `collectPaymentMethod`
+ You should create a `SCPPaymentIntent` and use the associated `collectPaymentMethod`
  and `processPayment` methods if you are simply collecting a payment from
  a customer.
 
@@ -359,8 +362,8 @@ NS_SWIFT_NAME(Terminal)
  Checks for a reader software update, and returns an update object if an update
  is available.
 
- If an update is available, the completion block will be called with a
- ReaderSoftwareUpdate object, indicating that a software update is available.
+ If an update is available, the completion block will be called with an
+ `SCPReaderSoftwareUpdate` object, indicating that a software update is available.
  The update object contains information about the update that you can display
  to the user, such as the estimated installation time.
 
@@ -381,7 +384,7 @@ NS_SWIFT_NAME(Terminal)
 
  If an error occurs while installing the update (e.g. because the update was
  interrupted), the completion block will be called with an error. If the update
- completed successfully, the completion block will be called with nil.
+ completed successfully, the completion block will be called with `nil`.
  You must pass a delegate to handle events as the update proceeds. In your app,
  you should display the progress of the update to the user. You should also
  instruct the user to wait for the update to complete: "Do not leave this page,

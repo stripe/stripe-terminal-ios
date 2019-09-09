@@ -59,11 +59,11 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
                          simulated:(BOOL)simulated;
 
 /**
- The timeout (in seconds) after which discoverReaders should fail. If the
- value is 0 (the default), discoverReaders will never timeout.
+ The timeout (in seconds) after which `discoverReaders:` should fail. If the
+ value is `0` (the default), discoverReaders will never timeout.
 
- Note that setting a timeout is not currently supported when using the
- BluetoothProximity DiscoveryMethod, or any simulated discovery. If you set
+ Note that setting a timeout is not currently supported when using
+ `SCPDiscoveryMethodBluetoothProximity`, or any simulated discovery. If you set
  a timeout when using these configurations, the timeout will be ignored.
  */
 @property (nonatomic, assign, readwrite) NSUInteger timeout;
@@ -88,12 +88,12 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 @property (nonatomic, readonly) BOOL simulated;
 
 /**
- Use `initWithDeviceType:`
+ Use `initWithDeviceType:simulated:` or `initWithDeviceType:discoveryMethod:simulated:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Use `initWithDeviceType:`
+ Use `initWithDeviceType:simulated:` or `initWithDeviceType:discoveryMethod:simulated:`
  */
 - (instancetype)new NS_UNAVAILABLE;
 

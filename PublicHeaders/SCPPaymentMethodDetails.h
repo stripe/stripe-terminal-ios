@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The type of the PaymentMethod.  The corresponding, similarly named property
  contains additional information specific to the PaymentMethod type.
- e.g. if the type is `STPPaymentMethodTypeCardPresent`, the `cardPresent`
+ e.g. if the type is `SCPPaymentMethodTypeCardPresent`, the `cardPresent`
  property is also populated.
  */
 @property (nonatomic, readonly) SCPPaymentMethodType type;

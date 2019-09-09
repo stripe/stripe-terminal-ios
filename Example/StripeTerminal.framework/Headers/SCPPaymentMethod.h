@@ -41,7 +41,7 @@ NS_SWIFT_NAME(PaymentMethod)
 
 /**
  The type of the PaymentMethod.  The corresponding, similarly named property contains additional information specific to the PaymentMethod type.
- e.g. if the type is `STPPaymentMethodTypeCard`, the `card` property is also populated.
+ e.g. if the type is `SCPPaymentMethodTypeCard`, the `card` property is also populated.
  */
 @property (nonatomic, readonly) SCPPaymentMethodType type;
 

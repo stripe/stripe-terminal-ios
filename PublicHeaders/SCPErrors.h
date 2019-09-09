@@ -26,9 +26,10 @@ FOUNDATION_EXPORT NSString * const SCPErrorDomain;
  */
 typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
 
-    /**
+    /*
      INTEGRATION ERRORS
      */
+
     /**
      The SDK is busy executing another command. The SDK can only execute a
      single command at a time. You can use the `paymentStatus` or
@@ -51,17 +52,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     SCPErrorAlreadyConnectedToReader = 1110,
     /**
      Your implementation of `fetchConnectionToken` called the completion block
-     with (nil, nil). Please make sure your integration completes with either
+     with `(nil, nil)`. Please make sure your integration completes with either
      a connection token or an error.
      */
     SCPErrorConnectionTokenProviderCompletedWithNothing = 1510,
     /**
-     processPayment was called with an unknown or invalid PaymentIntent.
+     `processPayment` was called with an unknown or invalid PaymentIntent.
      You must process a payment immediately after collecting a payment method.
      */
     SCPErrorProcessInvalidPaymentIntent = 1530,
     /**
-     collectPaymentMethod or processPayment was called with a nil PaymentIntent.
+     `collectPaymentMethod` or `processPayment` was called with a `nil` PaymentIntent.
      */
     SCPErrorNilPaymentIntent = 1540,
     /**
@@ -70,8 +71,9 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     SCPErrorInvalidClientSecret = 1560,
     /**
      The SDK must be actively Discovering Readers in order to successfully
-     connect to a reader. See documentation on `SCPTerminal` methods
-     `discoverReaders:delegate:completion:` and `connectReader:completion:`
+     connect to a reader. See documentation on
+     `-[SCPTerminal discoverReaders:delegate:completion:]`
+     and `-[SCPTerminal connectReader:completion:]`
      */
     SCPErrorMustBeDiscoveringToConnect = 1570,
     /**
@@ -81,22 +83,24 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorCannotConnectToUndiscoveredReader = 1580,
     /**
-     discoverReaders was called using an invalid DiscoveryConfiguration. Your app selected a discovery method that is incompatible with the selected device type.
+     `discoverReaders` was called using an invalid `SCPDiscoveryConfiguration`.
+     Your app selected a discovery method that is incompatible with the selected
+     device type.
      */
     SCPErrorInvalidDiscoveryConfiguration = 1590,
     /**
-     collectPaymentMethod was called with a `nil` ReaderDisplayDelegate, but
-     the connected reader does not have a built-in display, and requires that
+     `collectPaymentMethod` was called with a `nil` `SCPReaderDisplayDelegate`, but
+     the `SCPTerminal.connectedReader` does not have a built-in display, and requires that
      your app support displaying messages from the reader to your user.
      */
     SCPErrorNilReaderDisplayDelegate = 1850,
     /**
-     installUpdate was passed a `nil` SCPReaderSoftwareUpdate.
+     `installUpdate` was passed a `nil` `SCPReaderSoftwareUpdate`.
      */
     SCPErrorNilUpdate = 1860,
     /**
-     terminal.connectReader was called from an unsupported version of the SDK.
-     In order to fix this you will need to update your app to the most reacent
+     `-[SCPTerminal connectReader:completion:]` was called from an unsupported version
+     of the SDK. In order to fix this you will need to update your app to the most recent
      version of the SDK. We suggest you prompt your user to update their app,
      assuming there is an update app version with a supported version of our SDK.
 
@@ -104,9 +108,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorUnsupportedSDK = 1870,
 
-    /**
+    /*
      USER ERRORS
      */
+
     /**
      The command was canceled by your app.
      */
@@ -125,6 +130,8 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
     SCPErrorBluetoothDisabled = 2320,
     /**
      Scanning for bluetooth devices timed out.
+
+     @see `SCPDiscoveryConfiguration.timeout`
      */
     SCPErrorBluetoothScanTimedOut = 2330,
     /**
@@ -162,7 +169,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      being read. Otherwise, subsequent `collectPaymentMethod` attempts will fail
      with this error.
 
-     Your TerminalDelegate will receive `terminal:didReportReaderEvent:info:`
+     Your terminal delegate will receive `-[SCPTerminalDelegate terminal:didReportReaderEvent:info:]`
      with `SCPReaderEventCardRemoved` when the card is removed.
 
      Additionally, with configuration `SZZZ_Generic_v37`, the Chipper will
@@ -171,9 +178,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorCardLeftInReader = 2850,
 
-    /**
+    /*
      READER ERRORS
      */
+
     /**
      The reader is busy.
      */
@@ -218,30 +226,33 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorReaderSoftwareUpdateFailedServerError = 3840,
     /**
-     terminal.processPayment was called from a reader with an unsupported reader
-     version. You will need to update your reader to the most recent version in
-     order to accept payments. We suggest you prompt your user update the reader
-     via the update flow that you have implemented using terminal.checkForUpdate
-     and terminal.installUpdate.
+     `-[SCPTerminal processPayment:completion:]` was called from a reader with an
+     unsupported reader version. You will need to update your reader to the most
+     recent version in order to accept payments. We suggest you prompt your user
+     update the reader via the update flow that you have implemented using
+     `-[SCPTerminal checkForUpdate:]` and
+     `-[SCPTerminal installUpdate:delegate:completion:]`.
 
      @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
      */
     SCPErrorUnsupportedReaderVersion = 3850,
 
-    /**
+    /*
      UNEXPECTED ERRORS
      */
+
     /**
      Unexpected SDK error.
      */
     SCPErrorUnexpectedSdkError = 5000,
 
-    /**
+    /*
      PAYMENT ERRORS
      */
+
     /**
      The Stripe API declined the payment.
-     Inspect SCPProcessPaymentError's requestError property for more information about
+     Inspect `SCPProcessPaymentError.requestError` property for more information about
      the decline, including the decline code.
      */
     SCPErrorPaymentDeclinedByStripeAPI = 6000,
@@ -250,9 +261,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorPaymentDeclinedByReader = 6500,
 
-    /**
+    /*
      NETWORK ERRORS
      */
+
     /**
      The SDK is not connected to the internet.
      */
@@ -274,23 +286,31 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorInternalNetworkError = 9040,
     /**
-     Your implementation of `fetchConnectionToken` called the completion block
-     with an error.
+     Your implementation of `-[SCPConnectionTokenProvider fetchConnectionToken:]`
+     called the completion block with an error.
      */
     SCPErrorConnectionTokenProviderCompletedWithError = 9050,
 
     /**
      The current session has expired and the reader must be disconnected and
      reconnected. The SDK will attempt to auto-disconnect for you and you should
-     instruct your user to reconnect it. didReportUnexpectedReaderDisconnect
-     will be called if the sdk is able to successfully auto-disconnect. If it
-     does not successfully auto-disconnect (didReportUnexpectedReaderDisconnect
-     will not be called and connectionStatus will still be connected) you can
-     attempt again via terminal.disconnectReader or you can instruct your user
-     to disconnect manually by turning the reader off. Note this error will only
-     occur in one of the following calls: terminal.readReusableCard,
-     terminal.createPaymentIntent, terminal.retrievePaymentIntent,
-     terminal.processPayment, and terminal.cancelPaymentIntent.
+     instruct your user to reconnect it.
+     `-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]`
+     will be called if the SDK is able to successfully auto-disconnect. If it
+     does not successfully auto-disconnect (`didReportUnexpectedReaderDisconnect`
+     will not be called and `SCPTerminal.connectionStatus` will still be
+     `SCPConnectionStatusConnected`) you can attempt again via
+     `-[SCPTerminal disconnectReader:]` or you can instruct your user
+     to disconnect manually by turning the reader off.
+
+     Note this error will only occur in one of the following calls:
+
+     * `-[SCPTerminal createPaymentIntent:completion:]`
+     * `-[SCPTerminal retrievePaymentIntent:completion:]`
+     * `-[SCPTerminal processPayment:completion:]`
+     * `-[SCPTerminal cancelPaymentIntent:completion:]`
+     * `-[SCPTerminal readReusableCard:delegate:completion:]`
+
      */
     SCPErrorSessionExpired = 9060,
     
@@ -299,8 +319,8 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
 #pragma mark - UserInfo keys
 
 /**
- Use this enum to access userInfo keys for NSError objects under the
- SCPErrorDomain domain.
+ Use this enum to access `userInfo` keys for `NSError` objects under the
+ `SCPErrorDomain` domain.
  */
 NS_SWIFT_NAME(ErrorKey)
 typedef NSString *const SCPErrorKey NS_STRING_ENUM;
@@ -357,7 +377,7 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyHttpStatusCode;
 
 /**
  If a Stripe API request failed and the error has an associated PaymentIntent,
- the PaymentIntent will be returned under this key.
+ the `SCPPaymentIntent` will be returned under this key.
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIPaymentIntent;
 

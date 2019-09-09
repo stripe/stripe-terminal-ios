@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCPPaymentIntent;
 
 /**
- An error from `processPayment`.
+ An error from `-[SCPTerminal processPayment:completion:]`.
 
  @see https://stripe.com/docs/terminal/payments#process
  */
@@ -38,7 +38,7 @@ NS_SWIFT_NAME(ProcessPaymentError)
  `collectPaymentMethod` with the updated PaymentIntent to try charging another
  card.
 
- 3. If this value is nil, the request timed out, and the status of the
+ 3. If this value is `nil`, the request timed out, and the status of the
  PaymentIntent is unknown. We recommend that you retry `processPayment` using
  the original PaymentIntent. If you instead choose to abandon the original
  PaymentIntent and create a new one, you should be sure **not** to capture the

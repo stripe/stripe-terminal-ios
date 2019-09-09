@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Implement this protocol to handle a continually updating list
- of discovered readers. You must pass a `DiscoveryDelegate`
- when calling `discoverReaders`.
+ of discovered readers. You must pass an `SCPDiscoveryDelegate`
+ when calling `-[SCPTerminal discoverReaders:delegate:completion:]`.
 
  @see https://stripe.com/docs/terminal/readers/connecting
  */
@@ -29,17 +29,19 @@ NS_SWIFT_NAME(DiscoveryDelegate)
 /**
  This method will be called repeatedly until:
  - an error occurs
- - `discoverReaders` is canceled
- - `connect` is called with a discovered reader
+ - `-[SCPTerminal discoverReaders:delegate:completion:]` is canceled via the
+ `SCPCancelable` that it returned.
+ - `-[SCPTerminal connectReader:completion:]` is called with a discovered reader
 
- You should *not* cache the `Reader` objects in the readers array. In other
- words, after calling `connectReader` with a discovered reader, you should not
+ You should *not* cache the `SCPReader` objects in the readers array. In other
+ words, after calling `connectReader:` with a discovered reader, you should not
  attempt to cache and re-use the `Reader` object. The connectivity information
  associated with the discovered `Reader` object will become stale.
 
- == Bluetooth Scan ==
+ Bluetooth Scan
+ --------------
 
- When discovering a reader using this method, the `didUpdateDiscoveredReaders`
+ When discovering a reader using this method, this `didUpdateDiscoveredReaders`
  delegate method will be called multiple times as the Bluetooth scan
  proceeds.
 
@@ -50,9 +52,10 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  Once a selection has been made, call the `connectReader` method to begin
  connecting to the reader.
 
- == Bluetooth Proximity ==
+ Bluetooth Proximity
+ -------------------
 
- When discovering a reader using this method, the `didUpdateDiscoveredReaders`
+ When discovering a reader using this method, this `didUpdateDiscoveredReaders`
  delegate method will be called twice. It will be called for the first time
  when the reader is initially discovered. The reader's LEDs will begin
  flashing. After a short delay, `didUpdateDiscoveredReaders` will be called

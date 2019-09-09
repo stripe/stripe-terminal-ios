@@ -52,20 +52,20 @@ NS_SWIFT_NAME(TerminalDelegate)
 - (void)terminal:(SCPTerminal *)terminal didReportReaderEvent:(SCPReaderEvent)event info:(nullable NSDictionary *)info NS_SWIFT_NAME(terminal(_:didReportReaderEvent:info:));
 
 /**
- The reader's battery is low.
+ The terminal's `connectedReader` has a low battery.
 
  @param terminal    The originating terminal.
  */
 - (void)terminalDidReportLowBatteryWarning:(SCPTerminal *)terminal NS_SWIFT_NAME(terminalDidReportLowBatteryWarning(_:));
 
 /**
- The terminal's connection status changed.
+ The terminal's `connectionStatus` changed.
 
  Note: You should *not* use this method to detect when a reader unexpectedly
  disconnects from your app, as it cannot be used to accurately distinguish
  between expected and unexpected disconnect events. To detect unexpect
  disconnects (e.g. to automatically notify your user), you should instead use
- the `[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect]` method.
+ the `-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]` method.
 
  @param terminal              The originating terminal.
  @param status                The terminal's new connection status.
@@ -73,7 +73,7 @@ NS_SWIFT_NAME(TerminalDelegate)
 - (void)terminal:(SCPTerminal *)terminal didChangeConnectionStatus:(SCPConnectionStatus)status NS_SWIFT_NAME(terminal(_:didChangeConnectionStatus:));
 
 /**
- The terminal's payment status changed.
+ The terminal's `paymentStatus` changed.
 
  @param terminal            The originating terminal.
  @param status              The terminal's new payment status.

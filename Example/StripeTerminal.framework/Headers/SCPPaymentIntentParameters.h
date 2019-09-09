@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Parameters for creating a PaymentIntent.
+ Parameters for creating an `SCPPaymentIntent`.
 
  @see https://stripe.com/docs/api/payment_intents/create
  */
@@ -46,7 +46,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 /**
  A string to be displayed on your customer's credit card statement. This may be
  up to 22 characters. The statement descriptor must contain at least one letter,
- may not include <>"' characters, and will appear on your customer's statement
+ may not include `<>"'` characters, and will appear on your customer's statement
  in capital letters. Non-ASCII characters are automatically stripped. While
  most banks and card issuers display this information consistently, some may
  display it incorrectly or not at all.
@@ -62,6 +62,8 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 
 /**
  The ID of the Customer this PaymentIntent is for, if one exists.
+
+ @see https://stripe.com/docs/api/customers
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *customer;
 
@@ -88,7 +90,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  The account (if any) the payment will be attributed to for tax reporting, and
  where funds from the payment will be transferred to upon payment success.
 
- At capture time, use transfer_data[amount] to specify the amount that will be
+ At capture time, use `transfer_data[amount]` to specify the amount that will be
  transferred automatically when a charge succeeds.
 
  When `transferDataDestination` is specified, `onBehalfOf` must also be
@@ -113,7 +115,8 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  smallest unit.
 
  Note: in testmode, only amounts ending in "00" will be approved. All other
- amounts will be declined by the Stripe API.
+ amounts will be declined by the Stripe API. For more information about this
+ feature, see https://stripe.com/docs/terminal/testing#test-card
 
  @param currency    The currency of the payment.
  */
@@ -121,12 +124,12 @@ NS_SWIFT_NAME(PaymentIntentParameters)
                       currency:(NSString *)currency;
 
 /**
- Use `initWithAmount:...`
+ Use `initWithAmount:currency:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Use `initWithAmount:...`
+ Use `initWithAmount:currency:`
  */
 - (instancetype)new NS_UNAVAILABLE;
 

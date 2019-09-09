@@ -38,10 +38,12 @@ NS_SWIFT_NAME(ConnectionTokenProvider)
 /**
  Fetches a connection token from your backend server.
 
- On your backend server, use the v1/terminal/connection_tokens endpoint to
- create a connection token, and return the connection_token from the response
+ On your backend server, use Stripe's `/v1/terminal/connection_tokens` endpoint to
+ create a connection token, and return the `connection_token` string from the response
  to your app. In your app, call the completion block with the connection token,
  or an error if fetching the token failed.
+
+ @see https://stripe.com/docs/api/terminal/connection_tokens/create
 
  @param completion      Call this with a connection token, or an error if
  creating the connection token failed.
