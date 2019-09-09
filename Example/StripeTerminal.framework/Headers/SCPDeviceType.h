@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     /**
      Chipper 2X
+
+     @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt
      */
     SCPDeviceTypeChipper2X,
 } NS_SWIFT_NAME(DeviceType);

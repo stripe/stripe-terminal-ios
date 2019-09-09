@@ -285,9 +285,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>INTEGRATION ERRORS</p>
-
-<p>The SDK is busy executing another command. The SDK can only execute a
+                        <p>The SDK is busy executing another command. The SDK can only execute a
 single command at a time. You can use the <code>paymentStatus</code> or
 <code>connectionStatus</code> properties on your <code><a href="../Classes/SCPTerminal.html">SCPTerminal</a></code> instance (or the
 corresponding delegate methods) to determine if the SDK is ready to accept
@@ -420,7 +418,7 @@ another command.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Your implementation of <code>fetchConnectionToken</code> called the completion block
-with (nil, nil). Please make sure your integration completes with either
+with <code>(nil, nil)</code>. Please make sure your integration completes with either
 a connection token or an error.</p>
 
                       </div>
@@ -453,7 +451,7 @@ a connection token or an error.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>processPayment was called with an unknown or invalid PaymentIntent.
+                        <p><code>processPayment</code> was called with an unknown or invalid PaymentIntent.
 You must process a payment immediately after collecting a payment method.</p>
 
                       </div>
@@ -486,7 +484,7 @@ You must process a payment immediately after collecting a payment method.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>collectPaymentMethod or processPayment was called with a nil PaymentIntent.</p>
+                        <p><code>collectPaymentMethod</code> or <code>processPayment</code> was called with a <code>nil</code> PaymentIntent.</p>
 
                       </div>
                       <div class="declaration">
@@ -551,8 +549,9 @@ You must process a payment immediately after collecting a payment method.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The SDK must be actively Discovering Readers in order to successfully
-connect to a reader. See documentation on <code><a href="../Classes/SCPTerminal.html">SCPTerminal</a></code> methods
-<code>discoverReaders:delegate:completion:</code> and <code>connectReader:completion:</code></p>
+connect to a reader. See documentation on
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-[SCPTerminal discoverReaders:delegate:completion:]</a></code>
+and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-[SCPTerminal connectReader:completion:]</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -618,7 +617,9 @@ discovery session is not supported.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>discoverReaders was called using an invalid DiscoveryConfiguration. Your app selected a discovery method that is incompatible with the selected device type.</p>
+                        <p><code>discoverReaders</code> was called using an invalid <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code>.
+Your app selected a discovery method that is incompatible with the selected
+device type.</p>
 
                       </div>
                       <div class="declaration">
@@ -650,8 +651,8 @@ discovery session is not supported.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>collectPaymentMethod was called with a <code>nil</code> ReaderDisplayDelegate, but
-the connected reader does not have a built-in display, and requires that
+                        <p><code>collectPaymentMethod</code> was called with a <code>nil</code> <code><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></code>, but
+the <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectedReader">SCPTerminal.connectedReader</a></code> does not have a built-in display, and requires that
 your app support displaying messages from the reader to your user.</p>
 
                       </div>
@@ -684,7 +685,7 @@ your app support displaying messages from the reader to your user.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>installUpdate was passed a <code>nil</code> SCPReaderSoftwareUpdate.</p>
+                        <p><code>installUpdate</code> was passed a <code>nil</code> <code><a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -716,8 +717,8 @@ your app support displaying messages from the reader to your user.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>terminal.connectReader was called from an unsupported version of the SDK.
-In order to fix this you will need to update your app to the most reacent
+                        <p><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-[SCPTerminal connectReader:completion:]</a></code> was called from an unsupported version
+of the SDK. In order to fix this you will need to update your app to the most recent
 version of the SDK. We suggest you prompt your user to update their app,
 assuming there is an update app version with a supported version of our SDK.</p>
 <div class="aside aside-see">
@@ -756,9 +757,7 @@ assuming there is an update app version with a supported version of our SDK.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>USER ERRORS</p>
-
-<p>The command was canceled by your app.</p>
+                        <p>The command was canceled by your app.</p>
 
                       </div>
                       <div class="declaration">
@@ -861,6 +860,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Scanning for bluetooth devices timed out.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Classes/SCPDiscoveryConfiguration.html#/c:objc(cs)SCPDiscoveryConfiguration(py)timeout">SCPDiscoveryConfiguration.timeout</a></code>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -1122,7 +1126,7 @@ too low. Charge the reader before trying again.</p>
 being read. Otherwise, subsequent <code>collectPaymentMethod</code> attempts will fail
 with this error.</p>
 
-<p>Your TerminalDelegate will receive <code>terminal:didReportReaderEvent:info:</code>
+<p>Your terminal delegate will receive <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportReaderEvent:info:">-[SCPTerminalDelegate terminal:didReportReaderEvent:info:]</a></code>
 with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
 
 <p>Additionally, with configuration <code>SZZZ_Generic_v37</code>, the Chipper will
@@ -1159,9 +1163,7 @@ beep until the card is removed.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>READER ERRORS</p>
-
-<p>The reader is busy.</p>
+                        <p>The reader is busy.</p>
 
                       </div>
                       <div class="declaration">
@@ -1459,11 +1461,12 @@ communicating with the update server.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>terminal.processPayment was called from a reader with an unsupported reader
-version. You will need to update your reader to the most recent version in
-order to accept payments. We suggest you prompt your user update the reader
-via the update flow that you have implemented using terminal.checkForUpdate
-and terminal.installUpdate.</p>
+                        <p><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-[SCPTerminal processPayment:completion:]</a></code> was called from a reader with an
+unsupported reader version. You will need to update your reader to the most
+recent version in order to accept payments. We suggest you prompt your user
+update the reader via the update flow that you have implemented using
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)checkForUpdate:">-[SCPTerminal checkForUpdate:]</a></code> and
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)installUpdate:delegate:completion:">-[SCPTerminal installUpdate:delegate:completion:]</a></code>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software</a>
@@ -1500,9 +1503,7 @@ and terminal.installUpdate.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>UNEXPECTED ERRORS</p>
-
-<p>Unexpected SDK error.</p>
+                        <p>Unexpected SDK error.</p>
 
                       </div>
                       <div class="declaration">
@@ -1534,10 +1535,8 @@ and terminal.installUpdate.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>PAYMENT ERRORS</p>
-
-<p>The Stripe API declined the payment.
-Inspect SCPProcessPaymentError&rsquo;s requestError property for more information about
+                        <p>The Stripe API declined the payment.
+Inspect <code><a href="../Classes/SCPProcessPaymentError.html#/c:objc(cs)SCPProcessPaymentError(py)requestError">SCPProcessPaymentError.requestError</a></code> property for more information about
 the decline, including the decline code.</p>
 
                       </div>
@@ -1602,9 +1601,7 @@ the decline, including the decline code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>NETWORK ERRORS</p>
-
-<p>The SDK is not connected to the internet.</p>
+                        <p>The SDK is not connected to the internet.</p>
 
                       </div>
                       <div class="declaration">
@@ -1764,8 +1761,8 @@ the decline, including the decline code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Your implementation of <code>fetchConnectionToken</code> called the completion block
-with an error.</p>
+                        <p>Your implementation of <code><a href="../Protocols/SCPConnectionTokenProvider.html#/c:objc(pl)SCPConnectionTokenProvider(im)fetchConnectionToken:">-[SCPConnectionTokenProvider fetchConnectionToken:]</a></code>
+called the completion block with an error.</p>
 
                       </div>
                       <div class="declaration">
@@ -1799,15 +1796,24 @@ with an error.</p>
                       <div class="abstract">
                         <p>The current session has expired and the reader must be disconnected and
 reconnected. The SDK will attempt to auto-disconnect for you and you should
-instruct your user to reconnect it. didReportUnexpectedReaderDisconnect
-will be called if the sdk is able to successfully auto-disconnect. If it
-does not successfully auto-disconnect (didReportUnexpectedReaderDisconnect
-will not be called and connectionStatus will still be connected) you can
-attempt again via terminal.disconnectReader or you can instruct your user
-to disconnect manually by turning the reader off. Note this error will only
-occur in one of the following calls: terminal.readReusableCard,
-terminal.createPaymentIntent, terminal.retrievePaymentIntent,
-terminal.processPayment, and terminal.cancelPaymentIntent.</p>
+instruct your user to reconnect it.
+<code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportUnexpectedReaderDisconnect:">-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]</a></code>
+will be called if the SDK is able to successfully auto-disconnect. If it
+does not successfully auto-disconnect (<code>didReportUnexpectedReaderDisconnect</code>
+will not be called and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">SCPTerminal.connectionStatus</a></code> will still be
+<code>SCPConnectionStatusConnected</code>) you can attempt again via
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)disconnectReader:">-[SCPTerminal disconnectReader:]</a></code> or you can instruct your user
+to disconnect manually by turning the reader off.</p>
+
+<p>Note this error will only occur in one of the following calls:</p>
+
+<ul>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-[SCPTerminal createPaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-[SCPTerminal retrievePaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-[SCPTerminal processPayment:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-[SCPTerminal cancelPaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:">-[SCPTerminal readReusableCard:delegate:completion:]</a></code></li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -1834,8 +1840,8 @@ terminal.processPayment, and terminal.cancelPaymentIntent.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-06-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-09-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

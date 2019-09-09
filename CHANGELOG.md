@@ -1,21 +1,11 @@
-1.0.0
+1.0.1
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.0'
+pod 'StripeTerminal', '1.0.1'
 ```
 
-## Changes from 1.0.0-rc2
+## Changes
 
-* Adds `Reader.simulated` property, to tell whether a reader is simulated or not.
-
-* The `Terminal.connectedReader` property will now be `nil` when the SDK calls your
-`TerminalDelegate.terminal(_:didReportUnexpectedReaderDisconnect:)` method. In previous
-releases, it contained the previously connected `Reader` object. The previously connected
-reader is still available, as a parameter of this method.
-
-- When a `SCPErrorSessionExpired` has been thrown (see `SCPErrors.h` for more details on when
-this is thrown) we now call `TerminalDelegate.didReportUnexpectedReaderDisconnect` after a
-successful auto-disconnect. Note there is a small chance the disconnect fails and this 
-callback will not be called. You can check `Terminal.connectionStatus` in your completion block
-that received the `SCPErrorSessionExpired` to see if your reader is still connected.
+* Removed entries in `SCPDeprecations.h` from pre v1.0 beta releases. If you still need to update your app from a beta release, we recommend updating using v1.0.0 *first*, and then updating to the latest.
+* Fixed `paymentMethodDetails.cardPresent.brand` to return the correct values for `.amex` and `.dinersClub`. In v1.0.0, these brands were incorrectly being returned as `.unknown`.

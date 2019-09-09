@@ -22,9 +22,9 @@ NS_SWIFT_NAME(Reader)
 @interface SCPReader : NSObject
 
 /**
- The reader's battery level, represented as a boxed float in the range [0, 1].
+ The reader's battery level, represented as a boxed float in the range `[0, 1]`.
  If the reader does not have a battery, or the battery level is unknown, this
- value is nil.
+ value is `nil`.
  */
 @property (nonatomic, nullable, readonly) NSNumber *batteryLevel;
 
@@ -36,7 +36,7 @@ NS_SWIFT_NAME(Reader)
 /**
  True if this is a simulated reader.
 
- `DiscoveryConfiguration` objects with `simulated = true` produce simulated
+ `SCPDiscoveryConfiguration` objects with `simulated = true` produce simulated
  Readers.
  */
 @property (nonatomic, readonly) BOOL simulated;
@@ -47,7 +47,7 @@ NS_SWIFT_NAME(Reader)
 @property (nonatomic, readonly) NSString *serialNumber;
 
 /**
- The reader's current device software version, or nil if this information is
+ The reader's current device software version, or `nil` if this information is
  unavailable.
  */
 @property (nonatomic, nullable, readonly) NSString *deviceSoftwareVersion;

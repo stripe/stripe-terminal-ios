@@ -16,15 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Parameters for reading a reusable card.
 
- **NOTE: Most integrations should **not** use `readReusableCard`.**
+ **NOTE: Most integrations should not use `readReusableCard`.**
 
  You should create a `PaymentIntent` and use the associated `collectPaymentMethod`
  and `processPayment` methods if you are simply collecting a payment from
  a customer.
 
- You can use `readReusableCard` to read payment details and defer payment for later.
- The PaymentMethod created by this method will have type `card`, suitable for
- use with online payments.
+ You can use `-[SCPTerminal readReusableCard:delegate:completion:]` to read
+ payment details and defer payment for later. The `SCPPaymentMethod` created by
+ this method will have type `card`, suitable for use with online payments.
 
  Note that if you use this method to defer a payment, the transaction will
  *not* receive the beneficial rates and liability shift associated with card

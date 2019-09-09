@@ -264,12 +264,12 @@
 
                 </div>
               </div>
-            <p>The Terminal object that is made available by the Stripe Terminal SDK exposes
+            <p>The <code>SCPTerminal</code> object that is made available by the Stripe Terminal SDK exposes
 a generic interface for discovering readers, connecting to a reader, and
 creating payments.</p>
 
-<p>Note: You should only initialize a Terminal once in your app. Behavior is
-undefined if you create multiple Terminal instances.</p>
+<p>The <code>SCPTerminal</code> object is a singleton, and you cannot create multiple
+<code>SCPTerminal</code> instances.</p>
 
           </div>
         </section>
@@ -291,12 +291,12 @@ undefined if you create multiple Terminal instances.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the token provider for the shared (singleton) Terminal instance.</p>
+                        <p>Sets the token provider for the shared (singleton) <code>SCPTerminal</code> instance.</p>
 
 <p>You must set a token provider before calling <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(cpy)shared">shared</a></code> to initialize the
-Terminal singleton. We recommend calling <code>setTokenProvider</code> in your
+Terminal singleton. We recommend calling <code>setTokenProvider:</code> in your
 AppDelegate&rsquo;s <code>application:didFinishLaunchingWithOptions:</code> method.
-Alternatively, you can wrap your call to <code>setTokenProvider</code> with a
+Alternatively, you can wrap your call to <code>setTokenProvider:</code> with a
 <code>dispatch_once</code> in Objective-C, or use a static constructor in Swift.</p>
 
 <p>Note that you may only set a token provider <em>before</em> requesting the shared
@@ -330,7 +330,7 @@ Terminal instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns true if a token provider has been set.</p>
+                        <p>Returns true if a token provider has been set, through <code>setTokenProvider:</code></p>
 
                       </div>
                       <div class="declaration">
@@ -370,8 +370,8 @@ are subject to change, and provided for informational and debugging purposes
 only. You should not depend on them for behavior in your app. Also note that
 the block you provide may be called from any thread.</p>
 
-<p>To print internal logs from the SDK to the console, you can set logLevel to
-<code>.verbose</code> on the Terminal instance.</p>
+<p>To print internal logs from the SDK to the console, you can set <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)logLevel">logLevel</a></code> to
+<code>SCPLogLevelVerbose</code> on the Terminal instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -406,7 +406,7 @@ the block you provide may be called from any thread.</p>
                         <p>Returns the shared (singleton) Terminal instance.</p>
 
 <p>Before accessing the singleton for the first time, you must first call
-<code>setTokenProvider</code> and <code>setDelegate</code>.</p>
+<code>setTokenProvider:</code> and <code>setDelegate:</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -468,7 +468,7 @@ the block you provide may be called from any thread.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Information about the connected reader, or nil if no reader is connected.</p>
+                        <p>Information about the connected <code><a href="../Classes/SCPReader.html">SCPReader</a></code>, or nil if no reader is connected.</p>
 
                       </div>
                       <div class="declaration">
@@ -532,7 +532,7 @@ the block you provide may be called from any thread.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The log level for the SDK. The default value is None.</p>
+                        <p>The log level for the SDK. The default value is <code>.none</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -603,11 +603,12 @@ e.g. to switch between live and test Stripe API keys on your backend.</p>
 <p>In order to switch accounts in your app:</p>
 
 <ul>
-<li>if a reader is connected, call <code>disconnect</code></li>
-<li>configure the <code>tokenProvider</code> to return connection tokens for the new account</li>
+<li>if a reader is connected, call <code>disconnectReader:</code></li>
+<li>configure the <code>tokenProvider</code> object to return connection tokens for the new account.
+The <code>tokenProvider</code> is implemented by your code, and you can do this however you want.</li>
 <li>call <code>clearCachedCredentials</code></li>
-<li>call <code>discover</code> and <code>connect</code> to connect to a reader. The <code>connect</code> call will
-request a new connection token from your backend server via the token provider.</li>
+<li>call <code>discoverReaders</code> and <code>connectReader</code> to connect to a reader. The <code>connect</code> call
+will request a new connection token from your backend server via the token provider.</li>
 </ul>
 
 <p>An overview of the lifecycle of a connection token under the hood:</p>
@@ -654,16 +655,16 @@ new connection token when you call <code>connect</code> again.</li>
                       <div class="abstract">
                         <p>Begins discovering readers matching the given configuration.</p>
 
-<p>When <code>discover</code> is called, the terminal begins scanning for readers using
-the settings in the given DiscoveryConfiguration. You must implement
-<code>DiscoveryDelegate</code> to handle displaying discovery results to your user and
+<p>When <code>discoverReaders</code> is called, the terminal begins scanning for readers using
+the settings in the given <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code>. You must implement
+<code><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></code> to handle displaying discovery results to your user and
 connecting to a selected reader.</p>
 
 <p>The discovery process will stop on its own when the terminal successfully
 connects to a reader, if the command is canceled, or if a discovery error occurs.</p>
 
 <p>Note that if <code>discoverReaders</code> is canceled, the completion block will be called
-with nil (rather than a <code>Canceled</code> error).</p>
+with <code>nil</code> (rather than an <code>SCPErrorCanceled</code> error).</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
@@ -745,7 +746,7 @@ with nil (rather than a <code>Canceled</code> error).</p>
 
 <p>If the connect succeeds, the completion block will be called with the
 connected reader, and the terminal&rsquo;s <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">connectionStatus</a></code> will change to
-<code>Connected</code>.</p>
+<code>.connected</code>.</p>
 
 <p>If the connect fails, the completion block will be called with an error.</p>
 
@@ -827,7 +828,7 @@ recently returned to the <code>didUpdateDiscoveredReaders:</code> method.</p>
                       <div class="abstract">
                         <p>Attempts to disconnect from the currently connected reader.</p>
 
-<p>If the disconnect succeeds, the completion block is called with nil. If the
+<p>If the disconnect succeeds, the completion block is called with <code>nil</code>. If the
 disconnect fails, the completion block is called with an error.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
@@ -884,7 +885,7 @@ disconnect fails, the completion block is called with an error.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new PaymentIntent with the given parameters.</p>
+                        <p>Creates a new <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> with the given parameters.</p>
 
 <p>Note: If the information required to create a PaymentIntent isn&rsquo;t readily
 available in your app, you can create the PaymentIntent on your server and use
@@ -957,7 +958,7 @@ the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in y
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves a PaymentIntent with a client secret.</p>
+                        <p>Retrieves a <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> with a client secret.</p>
 
 <p>If the information required to create a PaymentIntent isn&rsquo;t readily available
 in your app, you can create the PaymentIntent on your server and use this
@@ -1031,19 +1032,19 @@ method to retrieve the PaymentIntent in your app.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Collects a payment method for the given PaymentIntent.</p>
+                        <p>Collects a payment method for the given <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>.</p>
 
 <p>Note: <code>collectPaymentMethod</code> does not apply any changes to the PaymentIntent
 API object. Updates to the PaymentIntent are local to the SDK, and persisted
 in-memory.</p>
 
 <p>If collecting a payment method fails, the completion block will be called with
-an error. After resolving the error, you may call collectPaymentMethod again to either
-try the same card again, or try a different card.</p>
+an error. After resolving the error, you may call <code>collectPaymentMethod</code> again
+to either try the same card again, or try a different card.</p>
 
 <p>If collecting a payment method succeeds, the completion block will be called
 with a PaymentIntent with status <code>.requiresConfirmation</code>, indicating that you
-should call <code>processPayment</code> to finish the payment.</p>
+should call <code>processPayment:completion:</code> to finish the payment.</p>
 
 <p>Note that if <code>collectPaymentMethod</code> is canceled, the completion block will be
 called with a <code>Canceled</code> error.</p>
@@ -1095,7 +1096,7 @@ called with a <code>Canceled</code> error.</p>
                               <td>
                                 <div>
                                   <p>Your delegate for handling reader input events.
-Providing a ReaderDisplayDelegate is required when the connected reader doesn&rsquo;t
+Providing an <code><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></code> is required when the connected reader doesn&rsquo;t
 have a built-in display (e.g., the BBPOS Chipper 2X BT). These readers will
 request that your app display messages during the <code>collectPaymentMethod</code>
 process (e.g., <q>Remove card</q>) via this delegate.</p>
@@ -1134,19 +1135,17 @@ process (e.g., <q>Remove card</q>) via this delegate.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Processes a payment after collecting a payment method succeeds.</p>
-
-<p>=== Synchronous capture ===</p>
+<h2 id='synchronous-capture' class='heading'>Synchronous capture</h2>
 
 <p>Stripe Terminal uses two-step card payments to prevent unintended and duplicate
 payments. When <code>processPayment</code> completes successfully, a charge has been
 authorized on the customer&rsquo;s card, but not yet been <q>captured</q>. Your app must
 <strong>synchronously notify your backend</strong> to capture the PaymentIntent
 in order to settle the funds to your account.</p>
-
-<p>=== Handling failures ===</p>
+<h2 id='handling-failures' class='heading'>Handling failures</h2>
 
 <p>When <code>processPayment</code> fails, the SDK returns an error that includes the
-updated PaymentIntent. Your app should inspect the updated PaymentIntent
+updated <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>. Your app should inspect the updated PaymentIntent
 to decide how to retry the payment.</p>
 
 <ol>
@@ -1231,7 +1230,7 @@ updated PaymentIntent to try charging another card.</p></li>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Cancels a PaymentIntent.</p>
+                        <p>Cancels an <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>.</p>
 
 <p>If the cancel request succeeds, the completion block will be called with the
 updated PaymentIntent object with status Canceled. If the cancel request
@@ -1306,9 +1305,9 @@ fails, the completion block will be called with an error.</p>
                       <div class="abstract">
                         <p>Reads a card with the given parameters and returns a PaymentMethod.</p>
 
-<p><strong>NOTE: Most integrations should **not</strong> use <code>readReusableCard</code>.**</p>
+<p><strong>NOTE: Most integrations should not use <code>readReusableCard</code>.</strong></p>
 
-<p>You should create a <code>PaymentIntent</code> and use the associated <code>collectPaymentMethod</code>
+<p>You should create a <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> and use the associated <code>collectPaymentMethod</code>
 and <code>processPayment</code> methods if you are simply collecting a payment from
 a customer.</p>
 
@@ -1411,8 +1410,8 @@ card.</p>
                         <p>Checks for a reader software update, and returns an update object if an update
 is available.</p>
 
-<p>If an update is available, the completion block will be called with a
-ReaderSoftwareUpdate object, indicating that a software update is available.
+<p>If an update is available, the completion block will be called with an
+<code><a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a></code> object, indicating that a software update is available.
 The update object contains information about the update that you can display
 to the user, such as the estimated installation time.</p>
 
@@ -1481,7 +1480,7 @@ installation has completed.</p>
 
 <p>If an error occurs while installing the update (e.g. because the update was
 interrupted), the completion block will be called with an error. If the update
-completed successfully, the completion block will be called with nil.
+completed successfully, the completion block will be called with <code>nil</code>.
 You must pass a delegate to handle events as the update proceeds. In your app,
 you should display the progress of the update to the user. You should also
 instruct the user to wait for the update to complete: <q>Do not leave this page,
@@ -1855,8 +1854,8 @@ Terminal, you are obligated to include this functionality.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-06-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-09-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
