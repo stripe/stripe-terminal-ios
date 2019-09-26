@@ -26,8 +26,6 @@
 	<string>Bluetooth acess is required in order to connect to supported bluetooth card readers.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location access is required in order to accept payments.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone acess is required in order to connect to supported audio input card readers.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
