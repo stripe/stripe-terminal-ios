@@ -61,11 +61,7 @@ class StartPaymentViewController: TableViewController {
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
                                                     currency: "usd")
         let vc = PaymentViewController(paymentParams: paymentParams)
-        let navController = UINavigationController(rootViewController: vc)
-        navController.navigationBar.isTranslucent = false
-        if #available(iOS 11.0, *) {
-            navController.navigationBar.prefersLargeTitles = true
-        }
+        let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
     }
 

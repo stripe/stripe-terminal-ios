@@ -373,3 +373,19 @@ open class InsetLabel: UILabel {
         return super.drawText(in: rect.inset(by: inset))
     }
 }
+
+open class LargeTitleNavigationController: UINavigationController {    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationBar.isTranslucent = false
+
+        if #available(iOS 11.0, *) {
+            navigationBar.prefersLargeTitles = true
+        }
+
+        if #available(iOS 13.0, *) {
+            navigationBar.isTranslucent = true
+        }
+    }
+}

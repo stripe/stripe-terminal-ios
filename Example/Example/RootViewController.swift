@@ -9,13 +9,9 @@
 import UIKit
 import StripeTerminal
 
-class RootViewController: UINavigationController  {
+class RootViewController: LargeTitleNavigationController  {
     init() {
         super.init(nibName: nil, bundle: nil)
-        navigationBar.isTranslucent = false
-        if #available(iOS 11.0, *) {
-            navigationBar.prefersLargeTitles = true
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {

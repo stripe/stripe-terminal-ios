@@ -77,11 +77,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                 }
             }
         }
-        let navController = UINavigationController(rootViewController: discoveryVC)
-        navController.navigationBar.isTranslucent = false
-        if #available(iOS 11.0, *) {
-            navController.navigationBar.prefersLargeTitles = true
-        }
+        let navController = LargeTitleNavigationController(rootViewController: discoveryVC)
         self.present(navController, animated: true, completion: nil)
     }
 
@@ -105,21 +101,13 @@ class ReaderViewController: TableViewController, TerminalDelegate {
 
     internal func showReadReusableCard() {
         let vc = ReadReusableCardViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        navController.navigationBar.isTranslucent = false
-        if #available(iOS 11.0, *) {
-            navController.navigationBar.prefersLargeTitles = true
-        }
+        let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
     }
 
     internal func showUpdateReader() {
         let vc = UpdateReaderViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        navController.navigationBar.isTranslucent = false
-        if #available(iOS 11.0, *) {
-            navController.navigationBar.prefersLargeTitles = true
-        }
+        let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
     }
 
