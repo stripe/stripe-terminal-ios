@@ -2,7 +2,7 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.2'
+pod 'StripeTerminal', '1.0.1'
 ```
 
 # 1.0.2 2019-09-26
