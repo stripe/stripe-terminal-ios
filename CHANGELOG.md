@@ -2,8 +2,13 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.0.2'
+pod 'StripeTerminal', '1.0.3'
 ```
+
+# 1.0.3 2019-11-21
+
+* Fixed an unexpected discovery failure when using the `bluetoothScan` discovery method
+* Updated the example app for better iOS 13 support
 
 # 1.0.2 2019-09-26
 
