@@ -90,11 +90,9 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "chipper")
             case .verifoneP400:
                 titleLabel.text = "Verifone P400: \(reader.label ?? reader.serialNumber)"
-                // https://jira.corp.stripe.com/browse/TERMINAL-3677
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 titleLabel.text = "WisePad 3 \(reader.serialNumber)"
-                // https://jira.corp.stripe.com/browse/TERMINAL-3677
                 imageView.image = UIImage(named: "verifone")
             @unknown default:
                 titleLabel.text = reader.serialNumber
