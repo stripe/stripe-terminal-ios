@@ -11,9 +11,20 @@ import Static
 import StripeTerminal
 
 class StartPaymentViewController: TableViewController {
+    
+    struct Amount {
+        var amountString: String
+        var currencyString: String
+        
+        var display: String {
+            return "\(amountString) \(currencyString)"
+        }
+    }
 
     private let amountView = AmountInputView()
+    private let currencyView = CurrencyInputView()
     private var startSection: Section?
+    private var amount = Amount(amountString: "$1.00", currencyString: "USD")
 
     convenience init() {
         self.init(style: .grouped)
@@ -24,22 +35,33 @@ class StartPaymentViewController: TableViewController {
         title = "Collect card payment"
 
         amountView.onAmountUpdated = { amountString in
-            self.startSection?.header = Section.Extremity.title(amountString)
+            self.amount.amountString = amountString
+            self.startSection?.header = Section.Extremity.title(self.amount.display)
             self.updateContent()
         }
-        let headerString: String
-        if ReaderViewController.simulated {
-            headerString = "Collect a card payment using a simulated reader."
+        
+        currencyView.onCurrencyUpdated = { currencyString in
+            self.amount.currencyString = currencyString
+            self.startSection?.header = Section.Extremity.title(self.amount.display)
+            self.updateContent()
         }
-        else {
-            switch ReaderViewController.deviceType {
+        
+        let headerString: String
+        if ReaderViewController.readerConfiguration.simulated {
+            headerString = "Collect a card payment using a simulated reader."
+        } else {
+            switch ReaderViewController.readerConfiguration.deviceType {
             case .chipper2X:
                 headerString = "Collect a card payment using a physical Stripe test card and the Chipper 2X."
+            case .verifoneP400:
+                headerString = "Collect a card payment using a physical Stripe test card and the Verifone P400."
+            case .wisePad3:
+                headerString = "Collect a card payment using a physical Stripe test card and the WisePad 3."
             @unknown default:
                 headerString = "Collect a card payment using a physical Stripe test card and reader."
             }
         }
-        self.startSection = Section(header: "$1.00", rows: [
+        self.startSection = Section(header: Section.Extremity.title(self.amount.display), rows: [
             Row(text: "Collect payment", selection: { [unowned self] in
                 self.startPayment()
                 }, cellClass: ButtonCell.self),
@@ -59,7 +81,7 @@ class StartPaymentViewController: TableViewController {
 
     internal func startPayment() {
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
-                                                    currency: "usd")
+                                                    currency: currencyView.currency)
         let vc = PaymentViewController(paymentParams: paymentParams)
         let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
@@ -68,12 +90,19 @@ class StartPaymentViewController: TableViewController {
     private func updateContent() {
         let amountSection = Section(header: "AMOUNT", rows: [],
                                     footer: Section.Extremity.autoLayoutView(amountView))
+        
+        let currencySection = Section(header: "CURRENCY", rows: [],
+                                      footer: Section.Extremity.autoLayoutView(currencyView))
+        
         var sections: [Section] = [
             amountSection,
+            currencySection
         ]
+        
         if let startSection = self.startSection {
             sections.append(startSection)
         }
+        
         dataSource.sections = sections
     }
 }

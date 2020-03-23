@@ -18,16 +18,12 @@ class ReaderViewController: TableViewController, TerminalDelegate {
             updateContent()
         }
     }
-
-    static var deviceType: DeviceType = .chipper2X
-    static var discoveryMethod: DiscoveryMethod = .bluetoothProximity
-
-    #if targetEnvironment(simulator)
-    static var simulated: Bool = true
-    #else
-    static var simulated: Bool = false
-    #endif
-
+    
+    static var readerConfiguration = ReaderConfiguration() {
+        didSet {
+            _ = ReaderViewController.readerConfiguration.saveToUserDefaults()
+        }
+    }
 
     private let headerView = ReaderHeaderView()
 
@@ -42,6 +38,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
         updateContent()
     }
 
@@ -56,9 +53,10 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     // MARK: - Private
 
     private func showDiscoverReaders() {
-        let config = DiscoveryConfiguration(deviceType: ReaderViewController.deviceType,
-                                            discoveryMethod: ReaderViewController.discoveryMethod,
-                                            simulated: ReaderViewController.simulated)
+        let simulated = ReaderViewController.readerConfiguration.deviceType != .wisePad3 ? ReaderViewController.readerConfiguration.simulated : false
+        let config = DiscoveryConfiguration(deviceType: ReaderViewController.readerConfiguration.deviceType,
+                                            discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
+                                            simulated: simulated)
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
         discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
             guard let discoveryVC = discoveryVC else { return }
@@ -70,8 +68,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                         self.updateContent()
                     }
                 }
-            }
-            else {
+            } else {
                 discoveryVC.dismiss(animated: true) {
                     self.updateContent()
                 }
@@ -86,8 +83,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
             if let error = error {
                 print("Disconnect failed: \(error)")
                 self.presentAlert(error: error)
-            }
-            else {
+            } else {
                 self.connectedReader = nil
                 self.updateContent()
             }
@@ -100,6 +96,10 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     internal func showReadReusableCard() {
+        if let connectReader = self.connectedReader, connectReader.deviceType != .chipper2X {
+            self.presentAlert(title: "Error", message: "This device type does not support readReusableCard.")
+            return
+        }
         let vc = ReadReusableCardViewController()
         let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
@@ -112,18 +112,41 @@ class ReaderViewController: TableViewController, TerminalDelegate {
     }
 
     internal func showDeviceTypes() {
-        let vc = DeviceTypeViewController(deviceType: ReaderViewController.deviceType)
+        let vc = DeviceTypeViewController(deviceType: ReaderViewController.readerConfiguration.deviceType)
         vc.onSelectedDevice = { type in
-            ReaderViewController.deviceType = type
+            guard ReaderViewController.readerConfiguration.deviceType != type else { return }
+            ReaderViewController.readerConfiguration.deviceType = type
+            // for changed deviceType: update discovery method, since the previous selection is incompatible
+            switch type {
+            case .verifoneP400:
+                ReaderViewController.readerConfiguration.discoveryMethod = .internet
+            case .chipper2X:
+                ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothProximity // not bothering to see which they last used
+            case .wisePad3:
+                ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothScan
+            @unknown default:
+                print("No discovery method so device types cannot be determined.")
+            }
+
             self.updateContent()
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     internal func showDiscoveryMethods() {
-        let vc = DiscoveryMethodViewController(method: ReaderViewController.discoveryMethod)
+        let vc = DiscoveryMethodViewController(method: ReaderViewController.readerConfiguration.discoveryMethod)
         vc.onSelectedMethod = { method in
-            ReaderViewController.discoveryMethod = method
+            guard ReaderViewController.readerConfiguration.discoveryMethod != method else { return }
+            ReaderViewController.readerConfiguration.discoveryMethod = method
+            // make sure deviceType is set to a compatible device for this discovery method
+            switch method {
+            case .bluetoothProximity, .bluetoothScan:
+                ReaderViewController.readerConfiguration.deviceType = .chipper2X
+            case .internet:
+                ReaderViewController.readerConfiguration.deviceType = .verifoneP400
+            @unknown default:
+                print("No device type so discovery methodssg cannot be determined.")
+            }
             self.updateContent()
         }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -140,23 +163,27 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                         }, cellClass: ButtonCell.self),
                     ]),
                 Section(header: "Device Type", rows: [
-                    Row(text: ReaderViewController.deviceType.description, selection: { [unowned self] in
+                    Row(text: ReaderViewController.readerConfiguration.deviceType.description, selection: { [unowned self] in
                         self.showDeviceTypes()
                         }, accessory: .disclosureIndicator),
                     ]),
                 Section(header: "Discovery Method", rows: [
-                    Row(text: ReaderViewController.discoveryMethod.description, selection: { [unowned self] in
+                    Row(text: ReaderViewController.readerConfiguration.discoveryMethod.description, selection: { [unowned self] in
                         self.showDiscoveryMethods()
                         }, accessory: .disclosureIndicator),
                     ]),
                 Section(header: "", rows: [
-                    Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.simulated) { enabled in
-                        ReaderViewController.simulated = enabled
+                    Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) { enabled in
+                        ReaderViewController.readerConfiguration.simulated = enabled
                         }),
-                    ], footer: "The SDK comes with the ability to simulate behavior without using physical hardware. This makes it easy to quickly test your integration end-to-end, from connecting a reader to taking payments."),
-            ]
-        }
-        else {
+                    ], footer: """
+                    The SDK comes with the ability to simulate behavior \
+                    without using physical hardware. This makes it easy to quickly \
+                    test your integration end-to-end, from connecting a reader to \
+                    taking payments.
+                    """),
+                ].compactMap({ $0})
+        } else {
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(header: rdrConnectionTitle, rows: [

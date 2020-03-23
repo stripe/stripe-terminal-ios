@@ -33,4 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface SCPStripeAPIClient: NSObject
+
+@property (class, nonatomic, strong, readwrite) NSURL *apiBaseUrl;
+
+@end
+
 NS_ASSUME_NONNULL_END

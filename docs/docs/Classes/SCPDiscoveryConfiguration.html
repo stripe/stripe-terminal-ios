@@ -89,6 +89,9 @@
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -243,6 +246,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other%20Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other%20Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,7 +266,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SCPDiscoveryConfiguration</h1>
               <div class="declaration">
                 <div class="language">
@@ -293,6 +304,8 @@
                       <div class="abstract">
                         <p>Initializes a discovery configuration with the given device type, selecting
 the default discovery method for the device type.</p>
+
+<p>Note that <code><a href="../Classes/SCPDiscoveryConfiguration.html#/c:objc(cs)SCPDiscoveryConfiguration(py)simulated">simulated</a></code> is not supported by <code>verifoneP400</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -361,18 +374,26 @@ end-to-end, from pairing with a reader to taking payments.</p>
                       <div class="abstract">
                         <p>Initializes a discovery configuration with the given device type and discovery method.</p>
 
-<p>Note that not all deviceType and discovery method combinations are valid. If
-the specified configuration is invalid, <code>discoverReaders</code> will fail.</p>
+<p>Note that not all deviceType and discovery method combinations are valid and
+not all readers support simulated mode. If the specified configuration is
+invalid, <code>discoverReaders</code> will fail.</p>
 
 <table><thead>
 <tr>
 <th>DeviceType</th>
-<th>valid DiscoveryMethods</th>
+<th>DiscoveryMethod</th>
+<th>simulated</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>chipper2X</td>
-<td>bluetoothProximity (recommended), bluetoothScan</td>
+<td><code>chipper2X</code></td>
+<td><code>bluetoothProximity</code> (recommended), <code>bluetoothScan</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>verifoneP400</code></td>
+<td><code>internet</code></td>
+<td><code>true</code> or <code>false</code></td>
 </tr>
 </tbody></table>
 
@@ -417,6 +438,135 @@ the specified configuration is invalid, <code>discoverReaders</code> will fail.<
                               <td>
                                 <div>
                                   <p>The discovery method to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>simulated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether to use simulated discovery to discover a
+device simulator. The SDK comes with the ability to simulate behavior without
+using physical hardware. This makes it easy to quickly test your integration
+end-to-end, from pairing with a reader to taking payments.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:discoveryMethod:locationId:simulated:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDeviceType:discoveryMethod:locationId:simulated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)initWithDeviceType:discoveryMethod:locationId:simulated:">-initWithDeviceType:discoveryMethod:locationId:simulated:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a discovery configuration with the given device type and
+discovery method and location ID.</p>
+
+<p>Not all deviceType and discovery method combinations are valid and not all
+readers support locationId or simulated mode. If the specified configuration is
+invalid, <code>discoverReaders</code> will fail. Only the following <code>DiscoveryConfiguration</code>
+combinations are allowed:</p>
+
+<table><thead>
+<tr>
+<th>DeviceType</th>
+<th>DiscoveryMethod</th>
+<th>locationId</th>
+<th>simulated</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>chipper2X</code></td>
+<td><code>bluetoothProximity</code> (recommended), <code>bluetoothScan</code></td>
+<td><code>nil</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>verifoneP400</code></td>
+<td><code>internet</code></td>
+<td><code>nil</code> or string</td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+</tbody></table>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/api/terminal/locations">https://stripe.com/docs/api/terminal/locations</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
+                           <span class="nf">discoveryMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">discoveryMethod</span>
+                                <span class="nf">locationId</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">locationId</span>
+                                 <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The device type to discover.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>discoveryMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The discovery method to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>locationId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The optional location ID to filter the discovered
+list to only readers at the specific location. Currently updating and creating
+locations is not supported by this SDK and will need to take place on the
+backend.</p>
                                 </div>
                               </td>
                             </tr>
@@ -581,6 +731,40 @@ end-to-end, from pairing with a reader to taking payments.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration(py)locationId"></a>
+                    <a name="//apple_ref/objc/Property/locationId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration(py)locationId">locationId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A location ID that can be used to filter discovery result so only readers
+registered to that location are returned. Currently this is only applicable
+to VerifoneP400 readers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">locationId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPDiscoveryConfiguration(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPDiscoveryConfiguration(im)init">-init</a>
@@ -648,8 +832,8 @@ end-to-end, from pairing with a reader to taking payments.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

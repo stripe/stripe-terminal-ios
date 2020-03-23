@@ -46,6 +46,23 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
      info about the device, like its battery level.
      */
     SCPDiscoveryMethodBluetoothProximity,
+
+    /**
+     Internet
+
+     When discovering a reader with this method `didUpdateDiscoveredReaders`
+     will only be called once with a list of readers from `/v1/termina/readers`.
+     Note that this will include readers that are both online and offline. This
+     discovery method can only be used with the VerifoneP400 reader.
+
+     Because the discovery process continues if connecting to a discovered
+     reader fails, the SDK will refresh the list of `SCPReader`s and call
+     `didUpdateDiscoveredReaders` with the results. For more details about failed
+     connect calls, see `-[SCPTerminal connectReader:connectionConfig:completion:]`
+
+     @see https://stripe.com/docs/api/terminal/readers/list
+     */
+    SCPDiscoveryMethodInternet,
 } NS_SWIFT_NAME(DiscoveryMethod);
 
 NS_ASSUME_NONNULL_END

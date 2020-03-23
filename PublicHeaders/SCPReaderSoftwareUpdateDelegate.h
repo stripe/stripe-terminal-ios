@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
  You must implement the ability to update your reader's software in your app.
  Though we expect required software updates to be very rare, by using Stripe
  Terminal, you are obligated to include this functionality.
+ 
+ @note The Verifone P400 handles its own updates over the internet.
+ The Stripe Terminal iOS SDK will not call `SCPReaderSoftwareUpdateDelegate`
+ methods while connected to the Verifone P400.
 
  @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
  */

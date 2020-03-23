@@ -89,6 +89,9 @@
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -243,6 +246,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other%20Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other%20Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,7 +266,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SCPTerminalDelegate</h1>
               <div class="declaration">
                 <div class="language">
@@ -263,7 +274,7 @@
 
                 </div>
               </div>
-            <p>Implement this protocol to handle updates from a Terminal.</p>
+            <p>Implement this protocol to handle updates from the Stripe Terminal iOS SDK.</p>
 
           </div>
         </section>
@@ -362,7 +373,14 @@ disconnected reader, or display UI for your user to re-connect to a reader.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal reported an event from the reader (e.g. a card was inserted).</p>
+                        <p>The SDK reported an event from the reader (e.g. a card was inserted).</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The Verifone P400 has a built-in display which handles displaying card and
+payment events to the customer. The SDK will not call this method while
+connected to the Verifone P400.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -439,7 +457,13 @@ disconnected reader, or display UI for your user to re-connect to a reader.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s <code>connectedReader</code> has a low battery.</p>
+                        <p>This method is called when the SDK&rsquo;s currently connected reader has a low battery.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The Verifone P400 is powered by an outlet, and does not use battery power.
+The SDK will not call this method while connected to the Verifone P400.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -490,9 +514,9 @@ disconnected reader, or display UI for your user to re-connect to a reader.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s <code>connectionStatus</code> changed.</p>
+                        <p>The currently connected reader&rsquo;s <code>connectionStatus</code> changed.</p>
 
-<p>Note: You should <em>not</em> use this method to detect when a reader unexpectedly
+<p>You should <em>not</em> use this method to detect when a reader unexpectedly
 disconnects from your app, as it cannot be used to accurately distinguish
 between expected and unexpected disconnect events. To detect unexpect
 disconnects (e.g. to automatically notify your user), you should instead use
@@ -537,7 +561,7 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
                               </td>
                               <td>
                                 <div>
-                                  <p>The terminal&rsquo;s new connection status.</p>
+                                  <p>The SDK&rsquo;s new connection status.</p>
                                 </div>
                               </td>
                             </tr>
@@ -560,7 +584,7 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s <code>paymentStatus</code> changed.</p>
+                        <p>The currently connected reader&rsquo;s <code>paymentStatus</code> changed.</p>
 
                       </div>
                       <div class="declaration">
@@ -601,7 +625,7 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
                               </td>
                               <td>
                                 <div>
-                                  <p>The terminal&rsquo;s new payment status.</p>
+                                  <p>The SDK&rsquo;s new payment status.</p>
                                 </div>
                               </td>
                             </tr>
@@ -619,8 +643,8 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -38,6 +38,12 @@ class DeviceTypeViewController: TableViewController {
                     self.navigationController?.popViewController(animated: true)
                 }, accessory: (deviceType == .chipper2X ? .checkmark : .none)),
                 ], footer: "Discover the BBPOS Chipper 2X BT.\n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page."),
+            Section(header: "", rows: [
+                Row(text: "Verifone P400", selection: { [unowned self] in
+                    self.onSelectedDevice(.verifoneP400)
+                    self.navigationController?.popViewController(animated: true)
+                    }, accessory: (deviceType == .verifoneP400 ? .checkmark : .none)),
+                ], footer: "Discover the Verifone P400.\n\nNote: Readers must be registered to your account via the Stripe API or Dashboard before they're discoverable."),
         ]
     }
 

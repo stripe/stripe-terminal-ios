@@ -102,12 +102,10 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
                 let percent = Int(progress*100)
                 updateFooter = "Update progress: \(percent)%\n\n⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete."
                 updateRow = Row(text: "⏱ Update in progress")
-            }
-            else if installUpdateCancelable != nil {
+            } else if installUpdateCancelable != nil {
                 updateFooter = "Starting to install update..."
                 updateRow = Row(text: "Installing Update")
-            }
-            else {
+            } else {
                 updateButtonText = "Install update"
                 let updateEstimate = ReaderSoftwareUpdate.string(from: update.estimatedUpdateTime)
                 updateFooter = "Target version:\n\(updateVersion)\n\nThe reader will become unresponsive until the update is complete. Estimated update time: \(updateEstimate)"
@@ -115,14 +113,12 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
                     self.installUpdate()
                 }, cellClass: ButtonCell.self)
             }
-        }
-        else {
+        } else {
             updateButtonText = "Check for update"
             if checkForUpdateCancelable != nil {
                 updateFooter = "Checking for update..."
                 updateRow = Row(text: updateButtonText)
-            }
-            else {
+            } else {
                 updateFooter = "Check if a reader software update is available."
                 updateRow = Row(text: updateButtonText, selection: { [unowned self] in
                     self.checkForUpdate()
