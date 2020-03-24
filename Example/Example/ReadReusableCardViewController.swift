@@ -72,8 +72,7 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
                 readEvent.object = .error(error as NSError)
                 self.events.append(readEvent)
                 self.complete()
-            }
-            else if let paymentMethod = paymentMethod {
+            } else if let paymentMethod = paymentMethod {
                 readEvent.result = .succeeded
                 readEvent.object = .paymentMethod(paymentMethod)
                 self.events.append(readEvent)
@@ -138,8 +137,7 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
             if let error = error {
                 event.result = .errored
                 event.object = .error(error as NSError)
-            }
-            else {
+            } else {
                 event.result = .succeeded
             }
             self.events.append(event)

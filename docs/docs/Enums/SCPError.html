@@ -57,6 +57,9 @@
                 <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -87,6 +90,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
@@ -255,7 +261,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SCPError</h1>
               <div class="declaration">
                 <div class="language">
@@ -617,9 +623,18 @@ discovery session is not supported.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>discoverReaders</code> was called using an invalid <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code>.
-Your app selected a discovery method that is incompatible with the selected
-device type.</p>
+                        <p><code>discoverReaders</code> was called using an invalid SCPDiscoveryConfiguration.
+Your app selected a discovery method that is either incompatible with the
+selected device type or attemped to use <code>simulated</code> or <code>locationId</code> with a
+reader which does not support <code>simulated</code> or <code>locationId</code>. Currently
+<code>chipper2X</code> is the only reader which supports <code>simulated</code> and
+<code>verifoneP400</code> is the only reader which supports use of <code>locationId</code> for
+location filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code> for valid configurations.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -827,7 +842,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Bluetooth disabled on this iOS device. Enable bluetooth in Settings.</p>
+                        <p>This error indicates that Bluetooth is turned off, and the user should use
+Settings to turn Bluetooth on.</p>
+
+<p>If Bluetooth is on but the app does not have permission to use it,
+a different error (<code><a href="../Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothError">SCPErrorBluetoothError</a></code>) occurs.</p>
 
                       </div>
                       <div class="declaration">
@@ -1267,6 +1286,9 @@ iOS SDK with one of Stripe&rsquo;s pre-certified readers.</p>
                       <div class="abstract">
                         <p>Generic bluetooth error.</p>
 
+<p>Among other things, it may indicate that the app does not have permission
+to use Bluetooth (iOS 13+).</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1484,6 +1506,127 @@ update the reader via the update flow that you have implemented using
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnknownReaderIpAddress"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnknownReaderIpAddress" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnknownReaderIpAddress">SCPErrorUnknownReaderIpAddress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader returned from discovery does not have an IP address and cannot
+be connected to. The IP address should have been set by the SDK during
+registration of the reader. Try registering the reader again.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting/verifone-p400#register-reader">https://stripe.com/docs/terminal/readers/connecting/verifone-p400#register-reader</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInternetConnectTimeOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInternetConnectTimeOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInternetConnectTimeOut">SCPErrorInternetConnectTimeOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to reader over the internet timed out. Make sure your device and
+reader are on the same Wifi network and your reader is connected to the
+Wifi network.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/verifone-p400#troubleshooting">https://stripe.com/docs/terminal/readers/verifone-p400#troubleshooting</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInternetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorConnectFailedReaderIsInUse"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorConnectFailedReaderIsInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorConnectFailedReaderIsInUse">SCPErrorConnectFailedReaderIsInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to the reader failed because it is currently in use
+and <code><a href="../Classes/SCPConnectionConfiguration.html#/c:objc(cs)SCPConnectionConfiguration(py)failIfInUse">SCPConnectionConfiguration.failIfInUse</a></code> was set to <code>true</code>.</p>
+
+<p>Try to connect again with <code>failIfInUse = false</code>, or choose a different
+reader.</p>
+
+<p>A reader is in use while it&rsquo;s collecting a payment.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios">https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
 
                         </div>
                       </div>
@@ -1810,6 +1953,7 @@ to disconnect manually by turning the reader off.</p>
 <ul>
 <li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-[SCPTerminal createPaymentIntent:completion:]</a></code></li>
 <li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-[SCPTerminal retrievePaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:delegate:completion:">-[SCPTerminal collectPaymentMethod:delegate:completion:]</a></code> if connected to a <code>SCPDeviceTypeVerifoneP400</code></li>
 <li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-[SCPTerminal processPayment:completion:]</a></code></li>
 <li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-[SCPTerminal cancelPaymentIntent:completion:]</a></code></li>
 <li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:">-[SCPTerminal readReusableCard:delegate:completion:]</a></code></li>
@@ -1840,8 +1984,8 @@ to disconnect manually by turning the reader off.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24FAAAFF2345067A00D47D40 /* ReaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
+		B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C24C6B23285BF6003271BD /* ifaddrs.swift */; };
 		C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; };
 		C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
@@ -52,7 +54,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderConfiguration.swift; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
+		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
+		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		C106AD1921485AD300EB471C /* StripeTerminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripeTerminal.framework; sourceTree = SOURCE_ROOT; };
 		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
@@ -121,11 +126,14 @@
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
 				C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */,
 				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
+				B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */,
+				B3C24C6B23285BF6003271BD /* ifaddrs.swift */,
 				C16F40AC2094F07C009CE87C /* Info.plist */,
 				C16F40A92094F07C009CE87C /* LaunchScreen.storyboard */,
 				C1DE30CF21438E9800A3026F /* LogEventViewController.swift */,
 				C16F40A42094F07B009CE87C /* Main.storyboard */,
 				C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */,
+				24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */,
 				C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */,
 				C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */,
 				C1D3A023214208800095A07B /* ReaderViewController.swift */,
@@ -241,12 +249,14 @@
 				C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */,
 				C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */,
 				C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */,
+				B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */,
 				C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */,
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
 				C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */,
 				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
 				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
+				24FAAAFF2345067A00D47D40 /* ReaderConfiguration.swift in Sources */,
 				6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */,
 				C16651B721963C51006EFACF /* APIClient.swift in Sources */,
 			);
@@ -328,6 +338,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -381,6 +392,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -401,8 +413,9 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -422,8 +435,9 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -44,6 +44,12 @@ class DiscoveryMethodViewController: TableViewController {
                     self.navigationController?.popViewController(animated: true)
                     }, accessory: (method == .bluetoothProximity ? .checkmark : .none)),
                 ], footer: "Discover a reader by holding it next to the iOS device.\n\nNote: the Stripe Terminal SDK can discover supported readers automatically – you should not connect to the reader in the iOS Settings > Bluetooth page."),
+            Section(header: "", rows: [
+                Row(text: "Internet", selection: { [unowned self] in
+                    self.onSelectedMethod(.internet)
+                    self.navigationController?.popViewController(animated: true)
+                    }, accessory: (method == .internet ? .checkmark : .none)),
+                ], footer: "Discovers readers that have been registered to your account via the Stripe API or Dashboard."),
         ]
     }
     

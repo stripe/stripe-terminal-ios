@@ -69,6 +69,8 @@ class ReaderHeaderView: UIView {
         }
 
         bounds.size.height = 110
+        let hardcodedImageViewHeight: CGFloat = 38
+        imageView.heightAnchor.constraint(equalToConstant: hardcodedImageViewHeight).isActive = true
 
         updateContent()
     }
@@ -79,10 +81,23 @@ class ReaderHeaderView: UIView {
 
     func updateContent() {
         if let reader = connectedReader {
-            titleLabel.text = "Chipper 2X \(reader.serialNumber)"
             titleLabel.isHidden = false
             spacerLabel.isHidden = true
-            imageView.image = UIImage(named: "chipper")
+
+            switch reader.deviceType {
+            case .chipper2X:
+                titleLabel.text = "Chipper 2X \(reader.serialNumber)"
+                imageView.image = UIImage(named: "chipper")
+            case .verifoneP400:
+                titleLabel.text = "Verifone P400: \(reader.label ?? reader.serialNumber)"
+                imageView.image = UIImage(named: "verifone")
+            case .wisePad3:
+                titleLabel.text = "WisePad 3 \(reader.serialNumber)"
+                imageView.image = UIImage(named: "verifone")
+            @unknown default:
+                titleLabel.text = reader.serialNumber
+                imageView.image = nil
+            }
         } else {
             subtitleLabel.text = "No reader connected"
             titleLabel.isHidden = true

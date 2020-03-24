@@ -30,10 +30,15 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      Next step: process the payment by calling `processPayment`.
      */
     SCPPaymentIntentStatusRequiresConfirmation,
+
     /**
      Next step: capture the PaymentIntent on your backend via the Stripe API.
      */
     SCPPaymentIntentStatusRequiresCapture,
+    /**
+     The PaymentIntent is in the middle of full EMV processing.
+     */
+    SCPPaymentIntentStatusProcessing,
     /**
      The PaymentIntent was canceled.
      */

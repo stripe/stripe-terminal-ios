@@ -36,7 +36,9 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  You should *not* cache the `SCPReader` objects in the readers array. In other
  words, after calling `connectReader:` with a discovered reader, you should not
  attempt to cache and re-use the `Reader` object. The connectivity information
- associated with the discovered `Reader` object will become stale.
+ associated with the discovered `Reader` object will become stale. If no readers
+ have been found `didUpdateDiscoveredReaders` will be called with an empty
+ array.
 
  Bluetooth Scan
  --------------
@@ -61,6 +63,16 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  flashing. After a short delay, `didUpdateDiscoveredReaders` will be called
  a second time with an updated reader object, populated with additional
  info about the device, like its battery level.
+
+ == Internet ==
+
+ When discovering a reader using this method, the `didUpdateDiscoveredReaders`
+ delegate method will only be called once. Both readers online and offline will
+ be sent to `didUpdateDiscoveredReaders`. Only an online reader can be connected
+ to, so it will be up to you to check its network status. If you have not
+ registered any readers to your account `didUpdateDiscoveredReaders` will be
+ called with an empty array. Note that this discovery method is currently only
+ compatable with VerifoneP400.
 
  @param terminal        The originating SCPTerminal.
  @param readers         The discovered readers.

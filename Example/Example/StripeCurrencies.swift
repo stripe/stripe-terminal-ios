@@ -15,6 +15,14 @@ struct StripeCurrencies {
                           "vuv","xaf","xof","xpf"]
         return currencies.contains(currency.lowercased())
     }
+    
+    static let supported: [String] = [
+        "USD",
+        "CAD",
+        "SGD",
+        "GBP",
+        "EUR"
+    ]
 
     static let all: [String] = [
         "USD",
