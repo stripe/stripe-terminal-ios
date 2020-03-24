@@ -48,6 +48,47 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
+    // MARK: Endpoints for App
+
+
+    /// Create PaymentIntent using https://github.com/stripe/example-terminal-backend
+    ///
+    /// - Parameters:
+    ///   - params: parameters for PaymentIntent creation
+    ///   - completion: called with result: either PaymentIntent client_secret, or the error
+    func createPaymentIntent(_ params: PaymentIntentParameters, completion: @escaping (Swift.Result<String, Error>) -> ()) {
+        let url = self.baseURL.appendingPathComponent("create_payment_intent")
+        Alamofire.request(url, method: .post,
+                          parameters: [
+                            "amount": params.amount,
+                            "currency": params.currency,
+                            "description": params.statementDescriptor ?? "Example PaymentIntent",
+            ])
+            .validate(statusCode: 200..<300)
+            .responseJSON { responseJSON in
+                switch responseJSON.result {
+                case .success(let json as [String: AnyObject]):
+                    if let secret = json["secret"] as? String {
+                        completion(.success(secret))
+                        return
+                    }
+                    fallthrough
+                case .success(_),
+                     .failure where responseJSON.response?.statusCode == 402:
+                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to create PaymentIntent"
+                    let error = NSError(domain: "example",
+                                        code: 4,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description,
+                        ])
+                    completion(.failure(error))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+
     func capturePaymentIntent(_ paymentIntentId: String, completion: @escaping ErrorCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("capture_payment_intent")
         Alamofire.request(url, method: .post,

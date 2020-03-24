@@ -63,20 +63,10 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         updateContent()
 
         // 1. create PaymentIntent
-        var createEvent = LogEvent(method: .createPaymentIntent)
-        self.events.append(createEvent)
-        Terminal.shared.createPaymentIntent(self.paymentParams) { intent, createError in
-            if let error = createError {
-                createEvent.result = .errored
-                createEvent.object = .error(error as NSError)
-                self.events.append(createEvent)
+        createPaymentIntent(self.paymentParams) { intent, createError in
+            if createError != nil {
                 self.complete()
-            }
-            else if let intent = intent {
-                createEvent.result = .succeeded
-                createEvent.object = .paymentIntent(intent)
-                self.events.append(createEvent)
-
+            } else if let intent = intent {
                 // 2. collectPaymentMethod
                 var collectEvent = LogEvent(method: .collectPaymentMethod)
                 self.events.append(collectEvent)
@@ -87,8 +77,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
                         collectEvent.object = .error(error as NSError)
                         self.events.append(collectEvent)
                         self.complete()
-                    }
-                    else if let intent = intentWithPaymentMethod {
+                    } else if let intent = intentWithPaymentMethod {
                         collectEvent.result = .succeeded
                         collectEvent.object = .paymentIntent(intent)
                         self.events.append(collectEvent)
@@ -102,8 +91,9 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
                                 processEvent.object = .error(error as NSError)
                                 self.events.append(processEvent)
                                 self.complete()
-                            }
-                            else if let intent = processedIntent {
+                            } else if processedIntent?.status == .succeeded {
+                                self.complete()
+                            } else if let intent = processedIntent {
                                 processEvent.result = .succeeded
                                 processEvent.object = .paymentIntent(intent)
                                 self.events.append(processEvent)
@@ -115,8 +105,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
                                     if let error = captureError {
                                         captureEvent.result = .errored
                                         captureEvent.object = .error(error as NSError)
-                                    }
-                                    else {
+                                    } else {
                                         captureEvent.result = .succeeded
                                     }
                                     self.events.append(captureEvent)
@@ -157,6 +146,61 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         ]
     }
 
+    private func createPaymentIntent(_ parameters: PaymentIntentParameters, completion: @escaping PaymentIntentCompletionBlock) {
+        if Terminal.shared.connectedReader?.deviceType == .verifoneP400 {
+            // For p400 readers, PaymentIntents must be created via your backend
+            var createEvent = LogEvent(method: .backendCreatePaymentIntent)
+            self.events.append(createEvent)
+
+            AppDelegate.apiClient?.createPaymentIntent(parameters) { (result) in
+                switch result {
+                case .failure(let error):
+                    createEvent.result = .errored
+                    createEvent.object = .error(error as NSError)
+                    self.events.append(createEvent)
+                    completion(nil, error)
+
+                case .success(let clientSecret):
+                    createEvent.result = .succeeded
+                    createEvent.object = .object(clientSecret)
+                    self.events.append(createEvent)
+
+                    // and then retrieved w/Terminal SDK
+                    var retrieveEvent = LogEvent(method: .retrievePaymentIntent)
+                    self.events.append(retrieveEvent)
+                    Terminal.shared.retrievePaymentIntent(clientSecret: clientSecret) { (intent, error) in
+                        if let error = error {
+                            retrieveEvent.result = .errored
+                            retrieveEvent.object = .error(error as NSError)
+                            self.events.append(retrieveEvent)
+                        } else if let intent = intent {
+                            retrieveEvent.result = .succeeded
+                            retrieveEvent.object = .paymentIntent(intent)
+                            self.events.append(retrieveEvent)
+                        }
+                        completion(intent, error)
+                    }
+                }
+            }
+        } else {
+            var createEvent = LogEvent(method: .createPaymentIntent)
+            self.events.append(createEvent)
+            Terminal.shared.createPaymentIntent(parameters) { (intent, error) in
+                if let error = error {
+                    createEvent.result = .errored
+                    createEvent.object = .error(error as NSError)
+                    self.events.append(createEvent)
+                } else if let intent = intent {
+                    createEvent.result = .succeeded
+                    createEvent.object = .paymentIntent(intent)
+                    self.events.append(createEvent)
+
+                }
+                completion(intent, error)
+            }
+        }
+    }
+
     @objc func doneAction() {
         dismiss(animated: true, completion: nil)
     }
@@ -169,8 +213,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
             if let error = error {
                 event.result = .errored
                 event.object = .error(error as NSError)
-            }
-            else {
+            } else {
                 event.result = .succeeded
                 self.dismiss(animated: true, completion: nil)
             }

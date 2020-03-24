@@ -29,10 +29,12 @@ struct LogEvent: CustomStringConvertible {
 
     enum Method: String {
         case createPaymentIntent = "terminal.createPaymentIntent"
+        case backendCreatePaymentIntent = "backend.createPaymentIntent"
         case collectPaymentMethod = "terminal.collectPaymentMethod"
         case cancelCollectPaymentMethod = "terminal.cancelCollectPaymentMethod"
         case readReusableCard = "terminal.readReusableCard"
         case cancelReadReusableCard = "terminal.cancelReadReusableCard"
+        case retrievePaymentIntent = "terminal.retrievePaymentIntent"
         case processPayment = "terminal.processPayment"
         case capturePaymentIntent = "backend.capturePaymentIntent"
         case requestReaderInput = "delegate.didRequestReaderInput"
@@ -68,7 +70,7 @@ struct LogEvent: CustomStringConvertible {
              .reportUnexpectedReaderDisconnect,
              .requestReaderDisplayMessage:
             return result.description
-        case .createPaymentIntent:
+        case .createPaymentIntent, .backendCreatePaymentIntent:
             switch result {
             case .started: string = "Create PaymentIntent"
             case .succeeded: string = "Created PaymentIntent"
@@ -103,6 +105,13 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Read Reusable Card Failed"
             case .message(let message): string = message
             }
+        case .retrievePaymentIntent:
+            switch result {
+            case .started: string = "Retrieve PaymentIntent"
+            case .succeeded: string = "Retrieved PaymentIntent"
+            case .errored: string = "Retrieve PaymentIntent Failed"
+            case .message(let message): string = message
+            }
         case .cancelCollectPaymentMethod:
             switch result {
             case .started: string = "Cancel Collect PaymentMethod"
@@ -131,11 +140,9 @@ struct LogEvent: CustomStringConvertible {
     var resultDetail: String {
         if case .error(let error) = object {
             return error.localizedDescription
-        }
-        else if case .paymentIntent = object {
+        } else if case .paymentIntent = object {
             return description
-        }
-        else {
+        } else {
             switch method {
             case .requestReaderInput:
                 return "ReaderInputOptions: \(result)"
@@ -151,11 +158,9 @@ struct LogEvent: CustomStringConvertible {
         if case .paymentIntent(let intent) = object {
             if intent.status == .requiresConfirmation {
                 return "requires_confirmation"
-            }
-            else if let status = intent.originalJSON["status"] as? String {
+            } else if let status = intent.originalJSON["status"] as? String {
                 return status
-            }
-            else {
+            } else {
                 return "unknown"
             }
         }
@@ -167,6 +172,7 @@ extension LogEvent.AssociatedObject {
     var title: String {
         switch self {
         case .none: return "NONE"
+        case .error(is ProcessPaymentError): return "PROCESS PAYMENT ERROR"
         case .error: return "ERROR"
         case .json: return "OBJECT"
         case .paymentIntent: return "PAYMENTINTENT"
@@ -179,6 +185,40 @@ extension LogEvent.AssociatedObject {
         switch self {
         case .none:
             return nil
+        case .error(let error as ProcessPaymentError):
+            var userInfoToPrint = error.userInfo
+            userInfoToPrint.removeValue(forKey: ErrorKey.stripeAPIPaymentIntent.rawValue)
+
+            var output = """
+            Error Domain: \(error.domain)
+            Error Code: \(error.code)
+
+            """
+            if let requestError = error.requestError {
+                output += """
+                Request Error: \(requestError.localizedDescription)
+
+                """
+            }
+            if let declineCode = error.declineCode {
+                output += """
+                Decline Code: \(declineCode)
+
+                """
+            }
+            output += """
+
+            Error UserInfo: \(prettyPrint(json: userInfoToPrint))
+
+            """
+            if let intent = error.paymentIntent {
+                output += """
+
+                PaymentIntent: \(prettyPrint(json: intent.originalJSON))
+                """
+            }
+
+            return output
         case .error(let error):
             return prettyPrint(json: error.userInfo)
         case .json(let json):
@@ -194,7 +234,7 @@ extension LogEvent.AssociatedObject {
         }
     }
 
-    func prettyPrint(json: [AnyHashable: Any]) -> String? {
+    func prettyPrint(json: [AnyHashable: Any]) -> String {
         var sanitizedJson: [AnyHashable: Any] = [:]
         if JSONSerialization.isValidJSONObject(json) {
             // easy case: most of the times this method is called is using a dict that came from JSON
@@ -213,7 +253,7 @@ extension LogEvent.AssociatedObject {
         do {
             let data: Data = try JSONSerialization.data(withJSONObject: sanitizedJson,
                                                         options: .prettyPrinted)
-            return String(data: data, encoding: .utf8)
+            return String(data: data, encoding: .utf8) ?? sanitizedJson.description
         } catch _ {
             return json.description
         }

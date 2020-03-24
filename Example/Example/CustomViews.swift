@@ -96,6 +96,10 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
 
 class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    /// A lowercased representation of the currently selected currency code.
+    ///
+    /// "usd" or "cad" would both be possible values here; "GBP" or
+    /// "Singapore Dollars" would not be.
     var currency: String {
         if let text = textField.text {
             return text.lowercased()
@@ -108,7 +112,7 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
 
     convenience init() {
         self.init(text: "Currency", footer: "")
-        textField.text = StripeCurrencies.all.first
+        textField.text = StripeCurrencies.supported.first
         textField.keyboardType = .alphabet
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -125,11 +129,11 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return StripeCurrencies.all.count
+        return StripeCurrencies.supported.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let currencyCode = StripeCurrencies.all[row]
+        let currencyCode = StripeCurrencies.supported[row]
         var title = currencyCode
         if let localizedString = NSLocale.current.localizedString(forCurrencyCode: currencyCode.uppercased()) {
             title = "\(title) – \(localizedString)"
@@ -138,7 +142,7 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let currency = StripeCurrencies.all[row]
+        let currency = StripeCurrencies.supported[row]
         onCurrencyUpdated(currency)
         textField.text = currency
     }

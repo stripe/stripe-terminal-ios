@@ -56,6 +56,9 @@
                 <a class="nav-group-task-link" href="Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -86,6 +89,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
@@ -254,7 +260,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             
             <h1 id='stripe-terminal-ios-sdk' class='heading'>Stripe Terminal iOS SDK</h1>
 
@@ -276,6 +282,8 @@
 </ol>
 
 <p>Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We&rsquo;ve included pre-built dependencies using Swift 4.2. You may need to run <code>./setup.sh</code> to re-build the app&rsquo;s dependencies for your environment.</p>
+
+<p>For a more fully-featured example, see our Stripe Sample with Terminal on iOS: the <a href="https://github.com/stripe-samples/sample-terminal-ios-app">Rocket Rides Pilot App</a>.</p>
 <h2 id='installation' class='heading'>Installation</h2>
 
 <p>We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page.</p>
@@ -284,7 +292,7 @@
 <ol>
 <li><p>If you haven&rsquo;t already, install the latest version of <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a>.</p></li>
 <li><p>Add this line to your Podfile:</p>
-<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.0.3'
+<pre class="highlight plaintext"><code>pod 'StripeTerminal', '1.1.0'
 </code></pre></li>
 <li><p>Run the following command:</p>
 <pre class="highlight plaintext"><code>pod install
@@ -300,13 +308,13 @@
 
 <ol>
 <li><p>Navigate to our <a href="https://github.com/stripe/stripe-terminal-ios/releases">releases</a> page, download StripeTerminal.framework.zip, and unzip it.</p></li>
-<li><p>Drag <code>StripeTerminal.framework</code> to the Embedded Binaries section of your Xcode project’s General settings. Make sure to select <q>Copy items if needed</q>.</p></li>
+<li><p>Drag <code>StripeTerminal.framework</code> to the Embedded Binaries section of your Xcode project’s General settings. Make sure to select &ldquo;Copy items if needed&rdquo;.</p></li>
 <li><p>Navigate to the Build Phases section of your Xcode project settings, and create a new Run Script Build Phase. Paste the following snippet into the text field:</p>
-<pre class="highlight plaintext"><code>bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate_framework.sh"
+<pre class="highlight plaintext"><code>bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh"
 </code></pre></li>
 </ol>
 
-<p>When new versions of the SDK are released, repeat steps one and two to update your installation</p>
+<p>When new versions of the SDK are released, repeat steps one and two to update your installation.</p>
 <h3 id='configure-your-app' class='heading'>Configure your app</h3>
 
 <p>Location services must be enabled in order to use the iOS SDK. Add the following key-value pair to your app&rsquo;s <code>Info.plist</code> file:</p>
@@ -316,7 +324,7 @@
 
 <ul>
 <li>Key: <code>NSLocationWhenInUseUsageDescription</code></li>
-<li>Value: <q>Location access is required in order to accept payments.</q></li>
+<li>Value: &ldquo;Location access is required in order to accept payments.&rdquo;</li>
 </ul></li>
 </ul>
 
@@ -325,14 +333,19 @@
 </blockquote>
 
 <p>For your app to run in the background and remain connected to the reader, add this key-value pair to your <code>Info.plist</code> file:</p>
+
+<ul>
 <li>Required background modes
+
+<ul>
 <li>Key: <code>UIBackgroundModes</code></li>
-<li>Value: <code>bluetoooth-central</code> (Uses Bluetooth LE accessories)</li>
-<div class="aside aside-note">
+<li>Value: <code>bluetooth-central</code> (Uses Bluetooth LE accessories)</li>
+</ul><div class="aside aside-note">
     <p class="aside-title">Note</p>
     Note the value is actually an array that you will need to add <code>bluetooth-central</code> to.
 
 </div></li>
+</ul>
 
 <p>For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:</p>
 
@@ -343,12 +356,36 @@
 <li>Key: <code>NSBluetoothPeripheralUsageDescription</code></li>
 <li>Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”</li>
 </ul></li>
+<li>Privacy - Bluetooth Always Usage Description
+
+<ul>
+<li>Key: <code>NSBluetoothAlwaysUsageDescription</code></li>
+<li>Value: &ldquo;This app uses Bluetooth to connect to supported card readers.&rdquo;</li>
+</ul></li>
 </ul>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
 <li><a href="https://stripe.com/docs/terminal/ios">Getting Started</a></li>
 <li><a href="https://stripe.github.io/stripe-terminal-ios/docs/index.html">API Reference</a></li>
+</ul>
+<h2 id='verifone-p400-support-in-the-ios-sdk' class='heading'>Verifone P400 support in the iOS SDK</h2>
+
+<p>iOS connectivity to the Verifone P400 reader is currently in public beta. Not all capabilities of the iOS SDK are available when connected to the Verifone P400, and some features available in the JavaScript SDK are not available in the iOS SDK. As the beta progresses, we aim to add these capabilities to the iOS SDK.</p>
+
+<p>Notably, the following iOS methods are not available when connected to the Verifone P400:</p>
+
+<ul>
+<li><a href="https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:"><code>createPaymentIntent</code></a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:"><code>cancelPaymentIntent</code></a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:"><code>readReusableCard</code></a></li>
+</ul>
+
+<p>The following JavaScript SDK methods, which offer additional Verifone P400 functionality, are not available in the iOS SDK:</p>
+
+<ul>
+<li><a href="https://stripe.com/docs/terminal/js-api-reference#set-reader-display"><code>setReaderDisplay</code></a></li>
+<li><a href="https://stripe.com/docs/terminal/js-api-reference#clear-reader-display"><code>clearReaderDisplay</code></a></li>
 </ul>
 
           </div>
@@ -358,8 +395,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

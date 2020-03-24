@@ -17,6 +17,8 @@ To build the example app from source, you'll need to:
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
+For a more fully-featured example, see our Stripe Sample with Terminal on iOS: the [Rocket Rides Pilot App](https://github.com/stripe-samples/sample-terminal-ios-app).
+
 ## Installation
 We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
 
@@ -26,7 +28,7 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.0.3'
+pod 'StripeTerminal', '1.1.0'
 ```
 
 3. Run the following command:
@@ -51,7 +53,7 @@ pod update StripeTerminal
 bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh"
 ```
 
-When new versions of the SDK are released, repeat steps one and two to update your installation
+When new versions of the SDK are released, repeat steps one and two to update your installation.
 
 ### Configure your app
 
@@ -67,7 +69,7 @@ For your app to run in the background and remain connected to the reader, add th
 
 - Required background modes
   - Key: `UIBackgroundModes`
-  - Value: `bluetoooth-central` (Uses Bluetooth LE accessories) 
+  - Value: `bluetooth-central` (Uses Bluetooth LE accessories)
   - Note the value is actually an array that you will need to add `bluetooth-central` to.
 
 For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:
@@ -75,8 +77,25 @@ For your app to pass validation when submitting to the App Store, add the follow
 - Privacy - Bluetooth Peripheral Usage Description
   - Key: `NSBluetoothPeripheralUsageDescription`
   - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
-
+- Privacy - Bluetooth Always Usage Description
+  - Key: `NSBluetoothAlwaysUsageDescription`
+  - Value: "This app uses Bluetooth to connect to supported card readers."
 
 ## Documentation
 - [Getting Started](https://stripe.com/docs/terminal/ios)
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
+
+## Verifone P400 support in the iOS SDK
+
+iOS connectivity to the Verifone P400 reader is currently in public beta. Not all capabilities of the iOS SDK are available when connected to the Verifone P400, and some features available in the JavaScript SDK are not available in the iOS SDK. As the beta progresses, we aim to add these capabilities to the iOS SDK.
+
+Notably, the following iOS methods are not available when connected to the Verifone P400:
+
+- [`createPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:)
+- [`cancelPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:)
+- [`readReusableCard`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:)
+
+The following JavaScript SDK methods, which offer additional Verifone P400 functionality, are not available in the iOS SDK:
+
+- [`setReaderDisplay`](https://stripe.com/docs/terminal/js-api-reference#set-reader-display)
+- [`clearReaderDisplay`](https://stripe.com/docs/terminal/js-api-reference#clear-reader-display)

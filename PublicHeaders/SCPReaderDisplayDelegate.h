@@ -22,6 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  You must implement this protocol to handle displaying events when connected
  to a reader without a built-in display (e.g., the BBPOS Chipper 2X BT).
+ 
+ The Verifone P400 has a built-in display, which handles displaying card
+ and payment events to the customer. The Stripe Terminal iOS SDK will not call
+ `SCPReaderDisplayDelegate` methods while connected to the Verifone P400.
+ 
+ If you implement this protocol, the object that implements this protocol should
+ get passed into `[SCPTerminal collectPaymentMethod:delegate:completion]` or
+ `[SCPTerminal readReusableCard:delegate:completion]`.
  */
 NS_SWIFT_NAME(ReaderDisplayDelegate)
 @protocol SCPReaderDisplayDelegate <NSObject>

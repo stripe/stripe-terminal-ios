@@ -57,8 +57,7 @@ extension UIViewController {
         alertController.addTextField { textField in
             if value is Int || value is UInt {
                 textField.keyboardType = .numberPad
-            }
-            else if value is Float || value is Double || value is CGFloat {
+            } else if value is Float || value is Double || value is CGFloat {
                 textField.keyboardType = .decimalPad
             }
         }

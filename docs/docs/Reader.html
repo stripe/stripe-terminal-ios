@@ -57,6 +57,9 @@
                 <a class="nav-group-task-link" href="Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -87,6 +90,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
@@ -255,7 +261,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Reader</h1>
             
           </div>
@@ -278,7 +284,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Information about a reader that has been discovered or connected to the SDK.</p>
+                        <p>Information about a reader that has been discovered or connected to the SDK.
+Note some of the properties are specific to a certain device type and are
+labeled as such. If a property does not call out a specific device then it
+is applicable to all device types.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers">https://stripe.com/docs/terminal/readers</a>
+
+</div>
 
                         <a href="Classes/SCPReader.html" class="slightly-smaller">See more</a>
                       </div>
@@ -287,22 +301,18 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
-<span class="k">@interface</span> <span class="nc">SCPReader</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+<span class="k">@interface</span> <span class="nc">SCPReader</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Reader</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Reader</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -318,6 +328,14 @@
                       <div class="abstract">
                         <p>You must implement this protocol to handle displaying events when connected
 to a reader without a built-in display (e.g., the BBPOS Chipper 2X BT).</p>
+
+<p>The Verifone P400 has a built-in display, which handles displaying card
+and payment events to the customer. The Stripe Terminal iOS SDK will not call
+<code>SCPReaderDisplayDelegate</code> methods while connected to the Verifone P400.</p>
+
+<p>If you implement this protocol, the object that implements this protocol should
+get passed into <code>[SCPTerminal collectPaymentMethod:delegate:completion]</code> or
+<code>[SCPTerminal readReusableCard:delegate:completion]</code>.</p>
 
                         <a href="Protocols/SCPReaderDisplayDelegate.html" class="slightly-smaller">See more</a>
                       </div>
@@ -337,10 +355,6 @@ to a reader without a built-in display (e.g., the BBPOS Chipper 2X BT).</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -375,10 +389,6 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -412,10 +422,6 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -444,10 +450,39 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPReaderNetworkStatus"></a>
+                    <a name="//apple_ref/objc/Enum/SCPReaderNetworkStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPReaderNetworkStatus">SCPReaderNetworkStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible device types for a reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/api/terminal/readers/object">https://stripe.com/docs/api/terminal/readers/object</a>
+
+</div>
+
+                        <a href="Enums/SCPReaderNetworkStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPReaderNetworkStatus</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -487,10 +522,6 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -524,10 +555,6 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -561,10 +588,6 @@ reader begins waiting for input.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -613,8 +636,8 @@ when calling <code><a href="Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)d
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

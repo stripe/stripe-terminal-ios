@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
-    
+
     <script src="../js/lunr.min.js" defer></script>
     <script src="../js/typeahead.jquery.js" defer></script>
     <script src="../js/jazzy.search.js" defer></script>
@@ -23,16 +23,16 @@
         <a class="header-link" href="../index.html">
           StripeTerminal Docs
         </a>
-        
+
       </p>
-    
+
       <p class="header-col--secondary">
         <form role="search" action="../search.json">
           <input type="text" placeholder="Search documentation" data-typeahead>
         </form>
       </p>
-    
-    
+
+
     </header>
 
     <p class="breadcrumbs">
@@ -55,6 +55,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -87,6 +90,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
@@ -255,7 +261,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SCPTerminal</h1>
               <div class="declaration">
                 <div class="language">
@@ -438,7 +444,7 @@ the block you provide may be called from any thread.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s delegate (optional).</p>
+                        <p>The Terminal instance&rsquo;s delegate (optional).</p>
 
 <p>Set this to handle events from the Terminal instance.</p>
 
@@ -500,7 +506,7 @@ the block you provide may be called from any thread.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s current connection status.</p>
+                        <p>The Terminal instance&rsquo;s current connection status.</p>
 
                       </div>
                       <div class="declaration">
@@ -564,7 +570,7 @@ the block you provide may be called from any thread.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The terminal&rsquo;s current payment status.</p>
+                        <p>The Terminal instance&rsquo;s current payment status.</p>
 
                       </div>
                       <div class="declaration">
@@ -732,9 +738,9 @@ with <code>nil</code> (rather than an <code>SCPErrorCanceled</code> error).</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPTerminal(im)connectReader:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-connectReader:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-connectReader:completion:</a>
+                    <a name="/c:objc(cs)SCPTerminal(im)connectReader:connectionConfig:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-connectReader:connectionConfig:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:connectionConfig:completion:">-connectReader:connectionConfig:completion:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -742,21 +748,27 @@ with <code>nil</code> (rather than an <code>SCPErrorCanceled</code> error).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attempts to connect to the given reader.</p>
+                        <p>Attempts to connect to the given reader with a given connection configuration.</p>
 
 <p>If the connect succeeds, the completion block will be called with the
-connected reader, and the terminal&rsquo;s <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">connectionStatus</a></code> will change to
-<code>.connected</code>.</p>
+connected reader, and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">SCPTerminal.connectionStatus</a></code> will change to <code>.connected</code>.</p>
 
 <p>If the connect fails, the completion block will be called with an error.</p>
 
-<p>The terminal must be actively discovering readers in order to connect to one.
+<p>The SDK must be actively discovering readers in order to connect to one.
 The discovery process will stop if this connection request succeeds, otherwise
-the terminal will continue discovering.</p>
+the SDK will continue discovering.</p>
 
-<p>Under the hood, the SDK uses the <code>fetchConnectionToken</code> method you defined
-to fetch a connection token if it does not already have one. It then uses the
-connection token and reader information to create a reader session.</p>
+<p>When this method is called, the SDK uses a connection token and the given
+reader information to create a reader session. If the SDK does not already
+have a connection token, it will call the `fetchConnectionToken method you
+defined to fetch one.</p>
+
+<p>Currently the <code>connectionConfig</code> is only utilized by <code>verifoneP400</code> and will
+be ignored if passed while attempting to connect to a <code>chipper2X</code>. If
+<code>connectionConfig</code> is set to <code>nil</code>, the SDK will resort to default connection
+behavior; see the <code><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></code> header documentation for more
+details.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
@@ -769,12 +781,13 @@ connection token and reader information to create a reader session.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span>
+     <span class="nf">connectionConfig</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">connectionConfig</span>
            <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -798,6 +811,19 @@ recently returned to the <code>didUpdateDiscoveredReaders:</code> method.</p>
                             <tr>
                               <td>
                                 <code>
+                                <em>connectionConfig</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The connection configuration for options while connecting
+to a reader. See <code><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></code> for more details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -809,6 +835,40 @@ recently returned to the <code>didUpdateDiscoveredReaders:</code> method.</p>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)connectReader:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-connectReader:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-connectReader:completion:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convenience method for connecting to a reader without connection configuration.
+Please see above docs for functionality.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span>
+           <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -890,7 +950,12 @@ disconnect fails, the completion block is called with an error.</p>
 <p>Note: If the information required to create a PaymentIntent isn&rsquo;t readily
 available in your app, you can create the PaymentIntent on your server and use
 the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in your app.</p>
-<div class="aside aside-see">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This cannot be used with the Verifone P400 reader. This method will assert
+if called while the SDK is connected to a device of type <code>verifoneP400</code>.</p>
+
+</div><div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/payments#create">https://stripe.com/docs/terminal/payments#create</a></p>
 
@@ -1099,7 +1164,7 @@ called with a <code>Canceled</code> error.</p>
 Providing an <code><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></code> is required when the connected reader doesn&rsquo;t
 have a built-in display (e.g., the BBPOS Chipper 2X BT). These readers will
 request that your app display messages during the <code>collectPaymentMethod</code>
-process (e.g., <q>Remove card</q>) via this delegate.</p>
+process (e.g., &ldquo;Remove card&rdquo;) via this delegate.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1139,7 +1204,7 @@ process (e.g., <q>Remove card</q>) via this delegate.</p>
 
 <p>Stripe Terminal uses two-step card payments to prevent unintended and duplicate
 payments. When <code>processPayment</code> completes successfully, a charge has been
-authorized on the customer&rsquo;s card, but not yet been <q>captured</q>. Your app must
+authorized on the customer&rsquo;s card, but not yet been &ldquo;captured&rdquo;. Your app must
 <strong>synchronously notify your backend</strong> to capture the PaymentIntent
 in order to settle the funds to your account.</p>
 <h2 id='handling-failures' class='heading'>Handling failures</h2>
@@ -1235,7 +1300,12 @@ updated PaymentIntent to try charging another card.</p></li>
 <p>If the cancel request succeeds, the completion block will be called with the
 updated PaymentIntent object with status Canceled. If the cancel request
 fails, the completion block will be called with an error.</p>
-<div class="aside aside-see">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This cannot be used with the Verifone P400 reader. This method will assert
+if called while the SDK is connected to a device of type <code>verifoneP400</code>.</p>
+
+</div><div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/payments/refunds">https://stripe.com/docs/terminal/payments/refunds</a></p>
 
@@ -1325,7 +1395,12 @@ completion block will be called with a <code>PaymentMethod</code>. You should se
 the ID of the payment method to your backend for further processing. For example,
 you can use the fingerprint to look up charges created using the same
 card.</p>
-<div class="aside aside-see">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This cannot be used with the Verifone P400 reader. This method will assert
+if called while the SDK is connected to a device of type <code>verifoneP400</code>.</p>
+
+</div><div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/online-payments">https://stripe.com/docs/terminal/online-payments</a></p>
 
@@ -1418,7 +1493,12 @@ to the user, such as the estimated installation time.</p>
 <p>If an error occurs while checking for an update, the completion block will be
 called with an error. If there are no updates available and no errors occur,
 the completion block will be called with <code>(nil, nil)</code>.</p>
-<div class="aside aside-see">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method will never return an update if it is called when the SDK is
+connected to the Verifone P400.</p>
+
+</div><div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases</a></p>
 
@@ -1483,13 +1563,18 @@ interrupted), the completion block will be called with an error. If the update
 completed successfully, the completion block will be called with <code>nil</code>.
 You must pass a delegate to handle events as the update proceeds. In your app,
 you should display the progress of the update to the user. You should also
-instruct the user to wait for the update to complete: <q>Do not leave this page,
-and keep the reader in range and powered on until the update is complete.</q></p>
+instruct the user to wait for the update to complete: &ldquo;Do not leave this page,
+and keep the reader in range and powered on until the update is complete.&rdquo;</p>
 
 <p>You must implement the ability to update your reader&rsquo;s software in your app.
 Though we expect required software updates to be very rare, by using Stripe
 Terminal, you are obligated to include this functionality.</p>
-<div class="aside aside-see">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It is an error to call this method when the SDK is connected to the Verifone
+P400 reader.</p>
+
+</div><div class="aside aside-see">
     <p class="aside-title">See</p>
     <p><a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases</a></p>
 
@@ -1567,7 +1652,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns an unlocalized string for the given reader input options, e.g.
-<q>Swipe / Insert</q></p>
+&ldquo;Swipe / Insert&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1601,7 +1686,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns an unlocalized string for the given reader display message, e.g.
-<q>Retry Card</q></p>
+&ldquo;Retry Card&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1635,7 +1720,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns an unlocalized string for the given reader event, e.g.
-<q>Card Inserted</q></p>
+&ldquo;Card Inserted&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1668,7 +1753,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns an unlocalized string for the given connection status, e.g.
-<q>Connecting</q></p>
+&ldquo;Connecting&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1701,7 +1786,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns an unlocalized string for the given payment status, e.g.
-<q>Not Ready</q></p>
+&ldquo;Not Ready&rdquo;</p>
 
                       </div>
                       <div class="declaration">
@@ -1798,7 +1883,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="aside aside-unavailable">
                         <p class="aside-title">Unavailable</p>
-                        
+
                       </div>
                       <div class="abstract">
                         <p>Use <code>initWithConfiguration:tokenProvider:delegate:</code></p>
@@ -1829,7 +1914,7 @@ Terminal, you are obligated to include this functionality.</p>
                       <div class="pointer"></div>
                       <div class="aside aside-unavailable">
                         <p class="aside-title">Unavailable</p>
-                        
+
                       </div>
                       <div class="abstract">
                         <p>Use <code>initWithConfiguration:tokenProvider:delegate:</code></p>
@@ -1854,8 +1939,8 @@ Terminal, you are obligated to include this functionality.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2019-11-21)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
