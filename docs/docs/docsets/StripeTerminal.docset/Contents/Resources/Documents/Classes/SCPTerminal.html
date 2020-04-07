@@ -289,7 +289,7 @@ creating payments.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)setTokenProvider:"></a>
                     <a name="//apple_ref/objc/Method/+setTokenProvider:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setTokenProvider:">+setTokenProvider:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setTokenProvider:">+setTokenProvider:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -360,7 +360,7 @@ Terminal instance.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)setLogListener:"></a>
                     <a name="//apple_ref/objc/Method/+setLogListener:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setLogListener:">+setLogListener:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setLogListener:">+setLogListener:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -453,8 +453,7 @@ the block you provide may be called from any thread.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a></span><span class="o">&gt;</span>
-    <span class="n">delegate</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -545,7 +544,7 @@ the block you provide may be called from any thread.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPLogLevel.html">SCPLogLevel</a></span> <span class="n">logLevel</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPLogLevel.html">SCPLogLevel</a></span> <span class="n">logLevel</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -651,7 +650,7 @@ new connection token when you call <code>connect</code> again.</li>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:"></a>
                     <a name="//apple_ref/objc/Method/-discoverReaders:delegate:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-discoverReaders:delegate:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-discoverReaders:<wbr>delegate:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -740,7 +739,7 @@ with <code>nil</code> (rather than an <code>SCPErrorCanceled</code> error).</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)connectReader:connectionConfig:completion:"></a>
                     <a name="//apple_ref/objc/Method/-connectReader:connectionConfig:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:connectionConfig:completion:">-connectReader:connectionConfig:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:connectionConfig:completion:">-connectReader:<wbr>connectionConfig:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -816,8 +815,8 @@ recently returned to the <code>didUpdateDiscoveredReaders:</code> method.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The connect configuration for options while connecting
-to a reader. See <code><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></code> for more details.</p>
+                                  <p>The connection configuration for options while
+connecting to a reader. See <code><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></code> for more details.</p>
                                 </div>
                               </td>
                             </tr>
@@ -844,7 +843,7 @@ to a reader. See <code><a href="../Classes/SCPConnectionConfiguration.html">SCPC
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)connectReader:completion:"></a>
                     <a name="//apple_ref/objc/Method/-connectReader:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-connectReader:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-connectReader:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -852,7 +851,7 @@ to a reader. See <code><a href="../Classes/SCPConnectionConfiguration.html">SCPC
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenience method for connecting to a reader without connect configuration.
+                        <p>Convenience method for connecting to a reader without connection configuration.
 Please see above docs for functionality.</p>
 
                       </div>
@@ -878,7 +877,7 @@ Please see above docs for functionality.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)disconnectReader:"></a>
                     <a name="//apple_ref/objc/Method/-disconnectReader:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)disconnectReader:">-disconnectReader:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)disconnectReader:">-disconnectReader:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -937,7 +936,7 @@ disconnect fails, the completion block is called with an error.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:"></a>
                     <a name="//apple_ref/objc/Method/-createPaymentIntent:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-createPaymentIntent:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-createPaymentIntent:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1015,7 +1014,7 @@ if called while the SDK is connected to a device of type <code>verifoneP400</cod
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:"></a>
                     <a name="//apple_ref/objc/Method/-retrievePaymentIntent:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-retrievePaymentIntent:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-retrievePaymentIntent:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1089,7 +1088,7 @@ method to retrieve the PaymentIntent in your app.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)collectPaymentMethod:delegate:completion:"></a>
                     <a name="//apple_ref/objc/Method/-collectPaymentMethod:delegate:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:delegate:completion:">-collectPaymentMethod:delegate:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:delegate:completion:">-collectPaymentMethod:<wbr>delegate:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1191,7 +1190,7 @@ process (e.g., &ldquo;Remove card&rdquo;) via this delegate.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)processPayment:completion:"></a>
                     <a name="//apple_ref/objc/Method/-processPayment:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-processPayment:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-processPayment:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1287,7 +1286,7 @@ updated PaymentIntent to try charging another card.</p></li>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:"></a>
                     <a name="//apple_ref/objc/Method/-cancelPaymentIntent:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-cancelPaymentIntent:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-cancelPaymentIntent:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1365,7 +1364,7 @@ if called while the SDK is connected to a device of type <code>verifoneP400</cod
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:"></a>
                     <a name="//apple_ref/objc/Method/-readReusableCard:delegate:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:">-readReusableCard:delegate:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:">-readReusableCard:<wbr>delegate:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1474,7 +1473,7 @@ if called while the SDK is connected to a device of type <code>verifoneP400</cod
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)checkForUpdate:"></a>
                     <a name="//apple_ref/objc/Method/-checkForUpdate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)checkForUpdate:">-checkForUpdate:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)checkForUpdate:">-checkForUpdate:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1547,7 +1546,7 @@ completes.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(im)installUpdate:delegate:completion:"></a>
                     <a name="//apple_ref/objc/Method/-installUpdate:delegate:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)installUpdate:delegate:completion:">-installUpdate:delegate:completion:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)installUpdate:delegate:completion:">-installUpdate:<wbr>delegate:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1643,7 +1642,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromReaderInputOptions:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:">+stringFromReaderInputOptions:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:">+stringFromReaderInputOptions:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1677,7 +1676,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderDisplayMessage:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromReaderDisplayMessage:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderDisplayMessage:">+stringFromReaderDisplayMessage:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderDisplayMessage:">+stringFromReaderDisplayMessage:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1711,7 +1710,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromReaderEvent:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:">+stringFromReaderEvent:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:">+stringFromReaderEvent:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1744,7 +1743,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromConnectionStatus:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromConnectionStatus:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromConnectionStatus:">+stringFromConnectionStatus:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromConnectionStatus:">+stringFromConnectionStatus:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1777,7 +1776,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromPaymentStatus:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromPaymentStatus:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromPaymentStatus:">+stringFromPaymentStatus:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromPaymentStatus:">+stringFromPaymentStatus:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1810,7 +1809,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromDeviceType:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromDeviceType:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDeviceType:">+stringFromDeviceType:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDeviceType:">+stringFromDeviceType:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1842,7 +1841,7 @@ P400 reader.</p>
                     <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromDiscoveryMethod:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromDiscoveryMethod:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDiscoveryMethod:">+stringFromDiscoveryMethod:</a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDiscoveryMethod:">+stringFromDiscoveryMethod:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1939,8 +1938,8 @@ P400 reader.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-03-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-04-07)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
