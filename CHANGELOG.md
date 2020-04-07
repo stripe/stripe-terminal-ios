@@ -7,7 +7,7 @@ pod 'StripeTerminal', '1.1.1'
 
 # 1.1.1 2020-04-07
 
-This update introduces support for the new `cardholderName` field in `SCPCardPresentDetails.h`.
+This update introduces support for the new `cardholderName` field in `SCPCardPresentDetails.h`, which is currently in beta.
 
 # 1.1.0 2020-03-24
 
