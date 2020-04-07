@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.1.0";
+static NSString *const SCPSDKVersion = @"1.1.1";
 
 @class SCPCancelable,
 SCPConnectionConfiguration,
@@ -49,13 +49,13 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Sets the token provider for the shared (singleton) `SCPTerminal` instance.
-
+ 
  You must set a token provider before calling `shared` to initialize the
  Terminal singleton. We recommend calling `setTokenProvider:` in your
  AppDelegate's `application:didFinishLaunchingWithOptions:` method.
  Alternatively, you can wrap your call to `setTokenProvider:` with a
  `dispatch_once` in Objective-C, or use a static constructor in Swift.
-
+ 
  Note that you may only set a token provider *before* requesting the shared
  Terminal instance for the first time. In order to switch accounts in your app,
  e.g. to switch between live and test Stripe API keys on your backend, refer
@@ -72,7 +72,7 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Sets a block to listen for logs from the shared Terminal instance (optional).
-
+ 
  You can use this optional method to listen for logs from the Stripe Terminal
  SDK and incorporate them into your own remote logs. Note that these logs
  are subject to change, and provided for informational and debugging purposes
@@ -86,7 +86,7 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Returns the shared (singleton) Terminal instance.
-
+ 
  Before accessing the singleton for the first time, you must first call
  `setTokenProvider:` and `setDelegate:`.
  */
@@ -94,7 +94,7 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  The Terminal instance's delegate (optional).
-
+ 
  Set this to handle events from the Terminal instance.
  */
 @property (nonatomic, nullable, readwrite) id<SCPTerminalDelegate> delegate;
@@ -123,7 +123,7 @@ NS_SWIFT_NAME(Terminal)
  Clears the current connection token, saved reader sessions, and any other
  cached credentials. You can use this method to switch accounts in your app,
  e.g. to switch between live and test Stripe API keys on your backend.
-
+ 
  In order to switch accounts in your app:
  - if a reader is connected, call `disconnectReader:`
  - configure the `tokenProvider` object to return connection tokens for the new account.
@@ -131,7 +131,7 @@ NS_SWIFT_NAME(Terminal)
  - call `clearCachedCredentials`
  - call `discoverReaders` and `connectReader` to connect to a reader. The `connect` call
  will request a new connection token from your backend server via the token provider.
-
+ 
  An overview of the lifecycle of a connection token under the hood:
  - When the Terminal singleton is initialized, the SDK attempts to proactively request
  a connection token from your backend server.
@@ -169,21 +169,21 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Attempts to connect to the given reader with a given connection configuration.
-
+ 
  If the connect succeeds, the completion block will be called with the
  connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
-
+ 
  If the connect fails, the completion block will be called with an error.
-
+ 
  The SDK must be actively discovering readers in order to connect to one.
  The discovery process will stop if this connection request succeeds, otherwise
  the SDK will continue discovering.
-
+ 
  When this method is called, the SDK uses a connection token and the given
  reader information to create a reader session. If the SDK does not already
  have a connection token, it will call the `fetchConnectionToken method you
  defined to fetch one.
-
+ 
  Currently the `connectionConfig` is only utilized by `verifoneP400` and will
  be ignored if passed while attempting to connect to a `chipper2X`. If
  `connectionConfig` is set to `nil`, the SDK will resort to default connection
@@ -194,8 +194,8 @@ NS_SWIFT_NAME(Terminal)
 
  @param reader          The reader to connect to. This should be a reader
  recently returned to the `didUpdateDiscoveredReaders:` method.
- @param connectionConfig   The connection configuration for options while connecting
- to a reader. See `SCPConnectionConfiguration` for more details.
+ @param connectionConfig   The connection configuration for options while
+ connecting to a reader. See `SCPConnectionConfiguration` for more details.
  @param completion      The completion block called when the command completes.
  */
 - (void)connectReader:(SCPReader *)reader
@@ -211,19 +211,19 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Attempts to disconnect from the currently connected reader.
-
+ 
  If the disconnect succeeds, the completion block is called with `nil`. If the
  disconnect fails, the completion block is called with an error.
 
  @see https://stripe.com/docs/terminal/readers/connecting
-
+ 
  @param completion      The completion block called when the command completes.
  */
 - (void)disconnectReader:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(disconnectReader(_:));
 
 /**
  Creates a new `SCPPaymentIntent` with the given parameters.
-
+ 
  Note: If the information required to create a PaymentIntent isn't readily
  available in your app, you can create the PaymentIntent on your server and use
  the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
@@ -241,13 +241,13 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Retrieves a `SCPPaymentIntent` with a client secret.
-
+ 
  If the information required to create a PaymentIntent isn't readily available
  in your app, you can create the PaymentIntent on your server and use this
  method to retrieve the PaymentIntent in your app.
-
+ 
  @see https://stripe.com/docs/terminal/payments#create
-
+ 
  @param clientSecret    The client secret of the PaymentIntent to be retrieved.
  @param completion      The completion block called when the command completes.
  */
@@ -332,7 +332,7 @@ NS_SWIFT_NAME(Terminal)
 
 /**
  Cancels an `SCPPaymentIntent`.
-
+ 
  If the cancel request succeeds, the completion block will be called with the
  updated PaymentIntent object with status Canceled. If the cancel request
  fails, the completion block will be called with an error.
@@ -341,7 +341,7 @@ NS_SWIFT_NAME(Terminal)
  if called while the SDK is connected to a device of type `verifoneP400`.
 
  @see https://stripe.com/docs/terminal/payments/refunds
-
+ 
  @param paymentIntent     The PaymentIntent to cancel.
  @param completion        The completion block called when the cancel completes.
  */
@@ -397,7 +397,7 @@ NS_SWIFT_NAME(Terminal)
  If an error occurs while checking for an update, the completion block will be
  called with an error. If there are no updates available and no errors occur,
  the completion block will be called with `(nil, nil)`.
-
+ 
  @note This method will never return an update if it is called when the SDK is
  connected to the Verifone P400.
 
@@ -423,7 +423,7 @@ NS_SWIFT_NAME(Terminal)
  You must implement the ability to update your reader's software in your app.
  Though we expect required software updates to be very rare, by using Stripe
  Terminal, you are obligated to include this functionality.
-
+ 
  @note It is an error to call this method when the SDK is connected to the Verifone
  P400 reader.
 
