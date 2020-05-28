@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal Docs
+          StripeTerminal 1.2.0 Docs
         </a>
         
       </p>
@@ -159,6 +159,18 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -246,11 +258,17 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Other%20Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
@@ -301,11 +319,6 @@ creating payments.</p>
 <span class="k">@interface</span> <span class="nc">SCPTerminal</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Terminal</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -354,11 +367,6 @@ token from your backend server.</li>
                           <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPConnectionTokenProvider</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ConnectionTokenProvider</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -387,11 +395,6 @@ token from your backend server.</li>
                           <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPTerminalDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">TerminalDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -409,8 +412,9 @@ token from your backend server.</li>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configuration for connecting to readers. Currently only used to set the
-<code>failIfInUse</code> property when connecting to the Verifone P400 reader.</p>
+                        <p>This class lets you set options that define reader behavior throughout a given
+reader-to-SDK connection session. Currently, the options are only applicable
+to the Verifone P400.</p>
 
                         <a href="Classes/SCPConnectionConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -420,11 +424,6 @@ token from your backend server.</li>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPConnectionConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ConnectionConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -517,11 +516,6 @@ token from your backend server.</li>
 <span class="k">@interface</span> <span class="nc">SCPCancelable</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Cancelable</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -551,11 +545,6 @@ dictionary.</p>
                           <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPJSONDecodable</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">JSONDecodable</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -568,8 +557,8 @@ dictionary.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-04-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-05-28)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

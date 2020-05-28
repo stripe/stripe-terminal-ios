@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal Docs
+          StripeTerminal 1.2.0 Docs
         </a>
         
       </p>
@@ -159,6 +159,18 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -246,11 +258,17 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Other%20Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
@@ -304,11 +322,6 @@
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPError</span> <span class="p">{}</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span><span class="o">.</span><span class="n">_ErrorType</span> <span class="o">=</span> <span class="kt">ErrorCode</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -334,11 +347,6 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">_Nonnull</span> <span class="n">SCPErrorDomain</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">ErrorDomain</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -382,11 +390,6 @@
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">SCPErrorKey</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">ErrorKey</span> <span class="p">:</span> <span class="n">_ObjectiveCBridgeable</span><span class="p">,</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="n">_SwiftNewtypeWrapper</span><span class="p">,</span> <span class="kt">RawRepresentable</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -415,11 +418,6 @@ to your users, but may want to use it yourself.</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyMessage</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -445,11 +443,6 @@ to your users, but may want to use it yourself.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyHttpStatusCode</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">httpStatusCode</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
 
                         </div>
                       </div>
@@ -480,11 +473,6 @@ to your users, but may want to inspect it yourself.</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyReaderMessage</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">readerMessage</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -511,11 +499,6 @@ error under this key.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIRequestId</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIRequestId</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
 
                         </div>
                       </div>
@@ -550,11 +533,6 @@ error under this key.</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIDeclineCode</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIDeclineCode</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -585,11 +563,6 @@ error under this key.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIErrorCode</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIErrorCode</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
 
                         </div>
                       </div>
@@ -624,11 +597,6 @@ error under this key.</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIErrorParameter</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIErrorParameter</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -661,11 +629,6 @@ error under this key.</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIErrorType</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIErrorType</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -692,11 +655,6 @@ the <code><a href="Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> wi
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIPaymentIntent</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIPaymentIntent</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
 
                         </div>
                       </div>
@@ -726,11 +684,6 @@ the <code><a href="Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> wi
                           <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyStripeAPIDocUrl</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">stripeAPIDocUrl</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -743,8 +696,8 @@ the <code><a href="Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> wi
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-04-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-05-28)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

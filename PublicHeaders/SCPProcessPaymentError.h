@@ -66,7 +66,7 @@ NS_SWIFT_NAME(ProcessPaymentError)
 /**
  You cannot directly instantiate this class.
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

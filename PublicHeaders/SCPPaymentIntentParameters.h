@@ -131,7 +131,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 /**
  Use `initWithAmount:currency:`
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 /**
  Use stripeDescription for the string attached to the object.

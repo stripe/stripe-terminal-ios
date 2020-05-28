@@ -10,12 +10,12 @@ import Foundation
 
 struct StripeCurrencies {
     static func isNoDecimalCurrency(currency: String) -> Bool {
-        let currencies = ["bif", "clp","djf","gnf",
-                          "jpy","kmf","krw","mga","pyg","rwf","vnd",
-                          "vuv","xaf","xof","xpf"]
+        let currencies = ["bif", "clp", "djf", "gnf",
+                          "jpy", "kmf", "krw", "mga", "pyg", "rwf", "vnd",
+                          "vuv", "xaf", "xof", "xpf"]
         return currencies.contains(currency.lowercased())
     }
-    
+
     static let supported: [String] = [
         "USD",
         "CAD",

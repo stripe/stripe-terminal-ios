@@ -10,17 +10,17 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReadReusableCardViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate {
+class ReadReusableCardViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate, CancelableViewController {
 
     private let headerView = ReaderHeaderView()
     private let logHeaderView = ActivityIndicatorHeaderView(title: "EVENT LOG")
-    private weak var cancelButton: UIBarButtonItem?
+    internal weak var cancelButton: UIBarButtonItem?
     private weak var doneButton: UIBarButtonItem?
     private var completed = false
 
-    private var cancelable: Cancelable? = nil {
+    internal var cancelable: Cancelable? = nil {
         didSet {
-            cancelButton?.isEnabled = (cancelable != nil)
+            setAllowedCancelMethods(cancelable != nil ? .all : [])
         }
     }
     private var events: [LogEvent] = [] {
@@ -38,18 +38,24 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        TerminalDelegateAnnouncer.shared.removeListener(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
+
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneButton.isEnabled = false
         self.doneButton = doneButton
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
-        cancelButton.isEnabled = false
         self.cancelButton = cancelButton
+        setAllowedCancelMethods([])
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        Terminal.shared.delegate = self
+        TerminalDelegateAnnouncer.shared.addListener(self)
         if completed || Terminal.shared.paymentStatus != .ready {
             return
         }
@@ -61,7 +67,7 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
         let params = ReadReusableCardParameters()
         params.metadata = [
             // optional: attach metadata (specific to your app/backend) to the PaymentMethod
-            "unique_id": "764BA46C-478D-4EC8-9906-0949B49A60B9",
+            "unique_id": "764BA46C-478D-4EC8-9906-0949B49A60B9"
         ]
         var readEvent = LogEvent(method: .readReusableCard)
         self.events.append(readEvent)
@@ -103,6 +109,7 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
         doneButton?.isEnabled = true
         logHeaderView.activityIndicator.stopAnimating()
         completed = true
+        setAllowedCancelMethods([.swipe])
     }
 
     private func updateContent() {
@@ -124,11 +131,13 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
         ]
     }
 
-    @objc func doneAction() {
+    @objc
+    func doneAction() {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func cancelAction() {
+    @objc
+    func cancelAction() {
         // cancel collectPaymentMethod
         // todo: rename
         var event = LogEvent(method: .cancelReadReusableCard)
@@ -167,4 +176,3 @@ class ReadReusableCardViewController: TableViewController, TerminalDelegate, Rea
     }
 
 }
-

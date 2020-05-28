@@ -28,7 +28,7 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '1.1.1'
+pod 'StripeTerminal', '1.2.0'
 ```
 
 3. Run the following command:

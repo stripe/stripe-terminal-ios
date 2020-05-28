@@ -10,15 +10,14 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReaderViewController: TableViewController, TerminalDelegate {
-
+class ReaderViewController: TableViewController, TerminalDelegate, CancelingViewController {
     private var connectedReader: Reader? = nil {
         didSet {
             headerView.connectedReader = connectedReader
             updateContent()
         }
     }
-    
+
     static var readerConfiguration = ReaderConfiguration() {
         didSet {
             _ = ReaderViewController.readerConfiguration.saveToUserDefaults()
@@ -36,21 +35,27 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        TerminalDelegateAnnouncer.shared.removeListener(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
+
+        TerminalDelegateAnnouncer.shared.addListener(self)
+
         ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
         updateContent()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Terminal.shared.delegate = self
-        connectedReader = Terminal.shared.connectedReader
-        headerView.connectionStatus = Terminal.shared.connectionStatus
-        updateContent()
-    }
-
     // MARK: - Private
+
+    private func presentModalInNavigationController(_ vc: UIViewController) {
+        let navController = LargeTitleNavigationController(rootViewController: vc)
+        navController.presentationController?.delegate = self
+        self.present(navController, animated: true, completion: nil)
+    }
 
     private func showDiscoverReaders() {
         let simulated = ReaderViewController.readerConfiguration.deviceType != .wisePad3 ? ReaderViewController.readerConfiguration.simulated : false
@@ -62,7 +67,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
             guard let discoveryVC = discoveryVC else { return }
 
             self.connectedReader = reader
-            if let _ = discoveryVC.presentedViewController {
+            if discoveryVC.presentedViewController != nil {
                 discoveryVC.dismiss(animated: true) {
                     discoveryVC.dismiss(animated: true) {
                         self.updateContent()
@@ -74,8 +79,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                 }
             }
         }
-        let navController = LargeTitleNavigationController(rootViewController: discoveryVC)
-        self.present(navController, animated: true, completion: nil)
+        self.presentModalInNavigationController(discoveryVC)
     }
 
     private func disconnectFromReader() {
@@ -95,20 +99,21 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func showStartRefund() {
+        let vc = StartRefundViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     internal func showReadReusableCard() {
         if let connectReader = self.connectedReader, connectReader.deviceType != .chipper2X {
             self.presentAlert(title: "Error", message: "This device type does not support readReusableCard.")
             return
         }
-        let vc = ReadReusableCardViewController()
-        let navController = LargeTitleNavigationController(rootViewController: vc)
-        self.present(navController, animated: true, completion: nil)
+        self.presentModalInNavigationController(ReadReusableCardViewController())
     }
 
     internal func showUpdateReader() {
-        let vc = UpdateReaderViewController()
-        let navController = LargeTitleNavigationController(rootViewController: vc)
-        self.present(navController, animated: true, completion: nil)
+        self.presentModalInNavigationController(UpdateReaderViewController())
     }
 
     internal func showDeviceTypes() {
@@ -133,7 +138,7 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     internal func showDiscoveryMethods() {
         let vc = DiscoveryMethodViewController(method: ReaderViewController.readerConfiguration.discoveryMethod)
         vc.onSelectedMethod = { method in
@@ -161,28 +166,28 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                 Section(header: rdrConnectionTitle, rows: [
                     Row(text: "Discover Readers", selection: { [unowned self] in
                         self.showDiscoverReaders()
-                        }, cellClass: ButtonCell.self),
-                    ]),
+                        }, cellClass: ButtonCell.self)
+                ]),
                 Section(header: "Device Type", rows: [
                     Row(text: ReaderViewController.readerConfiguration.deviceType.description, selection: { [unowned self] in
                         self.showDeviceTypes()
-                        }, accessory: .disclosureIndicator),
-                    ]),
+                        }, accessory: .disclosureIndicator)
+                ]),
                 Section(header: "Discovery Method", rows: [
                     Row(text: ReaderViewController.readerConfiguration.discoveryMethod.description, selection: { [unowned self] in
                         self.showDiscoveryMethods()
-                        }, accessory: .disclosureIndicator),
-                    ]),
+                        }, accessory: .disclosureIndicator)
+                ]),
                 Section(header: "", rows: [
                     Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) { enabled in
                         ReaderViewController.readerConfiguration.simulated = enabled
-                        }),
+                        })
                     ], footer: """
                     The SDK comes with the ability to simulate behavior \
                     without using physical hardware. This makes it easy to quickly \
                     test your integration end-to-end, from connecting a reader to \
                     taking payments.
-                    """),
+                    """)
                 ].compactMap({ $0})
         } else {
             dataSource.sections = [
@@ -190,8 +195,8 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                 Section(header: rdrConnectionTitle, rows: [
                     Row(text: "Disconnect", selection: { [unowned self] in
                         self.disconnectFromReader()
-                        }, cellClass: RedButtonCell.self),
-                    ]),
+                        }, cellClass: RedButtonCell.self)
+                ]),
                 Section(header: "COMMON WORKFLOWS", rows: [
                     Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
                         self.showStartPayment()
@@ -199,10 +204,13 @@ class ReaderViewController: TableViewController, TerminalDelegate {
                     Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
                         self.showReadReusableCard()
                         }, accessory: .none, cellClass: SubtitleCell.self),
+                    Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
+                        self.showStartRefund()
+                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
                     Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
                         self.showUpdateReader()
-                        }, accessory: .none, cellClass: SubtitleCell.self),
-                    ]),
+                        }, accessory: .none, cellClass: SubtitleCell.self)
+                ])
             ]
         }
     }
@@ -217,6 +225,13 @@ class ReaderViewController: TableViewController, TerminalDelegate {
         connectedReader = nil
     }
 
+    // MARK: - UIAdaptivePresentationControllerDelegate
+
+    // See comment in `CancelingViewController` for why we're canceling during `ShouldDismiss` instead of `DidDismiss`
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        performCancel(presentationController: presentationController)
+        return true
+    }
 }
 
 extension DeviceType: CustomStringConvertible {

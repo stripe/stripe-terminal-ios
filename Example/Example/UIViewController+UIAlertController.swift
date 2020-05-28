@@ -22,7 +22,7 @@ extension UIViewController {
      Requests a value by presenting an action sheet with the given options.
      If "Cancel" is selected, `handler` will be called with `currentValue`.
      */
-    func presentValuePicker<T>(title: String?, options: [T], from sourceView: UIView?, handler: @escaping (T?)->()) where T: CustomStringConvertible {
+    func presentValuePicker<T>(title: String?, options: [T], from sourceView: UIView?, handler: @escaping (T?) -> Void) where T: CustomStringConvertible {
         guard canPresentViewController() else { return }
 
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
@@ -44,11 +44,11 @@ extension UIViewController {
     /**
      Requests a value by presenting an alert view with a text field.
      `handler` may be called with nil if the entered text can't converted back
-     to the original type. If "Cancel" is selected, `handler` will be called 
+     to the original type. If "Cancel" is selected, `handler` will be called
      with `currentValue`.
      TODO: try to remove currentValue in swift 4
      */
-    func presentValueInput<T>(title: String?, currentValue: T, handler: @escaping (T?)->()) where T: LosslessStringConvertible {
+    func presentValueInput<T>(title: String?, currentValue: T, handler: @escaping (T?) -> Void) where T: LosslessStringConvertible {
         guard canPresentViewController() else { return }
 
         // need an instance of T to check its type
@@ -86,7 +86,7 @@ extension UIViewController {
     /**
      Presents the given error using an alert view, with a handler.
      */
-    func presentAlert(error: Error, handler: @escaping (Bool) -> ()) {
+    func presentAlert(error: Error, handler: @escaping (Bool) -> Void) {
         presentAlert(title: "Error", message: error.localizedDescription, handler: handler)
     }
 
@@ -105,7 +105,7 @@ extension UIViewController {
     /**
      Presents the given title and message using an alert view with OK and cancel buttons.
      */
-    func presentAlert(title: String, message: String, okButtonTitle: String? = nil, handler: @escaping (Bool) -> ()) {
+    func presentAlert(title: String, message: String, okButtonTitle: String? = nil, handler: @escaping (Bool) -> Void) {
         guard canPresentViewController() else { return }
 
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -3,8 +3,8 @@
   "iOS" : [
     {
       "name" : "Static",
-      "hash" : "ce32d7e289106d0d5db262f4e67a812ddbc083fcdee925e8101eb7f106f23ff4",
-      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+      "hash" : "4430fce736e075743602cfd88b891539acf2bb1f66334cc91353aae7dd2c1ad6",
+      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
     }
   ]
 }

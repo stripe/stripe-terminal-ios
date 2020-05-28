@@ -16,7 +16,7 @@ import StripeTerminal
 struct ReaderConfiguration {
     var deviceType: DeviceType = .chipper2X
     var discoveryMethod: DiscoveryMethod = .bluetoothProximity
-    
+
     #if targetEnvironment(simulator)
     var simulated = true
     #else
@@ -26,7 +26,7 @@ struct ReaderConfiguration {
 
 extension ReaderConfiguration: Codable {
     private static let userDefaultsKey = "com.stripe.terminal.readerconfig"
-    
+
     /**
      Saves the given variable to UserDefaults as a JSON data blob under a standard key.
      */
@@ -39,7 +39,7 @@ extension ReaderConfiguration: Codable {
             return nil
         }
     }
-    
+
     /**
      Loads the current ReaderConfiguration object from UserDefaults, or returns the default
      if no saved object has been found.
@@ -48,7 +48,7 @@ extension ReaderConfiguration: Codable {
         guard let data = UserDefaults.standard.data(forKey: ReaderConfiguration.userDefaultsKey) else {
             return ReaderConfiguration()
         }
-        
+
         do {
             let config = try JSONDecoder().decode(ReaderConfiguration.self, from: data)
             return config

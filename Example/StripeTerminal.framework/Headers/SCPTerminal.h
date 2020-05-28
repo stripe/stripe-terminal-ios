@@ -19,13 +19,14 @@
 #import "SCPReaderEvent.h"
 #import "SCPDiscoveryMethod.h"
 #import "SCPLogLevel.h"
+#import "SCPRefundParameters.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.1.1";
+static NSString *const SCPSDKVersion = @"1.2.0";
 
 @class SCPCancelable,
 SCPConnectionConfiguration,
@@ -386,6 +387,72 @@ NS_SWIFT_NAME(Terminal)
                                   completion:(SCPPaymentMethodCompletionBlock)completion NS_SWIFT_NAME(readReusableCard(_:delegate:completion:));
 
 /**
+ Initiates an in-person refund with a given set of `SCPRefundParameters` by
+ collecting the payment method that is to be refunded.
+ 
+ Some payment methods, like Interac Debit payments, require that in-person payments
+ also be refunded while the cardholder is present. The cardholder must present
+ the Interac card to the card reader; these payments cannot be refunded via the
+ dashboard or the API.
+
+ For payment methods that don't require the cardholder be present, see
+ https://stripe.com/docs/terminal/payments/refunds
+ 
+ This method, along with `processRefund`, allow you to design an in-person refund
+ flow into your app.
+ 
+ If collecting a payment method fails, the completion block will be called with
+ an error. After resolving the error, you may call `collectRefundPaymentMethod`
+ again to either try the same card again, or try a different card.
+
+ If collecting a payment method succeeds, the completion block will be called
+ with an `nil` error. At that point, you can call `processRefund` to finish
+ refunding the payment method.
+ 
+ Calling any other SDK methods between `collectRefundPaymentMethod` and
+ `processRefund` will result in undefined behavior.
+
+ Note that if `collectRefundPaymentMethod` is canceled, the completion block
+ will be called with a `Canceled` error.
+ 
+ @see https://stripe.com/docs/terminal/canada#interac-refunds
+ 
+ @param refundParams  The SCPRefundParameters object that describes how the
+ refund will be created.
+ @param completion  The completion block called when the command completes.
+ */
+- (nullable SCPCancelable *)collectRefundPaymentMethod:(SCPRefundParameters *)refundParams
+                                            completion:(SCPErrorCompletionBlock)completion
+    NS_SWIFT_NAME(collectRefundPaymentMethod(_:completion:));
+
+/**
+ Processes an in-person refund after the refund payment method has been collected.
+ 
+ The completion block will either be called with the successful `SCPRefund` or
+ with an `SCPProcessRefundError`.
+
+ When `processRefund` fails, the SDK returns an error that either includes the
+ failed `SCPRefund` or the `SCPRefundParameters` that led to a failure.
+ Your app should inspect the `SCPProcessRefundError` to decide how to proceed.
+
+ 1. If the refund property is `nil`, the request to Stripe's servers timed
+ out and the refund's status is unknown. We recommend that you retry
+ `processRefund` with the original `SCPRefundParameters`.
+
+ 2. If the `SCPProcessRefundError` has a `failure_reason`, the refund was declined.
+ We recommend that you take action based on the decline code you received.
+ 
+ @note `collectRefundPaymentMethod:completion` and `processRefund` are only
+ available for payment methods that require in-person refunds. For all other
+ refunds, use the Stripe Dashboard or the Stripe API.
+ 
+ @see https://stripe.com/docs/terminal/canada#interac-refunds
+ 
+ @param completion  The completion block called when the command completes.
+ */
+- (void)processRefund:(SCPProcessRefundCompletionBlock)completion NS_SWIFT_NAME(processRefund(completion:));
+
+/**
  Checks for a reader software update, and returns an update object if an update
  is available.
 
@@ -485,7 +552,7 @@ NS_SWIFT_NAME(Terminal)
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

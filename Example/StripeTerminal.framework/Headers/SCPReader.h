@@ -96,7 +96,7 @@ NS_SWIFT_NAME(Reader)
 /**
  You cannot directly instantiate this class.
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

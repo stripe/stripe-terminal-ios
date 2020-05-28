@@ -9,7 +9,7 @@
 import UIKit
 import StripeTerminal
 
-class RootViewController: LargeTitleNavigationController  {
+class RootViewController: LargeTitleNavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,4 +26,3 @@ class RootViewController: LargeTitleNavigationController  {
     }
 
 }
-

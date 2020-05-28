@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02370F5C244C94D00056D896 /* CancelableViewController.swift */; };
+		02DA8E3A24532E4900235921 /* TerminalDelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* TerminalDelegateAnnouncer.swift */; };
+		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
+		248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248EAA0624427FD500DDB433 /* RefundViewController.swift */; };
+		24B7B00E23F1D40100F58FCA /* StartRefundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */; };
 		24FAAAFF2345067A00D47D40 /* ReaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
 		B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C24C6B23285BF6003271BD /* ifaddrs.swift */; };
@@ -54,6 +59,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02370F5C244C94D00056D896 /* CancelableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelableViewController.swift; sourceTree = "<group>"; };
+		02DA8E3924532E4900235921 /* TerminalDelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalDelegateAnnouncer.swift; sourceTree = "<group>"; };
+		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
+		248EAA0624427FD500DDB433 /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
+		24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartRefundViewController.swift; sourceTree = "<group>"; };
 		24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderConfiguration.swift; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
@@ -123,6 +133,7 @@
 				C16651B621963C51006EFACF /* APIClient.swift */,
 				C16F40A02094F07B009CE87C /* AppDelegate.swift */,
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
+				02370F5C244C94D00056D896 /* CancelableViewController.swift */,
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
 				C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */,
 				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
@@ -138,12 +149,16 @@
 				C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */,
 				C1D3A023214208800095A07B /* ReaderViewController.swift */,
 				C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */,
+				248EAA0624427FD500DDB433 /* RefundViewController.swift */,
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
+				24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */,
 				C152F77B214A18C00078BD07 /* StripeCurrencies.swift */,
+				02DA8E3924532E4900235921 /* TerminalDelegateAnnouncer.swift */,
 				C1DE30D221438E9800A3026F /* UIView+Layout.swift */,
 				C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */,
 				C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */,
+				199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -247,6 +262,7 @@
 				C1DE30D521438E9900A3026F /* LogEventViewController.swift in Sources */,
 				C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */,
 				C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */,
+				24B7B00E23F1D40100F58FCA /* StartRefundViewController.swift in Sources */,
 				C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */,
 				C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */,
 				B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */,
@@ -254,10 +270,14 @@
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
 				C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */,
+				248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */,
+				02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */,
 				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
+				199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */,
 				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
 				24FAAAFF2345067A00D47D40 /* ReaderConfiguration.swift in Sources */,
 				6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */,
+				02DA8E3A24532E4900235921 /* TerminalDelegateAnnouncer.swift in Sources */,
 				C16651B721963C51006EFACF /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

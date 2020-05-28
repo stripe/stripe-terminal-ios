@@ -42,6 +42,9 @@ struct LogEvent: CustomStringConvertible {
         case reportReaderEvent = "delegate.didReportReaderEvent"
         case reportUnexpectedReaderDisconnect = "delegate.didReportUnexpectedReaderDisconnect"
         case attachPaymentMethod = "backend.attachPaymentMethod"
+        case collectRefundPaymentMethod = "terminal.collectRefundPaymentMethod"
+        case cancelCollectRefundPaymentMethod = "terminal.cancelCollectRefundPaymentMethod"
+        case processRefund = "terminal.processRefund"
     }
 
     enum AssociatedObject {
@@ -50,6 +53,7 @@ struct LogEvent: CustomStringConvertible {
         case json([String: AnyObject])
         case paymentIntent(PaymentIntent)
         case paymentMethod(PaymentMethod)
+        case refund(Refund)
         case object(CustomStringConvertible)
     }
 
@@ -133,6 +137,27 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Attach PaymentMethod Failed"
             case .message(let message): string = message
             }
+        case .collectRefundPaymentMethod:
+            switch result {
+            case .started: string = "Collect Refund PaymentMethod"
+            case .succeeded: string = "Collected Refund PaymentMethod"
+            case .errored: string = "Collect Refund PaymentMethod Failed"
+            case .message(let message): string = message
+            }
+        case .processRefund:
+            switch result {
+            case .started: string = "Process Refund"
+            case .succeeded: string = "Processed Refund"
+            case .errored: string = "Process Refund Failed"
+            case .message(let message): string = message
+            }
+        case .cancelCollectRefundPaymentMethod:
+            switch result {
+            case .started: string = "Cancel Collect Refund PaymentMethod"
+            case .succeeded: string = "Canceled Collect Refund PaymentMethod"
+            case .errored: string = "Cancel Collect Refund PaymentMethod Failed"
+            case .message(let message): string = message
+            }
         }
         return string
     }
@@ -177,6 +202,7 @@ extension LogEvent.AssociatedObject {
         case .json: return "OBJECT"
         case .paymentIntent: return "PAYMENTINTENT"
         case .paymentMethod: return "PAYMENTMETHOD"
+        case .refund: return "REFUND"
         case .object: return "OBJECT"
         }
     }
@@ -229,6 +255,8 @@ extension LogEvent.AssociatedObject {
             return prettyPrint(json: intent.originalJSON)
         case .paymentMethod(let paymentMethod):
             return prettyPrint(json: paymentMethod.originalJSON)
+        case .refund(let refund):
+            return prettyPrint(json: refund.originalJSON)
         case .object(let object):
             return object.description
         }
@@ -269,13 +297,15 @@ class LogEventViewController: TableViewController {
         super.init(style: .grouped)
         self.title = "Event"
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.addKeyboardDisplayObservers()
 
         var sections: [Section] = []
         let methodView = MonospaceTextView(text: event.method.rawValue)
@@ -299,10 +329,9 @@ class LogEventViewController: TableViewController {
         dataSource.sections = sections
     }
 
-    @objc func doneAction() {
+    @objc
+    func doneAction() {
         dismiss(animated: true, completion: nil)
     }
 
 }
-
-

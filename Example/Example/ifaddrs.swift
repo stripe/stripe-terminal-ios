@@ -1,5 +1,5 @@
 //
-//  ifaddrs.swift
+//  Ifaddrs.swift
 //  Example
 //
 //  Created by Daniel Jackson on 9/10/19.
@@ -13,7 +13,7 @@ import Foundation
 
  Requires a bridging header with `#import "ifaddrs.h"`
  */
-enum ifaddrs_h {
+enum Ifaddrs_h {
     /**
      using `getifaddrs`, find the `en0` interface and return its IP address.
 
@@ -23,7 +23,7 @@ enum ifaddrs_h {
      - returns: Device's WIFI IP address.
      */
     static func getWifiIPAddress() -> String? {
-        var wifiIPAddress: String? = nil
+        var wifiIPAddress: String?
         var ifaddrList: UnsafeMutablePointer<ifaddrs>?
 
         // 0 on success, anything else is an error
