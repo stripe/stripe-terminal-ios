@@ -93,7 +93,7 @@ NS_SWIFT_NAME(CardPresentDetails)
 /**
  You cannot directly instantiate this class.
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

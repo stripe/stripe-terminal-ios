@@ -15,16 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /**
      To get started with this demo, you'll need to first deploy an instance of
      our provided example backend:
-     
+
      https://github.com/stripe/example-terminal-backend
-     
+
      After deploying your backend, replace nil on the line below with the URL
      of your Heroku app.
-     
+
      static var backendUrl: String? = "https://your-app.herokuapp.com"
      */
-    static var backendUrl: String? = nil
-    
+    static var backendUrl: String?
+
     static var apiClient: APIClient?
 
     var window: UIWindow?
@@ -33,14 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let backendUrl = AppDelegate.backendUrl else {
             fatalError("You must provide a backend URL to run this app.")
         }
-        
+
         let apiClient = APIClient()
         apiClient.baseURLString = backendUrl
         Terminal.setTokenProvider(apiClient)
+        Terminal.shared.delegate = TerminalDelegateAnnouncer.shared
         AppDelegate.apiClient = apiClient
-        
+
         // To log events from the SDK to the console:
-//        Terminal.shared.logLevel = .verbose
+        // Terminal.shared.logLevel = .verbose
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
@@ -51,4 +52,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

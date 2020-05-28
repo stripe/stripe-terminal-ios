@@ -10,14 +10,14 @@ import UIKit
 import Static
 import StripeTerminal
 
-class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderSoftwareUpdateDelegate {
+class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderSoftwareUpdateDelegate, CancelableViewController {
 
     private let headerView = ReaderHeaderView()
     private weak var doneButton: UIBarButtonItem?
-    private weak var cancelButton: UIBarButtonItem?
+    internal weak var cancelButton: UIBarButtonItem?
 
-    private var update: ReaderSoftwareUpdate? = nil
-    private var updateProgress: Float? = nil
+    private var update: ReaderSoftwareUpdate?
+    private var updateProgress: Float?
     private var checkForUpdateCancelable: Cancelable? = nil {
         didSet {
             updateContent()
@@ -38,18 +38,23 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        TerminalDelegateAnnouncer.shared.removeListener(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
+
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneButton.isEnabled = false
         self.doneButton = doneButton
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
-        cancelButton.isEnabled = true
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        Terminal.shared.delegate = self
+        TerminalDelegateAnnouncer.shared.addListener(self)
         headerView.connectedReader = Terminal.shared.connectedReader
         headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
@@ -72,6 +77,8 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
 
     private func installUpdate() {
         guard let update = self.update else { return }
+        // Don't allow swiping away during an install to prevent accidentally canceling the update.
+        setAllowedCancelMethods([.button])
         installUpdateCancelable = Terminal.shared.installUpdate(update, delegate: self, completion: { error in
             if let e = error {
                 self.presentAlert(error: e)
@@ -80,8 +87,8 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
             if self.installUpdateCancelable != nil {
                 if error == nil {
                     self.presentAlert(title: "Update successful", message: "The reader may restart at the end of the update. If this happens, reconnect the app to the reader.")
-                    self.cancelButton?.isEnabled = false
                     self.doneButton?.isEnabled = true
+                    self.setAllowedCancelMethods([.swipe])
                     self.update = nil
                 }
                 self.installUpdateCancelable = nil
@@ -111,7 +118,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
                 updateFooter = "Target version:\n\(updateVersion)\n\nThe reader will become unresponsive until the update is complete. Estimated update time: \(updateEstimate)"
                 updateRow = Row(text: updateButtonText, selection: { [unowned self] in
                     self.installUpdate()
-                }, cellClass: ButtonCell.self)
+                    }, cellClass: ButtonCell.self)
             }
         } else {
             updateButtonText = "Check for update"
@@ -129,16 +136,17 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
             Section(header: "Current Version", rows: [
                 Row(text: currentVersion, cellClass: Value1Cell.self)
-                ]),
-            Section(header: "", rows: [updateRow], footer: Section.Extremity.title(updateFooter)),
+            ]),
+            Section(header: "", rows: [updateRow], footer: Section.Extremity.title(updateFooter))
         ]
     }
 
-    @objc func cancelAction() {
-        if let cancelable = checkForUpdateCancelable ?? installUpdateCancelable {
-            self.cancelButton?.isEnabled = false
+    @objc
+    func cancelAction() {
+        if let cancelable = cancelable {
+            setAllowedCancelMethods([])
             cancelable.cancel { error in
-                self.cancelButton?.isEnabled = true
+                self.setAllowedCancelMethods(.all)
                 if let error = error {
                     self.presentAlert(error: error)
                 }
@@ -148,7 +156,8 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         }
     }
 
-    @objc func doneAction() {
+    @objc
+    func doneAction() {
         dismiss(animated: true, completion: nil)
     }
 
@@ -169,5 +178,11 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
     func terminal(_ terminal: Terminal, didReportReaderSoftwareUpdateProgress progress: Float) {
         updateProgress = progress
         updateContent()
+    }
+
+    // MARK: - CancelableViewController
+
+    var cancelable: Cancelable? {
+        checkForUpdateCancelable ?? installUpdateCancelable
     }
 }

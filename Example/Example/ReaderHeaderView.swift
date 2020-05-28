@@ -53,8 +53,8 @@ class ReaderHeaderView: UIView {
             imageView,
             titleLabel,
             subtitleLabel,
-            spacerLabel,
-            ])
+            spacerLabel
+        ])
         stack.spacing = 5
         stack.axis = .vertical
 
@@ -107,7 +107,7 @@ class ReaderHeaderView: UIView {
         switch connectionStatus {
         case .notConnected:
             // handled above when connectedReader == nil
-            break;
+            break
         case .connecting:
             subtitleLabel.text = "Connecting"
         case .connected where connectedReader?.simulated ?? false:

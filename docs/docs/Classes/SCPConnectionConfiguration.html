@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal Docs
+          StripeTerminal 1.2.0 Docs
         </a>
         
       </p>
@@ -159,6 +159,18 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -246,11 +258,17 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other%20Constants.html">Other Constants</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
               </li>
@@ -270,8 +288,9 @@
 
                 </div>
               </div>
-            <p>Configuration for connecting to readers. Currently only used to set the
-<code>failIfInUse</code> property when connecting to the Verifone P400 reader.</p>
+            <p>This class lets you set options that define reader behavior throughout a given
+reader-to-SDK connection session. Currently, the options are only applicable
+to the Verifone P400.</p>
 
           </div>
         </section>
@@ -302,7 +321,7 @@ collect payment.</p>
 <p>Note that this parameter is only applicable for the Verifone P400.</p>
 
 <p>If <code>Terminal.connectReader</code> is invoked without a <code>SCPConnectionConfiguration</code>,
-then <code>failIfInUse</code> defaults to <code>false</code>.</p>
+then <code>failIfInUse</code> defaults to <code>NO</code>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <a href="https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios">https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios</a>
@@ -314,12 +333,69 @@ then <code>failIfInUse</code> defaults to <code>false</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">failIfInUse</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">failIfInUse</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPConnectionConfiguration(py)allowCustomerCancel"></a>
+                    <a name="//apple_ref/objc/Property/allowCustomerCancel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPConnectionConfiguration(py)allowCustomerCancel">allowCustomerCancel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If set to true, the customer will be able to press the red X button on the
+Verifone P400 to cancel a <code>collectPaymentMethod</code>, <code>collectReusableCard</code>, or
+<code>collectRefundPaymentMethod</code> command.</p>
+
+<p>The property defaults to <code>NO</code> if not set.</p>
+
+<p>This behavior is part of a private beta. Setting it will have no effect if you
+are not part of the allowCustomerCancel beta program.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">failIfInUse</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">allowCustomerCancel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPConnectionConfiguration(im)initWithFailIfInUse:allowCustomerCancel:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithFailIfInUse:allowCustomerCancel:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPConnectionConfiguration(im)initWithFailIfInUse:allowCustomerCancel:">-initWithFailIfInUse:<wbr>allowCustomerCancel:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize your connect options with all possible properties.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithFailIfInUse</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">failIfInUse</span>
+                        <span class="nf">allowCustomerCancel</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">allowCustomerCancel</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -349,9 +425,34 @@ then <code>failIfInUse</code> defaults to <code>false</code>.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithFailIfInUse</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">failIfInUse</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPConnectionConfiguration(im)initWithAllowCustomerCancel:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAllowCustomerCancel:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPConnectionConfiguration(im)initWithAllowCustomerCancel:">-initWithAllowCustomerCancel:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize your connect options with allowCustomerCancel.</p>
+
+<p>This property is in private beta, and will have no effect if you are not part
+of the allowCustomerCancel beta program.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">failIfInUse</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAllowCustomerCancel</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">allowCustomerCancel</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -366,8 +467,8 @@ then <code>failIfInUse</code> defaults to <code>false</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-04-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-05-28)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

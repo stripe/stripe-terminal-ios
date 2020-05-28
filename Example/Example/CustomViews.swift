@@ -63,7 +63,7 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
         }
         return numberFormatter.string(from: NSNumber(value: doubleAmount)) ?? ""
     }
-    var onAmountUpdated: (String) -> () = { _ in }
+    var onAmountUpdated: (String) -> Void = { _ in }
 
     var numberFormatter = NumberFormatter()
     private let defaultAmount: UInt = 100
@@ -106,7 +106,7 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
         }
         return "usd"
     }
-    var onCurrencyUpdated: (String) -> () = { _ in }
+    var onCurrencyUpdated: (String) -> Void = { _ in }
 
     let pickerView = UIPickerView(frame: CGRect.zero)
 
@@ -180,8 +180,8 @@ class TextFieldView: UIView {
 
         let stack = UIStackView(arrangedSubviews: [
             textField,
-            footerLabel,
-            ])
+            footerLabel
+        ])
         stack.axis = .vertical
         stack.distribution = .equalSpacing
 
@@ -200,7 +200,6 @@ class TextFieldView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 class MonospaceTextView: UIView {
     private lazy var label: UILabel = {
@@ -292,7 +291,6 @@ class ActivityIndicatorHeaderView: UIView {
         return label
     }()
 
-
     init(title: String) {
         self.title = title
         super.init(frame: .zero)
@@ -302,8 +300,8 @@ class ActivityIndicatorHeaderView: UIView {
         activityIndicator.setContentHuggingPriority(.required - 1, for: .horizontal)
         let stack = UIStackView(arrangedSubviews: [
             label,
-            activityIndicator,
-            ])
+            activityIndicator
+        ])
         stack.axis = .horizontal
         stack.distribution = .fill
 
@@ -360,7 +358,7 @@ open class InsetTextField: UITextField {
 }
 
 open class InsetLabel: UILabel {
-    open var inset : UIEdgeInsets = UIEdgeInsets() {
+    open var inset: UIEdgeInsets = UIEdgeInsets() {
         didSet {
             super.invalidateIntrinsicContentSize()
         }
@@ -378,10 +376,10 @@ open class InsetLabel: UILabel {
     }
 }
 
-open class LargeTitleNavigationController: UINavigationController {    
+open class LargeTitleNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationBar.isTranslucent = false
 
         if #available(iOS 11.0, *) {

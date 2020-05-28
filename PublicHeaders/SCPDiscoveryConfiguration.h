@@ -137,7 +137,7 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 /**
  Use `initWithDeviceType:simulated:` or `initWithDeviceType:discoveryMethod:simulated:`
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

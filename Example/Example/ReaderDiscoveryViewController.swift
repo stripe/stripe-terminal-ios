@@ -1,6 +1,6 @@
 //
 //  ReaderDiscoveryViewController.swift
-//  Dev
+//  Example
 //
 //  Created by Ben Guo on 7/18/18.
 //  Copyright © 2018 Stripe. All rights reserved.
@@ -10,12 +10,12 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
+class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate, CancelableViewController {
 
-    var onConnectedToReader: (Reader) -> () = { _ in }
+    var onConnectedToReader: (Reader) -> Void = { _ in }
     private let config: DiscoveryConfiguration
-    private var discoverCancelable: Cancelable? = nil
-    private weak var cancelButton: UIBarButtonItem?
+    internal var cancelable: Cancelable?
+    internal weak var cancelButton: UIBarButtonItem?
     private let activityIndicatorView = ActivityIndicatorHeaderView(title: "HOLD READER NEARBY")
     private var readers: [Reader] = []
 
@@ -43,6 +43,8 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
+
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissAction))
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
@@ -56,14 +58,14 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
         if viewState == .preDiscovery {
             // 1. discover readers
-            discoverCancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
+            cancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
                 if let error = error {
                     print("discoverReaders failed: \(error)")
                     self.presentAlert(error: error) { _ in
                         self.presentingViewController?.dismiss(animated: true, completion: nil)
                     }
                 }
-                self.discoverCancelable = nil;
+                self.cancelable = nil
                 self.viewState = .doneDiscovering
                 self.updateContent()
             }
@@ -78,7 +80,7 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
         let rows = readers.map { reader in
             row(for: reader,
                 discoveryMethod: self.config.discoveryMethod,
-                selection:{ [unowned self] in
+                selection: { [unowned self] in
                     self.connect(to: reader)
             })
         }
@@ -95,13 +97,17 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
 
     // 2. connect to a selected reader
     private func connect(to reader: Reader, failIfInUse: Bool = true) {
-        cancelButton?.isEnabled = false
-
+        setAllowedCancelMethods([])
         viewState = .connecting
         updateContent()
-        Terminal.shared.connectReader(reader, connectionConfig: ConnectionConfiguration(failIfInUse: failIfInUse)) { connectedReader, error in
+
+        // The connection configuration object sets configuration options for
+        // the Verifone P400 reader.
+        let connectionConfig = ConnectionConfiguration(failIfInUse: false)
+
+        Terminal.shared.connectReader(reader, connectionConfig: connectionConfig) { connectedReader, error in
             if let connectedReader = connectedReader {
-                self.discoverCancelable = nil
+                self.cancelable = nil
                 self.onConnectedToReader(connectedReader)
                 return
             } else if let error = error as NSError?,
@@ -123,26 +129,27 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
                 self.viewState = .discovering
                 self.updateContent()
             }
-            self.cancelButton?.isEnabled = true
+            self.setAllowedCancelMethods(.all)
         }
     }
 
-    @objc func dismissAction() {
-        if let cancelable = discoverCancelable {
+    @objc
+    func dismissAction() {
+        if let cancelable = cancelable {
             cancelable.cancel { error in
                 if let error = error {
                     print("cancel discoverReaders failed: \(error)")
                 } else {
                     self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
-                self.discoverCancelable = nil
+                self.cancelable = nil
             }
         } else {
             presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
 
-    // MARK: SCPDiscoveryDelegate
+    // MARK: - SCPDiscoveryDelegate
     func terminal(_ terminal: Terminal, didUpdateDiscoveredReaders readers: [Reader]) {
         self.readers = readers
         switch (self.config.discoveryMethod, readers.count) {
@@ -245,11 +252,9 @@ class ReaderDiscoveryViewController: TableViewController, DiscoveryDelegate {
             // It's not the right solutions for store clerks, who shouldn't need to know
             // the network config, but may be a useful sanity check for developers
             // w/connectivity problems
-            return Section.Extremity.title("Device IP: \(ifaddrs_h.getWifiIPAddress() ?? "unknown")")
+            return Section.Extremity.title("Device IP: \(Ifaddrs_h.getWifiIPAddress() ?? "unknown")")
         } else {
             return nil
         }
     }
 }
-
-

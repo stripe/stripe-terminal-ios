@@ -2,8 +2,30 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.1.1'
+pod 'StripeTerminal', '1.2.0'
 ```
+
+# 1.2.0 2020-05-28
+
+This update introduces support for Stripe Terminal in Canada using the [Verifone P400](https://stripe.com/docs/terminal/readers/verifone-p400) reader. To get started with Stripe Terminal in Canada, read our [Canada documentation](https://stripe.com/docs/terminal/canada).
+
+Stripe Terminal supports Interac Debit payments and refunds. Interac in-person payments must be refunded while the cardholder is present. The Stripe Terminal iOS SDK includes a new card-present refunds API to support in-person refunds:
+
+- `collectRefundPaymentMethod`
+- `processRefund`
+
+To support the card-present refunds API, we also introduce:
+
+- the `SCPRefundParameters` object, which you pass into `collectRefundPaymentMethod`
+- the `SCPProcessRefundError` class
+
+### Other changes
+
+- Example app is now compiled with Swift 5.2 by default
+- Fixes issue where example app was preventing operation cancellation where it should be possible, and where example app was allowing cancellation where it shouldn't be possible.
+- Fixes example app UI bugs
+- Fixes bug where the SDK doesn't cancel outstanding cancelables when a reader disconnects
+- Updates internal dependencies
 
 # 1.1.1 2020-04-07
 

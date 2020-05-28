@@ -30,7 +30,6 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      Next step: process the payment by calling `processPayment`.
      */
     SCPPaymentIntentStatusRequiresConfirmation,
-
     /**
      Next step: capture the PaymentIntent on your backend via the Stripe API.
      */
@@ -111,7 +110,7 @@ NS_SWIFT_NAME(PaymentIntent)
  You cannot directly instantiate `SCPPaymentIntent`. You should only use
  one that has been returned by our SDK.
  */
-- (instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

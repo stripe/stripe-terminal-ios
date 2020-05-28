@@ -1,6 +1,6 @@
 //
 //  UIView+Layout.swift
-//  Dashboard
+//  Example
 //
 //  Created by Brian Dorfman on 7/26/16.
 //  Copyright © 2016 Stripe. All rights reserved.

@@ -66,6 +66,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorNilPaymentIntent = 1540,
     /**
+     `processRefund` was called without calling `collectRefundPaymentMethod`
+     beforehand.
+     */
+    SCPErrorNilRefundPaymentMethod = 1550,
+    /**
      A PaymentIntent was referenced using an invalid client secret.
      */
     SCPErrorInvalidClientSecret = 1560,
@@ -303,6 +308,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      The reader declined the payment. Try another card.
      */
     SCPErrorPaymentDeclinedByReader = 6500,
+    /**
+     The refund failed. The customer’s bank or card issuer was unable to process
+     it correctly (e.g., a closed bank account or a problem with the card)
+     */
+    SCPErrorRefundFailed = 6800,
 
     /*
      NETWORK ERRORS
@@ -354,6 +364,8 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      * `-[SCPTerminal processPayment:completion:]`
      * `-[SCPTerminal cancelPaymentIntent:completion:]`
      * `-[SCPTerminal readReusableCard:delegate:completion:]`
+     * `-[SCPTerminal collectRefundMethod:parameters]`
+     * `-[SCPTerminal processRefund:completion]`
 
      */
     SCPErrorSessionExpired = 9060,
@@ -381,6 +393,12 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyMessage;
  @see https://stripe.com/docs/api#errors-decline_code
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIDeclineCode;
+
+/**
+ If a refund fails, the reason for refund failure if known. Possible values
+ are `lost_or_stolen_card`, `expired_or_canceled_card`, or `unknown`.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIFailureReason;
 
 /**
  If a Stripe API request failed, the failed request's id will be returned in the

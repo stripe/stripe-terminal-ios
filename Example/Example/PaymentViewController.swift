@@ -10,19 +10,19 @@ import UIKit
 import Static
 import StripeTerminal
 
-class PaymentViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate {
+class PaymentViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate, CancelableViewController {
 
     private let paymentParams: PaymentIntentParameters
 
     private let headerView = ReaderHeaderView()
     private let logHeaderView = ActivityIndicatorHeaderView(title: "EVENT LOG")
-    private weak var cancelButton: UIBarButtonItem?
+    internal weak var cancelButton: UIBarButtonItem?
     private weak var doneButton: UIBarButtonItem?
     private var completed = false
 
-    private var cancelable: Cancelable? = nil {
+    internal var cancelable: Cancelable? = nil {
         didSet {
-            cancelButton?.isEnabled = (cancelable != nil)
+            setAllowedCancelMethods(cancelable != nil ? .all : [])
         }
     }
     private var events: [LogEvent] = [] {
@@ -42,18 +42,24 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        TerminalDelegateAnnouncer.shared.removeListener(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
+
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneButton.isEnabled = false
         self.doneButton = doneButton
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
-        cancelButton.isEnabled = false
         self.cancelButton = cancelButton
+        setAllowedCancelMethods([])
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        Terminal.shared.delegate = self
+        TerminalDelegateAnnouncer.shared.addListener(self)
         if completed || Terminal.shared.paymentStatus != .ready {
             return
         }
@@ -91,7 +97,14 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
                                 processEvent.object = .error(error as NSError)
                                 self.events.append(processEvent)
                                 self.complete()
-                            } else if processedIntent?.status == .succeeded {
+                            } else if let intent = processedIntent, intent.status == .succeeded {
+                                // If the paymentIntent returns from Stripe with a status of succeeded,
+                                // our integration doesn't need to capture the payment intent on the backend.
+                                // PaymentIntents will succeed directly after process if they were created with
+                                // a single-message payment method, like Interac in Canada.
+                                processEvent.result = .succeeded
+                                processEvent.object = .paymentIntent(intent)
+                                self.events.append(processEvent)
                                 self.complete()
                             } else if let intent = processedIntent {
                                 processEvent.result = .succeeded
@@ -125,6 +138,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         doneButton?.isEnabled = true
         logHeaderView.activityIndicator.stopAnimating()
         completed = true
+        setAllowedCancelMethods([.swipe])
     }
 
     private func updateContent() {
@@ -201,11 +215,13 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         }
     }
 
-    @objc func doneAction() {
+    @objc
+    func doneAction() {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func cancelAction() {
+    @objc
+    func cancelAction() {
         // cancel collectPaymentMethod
         var event = LogEvent(method: .cancelCollectPaymentMethod)
         self.events.append(event)
@@ -227,7 +243,7 @@ class PaymentViewController: TableViewController, TerminalDelegate, ReaderDispla
         headerView.connectionStatus = status
     }
 
-    func terminal(_ terminal: Terminal, didReportReaderEvent event: ReaderEvent, info: [AnyHashable : Any]?) {
+    func terminal(_ terminal: Terminal, didReportReaderEvent event: ReaderEvent, info: [AnyHashable: Any]?) {
         var logEvent = LogEvent(method: .reportReaderEvent)
         logEvent.result = .message(Terminal.stringFromReaderEvent(event))
         events.append(logEvent)

@@ -15,9 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCPPaymentMethod,
 SCPProcessPaymentError,
+SCPProcessRefundError,
 SCPReader,
 SCPReaderSoftwareUpdate,
-SCPPaymentIntent;
+SCPPaymentIntent,
+SCPRefundParameters,
+SCPRefund;
 
 /**
  A block called with a connection token or an error from your backend.
@@ -64,6 +67,15 @@ typedef void (^SCPErrorCompletionBlock)(NSError * __nullable error);
  */
 NS_SWIFT_NAME(ProcessPaymentCompletionBlock)
 typedef void (^SCPProcessPaymentCompletionBlock)(SCPPaymentIntent * __nullable intent, SCPProcessPaymentError * __nullable error);
+
+/**
+ A block called with a Refund or a ProcessRefundError.
+ 
+ @param refund      The Refund, or nil.
+ @param error       An error if one occurred, or nil.
+ */
+NS_SWIFT_NAME(ProcessRefundCompletionBlock)
+typedef void (^SCPProcessRefundCompletionBlock)(SCPRefund * __nullable refund, SCPProcessRefundError * __nullable error);
 
 /**
  A block called with a PaymentIntent or an error.
