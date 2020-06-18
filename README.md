@@ -3,9 +3,11 @@
 For information on migrating from beta versions of the iOS SDK, see the [Stripe Terminal Beta Migration Guide](https://stripe.com/docs/terminal/beta-migration-guide).
 
 ## Requirements
+
 The Stripe Terminal iOS SDK is compatible with apps supporting iOS 9 and above.
 
 ## Try the example app
+
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
 
 To build the example app from source, you'll need to:
@@ -13,13 +15,14 @@ To build the example app from source, you'll need to:
 1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. Navigate to our [example backend](https://github.com/stripe/example-terminal-backend) and click the button to deploy it on Heroku.
 3. In `AppDelegate.swift`, set the URL of the Heroku app you just deployed.
-3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
+4. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
 Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
 For a more fully-featured example, see our Stripe Sample with Terminal on iOS: the [Rocket Rides Pilot App](https://github.com/stripe-samples/sample-terminal-ios-app).
 
 ## Installation
+
 We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
 
 ### CocoaPods
@@ -27,28 +30,33 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 1. If you haven't already, install the latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 2. Add this line to your Podfile:
+
 ```
-pod 'StripeTerminal', '1.2.0'
+pod 'StripeTerminal', '~> 1.0'
 ```
 
 3. Run the following command:
+
 ```
 pod install
 ```
 
 From now on, don't forget to use the `*.xcworkspace` file to open your project in Xcode, instead of the `.xcodeproj` file.
 
-In the future, to update to the latest version of the SDK, just run:
+In the future, to update to the latest compatible version of the SDK, just run:
+
 ```
 pod update StripeTerminal
 ```
 
 ### Manual
+
 1. Navigate to our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page, download StripeTerminal.framework.zip, and unzip it.
 
 2. Drag `StripeTerminal.framework` to the Embedded Binaries section of your Xcode project’s General settings. Make sure to select "Copy items if needed".
 
 3. Navigate to the Build Phases section of your Xcode project settings, and create a new Run Script Build Phase. Paste the following snippet into the text field:
+
 ```
 bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh"
 ```
@@ -82,6 +90,7 @@ For your app to pass validation when submitting to the App Store, add the follow
   - Value: "This app uses Bluetooth to connect to supported card readers."
 
 ## Documentation
+
 - [Getting Started](https://stripe.com/docs/terminal/ios)
 - [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
 
@@ -91,9 +100,9 @@ iOS connectivity to the Verifone P400 reader is currently in public beta. Not al
 
 Notably, the following iOS methods are not available when connected to the Verifone P400:
 
-- [`createPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:)
-- [`cancelPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:)
-- [`readReusableCard`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:)
+- [`createPaymentIntent`](<https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:>)
+- [`cancelPaymentIntent`](<https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:>)
+- [`readReusableCard`](<https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:>)
 
 The following JavaScript SDK methods, which offer additional Verifone P400 functionality, are not available in the iOS SDK:
 

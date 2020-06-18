@@ -59,27 +59,38 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
 
     private func showDiscoverReaders() {
         let simulated = ReaderViewController.readerConfiguration.deviceType != .wisePad3 ? ReaderViewController.readerConfiguration.simulated : false
-        let config = DiscoveryConfiguration(deviceType: ReaderViewController.readerConfiguration.deviceType,
-                                            discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
-                                            simulated: simulated)
+        let config = DiscoveryConfiguration(
+            deviceType: ReaderViewController.readerConfiguration.deviceType,
+            discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
+            simulated: simulated
+        )
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
-        discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
-            guard let discoveryVC = discoveryVC else { return }
 
-            self.connectedReader = reader
-            if discoveryVC.presentedViewController != nil {
-                discoveryVC.dismiss(animated: true) {
-                    discoveryVC.dismiss(animated: true) {
-                        self.updateContent()
-                    }
-                }
-            } else {
-                discoveryVC.dismiss(animated: true) {
-                    self.updateContent()
-                }
-            }
+        discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
+            self.onReaderConnectFrom(viewController: discoveryVC, reader: reader)
         }
+
         self.presentModalInNavigationController(discoveryVC)
+    }
+
+    private func showRegisterReader() {
+        let registerVC = ReaderRegistrationViewController()
+
+        registerVC.onConnectedToReader = { [weak registerVC] reader in
+            self.onReaderConnectFrom(viewController: registerVC, reader: reader)
+        }
+
+        self.presentModalInNavigationController(registerVC)
+    }
+
+    private func onReaderConnectFrom(viewController: UIViewController?, reader: Reader) {
+        guard let viewController = viewController else { return }
+
+        self.connectedReader = reader
+
+        viewController.dismiss(animated: true) {
+            self.updateContent()
+        }
     }
 
     private func disconnectFromReader() {
@@ -160,12 +171,47 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
 
     private func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
-        if connectedReader == nil {
+        if let connectedReader = self.connectedReader {
+            var workflowRows = [
+                Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
+                    self.showStartPayment()
+                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
+                Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
+                    self.showReadReusableCard()
+                    }, accessory: .none, cellClass: SubtitleCell.self)
+            ]
+
+            switch connectedReader.deviceType {
+            case .chipper2X, .wisePad3:
+                workflowRows.append(Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
+                self.showUpdateReader()
+                }, accessory: .none, cellClass: SubtitleCell.self))
+            case .verifoneP400:
+                workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
+                self.showStartRefund()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            @unknown default:
+                break
+            }
+
+            dataSource.sections = [
+                Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
+                Section(header: rdrConnectionTitle, rows: [
+                    Row(text: "Disconnect", selection: { [unowned self] in
+                        self.disconnectFromReader()
+                        }, cellClass: RedButtonCell.self)
+                ]),
+                Section(header: "COMMON WORKFLOWS", rows: workflowRows)
+            ]
+        } else {
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(header: rdrConnectionTitle, rows: [
                     Row(text: "Discover Readers", selection: { [unowned self] in
                         self.showDiscoverReaders()
+                        }, cellClass: ButtonCell.self),
+                    Row(text: "Register Internet Reader", selection: { [unowned self] in
+                        self.showRegisterReader()
                         }, cellClass: ButtonCell.self)
                 ]),
                 Section(header: "Device Type", rows: [
@@ -189,29 +235,6 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                     taking payments.
                     """)
                 ].compactMap({ $0})
-        } else {
-            dataSource.sections = [
-                Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-                Section(header: rdrConnectionTitle, rows: [
-                    Row(text: "Disconnect", selection: { [unowned self] in
-                        self.disconnectFromReader()
-                        }, cellClass: RedButtonCell.self)
-                ]),
-                Section(header: "COMMON WORKFLOWS", rows: [
-                    Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
-                        self.showStartPayment()
-                        }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                    Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
-                        self.showReadReusableCard()
-                        }, accessory: .none, cellClass: SubtitleCell.self),
-                    Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
-                        self.showStartRefund()
-                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                    Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
-                        self.showUpdateReader()
-                        }, accessory: .none, cellClass: SubtitleCell.self)
-                ])
-            ]
         }
     }
 
