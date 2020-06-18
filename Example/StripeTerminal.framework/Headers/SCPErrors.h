@@ -71,6 +71,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError) {
      */
     SCPErrorNilRefundPaymentMethod = 1550,
     /**
+     The RefundParameters object has invalid values. The Charge ID (ch_123abc)
+     can be found on the `PaymentIntent` object, which you should get from
+     your backend.
+     */
+    SCPErrorInvalidRefundParameters = 1555,
+    /**
      A PaymentIntent was referenced using an invalid client secret.
      */
     SCPErrorInvalidClientSecret = 1560,

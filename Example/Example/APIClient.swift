@@ -136,4 +136,30 @@ class APIClient: NSObject, ConnectionTokenProvider {
                 }
         }
     }
+
+    func registerReader(withCode registrationCode: String, label: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
+        let url = self.baseURL.appendingPathComponent("register_reader")
+        Alamofire.request(url, method: .post, parameters: [
+            "label": label,
+            "registration_code": registrationCode])
+            .validate(statusCode: 200..<300)
+            .responseJSON { responseJSON in
+                switch responseJSON.result {
+                case .success(let json as [String: AnyObject]):
+                    completion(json, nil)
+                case .success,
+                     .failure where responseJSON.response?.statusCode == 402:
+                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to decode registered reader"
+                    let error = NSError(domain: "example",
+                                        code: 3,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description
+                    ])
+                    completion(nil, error)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+        }
+    }
 }

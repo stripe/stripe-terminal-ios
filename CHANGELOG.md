@@ -2,8 +2,16 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.2.0'
+pod 'StripeTerminal', '1.2.1'
 ```
+
+# 1.2.1 2020-06-18
+
+- Sample app improvements:
+    - Hide certain actions, like card-present refunds and reader updates, when the currently connected reader does not support them
+    - Add interface to register a Verifone P400
+- Improve the resiliency of Verifone P400 connections
+- Throw an error if `collectRefundPaymentMethod` is called with an invalid charge ID in the RefundParameters object
 
 # 1.2.0 2020-05-28
 
