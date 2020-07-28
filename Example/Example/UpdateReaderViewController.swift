@@ -79,7 +79,9 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         guard let update = self.update else { return }
         // Don't allow swiping away during an install to prevent accidentally canceling the update.
         setAllowedCancelMethods([.button])
+        UIApplication.shared.isIdleTimerDisabled = true
         installUpdateCancelable = Terminal.shared.installUpdate(update, delegate: self, completion: { error in
+            UIApplication.shared.isIdleTimerDisabled = false
             if let e = error {
                 self.presentAlert(error: e)
             }

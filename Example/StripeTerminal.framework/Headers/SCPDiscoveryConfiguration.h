@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Configuration for discovering readers.
+ 
+ This includes configuration of:
+ - `deviceType` (`verifoneP400`, `chipper2x`, `wisePad3`)
+ - `discoveryMethod` (`internet`, `bluetoothScan`, `bluetoothProximity`)
+ - `locationId`
+ - `simulated`
 
  @see https://stripe.com/docs/terminal/readers/connecting
  */
@@ -50,6 +56,7 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
  | -------------- | -----------------------------------------------------|-------------------|
  | `chipper2X`    | `bluetoothProximity` (recommended), `bluetoothScan`  | `true` or `false` |
  | `verifoneP400` | `internet`                                           | `true` or `false` |
+ | `wisePad3`     | `bluetoothScan`                                      | `false`           |
 
  @param deviceType          The device type to discover.
  @param discoveryMethod     The discovery method to use.
@@ -75,6 +82,7 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
  | -------------- | -----------------------------------------------------|-----------------|-------------------|
  | `chipper2X`    | `bluetoothProximity` (recommended), `bluetoothScan`  | `nil`           | `true` or `false` |
  | `verifoneP400` | `internet`                                           | `nil` or string | `true` or `false` |
+ | `chipper2X`    | `bluetoothScan`                                      | `nil`           | `false`           |
 
  @param deviceType          The device type to discover.
  @param discoveryMethod     The discovery method to use.

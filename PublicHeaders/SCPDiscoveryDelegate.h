@@ -77,7 +77,7 @@ NS_SWIFT_NAME(DiscoveryDelegate)
  @param terminal        The originating SCPTerminal.
  @param readers         The discovered readers.
  */
-- (void)terminal:(SCPTerminal *)terminal didUpdateDiscoveredReaders:(NSArray<SCPReader *>*)readers NS_SWIFT_NAME(terminal(_:didUpdateDiscoveredReaders:));
+- (void)terminal:(SCPTerminal *)terminal didUpdateDiscoveredReaders:(NSArray<SCPReader *> *)readers NS_SWIFT_NAME(terminal(_:didUpdateDiscoveredReaders:));
 
 @end
 

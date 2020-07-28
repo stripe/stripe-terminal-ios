@@ -12,8 +12,8 @@
 #import <Foundation/Foundation.h>
 
 #import "SCPBlocks.h"
-#import "SCPTerminal.h"
 #import "SCPReaderEvent.h"
+#import "SCPTerminal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

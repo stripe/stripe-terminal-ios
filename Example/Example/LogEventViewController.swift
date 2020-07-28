@@ -45,6 +45,8 @@ struct LogEvent: CustomStringConvertible {
         case collectRefundPaymentMethod = "terminal.collectRefundPaymentMethod"
         case cancelCollectRefundPaymentMethod = "terminal.cancelCollectRefundPaymentMethod"
         case processRefund = "terminal.processRefund"
+        case setReaderDisplay = "terminal.setReaderDisplay"
+        case clearReaderDisplay = "terminal.clearReaderDisplay"
     }
 
     enum AssociatedObject {
@@ -156,6 +158,20 @@ struct LogEvent: CustomStringConvertible {
             case .started: string = "Cancel Collect Refund PaymentMethod"
             case .succeeded: string = "Canceled Collect Refund PaymentMethod"
             case .errored: string = "Cancel Collect Refund PaymentMethod Failed"
+            case .message(let message): string = message
+            }
+        case .setReaderDisplay:
+            switch result {
+            case .started: string = "Setting Reader Display"
+            case .succeeded: string = "Set Reader Display"
+            case .errored: string = "Set Reader Display Failed"
+            case .message(let message): string = message
+            }
+        case .clearReaderDisplay:
+            switch result {
+            case .started: string = "Clear Reader Display"
+            case .succeeded: string = "Cleared Reader Display"
+            case .errored: string = "Clear Reader Display Failed"
             case .message(let message): string = message
             }
         }

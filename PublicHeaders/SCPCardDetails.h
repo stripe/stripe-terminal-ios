@@ -11,9 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SCPJSONDecodable.h"
 #import "SCPCardBrand.h"
 #import "SCPCardFundingType.h"
+#import "SCPJSONDecodable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -41,10 +41,10 @@ NS_SWIFT_NAME(Reader)
 
 /**
  The networking status of the reader: either `offline` or `online`. Note that
- the Chipper 2X's status will always be `offline`. (Verifone P400 only.)
+ the Chipper 2X and the WisePad 3's statuses will always be `offline`.
+ (Verifone P400 only.)
  */
 @property (nonatomic, readonly) SCPReaderNetworkStatus status;
-
 
 /**
  A custom label that may be given to a reader for easier identification.
@@ -55,7 +55,7 @@ NS_SWIFT_NAME(Reader)
 /**
  The reader's battery level, represented as a boxed float in the range `[0, 1]`.
  If the reader does not have a battery, or the battery level is unknown, this
- value is `nil`. (Chipper 2X only.)
+ value is `nil`. (Chipper 2X and WisePad 3 only.)
  */
 @property (nonatomic, nullable, readonly) NSNumber *batteryLevel;
 

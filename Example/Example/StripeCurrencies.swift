@@ -18,10 +18,12 @@ struct StripeCurrencies {
 
     static let supported: [String] = [
         "USD",
+        "AUD",
         "CAD",
-        "SGD",
+        "EUR",
         "GBP",
-        "EUR"
+        "NZD",
+        "SGD",
     ]
 
     static let all: [String] = [

@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, SCPReaderNetworkStatus) {
 
     /**
-     The reader is offline. Note that Chipper2x will also default to 'offline'.
+     The reader is offline. Note that Chipper 2x and WisePad 3 will default to
+     'offline'.
      */
     SCPReaderNetworkStatusOffline,
 
