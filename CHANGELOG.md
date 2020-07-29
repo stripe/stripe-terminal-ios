@@ -15,6 +15,14 @@ This update also introduces a cosmetic change to `SCPReader.deviceSoftwareVersio
 
 Not every Stripe Terminal reader supports all the functionality in the SDK. If you call a function that is not supported by the currently connected reader you will receive a `SCPErrorFeatureNotAvailableWithConnectedReader` error.
 
+# 1.2.1 2020-06-18
+
+- Sample app improvements:
+    - Hide certain actions, like card-present refunds and reader updates, when the currently connected reader does not support them
+    - Add interface to register a Verifone P400
+- Improve the resiliency of Verifone P400 connections
+- Throw an error if `collectRefundPaymentMethod` is called with an invalid charge ID in the RefundParameters object
+
 # 1.2.0 2020-05-28
 
 This update introduces support for Stripe Terminal in Canada using the [Verifone P400](https://stripe.com/docs/terminal/readers/verifone-p400) reader. To get started with Stripe Terminal in Canada, read our [Canada documentation](https://stripe.com/docs/terminal/canada).
