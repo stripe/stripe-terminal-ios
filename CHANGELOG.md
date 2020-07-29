@@ -2,16 +2,18 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.2.1'
+pod 'StripeTerminal', '1.3.0'
 ```
+# 1.3.0 2020-07-28
 
-# 1.2.1 2020-06-18
+This update adds Verifone P400 support for the following methods in `StripeTerminal`:
 
-- Sample app improvements:
-    - Hide certain actions, like card-present refunds and reader updates, when the currently connected reader does not support them
-    - Add interface to register a Verifone P400
-- Improve the resiliency of Verifone P400 connections
-- Throw an error if `collectRefundPaymentMethod` is called with an invalid charge ID in the RefundParameters object
+- [`setReaderDisplay`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)setReaderDisplay:cart:completion:) and [`clearReaderDisplay`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)clearReaderDisplay:completion:) allow you to set the Verifone P400’s [cart details](https://stripe.com/docs/terminal/checkout/cart-display) interface
+- [`readReusableCard`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:) (only available for US merchants)
+
+This update also introduces a cosmetic change to `SCPReader.deviceSoftwareVersion`. The Key Identifier number was previously displayed as the five-character string `30000` . This and future updates will display the identifier as a six-character string: `300001`. The key itself has not changed.
+
+Not every Stripe Terminal reader supports all the functionality in the SDK. If you call a function that is not supported by the currently connected reader you will receive a `SCPErrorFeatureNotAvailableWithConnectedReader` error.
 
 # 1.2.0 2020-05-28
 

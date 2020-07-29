@@ -12,13 +12,14 @@
 #import <Foundation/Foundation.h>
 
 #import "SCPBlocks.h"
+#import "SCPCart.h"
 #import "SCPConnectionStatus.h"
 #import "SCPDeviceType.h"
+#import "SCPDiscoveryMethod.h"
+#import "SCPLogLevel.h"
 #import "SCPPaymentStatus.h"
 #import "SCPReaderDisplayDelegate.h"
 #import "SCPReaderEvent.h"
-#import "SCPDiscoveryMethod.h"
-#import "SCPLogLevel.h"
 #import "SCPRefundParameters.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,16 +27,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.2.1";
+static NSString *const SCPSDKVersion = @"1.3.0";
 
 @class SCPCancelable,
-SCPConnectionConfiguration,
-SCPDiscoveryConfiguration,
-SCPPaymentIntentParameters,
-SCPReadReusableCardParameters,
-SCPUpdateReaderSoftwareParameters;
+    SCPConnectionConfiguration,
+    SCPDiscoveryConfiguration,
+    SCPPaymentIntentParameters,
+    SCPReadReusableCardParameters,
+    SCPUpdateReaderSoftwareParameters;
 
-@protocol SCPConnectionTokenProvider, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPReaderSoftwareUpdateDelegate;
+@protocol SCPConnectionTokenProvider
+, SCPTerminalDelegate, SCPDiscoveryDelegate, SCPReaderSoftwareUpdateDelegate;
 
 /**
  The `SCPTerminal` object that is made available by the Stripe Terminal SDK exposes
@@ -64,7 +66,6 @@ NS_SWIFT_NAME(Terminal)
  Terminal instance.
  */
 + (void)setTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(setTokenProvider(_:));
-
 
 /**
  Returns true if a token provider has been set, through `setTokenProvider:`
@@ -186,10 +187,10 @@ NS_SWIFT_NAME(Terminal)
  defined to fetch one.
  
  Currently the `connectionConfig` is only utilized by `verifoneP400` and will
- be ignored if passed while attempting to connect to a `chipper2X`. If
- `connectionConfig` is set to `nil`, the SDK will resort to default connection
- behavior; see the `SCPConnectionConfiguration` header documentation for more
- details.
+ be ignored if passed while attempting to connect to a `chipper2X` or
+ `wisePad3`. If `connectionConfig` is set to `nil`, the SDK will resort to
+ default connection behavior; see the `SCPConnectionConfiguration` header
+ documentation for more details.
 
  @see https://stripe.com/docs/terminal/readers/connecting
 
@@ -200,7 +201,7 @@ NS_SWIFT_NAME(Terminal)
  @param completion      The completion block called when the command completes.
  */
 - (void)connectReader:(SCPReader *)reader
-     connectionConfig:(nullable SCPConnectionConfiguration *) connectionConfig
+     connectionConfig:(nullable SCPConnectionConfiguration *)connectionConfig
            completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectReader(_:connectionConfig:completion:));
 
 /**
@@ -229,8 +230,9 @@ NS_SWIFT_NAME(Terminal)
  available in your app, you can create the PaymentIntent on your server and use
  the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
 
- @note This cannot be used with the Verifone P400 reader. This method will assert
- if called while the SDK is connected to a device of type `verifoneP400`.
+     @note This cannot be used with the Verifone P400 reader.  If used with the
+     Verifone P400, the completion handler will be called with
+     an SCPErrorFeatureNotAvailableWithConnectedReader error.
 
  @see https://stripe.com/docs/terminal/payments#create
 
@@ -338,8 +340,9 @@ NS_SWIFT_NAME(Terminal)
  updated PaymentIntent object with status Canceled. If the cancel request
  fails, the completion block will be called with an error.
 
- @note This cannot be used with the Verifone P400 reader. This method will assert
- if called while the SDK is connected to a device of type `verifoneP400`.
+ @note This cannot be used with the Verifone P400 reader.  If used with the
+ Verifone P400, the completion handler will be called with
+ an SCPErrorFeatureNotAvailableWithConnectedReader error.
 
  @see https://stripe.com/docs/terminal/payments/refunds
  
@@ -373,8 +376,9 @@ NS_SWIFT_NAME(Terminal)
  you can use the fingerprint to look up charges created using the same
  card.
 
- @note This cannot be used with the Verifone P400 reader. This method will assert
- if called while the SDK is connected to a device of type `verifoneP400`.
+ @note This cannot be used with the Verifone P400 or WisePad 3 readers. This
+ method will assert if called while the SDK is connected to a device of
+ type `verifoneP400` or `wisePad3`.
 
  @see https://stripe.com/docs/terminal/online-payments
 
@@ -468,12 +472,36 @@ NS_SWIFT_NAME(Terminal)
  @note This method will never return an update if it is called when the SDK is
  connected to the Verifone P400.
 
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
+ @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software
 
  @param completion  The completion block called when checking for an update
  completes.
  */
 - (nullable SCPCancelable *)checkForUpdate:(SCPReaderSoftwareUpdateCompletionBlock)completion NS_SWIFT_NAME(checkForUpdate(_:));
+
+/**
+ Clears the reader display and resets it to the splash screen.
+
+ @param completion  The completion block called when the command completes.
+
+ @note Only available for the Verifone P400
+ */
+- (void)clearReaderDisplay:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(clearReaderDisplay(_:));
+
+/**
+ Updates the reader display with cart information.
+ This method is for display purposes only and has no correlation with what the customer is
+ actually charged. Tax and total are also not automatically calculated and must be set in SCPCart.
+
+ @param cart  The cart containing the information that will be displayed.
+ @param completion  The completion block called when the command completes.
+
+ @note Only available for the Verifone P400
+ */
+- (void)setReaderDisplay:(SCPCart *)cart
+              completion:(SCPErrorCompletionBlock)completion
+    NS_SWIFT_NAME(setReaderDisplay(_:completion:));
 
 /**
  Installs the provided update, and calls the completion block when the
@@ -494,15 +522,20 @@ NS_SWIFT_NAME(Terminal)
  @note It is an error to call this method when the SDK is connected to the Verifone
  P400 reader.
 
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
+ @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software
 
  @param update  The reader update.
  @param delegate  Your delegate for handling update events.
  @param completion  The completion block called when the update completes.
  */
+// Disable clang-format as it currently breaks up the NS_SWIFT_NAME
+// clang-format off
 - (nullable SCPCancelable *)installUpdate:(SCPReaderSoftwareUpdate *)update
                                  delegate:(id<SCPReaderSoftwareUpdateDelegate>)delegate
-                               completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(installUpdate(_:delegate:completion:));
+                               completion:(SCPErrorCompletionBlock)completion
+    NS_SWIFT_NAME(installUpdate(_:delegate:completion:));
+// clang-format on
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.

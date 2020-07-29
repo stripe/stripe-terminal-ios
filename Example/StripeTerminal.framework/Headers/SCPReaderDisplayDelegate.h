@@ -12,8 +12,8 @@
 #import <Foundation/Foundation.h>
 
 #import "SCPBlocks.h"
-#import "SCPReaderInputOptions.h"
 #import "SCPReaderDisplayMessage.h"
+#import "SCPReaderInputOptions.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  You must implement this protocol to handle displaying events when connected
- to a reader without a built-in display (e.g., the BBPOS Chipper 2X BT).
+ to a bluetooth reader (e.g., the BBPOS Chipper 2X BT or BBPOS WisePad 3).
  
  The Verifone P400 has a built-in display, which handles displaying card
  and payment events to the customer. The Stripe Terminal iOS SDK will not call
@@ -47,7 +47,7 @@ NS_SWIFT_NAME(ReaderDisplayDelegate)
  @param inputOptions        The armed input options on the reader.
  */
 - (void)terminal:(SCPTerminal *)terminal
-didRequestReaderInput:(SCPReaderInputOptions)inputOptions NS_SWIFT_NAME(terminal(_:didRequestReaderInput:));
+    didRequestReaderInput:(SCPReaderInputOptions)inputOptions NS_SWIFT_NAME(terminal(_:didRequestReaderInput:));
 
 /**
  This method is called to request that a prompt be displayed in your app.

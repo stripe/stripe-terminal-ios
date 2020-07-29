@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
  The estimated amount of time for an update. Note that these times are estimates;
  actual times may vary depending on your network connection.
 
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#reader-software-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#reader-software-releases
  */
 typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
     /**
@@ -44,7 +45,8 @@ typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
 /**
  An object representing a reader update.
 
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#reader-software-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#reader-software-releases
  */
 NS_SWIFT_NAME(ReaderSoftwareUpdate)
 @interface SCPReaderSoftwareUpdate : NSObject

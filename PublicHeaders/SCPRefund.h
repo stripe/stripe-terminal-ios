@@ -23,17 +23,17 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
      The refund succeeded.
      */
     SCPRefundStatusSucceeded,
-    
+
     /**
      The refund is pending.
      */
     SCPRefundStatusPending,
-    
+
     /**
      The refund failed.
      */
     SCPRefundStatusFailed,
-    
+
     /**
      Unknown refund state.
      */

@@ -8,6 +8,7 @@
 //  Use of this SDK is subject to the Stripe Terminal Terms:
 //  https://stripe.com/terminal/legal
 //
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,8 +37,11 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeVerifoneP400,
 
     /**
-     :nodoc:
-     Not yet available. Trying to connect to the WisePad3 will crash your app.
+     The BBPOS WisePad 3 mobile reader.
+
+     Support of this reader is currently in beta.
+     
+     @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3
      */
     SCPDeviceTypeWisePad3,
 } NS_SWIFT_NAME(DeviceType);
