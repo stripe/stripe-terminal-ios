@@ -28,11 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
  The Stripe Terminal iOS SDK will not call `SCPReaderSoftwareUpdateDelegate`
  methods while connected to the Verifone P400.
 
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#software-updates-and-releases
+ @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
+ @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software
  */
 NS_SWIFT_NAME(ReaderSoftwareUpdateDelegate)
 @protocol SCPReaderSoftwareUpdateDelegate <NSObject>
-
 
 /**
  The terminal reported progress on a reader software update.
@@ -42,7 +42,7 @@ NS_SWIFT_NAME(ReaderSoftwareUpdateDelegate)
  (in the range [0, 1]).
  */
 - (void)terminal:(SCPTerminal *)terminal
-didReportReaderSoftwareUpdateProgress:(float)progress NS_SWIFT_NAME(terminal(_:didReportReaderSoftwareUpdateProgress:));
+    didReportReaderSoftwareUpdateProgress:(float)progress NS_SWIFT_NAME(terminal(_:didReportReaderSoftwareUpdateProgress:));
 
 @end
 

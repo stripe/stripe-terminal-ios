@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 1.2.1 Docs
+          StripeTerminal 1.3.0 Docs
         </a>
         
       </p>
@@ -105,6 +105,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCartLineItem.html">SCPCartLineItem</a>
               </li>
             </ul>
           </li>
@@ -283,6 +289,7 @@
             <h1>SCPError</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPError</span> <span class="p">{}</span></code></pre>
 
                 </div>
@@ -676,6 +683,33 @@ location filtering.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidCart"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidCart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidCart">SCPErrorInvalidCart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>No longer used</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidCart</span> <span class="o">=</span> <span class="mi">1600</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorNilReaderDisplayDelegate"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorNilReaderDisplayDelegate" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorNilReaderDisplayDelegate">SCPErrorNilReaderDisplayDelegate</a>
@@ -758,6 +792,33 @@ assuming there is an update app version with a supported version of our SDK.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorFeatureNotAvailableWithConnectedReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorFeatureNotAvailableWithConnectedReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorFeatureNotAvailableWithConnectedReader">SCPErrorFeatureNotAvailableWithConnectedReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This feature is currently not available for the selected reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="o">=</span> <span class="mi">1880</span></code></pre>
 
                         </div>
                       </div>
@@ -1098,9 +1159,7 @@ with this error.</p>
 <p>Your terminal delegate will receive <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportReaderEvent:info:">-[SCPTerminalDelegate terminal:didReportReaderEvent:info:]</a></code>
 with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
 
-<p>Additionally, with configuration <code>SZZZ_Generic_v37</code>, the Chipper will
-beep until the card is removed.
-<a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#bbpos-chipper-2x-bt-software-releases</a></p>
+<p>The Chipper 2x and WisePad 3 will beep until the card is removed.</p>
 
                       </div>
                       <div class="declaration">
@@ -1392,6 +1451,10 @@ update the reader via the update flow that you have implemented using
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software</a>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software</a>
 
 </div>
 
@@ -1844,8 +1907,8 @@ to disconnect manually by turning the reader off.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-06-18)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-07-28)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

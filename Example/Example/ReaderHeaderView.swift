@@ -93,7 +93,7 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 titleLabel.text = "WisePad 3 \(reader.serialNumber)"
-                imageView.image = UIImage(named: "verifone")
+                imageView.image = UIImage(named: "wisepad")
             @unknown default:
                 titleLabel.text = reader.serialNumber
                 imageView.image = nil

@@ -58,7 +58,7 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     private func showDiscoverReaders() {
-        let simulated = ReaderViewController.readerConfiguration.deviceType != .wisePad3 ? ReaderViewController.readerConfiguration.simulated : false
+        let simulated = ReaderViewController.readerConfiguration.simulated
         let config = DiscoveryConfiguration(
             deviceType: ReaderViewController.readerConfiguration.deviceType,
             discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
@@ -116,7 +116,7 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     internal func showReadReusableCard() {
-        if let connectReader = self.connectedReader, connectReader.deviceType != .chipper2X {
+        if let connectReader = self.connectedReader, connectReader.deviceType != .chipper2X, connectReader.deviceType != .verifoneP400 {
             self.presentAlert(title: "Error", message: "This device type does not support readReusableCard.")
             return
         }
@@ -169,6 +169,11 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func showStartSetReaderDisplay() {
+        let vc = StartSetReaderDisplayViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     private func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
         if let connectedReader = self.connectedReader {
@@ -178,17 +183,20 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                     }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
                 Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
                     self.showReadReusableCard()
-                    }, accessory: .none, cellClass: SubtitleCell.self)
+                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
             ]
 
             switch connectedReader.deviceType {
             case .chipper2X, .wisePad3:
                 workflowRows.append(Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
                 self.showUpdateReader()
-                }, accessory: .none, cellClass: SubtitleCell.self))
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             case .verifoneP400:
                 workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+                workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
+                    self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             @unknown default:
                 break
@@ -241,6 +249,10 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     // MARK: SCPTerminalDelegate
     func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
         headerView.connectionStatus = status
+
+        if status == .notConnected {
+            connectedReader = nil
+        }
     }
 
     func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {

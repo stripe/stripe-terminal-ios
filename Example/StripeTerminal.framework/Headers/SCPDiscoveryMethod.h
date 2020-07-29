@@ -44,6 +44,8 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
      flashing. After a short delay, `didUpdateDiscoveredReaders` will be called
      a second time with an updated reader object, populated with additional
      info about the device, like its battery level.
+
+     Note: This is only supported for `chipper2x`.
      */
     SCPDiscoveryMethodBluetoothProximity,
 

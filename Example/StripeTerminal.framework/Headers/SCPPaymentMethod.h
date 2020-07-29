@@ -60,7 +60,7 @@ NS_SWIFT_NAME(PaymentMethod)
 
  @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, readonly) NSDictionary<NSString*, NSString *> *metadata;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  You cannot directly instantiate this class.

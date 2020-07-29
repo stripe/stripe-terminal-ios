@@ -44,7 +44,13 @@ class DeviceTypeViewController: TableViewController {
                     self.onSelectedDevice(.verifoneP400)
                     self.navigationController?.popViewController(animated: true)
                     }, accessory: (deviceType == .verifoneP400 ? .checkmark : .none))
-            ], footer: "Discover the Verifone P400.\n\nNote: Readers must be registered to your account via the Stripe API or Dashboard before they're discoverable.")
+            ], footer: "Discover the Verifone P400.\n\nNote: Readers must be registered to your account via the Stripe API or Dashboard before they're discoverable."),
+            Section(header: "", rows: [
+                Row(text: "WisePad 3", selection: { [unowned self] in
+                    self.onSelectedDevice(.wisePad3)
+                    self.navigationController?.popViewController(animated: true)
+                    }, accessory: (deviceType == .wisePad3 ? .checkmark : .none))
+            ], footer: "Discover the BBPOS WisePad 3 BT.\n\nNote: the Stripe Terminal SDK can discover supported card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page.")
         ]
     }
 

@@ -33,11 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SCPStripeAPIClient: NSObject
+@interface SCPStripeAPIClient : NSObject
 
 @property (class, nonatomic, strong, readwrite) NSURL *apiBaseUrl;
 
-@property (class, nonatomic, strong, readwrite) NSDictionary<NSString*, NSString*> *customHeaders;
+@property (class, nonatomic, strong, readwrite) NSDictionary<NSString *, NSString *> *customHeaders;
 
 @end
 
