@@ -23,6 +23,8 @@ This update adds Verifone P400 support for the following methods in `StripeTermi
 
 This update also introduces a cosmetic change to `SCPReader.deviceSoftwareVersion`. The Key Identifier number was previously displayed as the five-character string `30000` . This and future updates will display the identifier as a six-character string: `300001`. The key itself has not changed.
 
+Not every Stripe Terminal reader supports all the functionality in the SDK. If you call a function that is not supported by the currently connected reader you will receive a `SCPErrorFeatureNotAvailableWithConnectedReader` error.
+
 # 1.2.1 2020-06-18
 
 - Sample app improvements:
