@@ -80,10 +80,7 @@ class ReaderHeaderView: UIView {
     }
 
     func updateContent() {
-        if let reader = connectedReader {
-            titleLabel.isHidden = false
-            spacerLabel.isHidden = true
-
+        func setUIForReader(_ reader: Reader) {
             switch reader.deviceType {
             case .chipper2X:
                 titleLabel.text = "Chipper 2X \(reader.serialNumber)"
@@ -94,29 +91,43 @@ class ReaderHeaderView: UIView {
             case .wisePad3:
                 titleLabel.text = "WisePad 3 \(reader.serialNumber)"
                 imageView.image = UIImage(named: "wisepad")
+            case .wisePosE:
+                titleLabel.text = "WisePOS E: \(reader.label ?? reader.serialNumber)"
+                imageView.image = UIImage(named: "verifone")
             @unknown default:
                 titleLabel.text = reader.serialNumber
                 imageView.image = nil
             }
+        }
+
+        func displayConnectionStatus(inLabel label: UILabel, reader: Reader?, status: ConnectionStatus) {
+            switch status {
+            case .notConnected:
+                // handled above when connectedReader == nil
+                break
+            case .connecting:
+                label.text = "Connecting"
+            case .connected where connectedReader?.simulated ?? false:
+                label.text = "Connected, simulated"
+            case .connected:
+                label.text = "Connected"
+            @unknown default:
+                label.text = "\(status)"
+            }
+        }
+
+        if let reader = connectedReader {
+            titleLabel.isHidden = false
+            spacerLabel.isHidden = true
+            setUIForReader(reader)
         } else {
             subtitleLabel.text = "No reader connected"
             titleLabel.isHidden = true
             spacerLabel.isHidden = false
             imageView.image = UIImage(named: "chipper_empty")
         }
-        switch connectionStatus {
-        case .notConnected:
-            // handled above when connectedReader == nil
-            break
-        case .connecting:
-            subtitleLabel.text = "Connecting"
-        case .connected where connectedReader?.simulated ?? false:
-            subtitleLabel.text = "Connected, simulated"
-        case .connected:
-            subtitleLabel.text = "Connected"
-        @unknown default:
-            subtitleLabel.text = "\(connectionStatus)"
-        }
+
+        displayConnectionStatus(inLabel: subtitleLabel, reader: connectedReader, status: connectionStatus)
     }
 
 }

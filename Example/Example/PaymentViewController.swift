@@ -35,27 +35,27 @@ class PaymentViewController: EventDisplayingViewController {
             } else if let intent = intent {
                 // 2. collectPaymentMethod
                 var collectEvent = LogEvent(method: .collectPaymentMethod)
-                self.events.append(collectEvent)
+                self.events.append(.log(collectEvent))
                 self.cancelable = Terminal.shared.collectPaymentMethod(intent, delegate: self) { intentWithPaymentMethod, attachError in
                     self.cancelable = nil
                     if let error = attachError {
                         collectEvent.result = .errored
                         collectEvent.object = .error(error as NSError)
-                        self.events.append(collectEvent)
+                        self.events.append(.log(collectEvent))
                         self.complete()
                     } else if let intent = intentWithPaymentMethod {
                         collectEvent.result = .succeeded
                         collectEvent.object = .paymentIntent(intent)
-                        self.events.append(collectEvent)
+                        self.events.append(.log(collectEvent))
 
                         // 3. confirm PaymentIntent
                         var processEvent = LogEvent(method: .processPayment)
-                        self.events.append(processEvent)
+                        self.events.append(.log(processEvent))
                         Terminal.shared.processPayment(intent) { processedIntent, processError in
                             if let error = processError {
                                 processEvent.result = .errored
                                 processEvent.object = .error(error as NSError)
-                                self.events.append(processEvent)
+                                self.events.append(.log(processEvent))
                                 self.complete()
                             } else if let intent = processedIntent, intent.status == .succeeded {
                                 // If the paymentIntent returns from Stripe with a status of succeeded,
@@ -64,16 +64,22 @@ class PaymentViewController: EventDisplayingViewController {
                                 // a single-message payment method, like Interac in Canada.
                                 processEvent.result = .succeeded
                                 processEvent.object = .paymentIntent(intent)
-                                self.events.append(processEvent)
+                                self.events.append(.log(processEvent))
                                 self.complete()
                             } else if let intent = processedIntent {
                                 processEvent.result = .succeeded
                                 processEvent.object = .paymentIntent(intent)
-                                self.events.append(processEvent)
+                                self.events.append(.log(processEvent))
+
+                                if let urlString = intent.charges.first?.originalJSON["receipt_url"] as? String {
+                                    if let url = URL(string: urlString) {
+                                        self.events.append(.action(.receiptAvailable(url)))
+                                    }
+                                }
 
                                 // 4. send to backend for capture
                                 var captureEvent = LogEvent(method: .capturePaymentIntent)
-                                self.events.append(captureEvent)
+                                self.events.append(.log(captureEvent))
                                 AppDelegate.apiClient?.capturePaymentIntent(intent.stripeId) { captureError in
                                     if let error = captureError {
                                         captureEvent.result = .errored
@@ -81,7 +87,7 @@ class PaymentViewController: EventDisplayingViewController {
                                     } else {
                                         captureEvent.result = .succeeded
                                     }
-                                    self.events.append(captureEvent)
+                                    self.events.append(.log(captureEvent))
                                     self.complete()
                                 }
                             }
@@ -94,36 +100,36 @@ class PaymentViewController: EventDisplayingViewController {
     }
 
     private func createPaymentIntent(_ parameters: PaymentIntentParameters, completion: @escaping PaymentIntentCompletionBlock) {
-        if Terminal.shared.connectedReader?.deviceType == .verifoneP400 {
-            // For p400 readers, PaymentIntents must be created via your backend
+        if Terminal.shared.connectedReader?.deviceType == .verifoneP400 || Terminal.shared.connectedReader?.deviceType == .wisePosE {
+            // For internet-connected readers, PaymentIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreatePaymentIntent)
-            self.events.append(createEvent)
+            self.events.append(.log(createEvent))
 
             AppDelegate.apiClient?.createPaymentIntent(parameters) { (result) in
                 switch result {
                 case .failure(let error):
                     createEvent.result = .errored
                     createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
+                    self.events.append(.log(createEvent))
                     completion(nil, error)
 
                 case .success(let clientSecret):
                     createEvent.result = .succeeded
                     createEvent.object = .object(clientSecret)
-                    self.events.append(createEvent)
+                    self.events.append(.log(createEvent))
 
                     // and then retrieved w/Terminal SDK
                     var retrieveEvent = LogEvent(method: .retrievePaymentIntent)
-                    self.events.append(retrieveEvent)
+                    self.events.append(.log(retrieveEvent))
                     Terminal.shared.retrievePaymentIntent(clientSecret: clientSecret) { (intent, error) in
                         if let error = error {
                             retrieveEvent.result = .errored
                             retrieveEvent.object = .error(error as NSError)
-                            self.events.append(retrieveEvent)
+                            self.events.append(.log(retrieveEvent))
                         } else if let intent = intent {
                             retrieveEvent.result = .succeeded
                             retrieveEvent.object = .paymentIntent(intent)
-                            self.events.append(retrieveEvent)
+                            self.events.append(.log(retrieveEvent))
                         }
                         completion(intent, error)
                     }
@@ -131,16 +137,16 @@ class PaymentViewController: EventDisplayingViewController {
             }
         } else {
             var createEvent = LogEvent(method: .createPaymentIntent)
-            self.events.append(createEvent)
+            self.events.append(.log(createEvent))
             Terminal.shared.createPaymentIntent(parameters) { (intent, error) in
                 if let error = error {
                     createEvent.result = .errored
                     createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
+                    self.events.append(.log(createEvent))
                 } else if let intent = intent {
                     createEvent.result = .succeeded
                     createEvent.object = .paymentIntent(intent)
-                    self.events.append(createEvent)
+                    self.events.append(.log(createEvent))
 
                 }
                 completion(intent, error)

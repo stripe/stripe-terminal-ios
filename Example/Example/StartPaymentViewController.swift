@@ -48,6 +48,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 headerString = "Collect a card payment using a physical Stripe test card and the Verifone P400."
             case .wisePad3:
                 headerString = "Collect a card payment using a physical Stripe test card and the WisePad 3."
+            case .wisePosE:
+                headerString = "Collect a card payment using a physical Stripe test card and the WisePOS E."
+            case .none:
+                fallthrough
             @unknown default:
                 headerString = "Collect a card payment using a physical Stripe test card and reader."
             }

@@ -2,8 +2,18 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.3.0'
+pod 'StripeTerminal', '1.4.0'
 ```
+# 1.4.0 2020-09-03
+
+- Added [`accountType`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReceiptDetails.html#/c:objc(cs)SCPReceiptDetails(py)accountType) to `SCPReceiptDetails`.
+- Added [`SCPDeviceTypeWisePosE`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDeviceType.html#/c:@E@SCPDeviceType@SCPDeviceTypeWisePosE) to `SCPDeviceType`.
+- Deprecated the `SCPDiscoveryConfiguration` initializers that require that you specify the device type to discover and replaced them with initializers that only require that you specify the discovery method. More specifically, if you use any of these `SCPDiscoveryConfiguration` initializers, you should replace them with the corresponding versions:
+    - `initWithDeviceType:simulated:` → `initWithDiscoveryMethod:simulated:`
+    - `initWithDeviceType:discoveryMethod:simulated:` → `initWithDiscoveryMethod:simulated:`
+    - `initWithDeviceType:discoveryMethod:locationId:simulated:` → `initWithDiscoveryMethod:locationId:simulated:`
+- Added a new interface in the example app to grant easy access to receipts
+
 # 1.3.0 2020-07-28
 
 This update adds Verifone P400 support for the following methods in `StripeTerminal`:

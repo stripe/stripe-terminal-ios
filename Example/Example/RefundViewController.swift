@@ -28,33 +28,33 @@ class RefundViewController: EventDisplayingViewController {
 
         // 1. collectRefundMethod
         var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
-        self.events.append(collectEvent)
+        self.events.append(.log(collectEvent))
         self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters) { collectError in
             if let error = collectError {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)
-                self.events.append(collectEvent)
+                self.events.append(.log(collectEvent))
                 self.complete()
             } else {
                 collectEvent.result = .succeeded
-                self.events.append(collectEvent)
+                self.events.append(.log(collectEvent))
 
                 // 2. process refund
                 var processEvent = LogEvent(method: .processRefund)
-                self.events.append(processEvent)
+                self.events.append(.log(processEvent))
                 Terminal.shared.processRefund { processedRefund, processError in
                     if let error = processError {
                         processEvent.result = .errored
                         processEvent.object = .error(error as NSError)
-                        self.events.append(processEvent)
+                        self.events.append(.log(processEvent))
                         self.complete()
                     } else if let refund = processedRefund, refund.status == .succeeded {
                         processEvent.result = .succeeded
                         processEvent.object = .refund(refund)
-                        self.events.append(processEvent)
+                        self.events.append(.log(processEvent))
                         self.complete()
                     } else if processedRefund != nil {
-                        self.events.append(processEvent)
+                        self.events.append(.log(processEvent))
                         self.complete()
                     }
                 }

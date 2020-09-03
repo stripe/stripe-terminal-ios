@@ -58,12 +58,21 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     private func showDiscoverReaders() {
-        let simulated = ReaderViewController.readerConfiguration.simulated
-        let config = DiscoveryConfiguration(
-            deviceType: ReaderViewController.readerConfiguration.deviceType,
-            discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
-            simulated: simulated
-        )
+        var config: DiscoveryConfiguration
+
+        if let deviceType = ReaderViewController.readerConfiguration.deviceType {
+            config = DiscoveryConfiguration(
+                deviceType: deviceType,
+                discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
+                simulated: ReaderViewController.readerConfiguration.simulated
+            )
+        } else {
+            config = DiscoveryConfiguration(
+                discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
+                simulated: ReaderViewController.readerConfiguration.simulated
+            )
+        }
+
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
 
         discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
@@ -134,13 +143,15 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
             ReaderViewController.readerConfiguration.deviceType = type
             // for changed deviceType: update discovery method, since the previous selection is incompatible
             switch type {
-            case .verifoneP400:
+            case .verifoneP400, .wisePosE:
                 ReaderViewController.readerConfiguration.discoveryMethod = .internet
             case .chipper2X:
                 ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothProximity // not bothering to see which they last used
             case .wisePad3:
                 // Update this in future once we support both bluetooth methods.
                 ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothScan
+            case .none:
+                break
             @unknown default:
                 print("No discovery method so device types cannot be determined.")
             }
@@ -155,14 +166,21 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
         vc.onSelectedMethod = { method in
             guard ReaderViewController.readerConfiguration.discoveryMethod != method else { return }
             ReaderViewController.readerConfiguration.discoveryMethod = method
-            // make sure deviceType is set to a compatible device for this discovery method
-            switch method {
-            case .bluetoothProximity, .bluetoothScan:
-                ReaderViewController.readerConfiguration.deviceType = .chipper2X
-            case .internet:
-                ReaderViewController.readerConfiguration.deviceType = .verifoneP400
-            @unknown default:
-                print("No device type so discovery methodssg cannot be determined.")
+
+            switch ReaderViewController.readerConfiguration.deviceType {
+            case nil:
+                // If the device type was "unspecified", don't change it when the discovery method changes
+                break
+            default:
+                // Otherwise, make sure deviceType is set to a compatible device for this discovery method
+                switch method {
+                case .bluetoothProximity, .bluetoothScan:
+                    ReaderViewController.readerConfiguration.deviceType = .chipper2X
+                case .internet:
+                    ReaderViewController.readerConfiguration.deviceType = .verifoneP400
+                @unknown default:
+                    print("Unknown device type, so correct discovery method cannot be determined.")
+                }
             }
             self.updateContent()
         }
@@ -198,6 +216,10 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            case .wisePosE:
+                workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
+                    self.showStartSetReaderDisplay()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             @unknown default:
                 break
             }
@@ -223,7 +245,7 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                         }, cellClass: ButtonCell.self)
                 ]),
                 Section(header: "Device Type", rows: [
-                    Row(text: ReaderViewController.readerConfiguration.deviceType.description, selection: { [unowned self] in
+                    Row(text: ReaderViewController.readerConfiguration.deviceType?.description ?? "Unspecified", selection: { [unowned self] in
                         self.showDeviceTypes()
                         }, accessory: .disclosureIndicator)
                 ]),

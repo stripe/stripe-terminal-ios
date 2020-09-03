@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"1.3.0";
+static NSString *const SCPSDKVersion = @"1.4.0";
 
 @class SCPCancelable,
     SCPConnectionConfiguration,

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Parameters for creating an `SCPRefund`.
- 
+
  @see https://stripe.com/docs/api/refunds/create
  */
 NS_SWIFT_NAME(RefundParameters)
@@ -47,11 +47,11 @@ NS_SWIFT_NAME(RefundParameters)
  Connect only: Nullable boolean indicating whether the transfer should be
  reversed when refunding this charge. The transfer will be reversed proportionally
  to the amount being refunded (either the entire or partial amount).
- 
+
  @note This property is a nullable NSNumber being used to represent a nullable
  boolean. A value of 0 represents `false`, while any non-zero value represents
  `true`.
- 
+
  @see https://stripe.com/docs/api/refunds/create#create_refund-reverse_transfer
  */
 @property (nonatomic, nullable, readwrite) NSNumber *reverseTransfer;
@@ -61,23 +61,23 @@ NS_SWIFT_NAME(RefundParameters)
  refunded when refunding this charge. If a full charge refund is given, the
  full application fee will be refunded. Otherwise, the application fee will be
  refunded in an amount proportional to the amount of the charge refunded.
- 
+
  @note This property is a nullable NSNumber being used to represent a nullable
  boolean. A value of 0 represents `false`, while any non-zero value represents
  `true`.
- 
+
  @see https://stripe.com/docs/api/refunds/create#create_refund-refund_application_fee
  */
 @property (nonatomic, nullable, readwrite) NSNumber *refundApplicationFee;
 
 /**
  Initializes `SCPRefundParameters` with the given charge, amount, and currency.
- 
+
  @param chargeId    The ID of the charge to be refunded.
- 
+
  @param amount      The amount to be refunded, provided in the currency's
  smallest unit.
- 
+
  @param currency    The currency of the original charge. You cannot refund a charge
  with a different currency than the currency that was used to create the charge.
  */

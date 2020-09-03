@@ -147,7 +147,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
             }).first else {
                 registrationInProgress = false
                 message = "Couldn't find newly registered reader."
-                print("Couldn't find newly registered reader, but found: \(readers.map {$0.serialNumber})")
+                print("Couldn't find newly registered reader (looking for \(self.readerId ?? "<unknown>")), but found: \(readers.map {$0.serialNumber})")
                 return
         }
 

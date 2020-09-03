@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
     /**
-     Bluetooth Scan
+     The Bluetooth Scan discovery method searches for Stripe Terminal's
+     Bluetooth-capable readers.
 
      When discovering a reader using this method, the `didUpdateDiscoveredReaders`
      delegate method will be called multiple times as the Bluetooth scan
@@ -26,7 +27,8 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
      */
     SCPDiscoveryMethodBluetoothScan,
     /**
-     Bluetooth Proximity
+     The Bluetooth Proximity discovery method searches for a subset of
+     Stripe Terminal's Bluetooth-capable readers.
 
      If your app will be used in a busy environment with multiple iOS
      devices pairing to multiple available readers at the same time, we
@@ -45,17 +47,18 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
      a second time with an updated reader object, populated with additional
      info about the device, like its battery level.
 
-     Note: This is only supported for `chipper2x`.
+     @note The Bluetooth Proximity discovery method can only discovery Chipper
+     2X BT readers.
      */
     SCPDiscoveryMethodBluetoothProximity,
 
     /**
-     Internet
+     The Internet discovery method searches for internet-connected readers,
+     such as the Verifone P400 or the BBPOS WisePOS E.
 
      When discovering a reader with this method `didUpdateDiscoveredReaders`
-     will only be called once with a list of readers from `/v1/termina/readers`.
-     Note that this will include readers that are both online and offline. This
-     discovery method can only be used with the VerifoneP400 reader.
+     will only be called once with a list of readers from `/v1/terminal/readers`.
+     Note that this will include readers that are both online and offline.
 
      Because the discovery process continues if connecting to a discovered
      reader fails, the SDK will refresh the list of `SCPReader`s and call
