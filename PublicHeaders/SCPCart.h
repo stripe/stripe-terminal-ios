@@ -89,9 +89,9 @@ NS_ASSUME_NONNULL_BEGIN
                              tax:(NSInteger)tax
                            total:(NSInteger)total;
 
-/** Use initWithCurrency: */
+/** Use initWithTax: */
 - (instancetype)init NS_UNAVAILABLE;
-/** Use initWithCurrency: */
+/** Use initWithTax: */
 + (instancetype)new NS_UNAVAILABLE;
 @end
 

@@ -24,6 +24,11 @@ NS_SWIFT_NAME(ReceiptDetails)
 @interface SCPReceiptDetails : NSObject <SCPJSONDecodable>
 
 /**
+ The type of account being debited or credited
+ */
+@property (nonatomic, nullable, readonly) NSString *accountType;
+
+/**
  Also known as "Application Name". Required on EMV receipts.
  */
 @property (nonatomic, readonly) NSString *applicationPreferredName;

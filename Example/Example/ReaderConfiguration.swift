@@ -14,7 +14,7 @@ import StripeTerminal
  saving and loading to UserDefaults.
  */
 struct ReaderConfiguration {
-    var deviceType: DeviceType = .chipper2X
+    var deviceType: DeviceType?
     var discoveryMethod: DiscoveryMethod = .bluetoothProximity
 
     #if targetEnvironment(simulator)

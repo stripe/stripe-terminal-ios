@@ -304,6 +304,27 @@ extension LogEvent.AssociatedObject {
     }
 }
 
+enum ActionEvent {
+    case receiptAvailable(URL)
+
+    var stringValue: String {
+        switch self {
+        case .receiptAvailable:
+            return "Receipt Available"
+        }
+    }
+
+    var action: (UINavigationController) -> Void {
+        switch self {
+        case let .receiptAvailable(url):
+            return { navController in
+                let vc = ReceiptWebViewController(withUrl: url)
+                navController.pushViewController(vc, animated: true)
+            }
+        }
+    }
+}
+
 class LogEventViewController: TableViewController {
 
     private let event: LogEvent

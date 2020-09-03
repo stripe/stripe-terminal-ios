@@ -373,7 +373,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
 
      * `-[SCPTerminal createPaymentIntent:completion:]`
      * `-[SCPTerminal retrievePaymentIntent:completion:]`
-     * `-[SCPTerminal collectPaymentMethod:delegate:completion:]` if connected to a `SCPDeviceTypeVerifoneP400`
+     * `-[SCPTerminal collectPaymentMethod:delegate:completion:]` if connected to a Verifone P400 or a BBPOS WisePOS E
      * `-[SCPTerminal processPayment:completion:]`
      * `-[SCPTerminal cancelPaymentIntent:completion:]`
      * `-[SCPTerminal readReusableCard:delegate:completion:]`

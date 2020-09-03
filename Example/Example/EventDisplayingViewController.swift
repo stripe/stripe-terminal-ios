@@ -10,6 +10,11 @@ import UIKit
 import Static
 import StripeTerminal
 
+enum Event {
+    case log(LogEvent)
+    case action(ActionEvent)
+}
+
 class EventDisplayingViewController: TableViewController, TerminalDelegate, ReaderDisplayDelegate, CancelableViewController {
 
     private let headerView = ReaderHeaderView()
@@ -23,7 +28,7 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
             setAllowedCancelMethods(cancelable != nil ? .all : [])
         }
     }
-    var events: [LogEvent] = [] {
+    var events: [Event] = [] {
         didSet {
             updateContent()
         }
@@ -80,16 +85,25 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
             Section(header: Section.Extremity.view(logHeaderView), rows: events.map { event in
-                switch event.result {
-                case .started:
-                    return Row(text: event.method.rawValue,
-                               cellClass: MethodStartCell.self)
-                default:
-                    return Row(text: event.description, detailText: event.method.rawValue, selection: { [unowned self] in
-                        let vc = LogEventViewController(event: event)
-                        self.navigationController?.pushViewController(vc, animated: true)
-                        }, accessory: .disclosureIndicator,
-                           cellClass: LogEventCell.self)
+                if case let Event.log(logEvent) = event {
+                    switch logEvent.result {
+                    case .started:
+                        return Row(text: logEvent.method.rawValue,
+                                   cellClass: MethodStartCell.self)
+                    default:
+                        return Row(text: logEvent.description, detailText: logEvent.method.rawValue, selection: { [unowned self] in
+                            let vc = LogEventViewController(event: logEvent)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            }, accessory: .disclosureIndicator,
+                               cellClass: LogEventCell.self)
+                    }
+                } else if case let Event.action(actionEvent) = event,
+                    let nc = self.navigationController {
+                    return Row(text: actionEvent.stringValue, selection: {
+                        actionEvent.action(nc)
+                    }, accessory: .disclosureIndicator)
+                } else {
+                    return Row()
                 }
             })
         ]
@@ -103,7 +117,7 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
     @objc
     func cancelAction() {
         var event = LogEvent(method: .cancelCollectPaymentMethod)
-        self.events.append(event)
+        self.events.append(.log(event))
         cancelable?.cancel { error in
             if let error = error {
                 event.result = .errored
@@ -112,7 +126,7 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
                 event.result = .succeeded
                 self.dismiss(animated: true, completion: nil)
             }
-            self.events.append(event)
+            self.events.append(.log(event))
         }
     }
 
@@ -125,13 +139,13 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
     func terminal(_ terminal: Terminal, didReportReaderEvent event: ReaderEvent, info: [AnyHashable: Any]?) {
         var logEvent = LogEvent(method: .reportReaderEvent)
         logEvent.result = .message(Terminal.stringFromReaderEvent(event))
-        events.append(logEvent)
+        self.events.append(.log(logEvent))
     }
 
     func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
         var logEvent = LogEvent(method: .reportReaderEvent)
         logEvent.result = .message("Disconnected from reader: \(reader.serialNumber)")
-        events.append(logEvent)
+        self.events.append(.log(logEvent))
         presentAlert(title: "Reader disconnected!", message: "")
     }
 
@@ -139,12 +153,12 @@ class EventDisplayingViewController: TableViewController, TerminalDelegate, Read
     func terminal(_ terminal: Terminal, didRequestReaderInput inputOptions: ReaderInputOptions) {
         var event = LogEvent(method: .requestReaderInput)
         event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
-        events.append(event)
+        self.events.append(.log(event))
     }
 
     func terminal(_ terminal: Terminal, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         var event = LogEvent(method: .requestReaderDisplayMessage)
         event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
-        events.append(event)
+        self.events.append(.log(event))
     }
 }
