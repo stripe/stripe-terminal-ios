@@ -289,8 +289,13 @@
             <h1>SCPError</h1>
               <div class="declaration">
                 <div class="language">
-                  
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPError</span> <span class="p">{}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span><span class="o">.</span><span class="n">_ErrorType</span> <span class="o">=</span> <span class="kt">ErrorCode</span></code></pre>
 
                 </div>
               </div>
@@ -330,6 +335,11 @@ another command.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBusy</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">busy</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -355,6 +365,11 @@ another command.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCancelFailedAlreadyCompleted</span> <span class="o">=</span> <span class="mi">1010</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cancelFailedAlreadyCompleted</span> <span class="o">=</span> <span class="mi">1010</span></code></pre>
 
                         </div>
                       </div>
@@ -384,6 +399,11 @@ another command.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNotConnectedToReader</span> <span class="o">=</span> <span class="mi">1100</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notConnectedToReader</span> <span class="o">=</span> <span class="mi">1100</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -409,6 +429,11 @@ another command.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorAlreadyConnectedToReader</span> <span class="o">=</span> <span class="mi">1110</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">alreadyConnectedToReader</span> <span class="o">=</span> <span class="mi">1110</span></code></pre>
 
                         </div>
                       </div>
@@ -440,6 +465,11 @@ a connection token or an error.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectionTokenProviderCompletedWithNothing</span> <span class="o">=</span> <span class="mi">1510</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionTokenProviderCompletedWithNothing</span> <span class="o">=</span> <span class="mi">1510</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -466,6 +496,11 @@ You must process a payment immediately after collecting a payment method.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorProcessInvalidPaymentIntent</span> <span class="o">=</span> <span class="mi">1530</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">processInvalidPaymentIntent</span> <span class="o">=</span> <span class="mi">1530</span></code></pre>
 
                         </div>
                       </div>
@@ -495,6 +530,11 @@ You must process a payment immediately after collecting a payment method.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNilPaymentIntent</span> <span class="o">=</span> <span class="mi">1540</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilPaymentIntent</span> <span class="o">=</span> <span class="mi">1540</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -521,6 +561,11 @@ beforehand.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNilRefundPaymentMethod</span> <span class="o">=</span> <span class="mi">1550</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilRefundPaymentMethod</span> <span class="o">=</span> <span class="mi">1550</span></code></pre>
 
                         </div>
                       </div>
@@ -552,6 +597,11 @@ your backend.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidRefundParameters</span> <span class="o">=</span> <span class="mi">1555</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRefundParameters</span> <span class="o">=</span> <span class="mi">1555</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -577,6 +627,11 @@ your backend.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidClientSecret</span> <span class="o">=</span> <span class="mi">1560</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidClientSecret</span> <span class="o">=</span> <span class="mi">1560</span></code></pre>
 
                         </div>
                       </div>
@@ -609,6 +664,11 @@ and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connect
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorMustBeDiscoveringToConnect</span> <span class="o">=</span> <span class="mi">1570</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mustBeDiscoveringToConnect</span> <span class="o">=</span> <span class="mi">1570</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -636,6 +696,11 @@ discovery session is not supported.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCannotConnectToUndiscoveredReader</span> <span class="o">=</span> <span class="mi">1580</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cannotConnectToUndiscoveredReader</span> <span class="o">=</span> <span class="mi">1580</span></code></pre>
 
                         </div>
                       </div>
@@ -676,6 +741,11 @@ location filtering.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidDiscoveryConfiguration</span> <span class="o">=</span> <span class="mi">1590</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidDiscoveryConfiguration</span> <span class="o">=</span> <span class="mi">1590</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -701,6 +771,11 @@ location filtering.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidCart</span> <span class="o">=</span> <span class="mi">1600</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidCart</span> <span class="o">=</span> <span class="mi">1600</span></code></pre>
 
                         </div>
                       </div>
@@ -732,6 +807,11 @@ your app support displaying messages from the reader to your user.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNilReaderDisplayDelegate</span> <span class="o">=</span> <span class="mi">1850</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilReaderDisplayDelegate</span> <span class="o">=</span> <span class="mi">1850</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -757,6 +837,11 @@ your app support displaying messages from the reader to your user.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNilUpdate</span> <span class="o">=</span> <span class="mi">1860</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilUpdate</span> <span class="o">=</span> <span class="mi">1860</span></code></pre>
 
                         </div>
                       </div>
@@ -794,6 +879,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -821,6 +911,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="o">=</span> <span class="mi">1880</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">featureNotAvailableWithConnectedReader</span> <span class="o">=</span> <span class="mi">1880</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -846,6 +941,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCanceled</span> <span class="o">=</span> <span class="mi">2020</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">canceled</span> <span class="o">=</span> <span class="mi">2020</span></code></pre>
 
                         </div>
                       </div>
@@ -881,6 +981,11 @@ assuming there is an update app version with a supported version of our SDK.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorLocationServicesDisabled</span> <span class="o">=</span> <span class="mi">2200</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">locationServicesDisabled</span> <span class="o">=</span> <span class="mi">2200</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -910,6 +1015,11 @@ a different error (<code><a href="../Enums/SCPError.html#/c:@E@SCPError@SCPError
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothDisabled</span> <span class="o">=</span> <span class="mi">2320</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothDisabled</span> <span class="o">=</span> <span class="mi">2320</span></code></pre>
 
                         </div>
                       </div>
@@ -944,6 +1054,11 @@ a different error (<code><a href="../Enums/SCPError.html#/c:@E@SCPError@SCPError
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothScanTimedOut</span> <span class="o">=</span> <span class="mi">2330</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothScanTimedOut</span> <span class="o">=</span> <span class="mi">2330</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -970,6 +1085,11 @@ iOS device that supports BLE (also known as Bluetooth 4.0)</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothLowEnergyUnsupported</span> <span class="o">=</span> <span class="mi">2340</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothLowEnergyUnsupported</span> <span class="o">=</span> <span class="mi">2340</span></code></pre>
 
                         </div>
                       </div>
@@ -1000,6 +1120,11 @@ too low. Charge the reader before trying again.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedBatteryLow</span> <span class="o">=</span> <span class="mi">2650</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedBatteryLow</span> <span class="o">=</span> <span class="mi">2650</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1025,6 +1150,11 @@ too low. Charge the reader before trying again.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedInterrupted</span> <span class="o">=</span> <span class="mi">2660</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedInterrupted</span> <span class="o">=</span> <span class="mi">2660</span></code></pre>
 
                         </div>
                       </div>
@@ -1054,6 +1184,11 @@ too low. Charge the reader before trying again.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCardInsertNotRead</span> <span class="o">=</span> <span class="mi">2810</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardInsertNotRead</span> <span class="o">=</span> <span class="mi">2810</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1079,6 +1214,11 @@ too low. Charge the reader before trying again.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCardSwipeNotRead</span> <span class="o">=</span> <span class="mi">2820</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardSwipeNotRead</span> <span class="o">=</span> <span class="mi">2820</span></code></pre>
 
                         </div>
                       </div>
@@ -1108,6 +1248,11 @@ too low. Charge the reader before trying again.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCardReadTimedOut</span> <span class="o">=</span> <span class="mi">2830</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardReadTimedOut</span> <span class="o">=</span> <span class="mi">2830</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1133,6 +1278,11 @@ too low. Charge the reader before trying again.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCardRemoved</span> <span class="o">=</span> <span class="mi">2840</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardRemoved</span> <span class="o">=</span> <span class="mi">2840</span></code></pre>
 
                         </div>
                       </div>
@@ -1169,6 +1319,11 @@ with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorCardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1194,6 +1349,11 @@ with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderBusy</span> <span class="o">=</span> <span class="mi">3010</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerBusy</span> <span class="o">=</span> <span class="mi">3010</span></code></pre>
 
                         </div>
                       </div>
@@ -1229,6 +1389,11 @@ iOS SDK with one of Stripe&rsquo;s pre-certified readers.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorIncompatibleReader</span> <span class="o">=</span> <span class="mi">3030</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">incompatibleReader</span> <span class="o">=</span> <span class="mi">3030</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1254,6 +1419,11 @@ iOS SDK with one of Stripe&rsquo;s pre-certified readers.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderCommunicationError</span> <span class="o">=</span> <span class="mi">3060</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerCommunicationError</span> <span class="o">=</span> <span class="mi">3060</span></code></pre>
 
                         </div>
                       </div>
@@ -1286,6 +1456,11 @@ to use Bluetooth (iOS 13+).</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothError</span> <span class="o">=</span> <span class="mi">3200</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothError</span> <span class="o">=</span> <span class="mi">3200</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1315,6 +1490,11 @@ error continues to occur, you may need to charge the device.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothConnectTimedOut</span> <span class="o">=</span> <span class="mi">3210</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothConnectTimedOut</span> <span class="o">=</span> <span class="mi">3210</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1342,6 +1522,11 @@ error continues to occur, you may need to charge the device.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothDisconnected</span> <span class="o">=</span> <span class="mi">3230</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothDisconnected</span> <span class="o">=</span> <span class="mi">3230</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1367,6 +1552,11 @@ error continues to occur, you may need to charge the device.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailed</span> <span class="o">=</span> <span class="mi">3800</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailed</span> <span class="o">=</span> <span class="mi">3800</span></code></pre>
 
                         </div>
                       </div>
@@ -1397,6 +1587,11 @@ communicating with the reader.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedReaderError</span> <span class="o">=</span> <span class="mi">3830</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedReaderError</span> <span class="o">=</span> <span class="mi">3830</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1423,6 +1618,11 @@ communicating with the update server.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedServerError</span> <span class="o">=</span> <span class="mi">3840</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedServerError</span> <span class="o">=</span> <span class="mi">3840</span></code></pre>
 
                         </div>
                       </div>
@@ -1466,6 +1666,11 @@ update the reader via the update flow that you have implemented using
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1500,6 +1705,11 @@ registration of the reader. Try registering the reader again.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorUnknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1532,6 +1742,11 @@ Wifi network.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInternetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
 
                         </div>
                       </div>
@@ -1572,6 +1787,11 @@ reader.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1597,6 +1817,11 @@ reader.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorUnexpectedSdkError</span> <span class="o">=</span> <span class="mi">5000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedSdkError</span> <span class="o">=</span> <span class="mi">5000</span></code></pre>
 
                         </div>
                       </div>
@@ -1628,6 +1853,11 @@ the decline, including the decline code.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorPaymentDeclinedByStripeAPI</span> <span class="o">=</span> <span class="mi">6000</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">paymentDeclinedByStripeAPI</span> <span class="o">=</span> <span class="mi">6000</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1653,6 +1883,11 @@ the decline, including the decline code.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorPaymentDeclinedByReader</span> <span class="o">=</span> <span class="mi">6500</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">paymentDeclinedByReader</span> <span class="o">=</span> <span class="mi">6500</span></code></pre>
 
                         </div>
                       </div>
@@ -1683,6 +1918,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorRefundFailed</span> <span class="o">=</span> <span class="mi">6800</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">refundFailed</span> <span class="o">=</span> <span class="mi">6800</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1708,6 +1948,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorNotConnectedToInternet</span> <span class="o">=</span> <span class="mi">9000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notConnectedToInternet</span> <span class="o">=</span> <span class="mi">9000</span></code></pre>
 
                         </div>
                       </div>
@@ -1737,6 +1982,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorRequestTimedOut</span> <span class="o">=</span> <span class="mi">9010</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestTimedOut</span> <span class="o">=</span> <span class="mi">9010</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1762,6 +2012,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorStripeAPIError</span> <span class="o">=</span> <span class="mi">9020</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeAPIError</span> <span class="o">=</span> <span class="mi">9020</span></code></pre>
 
                         </div>
                       </div>
@@ -1791,6 +2046,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorStripeAPIResponseDecodingError</span> <span class="o">=</span> <span class="mi">9030</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeAPIResponseDecodingError</span> <span class="o">=</span> <span class="mi">9030</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1816,6 +2076,11 @@ it correctly (e.g., a closed bank account or a problem with the card)</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorInternalNetworkError</span> <span class="o">=</span> <span class="mi">9040</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalNetworkError</span> <span class="o">=</span> <span class="mi">9040</span></code></pre>
 
                         </div>
                       </div>
@@ -1844,6 +2109,11 @@ called the completion block with an error.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectionTokenProviderCompletedWithError</span> <span class="o">=</span> <span class="mi">9050</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionTokenProviderCompletedWithError</span> <span class="o">=</span> <span class="mi">9050</span></code></pre>
 
                         </div>
                       </div>
@@ -1895,6 +2165,11 @@ to disconnect manually by turning the reader off.</p>
                           <pre class="highlight objective_c"><code><span class="n">SCPErrorSessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1907,8 +2182,8 @@ to disconnect manually by turning the reader off.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-09-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

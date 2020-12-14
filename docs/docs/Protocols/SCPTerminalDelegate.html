@@ -289,8 +289,13 @@
             <h1>SCPTerminalDelegate</h1>
               <div class="declaration">
                 <div class="language">
-                  
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPTerminalDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">TerminalDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
 
                 </div>
               </div>
@@ -338,6 +343,11 @@ disconnected reader, or display UI for your user to re-connect to a reader.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
     <span class="nf">didReportUnexpectedReaderDisconnect</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didReportUnexpectedReaderDisconnect</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -405,6 +415,11 @@ connected to the Verifone P400.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
     <span class="nf">didReportReaderEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a></span><span class="p">)</span><span class="nv">event</span>
                     <span class="nf">info</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">info</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didReportReaderEvent</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">ReaderEvent</span><span class="p">,</span> <span class="nv">info</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span></code></pre>
 
                         </div>
                       </div>
@@ -483,6 +498,11 @@ The SDK will not call this method while connected to the Verifone P400.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminalDidReportLowBatteryWarning</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminalDidReportLowBatteryWarning</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -534,6 +554,11 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
     <span class="nf">didChangeConnectionStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didChangeConnectionStatus</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">ConnectionStatus</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -595,6 +620,11 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
     <span class="nf">didChangePaymentStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didChangePaymentStatus</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">PaymentStatus</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -638,8 +668,8 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-09-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

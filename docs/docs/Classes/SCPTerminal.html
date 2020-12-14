@@ -289,9 +289,14 @@
             <h1>SCPTerminal</h1>
               <div class="declaration">
                 <div class="language">
-                  
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPTerminal</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Terminal</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -371,6 +376,11 @@ Terminal instance.</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">hasTokenProvider</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">hasTokenProvider</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -407,6 +417,11 @@ the block you provide may be called from any thread.</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLogListener</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a></span><span class="p">)</span><span class="nv">listener</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">setLogListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">LogListenerBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -435,6 +450,11 @@ the block you provide may be called from any thread.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">SCPTerminal</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">shared</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">Terminal</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -493,6 +513,11 @@ the block you provide may be called from any thread.</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="n">connectedReader</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectedReader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -518,6 +543,11 @@ the block you provide may be called from any thread.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span> <span class="n">connectionStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectionStatus</span><span class="p">:</span> <span class="kt">ConnectionStatus</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -547,6 +577,11 @@ the block you provide may be called from any thread.</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPLogLevel.html">SCPLogLevel</a></span> <span class="n">logLevel</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">logLevel</span><span class="p">:</span> <span class="kt">LogLevel</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -572,6 +607,11 @@ the block you provide may be called from any thread.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span> <span class="n">paymentStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentStatus</span><span class="p">:</span> <span class="kt">PaymentStatus</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -624,6 +664,11 @@ new connection token when you call <code>connect</code> again.</li>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearCachedCredentials</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearCachedCredentials</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -769,6 +814,11 @@ documentation for more details.</p>
            <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -843,6 +893,11 @@ Please see above docs for functionality.</p>
            <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -876,6 +931,11 @@ disconnect fails, the completion block is called with an error.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disconnectReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -919,7 +979,7 @@ disconnect fails, the completion block is called with an error.</p>
 <p>Note: If the information required to create a PaymentIntent isn&rsquo;t readily
 available in your app, you can create the PaymentIntent on your server and use
 the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in your app.</p>
-<pre class="highlight objective_c"><code><span class="k">-</span> <span class="nf">note</span><span class="p">:</span> <span class="n">This</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span> <span class="n">Verifone</span> <span class="n">P400</span> <span class="n">reader</span><span class="p">.</span>  <span class="n">If</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="o">-</span> <span class="nf">note</span><span class="p">:</span> <span class="n">This</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span> <span class="n">Verifone</span> <span class="n">P400</span> <span class="n">reader</span><span class="p">.</span>  <span class="n">If</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span>
 <span class="n">Verifone</span> <span class="n">P400</span><span class="p">,</span> <span class="n">the</span> <span class="n">completion</span> <span class="n">handler</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="n">with</span>
 <span class="n">an</span> <span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="n">error</span><span class="p">.</span>
 </code></pre>
@@ -936,6 +996,11 @@ the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in y
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createPaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">parameters</span>
                  <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1005,6 +1070,11 @@ method to retrieve the PaymentIntent in your app.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">retrievePaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
                    <span class="nf">completion</span><span class="p">:</span>
                        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrievePaymentIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1086,6 +1156,11 @@ called with a <code>Canceled</code> error.</p>
     <span class="nf">collectPaymentMethod</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
                 <span class="nf">delegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
               <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectPaymentMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">ReaderDisplayDelegate</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -1195,6 +1270,11 @@ updated PaymentIntent to try charging another card.</p></li>
             <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ProcessPaymentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -1267,6 +1347,11 @@ an SCPErrorFeatureNotAvailableWithConnectedReader error.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancelPaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
                  <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1360,6 +1445,11 @@ type <code>verifoneP400</code> or <code>wisePad3</code>.</p>
     <span class="nf">readReusableCard</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">parameters</span>
             <span class="nf">delegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
           <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">readReusableCard</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">ReaderDisplayDelegate</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentMethodCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -1465,6 +1555,11 @@ will be called with a <code>Canceled</code> error.</p>
                     <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectRefundPaymentMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">refundParams</span><span class="p">:</span> <span class="kt">RefundParameters</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -1550,6 +1645,11 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processRefund</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processRefund</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ProcessRefundCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -1621,6 +1721,11 @@ connected to the Verifone P400.</p>
     <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkForUpdate</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderSoftwareUpdateCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -1671,6 +1776,11 @@ completes.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">clearReaderDisplay</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1725,6 +1835,11 @@ actually charged. Tax and total are also not automatically calculated and must b
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setReaderDisplay</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPCart.html">SCPCart</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cart</span>
               <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPCart.html">SCPCart</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1887,6 +2002,11 @@ P400 reader.</p>
     <span class="p">(</span><span class="n"><a href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a></span><span class="p">)</span><span class="nv">options</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderInputOptions</span><span class="p">(</span><span class="n">_</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">ReaderInputOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1914,6 +2034,11 @@ P400 reader.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderDisplayMessage</span><span class="p">:</span>
     <span class="p">(</span><span class="n"><a href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a></span><span class="p">)</span><span class="nv">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderDisplayMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">ReaderDisplayMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1944,6 +2069,11 @@ P400 reader.</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a></span><span class="p">)</span><span class="nv">event</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">ReaderEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1970,6 +2100,11 @@ P400 reader.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromConnectionStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromConnectionStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">ConnectionStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -2000,6 +2135,11 @@ P400 reader.</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromPaymentStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromPaymentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">PaymentStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -2027,6 +2167,11 @@ P400 reader.</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromDeviceType</span><span class="p">(</span><span class="n">_</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -2052,6 +2197,11 @@ P400 reader.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromDiscoveryMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">method</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromDiscoveryMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -2128,8 +2278,8 @@ P400 reader.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-09-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
