@@ -328,6 +328,11 @@ and ultimately creates at most one successful charge.</p>
 <span class="k">@interface</span> <span class="nc">SCPPaymentIntent</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="p">,</span> <span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PaymentIntent</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -362,6 +367,11 @@ and ultimately creates at most one successful charge.</p>
 <span class="k">@interface</span> <span class="nc">SCPPaymentIntentParameters</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PaymentIntentParameters</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -390,6 +400,11 @@ and ultimately creates at most one successful charge.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPPaymentIntentStatus</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">PaymentIntentStatus</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
 
                         </div>
                       </div>
@@ -460,6 +475,11 @@ payment method.</p>
 <span class="k">@interface</span> <span class="nc">SCPCardPresentDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CardPresentDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -492,6 +512,11 @@ payment method.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPReceiptDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ReceiptDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
 
                         </div>
                       </div>
@@ -528,6 +553,11 @@ payment method.</p>
 <span class="k">@interface</span> <span class="nc">SCPProcessPaymentError</span> <span class="p">:</span> <span class="nc">NSError</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProcessPaymentError</span> <span class="p">:</span> <span class="kt">NSError</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -559,6 +589,11 @@ payment method.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPCardBrand</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CardBrand</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -594,6 +629,11 @@ payment method.</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPCardFundingType</span> <span class="p">{}</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CardFundingType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -627,6 +667,11 @@ payment method.</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPCharge</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPCharge</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -653,6 +698,11 @@ payment method.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPChargeStatus</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ChargeStatus</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
 
                         </div>
                       </div>
@@ -690,6 +740,11 @@ and only exists as a sub-object of another Stripe object.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPPaymentMethodDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPPaymentMethodDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
 
                         </div>
                       </div>
@@ -740,6 +795,11 @@ present transactions.</p>
 <span class="k">@interface</span> <span class="nc">SCPReadReusableCardParameters</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ReadReusableCardParameters</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -772,6 +832,11 @@ present transactions.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPCardDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CardDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
 
                         </div>
                       </div>
@@ -814,6 +879,11 @@ to Customer objects to store instrument details for future payments.</p>
 <span class="k">@interface</span> <span class="nc">SCPPaymentMethod</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PaymentMethod</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -845,6 +915,11 @@ to Customer objects to store instrument details for future payments.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPPaymentMethodType</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">SCPPaymentMethodType</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
 
                         </div>
                       </div>
@@ -898,6 +973,11 @@ all other refunds, use the Stripe Dashboard or the Stripe API.</p>
 <span class="k">@interface</span> <span class="nc">SCPRefund</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Refund</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -930,6 +1010,11 @@ all other refunds, use the Stripe Dashboard or the Stripe API.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPRefundParameters</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">RefundParameters</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -966,6 +1051,11 @@ all other refunds, use the Stripe Dashboard or the Stripe API.</p>
 <span class="k">@interface</span> <span class="nc">SCPProcessRefundError</span> <span class="p">:</span> <span class="nc">NSError</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProcessRefundError</span> <span class="p">:</span> <span class="kt">NSError</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -999,6 +1089,11 @@ all other refunds, use the Stripe Dashboard or the Stripe API.</p>
                           <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPRefundStatus</span> <span class="p">{}</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">RefundStatus</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1011,8 +1106,8 @@ all other refunds, use the Stripe Dashboard or the Stripe API.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-09-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

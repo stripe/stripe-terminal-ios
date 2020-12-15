@@ -289,9 +289,14 @@
             <h1>SCPDiscoveryConfiguration</h1>
               <div class="declaration">
                 <div class="language">
-                  
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code>
 <span class="k">@interface</span> <span class="nc">SCPDiscoveryConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DiscoveryConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -340,6 +345,11 @@ the default discovery method for the device type.</p>
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span>
                                  <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -419,6 +429,11 @@ If the specified configuration is invalid, <code>discoverReaders</code> will fai
                                  <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -495,6 +510,11 @@ for that method will be discovered.</p>
                                       <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -558,6 +578,11 @@ for that method will be discovered.</p>
                             <span class="p">(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">discoveryMethod</span>
                                      <span class="nf">locationId</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">locationId</span>
                                       <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -660,6 +685,11 @@ combinations are allowed:</p>
                                  <span class="nf">simulated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">,</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">,</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Parameters</h4>
@@ -753,6 +783,11 @@ a timeout when using these configurations, the timeout will be ignored.</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">timeout</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -785,6 +820,11 @@ a timeout when using these configurations, the timeout will be ignored.</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span> <span class="n">deviceType</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -810,6 +850,11 @@ a timeout when using these configurations, the timeout will be ignored.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span> <span class="n">discoveryMethod</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">discoveryMethod</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -843,6 +888,11 @@ end-to-end, from pairing with a reader to taking payments.</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">simulated</span><span class="p">;</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">simulated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -870,6 +920,11 @@ to VerifoneP400 readers.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">locationId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -946,8 +1001,8 @@ to VerifoneP400 readers.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-09-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
