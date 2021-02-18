@@ -2,9 +2,18 @@
   "commitish" : "v4.0.0",
   "iOS" : [
     {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "ca7f4b90aca81d2a358ee7c7fff79afab412b7192ae44296e3a1534ec027f71c",
       "name" : "Static",
-      "hash" : "4430fce736e075743602cfd88b891539acf2bb1f66334cc91353aae7dd2c1ad6",
-      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
+      "container" : "Static.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "2113f7d4404c7d181d376c6c00106879b603a5b189c9d845501438b42091a4a5",
+      "name" : "Static",
+      "container" : "Static.xcframework",
+      "identifier" : "ios-arm64_armv7"
     }
   ]
 }

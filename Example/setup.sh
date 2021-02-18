@@ -13,6 +13,6 @@ if ! command -v carthage > /dev/null; then
   exit 1;
 fi
 
-carthage update --platform ios --no-use-binaries;
+carthage update --platform ios --no-use-binaries --use-xcframeworks;
 
 echo '▸ Finished installing dependencies for Example.xcodeproj';

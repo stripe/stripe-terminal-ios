@@ -15,7 +15,7 @@ To build the example app from source, you'll need to:
 3. In `AppDelegate.swift`, set the URL of the Heroku app you just deployed.
 3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
-Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
+Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 5.3. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
 
 For a more fully-featured example, see our Stripe Sample with Terminal on iOS: the [Rocket Rides Pilot App](https://github.com/stripe-samples/sample-terminal-ios-app).
 

@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02370F5C244C94D00056D896 /* CancelableViewController.swift */; };
+		02A96CFE25DF2D56005B1FA1 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CFB25DF2D50005B1FA1 /* Alamofire.xcframework */; };
+		02A96CFF25DF2D56005B1FA1 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CFB25DF2D50005B1FA1 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A96D0025DF2D58005B1FA1 /* Static.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CFA25DF2D50005B1FA1 /* Static.xcframework */; };
+		02A96D0125DF2D58005B1FA1 /* Static.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CFA25DF2D50005B1FA1 /* Static.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A96D0225DF2D59005B1FA1 /* StripeTerminal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CF825DF2D42005B1FA1 /* StripeTerminal.xcframework */; };
+		02A96D0325DF2D59005B1FA1 /* StripeTerminal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A96CF825DF2D42005B1FA1 /* StripeTerminal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DA8E3A24532E4900235921 /* TerminalDelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* TerminalDelegateAnnouncer.swift */; };
 		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
 		241B90F9249027DE0083C908 /* ReaderRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */; };
@@ -19,8 +25,6 @@
 		25CB2CF724941F8D0018535C /* StartSetReaderDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
 		B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C24C6B23285BF6003271BD /* ifaddrs.swift */; };
-		C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; };
-		C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C106AD1921485AD300EB471C /* StripeTerminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
 		C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */; };
 		C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */; };
@@ -31,14 +35,10 @@
 		C16F40A82094F07C009CE87C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		C16F40AB2094F07C009CE87C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A92094F07C009CE87C /* LaunchScreen.storyboard */; };
 		C16F40BC2094F0A1009CE87C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16F40B52094F0A1009CE87C /* RootViewController.swift */; };
-		C16F40E72094F208009CE87C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E52094F208009CE87C /* Alamofire.framework */; };
-		C16F40E82094F208009CE87C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16F40E52094F208009CE87C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1B4BCA421423D8600E2ECE6 /* ReaderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */; };
 		C1B4BCA82142515D00E2ECE6 /* StartPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */; };
 		C1B4BCAA2142596400E2ECE6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */; };
 		C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D3A023214208800095A07B /* ReaderViewController.swift */; };
-		C1D3A026214209050095A07B /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D3A025214209050095A07B /* Static.framework */; };
-		C1D3A0272142090D0095A07B /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1D3A025214209050095A07B /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1D7649421001086000A4B94 /* ReaderDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */; };
 		C1DE30D521438E9900A3026F /* LogEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30CF21438E9800A3026F /* LogEventViewController.swift */; };
 		C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */; };
@@ -53,9 +53,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C1D3A0272142090D0095A07B /* Static.framework in Embed Frameworks */,
-				C16F40E82094F208009CE87C /* Alamofire.framework in Embed Frameworks */,
-				C106AD1B21485AD300EB471C /* StripeTerminal.framework in Embed Frameworks */,
+				02A96D0325DF2D59005B1FA1 /* StripeTerminal.xcframework in Embed Frameworks */,
+				02A96CFF25DF2D56005B1FA1 /* Alamofire.xcframework in Embed Frameworks */,
+				02A96D0125DF2D58005B1FA1 /* Static.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		02370F5C244C94D00056D896 /* CancelableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelableViewController.swift; sourceTree = "<group>"; };
+		02A96CF825DF2D42005B1FA1 /* StripeTerminal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = StripeTerminal.xcframework; sourceTree = "<group>"; };
+		02A96CFA25DF2D50005B1FA1 /* Static.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Static.xcframework; path = Carthage/Build/Static.xcframework; sourceTree = "<group>"; };
+		02A96CFB25DF2D50005B1FA1 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		02DA8E3924532E4900235921 /* TerminalDelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalDelegateAnnouncer.swift; sourceTree = "<group>"; };
 		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
 		241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderRegistrationViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
 		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		C106AD1921485AD300EB471C /* StripeTerminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StripeTerminal.framework; sourceTree = SOURCE_ROOT; };
 		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
 		C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadReusableCardViewController.swift; sourceTree = "<group>"; };
@@ -89,12 +91,10 @@
 		C16F40AA2094F07C009CE87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C16F40AC2094F07C009CE87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C16F40B52094F0A1009CE87C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		C16F40E52094F208009CE87C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C1B4BCA321423D8600E2ECE6 /* ReaderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderHeaderView.swift; sourceTree = "<group>"; };
 		C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPaymentViewController.swift; sourceTree = "<group>"; };
 		C1B4BCA92142596400E2ECE6 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		C1D3A023214208800095A07B /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
-		C1D3A025214209050095A07B /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		C1D7649321001086000A4B94 /* ReaderDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderDiscoveryViewController.swift; sourceTree = "<group>"; };
 		C1DE30CF21438E9800A3026F /* LogEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEventViewController.swift; sourceTree = "<group>"; };
 		C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1D3A026214209050095A07B /* Static.framework in Frameworks */,
-				C16F40E72094F208009CE87C /* Alamofire.framework in Frameworks */,
-				C106AD1A21485AD300EB471C /* StripeTerminal.framework in Frameworks */,
+				02A96D0225DF2D59005B1FA1 /* StripeTerminal.xcframework in Frameworks */,
+				02A96CFE25DF2D56005B1FA1 /* Alamofire.xcframework in Frameworks */,
+				02A96D0025DF2D58005B1FA1 /* Static.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,11 +119,11 @@
 		C16F40942094F07B009CE87C = {
 			isa = PBXGroup;
 			children = (
-				C16F40E52094F208009CE87C /* Alamofire.framework */,
+				02A96CF825DF2D42005B1FA1 /* StripeTerminal.xcframework */,
+				02A96CFB25DF2D50005B1FA1 /* Alamofire.xcframework */,
+				02A96CFA25DF2D50005B1FA1 /* Static.xcframework */,
 				C16F409F2094F07B009CE87C /* Example */,
 				C16F409E2094F07B009CE87C /* Products */,
-				C1D3A025214209050095A07B /* Static.framework */,
-				C106AD1921485AD300EB471C /* StripeTerminal.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,7 +204,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = Stripe;
 				TargetAttributes = {
 					C16F409C2094F07B009CE87C = {
@@ -430,7 +430,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -443,12 +444,14 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
@@ -465,12 +468,14 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
