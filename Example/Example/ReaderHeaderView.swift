@@ -73,6 +73,12 @@ class ReaderHeaderView: UIView {
         imageView.heightAnchor.constraint(equalToConstant: hardcodedImageViewHeight).isActive = true
 
         updateContent()
+
+        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+    }
+
+    deinit {
+        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -82,6 +88,9 @@ class ReaderHeaderView: UIView {
     func updateContent() {
         func setUIForReader(_ reader: Reader) {
             switch reader.deviceType {
+            case .stripeM2:
+                titleLabel.text = "Stripe M2 \(reader.serialNumber)"
+                imageView.image = UIImage(named: "stripe_m2")
             case .chipper2X:
                 titleLabel.text = "Chipper 2X \(reader.serialNumber)"
                 imageView.image = UIImage(named: "chipper")
@@ -101,19 +110,31 @@ class ReaderHeaderView: UIView {
         }
 
         func displayConnectionStatus(inLabel label: UILabel, reader: Reader?, status: ConnectionStatus) {
+            var subtitleStrings = [String]()
             switch status {
             case .notConnected:
                 // handled above when connectedReader == nil
                 break
             case .connecting:
-                label.text = "Connecting"
+                subtitleStrings.append("Connecting")
             case .connected where connectedReader?.simulated ?? false:
-                label.text = "Connected, simulated"
+                subtitleStrings.append("Connected, simulated")
             case .connected:
-                label.text = "Connected"
+                subtitleStrings.append("Connected")
+                if let locationName = reader?.location?.displayName {
+                    subtitleStrings.append(locationName)
+                } else if let locationId = reader?.locationId, !locationId.isEmpty {
+                    subtitleStrings.append(locationId)
+                }
             @unknown default:
-                label.text = "\(status)"
+                subtitleStrings.append("\(status)")
             }
+
+            if let battery = reader?.batteryLevel, let isCharging = reader?.isCharging?.boolValue {
+                subtitleStrings.append("\(isCharging ? "🔌" : "🔋") \(Int(battery.doubleValue * 100.0))%")
+            }
+
+            label.text = subtitleStrings.joined(separator: " – ")
         }
 
         if let reader = connectedReader {
@@ -129,5 +150,18 @@ class ReaderHeaderView: UIView {
 
         displayConnectionStatus(inLabel: subtitleLabel, reader: connectedReader, status: connectionStatus)
     }
+}
 
+extension ReaderHeaderView: BluetoothReaderDelegate {
+    func reader(_ reader: Reader, didReportBatteryLevel batteryLevel: Float, status: BatteryStatus, isCharging: Bool) {
+        updateContent()
+    }
+
+    // Intentionally blank - only interested in battery status changes
+    func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {}
+    func reader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {}
+    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {}
+    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {}
+    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {}
+    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {}
 }

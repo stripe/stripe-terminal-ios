@@ -17,7 +17,7 @@ class StartSetReaderDisplayViewController: TableViewController {
     private let currencyView = CurrencyInputView()
     private var setReaderDisplaySection: Section?
 
-    private var lineItems = [SCPCartLineItem]()
+    private var lineItems = [CartLineItem]()
 
     lazy var taxSection = Section(header: Section.Extremity.title("Tax: \(self.taxView.amountString)"), rows: [],
                              footer: Section.Extremity.autoLayoutView(taxView))
@@ -33,17 +33,17 @@ class StartSetReaderDisplayViewController: TableViewController {
         self.addKeyboardDisplayObservers()
         title = "Set Reader Display"
 
-        totalView.onAmountUpdated = { amountString in
+        totalView.onAmountUpdated = { [unowned self] amountString in
             self.totalSection.header = Section.Extremity.title("Total: \(amountString)")
             self.updateContent()
         }
 
-        taxView.onAmountUpdated = { amountString in
+        taxView.onAmountUpdated = { [unowned self] amountString in
             self.taxSection.header = Section.Extremity.title("Tax: \(amountString)")
             self.updateContent()
         }
 
-        currencyView.onCurrencyUpdated = { currencyString in
+        currencyView.onCurrencyUpdated = { [unowned self] currencyString in
             self.totalView.numberFormatter.currencyCode = currencyString
             self.taxView.numberFormatter.currencyCode = currencyString
             self.updateContent()
@@ -53,7 +53,7 @@ class StartSetReaderDisplayViewController: TableViewController {
         footerString = "Send the cart to be displayed on the reader. This is not indicitive of what the user will be charged, only what will be displayed."
 
         self.setReaderDisplaySection = Section(header: nil, rows: [
-            Row(text: "Set Reader Display", selection: {
+            Row(text: "Set Reader Display", selection: { [unowned self] in
                 self.startSetReaderDisplay()
             }, cellClass: ButtonCell.self),
         ], footer: Section.Extremity.title(footerString))
@@ -71,13 +71,15 @@ class StartSetReaderDisplayViewController: TableViewController {
     }
 
     internal func startSetReaderDisplay() {
-        let cart = SCPCart(currency: currencyView.currency, tax: Int(taxView.amount), total: Int(totalView.amount))
+        let cart = Cart(currency: currencyView.currency, tax: Int(taxView.amount), total: Int(totalView.amount))
         guard let lineItems = (lineItems as NSArray).mutableCopy() as? NSMutableArray else {
             return
         }
         cart.lineItems = lineItems
 
-        Terminal.shared.setReaderDisplay(cart) { (error) in
+        Terminal.shared.setReaderDisplay(cart) { [weak self] error in
+            guard let self = self else { return }
+
             if let error = error {
                 self.presentAlert(error: error)
             } else {
@@ -87,7 +89,9 @@ class StartSetReaderDisplayViewController: TableViewController {
     }
 
     internal func clearReaderDisplay() {
-        Terminal.shared.clearReaderDisplay { (error) in
+        Terminal.shared.clearReaderDisplay { [weak self] error in
+            guard let self = self else { return }
+
             if let error = error {
                 self.presentAlert(error: error)
             } else {
@@ -110,7 +114,7 @@ class StartSetReaderDisplayViewController: TableViewController {
             textField.keyboardType = .numberPad
         }
 
-        let createAction = UIAlertAction(title: "Create", style: UIAlertAction.Style.default, handler: { _ -> Void in
+        let createAction = UIAlertAction(title: "Create", style: UIAlertAction.Style.default, handler: { [unowned self] _ -> Void in
             guard let displayNameTextField = alertController.textFields?[0],
                 let priceTextField = alertController.textFields?[1],
                 let quantityTextField = alertController.textFields?[2],
@@ -120,7 +124,7 @@ class StartSetReaderDisplayViewController: TableViewController {
                 return
             }
 
-            let lineItem = SCPCartLineItem(displayName: displayName, quantity: quantity, amount: amount)
+            let lineItem = CartLineItem(displayName: displayName, quantity: quantity, amount: amount)
             self.lineItems.append(lineItem)
             self.updateContent()
         })
@@ -138,20 +142,20 @@ class StartSetReaderDisplayViewController: TableViewController {
 
         var lineItemsRows: [Row] = []
         for lineItem in self.lineItems {
-            let row = Row(text: lineItem.displayName, detailText: "\(lineItem.amount) ×\(lineItem.quantity)", selection: .none, image: nil, accessory: .none, cellClass: SubtitleCell.self, context: nil, editActions: [.init(title: "Delete", style: .normal, backgroundColor: .systemRed, backgroundEffect: nil, selection: { (indexPath) in
+            let row = Row(text: lineItem.displayName, detailText: "\(lineItem.amount) ×\(lineItem.quantity)", selection: .none, image: nil, accessory: .none, cellClass: SubtitleCell.self, context: nil, editActions: [.init(title: "Delete", style: .normal, backgroundColor: .systemRed, backgroundEffect: nil, selection: { [unowned self] (indexPath) in
                 self.lineItems.remove(at: indexPath.row)
                 self.updateContent()
             })])
             lineItemsRows.append(row)
         }
 
-        lineItemsRows.append(Row(text: "+ Add Line Item", selection: {
+        lineItemsRows.append(Row(text: "+ Add Line Item", selection: { [unowned self] in
             self.addLineItem()
         }, cellClass: ButtonCell.self))
         let lineItemsSection = Section(header: "Line Items", rows: lineItemsRows)
 
         let clearReaderDisplaySection = Section(header: nil, rows: [
-            Row(text: "Clear Reader Display", selection: {
+            Row(text: "Clear Reader Display", selection: { [unowned self] in
                 self.clearReaderDisplay()
             }, cellClass: ButtonCell.self),
         ], footer: nil)

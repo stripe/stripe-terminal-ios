@@ -42,41 +42,6 @@ extension UIViewController {
     }
 
     /**
-     Requests a value by presenting an alert view with a text field.
-     `handler` may be called with nil if the entered text can't converted back
-     to the original type. If "Cancel" is selected, `handler` will be called
-     with `currentValue`.
-     TODO: try to remove currentValue in swift 4
-     */
-    func presentValueInput<T>(title: String?, currentValue: T, handler: @escaping (T?) -> Void) where T: LosslessStringConvertible {
-        guard canPresentViewController() else { return }
-
-        // need an instance of T to check its type
-        let value = T("0")
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alertController.addTextField { textField in
-            if value is Int || value is UInt {
-                textField.keyboardType = .numberPad
-            } else if value is Float || value is Double || value is CGFloat {
-                textField.keyboardType = .decimalPad
-            }
-        }
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            guard let text = alertController.textFields?.first?.text else {
-                handler(nil)
-                return
-            }
-            handler(T(text))
-        }
-        alertController.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            handler(nil)
-        })
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
-
-    /**
      Presents the given error using an alert view.
      */
     func presentAlert(error: Error) {

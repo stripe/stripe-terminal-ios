@@ -25,7 +25,7 @@ class StartRefundViewController: TableViewController {
         super.viewDidLoad()
         title = "Collect refund"
 
-        amountView.onAmountUpdated = { amountString in
+        amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
             self.updateContent()
         }
@@ -33,7 +33,7 @@ class StartRefundViewController: TableViewController {
         headerString = "Refund a payment using a physical Interac test card. In-person refunds can only be processed if the payment method requires an in-person refund; if not, use the Stripe API."
 
         self.startSection = Section(header: Section.Extremity.title(self.amountView.amountString), rows: [
-            Row(text: "Collect refund", selection: {
+            Row(text: "Collect refund", selection: { [unowned self] in
                 self.startRefund()
             }, cellClass: ButtonCell.self),
         ], footer: Section.Extremity.title(headerString))
@@ -68,14 +68,23 @@ class StartRefundViewController: TableViewController {
         let amountSection = Section(header: "Amount", rows: [],
                                     footer: Section.Extremity.autoLayoutView(amountView))
 
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true &&
+            [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
+
+        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [],
+                                           footer: Section.Extremity.autoLayoutView(TestCardPickerView()))
+
 
         var sections: [Section] = [
             chargeIdSection,
             amountSection,
-        ]
+            shouldShowTestCardPickerView ? paymentMethodSection : nil
+        ].compactMap { $0 }
+
         if let startSection = self.startSection {
             sections.append(startSection)
         }
+
         dataSource.sections = sections
     }
 }

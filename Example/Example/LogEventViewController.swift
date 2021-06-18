@@ -10,7 +10,14 @@ import UIKit
 import Static
 import StripeTerminal
 
-struct LogEvent: CustomStringConvertible {
+protocol Event {
+    var result: LogEvent.Result { get }
+    var method: LogEvent.Method? { get }
+    var description: String { get }
+    var viewController: UIViewController { get }
+}
+
+struct LogEvent: CustomStringConvertible, Event {
     enum Result: CustomStringConvertible {
         case started
         case succeeded
@@ -47,6 +54,10 @@ struct LogEvent: CustomStringConvertible {
         case processRefund = "terminal.processRefund"
         case setReaderDisplay = "terminal.setReaderDisplay"
         case clearReaderDisplay = "terminal.clearReaderDisplay"
+        case createSetupIntent = "terminal.createSetupIntent"
+        case collectSetupIntentPaymentMethod = "terminal.collectSetupIntentPaymentMethod"
+        case cancelCollectSetupIntentPaymentMethod = "terminal.cancelCollectSetupIntentPaymentMethod"
+        case confirmSetupIntent = "terminal.confirmSetupIntent"
     }
 
     enum AssociatedObject {
@@ -56,10 +67,11 @@ struct LogEvent: CustomStringConvertible {
         case paymentIntent(PaymentIntent)
         case paymentMethod(PaymentMethod)
         case refund(Refund)
+        case setupIntent(SetupIntent)
         case object(CustomStringConvertible)
     }
 
-    let method: Method
+    let method: Method?
     var object: AssociatedObject = .none
     var result: Result = .started
 
@@ -70,6 +82,9 @@ struct LogEvent: CustomStringConvertible {
     /// cell title
     var description: String {
         var string = ""
+        guard let method = self.method else {
+            return "Unknown"
+        }
         switch method {
         case .requestReaderInput,
              .reportReaderEvent,
@@ -174,6 +189,34 @@ struct LogEvent: CustomStringConvertible {
             case .errored: string = "Clear Reader Display Failed"
             case .message(let message): string = message
             }
+        case .createSetupIntent:
+            switch result {
+            case .started: string = "Create SetupIntent"
+            case .succeeded: string = "Created SetupIntent"
+            case .errored: string = "Create SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelCollectSetupIntentPaymentMethod:
+            switch result {
+            case .started: string = "Cancel Collect SetupIntent PaymentMethod"
+            case .succeeded: string = "Canceled Collect SetupIntent PaymentMethod"
+            case .errored: string = "Cancel Collect SetupIntent PaymentMethod Failed"
+            case .message(let message): string = message
+            }
+        case .collectSetupIntentPaymentMethod:
+            switch result {
+            case .started: string = "Collect SetupIntent PaymentMethod"
+            case .succeeded: string = "Collected SetupIntent PaymentMethod"
+            case .errored: string = "Collect SetupIntent PaymentMethod Failed"
+            case .message(let message): string = message
+            }
+        case .confirmSetupIntent:
+            switch result {
+            case .started: string = "Confirm SetupIntent"
+            case .succeeded: string = "Confirmed SetupIntent"
+            case .errored: string = "Confirm SetupIntent Failed"
+            case .message(let message): string = message
+            }
         }
         return string
     }
@@ -207,6 +250,10 @@ struct LogEvent: CustomStringConvertible {
         }
         return nil
     }
+
+    var viewController: UIViewController {
+        LogEventViewController(event: self)
+    }
 }
 
 extension LogEvent.AssociatedObject {
@@ -214,11 +261,13 @@ extension LogEvent.AssociatedObject {
         switch self {
         case .none: return "NONE"
         case .error(is ProcessPaymentError): return "PROCESS PAYMENT ERROR"
+        case .error(is ConfirmSetupIntentError): return "CONFIRM SETUPINTENT ERROR"
         case .error: return "ERROR"
         case .json: return "OBJECT"
         case .paymentIntent: return "PAYMENTINTENT"
         case .paymentMethod: return "PAYMENTMETHOD"
         case .refund: return "REFUND"
+        case .setupIntent: return "SETUPINTENT"
         case .object: return "OBJECT"
         }
     }
@@ -273,6 +322,8 @@ extension LogEvent.AssociatedObject {
             return prettyPrint(json: paymentMethod.originalJSON)
         case .refund(let refund):
             return prettyPrint(json: refund.originalJSON)
+        case .setupIntent(let setupIntent):
+            return prettyPrint(json: setupIntent.originalJSON)
         case .object(let object):
             return object.description
         }
@@ -304,27 +355,6 @@ extension LogEvent.AssociatedObject {
     }
 }
 
-enum ActionEvent {
-    case receiptAvailable(URL)
-
-    var stringValue: String {
-        switch self {
-        case .receiptAvailable:
-            return "Receipt Available"
-        }
-    }
-
-    var action: (UINavigationController) -> Void {
-        switch self {
-        case let .receiptAvailable(url):
-            return { navController in
-                let vc = ReceiptWebViewController(withUrl: url)
-                navController.pushViewController(vc, animated: true)
-            }
-        }
-    }
-}
-
 class LogEventViewController: TableViewController {
 
     private let event: LogEvent
@@ -345,7 +375,7 @@ class LogEventViewController: TableViewController {
         self.addKeyboardDisplayObservers()
 
         var sections: [Section] = []
-        let methodView = MonospaceTextView(text: event.method.rawValue)
+        let methodView = MonospaceTextView(text: event.method?.rawValue ?? "Unknown Event")
         let methodSection = Section(header: "METHOD", rows: [], footer: Section.Extremity.autoLayoutView(methodView))
         sections.append(methodSection)
         let resultView = MonospaceTextView(text: event.resultDetail)

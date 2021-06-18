@@ -14,8 +14,7 @@ import StripeTerminal
  saving and loading to UserDefaults.
  */
 struct ReaderConfiguration {
-    var deviceType: DeviceType?
-    var discoveryMethod: DiscoveryMethod = .bluetoothProximity
+    var discoveryMethod: DiscoveryMethod = .bluetoothScan
 
     #if targetEnvironment(simulator)
     var simulated = true
