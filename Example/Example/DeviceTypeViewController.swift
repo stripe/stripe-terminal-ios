@@ -50,6 +50,7 @@ class DeviceTypeViewController: TableViewController {
 
             Section(header: "Mobile Readers", rows: [
                 vendDeviceRow(label: "Chipper 2X", deviceType: .chipper2X),
+                vendDeviceRow(label: "WisePad 3", deviceType: .wisePad3),
             ], footer: "The Stripe Terminal SDK can discover supported Bluetooth card readers automatically – you don't need to connect to the reader in the iOS Settings > Bluetooth page."),
 
             Section(header: "Countertop Readers", rows: [

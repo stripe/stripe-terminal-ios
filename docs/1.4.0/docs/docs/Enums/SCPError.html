@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SCPError Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Enum/SCPError" class="dashAnchor"></a>
+
+    <a title="SCPError Enumeration Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          StripeTerminal 1.4.0 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">StripeTerminal Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SCPError Enumeration Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderSoftwareUpdateDelegate.html">SCPReaderSoftwareUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other%20Constants.html">Other Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>SCPError</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPError</span> <span class="p">{}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span><span class="o">.</span><span class="n">_ErrorType</span> <span class="o">=</span> <span class="kt">ErrorCode</span></code></pre>
+
+                </div>
+              </div>
+            <p>Possible error codes for NSError objects under the SCPErrorDomain domain.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBusy"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBusy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBusy">SCPErrorBusy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The SDK is busy executing another command. The SDK can only execute a
+single command at a time. You can use the <code>paymentStatus</code> or
+<code>connectionStatus</code> properties on your <code><a href="../Classes/SCPTerminal.html">SCPTerminal</a></code> instance (or the
+corresponding delegate methods) to determine if the SDK is ready to accept
+another command.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBusy</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">busy</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCancelFailedAlreadyCompleted"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCancelFailedAlreadyCompleted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCancelFailedAlreadyCompleted">SCPErrorCancelFailedAlreadyCompleted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Canceling a command failed because the command already completed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCancelFailedAlreadyCompleted</span> <span class="o">=</span> <span class="mi">1010</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cancelFailedAlreadyCompleted</span> <span class="o">=</span> <span class="mi">1010</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNotConnectedToReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNotConnectedToReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNotConnectedToReader">SCPErrorNotConnectedToReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>No reader is connected. Connect to a reader before trying again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNotConnectedToReader</span> <span class="o">=</span> <span class="mi">1100</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notConnectedToReader</span> <span class="o">=</span> <span class="mi">1100</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAlreadyConnectedToReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAlreadyConnectedToReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAlreadyConnectedToReader">SCPErrorAlreadyConnectedToReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Already connected to a reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAlreadyConnectedToReader</span> <span class="o">=</span> <span class="mi">1110</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">alreadyConnectedToReader</span> <span class="o">=</span> <span class="mi">1110</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithNothing"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorConnectionTokenProviderCompletedWithNothing" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithNothing">SCPErrorConnectionTokenProviderCompletedWithNothing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Your implementation of <code>fetchConnectionToken</code> called the completion block
+with <code>(nil, nil)</code>. Please make sure your integration completes with either
+a connection token or an error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectionTokenProviderCompletedWithNothing</span> <span class="o">=</span> <span class="mi">1510</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionTokenProviderCompletedWithNothing</span> <span class="o">=</span> <span class="mi">1510</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorProcessInvalidPaymentIntent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorProcessInvalidPaymentIntent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorProcessInvalidPaymentIntent">SCPErrorProcessInvalidPaymentIntent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>processPayment</code> was called with an unknown or invalid PaymentIntent.
+You must process a payment immediately after collecting a payment method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorProcessInvalidPaymentIntent</span> <span class="o">=</span> <span class="mi">1530</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">processInvalidPaymentIntent</span> <span class="o">=</span> <span class="mi">1530</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNilPaymentIntent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNilPaymentIntent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNilPaymentIntent">SCPErrorNilPaymentIntent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>collectPaymentMethod</code> or <code>processPayment</code> was called with a <code>nil</code> PaymentIntent.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNilPaymentIntent</span> <span class="o">=</span> <span class="mi">1540</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilPaymentIntent</span> <span class="o">=</span> <span class="mi">1540</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNilRefundPaymentMethod"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNilRefundPaymentMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNilRefundPaymentMethod">SCPErrorNilRefundPaymentMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>processRefund</code> was called without calling <code>collectRefundPaymentMethod</code>
+beforehand.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNilRefundPaymentMethod</span> <span class="o">=</span> <span class="mi">1550</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilRefundPaymentMethod</span> <span class="o">=</span> <span class="mi">1550</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidRefundParameters"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidRefundParameters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidRefundParameters">SCPErrorInvalidRefundParameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The RefundParameters object has invalid values. The Charge ID (ch_123abc)
+can be found on the <code>PaymentIntent</code> object, which you should get from
+your backend.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidRefundParameters</span> <span class="o">=</span> <span class="mi">1555</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRefundParameters</span> <span class="o">=</span> <span class="mi">1555</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidClientSecret"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidClientSecret" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidClientSecret">SCPErrorInvalidClientSecret</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A PaymentIntent was referenced using an invalid client secret.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidClientSecret</span> <span class="o">=</span> <span class="mi">1560</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidClientSecret</span> <span class="o">=</span> <span class="mi">1560</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorMustBeDiscoveringToConnect"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorMustBeDiscoveringToConnect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorMustBeDiscoveringToConnect">SCPErrorMustBeDiscoveringToConnect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The SDK must be actively Discovering Readers in order to successfully
+connect to a reader. See documentation on
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-[SCPTerminal discoverReaders:delegate:completion:]</a></code>
+and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-[SCPTerminal connectReader:completion:]</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorMustBeDiscoveringToConnect</span> <span class="o">=</span> <span class="mi">1570</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mustBeDiscoveringToConnect</span> <span class="o">=</span> <span class="mi">1570</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCannotConnectToUndiscoveredReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCannotConnectToUndiscoveredReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCannotConnectToUndiscoveredReader">SCPErrorCannotConnectToUndiscoveredReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Before connecting to a reader, it must have already been discovered in the
+current discovery session. Trying to connect to a reader from a previous
+discovery session is not supported.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCannotConnectToUndiscoveredReader</span> <span class="o">=</span> <span class="mi">1580</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cannotConnectToUndiscoveredReader</span> <span class="o">=</span> <span class="mi">1580</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidDiscoveryConfiguration"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidDiscoveryConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidDiscoveryConfiguration">SCPErrorInvalidDiscoveryConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>discoverReaders</code> was called using an invalid SCPDiscoveryConfiguration.
+Your app selected a discovery method that is either incompatible with the
+selected device type or attemped to use <code>simulated</code> or <code>locationId</code> with a
+reader which does not support <code>simulated</code> or <code>locationId</code>. Currently
+<code>chipper2X</code> is the only reader which supports <code>simulated</code> and
+<code>verifoneP400</code> is the only reader which supports use of <code>locationId</code> for
+location filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code> for valid configurations.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidDiscoveryConfiguration</span> <span class="o">=</span> <span class="mi">1590</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidDiscoveryConfiguration</span> <span class="o">=</span> <span class="mi">1590</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidCart"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidCart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidCart">SCPErrorInvalidCart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>No longer used</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidCart</span> <span class="o">=</span> <span class="mi">1600</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidCart</span> <span class="o">=</span> <span class="mi">1600</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNilReaderDisplayDelegate"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNilReaderDisplayDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNilReaderDisplayDelegate">SCPErrorNilReaderDisplayDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>collectPaymentMethod</code> was called with a <code>nil</code> <code><a href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a></code>, but
+the <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectedReader">SCPTerminal.connectedReader</a></code> does not have a built-in display, and requires that
+your app support displaying messages from the reader to your user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNilReaderDisplayDelegate</span> <span class="o">=</span> <span class="mi">1850</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilReaderDisplayDelegate</span> <span class="o">=</span> <span class="mi">1850</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNilUpdate"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNilUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNilUpdate">SCPErrorNilUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>installUpdate</code> was passed a <code>nil</code> <code><a href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNilUpdate</span> <span class="o">=</span> <span class="mi">1860</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nilUpdate</span> <span class="o">=</span> <span class="mi">1860</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnsupportedSDK"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnsupportedSDK" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnsupportedSDK">SCPErrorUnsupportedSDK</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectReader:completion:">-[SCPTerminal connectReader:completion:]</a></code> was called from an unsupported version
+of the SDK. In order to fix this you will need to update your app to the most recent
+version of the SDK. We suggest you prompt your user to update their app,
+assuming there is an update app version with a supported version of our SDK.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://github.com/stripe/stripe-terminal-ios/releases/latest">https://github.com/stripe/stripe-terminal-ios/releases/latest</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedSDK</span> <span class="o">=</span> <span class="mi">1870</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorFeatureNotAvailableWithConnectedReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorFeatureNotAvailableWithConnectedReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorFeatureNotAvailableWithConnectedReader">SCPErrorFeatureNotAvailableWithConnectedReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This feature is currently not available for the selected reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="o">=</span> <span class="mi">1880</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">featureNotAvailableWithConnectedReader</span> <span class="o">=</span> <span class="mi">1880</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCanceled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCanceled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCanceled">SCPErrorCanceled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The command was canceled by your app.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCanceled</span> <span class="o">=</span> <span class="mi">2020</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">canceled</span> <span class="o">=</span> <span class="mi">2020</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorLocationServicesDisabled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorLocationServicesDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorLocationServicesDisabled">SCPErrorLocationServicesDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access to location services is currently disabled. This may be because:</p>
+
+<ul>
+<li>The user disabled location services in the system settings.</li>
+<li>The user denied access to location services for your app.</li>
+<li>The user&rsquo;s device is in Airplane Mode and unable to gather location data.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorLocationServicesDisabled</span> <span class="o">=</span> <span class="mi">2200</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">locationServicesDisabled</span> <span class="o">=</span> <span class="mi">2200</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothDisabled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothDisabled">SCPErrorBluetoothDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This error indicates that Bluetooth is turned off, and the user should use
+Settings to turn Bluetooth on.</p>
+
+<p>If Bluetooth is on but the app does not have permission to use it,
+a different error (<code><a href="../Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothError">SCPErrorBluetoothError</a></code>) occurs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothDisabled</span> <span class="o">=</span> <span class="mi">2320</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothDisabled</span> <span class="o">=</span> <span class="mi">2320</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothScanTimedOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothScanTimedOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothScanTimedOut">SCPErrorBluetoothScanTimedOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Scanning for bluetooth devices timed out.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Classes/SCPDiscoveryConfiguration.html#/c:objc(cs)SCPDiscoveryConfiguration(py)timeout">SCPDiscoveryConfiguration.timeout</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothScanTimedOut</span> <span class="o">=</span> <span class="mi">2330</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothScanTimedOut</span> <span class="o">=</span> <span class="mi">2330</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothLowEnergyUnsupported"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothLowEnergyUnsupported" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothLowEnergyUnsupported">SCPErrorBluetoothLowEnergyUnsupported</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bluetooth Low Energy is unsupported on this iOS device. Use a different
+iOS device that supports BLE (also known as Bluetooth 4.0)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothLowEnergyUnsupported</span> <span class="o">=</span> <span class="mi">2340</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothLowEnergyUnsupported</span> <span class="o">=</span> <span class="mi">2340</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedBatteryLow"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderSoftwareUpdateFailedBatteryLow" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedBatteryLow">SCPErrorReaderSoftwareUpdateFailedBatteryLow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updating the reader software failed because the reader&rsquo;s battery is
+too low. Charge the reader before trying again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedBatteryLow</span> <span class="o">=</span> <span class="mi">2650</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedBatteryLow</span> <span class="o">=</span> <span class="mi">2650</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedInterrupted"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderSoftwareUpdateFailedInterrupted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedInterrupted">SCPErrorReaderSoftwareUpdateFailedInterrupted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updating the reader software failed because the update was interrupted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedInterrupted</span> <span class="o">=</span> <span class="mi">2660</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedInterrupted</span> <span class="o">=</span> <span class="mi">2660</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardInsertNotRead"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardInsertNotRead" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardInsertNotRead">SCPErrorCardInsertNotRead</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The card is not a chip card.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardInsertNotRead</span> <span class="o">=</span> <span class="mi">2810</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardInsertNotRead</span> <span class="o">=</span> <span class="mi">2810</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardSwipeNotRead"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardSwipeNotRead" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardSwipeNotRead">SCPErrorCardSwipeNotRead</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The swipe could not be read.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardSwipeNotRead</span> <span class="o">=</span> <span class="mi">2820</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardSwipeNotRead</span> <span class="o">=</span> <span class="mi">2820</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardReadTimedOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardReadTimedOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardReadTimedOut">SCPErrorCardReadTimedOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reading a card timed out.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardReadTimedOut</span> <span class="o">=</span> <span class="mi">2830</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardReadTimedOut</span> <span class="o">=</span> <span class="mi">2830</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardRemoved"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardRemoved" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardRemoved">SCPErrorCardRemoved</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The card was removed during the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardRemoved</span> <span class="o">=</span> <span class="mi">2840</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardRemoved</span> <span class="o">=</span> <span class="mi">2840</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCardLeftInReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCardLeftInReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCardLeftInReader">SCPErrorCardLeftInReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A card can only be used for one transaction, and must be removed after
+being read. Otherwise, subsequent <code>collectPaymentMethod</code> attempts will fail
+with this error.</p>
+
+<p>Your terminal delegate will receive <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportReaderEvent:info:">-[SCPTerminalDelegate terminal:didReportReaderEvent:info:]</a></code>
+with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
+
+<p>The Chipper 2x and WisePad 3 will beep until the card is removed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cardLeftInReader</span> <span class="o">=</span> <span class="mi">2850</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderBusy"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderBusy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderBusy">SCPErrorReaderBusy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader is busy.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderBusy</span> <span class="o">=</span> <span class="mi">3010</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerBusy</span> <span class="o">=</span> <span class="mi">3010</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorIncompatibleReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorIncompatibleReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorIncompatibleReader">SCPErrorIncompatibleReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An incompatible reader was detected. You can only use the Stripe Terminal
+iOS SDK with one of Stripe&rsquo;s pre-certified readers.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers">https://stripe.com/docs/terminal/readers</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorIncompatibleReader</span> <span class="o">=</span> <span class="mi">3030</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">incompatibleReader</span> <span class="o">=</span> <span class="mi">3030</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderCommunicationError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderCommunicationError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderCommunicationError">SCPErrorReaderCommunicationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Could not communicate with the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderCommunicationError</span> <span class="o">=</span> <span class="mi">3060</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerCommunicationError</span> <span class="o">=</span> <span class="mi">3060</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothError">SCPErrorBluetoothError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic bluetooth error.</p>
+
+<p>Among other things, it may indicate that the app does not have permission
+to use Bluetooth (iOS 13+).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothError</span> <span class="o">=</span> <span class="mi">3200</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothError</span> <span class="o">=</span> <span class="mi">3200</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothConnectTimedOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothConnectTimedOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothConnectTimedOut">SCPErrorBluetoothConnectTimedOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to the bluetooth device timed out. Make sure the device is
+powered on, in range, and not connected to another app or device. If this
+error continues to occur, you may need to charge the device.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothConnectTimedOut</span> <span class="o">=</span> <span class="mi">3210</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothConnectTimedOut</span> <span class="o">=</span> <span class="mi">3210</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorBluetoothDisconnected"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorBluetoothDisconnected" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorBluetoothDisconnected">SCPErrorBluetoothDisconnected</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Bluetooth device was disconnected unexpectedly.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorBluetoothDisconnected</span> <span class="o">=</span> <span class="mi">3230</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bluetoothDisconnected</span> <span class="o">=</span> <span class="mi">3230</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailed"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderSoftwareUpdateFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailed">SCPErrorReaderSoftwareUpdateFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic reader software update error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailed</span> <span class="o">=</span> <span class="mi">3800</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailed</span> <span class="o">=</span> <span class="mi">3800</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedReaderError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderSoftwareUpdateFailedReaderError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedReaderError">SCPErrorReaderSoftwareUpdateFailedReaderError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updating the reader software failed because there was an error
+communicating with the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedReaderError</span> <span class="o">=</span> <span class="mi">3830</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedReaderError</span> <span class="o">=</span> <span class="mi">3830</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedServerError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderSoftwareUpdateFailedServerError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderSoftwareUpdateFailedServerError">SCPErrorReaderSoftwareUpdateFailedServerError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updating the reader software failed because there was an error
+communicating with the update server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderSoftwareUpdateFailedServerError</span> <span class="o">=</span> <span class="mi">3840</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerSoftwareUpdateFailedServerError</span> <span class="o">=</span> <span class="mi">3840</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnsupportedReaderVersion"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnsupportedReaderVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnsupportedReaderVersion">SCPErrorUnsupportedReaderVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-[SCPTerminal processPayment:completion:]</a></code> was called from a reader with an
+unsupported reader version. You will need to update your reader to the most
+recent version in order to accept payments. We suggest you prompt your user
+update the reader via the update flow that you have implemented using
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)checkForUpdate:">-[SCPTerminal checkForUpdate:]</a></code> and
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)installUpdate:delegate:completion:">-[SCPTerminal installUpdate:delegate:completion:]</a></code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software</a>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedReaderVersion</span> <span class="o">=</span> <span class="mi">3850</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnknownReaderIpAddress"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnknownReaderIpAddress" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnknownReaderIpAddress">SCPErrorUnknownReaderIpAddress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader returned from discovery does not have an IP address and cannot
+be connected to. The IP address should have been set by the SDK during
+registration of the reader. Try registering the reader again.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting/verifone-p400#register-reader">https://stripe.com/docs/terminal/readers/connecting/verifone-p400#register-reader</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownReaderIpAddress</span> <span class="o">=</span> <span class="mi">3860</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInternetConnectTimeOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInternetConnectTimeOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInternetConnectTimeOut">SCPErrorInternetConnectTimeOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to reader over the internet timed out. Make sure your device and
+reader are on the same Wifi network and your reader is connected to the
+Wifi network.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/verifone-p400#troubleshooting">https://stripe.com/docs/terminal/readers/verifone-p400#troubleshooting</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInternetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internetConnectTimeOut</span> <span class="o">=</span> <span class="mi">3870</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorConnectFailedReaderIsInUse"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorConnectFailedReaderIsInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorConnectFailedReaderIsInUse">SCPErrorConnectFailedReaderIsInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to the reader failed because it is currently in use
+and <code><a href="../Classes/SCPConnectionConfiguration.html#/c:objc(cs)SCPConnectionConfiguration(py)failIfInUse">SCPConnectionConfiguration.failIfInUse</a></code> was set to <code>true</code>.</p>
+
+<p>Try to connect again with <code>failIfInUse = false</code>, or choose a different
+reader.</p>
+
+<p>A reader is in use while it&rsquo;s collecting a payment.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios">https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectFailedReaderIsInUse</span> <span class="o">=</span> <span class="mi">3880</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnexpectedSdkError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnexpectedSdkError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedSdkError">SCPErrorUnexpectedSdkError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unexpected SDK error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnexpectedSdkError</span> <span class="o">=</span> <span class="mi">5000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedSdkError</span> <span class="o">=</span> <span class="mi">5000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPaymentDeclinedByStripeAPI"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPaymentDeclinedByStripeAPI" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPaymentDeclinedByStripeAPI">SCPErrorPaymentDeclinedByStripeAPI</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Stripe API declined the payment.
+Inspect <code><a href="../Classes/SCPProcessPaymentError.html#/c:objc(cs)SCPProcessPaymentError(py)requestError">SCPProcessPaymentError.requestError</a></code> property for more information about
+the decline, including the decline code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPaymentDeclinedByStripeAPI</span> <span class="o">=</span> <span class="mi">6000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">paymentDeclinedByStripeAPI</span> <span class="o">=</span> <span class="mi">6000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPaymentDeclinedByReader"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPaymentDeclinedByReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPaymentDeclinedByReader">SCPErrorPaymentDeclinedByReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader declined the payment. Try another card.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPaymentDeclinedByReader</span> <span class="o">=</span> <span class="mi">6500</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">paymentDeclinedByReader</span> <span class="o">=</span> <span class="mi">6500</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorRefundFailed"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorRefundFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorRefundFailed">SCPErrorRefundFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The refund failed. The customer’s bank or card issuer was unable to process
+it correctly (e.g., a closed bank account or a problem with the card)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorRefundFailed</span> <span class="o">=</span> <span class="mi">6800</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">refundFailed</span> <span class="o">=</span> <span class="mi">6800</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNotConnectedToInternet"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNotConnectedToInternet" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNotConnectedToInternet">SCPErrorNotConnectedToInternet</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The SDK is not connected to the internet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNotConnectedToInternet</span> <span class="o">=</span> <span class="mi">9000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notConnectedToInternet</span> <span class="o">=</span> <span class="mi">9000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorRequestTimedOut"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorRequestTimedOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorRequestTimedOut">SCPErrorRequestTimedOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The underlying request timed out.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorRequestTimedOut</span> <span class="o">=</span> <span class="mi">9010</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestTimedOut</span> <span class="o">=</span> <span class="mi">9010</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorStripeAPIError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorStripeAPIError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorStripeAPIError">SCPErrorStripeAPIError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The underlying request returned an API error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorStripeAPIError</span> <span class="o">=</span> <span class="mi">9020</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeAPIError</span> <span class="o">=</span> <span class="mi">9020</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorStripeAPIResponseDecodingError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorStripeAPIResponseDecodingError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorStripeAPIResponseDecodingError">SCPErrorStripeAPIResponseDecodingError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The API response from Stripe could not be decoded.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorStripeAPIResponseDecodingError</span> <span class="o">=</span> <span class="mi">9030</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeAPIResponseDecodingError</span> <span class="o">=</span> <span class="mi">9030</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInternalNetworkError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInternalNetworkError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInternalNetworkError">SCPErrorInternalNetworkError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic network error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInternalNetworkError</span> <span class="o">=</span> <span class="mi">9040</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalNetworkError</span> <span class="o">=</span> <span class="mi">9040</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorConnectionTokenProviderCompletedWithError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithError">SCPErrorConnectionTokenProviderCompletedWithError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Your implementation of <code><a href="../Protocols/SCPConnectionTokenProvider.html#/c:objc(pl)SCPConnectionTokenProvider(im)fetchConnectionToken:">-[SCPConnectionTokenProvider fetchConnectionToken:]</a></code>
+called the completion block with an error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorConnectionTokenProviderCompletedWithError</span> <span class="o">=</span> <span class="mi">9050</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionTokenProviderCompletedWithError</span> <span class="o">=</span> <span class="mi">9050</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorSessionExpired"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorSessionExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorSessionExpired">SCPErrorSessionExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current session has expired and the reader must be disconnected and
+reconnected. The SDK will attempt to auto-disconnect for you and you should
+instruct your user to reconnect it.
+<code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportUnexpectedReaderDisconnect:">-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]</a></code>
+will be called if the SDK is able to successfully auto-disconnect. If it
+does not successfully auto-disconnect (<code>didReportUnexpectedReaderDisconnect</code>
+will not be called and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">SCPTerminal.connectionStatus</a></code> will still be
+<code>SCPConnectionStatusConnected</code>) you can attempt again via
+<code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)disconnectReader:">-[SCPTerminal disconnectReader:]</a></code> or you can instruct your user
+to disconnect manually by turning the reader off.</p>
+
+<p>Note this error will only occur in one of the following calls:</p>
+
+<ul>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-[SCPTerminal createPaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-[SCPTerminal retrievePaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:delegate:completion:">-[SCPTerminal collectPaymentMethod:delegate:completion:]</a></code> if connected to a Verifone P400 or a BBPOS WisePOS E</li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-[SCPTerminal processPayment:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-[SCPTerminal cancelPaymentIntent:completion:]</a></code></li>
+<li><code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)readReusableCard:delegate:completion:">-[SCPTerminal readReusableCard:delegate:completion:]</a></code></li>
+<li><code>-[SCPTerminal collectRefundMethod:parameters]</code></li>
+<li><code>-[SCPTerminal processRefund:completion]</code></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionExpired</span> <span class="o">=</span> <span class="mi">9060</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

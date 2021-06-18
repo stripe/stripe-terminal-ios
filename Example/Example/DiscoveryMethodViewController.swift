@@ -44,7 +44,7 @@ class DiscoveryMethodViewController: TableViewController {
                     self.onSelectedMethod(.bluetoothProximity)
                     self.navigationController?.popViewController(animated: true)
                     }, accessory: (method == .bluetoothProximity ? .checkmark : .none))
-            ], footer: "Discover a reader by holding it next to the iOS device.\n\nNote: the Stripe Terminal SDK can discover supported readers automatically – you should not connect to the reader in the iOS Settings > Bluetooth page."),
+            ], footer: "Discover a reader by holding it next to the iOS device (only supported for the BBPOS Chipper 2X BT).\n\nNote: the Stripe Terminal SDK can discover supported readers automatically – you should not connect to the reader in the iOS Settings > Bluetooth page."),
             Section(header: "", rows: [
                 Row(text: "Internet", selection: { [unowned self] in
                     self.onSelectedMethod(.internet)

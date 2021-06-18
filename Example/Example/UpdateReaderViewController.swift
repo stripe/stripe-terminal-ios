@@ -10,7 +10,19 @@ import UIKit
 import Static
 import StripeTerminal
 
-class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderSoftwareUpdateDelegate, CancelableViewController {
+class UpdateReaderViewController: TableViewController, CancelableViewController {
+    // This VC is used in two slightly different instances.
+    //
+    // 1. To view details about an optional update that is available and optionally start installing it
+    // 2. To report the progress and allow canceling a required update that has started installing during connect.
+    //
+    // This enum is to make it easier to read in the few places where we show some more information when its a required
+    // update being installed.
+    private enum UpdateType {
+        case available
+        case required
+    }
+    private let updateType: UpdateType
 
     private let headerView = ReaderHeaderView()
     private weak var doneButton: UIBarButtonItem?
@@ -18,20 +30,36 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
 
     private var update: ReaderSoftwareUpdate?
     private var updateProgress: Float?
-    private var checkForUpdateCancelable: Cancelable? = nil {
-        didSet {
-            updateContent()
-        }
-    }
-    private var installUpdateCancelable: Cancelable? = nil {
+    private var updateInstalledCompletion: () -> Void
+
+    internal var cancelable: Cancelable? = nil {
         didSet {
             updateContent()
         }
     }
 
-    init() {
-        super.init(style: .grouped)
+    /// Initializer to use when an update is available and can optionally be installed
+    convenience init(update: ReaderSoftwareUpdate, updateInstalledCompletion: @escaping () -> Void) {
+        self.init(update: update, type: .available, updateInstalledCompletion: updateInstalledCompletion)
         self.title = "Update Reader"
+    }
+
+    /// Initializer to use  when a required update has started installing to provide the cancelable for that update.
+    convenience init(updateBeingInstalled: ReaderSoftwareUpdate, cancelable: Cancelable?, updateInstalledCompletion: @escaping () -> Void) {
+        self.init(update: updateBeingInstalled, type: .required, updateInstalledCompletion: updateInstalledCompletion)
+        self.cancelable = cancelable
+        setAllowedCancelMethods(cancelable == nil ? [] : [.button])
+        self.updateProgress = 0.0
+        self.title = "Installing Update"
+    }
+
+    private init(update: ReaderSoftwareUpdate, type: UpdateType, updateInstalledCompletion: @escaping () -> Void) {
+        self.update = update
+        self.updateInstalledCompletion = updateInstalledCompletion
+        self.updateType = type
+        super.init(style: .grouped)
+        TerminalDelegateAnnouncer.shared.addListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -40,6 +68,7 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -54,93 +83,80 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        TerminalDelegateAnnouncer.shared.addListener(self)
         headerView.connectedReader = Terminal.shared.connectedReader
         headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
     }
 
-    private func checkForUpdate() {
-        checkForUpdateCancelable = Terminal.shared.checkForUpdate({ (update, error) in
-            if let error = error {
-                self.presentAlert(error: error)
-            }
-
-            if update == nil {
-                self.presentAlert(title: "No update necessary.", message: "Your reader is already up to date!")
-            }
-
-            self.update = update
-            self.checkForUpdateCancelable = nil
-        })
-    }
-
     private func installUpdate() {
-        guard let update = self.update else { return }
         // Don't allow swiping away during an install to prevent accidentally canceling the update.
         setAllowedCancelMethods([.button])
-        UIApplication.shared.isIdleTimerDisabled = true
-        installUpdateCancelable = Terminal.shared.installUpdate(update, delegate: self, completion: { error in
-            UIApplication.shared.isIdleTimerDisabled = false
-            if let e = error {
-                self.presentAlert(error: e)
-            }
-            self.updateProgress = nil
-            if self.installUpdateCancelable != nil {
-                if error == nil {
-                    self.presentAlert(title: "Update successful", message: "The reader may restart at the end of the update. If this happens, reconnect the app to the reader.")
-                    self.doneButton?.isEnabled = true
-                    self.setAllowedCancelMethods([.swipe])
-                    self.update = nil
-                }
-                self.installUpdateCancelable = nil
-            }
-        })
+        Terminal.shared.installAvailableUpdate()
     }
 
     private func updateContent() {
         let currentVersion = Terminal.shared.connectedReader?.deviceSoftwareVersion ?? "unknown"
-        let canInstallUpdate = update != nil
         let updateButtonText: String
         let updateFooter: String
         let updateRow: Row
-        if canInstallUpdate {
-            guard let update = update else { return }
-            let updateVersion = update.deviceSoftwareVersion
-            if let progress = updateProgress {
-                let percent = Int(progress*100)
-                updateFooter = "Update progress: \(percent)%\n\n⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete."
-                updateRow = Row(text: "⏱ Update in progress")
-            } else if installUpdateCancelable != nil {
-                updateFooter = "Starting to install update..."
-                updateRow = Row(text: "Installing Update")
-            } else {
-                updateButtonText = "Install update"
-                let updateEstimate = ReaderSoftwareUpdate.string(from: update.estimatedUpdateTime)
-                updateFooter = "Target version:\n\(updateVersion)\n\nThe reader will become unresponsive until the update is complete. Estimated update time: \(updateEstimate)"
-                updateRow = Row(text: updateButtonText, selection: { [unowned self] in
-                    self.installUpdate()
-                    }, cellClass: ButtonCell.self)
+        if let progress = updateProgress {
+            let percent = Int(progress*100)
+            var footerStrings = [
+                "Update progress: \(percent)%",
+                updateVersionText(),
+                "⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete."
+            ]
+            if updateType == .required {
+                footerStrings.append("⚠️ This update is required for this reader to be used. Canceling the update will cancel the connection to the reader.")
             }
+            updateFooter = footerStrings.joined(separator: "\n\n")
+            updateRow = Row(text: "⏱ \(updateType == .required ? "Required update" : "Update") in progress")
+        } else if cancelable != nil {
+            updateFooter = "Starting to install update..."
+            updateRow = Row(text: "Installing Update")
+        } else if update != nil {
+            updateFooter = updateVersionText()
+            updateButtonText = "Install update"
+            updateRow = Row(text: updateButtonText, selection: { [unowned self] in
+                self.installUpdate()
+                }, cellClass: ButtonCell.self)
         } else {
-            updateButtonText = "Check for update"
-            if checkForUpdateCancelable != nil {
-                updateFooter = "Checking for update..."
-                updateRow = Row(text: updateButtonText)
-            } else {
-                updateFooter = "Check if a reader software update is available."
-                updateRow = Row(text: updateButtonText, selection: { [unowned self] in
-                    self.checkForUpdate()
-                    }, cellClass: ButtonCell.self)
+            // The update has been installed
+            updateRow = Row(text: "✅ Update Installed")
+            updateFooter = ""
+        }
+
+        // Build out the target section
+        var downArrow: Section.Extremity?
+        var targetSection: Section?
+        if update?.deviceSoftwareVersion != nil {
+            targetSection = Section(header: "Target Version", rows: [
+                Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
+            ])
+
+            if #available(iOS 13.0, *) {
+                // Cram a nice down arrow in between the two versions to clarify what's being installed
+                let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
+                imageView.contentMode = .scaleAspectFit
+                let spacer = UIView()
+                let stack = UIStackView(arrangedSubviews: [spacer, imageView])
+                stack.axis = .vertical
+                stack.spacing = 20
+                downArrow = .autoLayoutView(stack)
             }
         }
+
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
             Section(header: "Current Version", rows: [
-                Row(text: currentVersion, cellClass: Value1Cell.self)
-            ]),
+                Row(text: currentVersion, cellClass: Value1MultilineCell.self),
+            ], footer: downArrow),
+            targetSection,
             Section(header: "", rows: [updateRow], footer: Section.Extremity.title(updateFooter))
-        ]
+        ].compactMap { $0 }
+
+        // Prevent cancel to dismiss during a required update that doesn't have a cancelable
+        setAllowedCancelMethods(updateType == .required && cancelable == nil ? [] : [.button])
     }
 
     @objc
@@ -149,7 +165,12 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
             setAllowedCancelMethods([])
             cancelable.cancel { error in
                 self.setAllowedCancelMethods(.all)
-                if let error = error {
+
+                if self.updateType == .required && (error as NSError?)?.code == ErrorCode.cancelFailedAlreadyCompleted.rawValue {
+                    // Required updates auto dismiss on success, so if the cancel failed because install finished
+                    // so for now, drop the error and let the dismiss happen.
+                    return
+                } else if let error = error {
                     self.presentAlert(error: error)
                 }
             }
@@ -163,8 +184,39 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         dismiss(animated: true, completion: nil)
     }
 
-    // MARK: TerminalDelegate
+    func updateVersionText() -> String {
+        guard let update = update else {
+            return ""
+        }
+        let updateEstimate = ReaderSoftwareUpdate.string(from: update.estimatedUpdateTime)
+        var components = [String]()
+        if update.components.contains(.config) {
+            components.append("Config")
+        }
+        if update.components.contains(.firmware) {
+            components.append("Firmware")
+        }
+        if update.components.contains(.keys) {
+            components.append("Keys")
+        }
+        if update.components.contains(.incremental) {
+            components.append("Incremental")
+        }
+
+        return "Components to update: \(components.joined(separator: ","))\n\nEstimated update time: \(updateEstimate)"
+    }
+}
+
+// MARK: TerminalDelegate
+extension UpdateReaderViewController: TerminalDelegate {
     func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
+        // If we're in this VC and not connected we're doing a required install.
+        // Transitioning from that to not connected should auto-dismiss (canceled the install)
+        if headerView.connectionStatus != .connected && status == .notConnected {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+
         headerView.connectionStatus = status
     }
 
@@ -174,17 +226,47 @@ class UpdateReaderViewController: TableViewController, TerminalDelegate, ReaderS
         }
         headerView.connectedReader = nil
     }
+}
 
-    // MARK: ReaderSoftwareUpdateDelegate
-
-    func terminal(_ terminal: Terminal, didReportReaderSoftwareUpdateProgress progress: Float) {
+// MARK: BluetoothReaderDelegate
+extension UpdateReaderViewController: BluetoothReaderDelegate {
+    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         updateProgress = progress
         updateContent()
     }
 
-    // MARK: - CancelableViewController
+    func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
+    }
 
-    var cancelable: Cancelable? {
-        checkForUpdateCancelable ?? installUpdateCancelable
+    func reader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        self.cancelable = cancelable
+    }
+
+    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        // Only present the error or show success if it was an available update. Required updates will also be
+        // receiving the `connectBluetoothReader` completion with success or error and that completion dismisses
+        // this VC and presents any errors if needed.
+        guard updateType == .available else {
+            return
+        }
+
+        if let e = error {
+            self.presentAlert(error: e)
+        }
+        self.updateProgress = nil
+        if error == nil {
+            self.presentAlert(title: "Update successful", message: "The reader has been updated to \(update?.deviceSoftwareVersion ?? "no update available").")
+            self.doneButton?.isEnabled = true
+            self.setAllowedCancelMethods([.swipe])
+            self.update = nil
+            self.updateInstalledCompletion()
+        }
+        self.cancelable = nil
+    }
+
+    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    }
+
+    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
 }

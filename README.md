@@ -1,26 +1,30 @@
 # Stripe Terminal iOS SDK
 
-For information on migrating from beta versions of the iOS SDK, see the [Stripe Terminal Beta Migration Guide](https://stripe.com/docs/terminal/beta-migration-guide).
+Stripe Terminal enables you to build your own in-person checkout to accept payments in the physical world. Built on Stripe's payments network, Terminal helps you unify your online and offline payment channels. With the Stripe Terminal iOS SDK, you can connect to [pre-certified card readers](https://stripe.com/docs/terminal/designing-integration) from your iOS app and drive a customized in-store checkout flow.
+
+Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/ios) and [sample integration](https://stripe.com/docs/terminal/integration-builder), or browse the [SDK reference documentation](https://stripe.dev/stripe-terminal-ios/docs/index.html).
+
+> Upgrading from an older version of the SDK? See our [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) for guidance.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 9 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
 
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
 
 To build the example app from source, you'll need to:
 
-1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
+1. Navigate to the `Example` folder, and open `Example.xcworkspace` (make sure to open the **`.xcworkspace`** and not the `.xcodeproj`).
 2. Navigate to our [example backend](https://github.com/stripe/example-terminal-backend) and click the button to deploy it on Heroku.
 3. In `AppDelegate.swift`, set the URL of the Heroku app you just deployed.
 3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
-Note: the example app comes with the Stripe Terminal SDK pre-installed, but uses a few other dependencies. We've included pre-built dependencies using Swift 4.2. You may need to run `./setup.sh` to re-build the app's dependencies for your environment.
-
-For a more fully-featured example, see our Stripe Sample with Terminal on iOS: the [Rocket Rides Pilot App](https://github.com/stripe-samples/sample-terminal-ios-app).
-
 ## Installation
-We recommend that you install the SDK using CocoaPods. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
+We support CocoaPods and Swift Package Manager. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
+
+### Swift Package Manager
+
+In Xcode, select **File > Swift Packages > Add Package Dependency** and enter https://github.com/stripe/stripe-terminal-ios
 
 ### CocoaPods
 
@@ -28,7 +32,7 @@ We recommend that you install the SDK using CocoaPods. If you prefer to install 
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '~> 1.0'
+pod 'StripeTerminal', '~> 2.0'
 ```
 
 3. Run the following command:
@@ -44,16 +48,11 @@ pod update StripeTerminal
 ```
 
 ### Manual
-1. Navigate to our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page, download StripeTerminal.framework.zip, and unzip it.
+1. Navigate to our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page, download StripeTerminal.xcframework.zip, and unzip it.
 
-2. Drag `StripeTerminal.framework` to the Embedded Binaries section of your Xcode project’s General settings. Make sure to select "Copy items if needed".
+2. Drag `StripeTerminal.xcframework` to the Frameworks, Libraries, and Embedded Content section of your Xcode project’s General settings. Make sure to select "Copy items if needed".
 
-3. Navigate to the Build Phases section of your Xcode project settings, and create a new Run Script Build Phase. Paste the following snippet into the text field:
-```
-bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework/integrate-framework.sh"
-```
-
-When new versions of the SDK are released, repeat steps one and two to update your installation.
+When new versions of the SDK are released, repeat the above steps to update your installation.
 
 ### Configure your app
 
@@ -81,16 +80,9 @@ For your app to pass validation when submitting to the App Store, add the follow
   - Key: `NSBluetoothAlwaysUsageDescription`
   - Value: "This app uses Bluetooth to connect to supported card readers."
 
-## Documentation
-- [Getting Started](https://stripe.com/docs/terminal/ios)
-- [API Reference](https://stripe.github.io/stripe-terminal-ios/docs/index.html)
+## Previous API References
 
-## Verifone P400 support in the iOS SDK
+We maintain archives of the SDK's API reference for older versions of the SDK.
 
-iOS connectivity to the Verifone P400 reader is currently in public beta. Not all capabilities of the iOS SDK are available when connected to the Verifone P400, and some features available in the JavaScript SDK are not available in the iOS SDK. As the beta progresses, we aim to add these capabilities to the iOS SDK.
-
-Notably, the following iOS methods are not available when connected to the Verifone P400:
-
-- [`createPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:)
-- [`cancelPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:)
+- [1.4.0](https://stripe.dev/stripe-terminal-ios/1.4.0/)
 

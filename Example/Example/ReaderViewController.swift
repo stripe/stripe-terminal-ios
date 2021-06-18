@@ -10,7 +10,7 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReaderViewController: TableViewController, TerminalDelegate, CancelingViewController {
+class ReaderViewController: TableViewController, CancelingViewController {
     private var connectedReader: Reader? = nil {
         didSet {
             headerView.connectedReader = connectedReader
@@ -25,10 +25,13 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     private let headerView = ReaderHeaderView()
+    /// Will be set during connect from the DiscoveryViewController if an update is reported
+    private var pendingUpdate: ReaderSoftwareUpdate?
 
     init() {
         super.init(style: .grouped)
         self.title = "Terminal"
+        Terminal.shared.simulatorConfiguration.availableReaderUpdate = .random
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,13 +40,17 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addKeyboardDisplayObservers()
 
+        headerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapReaderHeaderView)))
+
         TerminalDelegateAnnouncer.shared.addListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
 
         ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
         updateContent()
@@ -58,20 +65,10 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     private func showDiscoverReaders() {
-        var config: DiscoveryConfiguration
-
-        if let deviceType = ReaderViewController.readerConfiguration.deviceType {
-            config = DiscoveryConfiguration(
-                deviceType: deviceType,
-                discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
-                simulated: ReaderViewController.readerConfiguration.simulated
-            )
-        } else {
-            config = DiscoveryConfiguration(
-                discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
-                simulated: ReaderViewController.readerConfiguration.simulated
-            )
-        }
+        let config = DiscoveryConfiguration(
+            discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
+            simulated: ReaderViewController.readerConfiguration.simulated
+        )
 
         let discoveryVC = ReaderDiscoveryViewController(discoveryConfig: config)
 
@@ -109,6 +106,7 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                 self.presentAlert(error: error)
             } else {
                 self.connectedReader = nil
+                self.pendingUpdate = nil
                 self.updateContent()
             }
         }
@@ -125,40 +123,19 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     }
 
     internal func showReadReusableCard() {
-        if let connectReader = self.connectedReader, connectReader.deviceType != .chipper2X, connectReader.deviceType != .verifoneP400 {
-            self.presentAlert(title: "Error", message: "This device type does not support readReusableCard.")
-            return
-        }
-        self.presentModalInNavigationController(ReadReusableCardViewController())
+        let viewController = connectedReader?.deviceType == .wisePad3
+            ? SetupIntentViewController()
+            : ReadReusableCardViewController()
+
+        self.presentModalInNavigationController(viewController)
     }
 
-    internal func showUpdateReader() {
-        self.presentModalInNavigationController(UpdateReaderViewController())
-    }
-
-    internal func showDeviceTypes() {
-        let vc = DeviceTypeViewController(deviceType: ReaderViewController.readerConfiguration.deviceType)
-        vc.onSelectedDevice = { type in
-            guard ReaderViewController.readerConfiguration.deviceType != type else { return }
-            ReaderViewController.readerConfiguration.deviceType = type
-            // for changed deviceType: update discovery method, since the previous selection is incompatible
-            switch type {
-            case .verifoneP400, .wisePosE:
-                ReaderViewController.readerConfiguration.discoveryMethod = .internet
-            case .chipper2X:
-                ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothProximity // not bothering to see which they last used
-            case .wisePad3:
-                // Update this in future once we support both bluetooth methods.
-                ReaderViewController.readerConfiguration.discoveryMethod = .bluetoothScan
-            case .none:
-                break
-            @unknown default:
-                print("No discovery method so device types cannot be determined.")
-            }
-
+    internal func showUpdateReader(update: ReaderSoftwareUpdate) {
+        self.presentModalInNavigationController(UpdateReaderViewController(update: update) {[weak self] in
+            guard let self = self else { return }
+            self.pendingUpdate = nil
             self.updateContent()
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        })
     }
 
     internal func showDiscoveryMethods() {
@@ -166,22 +143,6 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
         vc.onSelectedMethod = { method in
             guard ReaderViewController.readerConfiguration.discoveryMethod != method else { return }
             ReaderViewController.readerConfiguration.discoveryMethod = method
-
-            switch ReaderViewController.readerConfiguration.deviceType {
-            case nil:
-                // If the device type was "unspecified", don't change it when the discovery method changes
-                break
-            default:
-                // Otherwise, make sure deviceType is set to a compatible device for this discovery method
-                switch method {
-                case .bluetoothProximity, .bluetoothScan:
-                    ReaderViewController.readerConfiguration.deviceType = .chipper2X
-                case .internet:
-                    ReaderViewController.readerConfiguration.deviceType = .verifoneP400
-                @unknown default:
-                    print("Unknown device type, so correct discovery method cannot be determined.")
-                }
-            }
             self.updateContent()
         }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -205,23 +166,27 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
             ]
 
             switch connectedReader.deviceType {
-            case .chipper2X, .wisePad3:
-                workflowRows.append(Row(text: "Update reader software", detailText: "Check if a software update is available for the reader.", selection: { [unowned self] in
-                self.showUpdateReader()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
-            case .verifoneP400:
-                workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
-                self.showStartRefund()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
-                workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
-                    self.showStartSetReaderDisplay()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
-            case .wisePosE:
+            case .stripeM2, .chipper2X, .wisePad3:
+                if let pendingUpdate = pendingUpdate {
+                    workflowRows.append(
+                        Row(text: "Update reader software", detailText: "Install an available software update for the reader.", selection: { [unowned self] in
+                            self.showUpdateReader(update: pendingUpdate)
+                            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
+                    )
+                }
+            case .verifoneP400, .wisePosE:
+
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             @unknown default:
                 break
+            }
+
+            if connectedReader.deviceType != .chipper2X || connectedReader.deviceType != .stripeM2 {
+                workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
+                self.showStartRefund()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             }
 
             dataSource.sections = [
@@ -244,11 +209,6 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                         self.showRegisterReader()
                         }, cellClass: ButtonCell.self)
                 ]),
-                Section(header: "Device Type", rows: [
-                    Row(text: ReaderViewController.readerConfiguration.deviceType?.description ?? "Unspecified", selection: { [unowned self] in
-                        self.showDeviceTypes()
-                        }, accessory: .disclosureIndicator)
-                ]),
                 Section(header: "Discovery Method", rows: [
                     Row(text: ReaderViewController.readerConfiguration.discoveryMethod.description, selection: { [unowned self] in
                         self.showDiscoveryMethods()
@@ -257,29 +217,25 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
                 Section(header: "", rows: [
                     Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) { enabled in
                         ReaderViewController.readerConfiguration.simulated = enabled
-                        })
-                    ], footer: """
-                    The SDK comes with the ability to simulate behavior \
-                    without using physical hardware. This makes it easy to quickly \
-                    test your integration end-to-end, from connecting a reader to \
-                    taking payments.
-                    """)
-                ].compactMap({ $0})
+                        self.updateContent()
+                    })
+                ], footer: """
+                The SDK comes with the ability to simulate behavior \
+                without using physical hardware. This makes it easy to quickly \
+                test your integration end-to-end, from connecting a reader to \
+                taking payments.
+                """)
+            ].compactMap({ $0})
         }
     }
 
-    // MARK: SCPTerminalDelegate
-    func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
-        headerView.connectionStatus = status
-
-        if status == .notConnected {
-            connectedReader = nil
+    @objc
+    func didTapReaderHeaderView() {
+        guard let reader = self.connectedReader, let version = reader.deviceSoftwareVersion else {
+            return
         }
-    }
 
-    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
-        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)")
-        connectedReader = nil
+        self.presentAlert(title: reader.label ?? reader.serialNumber, message: version)
     }
 
     // MARK: - UIAdaptivePresentationControllerDelegate
@@ -288,6 +244,50 @@ class ReaderViewController: TableViewController, TerminalDelegate, CancelingView
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
         performCancel(presentationController: presentationController)
         return true
+    }
+}
+
+// MARK: TerminalDelegate
+extension ReaderViewController: TerminalDelegate {
+    func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
+        headerView.connectionStatus = status
+
+        if status == .notConnected {
+            connectedReader = nil
+            pendingUpdate = nil
+        }
+    }
+
+    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)")
+        connectedReader = nil
+    }
+}
+
+// MARK: TerminalAndBluetoothReaderDelegate
+extension ReaderViewController: BluetoothReaderDelegate {
+    func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
+        pendingUpdate = update
+        updateContent()
+    }
+
+    func reader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        // Prevent idle lock while updates are installing
+        // Doing this in the root ReaderVC since it catches both required updates as well as optional updates.
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+
+    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    }
+
+    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+
+    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    }
+
+    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
 }
 
