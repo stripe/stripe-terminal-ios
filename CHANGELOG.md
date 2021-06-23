@@ -5,7 +5,6 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 # 2.0.0 2021-06-23
-<!-- https://jira.corp.stripe.com/browse/TERMINAL-11399 Stripe internal: ensure the 2.0 stripe.com/docs links are valid after stripe.com/docs updates for 2.0 GA - also double check the stripe.dev links after this gets deployed to the public repo! -->
 
 This changelog includes a more detailed list of all the API and behavior changes since version 1.4.0 of the Stripe Terminal iOS SDK. In addition to this changelog, we've prepared a [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) that will help you upgrade your integration and explain the differences between the two SDKs.
 
