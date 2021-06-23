@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SCPReaderDisplayDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Protocol/SCPReaderDisplayDelegate" class="dashAnchor"></a>
+
+    <a title="SCPReaderDisplayDelegate Protocol Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          StripeTerminal 1.4.0 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">StripeTerminal Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SCPReaderDisplayDelegate Protocol Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderSoftwareUpdateDelegate.html">SCPReaderSoftwareUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other%20Constants.html">Other Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>SCPReaderDisplayDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPReaderDisplayDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ReaderDisplayDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                </div>
+              </div>
+            <p>You must implement this protocol to handle displaying events when connected
+to a bluetooth reader (e.g., the BBPOS Chipper 2X BT or BBPOS WisePad 3).</p>
+
+<p>The Verifone P400 has a built-in display, which handles displaying card
+and payment events to the customer. The Stripe Terminal iOS SDK will not call
+<code>SCPReaderDisplayDelegate</code> methods while connected to the Verifone P400.</p>
+
+<p>If you implement this protocol, the object that implements this protocol should
+get passed into <code>[SCPTerminal collectPaymentMethod:delegate:completion]</code> or
+<code>[SCPTerminal readReusableCard:delegate:completion]</code>.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPReaderDisplayDelegate(im)terminal:didRequestReaderInput:"></a>
+                    <a name="//apple_ref/objc/Method/-terminal:didRequestReaderInput:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPReaderDisplayDelegate(im)terminal:didRequestReaderInput:">-terminal:<wbr>didRequestReaderInput:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called when the reader begins waiting for input. Your app
+should prompt the customer to present a payment method using one of the given input
+options. If the reader emits a prompt, the <code>didRequestReaderDisplayMessage</code> method
+will be called.</p>
+
+<p>Use <code>stringFromReaderInputOptions</code> to get a user facing string for the input
+options.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
+    <span class="nf">didRequestReaderInput</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a></span><span class="p">)</span><span class="nv">inputOptions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span><span class="p">,</span> <span class="n">didRequestReaderInput</span> <span class="nv">inputOptions</span><span class="p">:</span> <span class="kt">ReaderInputOptions</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>terminal</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The originating terminal.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inputOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The armed input options on the reader.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPReaderDisplayDelegate(im)terminal:didRequestReaderDisplayMessage:"></a>
+                    <a name="//apple_ref/objc/Method/-terminal:didRequestReaderDisplayMessage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPReaderDisplayDelegate(im)terminal:didRequestReaderDisplayMessage:">-terminal:<wbr>didRequestReaderDisplayMessage:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called to request that a prompt be displayed in your app.
+For example, if the prompt is <code>SwipeCard</code>, your app should instruct the
+user to present the card again by swiping it.</p>
+
+<p>Use <code>stringFromReaderDisplayMessage</code> to get a user facing string for the prompt.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>SCPReaderDisplayMessage</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
+    <span class="nf">didRequestReaderDisplayMessage</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a></span><span class="p">)</span><span class="nv">displayMessage</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span><span class="p">,</span> <span class="n">didRequestReaderDisplayMessage</span> <span class="nv">displayMessage</span><span class="p">:</span> <span class="kt">ReaderDisplayMessage</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>terminal</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The originating terminal.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>displayMessage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to display to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

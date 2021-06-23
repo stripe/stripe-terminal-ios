@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SCPBluetoothConnectionConfiguration Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Class/SCPBluetoothConnectionConfiguration" class="dashAnchor"></a>
+
+    <a title="SCPBluetoothConnectionConfiguration Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          StripeTerminal 2.0.0 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">StripeTerminal Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SCPBluetoothConnectionConfiguration Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Terminal.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Discovery%20%26%20Connection.html">Reader Discovery &amp; Connection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPLocation.html">SCPLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLocationStatus.html">SCPLocationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAddress.html">SCPAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatorConfiguration.html">SCPSimulatorConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulatedCardType.html">SCPSimulatedCardType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPBatteryStatus.html">SCPBatteryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Card-Present%20Refunds.html">Card-Present Refunds</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Saving%20Cards.html">Saving Cards</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSetupIntentStatus.html">SCPSetupIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSetupIntentUsage.html">SCPSetupIntentUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttempt.html">SCPSetupAttempt</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttemptPaymentMethodDetails.html">SCPSetupAttemptPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttemptCardPresentDetails.html">SCPSetupAttemptCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmSetupIntentError.html">SCPConfirmSetupIntentError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmSetupIntentCompletionBlock">SCPConfirmSetupIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLocationsCompletionBlock">SCPLocationsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPRefundCompletionBlock">SCPRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>SCPBluetoothConnectionConfiguration</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPBluetoothConnectionConfiguration</span> <span class="p">:</span> <span class="nc">SCPConnectionConfiguration</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BluetoothConnectionConfiguration</span> <span class="p">:</span> <span class="kt">ConnectionConfiguration</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class lets you define Bluetooth reader connection options.</p>
+
+<p>An object of this class should get passed into <code>Terminal.shared.connectBluetoothReader()</code>.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(py)locationId"></a>
+                    <a name="//apple_ref/objc/Property/locationId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)locationId">locationId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ID of the <a href="https://stripe.com/docs/api/terminal/locations">Location</a> which the reader should be registered to during connection.</p>
+
+<p>If the provided ID matches the location the reader is already registered to, the
+location will not be changed.</p>
+
+<p>When connecting to a simulated reader, pass in the reader&rsquo;s pre-existing mock location.
+You can find the mock location ID on the reader object returned to the DiscoveryDelegate,
+on the <code>locationId</code> property.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/fleet-management#bbpos-wisepad3-discovery">https://stripe.com/docs/terminal/readers/fleet-management#bbpos-wisepad3-discovery</a>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">locationId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithLocationId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:">-initWithLocationId:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize your connect options with a location ID.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithLocationId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">locationId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2021-06-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

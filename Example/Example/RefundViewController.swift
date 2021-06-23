@@ -12,11 +12,15 @@ import StripeTerminal
 
 class RefundViewController: EventDisplayingViewController {
 
+    override var cancelLogMethod: LogEvent.Method {
+        return .cancelCollectRefundPaymentMethod
+    }
+
     private let refundParameters: RefundParameters
 
     init(refundParams: RefundParameters) {
         self.refundParameters = refundParams
-        super.init(style: .grouped)
+        super.init()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,33 +32,40 @@ class RefundViewController: EventDisplayingViewController {
 
         // 1. collectRefundMethod
         var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
-        self.events.append(.log(collectEvent))
-        self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters) { collectError in
+        self.events.append(collectEvent)
+        self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters) { [weak self] collectError in
+            guard let self = self else { return }
+
             if let error = collectError {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)
-                self.events.append(.log(collectEvent))
+                self.events.append(collectEvent)
                 self.complete()
             } else {
                 collectEvent.result = .succeeded
-                self.events.append(.log(collectEvent))
+                self.events.append(collectEvent)
 
                 // 2. process refund
                 var processEvent = LogEvent(method: .processRefund)
-                self.events.append(.log(processEvent))
-                Terminal.shared.processRefund { processedRefund, processError in
+                self.events.append(processEvent)
+                Terminal.shared.processRefund { [weak self] processedRefund, processError in
+                    guard let self = self else { return }
+
                     if let error = processError {
                         processEvent.result = .errored
                         processEvent.object = .error(error as NSError)
-                        self.events.append(.log(processEvent))
+                        self.events.append(processEvent)
                         self.complete()
                     } else if let refund = processedRefund, refund.status == .succeeded {
                         processEvent.result = .succeeded
                         processEvent.object = .refund(refund)
-                        self.events.append(.log(processEvent))
+                        self.events.append(processEvent)
+                        #if SCP_SHOWS_RECEIPTS
+                        self.events.append(ReceiptEvent(refund: refund, paymentIntent: nil))
+                        #endif
                         self.complete()
                     } else if processedRefund != nil {
-                        self.events.append(.log(processEvent))
+                        self.events.append(processEvent)
                         self.complete()
                     }
                 }

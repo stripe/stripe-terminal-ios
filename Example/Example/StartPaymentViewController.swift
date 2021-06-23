@@ -15,6 +15,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let amountView = AmountInputView()
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
+    private var interacPresentEnabled = false
 
     convenience init() {
         self.init(style: .grouped)
@@ -26,12 +27,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         title = "Collect card payment"
 
-        amountView.onAmountUpdated = { amountString in
+        amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
             self.updateContent()
         }
 
-        currencyView.onCurrencyUpdated = { currencyString in
+        currencyView.onCurrencyUpdated = { [unowned self] currencyString in
             self.amountView.numberFormatter.currencyCode = currencyString
             self.startSection?.header = Section.Extremity.title(self.amountView.amountString)
             self.updateContent()
@@ -41,7 +42,9 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         if ReaderViewController.readerConfiguration.simulated {
             headerString = "Collect a card payment using a simulated reader."
         } else {
-            switch ReaderViewController.readerConfiguration.deviceType {
+            switch Terminal.shared.connectedReader?.deviceType {
+            case .stripeM2:
+                headerString = "Collect a card payment using a physical Stripe test card and the Stripe Reader M2."
             case .chipper2X:
                 headerString = "Collect a card payment using a physical Stripe test card and the Chipper 2X."
             case .verifoneP400:
@@ -61,6 +64,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.startPayment()
                 }, cellClass: ButtonCell.self)
         ], footer: Section.Extremity.title(headerString))
+
         updateContent()
     }
 
@@ -85,8 +89,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     // MARK: - Internal
 
     internal func startPayment() {
+        var paymentMethodTypes = ["card_present"]
+
+        if self.interacPresentEnabled {
+            paymentMethodTypes.append("interac_present")
+        }
+
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
-                                                    currency: currencyView.currency)
+                                                    currency: currencyView.currency,
+                                                    paymentMethodTypes: paymentMethodTypes)
         let vc = PaymentViewController(paymentParams: paymentParams)
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
@@ -100,9 +111,19 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let currencySection = Section(header: "CURRENCY", rows: [],
                                       footer: Section.Extremity.autoLayoutView(currencyView))
 
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true &&
+            [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
+
+        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
+            Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
+                self.interacPresentEnabled = !self.interacPresentEnabled
+            }),
+        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
+
         var sections: [Section] = [
             amountSection,
-            currencySection
+            currencySection,
+            paymentMethodSection,
         ]
 
         if let startSection = self.startSection {

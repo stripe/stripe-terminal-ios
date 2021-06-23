@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Static (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8)
+  - Static (from `https://github.com/venmo/Static`, tag `v4.0.0`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  Static:
+    :git: https://github.com/venmo/Static
+    :tag: v4.0.0
+
+CHECKOUT OPTIONS:
+  Static:
+    :git: https://github.com/venmo/Static
+    :tag: v4.0.0
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Static: 3204aad2dc648cfe08dc7aa4a26d65ee37e4853a
+
+PODFILE CHECKSUM: 7ebac56af22e344f67e973c430d5280c917a820a
+
+COCOAPODS: 1.10.1

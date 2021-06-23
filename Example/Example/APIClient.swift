@@ -137,11 +137,13 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
-    func registerReader(withCode registrationCode: String, label: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
+    func registerReader(withCode registrationCode: String, label: String, locationId: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let url = self.baseURL.appendingPathComponent("register_reader")
         Alamofire.request(url, method: .post, parameters: [
             "label": label,
-            "registration_code": registrationCode])
+            "registration_code": registrationCode,
+            "location": locationId
+        ])
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in
                 switch responseJSON.result {
@@ -160,6 +162,37 @@ class APIClient: NSObject, ConnectionTokenProvider {
                 case .failure(let error):
                     completion(nil, error)
                 }
+        }
+    }
+
+    /**
+    Creates a Location with the specified displayName and address
+     */
+    func createLocation(displayName: String, address: [String: String], completion: @escaping (Location?, Error?) -> Void) {
+        let url = self.baseURL.appendingPathComponent("create_location")
+        let parameters: Parameters = [
+            "display_name": displayName,
+            "address": address
+        ]
+
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: parameters
+                          )
+        .validate(statusCode: 200..<300)
+        .responseJSON { responseJSON in
+            switch responseJSON.result {
+            case .success(let json as [String: AnyObject]):
+                completion(Location.decodedObject(fromJSON: json), nil)
+            case .success:
+                completion(nil, NSError(domain: "example",
+                                        code: 3,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: "Failed to decode created location"
+                    ]))
+            case .failure(let error):
+                completion(nil, error)
+            }
         }
     }
 }

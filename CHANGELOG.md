@@ -2,8 +2,72 @@
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '1.4.0'
+pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.0.0 2021-06-23
+
+This changelog includes a more detailed list of all the API and behavior changes since version 1.4.0 of the Stripe Terminal iOS SDK. In addition to this changelog, we've prepared a [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) that will help you upgrade your integration and explain the differences between the two SDKs.
+
+## iOS Compatibility
+The 2.0.0 Stripe Terminal iOS SDK requires iOS 10 and above.
+
+## Connecting to a Reader
+`connectReader` is now split into two separate methods: [`connectBluetoothReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:) and [`connectInternetReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:).
+
+### `connectBluetoothReader`
+[`connectBluetoothReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:) should be used to connect to any Bluetooth reader like the BBPOS WisePad 3 and BBPOS Chipper 2X BT.
+
+* [`connectBluetoothReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:) requires providing a new [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) which is used to report all reader events.
+* The `terminal:didReportReaderEvent:info:` and `terminalDidReportLowBatteryWarning:` events have been moved from the `TerminalDelegate` into the [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) .
+* The `ReaderDisplayDelegate` has been removed and the [`didRequestReaderInput:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didRequestReaderInput:) and [`didRequestReaderDisplayMessage:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didRequestReaderDisplayMessage:) have moved to the [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) .
+* The `ReaderSoftwareUpdateDelegate` has been removed and the [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) is used for communicating to your app about updates for the reader.
+
+See [Updating reader software: Required updates](https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#required-updates) for more details.
+
+### `connectInternetReader`
+
+[`connectInternetReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:) should be used to connect to Internet connected countertop readers like the Verifone P400 and the BBPOS WisePOS E. There are no changes required between `connectReader` and [`connectInternetReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:) for your countertop reader integration.
+
+## Bluetooth Reader Updates
+The `checkForUpdate` method has been removed. The Stripe Terminal SDK now checks for required and optional updates during reader connection.
+
+Required update installation is reported to the new [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) with the [`didStartInstallingUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didStartInstallingUpdate:cancelable:) method. Progress will be reported to that same delegate with [`didReportReaderSoftwareUpdateProgress`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didReportReaderSoftwareUpdateProgress:). When the installation of the required update finishes the delegate will receive the [`didFinishInstallingUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didFinishInstallingUpdate:error:).
+
+For more information about implementing reader updates, see [Updating reader software](https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software) and [Testing Bluetooth reader updates](https://stripe.com/docs/terminal/testing#simulated-reader-updates).
+
+## Collecting Payments
+`collectPaymentMethod` and `readReusableCard` no longer require a `ReaderDisplayDelegate`. Instead, the [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) , provided during [`connectBluetoothReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:), is used to communicate the [`didRequestReaderInput:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didRequestReaderInput:) and [`didRequestReaderDisplayMessage:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didRequestReaderDisplayMessage:) methods. These methods are only needed when using a Bluetooth connected reader and do not apply when using [`connectInternetReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:).
+
+## Bluetooth Reader Locations
+Like Internet readers, Bluetooth readers must now be registered to [Locations](https://stripe.com/docs/api/terminal/locations/object). Registering your Bluetooth readers to a location ensures that the readers install the proper regional configurations and are properly grouped on your account.
+
+To register the reader to a location, create and use a `BluetoothConnectionConfiguration` object with the `locationId` set accordingly, and pass that object in when calling `Terminal.shared.connectBluetoothReader()`.
+
+When discovering readers that have already been registered to a location, those reader objects will have a valid `locationId` property during discovery. If it makes sense for your application, you can pass that `locationId` from the discovered `Reader` object into the `BluetoothConnectionConfiguration` initializer to keep that reader registered to the same location. This is the pattern we recommend when discovering and connecting to simulated Bluetooth readers, which are now automatically registered to a mock location.
+
+When connecting to a reader, you may want to display a list of Locations in your app. To enable this, the SDK provides the `Terminal.shared.listLocations(:completion:)` method that takes the same parameters as the [List all Locations](https://stripe.com/docs/api/terminal/locations/list) API endpoint. You may want to adjust your connection flow to allow users to pick a location before they select a reader, should they want to switch that reader's location manually.
+
+## Other Changes
+* [`SCPReaderSoftwareUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReaderSoftwareUpdate.html) now has a [`components`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReaderSoftwareUpdate.html#/c:objc(cs)SCPReaderSoftwareUpdate(py)components) property that can be used to determine the changes that will be applied with this update. [`deviceSoftwareVersion`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReaderSoftwareUpdate.html#/c:objc(cs)SCPReaderSoftwareUpdate(py)deviceSoftwareVersion) can still be used to identify the specific firmware, config, and keys that will be installed with the update.
+* Adds support for setting a [`SCPSimulatedCard`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatedCard.html) on the [`SCPSimulatorConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html) object, allowing simulation of different card brands and decline types. See Simulated Test Cards for more details.
+* Added optional delegate method, [`reader:didReportBatteryLevel:status:isCharging`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didReportBatteryLevel:status:isCharging:), to announce battery updates from Bluetooth readers.
+* Adds error codes:
+    * Added error [`SCPErrorBluetoothAccessDenied`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothAccessDenied) returned when Bluetooth is enabled on the device but access for your application has been denied.
+    * [`SCPErrorBluetoothPeerRemovedPairingInformation`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothPeerRemovedPairingInformation) and [`SCPErrorBluetoothAlreadyPairedWithAnotherDevice`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothAlreadyPairedWithAnotherDevice) to increase clarity when discovery or connection fails unexpectedly.
+    * [`SCPErrorFeatureNotAvailable`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorFeatureNotAvailable), which will get returned when the initiated operation is not available for your account.
+* Added [`SCPDeviceTypeStripeM2`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDeviceType.html#/c:@E@SCPDeviceType@SCPDeviceTypeStripeM2) to [`SCPDeviceType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDeviceType.html). This reader is in beta testing and not yet generally available.
+* Renames `SCPErrorPaymentDeclinedByStripeAPI` to [`SCPErrorDeclinedByStripeAPI`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorDeclinedByStripeAPI), referencing the fact that this error will be returned if Stripe rejects the SetupIntent or Refund as well as the payment.
+* Bug fix: If your reader battery was low (around 15 percent or less), we did not invoke [`readerDidReportLowBatteryWarning`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)readerDidReportLowBatteryWarning:) until an action (such as a transaction) was taken. Now [`readerDidReportLowBatteryWarning`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)readerDidReportLowBatteryWarning:) is also announced upon connection to the reader.
+* Bug fix: [`requestError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPProcessPaymentError.html#/c:objc(cs)SCPProcessPaymentError(py)requestError) on the [`SCPProcessingPaymentError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPProcessPaymentError.html) is now being properly populated in the case server has responded with an error and causes [`processPayment`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPayment:completion:) to fail.
+* Bug fix: The very first [`discoverReaders`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:) call using Bluetooth with iOS 13.4 or later no longer results with a "Generic Bluetooth Error" and should now successfully start discovery.
+
+## New features
+
+* Added support for [Swift Package Manager](https://swift.org/package-manager/).
+* Added support for running with iOS Simulator on Macs with M1 processors.
+* The SDK's card-present refund functionality now works with the BBPOS WisePad 3 reader.
+* Invite only: Stripe Terminal now supports creating [SetupIntents](https://stripe.com/docs/terminal/payments/saving-cards#outside-the-united-states-------) to save card information outside the United States. When saving card information in the United States, please continue to use [readReusableCard](https://stripe.com/docs/terminal/payments/saving-cards#read-reusable-card).
+
 # 1.4.0 2020-09-03
 
 - Added [`accountType`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReceiptDetails.html#/c:objc(cs)SCPReceiptDetails(py)accountType) to `SCPReceiptDetails`.

@@ -10,7 +10,7 @@ import UIKit
 import Static
 import StripeTerminal
 
-class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, CancelableViewController {
+class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, CancelableViewController, CancelingViewController {
 
     internal var cancelable: Cancelable?
     internal weak var cancelButton: UIBarButtonItem?
@@ -28,6 +28,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
 
     let registrationCodeTextField = TextFieldView(text: "", footer: "")
     let readerLabelTextField = TextFieldView(text: "", footer: "")
+    private var selectedLocation: Location?
 
     var message: String? = nil {
         didSet {
@@ -87,6 +88,11 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 return
         }
 
+        guard let selectedLocation = selectedLocation else {
+            message = "Please select a location."
+            return
+        }
+
         if label.isEmpty {
             label = registrationCode
         }
@@ -94,9 +100,10 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         registrationInProgress = true
         setAllowedCancelMethods([])
         self.message = "Registering..."
-        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label) {response, error in
+        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label, locationId: selectedLocation.stripeId) { [unowned self] response, error in
             if let error = error {
                 self.registrationInProgress = false
+                self.setAllowedCancelMethods(.all)
                 self.message = "Could not register reader."
                 print(error)
             } else if let response = response {
@@ -104,17 +111,39 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 self.setAllowedCancelMethods(.all)
                 self.message = "Rediscovering..."
 
-                let config = DiscoveryConfiguration(deviceType: .verifoneP400, simulated: false)
+                let config = DiscoveryConfiguration(discoveryMethod: .internet, simulated: false)
                 self.cancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
                     self.cancelable = nil
                     if let error = error {
                         self.registrationInProgress = false
+                        self.setAllowedCancelMethods(.all)
                         self.message = "Could not discover readers."
                         print(error)
                     }
                 }
             }
         }
+    }
+
+    private func presentModalInNavigationController(_ vc: UIViewController) {
+        let navController = LargeTitleNavigationController(rootViewController: vc)
+        navController.presentationController?.delegate = self
+        self.present(navController, animated: true, completion: nil)
+    }
+
+    private func onLocationSelect(viewController: SelectLocationViewController, location: Location) {
+        self.selectedLocation = location
+        viewController.dismiss(animated: true) {
+            self.updateContent()
+        }
+    }
+
+    private func showLocationSelector() {
+        let selectLocationVC = SelectLocationViewController()
+        selectLocationVC.onSelectLocation = { [unowned selectLocationVC] location in
+            self.onLocationSelect(viewController: selectLocationVC, location: location)
+        }
+        self.presentModalInNavigationController(selectLocationVC)
     }
 
     private func updateContent() {
@@ -127,10 +156,25 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                     footer: Section.Extremity.autoLayoutView(registrationCodeTextField)),
             Section(header: "Label (optional)",
                     footer: Section.Extremity.autoLayoutView(readerLabelTextField)),
+            Section(
+                header: Section.Extremity.title("Location"),
+                rows: [
+                    Row(
+                        text: selectedLocation != nil ? selectedLocation?.displayString : "No location selected",
+                        selection: { [unowned self] in self.showLocationSelector() },
+                        accessory: .disclosureIndicator
+                    )
+                ]
+            ),
             messageSection,
             Section(rows: [
-                Row(text: "Register Reader", selection: formSubmit, cellClass: ButtonCell.self)
-            ], footer: "Internet-connected readers like the Verifone P400 must be registered to your account before they can be discovered.\n\nPress 0-7-1-3-9 on your reader to display a registration code.")
+                Row(text: "Register Reader",
+                    selection: { [unowned self] in
+                        self.formSubmit()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ], footer: "Internet-connected readers like the Verifone P400 must be registered to your account and associated to a location before they can be discovered.\n\nPress 0-7-1-3-9 on your reader to display a registration code.")
             ].compactMap { return $0 }
 
         dataSource.sections = sections
@@ -153,7 +197,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
 
         self.setAllowedCancelMethods([])
         self.message = "Connecting..."
-        Terminal.shared.connectReader(reader) { connectedReader, error in
+        Terminal.shared.connectInternetReader(reader, connectionConfig: nil) { [unowned self] connectedReader, error in
             self.setAllowedCancelMethods(.all)
             if let error = error {
                 self.message = "Could not connect to reader."

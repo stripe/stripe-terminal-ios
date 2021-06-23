@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reader  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Section/Reader" class="dashAnchor"></a>
+
+    <a title="Reader  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          StripeTerminal 1.4.0 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">StripeTerminal Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Reader  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConnectionConfiguration.html">SCPConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPReaderDisplayDelegate.html">SCPReaderDisplayDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPReaderSoftwareUpdateDelegate.html">SCPReaderSoftwareUpdateDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderSoftwareUpdateCompletionBlock">SCPReaderSoftwareUpdateCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Constants.html">Other Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Constants.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Constants.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>Reader</h1>
+            
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPReader"></a>
+                    <a name="//apple_ref/objc/Class/SCPReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPReader">SCPReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about a reader that has been discovered or connected to the SDK.
+Note some of the properties are specific to a certain device type and are
+labeled as such. If a property does not call out a specific device then it
+is applicable to all device types.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers">https://stripe.com/docs/terminal/readers</a>
+
+</div>
+
+                        <a href="Classes/SCPReader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPReader</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Reader</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPReaderDisplayDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPReaderDisplayDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPReaderDisplayDelegate">SCPReaderDisplayDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>You must implement this protocol to handle displaying events when connected
+to a bluetooth reader (e.g., the BBPOS Chipper 2X BT or BBPOS WisePad 3).</p>
+
+<p>The Verifone P400 has a built-in display, which handles displaying card
+and payment events to the customer. The Stripe Terminal iOS SDK will not call
+<code>SCPReaderDisplayDelegate</code> methods while connected to the Verifone P400.</p>
+
+<p>If you implement this protocol, the object that implements this protocol should
+get passed into <code>[SCPTerminal collectPaymentMethod:delegate:completion]</code> or
+<code>[SCPTerminal readReusableCard:delegate:completion]</code>.</p>
+
+                        <a href="Protocols/SCPReaderDisplayDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPReaderDisplayDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ReaderDisplayDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPReaderInputOptions"></a>
+                    <a name="//apple_ref/objc/Enum/SCPReaderInputOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPReaderInputOptions">SCPReaderInputOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This represents all of the input methods available to your user when the
+reader begins waiting for input.</p>
+
+                        <a href="Enums/SCPReaderInputOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPReaderInputOptions</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">ReaderInputOptions</span> <span class="p">:</span> <span class="kt">OptionSet</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPReaderDisplayMessage"></a>
+                    <a name="//apple_ref/objc/Enum/SCPReaderDisplayMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPReaderDisplayMessage">SCPReaderDisplayMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The display messages that a reader may request be displayed by your app.</p>
+
+                        <a href="Enums/SCPReaderDisplayMessage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPReaderDisplayMessage</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ReaderDisplayMessage</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPReaderEvent"></a>
+                    <a name="//apple_ref/objc/Enum/SCPReaderEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPReaderEvent">SCPReaderEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible events from a connected reader.</p>
+
+                        <a href="Enums/SCPReaderEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPReaderEvent</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPReaderNetworkStatus"></a>
+                    <a name="//apple_ref/objc/Enum/SCPReaderNetworkStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPReaderNetworkStatus">SCPReaderNetworkStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible device types for a reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/api/terminal/readers/object">https://stripe.com/docs/api/terminal/readers/object</a>
+
+</div>
+
+                        <a href="Enums/SCPReaderNetworkStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPReaderNetworkStatus</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPDiscoveryConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPDiscoveryConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryConfiguration">SCPDiscoveryConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configuration options for discovering readers.</p>
+
+<p>Objects of this type get passed into the <code>Terminal.shared.discoverReaders()</code>
+method to control which devices get discovered, and how.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a>
+
+</div>
+
+                        <a href="Classes/SCPDiscoveryConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPDiscoveryConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DiscoveryConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType"></a>
+                    <a name="//apple_ref/objc/Enum/SCPDeviceType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType">SCPDeviceType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible device types for a reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers">https://stripe.com/docs/terminal/readers</a>
+
+</div>
+
+                        <a href="Enums/SCPDeviceType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPDeviceType</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">DeviceType</span> <span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDiscoveryMethod"></a>
+                    <a name="//apple_ref/objc/Enum/SCPDiscoveryMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDiscoveryMethod">SCPDiscoveryMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible methods for discovering a reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a>
+
+</div>
+
+                        <a href="Enums/SCPDiscoveryMethod.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPDiscoveryMethod</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPDiscoveryDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPDiscoveryDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPDiscoveryDelegate">SCPDiscoveryDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement this protocol to handle a continually updating list
+of discovered readers. You must pass an <code>SCPDiscoveryDelegate</code>
+when calling <code><a href="Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-[SCPTerminal discoverReaders:delegate:completion:]</a></code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a>
+
+</div>
+
+                        <a href="Protocols/SCPDiscoveryDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPDiscoveryDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">DiscoveryDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCart"></a>
+                    <a name="//apple_ref/objc/Class/SCPCart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCart">SCPCart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>SCPCart contains information about what should display on the reader&rsquo;s cart.
+It should be created and then passed into setReaderDisplay, which will place
+the contents of the cart on the reader&rsquo;s display.</p>
+
+<p>You can pass the same SCPCart to multiple calls of setReaderDisplay since the cart
+is not coupled to any specific call of setReaderDisplay.</p>
+
+<p>The SCPCart only represents exactly what will be shown on the screen, and is
+not reflective of what the customer is actually charged. You are
+responsible for making sure that tax and total reflect what is in the cart.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Only the Verifone P400 supports setReaderDisplay functionality</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/checkout/cart-display">https://stripe.com/docs/terminal/checkout/cart-display</a></p>
+
+</div>
+
+                        <a href="Classes/SCPCart.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPCart</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPCart</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCartLineItem"></a>
+                    <a name="//apple_ref/objc/Class/SCPCartLineItem" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCartLineItem">SCPCartLineItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dictates what will be shown on the screen through setReaderDisplay.
+Represents exactly what will be shown on the screen.</p>
+
+                        <a href="Classes/SCPCartLineItem.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPCartLineItem</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPCartLineItem</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2020-12-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

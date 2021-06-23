@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // This can be used to set the location in the ConnectionConfiguration.
+    var locationToRegisterTo: Location?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let backendUrl = AppDelegate.backendUrl else {
             fatalError("You must provide a backend URL to run this app.")

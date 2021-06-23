@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
  This header contains APIs used for internal development.
  */
 
+@class SCPVoidPromise;
+
 #pragma mark - SCPReader
 
 @interface SCPReader (Development)
