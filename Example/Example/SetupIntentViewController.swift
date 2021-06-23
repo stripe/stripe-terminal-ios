@@ -24,7 +24,6 @@ class SetupIntentViewController: EventDisplayingViewController {
         var createEvent = LogEvent(method: .createSetupIntent)
         self.events.append(createEvent)
 
-        // TODO: If connected to a Rabbit reader, create SetupIntent
         Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
             if let error = createError {
                 createEvent.result = .errored
