@@ -4,6 +4,12 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+
+# 2.0.1 2021-07-14
+
+* Bug fix: When using the WisePad 3, not calling `processPayment` after a successful `collectPaymentMethod` could cause the SDK to become unresponsive. This is now fixed.
+* Bug fix: When disconnected from an Internet reader the `connectionStatus` is now correctly `.notConnected` when the `disconnectReader` completion block is called.
+
 # 2.0.0 2021-06-23
 
 This changelog includes a more detailed list of all the API and behavior changes since version 1.4.0 of the Stripe Terminal iOS SDK. In addition to this changelog, we've prepared a [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) that will help you upgrade your integration and explain the differences between the two SDKs.
