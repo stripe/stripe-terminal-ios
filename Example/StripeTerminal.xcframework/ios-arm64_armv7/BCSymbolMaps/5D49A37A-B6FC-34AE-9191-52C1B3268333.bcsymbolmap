@@ -1,9 +1,9 @@
 BCSymbolMap Version: 2.0
-Apple clang version 12.0.5 (clang-1205.0.22.9)
-/Applications/Xcode-12-5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk
+Apple clang version 12.0.5 (clang-1205.0.22.11)
+/Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk
 iPhoneOS14.5.sdk
-/Users/jil/stripe/terminal/sdk/ios/build/iphoneos/Build/Intermediates.noindex/ArchiveIntermediates/StripeTerminal/IntermediateBuildFilesPath/StripeTerminal.build/Release-iphoneos/StripeTerminal.build/DerivedSources/StripeTerminal_vers.c
-/Users/jil/stripe/terminal/sdk/ios
+/Users/bric/stripe/terminal/main/build/iphoneos/Build/Intermediates.noindex/ArchiveIntermediates/StripeTerminal/IntermediateBuildFilesPath/StripeTerminal.build/Release-iphoneos/StripeTerminal.build/DerivedSources/StripeTerminal_vers.c
+/Users/bric/stripe/terminal/main
 -[SCPPBTerminalHeartbeatRequest method]
 -[SCPPBTerminalHeartbeatRequest jsonObject]
 -[SCPPBTerminalHeartbeatRequest copyWithZone:]
@@ -36,7 +36,7 @@ __OBJC_METACLASS_RO_$_SCPPBTerminalHeartbeatRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBTerminalHeartbeatRequest
 __OBJC_$_PROP_LIST_SCPPBTerminalHeartbeatRequest
 __OBJC_CLASS_RO_$_SCPPBTerminalHeartbeatRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatRequest.m
 -[SCPPBBBPOSConfig jsonObject]
 +[SCPPBBBPOSConfig decodedObjectFromJSON:]
@@ -119,7 +119,7 @@ _OBJC_IVAR_$_SCPPBBBPOSConfig._minimumRequiredConfigSpec
 __OBJC_$_INSTANCE_VARIABLES_SCPPBBBPOSConfig
 __OBJC_$_PROP_LIST_SCPPBBBPOSConfig
 __OBJC_CLASS_RO_$_SCPPBBBPOSConfig
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPOSConfig.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPOSConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPOSConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPOSConfig.h
 +[NSBundle(StripeTerminal) scp_applicationName]
@@ -135,13 +135,13 @@ _OBJC_CLASSLIST_REFERENCES_$_.19
 _OBJC_SELECTOR_REFERENCES_.23
 __OBJC_$_CATEGORY_CLASS_METHODS_NSBundle_$_StripeTerminal
 __OBJC_$_CATEGORY_NSBundle_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSBundle+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSBundle+StripeTerminal.m
 StripeTerminal/NSBundle+StripeTerminal.m
 -[NSDate(StripeTerminal) scp_millisSinceDate:]
 -[NSDate(StripeTerminal) scp_millisSince1970]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSDate_$_StripeTerminal
 __OBJC_$_CATEGORY_NSDate_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSDate+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSDate+StripeTerminal.m
 StripeTerminal/NSDate+StripeTerminal.m
 -[SCPPBQueryPaymentMethodRequest method]
 -[SCPPBQueryPaymentMethodRequest jsonObject]
@@ -151,7 +151,7 @@ __OBJC_METACLASS_RO_$_SCPPBQueryPaymentMethodRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBQueryPaymentMethodRequest
 __OBJC_$_PROP_LIST_SCPPBQueryPaymentMethodRequest
 __OBJC_CLASS_RO_$_SCPPBQueryPaymentMethodRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodRequest.m
 -[SCPTrace initWithService:method:request:]
 -[SCPTrace addLogPoint:]
@@ -217,7 +217,7 @@ _OBJC_IVAR_$_SCPTrace._accountId
 __OBJC_$_INSTANCE_VARIABLES_SCPTrace
 __OBJC_$_PROP_LIST_SCPTrace
 __OBJC_CLASS_RO_$_SCPTrace
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPTrace.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPTrace.m
 StripeTerminal/RPC/Plymouth/SCPTrace.m
 StripeTerminal/RPC/Plymouth/SCPTrace.h
 -[SCPPaymentMethodData initWithEMV:readMethod:paymentMethodType:emvProcessingMethod:simulated:]
@@ -269,7 +269,7 @@ _OBJC_IVAR_$_SCPPaymentMethodData._swipeReason
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentMethodData
 __OBJC_$_PROP_LIST_SCPPaymentMethodData
 __OBJC_CLASS_RO_$_SCPPaymentMethodData
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentMethodData.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentMethodData.m
 StripeTerminal/SCPPaymentMethodData.m
 StripeTerminal/SCPPaymentMethodData.h
 +[SCPPBSetReaderDisplayResponse decodedObjectFromJSON:]
@@ -284,7 +284,7 @@ _OBJC_IVAR_$_SCPPBSetReaderDisplayResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSetReaderDisplayResponse
 __OBJC_$_PROP_LIST_SCPPBSetReaderDisplayResponse
 __OBJC_CLASS_RO_$_SCPPBSetReaderDisplayResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayResponse.m
 -[SCPCustomErrorPromise init]
 +[SCPCustomErrorPromise promiseWithValue:]
@@ -357,7 +357,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.75
 __OBJC_METACLASS_RO_$_SCPVoidPromise
 __OBJC_$_INSTANCE_METHODS_SCPVoidPromise
 __OBJC_CLASS_RO_$_SCPVoidPromise
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPromise.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPromise.m
 StripeTerminal/SCPPromise.m
 __35-[SCPVoidPromise voidOnCompletion:]_block_invoke_2
 __35-[SCPVoidPromise voidOnCompletion:]_block_invoke
@@ -395,12 +395,12 @@ _OBJC_IVAR_$_SCPLogContext._params
 __OBJC_$_INSTANCE_VARIABLES_SCPLogContext
 __OBJC_$_PROP_LIST_SCPLogContext
 __OBJC_CLASS_RO_$_SCPLogContext
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLogContext.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLogContext.m
 SCPLogContextMake
 StripeTerminal/SCPLogContext.m
 StripeTerminal/SCPLogContext.h
 NSMakeRange
-/Applications/Xcode-12-5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+/Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 -[SCPPBLocation jsonObject]
 +[SCPPBLocation decodedObjectFromJSON:]
 -[SCPPBLocation copyWithZone:]
@@ -421,7 +421,7 @@ _OBJC_IVAR_$_SCPPBLocation._country
 __OBJC_$_INSTANCE_VARIABLES_SCPPBLocation
 __OBJC_$_PROP_LIST_SCPPBLocation
 __OBJC_CLASS_RO_$_SCPPBLocation
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBLocation.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBLocation.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBLocation.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBLocation.h
 -[SCPIncompleteCommandDetector initWithIdentifier:]
@@ -449,7 +449,7 @@ _OBJC_IVAR_$_SCPIncompleteCommandDetector._runningCommand
 __OBJC_$_INSTANCE_VARIABLES_SCPIncompleteCommandDetector
 __OBJC_$_PROP_LIST_SCPIncompleteCommandDetector
 __OBJC_CLASS_RO_$_SCPIncompleteCommandDetector
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPIncompleteCommandDetector.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPIncompleteCommandDetector.m
 StripeTerminal/SCPIncompleteCommandDetector.m
 -[SCPPBRestChargeMetadataEntry jsonObject]
 +[SCPPBRestChargeMetadataEntry decodedObjectFromJSON:]
@@ -473,7 +473,7 @@ _OBJC_IVAR_$_SCPPBRestChargeMetadataEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestChargeMetadataEntry
 __OBJC_$_PROP_LIST_SCPPBRestChargeMetadataEntry
 __OBJC_CLASS_RO_$_SCPPBRestChargeMetadataEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestChargeMetadataEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestChargeMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestChargeMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestChargeMetadataEntry.h
 +[NSObject(Aspects) scp_aspect_hookSelector:withOptions:usingBlock:error:]
@@ -707,7 +707,7 @@ ___block_descriptor_56_e8_32s40r_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.413
 _OBJC_SELECTOR_REFERENCES_.414
 _OBJC_CLASSLIST_REFERENCES_$_.415
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/Aspects/SCPAspects.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/Aspects/SCPAspects.m
 __scp_aspect_undoSwizzleClassInPlace_block_invoke
 StripeTerminal/Libraries/Aspects/SCPAspects.m
 scp_aspect_undoSwizzleForwardInvocation
@@ -725,7 +725,7 @@ scp_aspect_getContainerForClass
 ___scp_aspect_modifySwizzledClasses_block_invoke
 __scp_aspect_swizzleClassInPlace_block_invoke
 _scp_aspect_modifySwizzledClasses
-/Applications/Xcode-12-5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/dispatch/once.h
+/Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/dispatch/once.h
 scp_aspect_hookedGetClass
 scp_aspect_swizzleForwardInvocation
 scp_aspect_swizzleClassInPlace
@@ -776,7 +776,7 @@ _OBJC_IVAR_$_SCPEvent._result
 __OBJC_$_INSTANCE_VARIABLES_SCPEvent
 __OBJC_$_PROP_LIST_SCPEvent
 __OBJC_CLASS_RO_$_SCPEvent
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPEvent.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPEvent.m
 StripeTerminal/RPC/Plymouth/SCPEvent.m
 StripeTerminal/RPC/Plymouth/SCPEvent.h
 -[SCPCartLineItem initWithDisplayName:quantity:amount:]
@@ -818,7 +818,7 @@ _OBJC_IVAR_$_SCPCart._currency
 __OBJC_$_INSTANCE_VARIABLES_SCPCart
 __OBJC_$_PROP_LIST_SCPCart
 __OBJC_CLASS_RO_$_SCPCart
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPCart.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPCart.m
 StripeTerminal/SCPCart.m
 StripeTerminal/PublicHeaders/SCPCart.h
 +[NSDecimalNumber(StripeTerminal) scp_currenciesWithNoDecimal]
@@ -827,7 +827,7 @@ StripeTerminal/PublicHeaders/SCPCart.h
 _OBJC_SELECTOR_REFERENCES_.38
 __OBJC_$_CATEGORY_CLASS_METHODS_NSDecimalNumber_$_StripeTerminal
 __OBJC_$_CATEGORY_NSDecimalNumber_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSDecimalNumber+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSDecimalNumber+StripeTerminal.m
 StripeTerminal/NSDecimalNumber+StripeTerminal.m
 +[SCPSetupAttemptCardPresentDetails decodedObjectFromJSON:]
 -[SCPSetupAttemptCardPresentDetails description]
@@ -849,7 +849,7 @@ _OBJC_IVAR_$_SCPSetupAttemptCardPresentDetails._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPSetupAttemptCardPresentDetails
 __OBJC_$_PROP_LIST_SCPSetupAttemptCardPresentDetails
 __OBJC_CLASS_RO_$_SCPSetupAttemptCardPresentDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSetupAttemptCardPresentDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSetupAttemptCardPresentDetails.m
 StripeTerminal/SCPSetupAttemptCardPresentDetails.m
 StripeTerminal/PublicHeaders/SCPSetupAttemptCardPresentDetails.h
 -[SCPPBCancelCollectSourceRequest method]
@@ -860,7 +860,7 @@ __OBJC_METACLASS_RO_$_SCPPBCancelCollectSourceRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCancelCollectSourceRequest
 __OBJC_$_PROP_LIST_SCPPBCancelCollectSourceRequest
 __OBJC_CLASS_RO_$_SCPPBCancelCollectSourceRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceRequest.m
 -[SCPPBAfl jsonObject]
 +[SCPPBAfl decodedObjectFromJSON:]
@@ -885,7 +885,7 @@ _OBJC_IVAR_$_SCPPBAfl._endRecord
 __OBJC_$_INSTANCE_VARIABLES_SCPPBAfl
 __OBJC_$_PROP_LIST_SCPPBAfl
 __OBJC_CLASS_RO_$_SCPPBAfl
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBAfl.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBAfl.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBAfl.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBAfl.h
 -[SCPConnectionConfiguration initForStripeInternal]
@@ -894,7 +894,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBAfl.h
 __OBJC_METACLASS_RO_$_SCPConnectionConfiguration
 __OBJC_$_INSTANCE_METHODS_SCPConnectionConfiguration
 __OBJC_CLASS_RO_$_SCPConnectionConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPConnectionConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPConnectionConfiguration.m
 StripeTerminal/SCPConnectionConfiguration.m
 -[SCPPBUnknownHardware jsonObject]
 +[SCPPBUnknownHardware decodedObjectFromJSON:]
@@ -912,7 +912,7 @@ _OBJC_IVAR_$_SCPPBUnknownHardware._hardwareDescription
 __OBJC_$_INSTANCE_VARIABLES_SCPPBUnknownHardware
 __OBJC_$_PROP_LIST_SCPPBUnknownHardware
 __OBJC_CLASS_RO_$_SCPPBUnknownHardware
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBUnknownHardware.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBUnknownHardware.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBUnknownHardware.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBUnknownHardware.h
 -[SCPPBCollectSourceRequest method]
@@ -923,7 +923,7 @@ __OBJC_METACLASS_RO_$_SCPPBCollectSourceRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCollectSourceRequest
 __OBJC_$_PROP_LIST_SCPPBCollectSourceRequest
 __OBJC_CLASS_RO_$_SCPPBCollectSourceRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceRequest.m
 -[SCPPBInt64Value jsonObject]
 +[SCPPBInt64Value decodedObjectFromJSON:]
@@ -943,7 +943,7 @@ _OBJC_IVAR_$_SCPPBInt64Value._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBInt64Value
 __OBJC_$_PROP_LIST_SCPPBInt64Value
 __OBJC_CLASS_RO_$_SCPPBInt64Value
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBInt64Value.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBInt64Value.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInt64Value.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInt64Value.h
 -[SCPRabbitRpcService(StripeTerminal) collectPaymentMethod:]
@@ -1008,7 +1008,7 @@ _OBJC_SELECTOR_REFERENCES_.102
 _OBJC_SELECTOR_REFERENCES_.104
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPRabbitRpcService_$_StripeTerminal
 __OBJC_$_CATEGORY_SCPRabbitRpcService_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit+StripeTerminal/SCPRabbitRpcService+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit+StripeTerminal/SCPRabbitRpcService+StripeTerminal.m
 __56-[SCPRabbitRpcService(StripeTerminal) terminalHeartbeat]_block_invoke_2
 StripeTerminal/RPC/Rabbit+StripeTerminal/SCPRabbitRpcService+StripeTerminal.m
 __56-[SCPRabbitRpcService(StripeTerminal) terminalHeartbeat]_block_invoke
@@ -1037,7 +1037,7 @@ __60-[SCPRabbitRpcService(StripeTerminal) collectPaymentMethod:]_block_invoke
 -[NSMutableURLRequest(StripeTerminal) scp_setFormPayload:]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSMutableURLRequest_$_StripeTerminal
 __OBJC_$_CATEGORY_NSMutableURLRequest_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSMutableURLRequest+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSMutableURLRequest+StripeTerminal.m
 StripeTerminal/NSMutableURLRequest+StripeTerminal.m
 -[SCPProcessResourceError initWithDomain:code:userInfo:resource:requestError:declineCode:]
 +[SCPProcessResourceError buildWithErrorCode:resource:userInfoOverride:requestError:declineCode:]
@@ -1062,10 +1062,10 @@ __OBJC_$_INSTANCE_METHODS_SCPProcessResourceError
 __OBJC_$_INSTANCE_VARIABLES_SCPProcessResourceError
 __OBJC_$_PROP_LIST_SCPProcessResourceError
 __OBJC_CLASS_RO_$_SCPProcessResourceError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPProcessResourceError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPProcessResourceError.m
 StripeTerminal/SCPProcessResourceError.m
 StripeTerminal/SCPProcessResourceError.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponseReusableCardRequestStatus.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponseReusableCardRequestStatus.m
 SCPPBQueryCollectReusableCardResponseReusableCardRequestStatusFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponseReusableCardRequestStatus.m
 SCPPBQueryCollectReusableCardResponseReusableCardRequestStatusToString
@@ -1086,7 +1086,7 @@ _OBJC_IVAR_$_SCPPBSdkPaymentMethod._tipSelection
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSdkPaymentMethod
 __OBJC_$_PROP_LIST_SCPPBSdkPaymentMethod
 __OBJC_CLASS_RO_$_SCPPBSdkPaymentMethod
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethod.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethod.h
 -[SCPRefund initWithParameters:]
@@ -1234,7 +1234,7 @@ _OBJC_IVAR_$_SCPRefund._requestId
 __OBJC_$_INSTANCE_VARIABLES_SCPRefund
 __OBJC_$_PROP_LIST_SCPRefund
 __OBJC_CLASS_RO_$_SCPRefund
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPRefund.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPRefund.m
 StripeTerminal/SCPRefund.m
 StripeTerminal/SCPRefund+Private.h
 StripeTerminal/PublicHeaders/SCPRefund.h
@@ -1273,7 +1273,7 @@ _OBJC_IVAR_$_SCPPBExpressPayParameters._tacOnline
 __OBJC_$_INSTANCE_VARIABLES_SCPPBExpressPayParameters
 __OBJC_$_PROP_LIST_SCPPBExpressPayParameters
 __OBJC_CLASS_RO_$_SCPPBExpressPayParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBExpressPayParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBExpressPayParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBExpressPayParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBExpressPayParameters.h
 -[NSArray(SCPJSONEncodable) jsonObject]
@@ -1284,7 +1284,7 @@ __OBJC_$_CATEGORY_INSTANCE_METHODS_NSArray_$_SCPJSONEncodable
 __OBJC_CATEGORY_PROTOCOLS_$_NSArray_$_SCPJSONEncodable
 __OBJC_$_PROP_LIST_NSArray_$_SCPJSONEncodable
 __OBJC_$_CATEGORY_NSArray_$_SCPJSONEncodable
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSArray+SCPJSONEncodable.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSArray+SCPJSONEncodable.m
 StripeTerminal/NSArray+SCPJSONEncodable.m
 -[SCPPBRestCharges jsonObject]
 +[SCPPBRestCharges decodedObjectFromJSON:]
@@ -1313,7 +1313,7 @@ _OBJC_IVAR_$_SCPPBRestCharges._totalCount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestCharges
 __OBJC_$_PROP_LIST_SCPPBRestCharges
 __OBJC_CLASS_RO_$_SCPPBRestCharges
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharges.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharges.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharges.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharges.h
 +[SCPTipSelection noTip]
@@ -1330,7 +1330,7 @@ _OBJC_IVAR_$_SCPTipSelection._amount
 __OBJC_$_INSTANCE_VARIABLES_SCPTipSelection
 __OBJC_$_PROP_LIST_SCPTipSelection
 __OBJC_CLASS_RO_$_SCPTipSelection
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTipSelection.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTipSelection.m
 StripeTerminal/SCPTipSelection.m
 StripeTerminal/SCPTipSelection.h
 +[SCPPaymentMethod decodedObjectFromJSON:]
@@ -1371,7 +1371,7 @@ _OBJC_IVAR_$_SCPPaymentMethod._metadata
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentMethod
 __OBJC_$_PROP_LIST_SCPPaymentMethod
 __OBJC_CLASS_RO_$_SCPPaymentMethod
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentMethod.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentMethod.m
 StripeTerminal/SCPPaymentMethod.m
 StripeTerminal/PublicHeaders/SCPPaymentMethod.h
 +[SCPSetupAttempt decodedObjectFromJSON:]
@@ -1417,7 +1417,7 @@ _OBJC_IVAR_$_SCPSetupAttempt._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPSetupAttempt
 __OBJC_$_PROP_LIST_SCPSetupAttempt
 __OBJC_CLASS_RO_$_SCPSetupAttempt
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSetupAttempt.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSetupAttempt.m
 StripeTerminal/SCPSetupAttempt.m
 StripeTerminal/PublicHeaders/SCPSetupAttempt.h
 +[SCPAddress decodedObjectFromJSON:]
@@ -1454,7 +1454,7 @@ _OBJC_IVAR_$_SCPAddress._state
 __OBJC_$_INSTANCE_VARIABLES_SCPAddress
 __OBJC_$_PROP_LIST_SCPAddress
 __OBJC_CLASS_RO_$_SCPAddress
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPAddress.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPAddress.m
 StripeTerminal/SCPAddress.m
 StripeTerminal/PublicHeaders/SCPAddress.h
 -[SCPPBDownloadMobilePosConfigRequest method]
@@ -1476,7 +1476,7 @@ _OBJC_IVAR_$_SCPPBDownloadMobilePosConfigRequest._bbposConfig
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDownloadMobilePosConfigRequest
 __OBJC_$_PROP_LIST_SCPPBDownloadMobilePosConfigRequest
 __OBJC_CLASS_RO_$_SCPPBDownloadMobilePosConfigRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequest.h
 -[SCPPBTlv jsonObject]
@@ -1498,7 +1498,7 @@ _OBJC_IVAR_$_SCPPBTlv._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBTlv
 __OBJC_$_PROP_LIST_SCPPBTlv
 __OBJC_CLASS_RO_$_SCPPBTlv
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBTlv.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBTlv.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTlv.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTlv.h
 -[SCPPBRestRefunds jsonObject]
@@ -1523,7 +1523,7 @@ _OBJC_IVAR_$_SCPPBRestRefunds._totalCount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestRefunds
 __OBJC_$_PROP_LIST_SCPPBRestRefunds
 __OBJC_CLASS_RO_$_SCPPBRestRefunds
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefunds.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefunds.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefunds.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefunds.h
 +[SCPRpcResponse decodedObjectFromJSON:]
@@ -1554,7 +1554,7 @@ _OBJC_IVAR_$_SCPRpcResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPRpcResponse
 __OBJC_$_PROP_LIST_SCPRpcResponse
 __OBJC_CLASS_RO_$_SCPRpcResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/SCPRpcResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/SCPRpcResponse.m
 StripeTerminal/RPC/SCPRpcResponse.m
 StripeTerminal/RPC/SCPRpcResponse.h
 -[SCPPBDeviceInfo jsonObject]
@@ -1620,7 +1620,7 @@ _OBJC_IVAR_$_SCPPBDeviceInfo._location
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDeviceInfo
 __OBJC_$_PROP_LIST_SCPPBDeviceInfo
 __OBJC_CLASS_RO_$_SCPPBDeviceInfo
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfo.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfo.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfo.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfo.h
 +[SCPPBQueryPaymentMethodResponse decodedObjectFromJSON:]
@@ -1644,10 +1644,10 @@ _OBJC_IVAR_$_SCPPBQueryPaymentMethodResponse._numOfCanceledPayments
 __OBJC_$_INSTANCE_VARIABLES_SCPPBQueryPaymentMethodResponse
 __OBJC_$_PROP_LIST_SCPPBQueryPaymentMethodResponse
 __OBJC_CLASS_RO_$_SCPPBQueryPaymentMethodResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponse.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPDeprecations.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPDeprecations.m
 -[SCPPBRestCardPaymentMethod jsonObject]
 +[SCPPBRestCardPaymentMethod decodedObjectFromJSON:]
 -[SCPPBRestCardPaymentMethod copyWithZone:]
@@ -1697,7 +1697,7 @@ _OBJC_IVAR_$_SCPPBRestCardPaymentMethod._wallet
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestCardPaymentMethod
 __OBJC_$_PROP_LIST_SCPPBRestCardPaymentMethod
 __OBJC_CLASS_RO_$_SCPPBRestCardPaymentMethod
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethod.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethod.h
 +[SCPPBSystemContext decodedObjectFromJSON:]
@@ -1719,7 +1719,7 @@ _SCPPBSystemContext_ConnectivityStatus_FromJSONValue.values
 _SCPPBSystemContext_ConnectivityStatus_FromJSONValue.onceToken
 _OBJC_CLASSLIST_REFERENCES_$_.69
 _OBJC_CLASSLIST_REFERENCES_$_.74
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBSystemContext.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBSystemContext.m
 __SCPPBSystemContext_ConnectivityStatus_FromJSONValue_block_invoke
 StripeTerminal/RPC/Rabbit/SCPPBSystemContext.m
 StripeTerminal/RPC/Rabbit/SCPPBSystemContext.h
@@ -1746,10 +1746,10 @@ _OBJC_IVAR_$_SCPPBRestPaymentMethodDetails._interacPresent
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestPaymentMethodDetails
 __OBJC_$_PROP_LIST_SCPPBRestPaymentMethodDetails
 __OBJC_CLASS_RO_$_SCPPBRestPaymentMethodDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodDetails.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodDetails.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodDetails.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPDispatchFunctions.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPDispatchFunctions.m
 scpDispatchToMainAfter
 StripeTerminal/SCPDispatchFunctions.m
 scpDispatchToMainThreadIfNecessary
@@ -1818,7 +1818,7 @@ _OBJC_IVAR_$_SCPCardPresentDetails._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPCardPresentDetails
 __OBJC_$_PROP_LIST_SCPCardPresentDetails
 __OBJC_CLASS_RO_$_SCPCardPresentDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPCardPresentDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPCardPresentDetails.m
 StripeTerminal/SCPCardPresentDetails.m
 StripeTerminal/PublicHeaders/SCPCardPresentDetails.h
 +[SCPPBCancelCollectPaymentMethodResponse decodedObjectFromJSON:]
@@ -1833,7 +1833,7 @@ _OBJC_IVAR_$_SCPPBCancelCollectPaymentMethodResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCancelCollectPaymentMethodResponse
 __OBJC_$_PROP_LIST_SCPPBCancelCollectPaymentMethodResponse
 __OBJC_CLASS_RO_$_SCPPBCancelCollectPaymentMethodResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodResponse.m
 -[SCPPBMobileClientConfig jsonObject]
 +[SCPPBMobileClientConfig decodedObjectFromJSON:]
@@ -1861,7 +1861,7 @@ _OBJC_IVAR_$_SCPPBMobileClientConfig._bbposConfig
 __OBJC_$_INSTANCE_VARIABLES_SCPPBMobileClientConfig
 __OBJC_$_PROP_LIST_SCPPBMobileClientConfig
 __OBJC_CLASS_RO_$_SCPPBMobileClientConfig
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBMobileClientConfig.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBMobileClientConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBMobileClientConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBMobileClientConfig.h
 +[SCPReceiptDetails decodedObjectFromJSON:]
@@ -1898,7 +1898,7 @@ _OBJC_IVAR_$_SCPReceiptDetails._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPReceiptDetails
 __OBJC_$_PROP_LIST_SCPReceiptDetails
 __OBJC_CLASS_RO_$_SCPReceiptDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReceiptDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReceiptDetails.m
 StripeTerminal/SCPReceiptDetails.m
 StripeTerminal/PublicHeaders/SCPReceiptDetails.h
 -[SCPPBContactlessCombination jsonObject]
@@ -1946,7 +1946,7 @@ _OBJC_IVAR_$_SCPPBContactlessCombination._epalParameters
 __OBJC_$_INSTANCE_VARIABLES_SCPPBContactlessCombination
 __OBJC_$_PROP_LIST_SCPPBContactlessCombination
 __OBJC_CLASS_RO_$_SCPPBContactlessCombination
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombination.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombination.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombination.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombination.h
 -[SCPBbposCheckForUpdateFromTMSOp initWithPromise:reader:tmsConfiguration:]
@@ -1970,7 +1970,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposCheckForUpdateFromTMSOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposCheckForUpdateFromTMSOp
 __OBJC_$_PROP_LIST_SCPBbposCheckForUpdateFromTMSOp
 __OBJC_CLASS_RO_$_SCPBbposCheckForUpdateFromTMSOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposCheckForUpdateFromTMSOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposCheckForUpdateFromTMSOp.m
 StripeTerminal/SCPBbposCheckForUpdateFromTMSOp.m
 -[SCPPBEpalParameters jsonObject]
 +[SCPPBEpalParameters decodedObjectFromJSON:]
@@ -2003,7 +2003,7 @@ _OBJC_IVAR_$_SCPPBEpalParameters._tacOnline
 __OBJC_$_INSTANCE_VARIABLES_SCPPBEpalParameters
 __OBJC_$_PROP_LIST_SCPPBEpalParameters
 __OBJC_CLASS_RO_$_SCPPBEpalParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBEpalParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBEpalParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBEpalParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBEpalParameters.h
 -[SCPListLocationsParameters initWithLimit:endingBefore:startingAfter:]
@@ -2022,7 +2022,7 @@ _OBJC_IVAR_$_SCPListLocationsParameters._startingAfter
 __OBJC_$_INSTANCE_VARIABLES_SCPListLocationsParameters
 __OBJC_$_PROP_LIST_SCPListLocationsParameters
 __OBJC_CLASS_RO_$_SCPListLocationsParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPListLocationsParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPListLocationsParameters.m
 StripeTerminal/SCPListLocationsParameters.m
 StripeTerminal/PublicHeaders/SCPListLocationsParameters.h
 +[SCPPromise(SCPError) promiseWithErrorCode:]
@@ -2031,7 +2031,7 @@ StripeTerminal/PublicHeaders/SCPListLocationsParameters.h
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPromise_$_SCPError
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPPromise_$_SCPError
 __OBJC_$_CATEGORY_SCPPromise_$_SCPError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPromise+SCPError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPromise+SCPError.m
 StripeTerminal/SCPPromise+SCPError.m
 +[SCPPBClearReaderDisplayResponse decodedObjectFromJSON:]
 -[SCPPBClearReaderDisplayResponse copyWithZone:]
@@ -2045,7 +2045,7 @@ _OBJC_IVAR_$_SCPPBClearReaderDisplayResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBClearReaderDisplayResponse
 __OBJC_$_PROP_LIST_SCPPBClearReaderDisplayResponse
 __OBJC_CLASS_RO_$_SCPPBClearReaderDisplayResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayResponse.m
 -[SCPPBPayWaveParameters jsonObject]
 +[SCPPBPayWaveParameters decodedObjectFromJSON:]
@@ -2069,7 +2069,7 @@ _OBJC_IVAR_$_SCPPBPayWaveParameters._contactlessCvmRequiredLimit
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPayWaveParameters
 __OBJC_$_PROP_LIST_SCPPBPayWaveParameters
 __OBJC_CLASS_RO_$_SCPPBPayWaveParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBPayWaveParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBPayWaveParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPayWaveParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPayWaveParameters.h
 -[SCPArmadaRpcService initWithSession:]
@@ -2079,7 +2079,7 @@ ___block_descriptor_40_e8_32bs_e48_v24?0"NSObject<SCPJSONDecodable>"8"NSError
 __OBJC_METACLASS_RO_$_SCPArmadaRpcService
 __OBJC_$_INSTANCE_METHODS_SCPArmadaRpcService
 __OBJC_CLASS_RO_$_SCPArmadaRpcService
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPArmadaRpcService.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPArmadaRpcService.m
 __55-[SCPArmadaRpcService downloadMobilePosConfig:handler:]_block_invoke
 StripeTerminal/RPC/Plymouth/SCPArmadaRpcService.m
 -[SCPPBDeviceTraceLevel jsonObject]
@@ -2101,7 +2101,7 @@ _OBJC_IVAR_$_SCPPBDeviceTraceLevel._traceSampleRate
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDeviceTraceLevel
 __OBJC_$_PROP_LIST_SCPPBDeviceTraceLevel
 __OBJC_CLASS_RO_$_SCPPBDeviceTraceLevel
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevel.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevel.h
 +[SCPPBConfirmInteracRefundResponse decodedObjectFromJSON:]
@@ -2129,7 +2129,7 @@ _OBJC_IVAR_$_SCPPBConfirmInteracRefundResponse._confirmError
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmInteracRefundResponse
 __OBJC_$_PROP_LIST_SCPPBConfirmInteracRefundResponse
 __OBJC_CLASS_RO_$_SCPPBConfirmInteracRefundResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundResponse.h
 -[SCPPBRestRefundMetadataEntry jsonObject]
@@ -2151,7 +2151,7 @@ _OBJC_IVAR_$_SCPPBRestRefundMetadataEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestRefundMetadataEntry
 __OBJC_$_PROP_LIST_SCPPBRestRefundMetadataEntry
 __OBJC_CLASS_RO_$_SCPPBRestRefundMetadataEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefundMetadataEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefundMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefundMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefundMetadataEntry.h
 +[SCPErrors buildAPIError:httpResponse:]
@@ -2179,7 +2179,7 @@ _OBJC_SELECTOR_REFERENCES_.169
 __OBJC_$_CLASS_METHODS_SCPErrors
 __OBJC_METACLASS_RO_$_SCPErrors
 __OBJC_CLASS_RO_$_SCPErrors
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPErrors.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPErrors.m
 StripeTerminal/SCPErrors.m
 +[SCPActivateResponse decodedObjectFromJSON:]
 +[SCPActivateResponse parseAccountId:]
@@ -2213,7 +2213,7 @@ _OBJC_IVAR_$_SCPActivateResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPActivateResponse
 __OBJC_$_PROP_LIST_SCPActivateResponse
 __OBJC_CLASS_RO_$_SCPActivateResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPActivateResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPActivateResponse.m
 StripeTerminal/SCPActivateResponse.m
 StripeTerminal/SCPActivateResponse.h
 +[SCPPBDownloadMobilePosConfigResponse decodedObjectFromJSON:]
@@ -2240,7 +2240,7 @@ _OBJC_IVAR_$_SCPPBDownloadMobilePosConfigResponse._readerFeatureFlags
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDownloadMobilePosConfigResponse
 __OBJC_$_PROP_LIST_SCPPBDownloadMobilePosConfigResponse
 __OBJC_CLASS_RO_$_SCPPBDownloadMobilePosConfigResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigResponse.h
 -[SCPPBSignedAssetPb jsonObject]
@@ -2268,7 +2268,7 @@ _OBJC_IVAR_$_SCPPBSignedAssetPb._originalPublisher
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSignedAssetPb
 __OBJC_$_PROP_LIST_SCPPBSignedAssetPb
 __OBJC_CLASS_RO_$_SCPPBSignedAssetPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSignedAssetPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSignedAssetPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSignedAssetPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSignedAssetPb.h
 -[SCPPBCollectReusableCardRequest method]
@@ -2279,7 +2279,7 @@ __OBJC_METACLASS_RO_$_SCPPBCollectReusableCardRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCollectReusableCardRequest
 __OBJC_$_PROP_LIST_SCPPBCollectReusableCardRequest
 __OBJC_CLASS_RO_$_SCPPBCollectReusableCardRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardRequest.m
 -[SCPPBRestThreeDSecure jsonObject]
 +[SCPPBRestThreeDSecure decodedObjectFromJSON:]
@@ -2297,7 +2297,7 @@ _OBJC_IVAR_$_SCPPBRestThreeDSecure._supported
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestThreeDSecure
 __OBJC_$_PROP_LIST_SCPPBRestThreeDSecure
 __OBJC_CLASS_RO_$_SCPPBRestThreeDSecure
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestThreeDSecure.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestThreeDSecure.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestThreeDSecure.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestThreeDSecure.h
 -[SCPPBConfirmReusableCardRequestMetadataEntry jsonObject]
@@ -2319,7 +2319,7 @@ _OBJC_IVAR_$_SCPPBConfirmReusableCardRequestMetadataEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmReusableCardRequestMetadataEntry
 __OBJC_$_PROP_LIST_SCPPBConfirmReusableCardRequestMetadataEntry
 __OBJC_CLASS_RO_$_SCPPBConfirmReusableCardRequestMetadataEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequestMetadataEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequestMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequestMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequestMetadataEntry.h
 -[SCPPBRestReceipt jsonObject]
@@ -2360,7 +2360,7 @@ _OBJC_IVAR_$_SCPPBRestReceipt._transactionStatusInformation
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestReceipt
 __OBJC_$_PROP_LIST_SCPPBRestReceipt
 __OBJC_CLASS_RO_$_SCPPBRestReceipt
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestReceipt.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestReceipt.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestReceipt.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestReceipt.h
 +[SCPPBTerminalHeartbeatResponse decodedObjectFromJSON:]
@@ -2378,7 +2378,7 @@ _OBJC_IVAR_$_SCPPBTerminalHeartbeatResponse._readerConfigHash
 __OBJC_$_INSTANCE_VARIABLES_SCPPBTerminalHeartbeatResponse
 __OBJC_$_PROP_LIST_SCPPBTerminalHeartbeatResponse
 __OBJC_CLASS_RO_$_SCPPBTerminalHeartbeatResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTerminalHeartbeatResponse.h
 -[SCPPBRegionalAidOrderAidOrderEntry jsonObject]
@@ -2400,7 +2400,7 @@ _OBJC_IVAR_$_SCPPBRegionalAidOrderAidOrderEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRegionalAidOrderAidOrderEntry
 __OBJC_$_PROP_LIST_SCPPBRegionalAidOrderAidOrderEntry
 __OBJC_CLASS_RO_$_SCPPBRegionalAidOrderAidOrderEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrderAidOrderEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrderAidOrderEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrderAidOrderEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrderAidOrderEntry.h
 -[UIDevice(StripeTerminal) scp_posInfo]
@@ -2412,7 +2412,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrderAidOrderEntry.h
 ___clang_at_available_requires_core_foundation_framework
 __OBJC_$_CATEGORY_INSTANCE_METHODS_UIDevice_$_StripeTerminal
 __OBJC_$_CATEGORY_UIDevice_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/UIDevice+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/UIDevice+StripeTerminal.m
 StripeTerminal/UIDevice+StripeTerminal.m
 +[SCPGeneratePosRpcSessionResponse decodedObjectFromJSON:]
 -[SCPGeneratePosRpcSessionResponse description]
@@ -2430,7 +2430,7 @@ _OBJC_IVAR_$_SCPGeneratePosRpcSessionResponse._sdkRpcSessionToken
 __OBJC_$_INSTANCE_VARIABLES_SCPGeneratePosRpcSessionResponse
 __OBJC_$_PROP_LIST_SCPGeneratePosRpcSessionResponse
 __OBJC_CLASS_RO_$_SCPGeneratePosRpcSessionResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/SCPGeneratePosRpcSessionResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/SCPGeneratePosRpcSessionResponse.m
 StripeTerminal/Libraries/SCPGeneratePosRpcSessionResponse.m
 StripeTerminal/Libraries/SCPGeneratePosRpcSessionResponse.h
 -[SCPBbposBluetoothProximityAdapter init]
@@ -2549,7 +2549,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposBluetoothProximityAdapter
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposBluetoothProximityAdapter
 __OBJC_$_PROP_LIST_SCPBbposBluetoothProximityAdapter
 __OBJC_CLASS_RO_$_SCPBbposBluetoothProximityAdapter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBluetoothProximityAdapter.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBluetoothProximityAdapter.m
 StripeTerminal/SCPBbposBluetoothProximityAdapter.m
 __67-[SCPBbposBluetoothProximityAdapter addControlLEDsOpWithLedStatus:]_block_invoke
 __48-[SCPBbposBluetoothProximityAdapter startBTScan]_block_invoke
@@ -2602,9 +2602,9 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposBluetoothConnectOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposBluetoothConnectOp
 __OBJC_$_PROP_LIST_SCPBbposBluetoothConnectOp
 __OBJC_CLASS_RO_$_SCPBbposBluetoothConnectOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBluetoothConnectOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBluetoothConnectOp.m
 StripeTerminal/SCPBbposBluetoothConnectOp.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBInternetConnectionSource.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBInternetConnectionSource.m
 SCPPBInternetConnectionSourceFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInternetConnectionSource.m
 SCPPBInternetConnectionSourceToString
@@ -2646,14 +2646,14 @@ _OBJC_IVAR_$_SCPPBRestErrorResponse._paymentIntent
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestErrorResponse
 __OBJC_$_PROP_LIST_SCPPBRestErrorResponse
 __OBJC_CLASS_RO_$_SCPPBRestErrorResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorResponse.h
 -[NSError(SCPError) scp_isSCPError:]
 -[NSError(SCPError) scp_descriptionWithDetails:requestError:]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSError_$_SCPError
 __OBJC_$_CATEGORY_NSError_$_SCPError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSError+SCPError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSError+SCPError.m
 StripeTerminal/NSError+SCPError.m
 -[SCPGatorRpcRequest initWithContent:reader:]
 -[SCPGatorRpcRequest jsonPayloadForService:sessionToken:]
@@ -2666,9 +2666,9 @@ __OBJC_$_INSTANCE_METHODS_SCPGatorRpcRequest
 __OBJC_$_INSTANCE_VARIABLES_SCPGatorRpcRequest
 __OBJC_$_PROP_LIST_SCPGatorRpcRequest
 __OBJC_CLASS_RO_$_SCPGatorRpcRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPGatorRpcRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPGatorRpcRequest.m
 StripeTerminal/RPC/Plymouth/SCPGatorRpcRequest.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationSelectionIndicator.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationSelectionIndicator.m
 SCPPBApplicationSelectionIndicatorFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationSelectionIndicator.m
 SCPPBApplicationSelectionIndicatorToString
@@ -2681,7 +2681,7 @@ SCPPBApplicationSelectionIndicatorToString
 -[SCPReader(Features) supportsProximityScan]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPReader_$_Features
 __OBJC_$_CATEGORY_SCPReader_$_Features
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReader+Features.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReader+Features.m
 StripeTerminal/SCPReader+Features.m
 -[SCPBbposDownloadOp initWithArmadaService:installData:type:progressBlock:]
 -[SCPBbposDownloadOp start]
@@ -2807,7 +2807,7 @@ _OBJC_SELECTOR_REFERENCES_.398
 __OBJC_METACLASS_RO_$_SCPBbposInstallKeysOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallKeysOp
 __OBJC_CLASS_RO_$_SCPBbposInstallKeysOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposFullInstallOps.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposFullInstallOps.m
 StripeTerminal/SCPBbposFullInstallOps.m
 StripeTerminal/SCPBbposFullInstallOps.h
 __36-[SCPBbposDownloadOp refreshS3Links]_block_invoke
@@ -2830,7 +2830,7 @@ _OBJC_IVAR_$_SCPPBTender._amount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBTender
 __OBJC_$_PROP_LIST_SCPPBTender
 __OBJC_CLASS_RO_$_SCPPBTender
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBTender.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBTender.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTender.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBTender.h
 +[SCPFlagManager shared]
@@ -2854,7 +2854,7 @@ _OBJC_IVAR_$_SCPFlagManager._flagValues
 __OBJC_$_INSTANCE_VARIABLES_SCPFlagManager
 __OBJC_$_PROP_LIST_SCPFlagManager
 __OBJC_CLASS_RO_$_SCPFlagManager
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPFlagManager.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPFlagManager.m
 StripeTerminal/SCPFlagManager.m
 StripeTerminal/SCPFlagManager.h
 __24+[SCPFlagManager shared]_block_invoke
@@ -2867,7 +2867,7 @@ __24+[SCPFlagManager shared]_block_invoke
 __OBJC_$_CLASS_METHODS_SCPTestmodeCardData
 __OBJC_METACLASS_RO_$_SCPTestmodeCardData
 __OBJC_CLASS_RO_$_SCPTestmodeCardData
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTestmodeCardData.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTestmodeCardData.m
 StripeTerminal/SCPTestmodeCardData.m
 -[SCPBbposBluetoothProximityAdapterV2 init]
 -[SCPBbposBluetoothProximityAdapterV2 discoveryMethod]
@@ -2920,7 +2920,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposBluetoothProximityAdapterV2
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposBluetoothProximityAdapterV2
 __OBJC_$_PROP_LIST_SCPBbposBluetoothProximityAdapterV2
 __OBJC_CLASS_RO_$_SCPBbposBluetoothProximityAdapterV2
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBluetoothProximityAdapterV2.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBluetoothProximityAdapterV2.m
 StripeTerminal/SCPBbposBluetoothProximityAdapterV2.m
 __69-[SCPBbposBluetoothProximityAdapterV2 addControlLEDsOpWithLedStatus:]_block_invoke
 __50-[SCPBbposBluetoothProximityAdapterV2 startBTScan]_block_invoke
@@ -2947,7 +2947,7 @@ _OBJC_IVAR_$_SCPPBPinpadImageAssets._closeScreen
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPinpadImageAssets
 __OBJC_$_PROP_LIST_SCPPBPinpadImageAssets
 __OBJC_CLASS_RO_$_SCPPBPinpadImageAssets
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBPinpadImageAssets.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBPinpadImageAssets.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPinpadImageAssets.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPinpadImageAssets.h
 -[SCPBbposOp init]
@@ -2978,7 +2978,7 @@ _OBJC_IVAR_$_SCPBbposOp._completionBlock
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposOp
 __OBJC_$_PROP_LIST_SCPBbposOp
 __OBJC_CLASS_RO_$_SCPBbposOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposOp.m
 StripeTerminal/SCPBbposOp.m
 StripeTerminal/SCPBbposOp.h
 __36-[SCPBbposOp initWithProgressBlock:]_block_invoke
@@ -3035,7 +3035,7 @@ _OBJC_IVAR_$_SCPReachability._reachabilityObject
 __OBJC_$_INSTANCE_VARIABLES_SCPReachability
 __OBJC_$_PROP_LIST_SCPReachability
 __OBJC_CLASS_RO_$_SCPReachability
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/Reachability/SCPReachability.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/Reachability/SCPReachability.m
 StripeTerminal/Libraries/Reachability/SCPReachability.m
 StripeTerminal/Libraries/Reachability/SCPReachability.h
 __39-[SCPReachability reachabilityChanged:]_block_invoke
@@ -3062,7 +3062,7 @@ _OBJC_IVAR_$_SCPPBQueryCollectReusableCardResponse._numOfCanceledPayments
 __OBJC_$_INSTANCE_VARIABLES_SCPPBQueryCollectReusableCardResponse
 __OBJC_$_PROP_LIST_SCPPBQueryCollectReusableCardResponse
 __OBJC_CLASS_RO_$_SCPPBQueryCollectReusableCardResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardResponse.h
 -[SCPPBModifier jsonObject]
@@ -3084,7 +3084,7 @@ _OBJC_IVAR_$_SCPPBModifier._amount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBModifier
 __OBJC_$_PROP_LIST_SCPPBModifier
 __OBJC_CLASS_RO_$_SCPPBModifier
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBModifier.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBModifier.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBModifier.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBModifier.h
 -[SCPPBInstantPb jsonObject]
@@ -3103,7 +3103,7 @@ _OBJC_IVAR_$_SCPPBInstantPb._millis
 __OBJC_$_INSTANCE_VARIABLES_SCPPBInstantPb
 __OBJC_$_PROP_LIST_SCPPBInstantPb
 __OBJC_CLASS_RO_$_SCPPBInstantPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBInstantPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBInstantPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInstantPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInstantPb.h
 -[SCPGatorRpcService init]
@@ -3112,9 +3112,9 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBInstantPb.h
 __OBJC_METACLASS_RO_$_SCPGatorRpcService
 __OBJC_$_INSTANCE_METHODS_SCPGatorRpcService
 __OBJC_CLASS_RO_$_SCPGatorRpcService
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPGatorRpcService.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPGatorRpcService.m
 StripeTerminal/RPC/Plymouth/SCPGatorRpcService.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPosHardware.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPosHardware.m
 SCPPBBBPosHardwareFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBBBPosHardware.m
 SCPPBBBPosHardwareToString
@@ -3133,7 +3133,7 @@ _OBJC_IVAR_$_SCPPBCollectPaymentMethodResponse._payment
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectPaymentMethodResponse
 __OBJC_$_PROP_LIST_SCPPBCollectPaymentMethodResponse
 __OBJC_CLASS_RO_$_SCPPBCollectPaymentMethodResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodResponse.h
 -[SCPPBCart jsonObject]
@@ -3171,7 +3171,7 @@ _OBJC_IVAR_$_SCPPBCart._currency
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCart
 __OBJC_$_PROP_LIST_SCPPBCart
 __OBJC_CLASS_RO_$_SCPPBCart
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCart.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCart.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCart.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCart.h
 -[SCPPBVectorRegionalConfiguration jsonObject]
@@ -3219,7 +3219,7 @@ _OBJC_IVAR_$_SCPPBVectorRegionalConfiguration._hash_p
 __OBJC_$_INSTANCE_VARIABLES_SCPPBVectorRegionalConfiguration
 __OBJC_$_PROP_LIST_SCPPBVectorRegionalConfiguration
 __OBJC_CLASS_RO_$_SCPPBVectorRegionalConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBVectorRegionalConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBVectorRegionalConfiguration.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVectorRegionalConfiguration.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVectorRegionalConfiguration.h
 -[SCPBbposCancelCheckCardOp start]
@@ -3228,7 +3228,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBVectorRegionalConfiguration.h
 __OBJC_METACLASS_RO_$_SCPBbposCancelCheckCardOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposCancelCheckCardOp
 __OBJC_CLASS_RO_$_SCPBbposCancelCheckCardOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposCancelCheckCardOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposCancelCheckCardOp.m
 StripeTerminal/SCPBbposCancelCheckCardOp.m
 -[SCPReadReusableCardParameters init]
 -[SCPReadReusableCardParameters description]
@@ -3244,7 +3244,7 @@ _OBJC_IVAR_$_SCPReadReusableCardParameters._metadata
 __OBJC_$_INSTANCE_VARIABLES_SCPReadReusableCardParameters
 __OBJC_$_PROP_LIST_SCPReadReusableCardParameters
 __OBJC_CLASS_RO_$_SCPReadReusableCardParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReadReusableCardParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReadReusableCardParameters.m
 StripeTerminal/SCPReadReusableCardParameters.m
 StripeTerminal/PublicHeaders/SCPReadReusableCardParameters.h
 -[SCPPBContactApplicationParameters jsonObject]
@@ -3281,7 +3281,7 @@ _OBJC_IVAR_$_SCPPBContactApplicationParameters._probableOdaAfls
 __OBJC_$_INSTANCE_VARIABLES_SCPPBContactApplicationParameters
 __OBJC_$_PROP_LIST_SCPPBContactApplicationParameters
 __OBJC_CLASS_RO_$_SCPPBContactApplicationParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParameters.h
 -[SCPLocationManager initWithCLManager:]
@@ -3342,7 +3342,7 @@ _OBJC_IVAR_$_SCPLocationManager._refreshTimer
 __OBJC_$_INSTANCE_VARIABLES_SCPLocationManager
 __OBJC_$_PROP_LIST_SCPLocationManager
 __OBJC_CLASS_RO_$_SCPLocationManager
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLocationManager.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLocationManager.m
 -[SCPLocationManager requestLocation:].cold.1
 StripeTerminal/SCPLocationManager.m
 __45-[SCPLocationManager startMonitoringLocation]_block_invoke
@@ -3363,9 +3363,9 @@ _OBJC_IVAR_$_SCPReportEventRequest._events
 __OBJC_$_INSTANCE_VARIABLES_SCPReportEventRequest
 __OBJC_$_PROP_LIST_SCPReportEventRequest
 __OBJC_CLASS_RO_$_SCPReportEventRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPReportEventRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPReportEventRequest.m
 StripeTerminal/RPC/Plymouth/SCPReportEventRequest.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevelTraceLevel.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevelTraceLevel.m
 SCPPBDeviceTraceLevelTraceLevelFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceTraceLevelTraceLevel.m
 SCPPBDeviceTraceLevelTraceLevelToString
@@ -3385,7 +3385,7 @@ _OBJC_IVAR_$_SCPPBCollectPaymentMethodRequest._tipConfiguration
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectPaymentMethodRequest
 __OBJC_$_PROP_LIST_SCPPBCollectPaymentMethodRequest
 __OBJC_CLASS_RO_$_SCPPBCollectPaymentMethodRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequest.h
 +[SCPPBCancelCollectSourceResponse decodedObjectFromJSON:]
@@ -3400,7 +3400,7 @@ _OBJC_IVAR_$_SCPPBCancelCollectSourceResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCancelCollectSourceResponse
 __OBJC_$_PROP_LIST_SCPPBCancelCollectSourceResponse
 __OBJC_CLASS_RO_$_SCPPBCancelCollectSourceResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectSourceResponse.m
 -[SCPTransactionSession initWithResource:adapter:]
 -[SCPTransactionSession collectPaymentMethod]
@@ -3426,7 +3426,7 @@ _OBJC_IVAR_$_SCPTransactionSession._adapter
 __OBJC_$_INSTANCE_VARIABLES_SCPTransactionSession
 __OBJC_$_PROP_LIST_SCPTransactionSession
 __OBJC_CLASS_RO_$_SCPTransactionSession
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTransactionSession.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTransactionSession.m
 StripeTerminal/SCPTransactionSession.m
 StripeTerminal/SCPTransactionSession.h
 __32-[SCPTransactionSession confirm]_block_invoke_2
@@ -3463,7 +3463,7 @@ _OBJC_IVAR_$_SCPPBPosHardwareInfo._serialNumber
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPosHardwareInfo
 __OBJC_$_PROP_LIST_SCPPBPosHardwareInfo
 __OBJC_CLASS_RO_$_SCPPBPosHardwareInfo
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBPosHardwareInfo.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBPosHardwareInfo.m
 StripeTerminal/RPC/Rabbit/SCPPBPosHardwareInfo.m
 StripeTerminal/RPC/Rabbit/SCPPBPosHardwareInfo.h
 -[SCPPBReaderMetadata jsonObject]
@@ -3482,7 +3482,7 @@ _OBJC_IVAR_$_SCPPBReaderMetadata._label
 __OBJC_$_INSTANCE_VARIABLES_SCPPBReaderMetadata
 __OBJC_$_PROP_LIST_SCPPBReaderMetadata
 __OBJC_CLASS_RO_$_SCPPBReaderMetadata
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderMetadata.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderMetadata.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderMetadata.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderMetadata.h
 -[SCPBluetoothReaderDiscoveryController initWithDelegate:tokenManager:discoveryMethod:]
@@ -3550,10 +3550,10 @@ _OBJC_IVAR_$_SCPBluetoothReaderDiscoveryController._tokenManager
 __OBJC_$_INSTANCE_VARIABLES_SCPBluetoothReaderDiscoveryController
 __OBJC_$_PROP_LIST_SCPBluetoothReaderDiscoveryController
 __OBJC_CLASS_RO_$_SCPBluetoothReaderDiscoveryController
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBluetoothReaderDiscoveryController.mm
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBluetoothReaderDiscoveryController.mm
 StripeTerminal/SCPBluetoothReaderDiscoveryController.mm
 mutex
-/Applications/Xcode-12-5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/c++/v1/__mutex_base
+/Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/c++/v1/__mutex_base
 __destroy_helper_block_ea8_32s40s
 __copy_helper_block_ea8_32s40s
 __63-[SCPBluetoothReaderDiscoveryController reportCompletedReaders]_block_invoke
@@ -3572,7 +3572,7 @@ __65-[SCPBluetoothReaderDiscoveryController fetchLocationForReaders:]_block_invo
 __OBJC_METACLASS_RO_$_SCPPBQueryInteracRefundMethodRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBQueryInteracRefundMethodRequest
 __OBJC_CLASS_RO_$_SCPPBQueryInteracRefundMethodRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBQueryInteracRefundMethodRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBQueryInteracRefundMethodRequest.m
 StripeTerminal/RPC/Rabbit/SCPPBQueryInteracRefundMethodRequest.m
 -[SCPPBConfirmPaymentRequest method]
 -[SCPPBConfirmPaymentRequest jsonObject]
@@ -3590,7 +3590,7 @@ _OBJC_IVAR_$_SCPPBConfirmPaymentRequest._paymentMethod
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmPaymentRequest
 __OBJC_$_PROP_LIST_SCPPBConfirmPaymentRequest
 __OBJC_CLASS_RO_$_SCPPBConfirmPaymentRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentRequest.h
 +[SCPPaymentMethodDetails decodedObjectFromJSON:]
@@ -3611,14 +3611,14 @@ _OBJC_IVAR_$_SCPPaymentMethodDetails._interacPresent
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentMethodDetails
 __OBJC_$_PROP_LIST_SCPPaymentMethodDetails
 __OBJC_CLASS_RO_$_SCPPaymentMethodDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentMethodDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentMethodDetails.m
 StripeTerminal/SCPPaymentMethodDetails.m
 StripeTerminal/PublicHeaders/SCPPaymentMethodDetails.h
 -[SCPPBCancelCollectInteracRefundRequest method]
 __OBJC_METACLASS_RO_$_SCPPBCancelCollectInteracRefundRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCancelCollectInteracRefundRequest
 __OBJC_CLASS_RO_$_SCPPBCancelCollectInteracRefundRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBCancelCollectInteracRefundRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBCancelCollectInteracRefundRequest.m
 StripeTerminal/RPC/Rabbit/SCPPBCancelCollectInteracRefundRequest.m
 +[NSString(StripeTerminal) scp_normalizeAPIEndpoint:httpMethod:]
 +[NSString(StripeTerminal) scp_consoleLineWithEvent:]
@@ -3699,7 +3699,7 @@ _OBJC_SELECTOR_REFERENCES_.474
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSString_$_StripeTerminal
 __OBJC_$_CATEGORY_CLASS_METHODS_NSString_$_StripeTerminal
 __OBJC_$_CATEGORY_NSString_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSString+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSString+StripeTerminal.m
 StripeTerminal/NSString+StripeTerminal.m
 __58+[NSString(StripeTerminal) scp_remoteLineWithConsoleLine:]_block_invoke
 +[SCPPBCollectSourceResponse decodedObjectFromJSON:]
@@ -3714,7 +3714,7 @@ _OBJC_IVAR_$_SCPPBCollectSourceResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectSourceResponse
 __OBJC_$_PROP_LIST_SCPPBCollectSourceResponse
 __OBJC_CLASS_RO_$_SCPPBCollectSourceResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectSourceResponse.m
 -[SCPPBPayPassParameters jsonObject]
 +[SCPPBPayPassParameters decodedObjectFromJSON:]
@@ -3762,7 +3762,7 @@ _OBJC_IVAR_$_SCPPBPayPassParameters._timeOutValue
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPayPassParameters
 __OBJC_$_PROP_LIST_SCPPBPayPassParameters
 __OBJC_CLASS_RO_$_SCPPBPayPassParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBPayPassParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBPayPassParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPayPassParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPayPassParameters.h
 -[SCPPBCancelCollectPaymentMethodRequest method]
@@ -3773,7 +3773,7 @@ __OBJC_METACLASS_RO_$_SCPPBCancelCollectPaymentMethodRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCancelCollectPaymentMethodRequest
 __OBJC_$_PROP_LIST_SCPPBCancelCollectPaymentMethodRequest
 __OBJC_CLASS_RO_$_SCPPBCancelCollectPaymentMethodRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectPaymentMethodRequest.m
 +[SCPTipConfiguration validateTipConfiguration:]
 -[SCPTipConfiguration initWithTipOptions:]
@@ -3788,7 +3788,7 @@ _OBJC_IVAR_$_SCPTipConfiguration._tipOptions
 __OBJC_$_INSTANCE_VARIABLES_SCPTipConfiguration
 __OBJC_$_PROP_LIST_SCPTipConfiguration
 __OBJC_CLASS_RO_$_SCPTipConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTipConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTipConfiguration.m
 StripeTerminal/SCPTipConfiguration.m
 StripeTerminal/SCPTipConfiguration.h
 +[SCPPBActivateTerminalResponse decodedObjectFromJSON:]
@@ -3821,7 +3821,7 @@ _OBJC_IVAR_$_SCPPBActivateTerminalResponse._version
 __OBJC_$_INSTANCE_VARIABLES_SCPPBActivateTerminalResponse
 __OBJC_$_PROP_LIST_SCPPBActivateTerminalResponse
 __OBJC_CLASS_RO_$_SCPPBActivateTerminalResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalResponse.h
 -[SCPOptional initWithOptionalValue:]
@@ -3837,7 +3837,7 @@ _OBJC_IVAR_$_SCPOptional._value
 __OBJC_$_INSTANCE_VARIABLES_SCPOptional
 __OBJC_$_PROP_LIST_SCPOptional
 __OBJC_CLASS_RO_$_SCPOptional
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPOptional.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPOptional.m
 StripeTerminal/SCPOptional.m
 StripeTerminal/SCPOptional.h
 -[SCPPBRestPaymentMethodMetadataEntry jsonObject]
@@ -3859,7 +3859,7 @@ _OBJC_IVAR_$_SCPPBRestPaymentMethodMetadataEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestPaymentMethodMetadataEntry
 __OBJC_$_PROP_LIST_SCPPBRestPaymentMethodMetadataEntry
 __OBJC_CLASS_RO_$_SCPPBRestPaymentMethodMetadataEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodMetadataEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodMetadataEntry.h
 -[SCPBbposBTScanStopOp start]
@@ -3868,7 +3868,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethodMetadataEntry.h
 __OBJC_METACLASS_RO_$_SCPBbposBTScanStopOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposBTScanStopOp
 __OBJC_CLASS_RO_$_SCPBbposBTScanStopOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBTScanStopOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBTScanStopOp.m
 StripeTerminal/SCPBbposBTScanStopOp.m
 -[SCPPBCancelCollectReusableCardRequest method]
 -[SCPPBCancelCollectReusableCardRequest jsonObject]
@@ -3878,7 +3878,7 @@ __OBJC_METACLASS_RO_$_SCPPBCancelCollectReusableCardRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBCancelCollectReusableCardRequest
 __OBJC_$_PROP_LIST_SCPPBCancelCollectReusableCardRequest
 __OBJC_CLASS_RO_$_SCPPBCancelCollectReusableCardRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardRequest.m
 +[SCPRpcService buildSessionConfiguration]
 -[SCPRpcService initWithService:url:]
@@ -3926,7 +3926,7 @@ _OBJC_IVAR_$_SCPRpcService._errorCompletion
 __OBJC_$_INSTANCE_VARIABLES_SCPRpcService
 __OBJC_$_PROP_LIST_SCPRpcService
 __OBJC_CLASS_RO_$_SCPRpcService
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/SCPRpcService.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/SCPRpcService.m
 StripeTerminal/RPC/SCPRpcService.m
 StripeTerminal/RPC/SCPRpcService.h
 __copy_helper_block_e8_32b40s48s
@@ -3957,7 +3957,7 @@ _OBJC_IVAR_$_SCPPBRestGeneratedFrom._paymentMethodDetails
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestGeneratedFrom
 __OBJC_$_PROP_LIST_SCPPBRestGeneratedFrom
 __OBJC_CLASS_RO_$_SCPPBRestGeneratedFrom
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestGeneratedFrom.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestGeneratedFrom.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestGeneratedFrom.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestGeneratedFrom.h
 -[SCPProcessPaymentError initWithDomain:code:userInfo:intent:requestError:declineCode:]
@@ -3985,7 +3985,7 @@ __OBJC_$_INSTANCE_METHODS_SCPProcessPaymentError
 __OBJC_$_INSTANCE_VARIABLES_SCPProcessPaymentError
 __OBJC_$_PROP_LIST_SCPProcessPaymentError
 __OBJC_CLASS_RO_$_SCPProcessPaymentError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPProcessPaymentError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPProcessPaymentError.m
 StripeTerminal/SCPProcessPaymentError.m
 StripeTerminal/PublicHeaders/SCPProcessPaymentError.h
 +[SCPLocationsBySerialNumber decodedObjectFromJSON:]
@@ -4004,7 +4004,7 @@ _OBJC_IVAR_$_SCPLocationsBySerialNumber._serialNumberToLocation
 __OBJC_$_INSTANCE_VARIABLES_SCPLocationsBySerialNumber
 __OBJC_$_PROP_LIST_SCPLocationsBySerialNumber
 __OBJC_CLASS_RO_$_SCPLocationsBySerialNumber
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLocationsBySerialNumber.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLocationsBySerialNumber.m
 StripeTerminal/SCPLocationsBySerialNumber.m
 -[SCPPBClientVisualConfig jsonObject]
 +[SCPPBClientVisualConfig decodedObjectFromJSON:]
@@ -4028,7 +4028,7 @@ _OBJC_IVAR_$_SCPPBClientVisualConfig._headerColor
 __OBJC_$_INSTANCE_VARIABLES_SCPPBClientVisualConfig
 __OBJC_$_PROP_LIST_SCPPBClientVisualConfig
 __OBJC_CLASS_RO_$_SCPPBClientVisualConfig
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVisualConfig.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVisualConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVisualConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVisualConfig.h
 +[SCPSetupAttemptPaymentMethodDetails decodedObjectFromJSON:]
@@ -4053,7 +4053,7 @@ _OBJC_IVAR_$_SCPSetupAttemptPaymentMethodDetails._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPSetupAttemptPaymentMethodDetails
 __OBJC_$_PROP_LIST_SCPSetupAttemptPaymentMethodDetails
 __OBJC_CLASS_RO_$_SCPSetupAttemptPaymentMethodDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSetupAttemptPaymentMethodDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSetupAttemptPaymentMethodDetails.m
 StripeTerminal/SCPSetupAttemptPaymentMethodDetails.m
 StripeTerminal/PublicHeaders/SCPSetupAttemptPaymentMethodDetails.h
 +[SCPLog(BBPOS) stringFromBBDeviceCheckCardMode:]
@@ -4067,7 +4067,7 @@ StripeTerminal/PublicHeaders/SCPSetupAttemptPaymentMethodDetails.h
 +[SCPLog(BBPOS) stringFromBBDeviceOTAResult:]
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPLog_$_BBPOS
 __OBJC_$_CATEGORY_SCPLog_$_BBPOS
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLog+BBPOS.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLog+BBPOS.m
 StripeTerminal/SCPLog+BBPOS.m
 -[SCPPBReaderFeatureFlags jsonObject]
 +[SCPPBReaderFeatureFlags decodedObjectFromJSON:]
@@ -4112,7 +4112,7 @@ _OBJC_IVAR_$_SCPPBReaderFeatureFlags._serverDrivenPollIntervalSeconds
 __OBJC_$_INSTANCE_VARIABLES_SCPPBReaderFeatureFlags
 __OBJC_$_PROP_LIST_SCPPBReaderFeatureFlags
 __OBJC_CLASS_RO_$_SCPPBReaderFeatureFlags
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderFeatureFlags.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderFeatureFlags.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderFeatureFlags.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderFeatureFlags.h
 +[SCPLocale currencyNumberWithCode:]
@@ -4132,7 +4132,7 @@ _OBJC_SELECTOR_REFERENCES_.683
 __OBJC_$_CLASS_METHODS_SCPLocale
 __OBJC_METACLASS_RO_$_SCPLocale
 __OBJC_CLASS_RO_$_SCPLocale
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLocale.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLocale.m
 __42+[SCPLocale iso3166NumericCodeForCountry:]_block_invoke
 StripeTerminal/SCPLocale.m
 __36+[SCPLocale currencyNumberWithCode:]_block_invoke
@@ -4191,7 +4191,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposInstallUpdateOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposInstallUpdateOp
 __OBJC_$_PROP_LIST_SCPBbposInstallUpdateOp
 __OBJC_CLASS_RO_$_SCPBbposInstallUpdateOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposInstallUpdateOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposInstallUpdateOp.m
 StripeTerminal/SCPBbposInstallUpdateOp.m
 __83+[SCPBbposInstallUpdateOp validateBbposUpdateResponseDictionary:additionalLogInfo:]_block_invoke
 __59-[SCPBbposInstallUpdateOp buildInstallFirmwareOpsWithData:]_block_invoke_2
@@ -4206,7 +4206,7 @@ __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke.50
 __destroy_helper_block_e8_32s40w
 __copy_helper_block_e8_32s40w
 __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPbClientType.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPbClientType.m
 SCPPBVersionInfoPbClientTypeFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPbClientType.m
 SCPPBVersionInfoPbClientTypeToString
@@ -4229,16 +4229,16 @@ _OBJC_IVAR_$_SCPPBClientUpgradeArgumentPb._timeToUpgrade
 __OBJC_$_INSTANCE_VARIABLES_SCPPBClientUpgradeArgumentPb
 __OBJC_$_PROP_LIST_SCPPBClientUpgradeArgumentPb
 __OBJC_CLASS_RO_$_SCPPBClientUpgradeArgumentPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPb.h
 +[SCPLocationList objectTypeDeserializer]
 __OBJC_$_CLASS_METHODS_SCPLocationList
 __OBJC_METACLASS_RO_$_SCPLocationList
 __OBJC_CLASS_RO_$_SCPLocationList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLocationList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLocationList.m
 StripeTerminal/SCPLocationList.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPbUpgradeTimeArgument.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPbUpgradeTimeArgument.m
 SCPPBClientUpgradeArgumentPbUpgradeTimeArgumentFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientUpgradeArgumentPbUpgradeTimeArgument.m
 SCPPBClientUpgradeArgumentPbUpgradeTimeArgumentToString
@@ -4291,7 +4291,7 @@ _OBJC_IVAR_$_SCPPBRestCardPresent._cardholderName
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestCardPresent
 __OBJC_$_PROP_LIST_SCPPBRestCardPresent
 __OBJC_CLASS_RO_$_SCPPBRestCardPresent
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPresent.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPresent.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPresent.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPresent.h
 -[SCPPBRestErrorWrapper jsonObject]
@@ -4310,14 +4310,14 @@ _OBJC_IVAR_$_SCPPBRestErrorWrapper._error
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestErrorWrapper
 __OBJC_$_PROP_LIST_SCPPBRestErrorWrapper
 __OBJC_CLASS_RO_$_SCPPBRestErrorWrapper
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorWrapper.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorWrapper.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorWrapper.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestErrorWrapper.h
 +[SCPReaderList objectTypeDeserializer]
 __OBJC_$_CLASS_METHODS_SCPReaderList
 __OBJC_METACLASS_RO_$_SCPReaderList
 __OBJC_CLASS_RO_$_SCPReaderList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReaderList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReaderList.m
 StripeTerminal/SCPReaderList.m
 -[SCPPBLineItem jsonObject]
 +[SCPPBLineItem decodedObjectFromJSON:]
@@ -4347,7 +4347,7 @@ _OBJC_IVAR_$_SCPPBLineItem._modifiers
 __OBJC_$_INSTANCE_VARIABLES_SCPPBLineItem
 __OBJC_$_PROP_LIST_SCPPBLineItem
 __OBJC_CLASS_RO_$_SCPPBLineItem
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBLineItem.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBLineItem.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBLineItem.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBLineItem.h
 -[SCPConnectionTokenManager initWithTokenProvider:]
@@ -4386,7 +4386,7 @@ _OBJC_IVAR_$_SCPConnectionTokenManager._tokenCreated
 __OBJC_$_INSTANCE_VARIABLES_SCPConnectionTokenManager
 __OBJC_$_PROP_LIST_SCPConnectionTokenManager
 __OBJC_CLASS_RO_$_SCPConnectionTokenManager
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPConnectionTokenManager.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPConnectionTokenManager.m
 StripeTerminal/SCPConnectionTokenManager.m
 StripeTerminal/SCPConnectionTokenManager.h
 __56-[SCPConnectionTokenManager applicationDidBecomeActive:]_block_invoke
@@ -4416,7 +4416,7 @@ _OBJC_IVAR_$_SCPPBConfirmReusableCardResponse._confirmError
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmReusableCardResponse
 __OBJC_$_PROP_LIST_SCPPBConfirmReusableCardResponse
 __OBJC_CLASS_RO_$_SCPPBConfirmReusableCardResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardResponse.h
 -[SCPPBRestPaymentIntentMetadataEntry jsonObject]
@@ -4438,7 +4438,7 @@ _OBJC_IVAR_$_SCPPBRestPaymentIntentMetadataEntry._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestPaymentIntentMetadataEntry
 __OBJC_$_PROP_LIST_SCPPBRestPaymentIntentMetadataEntry
 __OBJC_CLASS_RO_$_SCPPBRestPaymentIntentMetadataEntry
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntentMetadataEntry.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntentMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntentMetadataEntry.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntentMetadataEntry.h
 -[SCPPBRestCardPaymentMethodChecks jsonObject]
@@ -4463,7 +4463,7 @@ _OBJC_IVAR_$_SCPPBRestCardPaymentMethodChecks._cvcCheck
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestCardPaymentMethodChecks
 __OBJC_$_PROP_LIST_SCPPBRestCardPaymentMethodChecks
 __OBJC_CLASS_RO_$_SCPPBRestCardPaymentMethodChecks
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethodChecks.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethodChecks.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethodChecks.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethodChecks.h
 -[NSArray(StripeTerminal) scp_safeSubarrayWithRange:]
@@ -4472,7 +4472,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCardPaymentMethodChecks.h
 -[NSArray(StripeTerminal) scp_arrayByRemovingNulls]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSArray_$_StripeTerminal
 __OBJC_$_CATEGORY_NSArray_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSArray+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSArray+StripeTerminal.m
 StripeTerminal/NSArray+StripeTerminal.m
 -[SCPDiscoveryConfiguration initWithDiscoveryMethod:simulated:]
 -[SCPDiscoveryConfiguration initWithDiscoveryMethod:locationId:simulated:]
@@ -4495,7 +4495,7 @@ _OBJC_IVAR_$_SCPDiscoveryConfiguration._locationId
 __OBJC_$_INSTANCE_VARIABLES_SCPDiscoveryConfiguration
 __OBJC_$_PROP_LIST_SCPDiscoveryConfiguration
 __OBJC_CLASS_RO_$_SCPDiscoveryConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPDiscoveryConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPDiscoveryConfiguration.m
 StripeTerminal/SCPDiscoveryConfiguration.m
 StripeTerminal/PublicHeaders/SCPDiscoveryConfiguration.h
 -[SCPPBCollectPaymentMethodRequestTipConfiguration jsonObject]
@@ -4517,7 +4517,7 @@ _OBJC_IVAR_$_SCPPBCollectPaymentMethodRequestTipConfiguration._options
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectPaymentMethodRequestTipConfiguration
 __OBJC_$_PROP_LIST_SCPPBCollectPaymentMethodRequestTipConfiguration
 __OBJC_CLASS_RO_$_SCPPBCollectPaymentMethodRequestTipConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipConfiguration.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipConfiguration.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipConfiguration.h
 -[SCPInternetConnectionConfiguration initWithFailIfInUse:allowCustomerCancel:]
@@ -4532,7 +4532,7 @@ __OBJC_$_INSTANCE_METHODS_SCPInternetConnectionConfiguration
 __OBJC_$_INSTANCE_VARIABLES_SCPInternetConnectionConfiguration
 __OBJC_$_PROP_LIST_SCPInternetConnectionConfiguration
 __OBJC_CLASS_RO_$_SCPInternetConnectionConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPInternetConnectionConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPInternetConnectionConfiguration.m
 StripeTerminal/PublicHeaders/SCPInternetConnectionConfiguration.h
 StripeTerminal/SCPInternetConnectionConfiguration.m
 -[SCPLogPoint initWithMessage:level:exception:created:]
@@ -4559,7 +4559,7 @@ _OBJC_IVAR_$_SCPLogPoint._created
 __OBJC_$_INSTANCE_VARIABLES_SCPLogPoint
 __OBJC_$_PROP_LIST_SCPLogPoint
 __OBJC_CLASS_RO_$_SCPLogPoint
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPLogPoint.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPLogPoint.m
 StripeTerminal/RPC/Plymouth/SCPLogPoint.m
 StripeTerminal/RPC/Plymouth/SCPLogPoint.h
 -[SCPReadReusableCardResource initWithParameters:]
@@ -4602,7 +4602,7 @@ _OBJC_IVAR_$_SCPReadReusableCardResource._paymentMethod
 __OBJC_$_INSTANCE_VARIABLES_SCPReadReusableCardResource
 __OBJC_$_PROP_LIST_SCPReadReusableCardResource
 __OBJC_CLASS_RO_$_SCPReadReusableCardResource
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReadReusableCardResource.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReadReusableCardResource.m
 StripeTerminal/SCPReadReusableCardResource.m
 StripeTerminal/SCPReadReusableCardResource.h
 __77-[SCPReadReusableCardResource confirmViaRabbitAdapterWithService:completion:]_block_invoke
@@ -4643,7 +4643,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposBluetoothScanAdapterV2
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposBluetoothScanAdapterV2
 __OBJC_$_PROP_LIST_SCPBbposBluetoothScanAdapterV2
 __OBJC_CLASS_RO_$_SCPBbposBluetoothScanAdapterV2
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBluetoothScanAdapterV2.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBluetoothScanAdapterV2.m
 StripeTerminal/SCPBbposBluetoothScanAdapterV2.m
 StripeTerminal/SCPBbposBluetoothScanAdapterV2.h
 __50-[SCPBbposBluetoothScanAdapterV2 discoverReaders:]_block_invoke
@@ -4746,7 +4746,7 @@ _OBJC_IVAR_$_SCPReader._stripeConfigHash
 __OBJC_$_INSTANCE_VARIABLES_SCPReader
 __OBJC_$_PROP_LIST_SCPReader
 __OBJC_CLASS_RO_$_SCPReader
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReader.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReader.m
 StripeTerminal/SCPReader.m
 StripeTerminal/SCPReader+Private.h
 StripeTerminal/PublicHeaders/SCPReader.h
@@ -4931,7 +4931,7 @@ _OBJC_IVAR_$_SCPLog._nestedTraceIds
 __OBJC_$_INSTANCE_VARIABLES_SCPLog
 __OBJC_$_PROP_LIST_SCPLog
 __OBJC_CLASS_RO_$_SCPLog
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLog.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLog.m
 StripeTerminal/SCPLog.m
 StripeTerminal/SCPLog.h
 __destroy_helper_block_e8_
@@ -4987,7 +4987,7 @@ _OBJC_IVAR_$_SCPReaderSessionManager._tokenManager
 __OBJC_$_INSTANCE_VARIABLES_SCPReaderSessionManager
 __OBJC_$_PROP_LIST_SCPReaderSessionManager
 __OBJC_CLASS_RO_$_SCPReaderSessionManager
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReaderSessionManager.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReaderSessionManager.m
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.58.cold.1
 StripeTerminal/SCPReaderSessionManager.m
 __destroy_helper_block_e8_32s40s48s56s64s72r
@@ -5013,7 +5013,7 @@ _OBJC_IVAR_$_SCPSimulatedCard._cardNumber
 __OBJC_$_INSTANCE_VARIABLES_SCPSimulatedCard
 __OBJC_$_PROP_LIST_SCPSimulatedCard
 __OBJC_CLASS_RO_$_SCPSimulatedCard
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSimulatedCard.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSimulatedCard.m
 StripeTerminal/SCPSimulatedCard.m
 StripeTerminal/SCPSimulatedCard+Private.h
 +[SCPStripeAPIClient stringFromSwipeReason:]
@@ -5139,7 +5139,7 @@ _OBJC_IVAR_$_SCPStripeAPIClient._readerSession
 __OBJC_$_INSTANCE_VARIABLES_SCPStripeAPIClient
 __OBJC_$_PROP_LIST_SCPStripeAPIClient
 __OBJC_CLASS_RO_$_SCPStripeAPIClient
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPStripeAPIClient.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPStripeAPIClient.m
 +[SCPStripeAPIClient activateReader:token:registerToLocationId:completion:].cold.1
 StripeTerminal/SCPStripeAPIClient.m
 __76+[SCPStripeAPIClient fetchLocationsForReaderSerialNumbers:token:completion:]_block_invoke
@@ -5221,7 +5221,7 @@ _OBJC_IVAR_$_SCPSetupIntent._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPSetupIntent
 __OBJC_$_PROP_LIST_SCPSetupIntent
 __OBJC_CLASS_RO_$_SCPSetupIntent
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSetupIntent.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSetupIntent.m
 StripeTerminal/SCPSetupIntent.m
 StripeTerminal/PublicHeaders/SCPSetupIntent.h
 +[SCPPBCollectInteracRefundMethodResponse decodedObjectFromJSON:]
@@ -5236,7 +5236,7 @@ _OBJC_IVAR_$_SCPPBCollectInteracRefundMethodResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectInteracRefundMethodResponse
 __OBJC_$_PROP_LIST_SCPPBCollectInteracRefundMethodResponse
 __OBJC_CLASS_RO_$_SCPPBCollectInteracRefundMethodResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodResponse.m
 -[SCPRabbitAdapter initWithSimulated:]
 -[SCPRabbitAdapter supportsTransactionSession]
@@ -5395,7 +5395,7 @@ _OBJC_IVAR_$_SCPRabbitAdapter._latestDiscoveryConfig
 __OBJC_$_INSTANCE_VARIABLES_SCPRabbitAdapter
 __OBJC_$_PROP_LIST_SCPRabbitAdapter
 __OBJC_CLASS_RO_$_SCPRabbitAdapter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPRabbitAdapter.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPRabbitAdapter.m
 StripeTerminal/SCPRabbitAdapter.m
 __67-[SCPRabbitAdapter listReadersUsingToken:forLocationId:completion:]_block_invoke_2
 __67-[SCPRabbitAdapter listReadersUsingToken:forLocationId:completion:]_block_invoke
@@ -5450,7 +5450,7 @@ _OBJC_IVAR_$_SCPLowPassRCFilter._max
 __OBJC_$_INSTANCE_VARIABLES_SCPLowPassRCFilter
 __OBJC_$_PROP_LIST_SCPLowPassRCFilter
 __OBJC_CLASS_RO_$_SCPLowPassRCFilter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLowPassRCFilter.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLowPassRCFilter.m
 StripeTerminal/SCPLowPassRCFilter.m
 StripeTerminal/SCPLowPassRCFilter.h
 -[SCPBbposInstallUpdateData completedWeight]
@@ -5482,7 +5482,7 @@ _OBJC_IVAR_$_SCPBbposInstallUpdateProgressController._operations
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposInstallUpdateProgressController
 __OBJC_$_PROP_LIST_SCPBbposInstallUpdateProgressController
 __OBJC_CLASS_RO_$_SCPBbposInstallUpdateProgressController
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposInstallUpdateProgressController.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposInstallUpdateProgressController.m
 StripeTerminal/SCPBbposInstallUpdateProgressController.m
 __destroy_helper_block_e8_32r40r
 __copy_helper_block_e8_32r40r
@@ -5494,12 +5494,12 @@ __51-[SCPBbposInstallUpdateProgressController progress]_block_invoke
 __OBJC_$_CLASS_METHODS_SCPBbposUtils
 __OBJC_METACLASS_RO_$_SCPBbposUtils
 __OBJC_CLASS_RO_$_SCPBbposUtils
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposUtils.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposUtils.m
 StripeTerminal/SCPBbposUtils.m
 ___stringToSCPPBErrorResponseType_block_invoke
 _stringToSCPPBErrorResponseType.values
 _stringToSCPPBErrorResponseType.onceToken
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBErrorResponseType.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBErrorResponseType.m
 __stringToSCPPBErrorResponseType_block_invoke
 StripeTerminal/RPC/Rabbit/SCPPBErrorResponseType.m
 stringToSCPPBErrorResponseType
@@ -5520,7 +5520,7 @@ _OBJC_IVAR_$_SCPPBPOSInfo._description_p
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPOSInfo
 __OBJC_$_PROP_LIST_SCPPBPOSInfo
 __OBJC_CLASS_RO_$_SCPPBPOSInfo
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBPOSInfo.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBPOSInfo.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPOSInfo.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBPOSInfo.h
 -[SCPPBHardwareModel jsonObject]
@@ -5551,10 +5551,10 @@ _OBJC_IVAR_$_SCPPBHardwareModel._simulatedHardware
 __OBJC_$_INSTANCE_VARIABLES_SCPPBHardwareModel
 __OBJC_$_PROP_LIST_SCPPBHardwareModel
 __OBJC_CLASS_RO_$_SCPPBHardwareModel
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBHardwareModel.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBHardwareModel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBHardwareModel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBHardwareModel.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBLocale.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBLocale.m
 SCPPBLocaleFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBLocale.m
 SCPPBLocaleToString
@@ -5567,7 +5567,7 @@ SCPPBLocaleToString
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPReader_$_PB
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPReader_$_PB
 __OBJC_$_CATEGORY_SCPReader_$_PB
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReader+PB.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReader+PB.m
 StripeTerminal/SCPReader+PB.m
 +[SCPPBConfirmPaymentResponse decodedObjectFromJSON:]
 -[SCPPBConfirmPaymentResponse copyWithZone:]
@@ -5593,7 +5593,7 @@ _OBJC_IVAR_$_SCPPBConfirmPaymentResponse._confirmError
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmPaymentResponse
 __OBJC_$_PROP_LIST_SCPPBConfirmPaymentResponse
 __OBJC_CLASS_RO_$_SCPPBConfirmPaymentResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmPaymentResponse.h
 -[SCPRefundParameters initWithChargeId:amount:currency:]
@@ -5621,7 +5621,7 @@ _OBJC_IVAR_$_SCPRefundParameters._refundApplicationFee
 __OBJC_$_INSTANCE_VARIABLES_SCPRefundParameters
 __OBJC_$_PROP_LIST_SCPRefundParameters
 __OBJC_CLASS_RO_$_SCPRefundParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPRefundParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPRefundParameters.m
 StripeTerminal/SCPRefundParameters.m
 StripeTerminal/PublicHeaders/SCPRefundParameters.h
 -[SCPPaymentSession initWithIntent:tipConfig:terminal:adapter:]
@@ -5721,7 +5721,7 @@ _OBJC_IVAR_$_SCPPaymentSession._processPaymentPromise
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentSession
 __OBJC_$_PROP_LIST_SCPPaymentSession
 __OBJC_CLASS_RO_$_SCPPaymentSession
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentSession.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentSession.m
 StripeTerminal/SCPPaymentSession.m
 StripeTerminal/SCPPaymentSession.h
 __45-[SCPPaymentSession addSecondGenerationData:]_block_invoke
@@ -5785,7 +5785,7 @@ ___destroy_helper_block_ea8_32w
 ___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke
 ___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke_2
 ___copy_helper_block_ea8_32b
-___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.308
+___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.310
 -[SCPBbposAdapterV2 onReturnCheckCardResult:cardData:]
 -[SCPBbposAdapterV2 onReturnCancelCheckCardResult:]
 -[SCPBbposAdapterV2 onRequestSelectApplication:]
@@ -5950,22 +5950,25 @@ ___block_descriptor_72_ea8_32bs40s48s56s_e33_v24?0"SCPLocation"8"NSError"16l
 ___block_descriptor_72_ea8_32s40s48bs56s_e41_v24?0"SCPActivateResponse"8"NSError"16l
 ___block_descriptor_48_ea8_32bs40w_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.200
-_OBJC_CLASSLIST_REFERENCES_$_.243
+_OBJC_CLASSLIST_REFERENCES_$_.245
+_OBJC_CLASSLIST_REFERENCES_$_.264
 ___block_descriptor_48_ea8_32s40w_e5_v8?0l
-_OBJC_CLASSLIST_REFERENCES_$_.271
 ___block_descriptor_40_ea8_32w_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.287
-_OBJC_CLASSLIST_REFERENCES_$_.298
-_OBJC_SELECTOR_REFERENCES_.300
+_OBJC_SELECTOR_REFERENCES_.306
 ___block_descriptor_40_ea8_32bs_e5_v8?0l
 ___block_descriptor_48_ea8_32s40w_e8_v16?08l
-_OBJC_CLASSLIST_REFERENCES_$_.329
-_OBJC_CLASSLIST_REFERENCES_$_.336
+_OBJC_SELECTOR_REFERENCES_.322
+_OBJC_SELECTOR_REFERENCES_.326
+_OBJC_CLASSLIST_REFERENCES_$_.331
+_OBJC_CLASSLIST_REFERENCES_$_.338
 _OBJC_SELECTOR_REFERENCES_.340
+_OBJC_SELECTOR_REFERENCES_.344
 _OBJC_SELECTOR_REFERENCES_.350
 _OBJC_SELECTOR_REFERENCES_.374
-_OBJC_CLASSLIST_REFERENCES_$_.399
-_OBJC_SELECTOR_REFERENCES_.401
+_OBJC_SELECTOR_REFERENCES_.376
+_OBJC_SELECTOR_REFERENCES_.400
+_OBJC_CLASSLIST_REFERENCES_$_.401
 _OBJC_SELECTOR_REFERENCES_.405
 _OBJC_SELECTOR_REFERENCES_.409
 _OBJC_SELECTOR_REFERENCES_.411
@@ -6182,7 +6185,7 @@ _OBJC_IVAR_$_SCPBbposAdapterV2._runningOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposAdapterV2
 __OBJC_$_PROP_LIST_SCPBbposAdapterV2
 __OBJC_CLASS_RO_$_SCPBbposAdapterV2
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposAdapterV2.mm
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposAdapterV2.mm
 StripeTerminal/SCPBbposAdapterV2.mm
 StripeTerminal/SCPBbposAdapterV2+Private.h
 StripeTerminal/SCPBbposAdapterV2.h
@@ -6217,7 +6220,7 @@ __36-[SCPBbposAdapterV2 confirmResource]_block_invoke_2
 __36-[SCPBbposAdapterV2 confirmResource]_block_invoke
 __57-[SCPBbposAdapterV2 confirmResourceCompletion:withError:]_block_invoke.432
 __57-[SCPBbposAdapterV2 confirmResourceCompletion:withError:]_block_invoke
-__38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.308
+__38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.310
 __copy_helper_block_ea8_32b
 __38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke_2
 __38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke
@@ -6247,7 +6250,7 @@ __OBJC_METACLASS_RO_$_SCPPBClearReaderDisplayRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBClearReaderDisplayRequest
 __OBJC_$_PROP_LIST_SCPPBClearReaderDisplayRequest
 __OBJC_CLASS_RO_$_SCPPBClearReaderDisplayRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClearReaderDisplayRequest.m
 -[SCPPBClientCheckoutOptions jsonObject]
 +[SCPPBClientCheckoutOptions decodedObjectFromJSON:]
@@ -6305,7 +6308,7 @@ _OBJC_IVAR_$_SCPPBClientCheckoutOptions._incrementNumOfCanceledPaymentsOnQuery
 __OBJC_$_INSTANCE_VARIABLES_SCPPBClientCheckoutOptions
 __OBJC_$_PROP_LIST_SCPPBClientCheckoutOptions
 __OBJC_CLASS_RO_$_SCPPBClientCheckoutOptions
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientCheckoutOptions.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientCheckoutOptions.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientCheckoutOptions.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientCheckoutOptions.h
 +[SCPEmvUtils hexToBinary]
@@ -6319,7 +6322,7 @@ _hexToBinary.onceToken
 __OBJC_$_CLASS_METHODS_SCPEmvUtils
 __OBJC_METACLASS_RO_$_SCPEmvUtils
 __OBJC_CLASS_RO_$_SCPEmvUtils
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPEmvUtils.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPEmvUtils.m
 StripeTerminal/SCPEmvUtils.m
 __26+[SCPEmvUtils hexToBinary]_block_invoke
 -[SCPPBRegionalAidOrder jsonObject]
@@ -6340,7 +6343,7 @@ _OBJC_IVAR_$_SCPPBRegionalAidOrder._aidOrder
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRegionalAidOrder
 __OBJC_$_PROP_LIST_SCPPBRegionalAidOrder
 __OBJC_CLASS_RO_$_SCPPBRegionalAidOrder
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrder.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrder.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrder.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRegionalAidOrder.h
 __47+[SCPPBRegionalAidOrder decodedObjectFromJSON:]_block_invoke
@@ -6359,7 +6362,7 @@ _OBJC_IVAR_$_SCPReportTraceRequest._traces
 __OBJC_$_INSTANCE_VARIABLES_SCPReportTraceRequest
 __OBJC_$_PROP_LIST_SCPReportTraceRequest
 __OBJC_CLASS_RO_$_SCPReportTraceRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPReportTraceRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPReportTraceRequest.m
 StripeTerminal/RPC/Plymouth/SCPReportTraceRequest.m
 -[SCPPBImageRef jsonObject]
 +[SCPPBImageRef decodedObjectFromJSON:]
@@ -6386,10 +6389,10 @@ _OBJC_IVAR_$_SCPPBImageRef._fileId
 __OBJC_$_INSTANCE_VARIABLES_SCPPBImageRef
 __OBJC_$_PROP_LIST_SCPPBImageRef
 __OBJC_CLASS_RO_$_SCPPBImageRef
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBImageRef.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBImageRef.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBImageRef.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBImageRef.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBVerifoneHardware.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBVerifoneHardware.m
 SCPPBVerifoneHardwareFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVerifoneHardware.m
 SCPPBVerifoneHardwareToString
@@ -6409,7 +6412,7 @@ _OBJC_IVAR_$_SCPPBBoolValue._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBBoolValue
 __OBJC_$_PROP_LIST_SCPPBBoolValue
 __OBJC_CLASS_RO_$_SCPPBBoolValue
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBBoolValue.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBBoolValue.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBBoolValue.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBBoolValue.h
 -[SCPBbposFetchDeviceInfoOp initWithDidFetchBlock:]
@@ -6435,7 +6438,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposFetchDeviceInfoOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposFetchDeviceInfoOp
 __OBJC_$_PROP_LIST_SCPBbposFetchDeviceInfoOp
 __OBJC_CLASS_RO_$_SCPBbposFetchDeviceInfoOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposFetchDeviceInfoOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposFetchDeviceInfoOp.m
 StripeTerminal/SCPBbposFetchDeviceInfoOp.m
 -[SCPReaderSoftwareUpdate initWithMobilePosConfigResponse:currentTerminalSettings:reader:]
 -[SCPReaderSoftwareUpdate initWithTargetKey:targetConfig:targetFirmware:reader:]
@@ -6511,7 +6514,7 @@ _OBJC_IVAR_$_SCPReaderSoftwareUpdate._reader
 __OBJC_$_INSTANCE_VARIABLES_SCPReaderSoftwareUpdate
 __OBJC_$_PROP_LIST_SCPReaderSoftwareUpdate
 __OBJC_CLASS_RO_$_SCPReaderSoftwareUpdate
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReaderSoftwareUpdate.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReaderSoftwareUpdate.m
 StripeTerminal/SCPReaderSoftwareUpdate.m
 StripeTerminal/SCPReaderSoftwareUpdate+Private.h
 StripeTerminal/PublicHeaders/SCPReaderSoftwareUpdate.h
@@ -6531,7 +6534,7 @@ _OBJC_IVAR_$_SCPPBSetReaderDisplayRequest._cart
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSetReaderDisplayRequest
 __OBJC_$_PROP_LIST_SCPPBSetReaderDisplayRequest
 __OBJC_CLASS_RO_$_SCPPBSetReaderDisplayRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayRequest.h
 +[SCPDiscoveryConfiguration(BBPOS) chipper2XPrefixes]
@@ -6542,12 +6545,12 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayRequest.h
 +[SCPDiscoveryConfiguration(BBPOS) deviceTypeForBbposPrefix:]
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPDiscoveryConfiguration_$_BBPOS
 __OBJC_$_CATEGORY_SCPDiscoveryConfiguration_$_BBPOS
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPDiscoveryConfiguration+BBPOS.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPDiscoveryConfiguration+BBPOS.m
 StripeTerminal/SCPDiscoveryConfiguration+BBPOS.m
 -[NSMutableDictionary(StripeTerminal) scp_setValueIfNotNil:forKey:]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSMutableDictionary_$_StripeTerminal
 __OBJC_$_CATEGORY_NSMutableDictionary_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSMutableDictionary+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSMutableDictionary+StripeTerminal.m
 StripeTerminal/NSMutableDictionary+StripeTerminal.m
 -[SCPProcessRefundError initWithDomain:code:userInfo:refund:requestError:]
 -[SCPProcessRefundError initWithProcessResourceError:]
@@ -6572,7 +6575,7 @@ __OBJC_$_INSTANCE_METHODS_SCPProcessRefundError
 __OBJC_$_INSTANCE_VARIABLES_SCPProcessRefundError
 __OBJC_$_PROP_LIST_SCPProcessRefundError
 __OBJC_CLASS_RO_$_SCPProcessRefundError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPProcessRefundError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPProcessRefundError.m
 StripeTerminal/SCPProcessRefundError.m
 StripeTerminal/PublicHeaders/SCPProcessRefundError.h
 -[SCPPBDownloadMobilePosConfigRequestBBPOSConfig jsonObject]
@@ -6594,7 +6597,7 @@ _OBJC_IVAR_$_SCPPBDownloadMobilePosConfigRequestBBPOSConfig._configVersion
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDownloadMobilePosConfigRequestBBPOSConfig
 __OBJC_$_PROP_LIST_SCPPBDownloadMobilePosConfigRequestBBPOSConfig
 __OBJC_CLASS_RO_$_SCPPBDownloadMobilePosConfigRequestBBPOSConfig
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequestBBPOSConfig.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequestBBPOSConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequestBBPOSConfig.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDownloadMobilePosConfigRequestBBPOSConfig.h
 -[SCPPBSimulatedHardware jsonObject]
@@ -6616,7 +6619,7 @@ _OBJC_IVAR_$_SCPPBSimulatedHardware._bbposHardware
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSimulatedHardware
 __OBJC_$_PROP_LIST_SCPPBSimulatedHardware
 __OBJC_CLASS_RO_$_SCPPBSimulatedHardware
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSimulatedHardware.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSimulatedHardware.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSimulatedHardware.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSimulatedHardware.h
 -[SCPPBCollectPaymentMethodRequestTipOption jsonObject]
@@ -6638,7 +6641,7 @@ _OBJC_IVAR_$_SCPPBCollectPaymentMethodRequestTipOption._label
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectPaymentMethodRequestTipOption
 __OBJC_$_PROP_LIST_SCPPBCollectPaymentMethodRequestTipOption
 __OBJC_CLASS_RO_$_SCPPBCollectPaymentMethodRequestTipOption
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipOption.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipOption.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipOption.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectPaymentMethodRequestTipOption.h
 -[SCPTipOption initWithAmount:label:]
@@ -6655,13 +6658,13 @@ _OBJC_IVAR_$_SCPTipOption._label
 __OBJC_$_INSTANCE_VARIABLES_SCPTipOption
 __OBJC_$_PROP_LIST_SCPTipOption
 __OBJC_CLASS_RO_$_SCPTipOption
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTipOption.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTipOption.m
 StripeTerminal/SCPTipOption.m
 StripeTerminal/SCPTipOption.h
 -[SCPPaymentIntent(Rabbit) collectPaymentMethodRequest]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPaymentIntent_$_Rabbit
 __OBJC_$_CATEGORY_SCPPaymentIntent_$_Rabbit
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit+StripeTerminal/SCPPaymentIntent+Rabbit.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit+StripeTerminal/SCPPaymentIntent+Rabbit.m
 StripeTerminal/RPC/Rabbit+StripeTerminal/SCPPaymentIntent+Rabbit.m
 -[SCPPBConfirmInteracRefundRequest method]
 -[SCPPBConfirmInteracRefundRequest jsonObject]
@@ -6688,7 +6691,7 @@ _OBJC_IVAR_$_SCPPBConfirmInteracRefundRequest._interacPaymentMethod
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmInteracRefundRequest
 __OBJC_$_PROP_LIST_SCPPBConfirmInteracRefundRequest
 __OBJC_CLASS_RO_$_SCPPBConfirmInteracRefundRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundRequest.h
 -[SCPPBRestRefund jsonObject]
@@ -6731,7 +6734,7 @@ _OBJC_IVAR_$_SCPPBRestRefund._paymentMethodDetails
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestRefund
 __OBJC_$_PROP_LIST_SCPPBRestRefund
 __OBJC_CLASS_RO_$_SCPPBRestRefund
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefund.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefund.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefund.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestRefund.h
 -[SCPPBQueryCollectReusableCardRequest method]
@@ -6742,7 +6745,7 @@ __OBJC_METACLASS_RO_$_SCPPBQueryCollectReusableCardRequest
 __OBJC_$_INSTANCE_METHODS_SCPPBQueryCollectReusableCardRequest
 __OBJC_$_PROP_LIST_SCPPBQueryCollectReusableCardRequest
 __OBJC_CLASS_RO_$_SCPPBQueryCollectReusableCardRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryCollectReusableCardRequest.m
 -[SCPBbposIncrementalUpdateOp cancel]
 -[SCPBbposUpdateDisplaySettingsOp initWithInstallData:progressBlock:]
@@ -6817,7 +6820,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBBposUpdateTerminalSettingsOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBBposUpdateTerminalSettingsOp
 __OBJC_$_PROP_LIST_SCPBBposUpdateTerminalSettingsOp
 __OBJC_CLASS_RO_$_SCPBBposUpdateTerminalSettingsOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposIncrementalInstallOps.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposIncrementalInstallOps.m
 StripeTerminal/SCPBbposIncrementalInstallOps.m
 __70-[SCPBBposUpdateTerminalSettingsOp onReturnReadTerminalSettingResult:]_block_invoke
 __53-[SCPBbposUpdateAIDSettingsOp onReturnReadAIDResult:]_block_invoke
@@ -6842,7 +6845,7 @@ _OBJC_IVAR_$_SCPFeatureFlag._type
 __OBJC_$_INSTANCE_VARIABLES_SCPFeatureFlag
 __OBJC_$_PROP_LIST_SCPFeatureFlag
 __OBJC_CLASS_RO_$_SCPFeatureFlag
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPFeatureFlag.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPFeatureFlag.m
 StripeTerminal/SCPFeatureFlag.m
 StripeTerminal/SCPFeatureFlag.h
 +[SCPPaymentIntent buildPaymentIntentForReadReusableCard]
@@ -6913,7 +6916,7 @@ _OBJC_IVAR_$_SCPPaymentIntent._status
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentIntent
 __OBJC_$_PROP_LIST_SCPPaymentIntent
 __OBJC_CLASS_RO_$_SCPPaymentIntent
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentIntent.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentIntent.m
 StripeTerminal/SCPPaymentIntent.m
 StripeTerminal/PublicHeaders/SCPPaymentIntent.h
 __66-[SCPPaymentIntent confirmViaRabbitAdapterWithService:completion:]_block_invoke
@@ -6938,7 +6941,7 @@ _OBJC_IVAR_$_SCPPBVersionInfoPb._clientVersion
 __OBJC_$_INSTANCE_VARIABLES_SCPPBVersionInfoPb
 __OBJC_$_PROP_LIST_SCPPBVersionInfoPb
 __OBJC_CLASS_RO_$_SCPPBVersionInfoPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPb.h
 -[SCPPBRestPaymentMethod jsonObject]
@@ -6975,7 +6978,7 @@ _OBJC_IVAR_$_SCPPBRestPaymentMethod._card
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestPaymentMethod
 __OBJC_$_PROP_LIST_SCPPBRestPaymentMethod
 __OBJC_CLASS_RO_$_SCPPBRestPaymentMethod
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethod.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethod.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentMethod.h
 +[SCPTerminal setTokenProvider:]
@@ -7232,9 +7235,8 @@ _OBJC_CLASSLIST_REFERENCES_$_.238
 ___block_descriptor_80_e8_32s40s48s56s64s_e5_v8?0l
 ___block_descriptor_72_e8_32s40s48s56bs_e5_v8?0l
 ___block_descriptor_64_e8_32s40s48bs_e17_v16?0"NSError"8l
-_OBJC_SELECTOR_REFERENCES_.306
+_OBJC_SELECTOR_REFERENCES_.300
 _OBJC_SELECTOR_REFERENCES_.308
-_OBJC_CLASSLIST_REFERENCES_$_.331
 _OBJC_CLASSLIST_REFERENCES_$_.332
 _OBJC_CLASSLIST_REFERENCES_$_.333
 ___block_descriptor_64_e8_32s40s48bs56s_e5_v8?0l
@@ -7244,8 +7246,6 @@ _OBJC_SELECTOR_REFERENCES_.369
 _OBJC_SELECTOR_REFERENCES_.371
 _OBJC_SELECTOR_REFERENCES_.373
 _OBJC_CLASSLIST_REFERENCES_$_.382
-_OBJC_SELECTOR_REFERENCES_.400
-_OBJC_CLASSLIST_REFERENCES_$_.401
 ___block_descriptor_104_e8_32s40s48s56s64s72bs80s_e5_v8?0l
 ___block_descriptor_88_e8_32s40s48s56bs64s_e31_v24?0"SCPReader"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.430
@@ -7416,7 +7416,7 @@ _OBJC_IVAR_$_SCPTerminal._incompleteCommandDetector
 __OBJC_$_INSTANCE_VARIABLES_SCPTerminal
 __OBJC_$_PROP_LIST_SCPTerminal
 __OBJC_CLASS_RO_$_SCPTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPTerminal.m
 -[SCPTerminal validateInfoPlistForDiscoveryConfiguration:].cold.2
 StripeTerminal/SCPTerminal.m
 -[SCPTerminal validateInfoPlistForDiscoveryConfiguration:].cold.1
@@ -7690,7 +7690,6 @@ _OBJC_CLASSLIST_REFERENCES_$_.150
 _OBJC_SELECTOR_REFERENCES_.160
 _OBJC_CLASSLIST_REFERENCES_$_.209
 _OBJC_CLASSLIST_REFERENCES_$_.302
-_OBJC_SELECTOR_REFERENCES_.326
 _OBJC_SELECTOR_REFERENCES_.328
 _OBJC_CLASSLIST_REFERENCES_$_.347
 _OBJC_CLASSLIST_REFERENCES_$_.354
@@ -7770,7 +7769,7 @@ _OBJC_IVAR_$_SCPBbposAdapter._runningOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposAdapter
 __OBJC_$_PROP_LIST_SCPBbposAdapter
 __OBJC_CLASS_RO_$_SCPBbposAdapter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposAdapter.mm
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposAdapter.mm
 StripeTerminal/SCPBbposAdapter.mm
 StripeTerminal/SCPBbposAdapter+Private.h
 StripeTerminal/SCPBbposAdapter.h
@@ -7834,7 +7833,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposBluetoothScanAdapter
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposBluetoothScanAdapter
 __OBJC_$_PROP_LIST_SCPBbposBluetoothScanAdapter
 __OBJC_CLASS_RO_$_SCPBbposBluetoothScanAdapter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposBluetoothScanAdapter.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposBluetoothScanAdapter.m
 StripeTerminal/SCPBbposBluetoothScanAdapter.m
 StripeTerminal/SCPBbposBluetoothScanAdapter.h
 __48-[SCPBbposBluetoothScanAdapter discoverReaders:]_block_invoke
@@ -7855,9 +7854,9 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposControlLEDsOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposControlLEDsOp
 __OBJC_$_PROP_LIST_SCPBbposControlLEDsOp
 __OBJC_CLASS_RO_$_SCPBbposControlLEDsOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposControlLEDsOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposControlLEDsOp.m
 StripeTerminal/SCPBbposControlLEDsOp.m
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPbInstallType.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPbInstallType.m
 SCPPBClientVersionSpecPbInstallTypeFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPbInstallType.m
 SCPPBClientVersionSpecPbInstallTypeToString
@@ -7887,7 +7886,7 @@ _OBJC_IVAR_$_SCPSdkPaymentDetails._rejectionReason
 __OBJC_$_INSTANCE_VARIABLES_SCPSdkPaymentDetails
 __OBJC_$_PROP_LIST_SCPSdkPaymentDetails
 __OBJC_CLASS_RO_$_SCPSdkPaymentDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSdkPaymentDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSdkPaymentDetails.m
 StripeTerminal/SCPSdkPaymentDetails.m
 StripeTerminal/SCPSdkPaymentDetails+Private.h
 StripeTerminal/SCPSdkPaymentDetails.h
@@ -7946,7 +7945,7 @@ __OBJC_$_INSTANCE_METHODS_SCPRabbitRpcService
 __OBJC_$_INSTANCE_VARIABLES_SCPRabbitRpcService
 __OBJC_$_PROP_LIST_SCPRabbitRpcService
 __OBJC_CLASS_RO_$_SCPRabbitRpcService
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPRabbitRpcService.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPRabbitRpcService.m
 StripeTerminal/RPC/Rabbit/SCPRabbitRpcService.h
 __67-[SCPRabbitRpcService queryCollectReusableCardWithRequest:handler:]_block_invoke
 StripeTerminal/RPC/Rabbit/SCPRabbitRpcService.m
@@ -7979,7 +7978,7 @@ _OBJC_IVAR_$_SCPPBCollectReusableCardResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectReusableCardResponse
 __OBJC_$_PROP_LIST_SCPPBCollectReusableCardResponse
 __OBJC_CLASS_RO_$_SCPPBCollectReusableCardResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectReusableCardResponse.m
 -[SCPRpcRequest initWithContent:]
 +[SCPRpcRequest buildVersionInfo]
@@ -7993,7 +7992,7 @@ __OBJC_$_INSTANCE_METHODS_SCPRpcRequest
 _OBJC_IVAR_$_SCPRpcRequest._content
 __OBJC_$_INSTANCE_VARIABLES_SCPRpcRequest
 __OBJC_CLASS_RO_$_SCPRpcRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/SCPRpcRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/SCPRpcRequest.m
 StripeTerminal/RPC/SCPRpcRequest.m
 StripeTerminal/RPC/SCPRpcRequest.h
 -[SCPPBInt32Value jsonObject]
@@ -8012,7 +8011,7 @@ _OBJC_IVAR_$_SCPPBInt32Value._value
 __OBJC_$_INSTANCE_VARIABLES_SCPPBInt32Value
 __OBJC_$_PROP_LIST_SCPPBInt32Value
 __OBJC_CLASS_RO_$_SCPPBInt32Value
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBInt32Value.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBInt32Value.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInt32Value.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInt32Value.h
 -[SCPConfirmSetupIntentError initWithDomain:code:userInfo:intent:requestError:declineCode:]
@@ -8038,7 +8037,7 @@ __OBJC_$_INSTANCE_METHODS_SCPConfirmSetupIntentError
 __OBJC_$_INSTANCE_VARIABLES_SCPConfirmSetupIntentError
 __OBJC_$_PROP_LIST_SCPConfirmSetupIntentError
 __OBJC_CLASS_RO_$_SCPConfirmSetupIntentError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPConfirmSetupIntentError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPConfirmSetupIntentError.m
 StripeTerminal/SCPConfirmSetupIntentError.m
 StripeTerminal/PublicHeaders/SCPConfirmSetupIntentError.h
 -[SCPPBChargeAmount jsonObject]
@@ -8066,7 +8065,7 @@ _OBJC_IVAR_$_SCPPBChargeAmount._cashbackAmount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBChargeAmount
 __OBJC_$_PROP_LIST_SCPPBChargeAmount
 __OBJC_CLASS_RO_$_SCPPBChargeAmount
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBChargeAmount.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBChargeAmount.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBChargeAmount.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBChargeAmount.h
 +[SCPOptionSet build:]
@@ -8083,7 +8082,7 @@ _OBJC_IVAR_$_SCPOptionSet._options
 __OBJC_$_INSTANCE_VARIABLES_SCPOptionSet
 __OBJC_$_PROP_LIST_SCPOptionSet
 __OBJC_CLASS_RO_$_SCPOptionSet
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPOptionSet.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPOptionSet.m
 StripeTerminal/SCPOptionSet.m
 -[SCPPBCollectInteracRefundMethodRequest method]
 -[SCPPBCollectInteracRefundMethodRequest jsonObject]
@@ -8101,7 +8100,7 @@ _OBJC_IVAR_$_SCPPBCollectInteracRefundMethodRequest._chargeAmount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCollectInteracRefundMethodRequest
 __OBJC_$_PROP_LIST_SCPPBCollectInteracRefundMethodRequest
 __OBJC_CLASS_RO_$_SCPPBCollectInteracRefundMethodRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCollectInteracRefundMethodRequest.h
 -[SCPReaderSession initWithStripeSession:connectionToken:rpcSession:rabbitSession:accountId:readerId:]
@@ -8127,7 +8126,7 @@ _OBJC_IVAR_$_SCPReaderSession._readerId
 __OBJC_$_INSTANCE_VARIABLES_SCPReaderSession
 __OBJC_$_PROP_LIST_SCPReaderSession
 __OBJC_CLASS_RO_$_SCPReaderSession
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReaderSession.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReaderSession.m
 StripeTerminal/SCPReaderSession.m
 StripeTerminal/SCPReaderSession.h
 -[SCPPBUrlPb jsonObject]
@@ -8152,7 +8151,7 @@ _OBJC_IVAR_$_SCPPBUrlPb._path
 __OBJC_$_INSTANCE_VARIABLES_SCPPBUrlPb
 __OBJC_$_PROP_LIST_SCPPBUrlPb
 __OBJC_CLASS_RO_$_SCPPBUrlPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBUrlPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBUrlPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBUrlPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBUrlPb.h
 -[SCPBbposTmsConfiguration remoteUpdateParameters]
@@ -8160,7 +8159,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBUrlPb.h
 __OBJC_METACLASS_RO_$_SCPBbposTmsConfiguration
 __OBJC_$_INSTANCE_METHODS_SCPBbposTmsConfiguration
 __OBJC_CLASS_RO_$_SCPBbposTmsConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposTmsConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposTmsConfiguration.m
 StripeTerminal/SCPBbposTmsConfiguration.m
 -[SCPPBClientVersionSpecPb jsonObject]
 +[SCPPBClientVersionSpecPb decodedObjectFromJSON:]
@@ -8190,7 +8189,7 @@ _OBJC_IVAR_$_SCPPBClientVersionSpecPb._installType
 __OBJC_$_INSTANCE_VARIABLES_SCPPBClientVersionSpecPb
 __OBJC_$_PROP_LIST_SCPPBClientVersionSpecPb
 __OBJC_CLASS_RO_$_SCPPBClientVersionSpecPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBClientVersionSpecPb.h
 -[SCPSimulatorConfiguration initForStripeInternal]
@@ -8206,7 +8205,7 @@ _OBJC_IVAR_$_SCPSimulatorConfiguration._simulatedCard
 __OBJC_$_INSTANCE_VARIABLES_SCPSimulatorConfiguration
 __OBJC_$_PROP_LIST_SCPSimulatorConfiguration
 __OBJC_CLASS_RO_$_SCPSimulatorConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSimulatorConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSimulatorConfiguration.m
 StripeTerminal/SCPSimulatorConfiguration.m
 StripeTerminal/PublicHeaders/SCPSimulatorConfiguration.h
 -[SCPPBCaPublicKey jsonObject]
@@ -8234,7 +8233,7 @@ _OBJC_IVAR_$_SCPPBCaPublicKey._modulus
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCaPublicKey
 __OBJC_$_PROP_LIST_SCPPBCaPublicKey
 __OBJC_CLASS_RO_$_SCPPBCaPublicKey
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKey.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKey.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKey.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKey.h
 +[SCPPBCancelCollectReusableCardResponse decodedObjectFromJSON:]
@@ -8249,7 +8248,7 @@ _OBJC_IVAR_$_SCPPBCancelCollectReusableCardResponse._originalJSON
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCancelCollectReusableCardResponse
 __OBJC_$_PROP_LIST_SCPPBCancelCollectReusableCardResponse
 __OBJC_CLASS_RO_$_SCPPBCancelCollectReusableCardResponse
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardResponse.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardResponse.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardResponse.m
 -[SCPBBPOSTargetVersions config]
 -[SCPBBPOSTargetVersions setConfig:]
@@ -8279,7 +8278,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.99
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPBBBPOSConfig_$_Human
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPPBBBPOSConfig_$_Human
 __OBJC_$_CATEGORY_SCPPBBBPOSConfig_$_Human
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPPBBBPOSConfig+Human.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPPBBBPOSConfig+Human.m
 StripeTerminal/RPC/Plymouth/SCPPBBBPOSConfig+Human.m
 MINDate
 StripeTerminal/RPC/Plymouth/SCPPBBBPOSConfig+Human.h
@@ -8335,7 +8334,7 @@ _OBJC_IVAR_$_SCPPBRestPaymentIntent._paymentMethod
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestPaymentIntent
 __OBJC_$_PROP_LIST_SCPPBRestPaymentIntent
 __OBJC_CLASS_RO_$_SCPPBRestPaymentIntent
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntent.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntent.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntent.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestPaymentIntent.h
 +[SCPPBError decodedObjectFromJSON:]
@@ -8355,7 +8354,7 @@ _OBJC_IVAR_$_SCPPBError._message
 __OBJC_$_INSTANCE_VARIABLES_SCPPBError
 __OBJC_$_PROP_LIST_SCPPBError
 __OBJC_CLASS_RO_$_SCPPBError
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBError.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBError.m
 StripeTerminal/RPC/Rabbit/SCPPBError.m
 StripeTerminal/RPC/Rabbit/SCPPBError.h
 -[SCPPBJcbParameters jsonObject]
@@ -8389,7 +8388,7 @@ _OBJC_IVAR_$_SCPPBJcbParameters._tacOnline
 __OBJC_$_INSTANCE_VARIABLES_SCPPBJcbParameters
 __OBJC_$_PROP_LIST_SCPPBJcbParameters
 __OBJC_CLASS_RO_$_SCPPBJcbParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBJcbParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBJcbParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBJcbParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBJcbParameters.h
 -[SCPPBRestCharge jsonObject]
@@ -8472,7 +8471,7 @@ _OBJC_IVAR_$_SCPPBRestCharge._refunds
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRestCharge
 __OBJC_$_PROP_LIST_SCPPBRestCharge
 __OBJC_CLASS_RO_$_SCPPBRestCharge
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharge.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharge.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharge.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRestCharge.h
 +[SCPReader(BBPOS) bbp_deviceType:]
@@ -8504,7 +8503,7 @@ ___block_descriptor_32_e25_B32?0"NSString"8Q16^B24l
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPReader_$_BBPOS
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPReader_$_BBPOS
 __OBJC_$_CATEGORY_SCPReader_$_BBPOS
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPReader+BBPOS.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPReader+BBPOS.m
 StripeTerminal/SCPReader+BBPOS.m
 __42-[SCPReader(BBPOS) bbp_supportedLanguages]_block_invoke
 __52-[SCPReader(BBPOS) bbp_updateBatteryWithDeviceInfo:]_block_invoke
@@ -8534,14 +8533,14 @@ _OBJC_IVAR_$_SCPPBActivateTerminalRequest._posSoftwareInfo
 __OBJC_$_INSTANCE_VARIABLES_SCPPBActivateTerminalRequest
 __OBJC_$_PROP_LIST_SCPPBActivateTerminalRequest
 __OBJC_CLASS_RO_$_SCPPBActivateTerminalRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBActivateTerminalRequest.h
 -[NSHTTPURLResponse(StripeTerminal) scp_requestId]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSHTTPURLResponse_$_StripeTerminal
 __OBJC_$_PROP_LIST_NSHTTPURLResponse_$_StripeTerminal
 __OBJC_$_CATEGORY_NSHTTPURLResponse_$_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSHTTPURLResponse+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSHTTPURLResponse+StripeTerminal.m
 StripeTerminal/NSHTTPURLResponse+StripeTerminal.m
 -[SCPPBRgbPb jsonObject]
 +[SCPPBRgbPb decodedObjectFromJSON:]
@@ -8559,7 +8558,7 @@ _OBJC_IVAR_$_SCPPBRgbPb._data
 __OBJC_$_INSTANCE_VARIABLES_SCPPBRgbPb
 __OBJC_$_PROP_LIST_SCPPBRgbPb
 __OBJC_CLASS_RO_$_SCPPBRgbPb
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBRgbPb.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBRgbPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRgbPb.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBRgbPb.h
 -[SCPBbposCheckForUpdateOp initWithPromise:reader:armadaService:overrideEnableTMSVersioning:tmsConfiguration:]
@@ -8603,11 +8602,11 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposCheckForUpdateOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposCheckForUpdateOp
 __OBJC_$_PROP_LIST_SCPBbposCheckForUpdateOp
 __OBJC_CLASS_RO_$_SCPBbposCheckForUpdateOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposCheckForUpdateOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposCheckForUpdateOp.m
 StripeTerminal/SCPBbposCheckForUpdateOp.m
 __62-[SCPBbposCheckForUpdateOp onReturnReadTerminalSettingResult:]_block_invoke_2
 __62-[SCPBbposCheckForUpdateOp onReturnReadTerminalSettingResult:]_block_invoke
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfoDeviceClass.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfoDeviceClass.m
 SCPPBDeviceInfoDeviceClassFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceInfoDeviceClass.m
 SCPPBDeviceInfoDeviceClassToString
@@ -8655,7 +8654,7 @@ _OBJC_IVAR_$_SCPPaymentIntentParameters._onBehalfOf
 __OBJC_$_INSTANCE_VARIABLES_SCPPaymentIntentParameters
 __OBJC_$_PROP_LIST_SCPPaymentIntentParameters
 __OBJC_CLASS_RO_$_SCPPaymentIntentParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPaymentIntentParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPaymentIntentParameters.m
 StripeTerminal/SCPPaymentIntentParameters.m
 StripeTerminal/PublicHeaders/SCPPaymentIntentParameters.h
 -[NSDictionary(StripeTerminal) scp_queryString]
@@ -8696,7 +8695,7 @@ _OBJC_IVAR_$_SCPQueryStringPair._value
 __OBJC_$_INSTANCE_VARIABLES_SCPQueryStringPair
 __OBJC_$_PROP_LIST_SCPQueryStringPair
 __OBJC_CLASS_RO_$_SCPQueryStringPair
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/NSDictionary+StripeTerminal.m
+/Users/bric/stripe/terminal/main/StripeTerminal/NSDictionary+StripeTerminal.m
 SCPQueryStringPairsFromKeyAndValue
 StripeTerminal/NSDictionary+StripeTerminal.m
 SCPQueryStringPairsFromDictionary
@@ -8730,7 +8729,7 @@ _OBJC_IVAR_$_SCPCardDetails._fingerprint
 __OBJC_$_INSTANCE_VARIABLES_SCPCardDetails
 __OBJC_$_PROP_LIST_SCPCardDetails
 __OBJC_CLASS_RO_$_SCPCardDetails
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPCardDetails.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPCardDetails.m
 StripeTerminal/SCPCardDetails.m
 StripeTerminal/PublicHeaders/SCPCardDetails.h
 -[SCPBbposPromisedOp initWithPromise:]
@@ -8740,7 +8739,7 @@ ___49-[SCPBbposPromisedOp initWithPromise:startBlock:]_block_invoke
 -[SCPBbposPromisedOp cancel]
 -[SCPBbposPromisedOp handleReaderError]
 -[SCPBbposPromisedOp finish]
--[SCPBbposPromisedOp promiseCompleted]
+-[SCPBbposPromisedOp promiseCompletedWithError:]
 -[SCPBbposPromisedOp state]
 -[SCPBbposPromisedOp setState:]
 -[SCPBbposPromisedOp startBlock]
@@ -8754,7 +8753,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBbposPromisedOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposPromisedOp
 __OBJC_$_PROP_LIST_SCPBbposPromisedOp
 __OBJC_CLASS_RO_$_SCPBbposPromisedOp
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposPromisedOp.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposPromisedOp.m
 StripeTerminal/SCPBbposPromisedOp.m
 __49-[SCPBbposPromisedOp initWithPromise:startBlock:]_block_invoke
 -[SCPPBCaPublicKeyList jsonObject]
@@ -8773,7 +8772,7 @@ _OBJC_IVAR_$_SCPPBCaPublicKeyList._keys
 __OBJC_$_INSTANCE_VARIABLES_SCPPBCaPublicKeyList
 __OBJC_$_PROP_LIST_SCPPBCaPublicKeyList
 __OBJC_CLASS_RO_$_SCPPBCaPublicKeyList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKeyList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKeyList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKeyList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBCaPublicKeyList.h
 -[SCPPBPosSoftwareInfo jsonObject]
@@ -8796,7 +8795,7 @@ _OBJC_IVAR_$_SCPPBPosSoftwareInfo._sdkVersion
 __OBJC_$_INSTANCE_VARIABLES_SCPPBPosSoftwareInfo
 __OBJC_$_PROP_LIST_SCPPBPosSoftwareInfo
 __OBJC_CLASS_RO_$_SCPPBPosSoftwareInfo
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBPosSoftwareInfo.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBPosSoftwareInfo.m
 StripeTerminal/RPC/Rabbit/SCPPBPosSoftwareInfo.m
 StripeTerminal/RPC/Rabbit/SCPPBPosSoftwareInfo.h
 -[SCPPBContactlessCombinationsList jsonObject]
@@ -8815,7 +8814,7 @@ _OBJC_IVAR_$_SCPPBContactlessCombinationsList._combinations
 __OBJC_$_INSTANCE_VARIABLES_SCPPBContactlessCombinationsList
 __OBJC_$_PROP_LIST_SCPPBContactlessCombinationsList
 __OBJC_CLASS_RO_$_SCPPBContactlessCombinationsList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombinationsList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombinationsList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombinationsList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactlessCombinationsList.h
 -[SCPPBDiscoverParameters jsonObject]
@@ -8840,7 +8839,7 @@ _OBJC_IVAR_$_SCPPBDiscoverParameters._contactlessCvmRequiredLimit
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDiscoverParameters
 __OBJC_$_PROP_LIST_SCPPBDiscoverParameters
 __OBJC_CLASS_RO_$_SCPPBDiscoverParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscoverParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscoverParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscoverParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscoverParameters.h
 -[SCPCancelable initWithCommand:]
@@ -8870,7 +8869,7 @@ _OBJC_IVAR_$_SCPCancelable._onRequestCancel
 __OBJC_$_INSTANCE_VARIABLES_SCPCancelable
 __OBJC_$_PROP_LIST_SCPCancelable
 __OBJC_CLASS_RO_$_SCPCancelable
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPCancelable.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPCancelable.m
 StripeTerminal/SCPCancelable.m
 StripeTerminal/SCPCancelable+Private.h
 StripeTerminal/PublicHeaders/SCPCancelable.h
@@ -8893,7 +8892,7 @@ ___block_descriptor_72_e8_40s48bs56s_e40_v24?0"<SCPJSONDecodable>"8"NSError"1
 __OBJC_$_CLASS_METHODS_SCPAPIRequest
 __OBJC_METACLASS_RO_$_SCPAPIRequest
 __OBJC_CLASS_RO_$_SCPAPIRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPAPIRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPAPIRequest.m
 __destroy_helper_block_e8_40s48s56s
 __copy_helper_block_e8_40s48b56s
 __destroy_helper_block_e8_32s48s56s64s72s
@@ -8935,7 +8934,7 @@ _OBJC_IVAR_$_SCPLocation._metadata
 __OBJC_$_INSTANCE_VARIABLES_SCPLocation
 __OBJC_$_PROP_LIST_SCPLocation
 __OBJC_CLASS_RO_$_SCPLocation
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPLocation.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPLocation.m
 StripeTerminal/SCPLocation.m
 StripeTerminal/PublicHeaders/SCPLocation.h
 -[SCPPBContactApplicationParametersList jsonObject]
@@ -8954,7 +8953,7 @@ _OBJC_IVAR_$_SCPPBContactApplicationParametersList._parameters
 __OBJC_$_INSTANCE_VARIABLES_SCPPBContactApplicationParametersList
 __OBJC_$_PROP_LIST_SCPPBContactApplicationParametersList
 __OBJC_CLASS_RO_$_SCPPBContactApplicationParametersList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParametersList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParametersList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParametersList.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBContactApplicationParametersList.h
 -[SCPPBConfirmReusableCardRequest method]
@@ -8976,7 +8975,7 @@ _OBJC_IVAR_$_SCPPBConfirmReusableCardRequest._metadata
 __OBJC_$_INSTANCE_VARIABLES_SCPPBConfirmReusableCardRequest
 __OBJC_$_PROP_LIST_SCPPBConfirmReusableCardRequest
 __OBJC_CLASS_RO_$_SCPPBConfirmReusableCardRequest
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequest.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequest.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmReusableCardRequest.h
 -[SCPSetupIntentParameters initWithCustomer:]
@@ -9002,7 +9001,7 @@ _OBJC_IVAR_$_SCPSetupIntentParameters._onBehalfOf
 __OBJC_$_INSTANCE_VARIABLES_SCPSetupIntentParameters
 __OBJC_$_PROP_LIST_SCPSetupIntentParameters
 __OBJC_CLASS_RO_$_SCPSetupIntentParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPSetupIntentParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPSetupIntentParameters.m
 StripeTerminal/SCPSetupIntentParameters.m
 StripeTerminal/PublicHeaders/SCPSetupIntentParameters.h
 +[SCPPBReaderVersion decodedObjectFromJSON:]
@@ -9025,7 +9024,7 @@ __OBJC_$_PROP_LIST_SCPPBReaderVersion
 __OBJC_CLASS_RO_$_SCPPBReaderVersion
 _SCPPBReaderVersion_ClientType_FromJSONValue.values
 _SCPPBReaderVersion_ClientType_FromJSONValue.onceToken
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Rabbit/SCPPBReaderVersion.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Rabbit/SCPPBReaderVersion.m
 __SCPPBReaderVersion_ClientType_FromJSONValue_block_invoke
 StripeTerminal/RPC/Rabbit/SCPPBReaderVersion.m
 StripeTerminal/RPC/Rabbit/SCPPBReaderVersion.h
@@ -9039,7 +9038,7 @@ __OBJC_$_INSTANCE_METHODS_SCPBluetoothConnectionConfiguration
 __OBJC_$_INSTANCE_VARIABLES_SCPBluetoothConnectionConfiguration
 __OBJC_$_PROP_LIST_SCPBluetoothConnectionConfiguration
 __OBJC_CLASS_RO_$_SCPBluetoothConnectionConfiguration
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBluetoothConnectionConfiguration.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBluetoothConnectionConfiguration.m
 StripeTerminal/SCPBluetoothConnectionConfiguration.m
 StripeTerminal/PublicHeaders/SCPBluetoothConnectionConfiguration.h
 -[SCPBluetoothReaderSimulatorAdapter initWithDiscoveryMethod:]
@@ -9159,7 +9158,7 @@ _OBJC_IVAR_$_SCPBluetoothReaderSimulatorAdapter._processResourcePromise
 __OBJC_$_INSTANCE_VARIABLES_SCPBluetoothReaderSimulatorAdapter
 __OBJC_$_PROP_LIST_SCPBluetoothReaderSimulatorAdapter
 __OBJC_CLASS_RO_$_SCPBluetoothReaderSimulatorAdapter
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBluetoothReaderSimulatorAdapter.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBluetoothReaderSimulatorAdapter.m
 StripeTerminal/SCPBluetoothReaderSimulatorAdapter.m
 __85-[SCPBluetoothReaderSimulatorAdapter failProcessPayment:internalError:contextParams:]_block_invoke
 __53-[SCPBluetoothReaderSimulatorAdapter confirmResource]_block_invoke_2
@@ -9220,7 +9219,7 @@ _OBJC_IVAR_$_SCPList._contents
 __OBJC_$_INSTANCE_VARIABLES_SCPList
 __OBJC_$_PROP_LIST_SCPList
 __OBJC_CLASS_RO_$_SCPList
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPList.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPList.m
 StripeTerminal/SCPList.m
 StripeTerminal/SCPList.h
 -[SCPPBInteracParameters jsonObject]
@@ -9251,7 +9250,7 @@ _OBJC_IVAR_$_SCPPBInteracParameters._tacOnline
 __OBJC_$_INSTANCE_VARIABLES_SCPPBInteracParameters
 __OBJC_$_PROP_LIST_SCPPBInteracParameters
 __OBJC_CLASS_RO_$_SCPPBInteracParameters
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBInteracParameters.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBInteracParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInteracParameters.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBInteracParameters.h
 -[SCPPBSdkPaymentMethodTipSelection jsonObject]
@@ -9270,7 +9269,7 @@ _OBJC_IVAR_$_SCPPBSdkPaymentMethodTipSelection._amount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBSdkPaymentMethodTipSelection
 __OBJC_$_PROP_LIST_SCPPBSdkPaymentMethodTipSelection
 __OBJC_CLASS_RO_$_SCPPBSdkPaymentMethodTipSelection
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethodTipSelection.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethodTipSelection.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethodTipSelection.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethodTipSelection.h
 -[SCPPBDiscount jsonObject]
@@ -9292,7 +9291,7 @@ _OBJC_IVAR_$_SCPPBDiscount._amount
 __OBJC_$_INSTANCE_VARIABLES_SCPPBDiscount
 __OBJC_$_PROP_LIST_SCPPBDiscount
 __OBJC_CLASS_RO_$_SCPPBDiscount
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscount.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscount.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscount.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBDiscount.h
 -[SCPPBMobileClientConfig(Human) toTerminalSettings]
@@ -9365,7 +9364,7 @@ __OBJC_$_CATEGORY_SCPPBRegionalAidOrderAidOrderEntry_$_Human
 _OBJC_CLASSLIST_REFERENCES_$_.223
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPBReaderFeatureFlags_$_Human
 __OBJC_$_CATEGORY_SCPPBReaderFeatureFlags_$_Human
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/RPC/Plymouth/SCPPBConfigHumanAdditions.m
+/Users/bric/stripe/terminal/main/StripeTerminal/RPC/Plymouth/SCPPBConfigHumanAdditions.m
 StripeTerminal/RPC/Plymouth/SCPPBConfigHumanAdditions.m
 __58-[SCPPBVectorRegionalConfiguration(Human) settingsForAID:]_block_invoke.92
 __58-[SCPPBVectorRegionalConfiguration(Human) settingsForAID:]_block_invoke
@@ -9386,10 +9385,10 @@ _OBJC_IVAR_$_SCPBbposInstallUpdateOpData._update
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposInstallUpdateOpData
 __OBJC_$_PROP_LIST_SCPBbposInstallUpdateOpData
 __OBJC_CLASS_RO_$_SCPBbposInstallUpdateOpData
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPBbposInstallUpdateOpData.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPBbposInstallUpdateOpData.m
 StripeTerminal/SCPBbposInstallUpdateOpData.m
 StripeTerminal/SCPBbposInstallUpdateOpData.h
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponsePaymentRequestStatus.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponsePaymentRequestStatus.m
 SCPPBQueryPaymentMethodResponsePaymentRequestStatusFromString
 StripeTerminal/Libraries/ProtoGenerated/SCPPBQueryPaymentMethodResponsePaymentRequestStatus.m
 SCPPBQueryPaymentMethodResponsePaymentRequestStatusToString
@@ -9433,7 +9432,7 @@ _OBJC_IVAR_$_SCPCharge._requestId
 __OBJC_$_INSTANCE_VARIABLES_SCPCharge
 __OBJC_$_PROP_LIST_SCPCharge
 __OBJC_CLASS_RO_$_SCPCharge
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPCharge.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPCharge.m
 StripeTerminal/SCPCharge.m
 StripeTerminal/PublicHeaders/SCPCharge.h
 -[SCPPollingTask initWithBlock:]
@@ -9481,7 +9480,7 @@ _OBJC_IVAR_$_SCPPollingTask._application
 __OBJC_$_INSTANCE_VARIABLES_SCPPollingTask
 __OBJC_$_PROP_LIST_SCPPollingTask
 __OBJC_CLASS_RO_$_SCPPollingTask
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/SCPPollingTask.m
+/Users/bric/stripe/terminal/main/StripeTerminal/SCPPollingTask.m
 StripeTerminal/SCPPollingTask.m
 StripeTerminal/SCPPollingTask.h
 __41-[SCPPollingTask executeCancelationBlock]_block_invoke.71
@@ -9511,7 +9510,7 @@ _OBJC_IVAR_$_SCPPBApplicationModel._appVersion
 __OBJC_$_INSTANCE_VARIABLES_SCPPBApplicationModel
 __OBJC_$_PROP_LIST_SCPPBApplicationModel
 __OBJC_CLASS_RO_$_SCPPBApplicationModel
-/Users/jil/stripe/terminal/sdk/ios/StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationModel.m
+/Users/bric/stripe/terminal/main/StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationModel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationModel.m
 StripeTerminal/Libraries/ProtoGenerated/SCPPBApplicationModel.h
 +[DP_OTA_TR31KeyBlock sharedInstance]
@@ -11149,6 +11148,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.313
 _OBJC_CLASSLIST_REFERENCES_$_.323
 _OBJC_CLASSLIST_REFERENCES_$_.352
 _OBJC_CLASSLIST_REFERENCES_$_.359
+_OBJC_SELECTOR_REFERENCES_.401
 _OBJC_SELECTOR_REFERENCES_.429
 _OBJC_SELECTOR_REFERENCES_.439
 _OBJC_SELECTOR_REFERENCES_.443
@@ -11761,9 +11761,7 @@ ___block_descriptor_52_e8_32o_e5_v8?0l
 ___block_descriptor_57_e8_32o40o_e5_v8?0l
 ___block_descriptor_64_e8_32o40o48o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.332
-_OBJC_SELECTOR_REFERENCES_.344
 ___block_descriptor_60_e8_32o40o_e5_v8?0l
-_OBJC_SELECTOR_REFERENCES_.376
 _OBJC_SELECTOR_REFERENCES_.416
 _OBJC_SELECTOR_REFERENCES_.418
 _OBJC_SELECTOR_REFERENCES_.420
@@ -14718,7 +14716,6 @@ _OBJC_CLASSLIST_REFERENCES_$_.147
 _OBJC_CLASS_$_DP_SendCmdHandler
 _OBJC_CLASSLIST_REFERENCES_$_.152
 _OBJC_CLASSLIST_REFERENCES_$_.178
-_OBJC_CLASSLIST_REFERENCES_$_.338
 _OBJC_CLASS_$_DP_WPOldProtocl_MainController
 _OBJC_CLASSLIST_REFERENCES_$_.434
 _OBJC_CLASSLIST_REFERENCES_$_.449
@@ -16061,6 +16058,7 @@ ___72-[DP_WPOldProtocl_MainController triggerCallback_onWisePad0UsbConnected]_bl
 __ZL36sharedDP_WPOldProtocl_MainController
 _OBJC_CLASSLIST_REFERENCES_$_.184
 _OBJC_CLASSLIST_REFERENCES_$_.201
+_OBJC_CLASSLIST_REFERENCES_$_.298
 _OBJC_CLASSLIST_REFERENCES_$_.327
 _OBJC_CLASSLIST_REFERENCES_$_.483
 _OBJC_SELECTOR_REFERENCES_.595
@@ -17294,7 +17292,6 @@ _OBJC_CLASSLIST_REFERENCES_$_.170
 _OBJC_CLASSLIST_REFERENCES_$_.197
 _OBJC_CLASSLIST_REFERENCES_$_.207
 _OBJC_CLASSLIST_REFERENCES_$_.210
-_OBJC_SELECTOR_REFERENCES_.322
 __OBJC_$_CLASS_METHODS_DP_UtilityController
 __OBJC_METACLASS_RO_$_DP_UtilityController
 _OBJC_METACLASS_$_DP_UtilityController
@@ -17355,5 +17352,5 @@ __OBJC_CLASS_RO_$_DP_ValidateSignalResult
 BBLibrary/BBLibrary_Channel/CH3/DP_ValidateSignalResult.mm
 __OBJC_METACLASS_RO_$_PodsDummy_Pods_StripeTerminal
 __OBJC_CLASS_RO_$_PodsDummy_Pods_StripeTerminal
-/Users/jil/stripe/terminal/sdk/ios/Pods/Target Support Files/Pods-StripeTerminal/Pods-StripeTerminal-dummy.m
-/Users/jil/stripe/terminal/sdk/ios/Pods
+/Users/bric/stripe/terminal/main/Pods/Target Support Files/Pods-StripeTerminal/Pods-StripeTerminal-dummy.m
+/Users/bric/stripe/terminal/main/Pods
