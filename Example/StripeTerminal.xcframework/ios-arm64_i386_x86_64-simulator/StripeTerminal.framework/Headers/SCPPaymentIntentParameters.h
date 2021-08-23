@@ -116,6 +116,23 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 @property (nonatomic, copy, nullable, readwrite) NSString *onBehalfOf;
 
 /**
+ Indicates that you intend to make future payments with this PaymentIntent’s payment method.
+
+ Providing this parameter will attach the payment method to the PaymentIntent’s Customer,
+ after the PaymentIntent is confirmed and any required actions from the user are complete.
+ If no Customer was provided, the payment method can still be attached to a Customer after
+ the transaction completes.
+ 
+ Possible values:
+ "on_session": Use "on_session" if you intend to only reuse the payment method when your
+ customer is present in your checkout flow.
+ "off_session": Use "off_session" if your customer may or may not be present in your checkout flow.
+
+ @see https://stripe.com/docs/api/payment_intents/create#create_payment_intent-setup_future_usage
+ */
+@property (nonatomic, copy, nullable, readwrite) NSString *setupFutureUsage;
+
+/**
  Initializes SCPPaymentIntentParameters with the given parameters.
 
  @param amount      The amount of the payment, provided in the currency's

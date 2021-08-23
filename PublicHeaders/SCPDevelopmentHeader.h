@@ -16,12 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCPVoidPromise;
 
-#pragma mark - SCPReader
-
-@interface SCPReader (Development)
-@property (nonatomic, copy, nullable, readwrite) NSDictionary *hardwareInfo;
-@end
-
 #pragma mark - SCPTerminal
 
 @interface SCPTerminal (Development)
@@ -33,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) BOOL devModeEnabled;
 
+@end
+
+#pragma mark - SCPReader
+
+@interface SCPReader (Development)
+@property (nonatomic, copy, nullable, readwrite) NSDictionary *hardwareInfo;
 @end
 
 @interface SCPStripeAPIClient : NSObject

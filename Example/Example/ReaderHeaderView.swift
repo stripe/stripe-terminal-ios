@@ -87,24 +87,20 @@ class ReaderHeaderView: UIView {
 
     func updateContent() {
         func setUIForReader(_ reader: Reader) {
+            titleLabel.text = "\(Terminal.stringFromDeviceType(reader.deviceType)) \(reader.label ?? reader.serialNumber)"
+
             switch reader.deviceType {
             case .stripeM2:
-                titleLabel.text = "Stripe M2 \(reader.serialNumber)"
                 imageView.image = UIImage(named: "stripe_m2")
-            case .chipper2X:
-                titleLabel.text = "Chipper 2X \(reader.serialNumber)"
+            case .chipper1X, .chipper2X, .wiseCube:
                 imageView.image = UIImage(named: "chipper")
             case .verifoneP400:
-                titleLabel.text = "Verifone P400: \(reader.label ?? reader.serialNumber)"
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
-                titleLabel.text = "WisePad 3 \(reader.serialNumber)"
                 imageView.image = UIImage(named: "wisepad")
             case .wisePosE:
-                titleLabel.text = "WisePOS E: \(reader.label ?? reader.serialNumber)"
                 imageView.image = UIImage(named: "verifone")
             @unknown default:
-                titleLabel.text = reader.serialNumber
                 imageView.image = nil
             }
         }

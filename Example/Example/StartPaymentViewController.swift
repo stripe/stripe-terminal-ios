@@ -42,22 +42,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         if ReaderViewController.readerConfiguration.simulated {
             headerString = "Collect a card payment using a simulated reader."
         } else {
-            switch Terminal.shared.connectedReader?.deviceType {
-            case .stripeM2:
-                headerString = "Collect a card payment using a physical Stripe test card and the Stripe Reader M2."
-            case .chipper2X:
-                headerString = "Collect a card payment using a physical Stripe test card and the Chipper 2X."
-            case .verifoneP400:
-                headerString = "Collect a card payment using a physical Stripe test card and the Verifone P400."
-            case .wisePad3:
-                headerString = "Collect a card payment using a physical Stripe test card and the WisePad 3."
-            case .wisePosE:
-                headerString = "Collect a card payment using a physical Stripe test card and the WisePOS E."
-            case .none:
-                fallthrough
-            @unknown default:
-                headerString = "Collect a card payment using a physical Stripe test card and reader."
-            }
+            let readerString: String = {
+                if let reader = Terminal.shared.connectedReader {
+                    return "the \(Terminal.stringFromDeviceType(reader.deviceType))"
+                } else {
+                    return "reader"
+                }
+            }()
+            headerString = "Collect a card payment using a physical Stripe test card and \(readerString)"
         }
         self.startSection = Section(header: Section.Extremity.title(self.amountView.amountString), rows: [
             Row(text: "Collect payment", selection: { [unowned self] in

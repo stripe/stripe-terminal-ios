@@ -35,6 +35,13 @@ typedef NS_ENUM(NSUInteger, SCPSimulateReaderUpdate) {
     SCPSimulateReaderUpdateRequired,
 
     /**
+     A required update exists. When the SDK connects
+     to the reader, the connection will fail because the reader's
+     battery is too low for the update to begin.
+     */
+    SCPSimulateReaderUpdateLowBattery,
+
+    /**
      Randomly picks a type of update for the reader to help exercise the
      various states.
      */

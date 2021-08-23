@@ -92,7 +92,7 @@ NS_SWIFT_NAME(DiscoveryConfiguration)
 /**
  A location ID that can be used to filter discovery result so only readers
  registered to that location are returned. Filtering discovery by a location is
- only applicable to internet readers; this parameter has no effect when discovering
+ only applicable to Internet readers; this parameter must be nil when discovering
  Bluetooth readers.
  */
 @property (nonatomic, copy, nullable, readonly) NSString *locationId;

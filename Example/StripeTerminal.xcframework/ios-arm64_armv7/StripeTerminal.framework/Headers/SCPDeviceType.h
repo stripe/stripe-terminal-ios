@@ -56,6 +56,20 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
      @see https://stripe.com/docs/terminal/readers/bbpos-wisepos-e
      */
     SCPDeviceTypeWisePosE,
+
+    /**
+     The BBPOS Chipper mobile reader.
+
+     :nodoc: Support for this reader is not generally available.
+     */
+    SCPDeviceTypeChipper1X,
+
+    /**
+     The BBPOS WiseCube reader.
+
+     :nodoc: Support for this reader is not generally available.
+     */
+    SCPDeviceTypeWiseCube,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

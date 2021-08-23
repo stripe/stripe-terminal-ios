@@ -123,11 +123,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
     }
 
     internal func showReadReusableCard() {
-        let viewController = connectedReader?.deviceType == .wisePad3
-            ? SetupIntentViewController()
-            : ReadReusableCardViewController()
+        self.presentModalInNavigationController(ReadReusableCardViewController())
+    }
 
-        self.presentModalInNavigationController(viewController)
+    internal func showSetupIntent() {
+        self.presentModalInNavigationController(SetupIntentViewController())
     }
 
     internal func showUpdateReader(update: ReaderSoftwareUpdate) {
@@ -158,15 +158,18 @@ class ReaderViewController: TableViewController, CancelingViewController {
         if let connectedReader = self.connectedReader {
             var workflowRows = [
                 Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
-                    self.showStartPayment()
-                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                Row(text: "Store card for future use", detailText: "Create a payment method by reading a card.", selection: { [unowned self] in
-                    self.showReadReusableCard()
-                    }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
+                self.showStartPayment()
+            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
+                Row(text: "Store card via readReusableCard", detailText: "Create a payment method for future use.", selection: { [unowned self] in
+                self.showReadReusableCard()
+            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
+                Row(text: "Store card via Setup Intents", detailText: "Create a SetupIntent for future payments.", selection: { [unowned self] in
+                self.showSetupIntent()
+            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
             ]
 
             switch connectedReader.deviceType {
-            case .stripeM2, .chipper2X, .wisePad3:
+            case .stripeM2, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
                 if let pendingUpdate = pendingUpdate {
                     workflowRows.append(
                         Row(text: "Update reader software", detailText: "Install an available software update for the reader.", selection: { [unowned self] in
@@ -175,7 +178,6 @@ class ReaderViewController: TableViewController, CancelingViewController {
                     )
                 }
             case .verifoneP400, .wisePosE:
-
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))

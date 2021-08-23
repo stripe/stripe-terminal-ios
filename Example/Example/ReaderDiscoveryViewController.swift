@@ -138,7 +138,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         }
 
         switch reader.deviceType {
-        case .chipper2X, .stripeM2, .wisePad3:
+        case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
             let locationId = selectedLocation?.stripeId ?? reader.locationId
             if let presentLocationId = locationId {
                 let connectionConfig = BluetoothConnectionConfiguration(locationId: presentLocationId)
