@@ -58,6 +58,9 @@ struct LogEvent: CustomStringConvertible, Event {
         case collectSetupIntentPaymentMethod = "terminal.collectSetupIntentPaymentMethod"
         case cancelCollectSetupIntentPaymentMethod = "terminal.cancelCollectSetupIntentPaymentMethod"
         case confirmSetupIntent = "terminal.confirmSetupIntent"
+        case backendCreateSetupIntent = "backend.createSetupIntent"
+        case retrieveSetupIntent = "backend.retrieveSetupIntent"
+        case captureSetupIntent = "backend.captuteSetupIntent"
     }
 
     enum AssociatedObject {
@@ -189,7 +192,7 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Clear Reader Display Failed"
             case .message(let message): string = message
             }
-        case .createSetupIntent:
+        case .createSetupIntent, .backendCreateSetupIntent:
             switch result {
             case .started: string = "Create SetupIntent"
             case .succeeded: string = "Created SetupIntent"
@@ -215,6 +218,20 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Confirm SetupIntent"
             case .succeeded: string = "Confirmed SetupIntent"
             case .errored: string = "Confirm SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .retrieveSetupIntent:
+            switch result {
+            case .started: string = "Retrieve SetupIntent"
+            case .succeeded: string = "Retrieved SetupIntent"
+            case .errored: string = "Retrieve SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .captureSetupIntent:
+            switch result {
+            case .started: string = "Capture SetupIntent"
+            case .succeeded: string = "Captured SetupIntent"
+            case .errored: string = "Capture SetupIntent Failed"
             case .message(let message): string = message
             }
         }

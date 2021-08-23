@@ -21,34 +21,85 @@ class SetupIntentViewController: EventDisplayingViewController {
 
         let params = SetupIntentParameters(customer: nil)
 
-        var createEvent = LogEvent(method: .createSetupIntent)
-        self.events.append(createEvent)
-
-        Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
-            if let error = createError {
-                createEvent.result = .errored
-                createEvent.object = .error(error as NSError)
-                self.events.append(createEvent)
+        createSetupIntent(params) { intent, createError in
+            if createError != nil {
                 self.complete()
-            } else if let si = createdSetupIntent {
-                var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
-                self.events.append(collectEvent)
+            } else if let intent = intent {
+                // 2. collectSetupIntent
+                self.collectSetupIntent(intent: intent)
+            }
+        }
+    }
 
-                self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(si, customerConsentCollected: true) { (collectedSetupIntent, collectError) in
-                    if let error = collectError {
-                        collectEvent.result = .errored
-                        collectEvent.object = .error(error as NSError)
-                        self.events.append(collectEvent)
-                        self.complete()
-                    } else if let intent = collectedSetupIntent {
-                        collectEvent.result = .succeeded
-                        collectEvent.object = .setupIntent(intent)
-                        self.events.append(collectEvent)
-                        self.confirmSetupIntent(intent)
+    private func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping SetupIntentCompletionBlock) {
+        if Terminal.shared.connectedReader?.deviceType == .wisePosE {
+            // For internet-connected readers, SetupIntents must be created via your backend
+            var createEvent = LogEvent(method: .backendCreateSetupIntent)
+            self.events.append(createEvent)
+
+            AppDelegate.apiClient?.createSetupIntent(params) { (result) in
+                switch result {
+                case .failure(let error):
+                    createEvent.result = .errored
+                    createEvent.object = .error(error as NSError)
+                    self.events.append(createEvent)
+                    completion(nil, error)
+
+                case .success(let clientSecret):
+                    createEvent.result = .succeeded
+                    createEvent.object = .object(clientSecret)
+                    self.events.append(createEvent)
+
+                    // and then retrieved w/Terminal SDK
+                    var retrieveEvent = LogEvent(method: .retrieveSetupIntent)
+                    self.events.append(retrieveEvent)
+                    Terminal.shared.retrieveSetupIntent(clientSecret: clientSecret) { (intent, error) in
+                        if let error = error {
+                            retrieveEvent.result = .errored
+                            retrieveEvent.object = .error(error as NSError)
+                            self.events.append(retrieveEvent)
+                        } else if let intent = intent {
+                            retrieveEvent.result = .succeeded
+                            retrieveEvent.object = .setupIntent(intent)
+                            self.events.append(retrieveEvent)
+                        }
+                        completion(intent, error)
                     }
                 }
             }
-        })
+        } else {
+            var createEvent = LogEvent(method: .createSetupIntent)
+            Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
+                if let error = createError {
+                    createEvent.result = .errored
+                    createEvent.object = .error(error as NSError)
+                    self.events.append(createEvent)
+                } else if let si = createdSetupIntent {
+                    createEvent.result = .succeeded
+                    createEvent.object = .setupIntent(si)
+                    self.events.append(createEvent)
+                }
+                completion(createdSetupIntent, createError)
+            })
+        }
+    }
+
+    private func collectSetupIntent(intent: SetupIntent) {
+        var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
+        self.events.append(collectEvent)
+        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, customerConsentCollected: true) { (collectedSetupIntent, collectError) in
+            if let error = collectError {
+                collectEvent.result = .errored
+                collectEvent.object = .error(error as NSError)
+                self.events.append(collectEvent)
+                self.complete()
+            } else if let intent = collectedSetupIntent {
+                collectEvent.result = .succeeded
+                collectEvent.object = .setupIntent(intent)
+                self.events.append(collectEvent)
+                self.confirmSetupIntent(intent)
+            }
+        }
     }
 
     private func confirmSetupIntent(_ intent: SetupIntent) {

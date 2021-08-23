@@ -112,6 +112,51 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
+    func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping (Swift.Result<String, Error>) -> Void) {
+        var alamofireParams: Parameters = [
+            "payment_method_types": [ "card_present" ],
+        ]
+
+        if let customer = params.customer {
+            alamofireParams["customer"] = customer
+        }
+
+        if let onBehalfOf = params.onBehalfOf {
+            alamofireParams["on_behalf_of"] = onBehalfOf
+        }
+
+        if let description = params.stripeDescription {
+            alamofireParams["description"] = description
+        }
+
+        let url = self.baseURL.appendingPathComponent("create_setup_intent")
+        Alamofire.request(url, method: .post,
+                          parameters: alamofireParams)
+            .validate(statusCode: 200..<300)
+            .responseJSON { responseJSON in
+                switch responseJSON.result {
+                case .success(let json as [String: AnyObject]):
+                    if let secret = json["secret"] as? String {
+                        completion(.success(secret))
+                        return
+                    }
+                    fallthrough
+                case .success,
+                     .failure where responseJSON.response?.statusCode == 402:
+                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
+                        ?? "Failed to create SetupIntent"
+                    let error = NSError(domain: "example",
+                                        code: 4,
+                                        userInfo: [
+                                            NSLocalizedDescriptionKey: description
+                    ])
+                    completion(.failure(error))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+
     func attachPaymentMethod(_ paymentMethodId: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let url = self.baseURL.appendingPathComponent("attach_payment_method_to_customer")
         Alamofire.request(url, method: .post,

@@ -140,7 +140,7 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
         if let state = addressStateTextField.textField.text, !state.isEmpty {
             addressParam["state"] = state
         }
-        if let postal_code = addressLine2TextField.textField.text, !postal_code.isEmpty {
+        if let postal_code = addressPostalCodeTextField.textField.text, !postal_code.isEmpty {
             addressParam["postal_code"] = postal_code
         }
 

@@ -245,6 +245,7 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .available,
         .none,
         .required,
+        .lowBattery,
         .random
     ]
 
@@ -252,17 +253,20 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .available: "Update Available",
         .none: "No Update",
         .required: "Update Required",
+        .lowBattery: "Update required; reader has low battery",
         .random: "Random"
     ]
 
     convenience init() {
         self.init(text: "")
-        textField.text = updateTypeDescriptions[Terminal.shared.simulatorConfiguration.availableReaderUpdate]
+        let initialSelectedReaderUpdate = Terminal.shared.simulatorConfiguration.availableReaderUpdate
+        textField.text = updateTypeDescriptions[initialSelectedReaderUpdate]
         textField.keyboardType = .alphabet
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
         textField.inputView = pickerView
+        pickerView.selectRow(updateTypesInDisplayOrder.firstIndex(of: initialSelectedReaderUpdate) ?? 0, inComponent: 0, animated: false)
     }
 
     func initialize() {

@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SCPTerminal Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Class/SCPTerminal" class="dashAnchor"></a>
+
+    <a title="SCPTerminal Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          StripeTerminal 2.0.1 Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">StripeTerminal Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SCPTerminal Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Terminal.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Discovery%20%26%20Connection.html">Reader Discovery &amp; Connection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPLocation.html">SCPLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPLocationStatus.html">SCPLocationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAddress.html">SCPAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatorConfiguration.html">SCPSimulatorConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulatedCardType.html">SCPSimulatedCardType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPBatteryStatus.html">SCPBatteryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Card-Present%20Refunds.html">Card-Present Refunds</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Saving%20Cards.html">Saving Cards</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSetupIntentStatus.html">SCPSetupIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSetupIntentUsage.html">SCPSetupIntentUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttempt.html">SCPSetupAttempt</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttemptPaymentMethodDetails.html">SCPSetupAttemptPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupAttemptCardPresentDetails.html">SCPSetupAttemptCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmSetupIntentError.html">SCPConfirmSetupIntentError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmSetupIntentCompletionBlock">SCPConfirmSetupIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPLocationsCompletionBlock">SCPLocationsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPRefundCompletionBlock">SCPRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>SCPTerminal</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPTerminal</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Terminal</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>SCPTerminal</code> singleton object exposes an interface for discovering readers,
+connecting to a reader, creating payments, and saving card information for later
+use.</p>
+
+<p>Before accessing the singleton object using the <code>shared</code> property, you must set
+a ConnectionToken provider: an object that implements the <code><a href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a></code>
+protocol. This object should authenticate with your backend, then fetch the <a href="https://stripe.com/docs/api/terminal/connection_tokens/object#terminal_connection_token_object-secret">secret</a>
+from a freshly minted <a href="https://stripe.com/docs/api/terminal/connection_tokens">ConnectionToken</a>.</p>
+
+<p>The SCPTerminal singleton can only be connected to one reader at a time, and
+can only perform one operation at a time. As a general rule, make sure the
+completion handler of one operation has been called before calling another
+operation from within your app.</p>
+
+<p>The Stripe Terminal SDK sends updates to your app by using the delegate pattern.
+You may want multiple views in your app to respond to these delegate calls.
+We recommend creating a central delegate announcer which broadcasts all delegate
+calls to views and ViewControllers that register themselves with that announcer.
+We have an example implementation of a TerminalDelegateAnnouncer as <a href="https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift">part of our
+example application</a>.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializing%20and%20accessing%20the%20SCPTerminal%20singleton"></a>
+                <a name="//apple_ref/objc/Section/Initializing and accessing the SCPTerminal singleton" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initializing%20and%20accessing%20the%20SCPTerminal%20singleton"></a>
+                  <h3 class="section-name"><p>Initializing and accessing the SCPTerminal singleton</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)setTokenProvider:"></a>
+                    <a name="//apple_ref/objc/Method/+setTokenProvider:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setTokenProvider:">+setTokenProvider:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the token provider for the shared (singleton) <code>SCPTerminal</code> instance.</p>
+
+<p>You must set a token provider before calling <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(cpy)shared">shared</a></code> to initialize the
+Terminal singleton. We recommend calling <code>setTokenProvider:</code> in your
+AppDelegate&rsquo;s <code>application:didFinishLaunchingWithOptions:</code> method.
+Alternatively, you can wrap your call to <code>setTokenProvider:</code> with a
+<code>dispatch_once</code> in Objective-C, or use a static constructor in Swift.</p>
+
+<p>Note that you may only set a token provider <em>before</em> requesting the shared
+Terminal instance for the first time. In order to switch accounts in your app,
+e.g. to switch between live and test Stripe API keys on your backend, refer
+to the documentation for the <code>clearCachedCredentials</code> method on the shared
+Terminal instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setTokenProvider</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">tokenProvider</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)hasTokenProvider"></a>
+                    <a name="//apple_ref/objc/Method/+hasTokenProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)hasTokenProvider">+hasTokenProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns true if a token provider has been set, through <code>setTokenProvider:</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">hasTokenProvider</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">hasTokenProvider</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)setLogListener:"></a>
+                    <a name="//apple_ref/objc/Method/+setLogListener:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)setLogListener:">+setLogListener:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a block to listen for logs from the shared Terminal instance (optional).</p>
+
+<p>You can use this optional method to listen for logs from the Stripe Terminal
+SDK and incorporate them into your own remote logs. Note that these logs
+are subject to change, and provided for informational and debugging purposes
+only. You should not depend on them for behavior in your app. Also note that
+the block you provide may be called from any thread.</p>
+
+<p>To print internal logs from the SDK to the console, you can set <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)logLevel">logLevel</a></code> to
+<code>SCPLogLevelVerbose</code> on the Terminal instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLogListener</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a></span><span class="p">)</span><span class="nv">listener</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">setLogListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">LogListenerBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cpy)shared"></a>
+                    <a name="//apple_ref/objc/Property/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cpy)shared">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the shared (singleton) Terminal instance.</p>
+
+<p>Before accessing the singleton for the first time, you must first call
+<code>setTokenProvider:</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">SCPTerminal</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">shared</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">Terminal</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)delegate"></a>
+                    <a name="//apple_ref/objc/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)delegate">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Terminal singleton object&rsquo;s primary delegate. This delegate announces
+connection and payment status updates to your app.</p>
+
+<p>Setting this property is mandatory before connecting to a Bluetooth reader,
+like the BBPOS Chipper 2X BT or the BBPOS WisePad 3. Setting this property
+is optional before connecting to an internet reader, like the Verifone P400.</p>
+
+<p>A runtime assert will fire if your app attempts to connect to a reader that
+requires the delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Accessing%20the%20current%20state%20of%20the%20singleton"></a>
+                <a name="//apple_ref/objc/Section/Accessing the current state of the singleton" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Accessing%20the%20current%20state%20of%20the%20singleton"></a>
+                  <h3 class="section-name"><p>Accessing the current state of the singleton</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)connectedReader"></a>
+                    <a name="//apple_ref/objc/Property/connectedReader" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)connectedReader">connectedReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about the connected <code><a href="../Classes/SCPReader.html">SCPReader</a></code>, or nil if no reader is connected.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="n">connectedReader</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectedReader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)connectionStatus"></a>
+                    <a name="//apple_ref/objc/Property/connectionStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)connectionStatus">connectionStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Terminal instance&rsquo;s current connection status.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span> <span class="n">connectionStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectionStatus</span><span class="p">:</span> <span class="kt">ConnectionStatus</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)logLevel"></a>
+                    <a name="//apple_ref/objc/Property/logLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)logLevel">logLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The log level for the SDK. The default value is <code>.none</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPLogLevel.html">SCPLogLevel</a></span> <span class="n">logLevel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">logLevel</span><span class="p">:</span> <span class="kt">LogLevel</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)simulatorConfiguration"></a>
+                    <a name="//apple_ref/objc/Property/simulatorConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)simulatorConfiguration">simulatorConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The simulator configuration settings that will be used when connecting to
+and creating payments with a simulated reader. This object will always exist;
+to set the configuration settings, set the readwrite properties on
+<code>Terminal.shared.simulatorConfiguration</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    SCPSimulatorConfiguration
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPSimulatorConfiguration.html">SCPSimulatorConfiguration</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">simulatorConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">simulatorConfiguration</span><span class="p">:</span> <span class="kt">SimulatorConfiguration</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)paymentStatus"></a>
+                    <a name="//apple_ref/objc/Property/paymentStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)paymentStatus">paymentStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Terminal instance&rsquo;s current payment status.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span> <span class="n">paymentStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentStatus</span><span class="p">:</span> <span class="kt">PaymentStatus</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)clearCachedCredentials"></a>
+                    <a name="//apple_ref/objc/Method/-clearCachedCredentials" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)clearCachedCredentials">-clearCachedCredentials</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears the current connection token, saved reader sessions, and any other
+cached credentials. You can use this method to switch accounts in your app,
+e.g. to switch between live and test Stripe API keys on your backend.</p>
+
+<p>In order to switch accounts in your app:</p>
+
+<ul>
+<li>if a reader is connected, call <code>disconnectReader:</code></li>
+<li>configure the <code>tokenProvider</code> object to return connection tokens for the new account.
+The <code>tokenProvider</code> is implemented by your code, and you can do this however you want.</li>
+<li>call <code>clearCachedCredentials</code></li>
+<li>call <code>discoverReaders</code> and <code>connectReader</code> to connect to a reader. The <code>connect</code> call
+will request a new connection token from your backend server via the token provider.</li>
+</ul>
+
+<p>An overview of the lifecycle of a connection token under the hood:</p>
+
+<ul>
+<li>When the Terminal singleton is initialized, the SDK attempts to proactively request
+a connection token from your backend server.</li>
+<li>When <code>connect</code> is called, the SDK uses the connection token and reader
+information to create a reader session.</li>
+<li>Subsequent calls to <code>connect</code> will re-use the reader session if the SDK
+has successfully connected to the reader already. Otherwise, it will require a
+new connection token when you call <code>connect</code> again.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearCachedCredentials</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearCachedCredentials</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Reader%20discovery%2C%20connection%2C%20and%20updates"></a>
+                <a name="//apple_ref/objc/Section/Reader discovery, connection, and updates" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Reader%20discovery%2C%20connection%2C%20and%20updates"></a>
+                  <h3 class="section-name"><p>Reader discovery, connection, and updates</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-discoverReaders:delegate:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:">-discoverReaders:<wbr>delegate:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Begins discovering readers based on the given discovery configuration.</p>
+
+<p>When <code>discoverReaders</code> is called, the terminal begins scanning for readers using
+the settings in the given <code><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></code>. You must implement
+<code><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></code> to get notified of discovered readers and display
+discovery results to your user.</p>
+
+<p>You must call <code>connectBluetoothReader</code> or <code>connectInternetReader</code> while
+a discovery is taking place. You can only connect to a reader that was
+returned from the <code><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></code>&lsquo;s <code>didUpdateDiscoveredReaders</code> method.</p>
+
+<p>The discovery process will stop on its own when the terminal successfully
+connects to a reader, if the command is canceled, or if a discovery error occurs.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>If <code>discoverReaders</code> is canceled, the completion block will be called
+with <code>nil</code> (rather than an <code>SCPErrorCanceled</code> error).</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">discoverReaders</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span>
+           <span class="nf">delegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
+         <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The configuration for reader discovery.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Your delegate for reader discovery.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-connectBluetoothReader:delegate:connectionConfig:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectBluetoothReader:delegate:connectionConfig:completion:">-connectBluetoothReader:<wbr>delegate:<wbr>connectionConfig:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to connect to the given Bluetooth reader with a given connection
+configuration.</p>
+
+<p>To connect to a Bluetooth reader, your app must register that reader to a
+<a href="https://stripe.com/docs/api/terminal/locations/object">Location</a> upon connection.
+You should create a <code><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></code>
+at some point before connecting which specifies the location to which this
+reader belongs.</p>
+
+<p>Throughout the lifetime of the connection, the reader will communicate
+with your app via the <code><a href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a></code> to announce transaction
+status, battery level, and software update information.</p>
+
+<p>If the connection succeeds, the completion block will be called with the
+connected reader, and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">SCPTerminal.connectionStatus</a></code> will change to <code>.connected</code>.</p>
+
+<p>If the connection fails, the completion block will be called with an error.</p>
+
+<p>The SDK must be actively discovering readers in order to connect to one.
+The discovery process will stop if this connection request succeeds, otherwise
+the SDK will continue discovering.</p>
+
+<p>When this method is called, the SDK uses a connection token and the given
+reader information to register the reader to your Stripe account. If the SDK
+does not already have a connection token, it will call the <code>fetchConnectionToken</code>
+method in your <code><a href="../Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a></code> implementation.</p>
+
+<p>If the reader&rsquo;s battery is critically low the connect call will fail with
+<code>SCPErrorBluetoothDisconnected</code>. Plug your reader in to start charging and
+try again.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectBluetoothReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span>
+                      <span class="nf">delegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
+              <span class="nf">connectionConfig</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></span> <span class="o">*</span><span class="p">)</span>
+                                   <span class="n">connectionConfig</span>
+                    <span class="n">completion</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectBluetoothReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">BluetoothReaderDelegate</span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader to connect to. This should be a reader
+recently returned to the <code>didUpdateDiscoveredReaders:</code> method in the discovery delegate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The delegate used during the lifetime of the connection.
+See <code><a href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>connectionConfig</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The connection configuration for options while
+connecting to a reader. See <code><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></code> for more details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-connectInternetReader:connectionConfig:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)connectInternetReader:connectionConfig:completion:">-connectInternetReader:<wbr>connectionConfig:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to connect to the given Internet reader with a given connection
+configuration.</p>
+
+<p>If the connect succeeds, the completion block will be called with the
+connected reader, and <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectionStatus">SCPTerminal.connectionStatus</a></code> will change to <code>.connected</code>.</p>
+
+<p>If the connect fails, the completion block will be called with an error.</p>
+
+<p>The SDK must be actively discovering readers in order to connect to one.
+The discovery process will stop if this connection request succeeds, otherwise
+the SDK will continue discovering.</p>
+
+<p>When this method is called, the SDK uses a connection token and the given
+reader information to create a reader session. If the SDK does not already
+have a connection token, it will call the `fetchConnectionToken method you
+defined to fetch one.</p>
+
+<p>If <code>connectionConfig</code> is set to <code>nil</code>, the SDK will resort to
+default connection behavior; see the <code><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></code>
+header documentation for more details.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectInternetReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span>
+             <span class="nf">connectionConfig</span><span class="p">:</span>
+                 <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">connectionConfig</span>
+                   <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectInternetReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reader</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The reader to connect to. This should be a reader
+recently returned to the <code>didUpdateDiscoveredReaders:</code> method in the discovery delegate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>connectionConfig</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The connection configuration for options while
+connecting to a reader. See <code><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></code> for more details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)listLocations:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-listLocations:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)listLocations:completion:">-listLocations:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a list of <code><a href="../Classes/SCPLocation.html">SCPLocation</a></code> objects belonging to your merchant. You must specify
+the ID of one of these locations to register the reader to while connecting to a Bluetooth reader.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/fleet-management#bluetooth-readers">https://stripe.com/docs/terminal/readers/fleet-management#bluetooth-readers</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listLocations</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">parameters</span>
+           <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPLocationsCompletionBlock">SCPLocationsCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLocations</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">LocationsCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The optional parameters to pass to the <a href="https://stripe.com/docs/api/terminal/locations/list">List all Locations</a> API endpoint. Pass <code>nil</code> to use the default parameters.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)installAvailableUpdate"></a>
+                    <a name="//apple_ref/objc/Method/-installAvailableUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)installAvailableUpdate">-installAvailableUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Installs the available update for the connected reader.</p>
+
+<p>Stripe Terminal reader updates will either be updated automatically upon connection,
+or announced as available but not automatically installed. When the Stripe Terminal
+SDK announces an optional update, you can present that update to your app&rsquo;s user
+and let them decide when to perform that update. When your user chooses to perform
+a reader update, call this method to start the installation.</p>
+
+<p>In your app you should display the progress of the update to the user.
+You should also instruct the user to wait for the update to complete:
+&ldquo;Do not leave this page, and keep the reader in range and powered on until
+the update is complete.&rdquo; You can set <code>UIApplication.shared.isIdleTimerDisabled</code>
+to true while the update is being installed to prevent the device from automatically
+locking.</p>
+
+<p>If an error occurs while installing the update (e.g. because the update was
+interrupted), the <code><a href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a></code> will receive
+<code>reader:didFinishInstallingUpdate:error:</code> with the error. If the update
+completed successfully, the same method will be called with <code>nil</code> error.</p>
+
+<p>You must implement the ability to update your reader&rsquo;s software in your app.
+Though we expect required software updates to be very rare, by using Stripe
+Terminal, you are obligated to include this functionality.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It is an error to call this method when the SDK is connected to the Verifone
+P400 or WisePOS E readers.</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software</a></p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software">https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">installAvailableUpdate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">installAvailableUpdate</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)disconnectReader:"></a>
+                    <a name="//apple_ref/objc/Method/-disconnectReader:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)disconnectReader:">-disconnectReader:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to disconnect from the currently connected reader.</p>
+
+<p>If the disconnect succeeds, the completion block is called with <code>nil</code>. If the
+disconnect fails, the completion block is called with an error.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disconnectReader</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Taking%20payments"></a>
+                <a name="//apple_ref/objc/Section/Taking payments" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Taking%20payments"></a>
+                  <h3 class="section-name"><p>Taking payments</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-createPaymentIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:">-createPaymentIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> with the given parameters.</p>
+
+<p>Note: If the information required to create a PaymentIntent isn&rsquo;t readily
+available in your app, you can create the PaymentIntent on your server and use
+the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in your app.</p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="o">-</span> <span class="nf">note</span><span class="p">:</span> <span class="n">This</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span> <span class="n">Verifone</span> <span class="n">P400</span> <span class="n">reader</span><span class="p">.</span> <span class="n">If</span> <span class="n">used</span> <span class="n">with</span> <span class="n">the</span>
+<span class="n">Verifone</span> <span class="n">P400</span><span class="p">,</span> <span class="n">the</span> <span class="n">completion</span> <span class="n">handler</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="n">with</span>
+<span class="n">an</span> <span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="n">error</span><span class="p">.</span>
+</code></pre>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/payments#create">https://stripe.com/docs/terminal/payments#create</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createPaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">parameters</span>
+                 <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The parameters for the PaymentIntent to be created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-retrievePaymentIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:">-retrievePaymentIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> with a client secret.</p>
+
+<p>If the information required to create a PaymentIntent isn&rsquo;t readily available
+in your app, you can create the PaymentIntent on your server and use this
+method to retrieve the PaymentIntent in your app.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/payments#create">https://stripe.com/docs/terminal/payments#create</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">retrievePaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                   <span class="nf">completion</span><span class="p">:</span>
+                       <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrievePaymentIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientSecret</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client secret of the PaymentIntent to be retrieved.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-collectPaymentMethod:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:">-collectPaymentMethod:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Collects a payment method for the given <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>.</p>
+
+<p>Note: <code>collectPaymentMethod</code> does not apply any changes to the PaymentIntent
+API object. Updates to the PaymentIntent are local to the SDK, and persisted
+in-memory.</p>
+
+<p>If collecting a payment method fails, the completion block will be called with
+an error. After resolving the error, you may call <code>collectPaymentMethod</code> again
+to either try the same card again, or try a different card.</p>
+
+<p>If collecting a payment method succeeds, the completion block will be called
+with a PaymentIntent with status <code>.requiresConfirmation</code>, indicating that you
+should call <code>processPayment:completion:</code> to finish the payment.</p>
+
+<p>Note that if <code>collectPaymentMethod</code> is canceled, the completion block will be
+called with a <code>Canceled</code> error.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/payments#collect">https://stripe.com/docs/terminal/payments#collect</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">collectPaymentMethod</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
+              <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectPaymentMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The PaymentIntent to collect a payment method for.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)processPayment:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-processPayment:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)processPayment:completion:">-processPayment:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Processes a payment after collecting a payment method succeeds.</p>
+<h2 id='synchronous-capture' class='heading'>Synchronous capture</h2>
+
+<p>Stripe Terminal uses two-step card payments to prevent unintended and duplicate
+payments. When <code>processPayment</code> completes successfully, a charge has been
+authorized on the customer&rsquo;s card, but not yet been &ldquo;captured&rdquo;. Your app must
+<strong>synchronously notify your backend</strong> to capture the PaymentIntent
+in order to settle the funds to your account.</p>
+<h2 id='handling-failures' class='heading'>Handling failures</h2>
+
+<p>When <code>processPayment</code> fails, the SDK returns an error that includes the
+updated <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>. Your app should inspect the updated PaymentIntent
+to decide how to retry the payment.</p>
+
+<ol>
+<li><p>If the updated PaymentIntent is <code>nil</code>, the request to Stripe&rsquo;s servers timed
+out and the PaymentIntent&rsquo;s status is unknown. We recommend that you retry
+<code>processPayment</code> with the original PaymentIntent. If you instead choose to
+abandon the original PaymentIntent and create a new one, <strong>do not capture</strong>
+the original PaymentIntent. If you do, you might charge your customer twice.</p></li>
+<li><p>If the updated PaymentIntent&rsquo;s status is still <code>.requiresConfirmation</code> (e.g.,
+the request failed because your app is not connected to the internet), you
+can call <code>processPayment</code> again with the updated PaymentIntent to retry
+the request.</p></li>
+<li><p>If the updated PaymentIntent&rsquo;s status changes to <code>.requiresPaymentMethod</code> (e.g., the
+request failed because the card was declined), call <code>collectPaymentMethod</code> with the
+updated PaymentIntent to try charging another card.</p></li>
+</ol>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/payments#process">https://stripe.com/docs/terminal/payments#process</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processPayment</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
+            <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessPaymentCompletionBlock">SCPProcessPaymentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ProcessPaymentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The PaymentIntent to confirm.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the confirm completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-cancelPaymentIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-cancelPaymentIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels an <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>.</p>
+
+<p>If the cancel request succeeds, the completion block will be called with the
+updated PaymentIntent object with status Canceled. If the cancel request
+fails, the completion block will be called with an error.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This cannot be used with the Verifone P400 reader.  If used with the
+Verifone P400, the completion handler will be called with
+an <code>SCPErrorFeatureNotAvailableWithConnectedReader</code> error.</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/payments/refunds">https://stripe.com/docs/terminal/payments/refunds</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancelPaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
+                 <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The PaymentIntent to cancel.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the cancel completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Saving%20payment%20details%20for%20later%20use"></a>
+                <a name="//apple_ref/objc/Section/Saving payment details for later use" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Saving%20payment%20details%20for%20later%20use"></a>
+                  <h3 class="section-name"><p>Saving payment details for later use</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)readReusableCard:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-readReusableCard:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)readReusableCard:completion:">-readReusableCard:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a card with the given parameters and returns a PaymentMethod.</p>
+
+<p><strong>NOTE: Most integrations should not use <code>readReusableCard</code>.</strong></p>
+
+<p>You should create a <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> and use the associated <code>collectPaymentMethod</code>
+and <code>processPayment</code> methods if you are simply collecting a payment from
+a customer.</p>
+
+<p>You can use <code>readReusableCard</code> to read payment details and defer payment for later.
+The PaymentMethod created by this method will have type <code>card</code>, suitable for
+use with online payments.</p>
+
+<p>Note that if you use this method to defer a payment, the transaction will
+<em>not</em> receive the beneficial rates and liability shift associated with card
+present transactions.</p>
+
+<p>If reading a card fails, the completion block will be called with an error
+containing details about the failure. If reading a card succeeds, the
+completion block will be called with a <code>PaymentMethod</code>. You should send
+the ID of the payment method to your backend for further processing. For example,
+you can use the fingerprint to look up charges created using the same
+card.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This functionality is only available in the US, with either a
+Chipper 2X BT or Verifone P400 reader.</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/online-payments">https://stripe.com/docs/terminal/online-payments</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">readReusableCard</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">parameters</span>
+          <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">readReusableCard</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReadReusableCardParameters.html">SCPReadReusableCardParameters</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">PaymentMethodCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The parameters for reading the card.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)createSetupIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-createSetupIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)createSetupIntent:completion:">-createSetupIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></code> with the given parameters.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/api/setup_intents/create">https://stripe.com/docs/api/setup_intents/create</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createSetupIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">setupIntentParams</span>
+               <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntentParams</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">SetupIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupIntentParams</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The parameters that control the creation of the SetupIntent</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The compltion block called when the command completes</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)retrieveSetupIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-retrieveSetupIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)retrieveSetupIntent:completion:">-retrieveSetupIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves an <code><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></code> with a client secret.</p>
+
+<p>If you&rsquo;ve created a SetupIntent on your backend, you must retrieve it in the
+Stripe Terminal SDK before calling <code>collectSetupIntentPaymentMethod</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">retrieveSetupIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                 <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrieveSetupIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">SetupIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientSecret</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client secret of the SetupIntent to be retrieved</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)cancelSetupIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-cancelSetupIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)cancelSetupIntent:completion:">-cancelSetupIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels an <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code>.</p>
+
+<p>If the cancel request succeeds, the completion block will be called with the
+updated PaymentIntent object with status Canceled. If the cancel request
+fails, the completion block will be called with an error.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/api/setup_intents/cancel">https://stripe.com/docs/api/setup_intents/cancel</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancelSetupIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">intent</span>
+               <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">intent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">SetupIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>intent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SetupIntent to cancel.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when cancellation completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)collectSetupIntentPaymentMethod:customerConsentCollected:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-collectSetupIntentPaymentMethod:customerConsentCollected:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectSetupIntentPaymentMethod:customerConsentCollected:completion:">-collectSetupIntentPaymentMethod:<wbr>customerConsentCollected:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Collects a payment method for the given <code><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></code>.</p>
+
+<p>This method does not update the SetupIntent API object. All updates are local
+to the SDK and only persisted in memory. You must confirm the SetupIntent to
+create a PaymentMethod API object and (optionally) attach that PaymentMethod
+to a customer.</p>
+
+<p>If collecting a payment method fails, the completion block will be called with
+an error. After resolving the error, you may call <code>collectSetupIntentPaymentMethod</code>
+again to either try the same card again, or try a different card.</p>
+
+<p>If collecting a payment method succeeds, the completion block will be called
+with a SetupIntent with status <code>.requiresConfirmation</code>, indicating that you
+should call <code>confirmSetupIntent:customerConsentCollected:completion:</code> to
+finish the payment.</p>
+
+<p>Note that if <code>collectSetupIntentPaymentMethod</code> is canceled, the completion
+block will be called with a <code>Canceled</code> error.</p>
+<h2 id='collecting-cardholder-consent' class='heading'>Collecting cardholder consent</h2>
+
+<p>Card networks require that you collect consent from the customer before saving
+and reusing their card information. The SetupIntent confirmation API method
+normally takes a <code>mandate_data</code> hash that lets you specify details about the
+customer&rsquo;s consent. The Stripe Terminal SDK will fill in the <code>mandate_data</code>
+hash with relevant information, but in order for it to do so, you must specify
+whether you have gathered consent from the cardholder to collect their payment
+information in this method&rsquo;s second parameter.</p>
+
+<p>The payment method will not be collected without the cardholder&rsquo;s consent.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">collectSetupIntentPaymentMethod</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">setupIntent</span>
+           <span class="nf">customerConsentCollected</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">customerConsentCollected</span>
+                         <span class="nf">completion</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectSetupIntentPaymentMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">,</span> <span class="nv">customerConsentCollected</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">SetupIntentCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SetupIntent to which payment method information is attached.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customerConsentCollected</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A boolean that should be set to true if you
+have successfully collected consent from the cardholder to save their payment information.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when collection completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)confirmSetupIntent:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-confirmSetupIntent:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)confirmSetupIntent:completion:">-confirmSetupIntent:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirms a SetupIntent after the payment method has been successfully collected.</p>
+<h2 id='handling-failures' class='heading'>Handling failures</h2>
+
+<p>When <code>confirmSetupIntent</code> fails, the SDK returns an error that includes the
+updated <code><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></code>. Your app should inspect the updated SetupIntent
+to decide how to proceed.</p>
+
+<ol>
+<li><p>If the updated SetupIntent is <code>nil</code>, the request to Stripe&rsquo;s servers timed
+out and the SetupIntent&rsquo;s status is unknown. We recommend that you retry
+<code>confirmSetupIntent</code> with the original SetupIntent.</p></li>
+<li><p>If the updated SetupIntent&rsquo;s status is still <code>.requiresConfirmation</code> (e.g.,
+the request failed because your app is not connected to the internet), you
+can call <code>confirmSetupIntent</code> again with the updated SetupIntent to retry
+the request.</p></li>
+<li><p>If the updated SetupIntent&rsquo;s status is <code>.requiresAction</code>, there might be
+authentication the cardholder must perform offline before the saved
+PaymentMethod can be used.</p></li>
+</ol>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/api/setup_intents/confirm">https://stripe.com/docs/api/setup_intents/confirm</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">confirmSetupIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">setupIntent</span>
+                <span class="nf">completion</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmSetupIntentCompletionBlock">SCPConfirmSetupIntentCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ConfirmSetupIntentCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>setupIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SetupIntent to confirm</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the confirmation completes</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Card-present%20refunds"></a>
+                <a name="//apple_ref/objc/Section/Card-present refunds" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Card-present%20refunds"></a>
+                  <h3 class="section-name"><p>Card-present refunds</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)collectRefundPaymentMethod:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-collectRefundPaymentMethod:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectRefundPaymentMethod:completion:">-collectRefundPaymentMethod:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initiates an in-person refund with a given set of <code><a href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a></code> by
+collecting the payment method that is to be refunded.</p>
+
+<p>Some payment methods, like Interac Debit payments, require that in-person payments
+also be refunded while the cardholder is present. The cardholder must present
+the Interac card to the card reader; these payments cannot be refunded via the
+dashboard or the API.</p>
+
+<p>For payment methods that don&rsquo;t require the cardholder be present, see
+<a href="https://stripe.com/docs/terminal/payments/refunds">https://stripe.com/docs/terminal/payments/refunds</a></p>
+
+<p>This method, along with <code>processRefund</code>, allow you to design an in-person refund
+flow into your app.</p>
+
+<p>If collecting a payment method fails, the completion block will be called with
+an error. After resolving the error, you may call <code>collectRefundPaymentMethod</code>
+again to either try the same card again, or try a different card.</p>
+
+<p>If collecting a payment method succeeds, the completion block will be called
+with an <code>nil</code> error. At that point, you can call <code>processRefund</code> to finish
+refunding the payment method.</p>
+
+<p>Calling any other SDK methods between <code>collectRefundPaymentMethod</code> and
+<code>processRefund</code> will result in undefined behavior.</p>
+
+<p>Note that if <code>collectRefundPaymentMethod</code> is canceled, the completion block
+will be called with a <code>Canceled</code> error.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/canada#interac-refunds">https://stripe.com/docs/terminal/canada#interac-refunds</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">collectRefundPaymentMethod</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">refundParams</span>
+                    <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectRefundPaymentMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">refundParams</span><span class="p">:</span> <span class="kt">RefundParameters</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refundParams</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SCPRefundParameters object that describes how the
+refund will be created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)processRefund:"></a>
+                    <a name="//apple_ref/objc/Method/-processRefund:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)processRefund:">-processRefund:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Processes an in-person refund after the refund payment method has been collected.</p>
+
+<p>The completion block will either be called with the successful <code><a href="../Classes/SCPRefund.html">SCPRefund</a></code> or
+with an <code><a href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a></code>.</p>
+
+<p>When <code>processRefund</code> fails, the SDK returns an error that either includes the
+failed <code><a href="../Classes/SCPRefund.html">SCPRefund</a></code> or the <code><a href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a></code> that led to a failure.
+Your app should inspect the <code><a href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a></code> to decide how to proceed.</p>
+
+<ol>
+<li><p>If the refund property is <code>nil</code>, the request to Stripe&rsquo;s servers timed
+out and the refund&rsquo;s status is unknown. We recommend that you retry
+<code>processRefund</code> with the original <code><a href="../Classes/SCPRefundParameters.html">SCPRefundParameters</a></code>.</p></li>
+<li><p>If the <code><a href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a></code> has a <code>failure_reason</code>, the refund was declined.
+We recommend that you take action based on the decline code you received.</p></li>
+</ol>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p><code>collectRefundPaymentMethod:completion</code> and <code>processRefund</code> are only
+available for payment methods that require in-person refunds. For all other
+refunds, use the Stripe Dashboard or the Stripe API.</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/terminal/canada#interac-refunds">https://stripe.com/docs/terminal/canada#interac-refunds</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processRefund</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPProcessRefundCompletionBlock">SCPProcessRefundCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processRefund</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ProcessRefundCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Displaying%20information%20to%20customers"></a>
+                <a name="//apple_ref/objc/Section/Displaying information to customers" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Displaying%20information%20to%20customers"></a>
+                  <h3 class="section-name"><p>Displaying information to customers</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)clearReaderDisplay:"></a>
+                    <a name="//apple_ref/objc/Method/-clearReaderDisplay:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)clearReaderDisplay:">-clearReaderDisplay:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears the reader display and resets it to the splash screen.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Only available for the Verifone P400 and BBPOS WisePOS E.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">clearReaderDisplay</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)setReaderDisplay:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-setReaderDisplay:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)setReaderDisplay:completion:">-setReaderDisplay:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the reader display with cart information.
+This method is for display purposes only and has no correlation with what the customer is
+actually charged. Tax and total are also not automatically calculated and must be set in SCPCart.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Only available for the Verifone P400 and BBPOS WisePOS E.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setReaderDisplay</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPCart.html">SCPCart</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cart</span>
+              <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">Cart</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cart</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cart containing the information that will be displayed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromReaderInputOptions:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:">+stringFromReaderInputOptions:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given reader input options, e.g.
+&ldquo;Swipe / Insert&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderInputOptions</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a></span><span class="p">)</span><span class="nv">options</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderInputOptions</span><span class="p">(</span><span class="n">_</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">ReaderInputOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderDisplayMessage:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromReaderDisplayMessage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderDisplayMessage:">+stringFromReaderDisplayMessage:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given reader display message, e.g.
+&ldquo;Retry Card&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderDisplayMessage</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a></span><span class="p">)</span><span class="nv">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderDisplayMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">ReaderDisplayMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromReaderEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderEvent:">+stringFromReaderEvent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given reader event, e.g.
+&ldquo;Card Inserted&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromReaderEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a></span><span class="p">)</span><span class="nv">event</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromReaderEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">ReaderEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromConnectionStatus:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromConnectionStatus:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromConnectionStatus:">+stringFromConnectionStatus:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given connection status, e.g.
+&ldquo;Connecting&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromConnectionStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromConnectionStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">ConnectionStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromPaymentStatus:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromPaymentStatus:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromPaymentStatus:">+stringFromPaymentStatus:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given payment status, e.g.
+&ldquo;Not Ready&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromPaymentStatus</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a></span><span class="p">)</span><span class="nv">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromPaymentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">PaymentStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromDeviceType:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromDeviceType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDeviceType:">+stringFromDeviceType:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given device type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromDeviceType</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDeviceType.html">SCPDeviceType</a></span><span class="p">)</span><span class="nv">deviceType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromDeviceType</span><span class="p">(</span><span class="n">_</span> <span class="nv">deviceType</span><span class="p">:</span> <span class="kt">DeviceType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromDiscoveryMethod:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromDiscoveryMethod:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromDiscoveryMethod:">+stringFromDiscoveryMethod:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given discovery method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromDiscoveryMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a></span><span class="p">)</span><span class="nv">method</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromDiscoveryMethod</span><span class="p">(</span><span class="n">_</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">DiscoveryMethod</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SCPTerminal(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Use <code>initWithConfiguration:tokenProvider:delegate:</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SCPTerminal(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Use <code>initWithConfiguration:tokenProvider:delegate:</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">new</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="external">Stripe</a>. All rights reserved. (Last updated: 2021-07-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
