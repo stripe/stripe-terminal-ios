@@ -226,7 +226,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		zeG9D3qlTfZf175bfKorPqC4rqU=
+		lBnt0a4Q8gzdYXnNU4YSyejk+xQ=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		D0nNsj9lrHzaNnRg6HHNIS4vXTQ=
+		3IQv/YwEl2S73keYylwEcaHBqI4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -856,11 +856,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zeG9D3qlTfZf175bfKorPqC4rqU=
+			lBnt0a4Q8gzdYXnNU4YSyejk+xQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			8dvSlVgi4og7OveLyctLEImDm8My7JGkBR6P1SZBAbg=
+			ATamsd6krPjcZ8SaWVoUMLSGRWs6jHPaW/Ngc6qNhoc=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
