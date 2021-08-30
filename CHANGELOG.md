@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.1.1 2021-08-30
+
+* Bug fix: Fixed a crash if a Bluetooth reader disconnected during `processPayment`.
 
 # 2.1.0 2021-08-23
 

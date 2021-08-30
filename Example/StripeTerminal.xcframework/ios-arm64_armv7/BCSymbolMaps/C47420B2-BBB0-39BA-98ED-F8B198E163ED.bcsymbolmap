@@ -360,23 +360,23 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBSetReaderDisplayResponse.m
 -[SCPCustomErrorPromise callbackCount]
 -[SCPCustomErrorPromise succeed:]
 ___33-[SCPCustomErrorPromise succeed:]_block_invoke
-___copy_helper_block_e4_20s24s
-___destroy_helper_block_e4_20s24s
+___copy_helper_block_e8_32s40s
+___destroy_helper_block_e8_32s40s
 -[SCPCustomErrorPromise fail:]
 ___30-[SCPCustomErrorPromise fail:]_block_invoke
 -[SCPCustomErrorPromise onSuccess:]
 ___35-[SCPCustomErrorPromise onSuccess:]_block_invoke
-___copy_helper_block_e4_20b24s
+___copy_helper_block_e8_32b40s
 -[SCPCustomErrorPromise onFailure:]
 ___35-[SCPCustomErrorPromise onFailure:]_block_invoke
 -[SCPCustomErrorPromise onCompletion:]
 ___38-[SCPCustomErrorPromise onCompletion:]_block_invoke
-___copy_helper_block_e4_20b
-___destroy_helper_block_e4_20s
+___copy_helper_block_e8_32b
+___destroy_helper_block_e8_32s
 ___38-[SCPCustomErrorPromise onCompletion:]_block_invoke.32
 -[SCPCustomErrorPromise map:]
 ___29-[SCPCustomErrorPromise map:]_block_invoke
-___copy_helper_block_e4_20s
+___copy_helper_block_e8_32s
 ___29-[SCPCustomErrorPromise map:]_block_invoke.36
 -[SCPCustomErrorPromise flatMap:]
 ___33-[SCPCustomErrorPromise flatMap:]_block_invoke
@@ -399,14 +399,14 @@ ___32-[SCPVoidPromise voidOnSuccess:]_block_invoke
 ___35-[SCPVoidPromise voidOnCompletion:]_block_invoke
 ___35-[SCPVoidPromise voidOnCompletion:]_block_invoke_2
 -[SCPVoidPromise asVoid]
-___block_descriptor_28_e4_20s24s_e5_v4?0l
-___block_descriptor_28_e4_20bs24s_e5_v4?0l
-___block_descriptor_24_e4_20bs_e7_v8?04l
-___block_descriptor_24_e4_20bs_e16_v8?0"NSError"4l
-___block_descriptor_24_e4_20s_e16_v8?0"NSError"4l
+___block_descriptor_48_e8_32s40s_e5_v8?0l
+___block_descriptor_48_e8_32bs40s_e5_v8?0l
+___block_descriptor_40_e8_32bs_e8_v16?08l
+___block_descriptor_40_e8_32bs_e17_v16?0"NSError"8l
+___block_descriptor_40_e8_32s_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.37
-___block_descriptor_28_e4_20bs24s_e7_v8?04l
-___block_descriptor_24_e4_20s_e7_v8?04l
+___block_descriptor_48_e8_32bs40s_e8_v16?08l
+___block_descriptor_40_e8_32s_e8_v16?08l
 __OBJC_$_CLASS_METHODS_SCPCustomErrorPromise
 __OBJC_METACLASS_RO_$_SCPCustomErrorPromise
 __OBJC_$_INSTANCE_METHODS_SCPCustomErrorPromise
@@ -434,18 +434,18 @@ __33-[SCPCustomErrorPromise flatMap:]_block_invoke_3
 __33-[SCPCustomErrorPromise flatMap:]_block_invoke_2
 __33-[SCPCustomErrorPromise flatMap:]_block_invoke
 __29-[SCPCustomErrorPromise map:]_block_invoke.36
-__copy_helper_block_e4_20s
+__copy_helper_block_e8_32s
 __29-[SCPCustomErrorPromise map:]_block_invoke
 __38-[SCPCustomErrorPromise onCompletion:]_block_invoke.32
-__destroy_helper_block_e4_20s
-__copy_helper_block_e4_20b
+__destroy_helper_block_e8_32s
+__copy_helper_block_e8_32b
 __38-[SCPCustomErrorPromise onCompletion:]_block_invoke
 __35-[SCPCustomErrorPromise onFailure:]_block_invoke
-__copy_helper_block_e4_20b24s
+__copy_helper_block_e8_32b40s
 __35-[SCPCustomErrorPromise onSuccess:]_block_invoke
 __30-[SCPCustomErrorPromise fail:]_block_invoke
-__destroy_helper_block_e4_20s24s
-__copy_helper_block_e4_20s24s
+__destroy_helper_block_e8_32s40s
+__copy_helper_block_e8_32s40s
 __33-[SCPCustomErrorPromise succeed:]_block_invoke
 /Users/bric/stripe/terminal/historic/StripeTerminal/Libraries/ProtoGenerated/SCPPBQuerySetupIntentPaymentMethodResponseSetupIntentPaymentMethodRequestStatus.m
 SCPPBQuerySetupIntentPaymentMethodResponseSetupIntentPaymentMethodRequestStatusFromString
@@ -519,6 +519,8 @@ __OBJC_CLASS_RO_$_SCPLogContext
 SCPLogContextMake
 StripeTerminal/SCPLogContext.m
 StripeTerminal/SCPLogContext.h
+NSMakeRange
+/Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 -[SCPPBLocation jsonObject]
 +[SCPPBLocation decodedObjectFromJSON:]
 -[SCPPBLocation copyWithZone:]
@@ -620,8 +622,8 @@ ___Block_byref_object_dispose_
 _scp_aspect_performLocked
 ___scp_aspect_add_block_invoke
 _scp_aspect_getContainerForObject
-___copy_helper_block_e4_20s24s28r
-___destroy_helper_block_e4_20s24s28r
+___copy_helper_block_e8_32s40s48r
+___destroy_helper_block_e8_32s40s48r
 ___scp_aspect_isSelectorAllowedAndTrack_block_invoke
 _scp_aspect_getSwizzledClassesDict
 ___scp_aspect_getSwizzledClassesDict_block_invoke
@@ -635,8 +637,8 @@ ____scp_aspect_modifySwizzledClasses_block_invoke
 ___STP_ASPECTS_ARE_BEING_CALLED__
 ___scp_aspect_hookedGetClass_block_invoke
 ___scp_aspect_remove_block_invoke
-___copy_helper_block_e4_20s24r
-___destroy_helper_block_e4_20s24r
+___copy_helper_block_e8_32s40r
+___destroy_helper_block_e8_32s40r
 _scp_aspect_undoSwizzleClassInPlace
 ___scp_aspect_undoSwizzleClassInPlace_block_invoke
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSObject_$_Aspects
@@ -658,43 +660,43 @@ _OBJC_CLASSLIST_REFERENCES_$_.90
 _OBJC_SELECTOR_REFERENCES_.95
 _OBJC_SELECTOR_REFERENCES_.98
 _OBJC_SELECTOR_REFERENCES_.101
-_OBJC_SELECTOR_REFERENCES_.104
-_OBJC_SELECTOR_REFERENCES_.107
-_OBJC_SELECTOR_REFERENCES_.110
-_OBJC_SELECTOR_REFERENCES_.113
-_OBJC_SELECTOR_REFERENCES_.116
-_OBJC_SELECTOR_REFERENCES_.119
-_OBJC_SELECTOR_REFERENCES_.122
-_OBJC_SELECTOR_REFERENCES_.125
-_OBJC_SELECTOR_REFERENCES_.127
-_OBJC_SELECTOR_REFERENCES_.131
-_OBJC_SELECTOR_REFERENCES_.134
-_OBJC_CLASSLIST_REFERENCES_$_.135
-_OBJC_SELECTOR_REFERENCES_.137
-_OBJC_CLASSLIST_REFERENCES_$_.138
+_OBJC_SELECTOR_REFERENCES_.103
+_OBJC_SELECTOR_REFERENCES_.106
+_OBJC_SELECTOR_REFERENCES_.109
+_OBJC_SELECTOR_REFERENCES_.112
+_OBJC_SELECTOR_REFERENCES_.115
+_OBJC_SELECTOR_REFERENCES_.117
+_OBJC_SELECTOR_REFERENCES_.120
+_OBJC_SELECTOR_REFERENCES_.123
+_OBJC_SELECTOR_REFERENCES_.126
+_OBJC_SELECTOR_REFERENCES_.129
+_OBJC_SELECTOR_REFERENCES_.132
+_OBJC_CLASSLIST_REFERENCES_$_.133
+_OBJC_SELECTOR_REFERENCES_.135
+_OBJC_CLASSLIST_REFERENCES_$_.136
+_OBJC_SELECTOR_REFERENCES_.138
 _OBJC_SELECTOR_REFERENCES_.140
 _OBJC_SELECTOR_REFERENCES_.142
-_OBJC_SELECTOR_REFERENCES_.144
-_OBJC_CLASSLIST_REFERENCES_$_.145
-_OBJC_SELECTOR_REFERENCES_.147
+_OBJC_CLASSLIST_REFERENCES_$_.143
+_OBJC_SELECTOR_REFERENCES_.145
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSInvocation_$_SCPAspects
 __OBJC_$_CATEGORY_NSInvocation_$_SCPAspects
-_OBJC_CLASSLIST_REFERENCES_$_.151
+_OBJC_CLASSLIST_REFERENCES_$_.149
+_OBJC_SELECTOR_REFERENCES_.151
 _OBJC_SELECTOR_REFERENCES_.153
 _OBJC_SELECTOR_REFERENCES_.155
 _OBJC_SELECTOR_REFERENCES_.157
 _OBJC_SELECTOR_REFERENCES_.159
-_OBJC_SELECTOR_REFERENCES_.161
-_OBJC_CLASSLIST_REFERENCES_$_.162
+_OBJC_CLASSLIST_REFERENCES_$_.160
+_OBJC_SELECTOR_REFERENCES_.162
 _OBJC_SELECTOR_REFERENCES_.164
 _OBJC_SELECTOR_REFERENCES_.166
-_OBJC_SELECTOR_REFERENCES_.168
-_OBJC_SELECTOR_REFERENCES_.172
+_OBJC_SELECTOR_REFERENCES_.170
+_OBJC_SELECTOR_REFERENCES_.174
 _OBJC_SELECTOR_REFERENCES_.176
-_OBJC_SELECTOR_REFERENCES_.178
+_OBJC_SELECTOR_REFERENCES_.180
 _OBJC_SELECTOR_REFERENCES_.182
 _OBJC_SELECTOR_REFERENCES_.184
-_OBJC_SELECTOR_REFERENCES_.186
 __OBJC_$_CLASS_METHODS_SCPAspectIdentifier
 __OBJC_METACLASS_RO_$_SCPAspectIdentifier
 __OBJC_$_INSTANCE_METHODS_SCPAspectIdentifier
@@ -706,20 +708,20 @@ _OBJC_IVAR_$_SCPAspectIdentifier._options
 __OBJC_$_INSTANCE_VARIABLES_SCPAspectIdentifier
 __OBJC_$_PROP_LIST_SCPAspectIdentifier
 __OBJC_CLASS_RO_$_SCPAspectIdentifier
+_OBJC_SELECTOR_REFERENCES_.217
 _OBJC_SELECTOR_REFERENCES_.219
 _OBJC_SELECTOR_REFERENCES_.221
 _OBJC_SELECTOR_REFERENCES_.223
 _OBJC_SELECTOR_REFERENCES_.225
 _OBJC_SELECTOR_REFERENCES_.227
 _OBJC_SELECTOR_REFERENCES_.229
-_OBJC_SELECTOR_REFERENCES_.231
-_OBJC_CLASSLIST_REFERENCES_$_.232
+_OBJC_CLASSLIST_REFERENCES_$_.230
+_OBJC_SELECTOR_REFERENCES_.232
 _OBJC_SELECTOR_REFERENCES_.234
 _OBJC_SELECTOR_REFERENCES_.236
 _OBJC_SELECTOR_REFERENCES_.238
 _OBJC_SELECTOR_REFERENCES_.240
 _OBJC_SELECTOR_REFERENCES_.242
-_OBJC_SELECTOR_REFERENCES_.244
 __OBJC_METACLASS_RO_$_SCPAspectsContainer
 __OBJC_$_INSTANCE_METHODS_SCPAspectsContainer
 _OBJC_IVAR_$_SCPAspectsContainer._beforeAspects
@@ -728,7 +730,7 @@ _OBJC_IVAR_$_SCPAspectsContainer._afterAspects
 __OBJC_$_INSTANCE_VARIABLES_SCPAspectsContainer
 __OBJC_$_PROP_LIST_SCPAspectsContainer
 __OBJC_CLASS_RO_$_SCPAspectsContainer
-_OBJC_SELECTOR_REFERENCES_.264
+_OBJC_SELECTOR_REFERENCES_.262
 __OBJC_$_PROTOCOL_REFS_SCPAspectInfo
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_SCPAspectInfo
 __OBJC_$_PROTOCOL_METHOD_TYPES_SCPAspectInfo
@@ -743,65 +745,65 @@ _OBJC_IVAR_$_SCPAspectInfo._originalInvocation
 __OBJC_$_INSTANCE_VARIABLES_SCPAspectInfo
 __OBJC_$_PROP_LIST_SCPAspectInfo
 __OBJC_CLASS_RO_$_SCPAspectInfo
-_OBJC_SELECTOR_REFERENCES_.318
-_OBJC_SELECTOR_REFERENCES_.319
-___block_descriptor_44_e4_20s24s28r_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.316
+_OBJC_SELECTOR_REFERENCES_.317
+___block_descriptor_80_e8_32s40s48r_e5_v8?0l
 _scp_aspect_performLocked.aspect_lock
 _scp_aspect_isSelectorAllowedAndTrack.disallowedSelectorList
 _scp_aspect_isSelectorAllowedAndTrack.pred
-___block_descriptor_20_e5_v4?0l
+___block_descriptor_32_e5_v8?0l
 ___block_literal_global
-_OBJC_CLASSLIST_REFERENCES_$_.321
-_OBJC_SELECTOR_REFERENCES_.331
-_OBJC_CLASSLIST_REFERENCES_$_.336
-_OBJC_CLASSLIST_REFERENCES_$_.337
+_OBJC_CLASSLIST_REFERENCES_$_.319
+_OBJC_SELECTOR_REFERENCES_.329
+_OBJC_CLASSLIST_REFERENCES_$_.334
+_OBJC_CLASSLIST_REFERENCES_$_.335
+_OBJC_SELECTOR_REFERENCES_.337
 _OBJC_SELECTOR_REFERENCES_.339
-_OBJC_SELECTOR_REFERENCES_.341
-_OBJC_SELECTOR_REFERENCES_.345
+_OBJC_SELECTOR_REFERENCES_.343
+_OBJC_SELECTOR_REFERENCES_.346
 _OBJC_SELECTOR_REFERENCES_.348
-_OBJC_SELECTOR_REFERENCES_.350
-_OBJC_SELECTOR_REFERENCES_.353
-_OBJC_CLASSLIST_REFERENCES_$_.360
-_OBJC_SELECTOR_REFERENCES_.361
-_OBJC_SELECTOR_REFERENCES_.362
+_OBJC_SELECTOR_REFERENCES_.351
+_OBJC_CLASSLIST_REFERENCES_$_.358
+_OBJC_SELECTOR_REFERENCES_.359
+_OBJC_SELECTOR_REFERENCES_.360
 _scp_aspect_getSwizzledClassesDict.swizzledClassesDict
 _scp_aspect_getSwizzledClassesDict.pred
-___block_literal_global.363
-_OBJC_CLASSLIST_REFERENCES_$_.364
+___block_literal_global.361
+_OBJC_CLASSLIST_REFERENCES_$_.362
+_OBJC_SELECTOR_REFERENCES_.366
 _OBJC_SELECTOR_REFERENCES_.368
 _OBJC_SELECTOR_REFERENCES_.370
 _OBJC_SELECTOR_REFERENCES_.372
-_OBJC_SELECTOR_REFERENCES_.374
-___block_descriptor_28_e4_20s_e21_v8?0"NSMutableSet"4lu24l4
+___block_descriptor_48_e8_32s_e22_v16?0"NSMutableSet"8lu40l8
 __scp_aspect_modifySwizzledClasses.swizzledClasses
 __scp_aspect_modifySwizzledClasses.pred
-___block_literal_global.379
-_OBJC_SELECTOR_REFERENCES_.381
-_OBJC_CLASSLIST_REFERENCES_$_.383
-_OBJC_SELECTOR_REFERENCES_.384
+___block_literal_global.377
+_OBJC_SELECTOR_REFERENCES_.379
+_OBJC_CLASSLIST_REFERENCES_$_.381
+_OBJC_SELECTOR_REFERENCES_.382
+_OBJC_SELECTOR_REFERENCES_.383
 _OBJC_SELECTOR_REFERENCES_.385
 _OBJC_SELECTOR_REFERENCES_.387
 _OBJC_SELECTOR_REFERENCES_.389
-_OBJC_SELECTOR_REFERENCES_.391
+_OBJC_SELECTOR_REFERENCES_.390
 _OBJC_SELECTOR_REFERENCES_.392
-_OBJC_SELECTOR_REFERENCES_.394
-_OBJC_SELECTOR_REFERENCES_.395
-___block_descriptor_24_e7_#8?04lu20l4
-_OBJC_CLASSLIST_REFERENCES_$_.402
+_OBJC_SELECTOR_REFERENCES_.393
+___block_descriptor_40_e8_#16?08lu32l8
+_OBJC_CLASSLIST_REFERENCES_$_.400
+_OBJC_SELECTOR_REFERENCES_.402
 _OBJC_SELECTOR_REFERENCES_.404
-_OBJC_SELECTOR_REFERENCES_.406
-_OBJC_SELECTOR_REFERENCES_.409
-___block_descriptor_32_e4_20s24r_e5_v4?0l
-_OBJC_SELECTOR_REFERENCES_.415
-_OBJC_SELECTOR_REFERENCES_.416
-_OBJC_CLASSLIST_REFERENCES_$_.417
+_OBJC_SELECTOR_REFERENCES_.407
+___block_descriptor_56_e8_32s40r_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.413
+_OBJC_SELECTOR_REFERENCES_.414
+_OBJC_CLASSLIST_REFERENCES_$_.415
 /Users/bric/stripe/terminal/historic/StripeTerminal/Libraries/Aspects/SCPAspects.m
 __scp_aspect_undoSwizzleClassInPlace_block_invoke
 StripeTerminal/Libraries/Aspects/SCPAspects.m
 scp_aspect_undoSwizzleForwardInvocation
 scp_aspect_undoSwizzleClassInPlace
-__destroy_helper_block_e4_20s24r
-__copy_helper_block_e4_20s24r
+__destroy_helper_block_e8_32s40r
+__copy_helper_block_e8_32s40r
 __scp_aspect_remove_block_invoke
 scp_aspect_cleanupHookedClassAndSelector
 scp_aspect_destroyContainerForObject
@@ -821,12 +823,11 @@ scp_aspect_aliasForSelector
 __scp_aspect_getSwizzledClassesDict_block_invoke
 scp_aspect_getSwizzledClassesDict
 __scp_aspect_isSelectorAllowedAndTrack_block_invoke
-__destroy_helper_block_e4_20s24s28r
-__copy_helper_block_e4_20s24s28r
+__destroy_helper_block_e8_32s40s48r
+__copy_helper_block_e8_32s40s48r
 scp_aspect_getContainerForObject
 __scp_aspect_add_block_invoke
 scp_aspect_prepareClassAndHookSelector
-scp_aspect_getMsgForwardIMP
 scp_aspect_hookClass
 scp_aspect_isSelectorAllowedAndTrack
 scp_aspect_performLocked
@@ -1099,10 +1100,10 @@ ___55-[SCPRabbitRpcService(StripeTerminal) querySetupIntent]_block_invoke_2.111
 -[SCPRabbitRpcService(StripeTerminal) terminalHeartbeat]
 ___56-[SCPRabbitRpcService(StripeTerminal) terminalHeartbeat]_block_invoke
 ___56-[SCPRabbitRpcService(StripeTerminal) terminalHeartbeat]_block_invoke_2
-___block_descriptor_24_e4_20s_e54_v12?0"SCPPBCollectPaymentMethodResponse"4"NSError"8l
-___block_descriptor_24_e4_20s_e53_v12?0"SCPPBCollectReusableCardResponse"4"NSError"8l
+___block_descriptor_40_e8_32s_e55_v24?0"SCPPBCollectPaymentMethodResponse"8"NSError"16l
+___block_descriptor_40_e8_32s_e54_v24?0"SCPPBCollectReusableCardResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.15
-___block_descriptor_24_e4_20s_e65_v12?0"SCPPBCollectSetupIntentPaymentMethodResponse"4"NSError"8l
+___block_descriptor_40_e8_32s_e66_v24?0"SCPPBCollectSetupIntentPaymentMethodResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.30
 _OBJC_SELECTOR_REFERENCES_.44
 _OBJC_CLASSLIST_REFERENCES_$_.47
@@ -1110,16 +1111,16 @@ _OBJC_SELECTOR_REFERENCES_.56
 _OBJC_CLASSLIST_REFERENCES_$_.59
 _OBJC_CLASSLIST_REFERENCES_$_.65
 _OBJC_CLASSLIST_REFERENCES_$_.66
-___block_descriptor_24_e4_20s_e60_v12?0"SCPPBCancelCollectPaymentMethodResponse"4"NSError"8l
+___block_descriptor_40_e8_32s_e61_v24?0"SCPPBCancelCollectPaymentMethodResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.72
-___block_descriptor_28_e4_20s24s_e52_v12?0"SCPPBQueryPaymentMethodResponse"4"NSError"8l
-___block_descriptor_28_e4_20s24s_e19_v8?0"SCPPromise"4l
-___block_descriptor_28_e4_20s24s_e23_v8?0"SCPVoidPromise"4l
+___block_descriptor_48_e8_32s40s_e53_v24?0"SCPPBQueryPaymentMethodResponse"8"NSError"16l
+___block_descriptor_48_e8_32s40s_e20_v16?0"SCPPromise"8l
+___block_descriptor_48_e8_32s40s_e24_v16?0"SCPVoidPromise"8l
 _OBJC_CLASSLIST_REFERENCES_$_.82
 _OBJC_CLASSLIST_REFERENCES_$_.83
-___block_descriptor_24_e4_20s_e59_v12?0"SCPPBCancelCollectReusableCardResponse"4"NSError"8l
+___block_descriptor_40_e8_32s_e60_v24?0"SCPPBCancelCollectReusableCardResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.88
-___block_descriptor_28_e4_20s24s_e58_v12?0"SCPPBQueryCollectReusableCardResponse"4"NSError"8l
+___block_descriptor_48_e8_32s40s_e59_v24?0"SCPPBQueryCollectReusableCardResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.91
 _OBJC_CLASSLIST_REFERENCES_$_.94
 _OBJC_CLASSLIST_REFERENCES_$_.95
@@ -1127,14 +1128,13 @@ _OBJC_SELECTOR_REFERENCES_.97
 _OBJC_SELECTOR_REFERENCES_.99
 _OBJC_CLASSLIST_REFERENCES_$_.100
 _OBJC_CLASSLIST_REFERENCES_$_.101
-___block_descriptor_24_e4_20s_e64_v12?0"SCPPBCancelSetupIntentPaymentMethodResponse"4"NSError"8l
-_OBJC_SELECTOR_REFERENCES_.106
-___block_descriptor_28_e4_20s24s_e63_v12?0"SCPPBQuerySetupIntentPaymentMethodResponse"4"NSError"8l
-_OBJC_SELECTOR_REFERENCES_.109
+___block_descriptor_40_e8_32s_e65_v24?0"SCPPBCancelSetupIntentPaymentMethodResponse"8"NSError"16l
+_OBJC_SELECTOR_REFERENCES_.104
+___block_descriptor_48_e8_32s40s_e64_v24?0"SCPPBQuerySetupIntentPaymentMethodResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.112
 _OBJC_SELECTOR_REFERENCES_.114
-___block_descriptor_24_e4_20s_e51_v12?0"SCPPBTerminalHeartbeatResponse"4"NSError"8l
-_OBJC_SELECTOR_REFERENCES_.117
+___block_descriptor_40_e8_32s_e52_v24?0"SCPPBTerminalHeartbeatResponse"8"NSError"16l
+_OBJC_SELECTOR_REFERENCES_.119
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPRabbitRpcService_$_StripeTerminal
 __OBJC_$_CATEGORY_SCPRabbitRpcService_$_StripeTerminal
 /Users/bric/stripe/terminal/historic/StripeTerminal/RPC/Rabbit+StripeTerminal/SCPRabbitRpcService+StripeTerminal.m
@@ -1290,7 +1290,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBSdkPaymentMethod.h
 -[SCPRefund attachPaymentMethod:]
 -[SCPRefund confirmViaStripeApi:withLocation:completion:]
 ___57-[SCPRefund confirmViaStripeApi:withLocation:completion:]_block_invoke
-___copy_helper_block_e4_20s24b
+___copy_helper_block_e8_32s40b
 -[SCPRefund addSecondGenerationDataWithStripeApi:isApproved:secondGenerationData:rejectionReason:completion:]
 ___109-[SCPRefund addSecondGenerationDataWithStripeApi:isApproved:secondGenerationData:rejectionReason:completion:]_block_invoke
 -[SCPRefund collectRabbitPaymentMethodWithService:]
@@ -1344,31 +1344,33 @@ _OBJC_CLASSLIST_REFERENCES_$_.53
 _OBJC_SELECTOR_REFERENCES_.79
 _OBJC_CLASSLIST_REFERENCES_$_.80
 _OBJC_SELECTOR_REFERENCES_.105
+_OBJC_SELECTOR_REFERENCES_.107
 _OBJC_SELECTOR_REFERENCES_.111
-_OBJC_SELECTOR_REFERENCES_.115
+_OBJC_SELECTOR_REFERENCES_.113
 _OBJC_SELECTOR_REFERENCES_.121
 _OBJC_CLASSLIST_REFERENCES_$_.122
 _OBJC_SELECTOR_REFERENCES_.124
-_OBJC_SELECTOR_REFERENCES_.126
 _OBJC_SELECTOR_REFERENCES_.128
 _OBJC_SELECTOR_REFERENCES_.130
-_OBJC_SELECTOR_REFERENCES_.132
-___block_descriptor_28_e4_20s24bs_e30_v12?0"SCPRefund"4"NSError"8l
-___block_descriptor_24_e4_20bs_e30_v12?0"SCPRefund"4"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.134
+___block_descriptor_48_e8_32s40bs_e31_v24?0"SCPRefund"8"NSError"16l
+_OBJC_SELECTOR_REFERENCES_.137
+___block_descriptor_40_e8_32bs_e31_v24?0"SCPRefund"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.139
 _OBJC_CLASSLIST_REFERENCES_$_.140
+_OBJC_SELECTOR_REFERENCES_.144
+_OBJC_CLASSLIST_REFERENCES_$_.145
+_OBJC_SELECTOR_REFERENCES_.147
 _OBJC_SELECTOR_REFERENCES_.149
-_OBJC_SELECTOR_REFERENCES_.151
 _OBJC_CLASSLIST_REFERENCES_$_.152
 _OBJC_SELECTOR_REFERENCES_.154
 _OBJC_SELECTOR_REFERENCES_.156
 _OBJC_CLASSLIST_REFERENCES_$_.157
-_OBJC_CLASSLIST_REFERENCES_$_.160
-_OBJC_SELECTOR_REFERENCES_.162
-_OBJC_SELECTOR_REFERENCES_.170
-_OBJC_SELECTOR_REFERENCES_.174
-_OBJC_SELECTOR_REFERENCES_.180
-___block_descriptor_32_e4_20bs24s_e54_v12?0"SCPPBConfirmInteracRefundResponse"4"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.168
+_OBJC_SELECTOR_REFERENCES_.172
+_OBJC_SELECTOR_REFERENCES_.178
+_OBJC_SELECTOR_REFERENCES_.186
+___block_descriptor_56_e8_32bs40s_e55_v24?0"SCPPBConfirmInteracRefundResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.189
 _OBJC_CLASSLIST_REFERENCES_$_.194
 _OBJC_SELECTOR_REFERENCES_.196
@@ -1381,6 +1383,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.215
 _OBJC_CLASSLIST_REFERENCES_$_.220
 _OBJC_SELECTOR_REFERENCES_.222
 _OBJC_SELECTOR_REFERENCES_.224
+_OBJC_SELECTOR_REFERENCES_.244
 _OBJC_SELECTOR_REFERENCES_.248
 _OBJC_SELECTOR_REFERENCES_.254
 _OBJC_SELECTOR_REFERENCES_.256
@@ -1421,7 +1424,7 @@ StripeTerminal/SCPRefund+Private.h
 StripeTerminal/PublicHeaders/SCPRefund.h
 __59-[SCPRefund confirmViaRabbitAdapterWithService:completion:]_block_invoke
 __109-[SCPRefund addSecondGenerationDataWithStripeApi:isApproved:secondGenerationData:rejectionReason:completion:]_block_invoke
-__copy_helper_block_e4_20s24b
+__copy_helper_block_e8_32s40b
 __57-[SCPRefund confirmViaStripeApi:withLocation:completion:]_block_invoke
 -[SCPPBExpressPayParameters jsonObject]
 +[SCPPBExpressPayParameters decodedObjectFromJSON:]
@@ -1939,12 +1942,11 @@ scpDispatchToMainThreadIfNecessary
 -[SCPCardPresentDetails originalJSON]
 -[SCPCardPresentDetails setOriginalJSON:]
 -[SCPCardPresentDetails .cxx_destruct]
-_OBJC_SELECTOR_REFERENCES_.103
 _OBJC_CLASSLIST_REFERENCES_$_.114
+_OBJC_SELECTOR_REFERENCES_.116
 _OBJC_SELECTOR_REFERENCES_.118
-_OBJC_SELECTOR_REFERENCES_.120
+_OBJC_SELECTOR_REFERENCES_.122
 _OBJC_CLASSLIST_REFERENCES_$_.125
-_OBJC_SELECTOR_REFERENCES_.129
 _OBJC_SELECTOR_REFERENCES_.133
 _OBJC_SELECTOR_REFERENCES_.143
 _OBJC_SELECTOR_REFERENCES_.163
@@ -2228,7 +2230,7 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBPayWaveParameters.h
 -[SCPArmadaRpcService initWithSession:]
 -[SCPArmadaRpcService downloadMobilePosConfig:handler:]
 ___55-[SCPArmadaRpcService downloadMobilePosConfig:handler:]_block_invoke
-___block_descriptor_24_e4_20bs_e47_v12?0"NSObject<SCPJSONDecodable>"4"NSError"8l
+___block_descriptor_40_e8_32bs_e48_v24?0"NSObject<SCPJSONDecodable>"8"NSError"16l
 __OBJC_METACLASS_RO_$_SCPArmadaRpcService
 __OBJC_$_INSTANCE_METHODS_SCPArmadaRpcService
 __OBJC_CLASS_RO_$_SCPArmadaRpcService
@@ -2304,9 +2306,6 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBConfirmInteracRefundResponse.h
 +[SCPErrors unexpectedErrorMessage]
 _OBJC_CLASSLIST_REFERENCES_$_.103
 _OBJC_CLASSLIST_REFERENCES_$_.127
-_OBJC_SELECTOR_REFERENCES_.135
-_OBJC_CLASSLIST_REFERENCES_$_.136
-_OBJC_SELECTOR_REFERENCES_.138
 _OBJC_CLASSLIST_REFERENCES_$_.139
 _OBJC_SELECTOR_REFERENCES_.169
 __OBJC_$_CLASS_METHODS_SCPErrors
@@ -2684,8 +2683,8 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBSetupIntentNextAction.h
 -[SCPBbposDownloadOp processDownloadData:statusCode:error:]
 -[SCPBbposDownloadOp refreshS3Links]
 ___36-[SCPBbposDownloadOp refreshS3Links]_block_invoke
-___copy_helper_block_e4_20w
-___destroy_helper_block_e4_20w
+___copy_helper_block_e8_32w
+___destroy_helper_block_e8_32w
 -[SCPBbposDownloadOp processDownloadMobilePosConfigResponse:error:]
 -[SCPBbposDownloadOp cancel]
 -[SCPBbposDownloadOp URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:]
@@ -2737,9 +2736,8 @@ _OBJC_CLASSLIST_REFERENCES_$_.104
 _OBJC_CLASSLIST_REFERENCES_$_.107
 _OBJC_CLASSLIST_REFERENCES_$_.118
 _OBJC_CLASSLIST_REFERENCES_$_.129
-_OBJC_CLASSLIST_REFERENCES_$_.143
-_OBJC_SELECTOR_REFERENCES_.145
-___block_descriptor_24_e4_20w_e57_v12?0"SCPPBDownloadMobilePosConfigResponse"4"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.131
+___block_descriptor_40_e8_32w_e58_v24?0"SCPPBDownloadMobilePosConfigResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.171
 _OBJC_SELECTOR_REFERENCES_.173
 _OBJC_SELECTOR_REFERENCES_.175
@@ -2777,7 +2775,7 @@ _OBJC_SELECTOR_REFERENCES_.304
 _OBJC_SELECTOR_REFERENCES_.310
 _OBJC_SELECTOR_REFERENCES_.312
 _OBJC_SELECTOR_REFERENCES_.314
-_OBJC_SELECTOR_REFERENCES_.316
+_OBJC_SELECTOR_REFERENCES_.318
 _OBJC_IVAR_$_SCPBbposInstallDownloadedFileOp._traceId
 __OBJC_METACLASS_RO_$_SCPBbposInstallDownloadedFileOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallDownloadedFileOp
@@ -2785,8 +2783,10 @@ __OBJC_$_INSTANCE_VARIABLES_SCPBbposInstallDownloadedFileOp
 __OBJC_$_PROP_LIST_SCPBbposInstallDownloadedFileOp
 __OBJC_CLASS_RO_$_SCPBbposInstallDownloadedFileOp
 _OBJC_SELECTOR_REFERENCES_.336
-_OBJC_SELECTOR_REFERENCES_.337
+_OBJC_SELECTOR_REFERENCES_.341
+_OBJC_SELECTOR_REFERENCES_.345
 _OBJC_SELECTOR_REFERENCES_.347
+_OBJC_SELECTOR_REFERENCES_.361
 _OBJC_SELECTOR_REFERENCES_.367
 __OBJC_METACLASS_RO_$_SCPBbposInstallConfigOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallConfigOp
@@ -2798,6 +2798,7 @@ _OBJC_SELECTOR_REFERENCES_.388
 __OBJC_METACLASS_RO_$_SCPBbposInstallFirmwareOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallFirmwareOp
 __OBJC_CLASS_RO_$_SCPBbposInstallFirmwareOp
+_OBJC_SELECTOR_REFERENCES_.394
 _OBJC_SELECTOR_REFERENCES_.396
 _OBJC_SELECTOR_REFERENCES_.398
 __OBJC_METACLASS_RO_$_SCPBbposInstallKeysOp
@@ -2806,8 +2807,8 @@ __OBJC_CLASS_RO_$_SCPBbposInstallKeysOp
 /Users/bric/stripe/terminal/historic/StripeTerminal/SCPBbposFullInstallOps.m
 StripeTerminal/SCPBbposFullInstallOps.m
 StripeTerminal/SCPBbposFullInstallOps.h
-__destroy_helper_block_e4_20w
-__copy_helper_block_e4_20w
+__destroy_helper_block_e8_32w
+__copy_helper_block_e8_32w
 __36-[SCPBbposDownloadOp refreshS3Links]_block_invoke
 -[SCPPBTender jsonObject]
 +[SCPPBTender decodedObjectFromJSON:]
@@ -2908,17 +2909,17 @@ ___69-[SCPBbposBluetoothProximityAdapterV2 addControlLEDsOpWithLedStatus:]_block
 _OBJC_IVAR_$_SCPBbposBluetoothProximityAdapterV2._discoveryStatus
 _OBJC_IVAR_$_SCPBbposBluetoothProximityAdapterV2._serialToRssiFilter
 _OBJC_CLASSLIST_REFERENCES_$_.28
-___block_descriptor_24_e4_20s_e5_v4?0l
-___block_descriptor_24_e4_20w_e5_v4?0l
+___block_descriptor_40_e8_32s_e5_v8?0l
+___block_descriptor_40_e8_32w_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.110
-_OBJC_SELECTOR_REFERENCES_.112
 _OBJC_CLASSLIST_REFERENCES_$_.113
 _OBJC_CLASSLIST_REFERENCES_$_.116
-___block_descriptor_28_e4_20w_e16_v8?0"NSError"4l
+_OBJC_SELECTOR_REFERENCES_.127
+___block_descriptor_48_e8_32w_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.141
 _OBJC_CLASSLIST_REFERENCES_$_.144
 _OBJC_SELECTOR_REFERENCES_.148
-___block_descriptor_24_e4_20w_e20_v12?0c4"NSString"8l
+___block_descriptor_40_e8_32w_e21_v20?0B8"NSString"12l
 _OBJC_SELECTOR_REFERENCES_.203
 _OBJC_SELECTOR_REFERENCES_.205
 _OBJC_SELECTOR_REFERENCES_.207
@@ -2926,7 +2927,6 @@ _OBJC_SELECTOR_REFERENCES_.209
 _OBJC_SELECTOR_REFERENCES_.211
 _OBJC_CLASSLIST_REFERENCES_$_.212
 _OBJC_SELECTOR_REFERENCES_.214
-_OBJC_SELECTOR_REFERENCES_.217
 _OBJC_SELECTOR_REFERENCES_.235
 _OBJC_SELECTOR_REFERENCES_.239
 _OBJC_SELECTOR_REFERENCES_.241
@@ -3076,7 +3076,7 @@ ___36-[SCPBbposOp initWithProgressBlock:]_block_invoke
 -[SCPBbposOp completionBlock]
 -[SCPBbposOp setCompletionBlock:]
 -[SCPBbposOp .cxx_destruct]
-___block_descriptor_20_e7_v8?0f4l
+___block_descriptor_32_e8_v12?0f8l
 _OBJC_CLASS_$_DP_BBDeviceController
 __OBJC_METACLASS_RO_$_SCPBbposOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposOp
@@ -3277,7 +3277,6 @@ _OBJC_SELECTOR_REFERENCES_.108
 _OBJC_CLASSLIST_REFERENCES_$_.109
 _OBJC_CLASSLIST_REFERENCES_$_.131
 _OBJC_SELECTOR_REFERENCES_.146
-_OBJC_CLASSLIST_REFERENCES_$_.149
 __OBJC_$_CLASS_METHODS_SCPPBErrorSetupIntent
 __OBJC_CLASS_PROTOCOLS_$_SCPPBErrorSetupIntent
 __OBJC_METACLASS_RO_$_SCPPBErrorSetupIntent
@@ -3537,9 +3536,9 @@ ___45-[SCPLocationManager startMonitoringLocation]_block_invoke
 -[SCPLocationManager setRefreshTimer:]
 -[SCPLocationManager .cxx_destruct]
 -[SCPLocationManager requestLocation:].cold.1
-___block_descriptor_28_e4_20s24bs_e16_v8?0"NSError"4l
-___block_descriptor_28_e4_20s24s_e16_v8?0"NSError"4l
-___block_descriptor_20_e31_v12?0"CLLocation"4"NSError"8l
+___block_descriptor_48_e8_32s40bs_e17_v16?0"NSError"8l
+___block_descriptor_48_e8_32s40s_e17_v16?0"NSError"8l
+___block_descriptor_32_e32_v24?0"CLLocation"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.117
 _OBJC_SELECTOR_REFERENCES_.181
 __OBJC_$_CLASS_METHODS_SCPLocationManager
@@ -3631,11 +3630,11 @@ ___32-[SCPTransactionSession confirm]_block_invoke_2
 -[SCPTransactionSession resource]
 -[SCPTransactionSession adapter]
 -[SCPTransactionSession .cxx_destruct]
-___block_descriptor_24_e4_20s_e48_v8?0"NSObject<SCPCollectPaymentMethodResult>"4l
-___block_descriptor_24_e4_20s_e7_8?04l
-___block_descriptor_24_e4_20s_e19_v12?04"NSError"8l
-___block_descriptor_20_e30_8?0"NSObject<SCPResource>"4l
-___block_descriptor_24_e4_20s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
+___block_descriptor_40_e8_32s_e49_v16?0"NSObject<SCPCollectPaymentMethodResult>"8l
+___block_descriptor_40_e8_32s_e8_16?08l
+___block_descriptor_40_e8_32s_e20_v24?08"NSError"16l
+___block_descriptor_32_e31_16?0"NSObject<SCPResource>"8l
+___block_descriptor_40_e8_32s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
 __OBJC_METACLASS_RO_$_SCPTransactionSession
 __OBJC_$_INSTANCE_METHODS_SCPTransactionSession
 _OBJC_IVAR_$_SCPTransactionSession._resource
@@ -3706,22 +3705,22 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBReaderMetadata.h
 -[SCPBluetoothReaderDiscoveryController checkBluetoothAccess]
 -[SCPBluetoothReaderDiscoveryController fetchLocationForReaders:]
 ___65-[SCPBluetoothReaderDiscoveryController fetchLocationForReaders:]_block_invoke
-___copy_helper_block_ea4_20s
-___destroy_helper_block_ea4_20s
+___copy_helper_block_ea8_32s
+___destroy_helper_block_ea8_32s
 -[SCPBluetoothReaderDiscoveryController updateReaderInfo:]
 -[SCPBluetoothReaderDiscoveryController cancel]
 -[SCPBluetoothReaderDiscoveryController requestLocationsForReaders:]
 ___68-[SCPBluetoothReaderDiscoveryController requestLocationsForReaders:]_block_invoke
-___copy_helper_block_ea4_20s24s28s32w
-___destroy_helper_block_ea4_20s24s28s32w
+___copy_helper_block_ea8_32s40s48s56w
+___destroy_helper_block_ea8_32s40s48s56w
 ___68-[SCPBluetoothReaderDiscoveryController requestLocationsForReaders:]_block_invoke.111
-___copy_helper_block_ea4_20b24s28w
-___destroy_helper_block_ea4_20s24s28w
+___copy_helper_block_ea8_32b40s48w
+___destroy_helper_block_ea8_32s40s48w
 -[SCPBluetoothReaderDiscoveryController addLocations:toReadersWithSerials:]
 -[SCPBluetoothReaderDiscoveryController reportCompletedReaders]
 ___63-[SCPBluetoothReaderDiscoveryController reportCompletedReaders]_block_invoke
-___copy_helper_block_ea4_20s24s
-___destroy_helper_block_ea4_20s24s
+___copy_helper_block_ea8_32s40s
+___destroy_helper_block_ea8_32s40s
 -[SCPBluetoothReaderDiscoveryController handleLocationsFetchError:forReaders:]
 -[SCPBluetoothReaderDiscoveryController serialNumbersFromReaders:]
 -[SCPBluetoothReaderDiscoveryController centralManagerDidUpdateState:]
@@ -3742,12 +3741,13 @@ ___destroy_helper_block_ea4_20s24s
 -[SCPBluetoothReaderDiscoveryController .cxx_destruct]
 -[SCPBluetoothReaderDiscoveryController .cxx_construct]
 _OBJC_CLASSLIST_REFERENCES_$_.40
-___block_descriptor_24_ea4_20s_e35_c12?0"SCPReader"4"NSDictionary"8l
+___block_descriptor_40_ea8_32s_e36_B24?0"SCPReader"8"NSDictionary"16l
 _OBJC_CLASSLIST_REFERENCES_$_.88
-___block_descriptor_40_ea4_20s24s28s32w_e47_v12?0"SCPLocationsBySerialNumber"4"NSError"8l
-___block_descriptor_32_ea4_20bs24s28w_e29_v12?0"NSString"4"NSError"8l
+___block_descriptor_72_ea8_32s40s48s56w_e48_v24?0"SCPLocationsBySerialNumber"8"NSError"16l
+_OBJC_SELECTOR_REFERENCES_.110
+___block_descriptor_56_ea8_32bs40s48w_e30_v24?0"NSString"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.120
-___block_descriptor_28_ea4_20s24s_e35_v16?0"NSString"4"SCPReader"8^c12l
+___block_descriptor_48_ea8_32s40s_e36_v32?0"NSString"8"SCPReader"16^B24l
 _OBJC_CLASSLIST_REFERENCES_$_.132
 __OBJC_CLASS_PROTOCOLS_$_SCPBluetoothReaderDiscoveryController
 __OBJC_METACLASS_RO_$_SCPBluetoothReaderDiscoveryController
@@ -3767,19 +3767,19 @@ __OBJC_CLASS_RO_$_SCPBluetoothReaderDiscoveryController
 StripeTerminal/SCPBluetoothReaderDiscoveryController.mm
 mutex
 /Applications/Xcode-12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/c++/v1/__mutex_base
-__destroy_helper_block_ea4_20s24s
-__copy_helper_block_ea4_20s24s
+__destroy_helper_block_ea8_32s40s
+__copy_helper_block_ea8_32s40s
 __63-[SCPBluetoothReaderDiscoveryController reportCompletedReaders]_block_invoke
 ~lock_guard
 lock_guard
-__destroy_helper_block_ea4_20s24s28w
-__copy_helper_block_ea4_20b24s28w
+__destroy_helper_block_ea8_32s40s48w
+__copy_helper_block_ea8_32b40s48w
 __68-[SCPBluetoothReaderDiscoveryController requestLocationsForReaders:]_block_invoke.111
-__destroy_helper_block_ea4_20s24s28s32w
-__copy_helper_block_ea4_20s24s28s32w
+__destroy_helper_block_ea8_32s40s48s56w
+__copy_helper_block_ea8_32s40s48s56w
 __68-[SCPBluetoothReaderDiscoveryController requestLocationsForReaders:]_block_invoke
-__destroy_helper_block_ea4_20s
-__copy_helper_block_ea4_20s
+__destroy_helper_block_ea8_32s
+__copy_helper_block_ea8_32s
 __65-[SCPBluetoothReaderDiscoveryController fetchLocationForReaders:]_block_invoke
 -[SCPPBQueryInteracRefundMethodRequest method]
 __OBJC_METACLASS_RO_$_SCPPBQueryInteracRefundMethodRequest
@@ -3872,7 +3872,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.176
 _OBJC_CLASSLIST_REFERENCES_$_.181
 _OBJC_CLASSLIST_REFERENCES_$_.182
 _OBJC_SELECTOR_REFERENCES_.188
-___block_descriptor_24_e4_20s_e34_c12?0"NSString"4"NSDictionary"8l
+___block_descriptor_40_e8_32s_e35_B24?0"NSString"8"NSDictionary"16l
 _OBJC_SELECTOR_REFERENCES_.191
 _OBJC_SELECTOR_REFERENCES_.193
 _OBJC_SELECTOR_REFERENCES_.195
@@ -3883,7 +3883,6 @@ _OBJC_SELECTOR_REFERENCES_.218
 _OBJC_SELECTOR_REFERENCES_.220
 _OBJC_SELECTOR_REFERENCES_.228
 _OBJC_SELECTOR_REFERENCES_.230
-_OBJC_SELECTOR_REFERENCES_.232
 _OBJC_CLASSLIST_REFERENCES_$_.249
 _OBJC_CLASSLIST_REFERENCES_$_.256
 _OBJC_CLASSLIST_REFERENCES_$_.263
@@ -3896,7 +3895,7 @@ _OBJC_SELECTOR_REFERENCES_.292
 _OBJC_CLASSLIST_REFERENCES_$_.297
 _OBJC_SELECTOR_REFERENCES_.311
 _OBJC_SELECTOR_REFERENCES_.315
-_OBJC_SELECTOR_REFERENCES_.317
+_OBJC_SELECTOR_REFERENCES_.319
 _OBJC_SELECTOR_REFERENCES_.321
 _OBJC_SELECTOR_REFERENCES_.451
 _OBJC_SELECTOR_REFERENCES_.453
@@ -4215,8 +4214,8 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBCancelCollectReusableCardRequest.m
 -[SCPRpcService sendRawRequest:url:completion:]
 ___47-[SCPRpcService sendRawRequest:url:completion:]_block_invoke
 ___47-[SCPRpcService sendRawRequest:url:completion:]_block_invoke_2
-___copy_helper_block_e4_20s24s28b
-___destroy_helper_block_e4_20s24s28s
+___copy_helper_block_e8_32s40s48b
+___destroy_helper_block_e8_32s40s48s
 -[SCPRpcService sendRequest:deserializer:completion:]
 -[SCPRpcService sendRequest:withRetry:deserializer:completion:]
 ___63-[SCPRpcService sendRequest:withRetry:deserializer:completion:]_block_invoke
@@ -4225,7 +4224,7 @@ ___40-[SCPRpcService sendRequest:completion:]_block_invoke
 +[SCPRpcService parseURLResponse:body:error:completion:]
 ___56+[SCPRpcService parseURLResponse:body:error:completion:]_block_invoke
 ___56+[SCPRpcService parseURLResponse:body:error:completion:]_block_invoke_2
-___copy_helper_block_e4_20b24s28s
+___copy_helper_block_e8_32b40s48s
 -[SCPRpcService loggingEnabled]
 -[SCPRpcService setLoggingEnabled:]
 -[SCPRpcService sessionToken]
@@ -4239,12 +4238,11 @@ ___copy_helper_block_e4_20b24s28s
 -[SCPRpcService errorCompletion]
 -[SCPRpcService .cxx_destruct]
 _OBJC_CLASSLIST_REFERENCES_$_.52
-___block_descriptor_36_e4_20s24s28bs_e35_v12?0"SCPRpcResponse"4"NSError"8l
-___block_descriptor_36_e4_20s24s28bs_e45_v16?0"NSData"4"NSURLResponse"8"NSError"12l
-___block_descriptor_44_e4_20s24s28bs_e35_v12?0"SCPRpcResponse"4"NSError"8lu36l4
-___block_descriptor_24_e4_20bs_e35_v12?0"SCPRpcResponse"4"NSError"8l
-_OBJC_CLASSLIST_REFERENCES_$_.133
-___block_descriptor_32_e4_20bs24s28s_e5_v4?0l
+___block_descriptor_64_e8_32s40s48bs_e36_v24?0"SCPRpcResponse"8"NSError"16l
+___block_descriptor_64_e8_32s40s48bs_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+___block_descriptor_76_e8_32s40s48bs_e36_v24?0"SCPRpcResponse"8"NSError"16lu56l8
+___block_descriptor_40_e8_32bs_e36_v24?0"SCPRpcResponse"8"NSError"16l
+___block_descriptor_56_e8_32bs40s48s_e5_v8?0l
 __OBJC_$_CLASS_METHODS_SCPRpcService
 __OBJC_METACLASS_RO_$_SCPRpcService
 __OBJC_$_INSTANCE_METHODS_SCPRpcService
@@ -4260,13 +4258,13 @@ __OBJC_CLASS_RO_$_SCPRpcService
 /Users/bric/stripe/terminal/historic/StripeTerminal/RPC/SCPRpcService.m
 StripeTerminal/RPC/SCPRpcService.m
 StripeTerminal/RPC/SCPRpcService.h
-__copy_helper_block_e4_20b24s28s
+__copy_helper_block_e8_32b40s48s
 __56+[SCPRpcService parseURLResponse:body:error:completion:]_block_invoke_2
 __56+[SCPRpcService parseURLResponse:body:error:completion:]_block_invoke
 __40-[SCPRpcService sendRequest:completion:]_block_invoke
 __63-[SCPRpcService sendRequest:withRetry:deserializer:completion:]_block_invoke
-__destroy_helper_block_e4_20s24s28s
-__copy_helper_block_e4_20s24s28b
+__destroy_helper_block_e8_32s40s48s
+__copy_helper_block_e8_32s40s48b
 __47-[SCPRpcService sendRawRequest:url:completion:]_block_invoke_2
 __47-[SCPRpcService sendRawRequest:url:completion:]_block_invoke
 /Users/bric/stripe/terminal/historic/StripeTerminal/Libraries/ProtoGenerated/SCPPBDeviceAssetInfoAssetType.m
@@ -4474,8 +4472,8 @@ __36+[SCPLocale currencyNumberWithCode:]_block_invoke
 -[SCPBbposInstallUpdateOp initWithPromise:reader:update:armadaService:tmsConfiguration:progressBlock:]
 -[SCPBbposInstallUpdateOp buildSubOps]
 ___38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke
-___copy_helper_block_e4_20s24w
-___destroy_helper_block_e4_20s24w
+___copy_helper_block_e8_32s40w
+___destroy_helper_block_e8_32s40w
 ___38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke.50
 ___38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke_2
 ___38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke_3
@@ -4514,10 +4512,10 @@ _OBJC_IVAR_$_SCPBbposInstallUpdateOp._progressController
 _OBJC_IVAR_$_SCPBbposInstallUpdateOp._reader
 _OBJC_IVAR_$_SCPBbposInstallUpdateOp._tmsConfiguration
 _OBJC_IVAR_$_SCPBbposInstallUpdateOp._update
-___block_descriptor_28_e4_20s24w_e7_v8?0f4l
-___block_descriptor_28_e4_20s24s_e7_v8?0f4l
-___block_descriptor_24_e4_20s_e30_v12?0"SCPReader"4"NSError"8l
-___block_descriptor_28_e4_20s_e24_v16?0"NSString"48^c12l
+___block_descriptor_48_e8_32s40w_e8_v12?0f8l
+___block_descriptor_48_e8_32s40s_e8_v12?0f8l
+___block_descriptor_40_e8_32s_e31_v24?0"SCPReader"8"NSError"16l
+___block_descriptor_48_e8_32s_e25_v32?0"NSString"816^B24l
 __OBJC_$_CLASS_METHODS_SCPBbposInstallUpdateOp
 __OBJC_METACLASS_RO_$_SCPBbposInstallUpdateOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallUpdateOp
@@ -4536,8 +4534,8 @@ __54-[SCPBbposInstallUpdateOp buildInstallKeyOpsWithData:]_block_invoke
 __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke_3
 __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke_2
 __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke.50
-__destroy_helper_block_e4_20s24w
-__copy_helper_block_e4_20s24w
+__destroy_helper_block_e8_32s40w
+__copy_helper_block_e8_32s40w
 __38-[SCPBbposInstallUpdateOp buildSubOps]_block_invoke
 /Users/bric/stripe/terminal/historic/StripeTerminal/Libraries/ProtoGenerated/SCPPBVersionInfoPbClientType.m
 SCPPBVersionInfoPbClientTypeFromString
@@ -4645,7 +4643,7 @@ ___42-[SCPConnectionTokenManager requestToken:]_block_invoke
 -[SCPConnectionTokenManager requestTokenFromProvider]
 ___53-[SCPConnectionTokenManager requestTokenFromProvider]_block_invoke
 ___53-[SCPConnectionTokenManager requestTokenFromProvider]_block_invoke_2
-___copy_helper_block_e4_20s24s28s
+___copy_helper_block_e8_32s40s48s
 -[SCPConnectionTokenManager applicationDidBecomeActive:]
 ___56-[SCPConnectionTokenManager applicationDidBecomeActive:]_block_invoke
 -[SCPConnectionTokenManager tokenProvider]
@@ -4656,10 +4654,10 @@ ___56-[SCPConnectionTokenManager applicationDidBecomeActive:]_block_invoke
 -[SCPConnectionTokenManager tokenCreated]
 -[SCPConnectionTokenManager setTokenCreated:]
 -[SCPConnectionTokenManager .cxx_destruct]
-___block_descriptor_20_e29_v12?0"NSString"4"NSError"8l
-___block_descriptor_28_e4_20s24bs_e29_v12?0"NSString"4"NSError"8l
-___block_descriptor_36_e4_20s24s28s_e5_v4?0l
-___block_descriptor_28_e4_20s_e29_v12?0"NSString"4"NSError"8l
+___block_descriptor_32_e30_v24?0"NSString"8"NSError"16l
+___block_descriptor_48_e8_32s40bs_e30_v24?0"NSString"8"NSError"16l
+___block_descriptor_64_e8_32s40s48s_e5_v8?0l
+___block_descriptor_48_e8_32s_e30_v24?0"NSString"8"NSError"16l
 ___block_literal_global.71
 __OBJC_METACLASS_RO_$_SCPConnectionTokenManager
 __OBJC_$_INSTANCE_METHODS_SCPConnectionTokenManager
@@ -4674,7 +4672,7 @@ __OBJC_CLASS_RO_$_SCPConnectionTokenManager
 StripeTerminal/SCPConnectionTokenManager.m
 StripeTerminal/SCPConnectionTokenManager.h
 __56-[SCPConnectionTokenManager applicationDidBecomeActive:]_block_invoke
-__copy_helper_block_e4_20s24s28s
+__copy_helper_block_e8_32s40s48s
 __53-[SCPConnectionTokenManager requestTokenFromProvider]_block_invoke_2
 __53-[SCPConnectionTokenManager requestTokenFromProvider]_block_invoke
 __42-[SCPConnectionTokenManager requestToken:]_block_invoke
@@ -4932,8 +4930,8 @@ ___77-[SCPReadReusableCardResource confirmViaRabbitAdapterWithService:completion
 -[SCPReadReusableCardResource paymentMethod]
 -[SCPReadReusableCardResource setPaymentMethod:]
 -[SCPReadReusableCardResource .cxx_destruct]
-___block_descriptor_28_e4_20s24bs_e37_v12?0"SCPPaymentMethod"4"NSError"8l
-___block_descriptor_28_e4_20bs24s_e53_v12?0"SCPPBConfirmReusableCardResponse"4"NSError"8l
+___block_descriptor_48_e8_32s40bs_e38_v24?0"SCPPaymentMethod"8"NSError"16l
+___block_descriptor_48_e8_32bs40s_e54_v24?0"SCPPBConfirmReusableCardResponse"8"NSError"16l
 __OBJC_CLASS_PROTOCOLS_$_SCPReadReusableCardResource
 __OBJC_METACLASS_RO_$_SCPReadReusableCardResource
 __OBJC_$_INSTANCE_METHODS_SCPReadReusableCardResource
@@ -5079,6 +5077,7 @@ ___37+[SCPReader declineCodesForRecollect]_block_invoke
 -[SCPReader .cxx_destruct]
 _OBJC_CLASSLIST_REFERENCES_$_.130
 _OBJC_CLASSLIST_REFERENCES_$_.147
+_OBJC_SELECTOR_REFERENCES_.161
 _OBJC_CLASSLIST_REFERENCES_$_.166
 _OBJC_SELECTOR_REFERENCES_.190
 _OBJC_SELECTOR_REFERENCES_.192
@@ -5128,22 +5127,22 @@ ___14-[SCPLog init]_block_invoke
 ___21-[SCPLog startTrace:]_block_invoke
 -[SCPLog endTrace:response:exception:]
 ___38-[SCPLog endTrace:response:exception:]_block_invoke
-___copy_helper_block_e4_20s24s28s32s
-___destroy_helper_block_e4_20s24s28s32s
+___copy_helper_block_e8_32s40s48s56s
+___destroy_helper_block_e8_32s40s48s56s
 -[SCPLog flushLogs]
 ___19-[SCPLog flushLogs]_block_invoke
 ___19-[SCPLog flushLogs]_block_invoke_2
-___copy_helper_block_e4_20r
-___destroy_helper_block_e4_20r
+___copy_helper_block_e8_32r
+___destroy_helper_block_e8_32r
 ___19-[SCPLog flushLogs]_block_invoke.233
 ___19-[SCPLog flushLogs]_block_invoke_2.234
-___copy_helper_block_e4_20s24s28s32r
-___destroy_helper_block_e4_20s24s28s32r
+___copy_helper_block_e8_32s40s48s56r
+___destroy_helper_block_e8_32s40s48s56r
 ___19-[SCPLog flushLogs]_block_invoke.247
 ___19-[SCPLog flushLogs]_block_invoke_2.248
 ___19-[SCPLog flushLogs]_block_invoke_3
-___copy_helper_block_e4_20s24r28r
-___destroy_helper_block_e4_20s24r28r
+___copy_helper_block_e8_32s40r48r
+___destroy_helper_block_e8_32s40r48r
 -[SCPLog methodCall:]
 -[SCPLog applicationDidEnterBackground:]
 -[SCPLog applicationDidBecomeActive:]
@@ -5167,8 +5166,8 @@ ___23-[SCPLog info:context:]_block_invoke
 -[SCPLog printToConsoleDevOnly:]
 +[SCPLog shared]
 ___16+[SCPLog shared]_block_invoke
-___copy_helper_block_e4_
-___destroy_helper_block_e4_
+___copy_helper_block_e8_
+___destroy_helper_block_e8_
 +[SCPLog shouldSendTelemetry]
 +[SCPLog reportLoggingError:]
 -[SCPLog trapDevOnly:]
@@ -5230,28 +5229,28 @@ ___destroy_helper_block_e4_
 -[SCPLog nestedTraceIds]
 -[SCPLog setNestedTraceIds:]
 -[SCPLog .cxx_destruct]
-___block_descriptor_20_e17_v8?0"NSString"4l
-___block_descriptor_32_e4_20s24s28s_e5_v4?0l
+___block_descriptor_32_e18_v16?0"NSString"8l
+___block_descriptor_56_e8_32s40s48s_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.159
-___block_descriptor_36_e4_20s24s28s32s_e5_v4?0l
+___block_descriptor_64_e8_32s40s48s56s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.202
 _OBJC_CLASSLIST_REFERENCES_$_.205
-___block_descriptor_24_e4_20r_e5_v4?0l
+___block_descriptor_40_e8_32r_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.213
 _OBJC_SELECTOR_REFERENCES_.215
 _OBJC_CLASSLIST_REFERENCES_$_.226
-___block_descriptor_36_e4_20s24s28s32r_e5_v4?0l
-___block_descriptor_36_e4_20s24s28s32r_e35_v12?0"SCPRpcResponse"4"NSError"8l
+___block_descriptor_64_e8_32s40s48s56r_e5_v8?0l
+___block_descriptor_64_e8_32s40s48s56r_e36_v24?0"SCPRpcResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.244
 _OBJC_SELECTOR_REFERENCES_.250
-___block_descriptor_33_e4_20s24r28r_e5_v4?0l
+___block_descriptor_57_e8_32s40r48r_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.253
 _OBJC_CLASSLIST_REFERENCES_$_.260
-_OBJC_SELECTOR_REFERENCES_.262
-___block_descriptor_28_e4_20s_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.264
+___block_descriptor_48_e8_32s_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.267
 _OBJC_SELECTOR_REFERENCES_.275
-___block_descriptor_40_e4_20s24s28s32s_e5_v4?0l
+___block_descriptor_72_e8_32s40s48s56s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.283
 _OBJC_SELECTOR_REFERENCES_.285
 _OBJC_SELECTOR_REFERENCES_.289
@@ -5259,21 +5258,18 @@ _OBJC_SELECTOR_REFERENCES_.291
 _OBJC_SELECTOR_REFERENCES_.293
 _OBJC_SELECTOR_REFERENCES_.295
 _OBJC_SELECTOR_REFERENCES_.297
-___block_descriptor_32_e4_20s24s_e5_v4?0l
+___block_descriptor_56_e8_32s40s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.313
 _OBJC_SELECTOR_REFERENCES_.327
-_OBJC_SELECTOR_REFERENCES_.329
 _shared.sharedClient
-___block_descriptor_24_e4__e5_v4?0l
+___block_descriptor_40_e8__e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.335
-_OBJC_SELECTOR_REFERENCES_.343
 _OBJC_SELECTOR_REFERENCES_.349
-_OBJC_SELECTOR_REFERENCES_.351
+_OBJC_SELECTOR_REFERENCES_.353
 _OBJC_CLASSLIST_REFERENCES_$_.356
 _OBJC_SELECTOR_REFERENCES_.358
-_OBJC_SELECTOR_REFERENCES_.360
+_OBJC_SELECTOR_REFERENCES_.362
 _OBJC_SELECTOR_REFERENCES_.364
-_OBJC_SELECTOR_REFERENCES_.366
 __OBJC_$_CLASS_METHODS_SCPLog
 __OBJC_METACLASS_RO_$_SCPLog
 __OBJC_$_INSTANCE_METHODS_SCPLog
@@ -5288,6 +5284,7 @@ _OBJC_IVAR_$_SCPLog._lastRequestId
 _OBJC_IVAR_$_SCPLog._livemode
 _OBJC_IVAR_$_SCPLog._rpcSession
 _OBJC_IVAR_$_SCPLog._startTraceId
+_OBJC_IVAR_$_SCPLog._startMs
 _OBJC_IVAR_$_SCPLog._reachability
 _OBJC_IVAR_$_SCPLog._inFlightTraceId
 _OBJC_IVAR_$_SCPLog._urlSession
@@ -5300,34 +5297,33 @@ _OBJC_IVAR_$_SCPLog._queuedEvents
 _OBJC_IVAR_$_SCPLog._tracesBeingFlushed
 _OBJC_IVAR_$_SCPLog._eventsBeingFlushed
 _OBJC_IVAR_$_SCPLog._nestedTraceIds
-_OBJC_IVAR_$_SCPLog._startMs
 __OBJC_$_INSTANCE_VARIABLES_SCPLog
 __OBJC_$_PROP_LIST_SCPLog
 __OBJC_CLASS_RO_$_SCPLog
 /Users/bric/stripe/terminal/historic/StripeTerminal/SCPLog.m
 StripeTerminal/SCPLog.m
 StripeTerminal/SCPLog.h
-__destroy_helper_block_e4_
-__copy_helper_block_e4_
+__destroy_helper_block_e8_
+__copy_helper_block_e8_
 __16+[SCPLog shared]_block_invoke
 __23-[SCPLog info:context:]_block_invoke
 __38-[SCPLog logEvent:scope:level:params:]_block_invoke
 __45-[SCPLog applicationDidReceiveMemoryWarning:]_block_invoke
-__destroy_helper_block_e4_20s24r28r
-__copy_helper_block_e4_20s24r28r
+__destroy_helper_block_e8_32s40r48r
+__copy_helper_block_e8_32s40r48r
 __19-[SCPLog flushLogs]_block_invoke_3
 __19-[SCPLog flushLogs]_block_invoke_2.248
 __19-[SCPLog flushLogs]_block_invoke.247
-__destroy_helper_block_e4_20s24s28s32r
-__copy_helper_block_e4_20s24s28s32r
+__destroy_helper_block_e8_32s40s48s56r
+__copy_helper_block_e8_32s40s48s56r
 __19-[SCPLog flushLogs]_block_invoke_2.234
 __19-[SCPLog flushLogs]_block_invoke.233
-__destroy_helper_block_e4_20r
-__copy_helper_block_e4_20r
+__destroy_helper_block_e8_32r
+__copy_helper_block_e8_32r
 __19-[SCPLog flushLogs]_block_invoke_2
 __19-[SCPLog flushLogs]_block_invoke
-__destroy_helper_block_e4_20s24s28s32s
-__copy_helper_block_e4_20s24s28s32s
+__destroy_helper_block_e8_32s40s48s56s
+__copy_helper_block_e8_32s40s48s56s
 __38-[SCPLog endTrace:response:exception:]_block_invoke
 __21-[SCPLog startTrace:]_block_invoke
 __14-[SCPLog init]_block_invoke
@@ -5335,23 +5331,23 @@ __14-[SCPLog init]_block_invoke
 -[SCPReaderSessionManager clearCachedCredentials]
 -[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]
 ___86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke
-___copy_helper_block_e4_20s24b28r
+___copy_helper_block_e8_32s40b48r
 ___86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.58
 ___86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke_2
 ___86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.82
-___copy_helper_block_e4_20s24b28s
-___copy_helper_block_e4_20b24s28s32s36s40r
-___destroy_helper_block_e4_20s24s28s32s36s40r
+___copy_helper_block_e8_32s40b48s
+___copy_helper_block_e8_32b40s48s56s64s72r
+___destroy_helper_block_e8_32s40s48s56s64s72r
 -[SCPReaderSessionManager readerSessionCache]
 -[SCPReaderSessionManager setReaderSessionCache:]
 -[SCPReaderSessionManager tokenManager]
 -[SCPReaderSessionManager .cxx_destruct]
 ___86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.58.cold.1
-___block_descriptor_32_e4_20s24bs28r_e37_v12?0"SCPReaderSession"4"NSError"8l
-___block_descriptor_24_e4_20r_e53_v12?0"SCPGeneratePosRpcSessionResponse"4"NSError"8l
+___block_descriptor_56_e8_32s40bs48r_e38_v24?0"SCPReaderSession"8"NSError"16l
+___block_descriptor_40_e8_32r_e54_v24?0"SCPGeneratePosRpcSessionResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.71
-___block_descriptor_32_e4_20s24bs28s_e37_v12?0"SCPReaderSession"4"NSError"8l
-___block_descriptor_44_e4_20bs24s28s32s36s40r_e29_v12?0"NSString"4"NSError"8l
+___block_descriptor_56_e8_32s40bs48s_e38_v24?0"SCPReaderSession"8"NSError"16l
+___block_descriptor_80_e8_32bs40s48s56s64s72r_e30_v24?0"NSString"8"NSError"16l
 __OBJC_METACLASS_RO_$_SCPReaderSessionManager
 __OBJC_$_INSTANCE_METHODS_SCPReaderSessionManager
 _OBJC_IVAR_$_SCPReaderSessionManager._readerSessionCache
@@ -5362,13 +5358,13 @@ __OBJC_CLASS_RO_$_SCPReaderSessionManager
 /Users/bric/stripe/terminal/historic/StripeTerminal/SCPReaderSessionManager.m
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.58.cold.1
 StripeTerminal/SCPReaderSessionManager.m
-__destroy_helper_block_e4_20s24s28s32s36s40r
-__copy_helper_block_e4_20b24s28s32s36s40r
-__copy_helper_block_e4_20s24b28s
+__destroy_helper_block_e8_32s40s48s56s64s72r
+__copy_helper_block_e8_32b40s48s56s64s72r
+__copy_helper_block_e8_32s40b48s
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.82
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke_2
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke.58
-__copy_helper_block_e4_20s24b28r
+__copy_helper_block_e8_32s40b48r
 __86-[SCPReaderSessionManager readerSessionForReader:adapter:connectionConfig:completion:]_block_invoke
 -[SCPSimulatedCard initWithType:]
 -[SCPSimulatedCard initWithTestCardNumber:]
@@ -5455,12 +5451,14 @@ _OBJC_SELECTOR_REFERENCES_.226
 __apiBaseUrl
 _OBJC_CLASSLIST_REFERENCES_$_.227
 __customHeaders
+_OBJC_SELECTOR_REFERENCES_.231
+_OBJC_CLASSLIST_REFERENCES_$_.232
 _OBJC_SELECTOR_REFERENCES_.266
 _OBJC_CLASSLIST_REFERENCES_$_.271
 _OBJC_CLASSLIST_REFERENCES_$_.274
 _OBJC_SELECTOR_REFERENCES_.276
 _OBJC_CLASSLIST_REFERENCES_$_.277
-___block_descriptor_24_e4_20bs_e59_v16?0"SCPPaymentIntent"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e60_v32?0"SCPPaymentIntent"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.285
 _OBJC_SELECTOR_REFERENCES_.287
 _OBJC_CLASSLIST_REFERENCES_$_.292
@@ -5468,45 +5466,43 @@ _OBJC_SELECTOR_REFERENCES_.300
 _OBJC_SELECTOR_REFERENCES_.302
 _OBJC_CLASSLIST_REFERENCES_$_.303
 _OBJC_CLASSLIST_REFERENCES_$_.320
-___block_descriptor_24_e4_20bs_e52_v16?0"SCPRefund"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e53_v32?0"SCPRefund"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_SELECTOR_REFERENCES_.323
 _OBJC_SELECTOR_REFERENCES_.333
 _OBJC_SELECTOR_REFERENCES_.355
 _OBJC_SELECTOR_REFERENCES_.357
-_OBJC_SELECTOR_REFERENCES_.359
 _OBJC_SELECTOR_REFERENCES_.363
 _OBJC_SELECTOR_REFERENCES_.369
 _OBJC_CLASSLIST_REFERENCES_$_.372
+_OBJC_SELECTOR_REFERENCES_.374
 _OBJC_SELECTOR_REFERENCES_.376
-___block_descriptor_24_e4_20bs_e57_v16?0"SCPSetupIntent"4"NSHTTPURLResponse"8"NSError"12l
-_OBJC_SELECTOR_REFERENCES_.379
+___block_descriptor_40_e8_32bs_e58_v32?0"SCPSetupIntent"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.384
-___block_descriptor_24_e4_20bs_e59_v16?0"SCPPaymentMethod"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e60_v32?0"SCPPaymentMethod"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.390
-___block_descriptor_24_e4_20bs_e75_v16?0"SCPGeneratePosRpcSessionResponse"4"NSHTTPURLResponse"8"NSError"12l
-_OBJC_SELECTOR_REFERENCES_.393
+___block_descriptor_40_e8_32bs_e76_v32?0"SCPGeneratePosRpcSessionResponse"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.398
-___block_descriptor_24_e4_20bs_e50_v16?0"SCPList"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e51_v32?0"SCPList"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_SELECTOR_REFERENCES_.403
 _OBJC_CLASSLIST_REFERENCES_$_.404
+_OBJC_SELECTOR_REFERENCES_.406
 _OBJC_SELECTOR_REFERENCES_.408
 _OBJC_SELECTOR_REFERENCES_.410
 _OBJC_SELECTOR_REFERENCES_.412
-_OBJC_SELECTOR_REFERENCES_.414
 _OBJC_SELECTOR_REFERENCES_.419
 _OBJC_CLASSLIST_REFERENCES_$_.420
-___block_descriptor_24_e4_20bs_e62_v16?0"SCPActivateResponse"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e63_v32?0"SCPActivateResponse"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.422
-___block_descriptor_24_e4_20bs_e54_v16?0"SCPLocation"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e55_v32?0"SCPLocation"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_SELECTOR_REFERENCES_.425
 _OBJC_SELECTOR_REFERENCES_.427
 _OBJC_SELECTOR_REFERENCES_.429
 _OBJC_SELECTOR_REFERENCES_.431
 _OBJC_CLASSLIST_REFERENCES_$_.432
-___block_descriptor_24_e4_20bs_e58_v16?0"SCPLocationList"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e59_v32?0"SCPLocationList"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_SELECTOR_REFERENCES_.435
 _OBJC_CLASSLIST_REFERENCES_$_.436
-___block_descriptor_24_e4_20bs_e69_v16?0"SCPLocationsBySerialNumber"4"NSHTTPURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32bs_e70_v32?0"SCPLocationsBySerialNumber"8"NSHTTPURLResponse"16"NSError"24l
 _OBJC_SELECTOR_REFERENCES_.439
 _OBJC_SELECTOR_REFERENCES_.441
 __OBJC_$_CLASS_METHODS_SCPStripeAPIClient
@@ -5585,10 +5581,10 @@ ___64-[SCPSetupIntent confirmViaRabbitAdapterWithService:completion:]_block_invo
 -[SCPSetupIntent originalJSON]
 -[SCPSetupIntent setOriginalJSON:]
 -[SCPSetupIntent .cxx_destruct]
-_OBJC_SELECTOR_REFERENCES_.123
+_OBJC_SELECTOR_REFERENCES_.125
 _OBJC_CLASSLIST_REFERENCES_$_.137
 _OBJC_CLASSLIST_REFERENCES_$_.146
-___block_descriptor_24_e4_20bs_e52_v12?0"SCPPBConfirmSetupIntentResponse"4"NSError"8l
+___block_descriptor_40_e8_32bs_e53_v24?0"SCPPBConfirmSetupIntentResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.165
 __OBJC_$_CLASS_METHODS_SCPSetupIntent
 __OBJC_CLASS_PROTOCOLS_$_SCPSetupIntent
@@ -5639,14 +5635,14 @@ ___69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block
 ___69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke_2
 ___69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke.95
 ___69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke_2.126
-___copy_helper_block_e4_20b24s28s32s
+___copy_helper_block_e8_32b40s48s56s
 -[SCPRabbitAdapter collectPaymentMethodForResource:]
 ___52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke
 ___52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke.146
 ___52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke_2
 ___52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke_3
-___copy_helper_block_e4_20s24s28b32w
-___destroy_helper_block_e4_20s24s28s32w
+___copy_helper_block_e8_32s40s48b56w
+___destroy_helper_block_e8_32s40s48s56w
 -[SCPRabbitAdapter resumeAndPollForResource:completion:]
 ___56-[SCPRabbitAdapter resumeAndPollForResource:completion:]_block_invoke
 ___56-[SCPRabbitAdapter resumeAndPollForResource:completion:]_block_invoke_2
@@ -5687,31 +5683,31 @@ ___67-[SCPRabbitAdapter listReadersUsingToken:forLocationId:completion:]_block_i
 -[SCPRabbitAdapter latestDiscoveryConfig]
 -[SCPRabbitAdapter setLatestDiscoveryConfig:]
 -[SCPRabbitAdapter .cxx_destruct]
-___block_descriptor_28_e4_20s_e16_v8?0"NSError"4l
-___block_descriptor_20_e16_v8?0"NSError"4l
+___block_descriptor_48_e8_32s_e17_v16?0"NSError"8l
+___block_descriptor_32_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.108
 _OBJC_CLASSLIST_REFERENCES_$_.115
-___block_descriptor_40_e4_20bs24s28s32s_e50_v12?0"SCPPBActivateTerminalResponse"4"NSError"8l
-___block_descriptor_36_e4_20s24s28bs32w_e38_"SCPCustomErrorPromise"8?0"NSNull"4l
-___block_descriptor_24_e4_20bs_e30_v8?0"SCPPBSdkPaymentMethod"4l
-___block_descriptor_32_e4_20bs24s28s_e16_v8?0"NSError"4l
+___block_descriptor_72_e8_32bs40s48s56s_e51_v24?0"SCPPBActivateTerminalResponse"8"NSError"16l
+___block_descriptor_64_e8_32s40s48bs56w_e39_"SCPCustomErrorPromise"16?0"NSNull"8l
+___block_descriptor_40_e8_32bs_e31_v16?0"SCPPBSdkPaymentMethod"8l
+___block_descriptor_56_e8_32bs40s48s_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.179
 _OBJC_SELECTOR_REFERENCES_.183
-___block_descriptor_24_e4_20bs_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
-___block_descriptor_36_e4_20s24s28s32s_e16_v8?0"NSError"4l
-___block_descriptor_36_e4_20s24s28s32s_e45_v16?04"NSObject<SCPResource>"8"NSError"12l
-___block_descriptor_24_e4_20bs_e5_v4?0l
+___block_descriptor_40_e8_32bs_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
+___block_descriptor_64_e8_32s40s48s56s_e17_v16?0"NSError"8l
+___block_descriptor_64_e8_32s40s48s56s_e46_v32?08"NSObject<SCPResource>"16"NSError"24l
+___block_descriptor_40_e8_32bs_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.199
-___block_descriptor_24_e4_20bs_e52_v12?0"SCPPBClearReaderDisplayResponse"4"NSError"8l
+___block_descriptor_40_e8_32bs_e53_v24?0"SCPPBClearReaderDisplayResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.203
-___block_descriptor_24_e4_20bs_e50_v12?0"SCPPBSetReaderDisplayResponse"4"NSError"8l
+___block_descriptor_40_e8_32bs_e51_v24?0"SCPPBSetReaderDisplayResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.216
-___block_descriptor_28_e4_20s24s_e28_v12?0"NSArray"4"NSError"8l
-___block_descriptor_32_e4_20s24s28s_e29_v12?0"NSString"4"NSError"8l
+___block_descriptor_48_e8_32s40s_e29_v24?0"NSArray"8"NSError"16l
+___block_descriptor_56_e8_32s40s48s_e30_v24?0"NSString"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.235
 _OBJC_SELECTOR_REFERENCES_.237
 _OBJC_CLASSLIST_REFERENCES_$_.238
-___block_descriptor_24_e4_20bs_e28_v12?0"SCPList"4"NSError"8l
+___block_descriptor_40_e8_32bs_e29_v24?0"SCPList"8"NSError"16l
 __OBJC_$_PROTOCOL_REFS_SCPAdapter
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_SCPAdapter
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_SCPAdapter
@@ -5750,13 +5746,13 @@ __36-[SCPRabbitAdapter processResource:]_block_invoke
 __56-[SCPRabbitAdapter resumeAndPollForResource:completion:]_block_invoke.165
 __56-[SCPRabbitAdapter resumeAndPollForResource:completion:]_block_invoke_2
 __56-[SCPRabbitAdapter resumeAndPollForResource:completion:]_block_invoke
-__destroy_helper_block_e4_20s24s28s32w
-__copy_helper_block_e4_20s24s28b32w
+__destroy_helper_block_e8_32s40s48s56w
+__copy_helper_block_e8_32s40s48b56w
 __52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke_3
 __52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke_2
 __52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke.146
 __52-[SCPRabbitAdapter collectPaymentMethodForResource:]_block_invoke
-__copy_helper_block_e4_20b24s28s32s
+__copy_helper_block_e8_32b40s48s56s
 __69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke_2.126
 __69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke.95
 __69-[SCPRabbitAdapter activateReader:token:connectionConfig:completion:]_block_invoke_2
@@ -5811,8 +5807,8 @@ StripeTerminal/Libraries/ProtoGenerated/SCPPBResumeCollectPaymentMethodRequest.h
 -[SCPBbposInstallUpdateProgressController updateOperationWithUUID:progress:]
 -[SCPBbposInstallUpdateProgressController progress]
 ___51-[SCPBbposInstallUpdateProgressController progress]_block_invoke
-___copy_helper_block_e4_20r24r
-___destroy_helper_block_e4_20r24r
+___copy_helper_block_e8_32r40r
+___destroy_helper_block_e8_32r40r
 -[SCPBbposInstallUpdateProgressController operations]
 -[SCPBbposInstallUpdateProgressController setOperations:]
 -[SCPBbposInstallUpdateProgressController .cxx_destruct]
@@ -5823,7 +5819,7 @@ _OBJC_IVAR_$_SCPBbposInstallUpdateData._progress
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposInstallUpdateData
 __OBJC_$_PROP_LIST_SCPBbposInstallUpdateData
 __OBJC_CLASS_RO_$_SCPBbposInstallUpdateData
-___block_descriptor_28_e4_20r24r_e49_v16?0"NSUUID"4"SCPBbposInstallUpdateData"8^c12l
+___block_descriptor_48_e8_32r40r_e50_v32?0"NSUUID"8"SCPBbposInstallUpdateData"16^B24l
 __OBJC_METACLASS_RO_$_SCPBbposInstallUpdateProgressController
 __OBJC_$_INSTANCE_METHODS_SCPBbposInstallUpdateProgressController
 _OBJC_IVAR_$_SCPBbposInstallUpdateProgressController._operations
@@ -5832,8 +5828,8 @@ __OBJC_$_PROP_LIST_SCPBbposInstallUpdateProgressController
 __OBJC_CLASS_RO_$_SCPBbposInstallUpdateProgressController
 /Users/bric/stripe/terminal/historic/StripeTerminal/SCPBbposInstallUpdateProgressController.m
 StripeTerminal/SCPBbposInstallUpdateProgressController.m
-__destroy_helper_block_e4_20r24r
-__copy_helper_block_e4_20r24r
+__destroy_helper_block_e8_32r40r
+__copy_helper_block_e8_32r40r
 __51-[SCPBbposInstallUpdateProgressController progress]_block_invoke
 +[SCPBbposUtils terminalTime:]
 +[SCPBbposUtils currencyCharactersForCurrencyCode:]
@@ -6003,21 +5999,21 @@ StripeTerminal/PublicHeaders/SCPRefundParameters.h
 ___clang_call_terminate
 -[SCPBbposAdapterV2 updateConnectedReaderInfo:]
 ___47-[SCPBbposAdapterV2 updateConnectedReaderInfo:]_block_invoke
-___copy_helper_block_ea4_20b24w
-___destroy_helper_block_ea4_20s24w
+___copy_helper_block_ea8_32b40w
+___destroy_helper_block_ea8_32s40w
 -[SCPBbposAdapterV2 setTerminal:]
 -[SCPBbposAdapterV2 discoverReaders:]
 -[SCPBbposAdapterV2 connectReader:completion:]
 ___46-[SCPBbposAdapterV2 connectReader:completion:]_block_invoke
 ___46-[SCPBbposAdapterV2 connectReader:completion:]_block_invoke_2
-___copy_helper_block_ea4_20b24s28s
-___destroy_helper_block_ea4_20s24s28s
+___copy_helper_block_ea8_32b40s48s
+___destroy_helper_block_ea8_32s40s48s
 -[SCPBbposAdapterV2 activateReader:token:connectionConfig:completion:]
 ___70-[SCPBbposAdapterV2 activateReader:token:connectionConfig:completion:]_block_invoke
 ___70-[SCPBbposAdapterV2 activateReader:token:connectionConfig:completion:]_block_invoke_2
-___copy_helper_block_ea4_20b24s28s32s
-___destroy_helper_block_ea4_20s24s28s32s
-___copy_helper_block_ea4_20s24s28b32s
+___copy_helper_block_ea8_32b40s48s56s
+___destroy_helper_block_ea8_32s40s48s56s
+___copy_helper_block_ea8_32s40s48b56s
 -[SCPBbposAdapterV2 resumeDiscoverReaders]
 -[SCPBbposAdapterV2 retryDiscoveryAfterBTFail]
 -[SCPBbposAdapterV2 disconnectReader:]
@@ -6025,18 +6021,18 @@ ___38-[SCPBbposAdapterV2 disconnectReader:]_block_invoke
 -[SCPBbposAdapterV2 failCommandWithError:code:]
 -[SCPBbposAdapterV2 collectPaymentMethodForResource:]
 ___53-[SCPBbposAdapterV2 collectPaymentMethodForResource:]_block_invoke
-___copy_helper_block_ea4_20s24w
+___copy_helper_block_ea8_32s40w
 -[SCPBbposAdapterV2 prepareCollectCancelableWithResource:]
 ___58-[SCPBbposAdapterV2 prepareCollectCancelableWithResource:]_block_invoke
-___copy_helper_block_ea4_20w
-___destroy_helper_block_ea4_20w
+___copy_helper_block_ea8_32w
+___destroy_helper_block_ea8_32w
 -[SCPBbposAdapterV2 onSessionInitialized]
 -[SCPBbposAdapterV2 onSessionError:errorMessage:]
 -[SCPBbposAdapterV2 onReturnDeviceInfo:]
 -[SCPBbposAdapterV2 onWaitingForCard:]
 ___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke
 ___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke_2
-___copy_helper_block_ea4_20b
+___copy_helper_block_ea8_32b
 ___38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.324
 -[SCPBbposAdapterV2 onReturnCheckCardResult:cardData:]
 -[SCPBbposAdapterV2 onReturnCancelCheckCardResult:]
@@ -6052,10 +6048,10 @@ ___57-[SCPBbposAdapterV2 confirmResourceCompletion:withError:]_block_invoke.446
 ___36-[SCPBbposAdapterV2 confirmResource]_block_invoke
 ___36-[SCPBbposAdapterV2 confirmResource]_block_invoke_2
 ___36-[SCPBbposAdapterV2 confirmResource]_block_invoke_3
-___copy_helper_block_ea4_20s24s28s
-___copy_helper_block_ea4_20s24s28s32s
-___copy_helper_block_ea4_20s24s28s32s36s
-___destroy_helper_block_ea4_20s24s28s32s36s
+___copy_helper_block_ea8_32s40s48s
+___copy_helper_block_ea8_32s40s48s56s
+___copy_helper_block_ea8_32s40s48s56s64s
+___destroy_helper_block_ea8_32s40s48s56s64s
 -[SCPBbposAdapterV2 processPayment:]
 -[SCPBbposAdapterV2 processResource:]
 -[SCPBbposAdapterV2 addSecondGenerationData:]
@@ -6086,9 +6082,9 @@ ___68-[SCPBbposAdapterV2 failProcessPayment:internalError:contextParams:]_block_
 -[SCPBbposAdapterV2 checkForUpdate:]
 ___36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke
 ___36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke_2
-___copy_helper_block_ea4_20s24b28s32s
+___copy_helper_block_ea8_32s40b48s56s
 ___36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke.598
-___copy_helper_block_ea4_20s24b
+___copy_helper_block_ea8_32s40b
 -[SCPBbposAdapterV2 addOperation:]
 -[SCPBbposAdapterV2 addOperations:]
 -[SCPBbposAdapterV2 runNextOperation]
@@ -6102,7 +6098,7 @@ ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke
 ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_2
 ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_3
 ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_4
-___copy_helper_block_ea4_20s24b28w
+___copy_helper_block_ea8_32s40b48w
 ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke.677
 ___46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke.687
 -[SCPBbposAdapterV2 collectRefundPaymentMethodWithParams:cancelable:]
@@ -6198,25 +6194,25 @@ ___35-[SCPBbposAdapterV2 addAspectHooks]_block_invoke_3
 -[SCPBbposAdapterV2 runningOp]
 -[SCPBbposAdapterV2 setRunningOp:]
 -[SCPBbposAdapterV2 .cxx_destruct]
-___block_descriptor_32_ea4_20bs24w_e21_v8?0"NSDictionary"4l
-___block_descriptor_32_ea4_20bs24s28s_e5_v4?0l
-___block_descriptor_28_ea4_20bs24w_e30_v12?0"SCPReader"4"NSError"8l
+___block_descriptor_56_ea8_32bs40w_e22_v16?0"NSDictionary"8l
+___block_descriptor_56_ea8_32bs40s48s_e5_v8?0l
+___block_descriptor_48_ea8_32bs40w_e31_v24?0"SCPReader"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.141
-___block_descriptor_40_ea4_20bs24s28s32s_e32_v12?0"SCPLocation"4"NSError"8l
-___block_descriptor_40_ea4_20s24s28bs32s_e40_v12?0"SCPActivateResponse"4"NSError"8l
+___block_descriptor_72_ea8_32bs40s48s56s_e33_v24?0"SCPLocation"8"NSError"16l
+___block_descriptor_72_ea8_32s40s48bs56s_e41_v24?0"SCPActivateResponse"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.185
-___block_descriptor_28_ea4_20bs24w_e16_v8?0"NSError"4l
+___block_descriptor_48_ea8_32bs40w_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.195
 _OBJC_CLASSLIST_REFERENCES_$_.200
 _OBJC_CLASSLIST_REFERENCES_$_.243
 _OBJC_CLASSLIST_REFERENCES_$_.262
-___block_descriptor_28_ea4_20s24w_e5_v4?0l
-___block_descriptor_24_ea4_20w_e5_v4?0l
+___block_descriptor_48_ea8_32s40w_e5_v8?0l
+___block_descriptor_40_ea8_32w_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.281
 _OBJC_CLASSLIST_REFERENCES_$_.314
 _OBJC_SELECTOR_REFERENCES_.320
-___block_descriptor_24_ea4_20bs_e5_v4?0l
-___block_descriptor_28_ea4_20s24w_e7_v8?04l
+___block_descriptor_40_ea8_32bs_e5_v8?0l
+___block_descriptor_48_ea8_32s40w_e8_v16?08l
 _OBJC_SELECTOR_REFERENCES_.326
 _OBJC_SELECTOR_REFERENCES_.328
 _OBJC_SELECTOR_REFERENCES_.332
@@ -6225,7 +6221,7 @@ _OBJC_CLASSLIST_REFERENCES_$_.345
 _OBJC_CLASSLIST_REFERENCES_$_.352
 _OBJC_SELECTOR_REFERENCES_.354
 _OBJC_SELECTOR_REFERENCES_.356
-_OBJC_CLASSLIST_REFERENCES_$_.415
+_OBJC_SELECTOR_REFERENCES_.384
 _OBJC_SELECTOR_REFERENCES_.421
 _OBJC_SELECTOR_REFERENCES_.423
 _OBJC_SELECTOR_REFERENCES_.433
@@ -6234,43 +6230,43 @@ _OBJC_SELECTOR_REFERENCES_.436
 _OBJC_SELECTOR_REFERENCES_.438
 _OBJC_SELECTOR_REFERENCES_.440
 _OBJC_SELECTOR_REFERENCES_.442
-___block_descriptor_24_ea4_20s_e48_v8?0"NSObject<SCPCollectPaymentMethodResult>"4l
+___block_descriptor_40_ea8_32s_e49_v16?0"NSObject<SCPCollectPaymentMethodResult>"8l
 _OBJC_SELECTOR_REFERENCES_.445
 _OBJC_SELECTOR_REFERENCES_.448
-___block_descriptor_28_ea4_20s24s_e16_v8?0"NSError"4l
+___block_descriptor_48_ea8_32s40s_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.450
 _OBJC_SELECTOR_REFERENCES_.452
 _OBJC_SELECTOR_REFERENCES_.466
 _OBJC_SELECTOR_REFERENCES_.468
-_OBJC_CLASSLIST_REFERENCES_$_.469
-_OBJC_SELECTOR_REFERENCES_.471
+_OBJC_SELECTOR_REFERENCES_.470
+_OBJC_CLASSLIST_REFERENCES_$_.471
 _OBJC_SELECTOR_REFERENCES_.473
-_OBJC_SELECTOR_REFERENCES_.477
+_OBJC_SELECTOR_REFERENCES_.475
 _OBJC_SELECTOR_REFERENCES_.479
-_OBJC_SELECTOR_REFERENCES_.487
+_OBJC_SELECTOR_REFERENCES_.481
 _OBJC_SELECTOR_REFERENCES_.489
 _OBJC_SELECTOR_REFERENCES_.491
 _OBJC_SELECTOR_REFERENCES_.493
 _OBJC_SELECTOR_REFERENCES_.495
 _OBJC_SELECTOR_REFERENCES_.497
 _OBJC_SELECTOR_REFERENCES_.499
-___block_descriptor_32_ea4_20s24s28s_e5_v4?0l
+___block_descriptor_56_ea8_32s40s48s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.501
-___block_descriptor_41_ea4_20s24s28s32s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
+___block_descriptor_74_ea8_32s40s48s56s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.506
-___block_descriptor_45_ea4_20s24s28s32s36s_e31_v12?0"CLLocation"4"NSError"8l
+___block_descriptor_82_ea8_32s40s48s56s64s_e32_v24?0"CLLocation"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.509
 _OBJC_SELECTOR_REFERENCES_.511
 _OBJC_SELECTOR_REFERENCES_.515
 _OBJC_SELECTOR_REFERENCES_.529
-___block_descriptor_29_ea4_20s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
+___block_descriptor_49_ea8_32s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.531
 _OBJC_SELECTOR_REFERENCES_.533
 _OBJC_SELECTOR_REFERENCES_.535
 _OBJC_SELECTOR_REFERENCES_.537
 _OBJC_SELECTOR_REFERENCES_.539
 _OBJC_SELECTOR_REFERENCES_.541
-___block_descriptor_28_ea4_20s24s_e5_v4?0l
+___block_descriptor_48_ea8_32s40s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.543
 _OBJC_SELECTOR_REFERENCES_.545
 _OBJC_SELECTOR_REFERENCES_.547
@@ -6292,12 +6288,12 @@ _OBJC_SELECTOR_REFERENCES_.591
 _OBJC_SELECTOR_REFERENCES_.593
 _OBJC_SELECTOR_REFERENCES_.595
 _OBJC_SELECTOR_REFERENCES_.597
-___block_descriptor_36_ea4_20s24bs28s32s_e5_v4?0l
-___block_descriptor_32_ea4_20s24bs_e16_v8?0"NSError"4l
+___block_descriptor_64_ea8_32s40bs48s56s_e5_v8?0l
+___block_descriptor_56_ea8_32s40bs_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.600
 _OBJC_SELECTOR_REFERENCES_.602
 _OBJC_SELECTOR_REFERENCES_.604
-___block_descriptor_32_ea4_20bs24w_e44_v12?0"SCPReaderSoftwareUpdate"4"NSError"8l
+___block_descriptor_56_ea8_32bs40w_e45_v24?0"SCPReaderSoftwareUpdate"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.606
 _OBJC_SELECTOR_REFERENCES_.608
 _OBJC_SELECTOR_REFERENCES_.610
@@ -6310,15 +6306,15 @@ _OBJC_SELECTOR_REFERENCES_.624
 _OBJC_SELECTOR_REFERENCES_.626
 _OBJC_SELECTOR_REFERENCES_.628
 _OBJC_SELECTOR_REFERENCES_.630
-___block_descriptor_32_ea4_20s24w_e5_v4?0l
+___block_descriptor_56_ea8_32s40w_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.632
 _OBJC_SELECTOR_REFERENCES_.635
-___block_descriptor_24_ea4_20s_e5_v4?0l
+___block_descriptor_40_ea8_32s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.637
 _OBJC_SELECTOR_REFERENCES_.639
 _OBJC_SELECTOR_REFERENCES_.643
 _OBJC_SELECTOR_REFERENCES_.649
-___block_descriptor_28_ea4_20w_e5_v4?0l
+___block_descriptor_48_ea8_32w_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.653
 _OBJC_SELECTOR_REFERENCES_.657
 _OBJC_SELECTOR_REFERENCES_.663
@@ -6326,10 +6322,10 @@ _OBJC_SELECTOR_REFERENCES_.665
 _OBJC_SELECTOR_REFERENCES_.667
 _OBJC_SELECTOR_REFERENCES_.669
 _OBJC_SELECTOR_REFERENCES_.671
-___block_descriptor_36_ea4_20s24bs28w_e16_v8?0"NSError"4l
+___block_descriptor_64_ea8_32s40bs48w_e17_v16?0"NSError"8l
 _OBJC_CLASSLIST_REFERENCES_$_.676
 _OBJC_SELECTOR_REFERENCES_.679
-___block_descriptor_24_ea4_20w_e7_v8?0f4l
+___block_descriptor_40_ea8_32w_e8_v12?0f8l
 _OBJC_SELECTOR_REFERENCES_.682
 _OBJC_SELECTOR_REFERENCES_.684
 _OBJC_SELECTOR_REFERENCES_.686
@@ -6338,7 +6334,7 @@ _OBJC_SELECTOR_REFERENCES_.691
 _OBJC_SELECTOR_REFERENCES_.693
 _OBJC_SELECTOR_REFERENCES_.695
 _OBJC_SELECTOR_REFERENCES_.697
-___block_descriptor_32_ea4_20s24w_e21_v8?0"NSDictionary"4l
+___block_descriptor_56_ea8_32s40w_e22_v16?0"NSDictionary"8l
 _OBJC_SELECTOR_REFERENCES_.699
 _OBJC_SELECTOR_REFERENCES_.703
 _OBJC_SELECTOR_REFERENCES_.705
@@ -6348,9 +6344,9 @@ _OBJC_SELECTOR_REFERENCES_.711
 _OBJC_SELECTOR_REFERENCES_.713
 _OBJC_SELECTOR_REFERENCES_.715
 _OBJC_SELECTOR_REFERENCES_.717
-___block_descriptor_24_ea4_20s_e37_v12?0"SCPPaymentMethod"4"NSError"8l
+___block_descriptor_40_ea8_32s_e38_v24?0"SCPPaymentMethod"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.720
-___block_descriptor_36_ea4_20s24s28s32s_e31_v12?0"CLLocation"4"NSError"8l
+___block_descriptor_64_ea8_32s40s48s56s_e32_v24?0"CLLocation"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.722
 _OBJC_SELECTOR_REFERENCES_.724
 _OBJC_SELECTOR_REFERENCES_.726
@@ -6386,7 +6382,7 @@ _OBJC_SELECTOR_REFERENCES_.781
 _OBJC_SELECTOR_REFERENCES_.783
 _OBJC_SELECTOR_REFERENCES_.785
 _OBJC_SELECTOR_REFERENCES_.787
-___block_descriptor_24_e5_v4?0l
+___block_descriptor_40_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.789
 _OBJC_SELECTOR_REFERENCES_.791
 _OBJC_SELECTOR_REFERENCES_.793
@@ -6455,7 +6451,7 @@ __56-[SCPBbposAdapterV2 processReadReusableCard:parameters:]_block_invoke_2
 __56-[SCPBbposAdapterV2 processReadReusableCard:parameters:]_block_invoke
 __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke.687
 __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke.677
-__copy_helper_block_ea4_20s24b28w
+__copy_helper_block_ea8_32s40b48w
 __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_4
 __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_3
 __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke_2
@@ -6463,43 +6459,43 @@ __46-[SCPBbposAdapterV2 installUpdate:completion:]_block_invoke
 __57-[SCPBbposAdapterV2 validateAndReportOperationsCompleted]_block_invoke
 __37-[SCPBbposAdapterV2 runNextOperation]_block_invoke.633
 __37-[SCPBbposAdapterV2 runNextOperation]_block_invoke
-__copy_helper_block_ea4_20s24b
+__copy_helper_block_ea8_32s40b
 __36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke.598
-__copy_helper_block_ea4_20s24b28s32s
+__copy_helper_block_ea8_32s40b48s56s
 __36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke_2
 __36-[SCPBbposAdapterV2 checkForUpdate:]_block_invoke
 __68-[SCPBbposAdapterV2 failProcessPayment:internalError:contextParams:]_block_invoke
 __45-[SCPBbposAdapterV2 addSecondGenerationData:]_block_invoke
-__destroy_helper_block_ea4_20s24s28s32s36s
-__copy_helper_block_ea4_20s24s28s32s36s
-__copy_helper_block_ea4_20s24s28s32s
-__copy_helper_block_ea4_20s24s28s
+__destroy_helper_block_ea8_32s40s48s56s64s
+__copy_helper_block_ea8_32s40s48s56s64s
+__copy_helper_block_ea8_32s40s48s56s
+__copy_helper_block_ea8_32s40s48s
 __36-[SCPBbposAdapterV2 confirmResource]_block_invoke_3
 __36-[SCPBbposAdapterV2 confirmResource]_block_invoke_2
 __36-[SCPBbposAdapterV2 confirmResource]_block_invoke
 __57-[SCPBbposAdapterV2 confirmResourceCompletion:withError:]_block_invoke.446
 __57-[SCPBbposAdapterV2 confirmResourceCompletion:withError:]_block_invoke
 __38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke.324
-__copy_helper_block_ea4_20b
+__copy_helper_block_ea8_32b
 __38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke_2
 __38-[SCPBbposAdapterV2 onWaitingForCard:]_block_invoke
-__destroy_helper_block_ea4_20w
-__copy_helper_block_ea4_20w
+__destroy_helper_block_ea8_32w
+__copy_helper_block_ea8_32w
 __58-[SCPBbposAdapterV2 prepareCollectCancelableWithResource:]_block_invoke
-__copy_helper_block_ea4_20s24w
+__copy_helper_block_ea8_32s40w
 __53-[SCPBbposAdapterV2 collectPaymentMethodForResource:]_block_invoke
 __38-[SCPBbposAdapterV2 disconnectReader:]_block_invoke
-__copy_helper_block_ea4_20s24s28b32s
-__destroy_helper_block_ea4_20s24s28s32s
-__copy_helper_block_ea4_20b24s28s32s
+__copy_helper_block_ea8_32s40s48b56s
+__destroy_helper_block_ea8_32s40s48s56s
+__copy_helper_block_ea8_32b40s48s56s
 __70-[SCPBbposAdapterV2 activateReader:token:connectionConfig:completion:]_block_invoke_2
 __70-[SCPBbposAdapterV2 activateReader:token:connectionConfig:completion:]_block_invoke
-__destroy_helper_block_ea4_20s24s28s
-__copy_helper_block_ea4_20b24s28s
+__destroy_helper_block_ea8_32s40s48s
+__copy_helper_block_ea8_32b40s48s
 __46-[SCPBbposAdapterV2 connectReader:completion:]_block_invoke_2
 __46-[SCPBbposAdapterV2 connectReader:completion:]_block_invoke
-__destroy_helper_block_ea4_20s24w
-__copy_helper_block_ea4_20b24w
+__destroy_helper_block_ea8_32s40w
+__copy_helper_block_ea8_32b40w
 __47-[SCPBbposAdapterV2 updateConnectedReaderInfo:]_block_invoke
 -[SCPPBClearReaderDisplayRequest method]
 -[SCPPBClearReaderDisplayRequest jsonObject]
@@ -6593,7 +6589,7 @@ ___47+[SCPPBRegionalAidOrder decodedObjectFromJSON:]_block_invoke
 -[SCPPBRegionalAidOrder aidOrder]
 -[SCPPBRegionalAidOrder setAidOrder:]
 -[SCPPBRegionalAidOrder .cxx_destruct]
-___block_descriptor_24_e4_20s_e34_v16?0"NSString"4"NSString"8^c12l
+___block_descriptor_40_e8_32s_e35_v32?0"NSString"8"NSString"16^B24l
 __OBJC_$_CLASS_METHODS_SCPPBRegionalAidOrder
 __OBJC_CLASS_PROTOCOLS_$_SCPPBRegionalAidOrder
 __OBJC_METACLASS_RO_$_SCPPBRegionalAidOrder
@@ -7169,7 +7165,7 @@ __OBJC_$_INSTANCE_VARIABLES_SCPBbposUpdateDisplaySettingsOp
 __OBJC_$_PROP_LIST_SCPBbposUpdateDisplaySettingsOp
 __OBJC_CLASS_RO_$_SCPBbposUpdateDisplaySettingsOp
 _OBJC_IVAR_$_SCPBbposUpdateAIDSettingsOp._data
-___block_descriptor_24_e4_20s_e24_v16?0"NSString"48^c12l
+___block_descriptor_40_e8_32s_e25_v32?0"NSString"816^B24l
 _OBJC_IVAR_$_SCPBbposUpdateAIDSettingsOp._currentAID
 _OBJC_IVAR_$_SCPBbposUpdateAIDSettingsOp._currentAidTraceId
 _OBJC_IVAR_$_SCPBbposUpdateAIDSettingsOp._pendingAIDs
@@ -7181,7 +7177,7 @@ __OBJC_$_PROP_LIST_SCPBbposUpdateAIDSettingsOp
 __OBJC_CLASS_RO_$_SCPBbposUpdateAIDSettingsOp
 _OBJC_IVAR_$_SCPBBposUpdateTerminalSettingsOp._data
 _OBJC_SELECTOR_REFERENCES_.233
-___block_descriptor_28_e4_20s24s_e34_v16?0"NSString"4"NSString"8^c12l
+___block_descriptor_48_e8_32s40s_e35_v32?0"NSString"8"NSString"16^B24l
 _OBJC_CLASSLIST_REFERENCES_$_.247
 _OBJC_IVAR_$_SCPBBposUpdateTerminalSettingsOp._traceId
 _OBJC_IVAR_$_SCPBBposUpdateTerminalSettingsOp._retryUpdateTerminalSettings
@@ -7267,14 +7263,14 @@ ___66-[SCPPaymentIntent confirmViaRabbitAdapterWithService:completion:]_block_in
 -[SCPPaymentIntent .cxx_destruct]
 _OBJC_CLASSLIST_REFERENCES_$_.111
 _OBJC_CLASSLIST_REFERENCES_$_.187
-___block_descriptor_24_e4_20bs_e37_v12?0"SCPPaymentIntent"4"NSError"8l
+___block_descriptor_40_e8_32bs_e38_v24?0"SCPPaymentIntent"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.219
-___block_descriptor_24_e4_20bs_e54_v12?0"SCPPBCollectPaymentMethodResponse"4"NSError"8l
+___block_descriptor_40_e8_32bs_e55_v24?0"SCPPBCollectPaymentMethodResponse"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.233
 _OBJC_CLASSLIST_REFERENCES_$_.236
 _OBJC_CLASSLIST_REFERENCES_$_.241
 _OBJC_SELECTOR_REFERENCES_.261
-___block_descriptor_32_e4_20bs24s_e48_v12?0"SCPPBConfirmPaymentResponse"4"NSError"8l
+___block_descriptor_56_e8_32bs40s_e49_v24?0"SCPPBConfirmPaymentResponse"8"NSError"16l
 __OBJC_$_CLASS_METHODS_SCPPaymentIntent
 __OBJC_CLASS_PROTOCOLS_$_SCPPaymentIntent
 __OBJC_METACLASS_RO_$_SCPPaymentIntent
@@ -7404,35 +7400,35 @@ ___33-[SCPTerminal reportReaderEvent:]_block_invoke
 +[SCPTerminal stringFromReaderForLogging:]
 -[SCPTerminal updateDiscoveredReaders:]
 ___39-[SCPTerminal updateDiscoveredReaders:]_block_invoke
-___copy_helper_block_e4_20s24s28s32s36s
-___destroy_helper_block_e4_20s24s28s32s36s
+___copy_helper_block_e8_32s40s48s56s64s
+___destroy_helper_block_e8_32s40s48s56s64s
 -[SCPTerminal reportReaderSoftwareUpdateProgress:]
 -[SCPTerminal validateInfoPlistForDiscoveryConfiguration:]
 -[SCPTerminal validateDiscoveryConfiguration:]
 -[SCPTerminal discoverReaders:delegate:completion:]
 ___51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke
 ___51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke_2
-___copy_helper_block_e4_20s24s28s32b
+___copy_helper_block_e8_32s40s48s56b
 ___51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke.322
 -[SCPTerminal adapterForConfiguration:]
 -[SCPTerminal completeDiscoverReaders:]
 -[SCPTerminal listLocations:completion:]
 ___40-[SCPTerminal listLocations:completion:]_block_invoke
 ___40-[SCPTerminal listLocations:completion:]_block_invoke_2
-___copy_helper_block_e4_20s24s28b32s
+___copy_helper_block_e8_32s40s48b56s
 ___40-[SCPTerminal listLocations:completion:]_block_invoke.341
 -[SCPTerminal connectBluetoothReader:delegate:connectionConfig:completion:]
 -[SCPTerminal connectInternetReader:connectionConfig:completion:]
 -[SCPTerminal connectReader:delegate:connectionConfig:completion:]
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2
-___copy_helper_block_e4_20s24s28s32s36s40b
-___destroy_helper_block_e4_20s24s28s32s36s40s
+___copy_helper_block_e8_32s40s48s56s64s72b
+___destroy_helper_block_e8_32s40s48s56s64s72s
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke.407
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2.410
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke.421
 ___66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2.422
-___copy_helper_block_e4_20s24b28s32s
+___copy_helper_block_e8_32s40b48s56s
 -[SCPTerminal disconnectReader:]
 ___32-[SCPTerminal disconnectReader:]_block_invoke
 ___32-[SCPTerminal disconnectReader:]_block_invoke_2
@@ -7440,7 +7436,7 @@ ___32-[SCPTerminal disconnectReader:]_block_invoke_2
 ___46-[SCPTerminal createPaymentIntent:completion:]_block_invoke
 ___46-[SCPTerminal createPaymentIntent:completion:]_block_invoke_2
 ___46-[SCPTerminal createPaymentIntent:completion:]_block_invoke_3
-___copy_helper_block_e4_20s24s28s32b36s
+___copy_helper_block_e8_32s40s48s56b64s
 -[SCPTerminal retrievePaymentIntent:completion:]
 ___48-[SCPTerminal retrievePaymentIntent:completion:]_block_invoke
 ___48-[SCPTerminal retrievePaymentIntent:completion:]_block_invoke_2
@@ -7454,7 +7450,7 @@ ___47-[SCPTerminal collectPaymentMethod:completion:]_block_invoke_3
 ___41-[SCPTerminal processPayment:completion:]_block_invoke
 ___41-[SCPTerminal processPayment:completion:]_block_invoke_2
 ___41-[SCPTerminal processPayment:completion:]_block_invoke_3
-___copy_helper_block_e4_20s24s28s32s36b
+___copy_helper_block_e8_32s40s48s56s64b
 ___41-[SCPTerminal processPayment:completion:]_block_invoke.504
 -[SCPTerminal cancelPaymentIntent:completion:]
 ___46-[SCPTerminal cancelPaymentIntent:completion:]_block_invoke
@@ -7518,8 +7514,8 @@ ___37-[SCPTerminal installAvailableUpdate]_block_invoke_2
 ___37-[SCPTerminal installAvailableUpdate]_block_invoke.613
 ___37-[SCPTerminal installAvailableUpdate]_block_invoke.614
 ___37-[SCPTerminal installAvailableUpdate]_block_invoke_2.615
-___copy_helper_block_e4_20b24s28w
-___destroy_helper_block_e4_20s24s28w
+___copy_helper_block_e8_32b40s48w
+___destroy_helper_block_e8_32s40s48w
 ___37-[SCPTerminal installAvailableUpdate]_block_invoke.616
 -[SCPTerminal applicationDidBecomeActive]
 -[SCPTerminal applicationDidEnterBackground]
@@ -7613,17 +7609,16 @@ ___37-[SCPTerminal updateConnectionStatus]_block_invoke
 -[SCPTerminal validateInfoPlistForDiscoveryConfiguration:].cold.2
 __shared
 __tokenProvider
-___block_descriptor_32_e4_20s_e5_v4?0l
-___block_descriptor_33_e4_20s_e5_v4?0l
+___block_descriptor_56_e8_32s_e5_v8?0l
+___block_descriptor_57_e8_32s_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.177
-_OBJC_CLASSLIST_REFERENCES_$_.230
-___block_descriptor_44_e4_20s24s28s32s36s_e5_v4?0l
+___block_descriptor_80_e8_32s40s48s56s64s_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.245
 _OBJC_CLASSLIST_REFERENCES_$_.258
 _OBJC_SELECTOR_REFERENCES_.278
 _OBJC_CLASSLIST_REFERENCES_$_.279
-___block_descriptor_40_e4_20s24s28s32bs_e5_v4?0l
-___block_descriptor_36_e4_20s24s28bs_e16_v8?0"NSError"4l
+___block_descriptor_72_e8_32s40s48s56bs_e5_v8?0l
+___block_descriptor_64_e8_32s40s48bs_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.296
 _OBJC_SELECTOR_REFERENCES_.298
 _OBJC_SELECTOR_REFERENCES_.306
@@ -7633,19 +7628,22 @@ _OBJC_SELECTOR_REFERENCES_.324
 _OBJC_CLASSLIST_REFERENCES_$_.325
 _OBJC_CLASSLIST_REFERENCES_$_.326
 _OBJC_CLASSLIST_REFERENCES_$_.327
-___block_descriptor_36_e4_20s24s28bs32s_e5_v4?0l
-___block_descriptor_28_e4_20s24bs_e36_v12?0"SCPLocationList"4"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.331
+___block_descriptor_64_e8_32s40s48bs56s_e5_v8?0l
+___block_descriptor_48_e8_32s40bs_e37_v24?0"SCPLocationList"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.342
 _OBJC_SELECTOR_REFERENCES_.344
-___block_descriptor_28_e4_20bs24s_e29_v12?0"NSString"4"NSError"8l
-_OBJC_CLASSLIST_REFERENCES_$_.362
-_OBJC_CLASSLIST_REFERENCES_$_.381
+___block_descriptor_48_e8_32bs40s_e30_v24?0"NSString"8"NSError"16l
+_OBJC_SELECTOR_REFERENCES_.391
+_OBJC_SELECTOR_REFERENCES_.395
 _OBJC_SELECTOR_REFERENCES_.397
-___block_descriptor_52_e4_20s24s28s32s36s40bs_e5_v4?0l
-___block_descriptor_44_e4_20s24s28s32bs_e30_v12?0"SCPReader"4"NSError"8l
+___block_descriptor_96_e8_32s40s48s56s64s72bs_e5_v8?0l
+___block_descriptor_80_e8_32s40s48s56bs_e31_v24?0"SCPReader"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.400
-___block_descriptor_36_e4_20s24s28s_e16_v8?0"NSError"4l
-___block_descriptor_32_e4_20s24s_e16_v8?0"NSError"4l
+_OBJC_SELECTOR_REFERENCES_.409
+___block_descriptor_64_e8_32s40s48s_e17_v16?0"NSError"8l
+___block_descriptor_56_e8_32s40s_e17_v16?0"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.416
 _OBJC_SELECTOR_REFERENCES_.418
 _OBJC_SELECTOR_REFERENCES_.420
 _OBJC_SELECTOR_REFERENCES_.424
@@ -7654,55 +7652,53 @@ _OBJC_SELECTOR_REFERENCES_.428
 _OBJC_SELECTOR_REFERENCES_.430
 _OBJC_SELECTOR_REFERENCES_.432
 _OBJC_SELECTOR_REFERENCES_.434
-___block_descriptor_36_e4_20bs24s28s32s_e37_v12?0"SCPReaderSession"4"NSError"8l
+___block_descriptor_64_e8_32bs40s48s56s_e38_v24?0"SCPReaderSession"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.437
-___block_descriptor_36_e4_20s24bs28s32s_e30_v12?0"SCPReader"4"NSError"8l
+___block_descriptor_64_e8_32s40bs48s56s_e31_v24?0"SCPReader"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.443
-___block_descriptor_44_e4_20s24s28s32bs36s_e16_v8?0"NSError"4l
-___block_descriptor_48_e4_20s24s28s32bs36s_e5_v4?0l
-___block_descriptor_40_e4_20s24s28bs_e37_v12?0"SCPPaymentIntent"4"NSError"8l
+___block_descriptor_80_e8_32s40s48s56bs64s_e17_v16?0"NSError"8l
+___block_descriptor_88_e8_32s40s48s56bs64s_e5_v8?0l
+___block_descriptor_72_e8_32s40s48bs_e38_v24?0"SCPPaymentIntent"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.454
 _OBJC_SELECTOR_REFERENCES_.456
 _OBJC_CLASSLIST_REFERENCES_$_.463
 _OBJC_SELECTOR_REFERENCES_.465
 _OBJC_SELECTOR_REFERENCES_.467
-_OBJC_SELECTOR_REFERENCES_.470
 _OBJC_SELECTOR_REFERENCES_.476
 _OBJC_SELECTOR_REFERENCES_.478
 _OBJC_CLASSLIST_REFERENCES_$_.479
-_OBJC_SELECTOR_REFERENCES_.481
 _OBJC_SELECTOR_REFERENCES_.483
 _OBJC_CLASSLIST_REFERENCES_$_.484
 _OBJC_SELECTOR_REFERENCES_.486
 _OBJC_SELECTOR_REFERENCES_.488
-___block_descriptor_48_e4_20s24s28s32s36bs_e5_v4?0l
-___block_descriptor_40_e4_20s24s28bs_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
+___block_descriptor_88_e8_32s40s48s56s64bs_e5_v8?0l
+___block_descriptor_72_e8_32s40s48bs_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.503
-___block_descriptor_32_e4_20s24bs_e5_v4?0l
+___block_descriptor_56_e8_32s40bs_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.508
 _OBJC_SELECTOR_REFERENCES_.510
-___block_descriptor_40_e4_20s24s28bs_e37_v12?0"SCPPaymentMethod"4"NSError"8l
+___block_descriptor_72_e8_32s40s48bs_e38_v24?0"SCPPaymentMethod"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.514
 _OBJC_CLASSLIST_REFERENCES_$_.515
 _OBJC_SELECTOR_REFERENCES_.517
-___block_descriptor_20_e48_"SCPPaymentMethod"8?0"NSObject<SCPResource>"4l
+___block_descriptor_32_e49_"SCPPaymentMethod"16?0"NSObject<SCPResource>"8l
 _OBJC_SELECTOR_REFERENCES_.522
 _OBJC_SELECTOR_REFERENCES_.524
-___block_descriptor_24_e4_20bs_e37_v12?0"SCPPaymentMethod"4"NSError"8l
-___block_descriptor_28_e4_20bs24s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
+___block_descriptor_40_e8_32bs_e38_v24?0"SCPPaymentMethod"8"NSError"16l
+___block_descriptor_48_e8_32bs40s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.527
-___block_descriptor_40_e4_20s24s28bs_e35_v12?0"SCPSetupIntent"4"NSError"8l
+___block_descriptor_72_e8_32s40s48bs_e36_v24?0"SCPSetupIntent"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.530
 _OBJC_SELECTOR_REFERENCES_.532
 _OBJC_SELECTOR_REFERENCES_.534
 _OBJC_SELECTOR_REFERENCES_.536
 _OBJC_CLASSLIST_REFERENCES_$_.537
 _OBJC_CLASSLIST_REFERENCES_$_.540
-___block_descriptor_40_e4_20s24bs28s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
-___block_descriptor_40_e4_20s24s28s32bs_e16_v8?0"NSError"4l
+___block_descriptor_72_e8_32s40bs48s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
+___block_descriptor_72_e8_32s40s48s56bs_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.549
-___block_descriptor_44_e4_20s24s28s32bs_e5_v4?0l
-___block_descriptor_40_e4_20s24s28bs_e30_v12?0"SCPRefund"4"NSError"8l
+___block_descriptor_80_e8_32s40s48s56bs_e5_v8?0l
+___block_descriptor_72_e8_32s40s48bs_e31_v24?0"SCPRefund"8"NSError"16l
 _OBJC_SELECTOR_REFERENCES_.552
 _OBJC_SELECTOR_REFERENCES_.554
 _OBJC_SELECTOR_REFERENCES_.558
@@ -7720,16 +7716,16 @@ _OBJC_SELECTOR_REFERENCES_.580
 _OBJC_SELECTOR_REFERENCES_.582
 _OBJC_SELECTOR_REFERENCES_.584
 _OBJC_SELECTOR_REFERENCES_.586
-___block_descriptor_32_e4_20s24s_e44_v12?0"SCPReaderSoftwareUpdate"4"NSError"8l
+___block_descriptor_56_e8_32s40s_e45_v24?0"SCPReaderSoftwareUpdate"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.592
 _OBJC_SELECTOR_REFERENCES_.594
 _OBJC_SELECTOR_REFERENCES_.596
 _OBJC_SELECTOR_REFERENCES_.598
-___block_descriptor_40_e4_20s24s28s32s_e16_v8?0"NSError"4l
+___block_descriptor_72_e8_32s40s48s56s_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.606
-___block_descriptor_36_e4_20s24s28s_e44_v12?0"SCPReaderSoftwareUpdate"4"NSError"8l
-___block_descriptor_28_e4_20bs24s_e16_v8?0"NSError"4l
-___block_descriptor_32_e4_20bs24s28w_e44_v12?0"SCPReaderSoftwareUpdate"4"NSError"8l
+___block_descriptor_64_e8_32s40s48s_e45_v24?0"SCPReaderSoftwareUpdate"8"NSError"16l
+___block_descriptor_48_e8_32bs40s_e17_v16?0"NSError"8l
+___block_descriptor_56_e8_32bs40s48w_e45_v24?0"SCPReaderSoftwareUpdate"8"NSError"16l
 _OBJC_CLASSLIST_REFERENCES_$_.619
 _OBJC_SELECTOR_REFERENCES_.621
 _OBJC_SELECTOR_REFERENCES_.623
@@ -7737,13 +7733,13 @@ _OBJC_SELECTOR_REFERENCES_.625
 _OBJC_SELECTOR_REFERENCES_.627
 _OBJC_SELECTOR_REFERENCES_.629
 _OBJC_SELECTOR_REFERENCES_.631
-___block_descriptor_29_e4_20w_e16_v8?0"NSError"4l
+___block_descriptor_49_e8_32w_e17_v16?0"NSError"8l
 _OBJC_SELECTOR_REFERENCES_.633
 _OBJC_SELECTOR_REFERENCES_.641
 _OBJC_SELECTOR_REFERENCES_.645
 _OBJC_SELECTOR_REFERENCES_.647
 _OBJC_SELECTOR_REFERENCES_.651
-___block_descriptor_28_e4_20s24w_e5_v4?0l
+___block_descriptor_48_e8_32s40w_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.655
 _OBJC_SELECTOR_REFERENCES_.659
 _OBJC_SELECTOR_REFERENCES_.685
@@ -7813,8 +7809,8 @@ __37-[SCPTerminal updateConnectionStatus]_block_invoke
 __50-[SCPTerminal setCommandInProgressWithoutUpdates:]_block_invoke
 __40-[SCPTerminal updateConnectedReaderInfo]_block_invoke
 __37-[SCPTerminal installAvailableUpdate]_block_invoke.616
-__destroy_helper_block_e4_20s24s28w
-__copy_helper_block_e4_20b24s28w
+__destroy_helper_block_e8_32s40s48w
+__copy_helper_block_e8_32b40s48w
 __37-[SCPTerminal installAvailableUpdate]_block_invoke_2.615
 __37-[SCPTerminal installAvailableUpdate]_block_invoke.614
 __37-[SCPTerminal installAvailableUpdate]_block_invoke.613
@@ -7864,7 +7860,7 @@ __46-[SCPTerminal cancelPaymentIntent:completion:]_block_invoke_3
 __46-[SCPTerminal cancelPaymentIntent:completion:]_block_invoke_2
 __46-[SCPTerminal cancelPaymentIntent:completion:]_block_invoke
 __41-[SCPTerminal processPayment:completion:]_block_invoke.504
-__copy_helper_block_e4_20s24s28s32s36b
+__copy_helper_block_e8_32s40s48s56s64b
 __41-[SCPTerminal processPayment:completion:]_block_invoke_3
 __41-[SCPTerminal processPayment:completion:]_block_invoke_2
 __41-[SCPTerminal processPayment:completion:]_block_invoke
@@ -7874,31 +7870,31 @@ __47-[SCPTerminal collectPaymentMethod:completion:]_block_invoke
 __48-[SCPTerminal retrievePaymentIntent:completion:]_block_invoke_3
 __48-[SCPTerminal retrievePaymentIntent:completion:]_block_invoke_2
 __48-[SCPTerminal retrievePaymentIntent:completion:]_block_invoke
-__copy_helper_block_e4_20s24s28s32b36s
+__copy_helper_block_e8_32s40s48s56b64s
 __46-[SCPTerminal createPaymentIntent:completion:]_block_invoke_3
 __46-[SCPTerminal createPaymentIntent:completion:]_block_invoke_2
 __46-[SCPTerminal createPaymentIntent:completion:]_block_invoke
 __32-[SCPTerminal disconnectReader:]_block_invoke_2
 __32-[SCPTerminal disconnectReader:]_block_invoke
-__copy_helper_block_e4_20s24b28s32s
+__copy_helper_block_e8_32s40b48s56s
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2.422
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke.421
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2.410
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke.407
-__destroy_helper_block_e4_20s24s28s32s36s40s
-__copy_helper_block_e4_20s24s28s32s36s40b
+__destroy_helper_block_e8_32s40s48s56s64s72s
+__copy_helper_block_e8_32s40s48s56s64s72b
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke_2
 __66-[SCPTerminal connectReader:delegate:connectionConfig:completion:]_block_invoke
 __40-[SCPTerminal listLocations:completion:]_block_invoke.341
-__copy_helper_block_e4_20s24s28b32s
+__copy_helper_block_e8_32s40s48b56s
 __40-[SCPTerminal listLocations:completion:]_block_invoke_2
 __40-[SCPTerminal listLocations:completion:]_block_invoke
 __51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke.322
-__copy_helper_block_e4_20s24s28s32b
+__copy_helper_block_e8_32s40s48s56b
 __51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke_2
 __51-[SCPTerminal discoverReaders:delegate:completion:]_block_invoke
-__destroy_helper_block_e4_20s24s28s32s36s
-__copy_helper_block_e4_20s24s28s32s36s
+__destroy_helper_block_e8_32s40s48s56s64s
+__copy_helper_block_e8_32s40s48s56s64s
 __39-[SCPTerminal updateDiscoveredReaders:]_block_invoke
 __33-[SCPTerminal reportReaderEvent:]_block_invoke
 __43-[SCPTerminal requestReaderDisplayMessage:]_block_invoke
@@ -8622,7 +8618,7 @@ ___42-[SCPReader(BBPOS) bbp_supportedLanguages]_block_invoke
 -[SCPReader(BBPOS) bbp_updateSerialNumberFromDeviceInfo]
 -[SCPReader(BBPOS) bbp_useOnlineQuickChip]
 -[SCPReader(BBPOS) bbp_isLegacyShopifyReader]
-___block_descriptor_20_e24_c16?0"NSString"4I8^c12l
+___block_descriptor_32_e25_B32?0"NSString"8Q16^B24l
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPReader_$_BBPOS
 __OBJC_$_CATEGORY_CLASS_METHODS_SCPReader_$_BBPOS
 __OBJC_$_CATEGORY_SCPReader_$_BBPOS
@@ -8733,7 +8729,7 @@ _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._isConnected
 _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._promise
 _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._reader
 _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._tmsConfiguration
-___block_descriptor_28_e4_20s24w_e57_v12?0"SCPPBDownloadMobilePosConfigResponse"4"NSError"8l
+___block_descriptor_48_e8_32s40w_e58_v24?0"SCPPBDownloadMobilePosConfigResponse"8"NSError"16l
 _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._mobilePosConfigResponse
 _OBJC_IVAR_$_SCPBbposCheckForUpdateOp._terminalSettings
 __OBJC_METACLASS_RO_$_SCPBbposCheckForUpdateOp
@@ -8823,7 +8819,7 @@ ___70-[NSDictionary(StripeTerminal) scp_dictionaryBySanitizingStringValues]_bloc
 -[SCPQueryStringPair value]
 -[SCPQueryStringPair setValue:]
 -[SCPQueryStringPair .cxx_destruct]
-___block_descriptor_24_e4_20s_e14_v16?048^c12l
+___block_descriptor_40_e8_32s_e15_v32?0816^B24l
 __OBJC_$_CATEGORY_INSTANCE_METHODS_NSDictionary_$_StripeTerminal
 __OBJC_$_CATEGORY_CLASS_METHODS_NSDictionary_$_StripeTerminal
 __OBJC_CATEGORY_PROTOCOLS_$_NSDictionary_$_StripeTerminal
@@ -8891,7 +8887,7 @@ ___49-[SCPBbposPromisedOp initWithPromise:startBlock:]_block_invoke
 -[SCPBbposPromisedOp .cxx_destruct]
 _OBJC_IVAR_$_SCPBbposPromisedOp._state
 _OBJC_IVAR_$_SCPBbposPromisedOp._startBlock
-___block_descriptor_24_e4_20w_e19_v12?04"NSError"8l
+___block_descriptor_40_e8_32w_e20_v24?08"NSError"16l
 __OBJC_METACLASS_RO_$_SCPBbposPromisedOp
 __OBJC_$_INSTANCE_METHODS_SCPBbposPromisedOp
 __OBJC_$_INSTANCE_VARIABLES_SCPBbposPromisedOp
@@ -9041,34 +9037,34 @@ StripeTerminal/SCPCancelable+Private.h
 StripeTerminal/PublicHeaders/SCPCancelable.h
 +[SCPAPIRequest postWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]
 ___88+[SCPAPIRequest postWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]_block_invoke
-___copy_helper_block_e4_24s28s32s36b
-___destroy_helper_block_e4_24s28s32s36s
+___copy_helper_block_e8_40s48s56s64b
+___destroy_helper_block_e8_40s48s56s64s
 +[SCPAPIRequest getWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]
 ___87+[SCPAPIRequest getWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]_block_invoke
 +[SCPAPIRequest parseResponse:body:error:deserializer:endpoint:httpMethod:completion:]
 ___86+[SCPAPIRequest parseResponse:body:error:deserializer:endpoint:httpMethod:completion:]_block_invoke
 ___86+[SCPAPIRequest parseResponse:body:error:deserializer:endpoint:httpMethod:completion:]_block_invoke_2
-___copy_helper_block_e4_20s28s32s36b40s
-___destroy_helper_block_e4_20s28s32s36s40s
-___copy_helper_block_e4_24s28b32s
-___destroy_helper_block_e4_24s28s32s
-___block_descriptor_40_e4_24s28s32s36bs_e45_v16?0"NSData"4"NSURLResponse"8"NSError"12l
-___block_descriptor_48_e4_20s28s32s36bs40s_e5_v4?0l
-___block_descriptor_40_e4_24s28bs32s_e39_v12?0"<SCPJSONDecodable>"4"NSError"8l
+___copy_helper_block_e8_32s48s56s64b72s
+___destroy_helper_block_e8_32s48s56s64s72s
+___copy_helper_block_e8_40s48b56s
+___destroy_helper_block_e8_40s48s56s
+___block_descriptor_72_e8_40s48s56s64bs_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+___block_descriptor_88_e8_32s48s56s64bs72s_e5_v8?0l
+___block_descriptor_72_e8_40s48bs56s_e40_v24?0"<SCPJSONDecodable>"8"NSError"16l
 __OBJC_$_CLASS_METHODS_SCPAPIRequest
 __OBJC_METACLASS_RO_$_SCPAPIRequest
 __OBJC_CLASS_RO_$_SCPAPIRequest
 /Users/bric/stripe/terminal/historic/StripeTerminal/SCPAPIRequest.m
-__destroy_helper_block_e4_24s28s32s
-__copy_helper_block_e4_24s28b32s
-__destroy_helper_block_e4_20s28s32s36s40s
-__copy_helper_block_e4_20s28s32s36b40s
+__destroy_helper_block_e8_40s48s56s
+__copy_helper_block_e8_40s48b56s
+__destroy_helper_block_e8_32s48s56s64s72s
+__copy_helper_block_e8_32s48s56s64b72s
 __86+[SCPAPIRequest parseResponse:body:error:deserializer:endpoint:httpMethod:completion:]_block_invoke_2
 StripeTerminal/SCPAPIRequest.m
 __86+[SCPAPIRequest parseResponse:body:error:deserializer:endpoint:httpMethod:completion:]_block_invoke
 __87+[SCPAPIRequest getWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]_block_invoke
-__destroy_helper_block_e4_24s28s32s36s
-__copy_helper_block_e4_24s28s32s36b
+__destroy_helper_block_e8_40s48s56s64s
+__copy_helper_block_e8_40s48s56s64b
 __88+[SCPAPIRequest postWithURLSession:baseURL:endpoint:parameters:deserializer:completion:]_block_invoke
 -[SCPLocation initForStripeInternal]
 -[SCPLocation initForSimulatedReader]
@@ -9235,9 +9231,9 @@ StripeTerminal/PublicHeaders/SCPBluetoothConnectionConfiguration.h
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.45
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.51
-___copy_helper_block_e4_20s24s28w
+___copy_helper_block_e8_32s40s48w
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.52
-___copy_helper_block_e4_20s24s28s32w
+___copy_helper_block_e8_32s40s48s56w
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.53
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke_2
 ___54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke_3
@@ -9254,7 +9250,7 @@ ___55-[SCPBluetoothReaderSimulatorAdapter disconnectReader:]_block_invoke
 ___53-[SCPBluetoothReaderSimulatorAdapter checkForUpdate:]_block_invoke
 -[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]
 ___63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke
-___copy_helper_block_e4_20s24b28w
+___copy_helper_block_e8_32s40b48w
 ___63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke.127
 ___63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke.132
 -[SCPBluetoothReaderSimulatorAdapter processPayment:]
@@ -9298,21 +9294,22 @@ ___85-[SCPBluetoothReaderSimulatorAdapter failProcessPayment:internalError:conte
 -[SCPBluetoothReaderSimulatorAdapter processResourcePromise]
 -[SCPBluetoothReaderSimulatorAdapter setProcessResourcePromise:]
 -[SCPBluetoothReaderSimulatorAdapter .cxx_destruct]
-___block_descriptor_32_e4_20s24s28w_e5_v4?0l
-___block_descriptor_36_e4_20s24s28s32w_e5_v4?0l
-___block_descriptor_32_e4_20s24s28bs_e5_v4?0l
-___block_descriptor_28_e4_20s24bs_e5_v4?0l
-___block_descriptor_24_e4_20bs_e40_v12?0"SCPActivateResponse"4"NSError"8l
-___block_descriptor_32_e4_20s24bs28w_e5_v4?0l
-___block_descriptor_40_e4_20s24s28s32s36bs_e5_v4?0l
+___block_descriptor_56_e8_32s40s48w_e5_v8?0l
+___block_descriptor_64_e8_32s40s48s56w_e5_v8?0l
+___block_descriptor_56_e8_32s40s48bs_e5_v8?0l
+___block_descriptor_48_e8_32s40bs_e5_v8?0l
+___block_descriptor_40_e8_32bs_e41_v24?0"SCPActivateResponse"8"NSError"16l
+___block_descriptor_56_e8_32s40bs48w_e5_v8?0l
+___block_descriptor_72_e8_32s40s48s56s64bs_e5_v8?0l
+_OBJC_CLASSLIST_REFERENCES_$_.135
 _OBJC_CLASSLIST_REFERENCES_$_.168
 _OBJC_CLASSLIST_REFERENCES_$_.175
-___block_descriptor_33_e4_20s24s_e5_v4?0l
+___block_descriptor_57_e8_32s40s_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.187
 _OBJC_CLASSLIST_REFERENCES_$_.207
 _OBJC_CLASSLIST_REFERENCES_$_.234
-___block_descriptor_36_e4_20s24s28s_e42_v12?0"NSObject<SCPResource>"4"NSError"8l
-___block_descriptor_40_e4_20s24s28s32s_e31_v12?0"CLLocation"4"NSError"8l
+___block_descriptor_64_e8_32s40s48s_e43_v24?0"NSObject<SCPResource>"8"NSError"16l
+___block_descriptor_72_e8_32s40s48s56s_e32_v24?0"CLLocation"8"NSError"16l
 __OBJC_CLASS_PROTOCOLS_$_SCPBluetoothReaderSimulatorAdapter
 __OBJC_METACLASS_RO_$_SCPBluetoothReaderSimulatorAdapter
 __OBJC_$_INSTANCE_METHODS_SCPBluetoothReaderSimulatorAdapter
@@ -9340,7 +9337,7 @@ __70-[SCPBluetoothReaderSimulatorAdapter collectPaymentMethodForResource:]_block
 __70-[SCPBluetoothReaderSimulatorAdapter collectPaymentMethodForResource:]_block_invoke
 __63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke.132
 __63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke.127
-__copy_helper_block_e4_20s24b28w
+__copy_helper_block_e8_32s40b48w
 __63-[SCPBluetoothReaderSimulatorAdapter installUpdate:completion:]_block_invoke
 __53-[SCPBluetoothReaderSimulatorAdapter checkForUpdate:]_block_invoke
 __55-[SCPBluetoothReaderSimulatorAdapter disconnectReader:]_block_invoke
@@ -9351,9 +9348,9 @@ __63-[SCPBluetoothReaderSimulatorAdapter connectReader:completion:]_block_invoke
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke_3
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke_2
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.53
-__copy_helper_block_e4_20s24s28s32w
+__copy_helper_block_e8_32s40s48s56w
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.52
-__copy_helper_block_e4_20s24s28w
+__copy_helper_block_e8_32s40s48w
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.51
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke.45
 __54-[SCPBluetoothReaderSimulatorAdapter discoverReaders:]_block_invoke
@@ -9476,8 +9473,8 @@ ___58-[SCPPBVectorRegionalConfiguration(Human) settingsForAID:]_block_invoke.92
 -[SCPPBReaderFeatureFlags(Human) readerFeatureFlagsToSdkFlags]
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPBMobileClientConfig_$_Human
 __OBJC_$_CATEGORY_SCPPBMobileClientConfig_$_Human
-___block_descriptor_24_e4_20s_e49_c16?0"SCPPBContactApplicationParameters"4I8^c12l
-___block_descriptor_24_e4_20s_e43_c16?0"SCPPBContactlessCombination"4I8^c12l
+___block_descriptor_40_e8_32s_e50_B32?0"SCPPBContactApplicationParameters"8Q16^B24l
+___block_descriptor_40_e8_32s_e44_B32?0"SCPPBContactlessCombination"8Q16^B24l
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPBVectorRegionalConfiguration_$_Human
 __OBJC_$_CATEGORY_SCPPBVectorRegionalConfiguration_$_Human
 __OBJC_$_CATEGORY_INSTANCE_METHODS_SCPPBContactApplicationParameters_$_Human
@@ -9736,20 +9733,20 @@ ___41-[SCPPollingTask executeCancelationBlock]_block_invoke.71
 -[SCPPollingTask setExecutionNeededOnActivate:]
 -[SCPPollingTask application]
 -[SCPPollingTask .cxx_destruct]
-___block_descriptor_20_e23_v8?0"SCPVoidPromise"4l
-___block_descriptor_24_e4_20s_e23_v8?0"NSNotification"4l
-___block_descriptor_28_e4_20s24s_e19_v12?04"NSError"8l
-___block_descriptor_24_e4_20w_e32_v12?0"SCPOptional"4"NSError"8l
+___block_descriptor_32_e24_v16?0"SCPVoidPromise"8l
+___block_descriptor_40_e8_32s_e24_v16?0"NSNotification"8l
+___block_descriptor_48_e8_32s40s_e20_v24?08"NSError"16l
+___block_descriptor_40_e8_32w_e33_v24?0"SCPOptional"8"NSError"16l
 __OBJC_METACLASS_RO_$_SCPPollingTask
 __OBJC_$_INSTANCE_METHODS_SCPPollingTask
 _OBJC_IVAR_$_SCPPollingTask._executionNeededOnActivate
 _OBJC_IVAR_$_SCPPollingTask._promise
+_OBJC_IVAR_$_SCPPollingTask._delay
 _OBJC_IVAR_$_SCPPollingTask._currentCommand
 _OBJC_IVAR_$_SCPPollingTask._cancelable
 _OBJC_IVAR_$_SCPPollingTask._cancelationBlock
 _OBJC_IVAR_$_SCPPollingTask._taskBlock
 _OBJC_IVAR_$_SCPPollingTask._application
-_OBJC_IVAR_$_SCPPollingTask._delay
 __OBJC_$_INSTANCE_VARIABLES_SCPPollingTask
 __OBJC_$_PROP_LIST_SCPPollingTask
 __OBJC_CLASS_RO_$_SCPPollingTask
@@ -9846,8 +9843,8 @@ Classes/DP_OTA_TR31KeyBlock.m
 -[DP_OTA_CubeFlowFWConfigController TC_CubeFlowFWConfig_onReturnOTAStopped]
 -[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnOTAError_PerformSelectorWithDelay:]
 ___103-[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnOTAError_PerformSelectorWithDelay:]_block_invoke
-___copy_helper_block_e4_20o
-___destroy_helper_block_e4_20o
+___copy_helper_block_e8_32o
+___destroy_helper_block_e8_32o
 -[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnCompleted_PerformSelectorWithDelay:]
 ___104-[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnCompleted_PerformSelectorWithDelay:]_block_invoke
 -[DP_OTA_CubeFlowFWConfigController delegate]
@@ -9867,7 +9864,7 @@ ___104-[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnComple
 _OBJC_CLASSLIST_REFERENCES_$_.134
 _OBJC_CLASSLIST_REFERENCES_$_.250
 _OBJC_CLASSLIST_REFERENCES_$_.281
-___block_descriptor_28_e4_20o_e5_v4?0l
+___block_descriptor_44_e8_32o_e5_v8?0l
 __OBJC_$_CLASS_METHODS_DP_OTA_CubeFlowFWConfigController
 __OBJC_$_PROTOCOL_REFS_DP_OTA_TimeoutController_Delegate
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_DP_OTA_TimeoutController_Delegate
@@ -9889,8 +9886,8 @@ __OBJC_CLASS_RO_$_DP_OTA_CubeFlowFWConfigController
 Classes/DP_OTA_CubeFlowFWConfigController.h
 Classes/DP_OTA_CubeFlowFWConfigController.m
 __104-[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnCompleted_PerformSelectorWithDelay:]_block_invoke
-__destroy_helper_block_e4_20o
-__copy_helper_block_e4_20o
+__destroy_helper_block_e8_32o
+__copy_helper_block_e8_32o
 __103-[DP_OTA_CubeFlowFWConfigController DP_OTA_CubeFlowFWConfig_onReturnOTAError_PerformSelectorWithDelay:]_block_invoke
 -[DP_OTA_CommonResultClass init]
 -[DP_OTA_CommonResultClass dealloc]
@@ -9961,6 +9958,7 @@ __OBJC_$_INSTANCE_METHODS_DP_OTA_TLV_Utility
 __OBJC_CLASS_RO_$_DP_OTA_TLV_Utility
 /Users/alexwong/Desktop/BuildSDK/ProjectCode_Dup/DP_BBDeviceOTA-Dev/Classes/DP_OTA_TLV_Utility.m
 Classes/DP_OTA_TLV_Utility.m
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 +[DP_OTA_CryptoAlgorithm sharedInstance]
 -[DP_OTA_CryptoAlgorithm init]
 -[DP_OTA_CryptoAlgorithm dealloc]
@@ -10016,7 +10014,7 @@ ___43-[DP_OTA_Reachability reachabilityChanged:]_block_invoke
 -[DP_OTA_Reachability setUnreachableBlock:]
 -[DP_OTA_Reachability reachabilityObject]
 -[DP_OTA_Reachability setReachabilityObject:]
-___block_descriptor_24_e4_20o_e5_v4?0l
+___block_descriptor_40_e8_32o_e5_v8?0l
 __OBJC_$_CLASS_METHODS_DP_OTA_Reachability
 __OBJC_METACLASS_RO_$_DP_OTA_Reachability
 __OBJC_$_INSTANCE_METHODS_DP_OTA_Reachability
@@ -10145,13 +10143,13 @@ Classes/DP_OTA_TR31KeyUtil.m
 __OBJC_$_CLASS_METHODS_DP_OTA_FlowData
 __OBJC_METACLASS_RO_$_DP_OTA_FlowData
 __OBJC_$_INSTANCE_METHODS_DP_OTA_FlowData
+_OBJC_IVAR_$_DP_OTA_FlowData._SendHexBlock_CurrentArrayIndex
+_OBJC_IVAR_$_DP_OTA_FlowData._SendHexBlock_TotalSentBytes
 _OBJC_IVAR_$_DP_OTA_FlowData._objUserOperationType
 _OBJC_IVAR_$_DP_OTA_FlowData._objWP1OperationType
 _OBJC_IVAR_$_DP_OTA_FlowData._OperationCode_UserSelected
 _OBJC_IVAR_$_DP_OTA_FlowData._FlowData_UserInputDictionary
 _OBJC_IVAR_$_DP_OTA_FlowData._objFlowData
-_OBJC_IVAR_$_DP_OTA_FlowData._SendHexBlock_CurrentArrayIndex
-_OBJC_IVAR_$_DP_OTA_FlowData._SendHexBlock_TotalSentBytes
 __OBJC_$_INSTANCE_VARIABLES_DP_OTA_FlowData
 __OBJC_$_PROP_LIST_DP_OTA_FlowData
 __OBJC_CLASS_RO_$_DP_OTA_FlowData
@@ -10308,8 +10306,8 @@ Classes/DP_OTA_DataProcessing.m
 -[DP_OTA_NodeFlow_MainController NodeFlowAction_InjectTMK0_8CEC:]
 -[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnError:]
 ___60-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnError:]_block_invoke
-___copy_helper_block_e4_20o24o
-___destroy_helper_block_e4_20o24o
+___copy_helper_block_e8_32o40o
+___destroy_helper_block_e8_32o40o
 -[DP_OTA_NodeFlow_MainController updatePercentageByCurrentAction:]
 -[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnPercentage:]
 ___65-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnPercentage:]_block_invoke
@@ -10345,7 +10343,7 @@ ___64-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnOTAStopped]_block_invo
 _OBJC_CLASSLIST_REFERENCES_$_.126
 _OBJC_CLASSLIST_REFERENCES_$_.153
 _OBJC_CLASSLIST_REFERENCES_$_.272
-___block_descriptor_28_e4_20o24o_e5_v4?0l
+___block_descriptor_48_e8_32o40o_e5_v8?0l
 __OBJC_$_CLASS_METHODS_DP_OTA_NodeFlow_MainController
 __OBJC_CLASS_PROTOCOLS_$_DP_OTA_NodeFlow_MainController
 __OBJC_METACLASS_RO_$_DP_OTA_NodeFlow_MainController
@@ -10353,13 +10351,13 @@ __OBJC_$_INSTANCE_METHODS_DP_OTA_NodeFlow_MainController
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.isRequireStep_IgnoreInjectCommandError_MMK1
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.isRequireStep_InjectMMK1
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.isRequireStep_InjectTMK0
+_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.RetryCounter_InjectTMK0
+_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.DebugCounter_01
+_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.currProgressPercentage
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.currNodeFlowAction
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.Input_bID
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.Input_BDK
-_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.RetryCounter_InjectTMK0
-_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.DebugCounter_01
 _OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.objTimeoutController
-_OBJC_IVAR_$_DP_OTA_NodeFlow_MainController.currProgressPercentage
 __OBJC_$_INSTANCE_VARIABLES_DP_OTA_NodeFlow_MainController
 __OBJC_$_PROP_LIST_DP_OTA_NodeFlow_MainController
 __OBJC_CLASS_RO_$_DP_OTA_NodeFlow_MainController
@@ -10368,8 +10366,8 @@ Classes/DP_OTA_NodeFlow_MainController.m
 __64-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnOTAStopped]_block_invoke
 __63-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnCompleted]_block_invoke
 __65-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnPercentage:]_block_invoke
-__destroy_helper_block_e4_20o24o
-__copy_helper_block_e4_20o24o
+__destroy_helper_block_e8_32o40o
+__copy_helper_block_e8_32o40o
 __60-[DP_OTA_NodeFlow_MainController TC_NodeFlow_onReturnError:]_block_invoke
 +[DP_OTA_WSCommController sharedInstance]
 -[DP_OTA_WSCommController setDelegate:]
@@ -10409,8 +10407,9 @@ ___89-[DP_OTA_WSCommController startJsonWs:bodyDataDictionary:bearerToken:HTTPMe
 -[DP_OTA_WSCommController setWsResponseDataHistoryDictionary:]
 -[DP_OTA_WSCommController blockResponseDataDict]
 -[DP_OTA_WSCommController setBlockResponseDataDict:]
-___block_descriptor_24_e4_20o_e45_v16?0"NSData"4"NSURLResponse"8"NSError"12l
+___block_descriptor_40_e8_32o_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
 _OBJC_CLASSLIST_REFERENCES_$_.98
+_OBJC_CLASSLIST_REFERENCES_$_.151
 _OBJC_CLASSLIST_REFERENCES_$_.156
 __OBJC_$_CLASS_METHODS_DP_OTA_WSCommController
 __OBJC_CLASS_PROTOCOLS_$_DP_OTA_WSCommController
@@ -10590,14 +10589,14 @@ Classes/DP_OTA_Timer.m
 __OBJC_$_CLASS_METHODS_DP_OTA_TR31KeyHeader
 __OBJC_METACLASS_RO_$_DP_OTA_TR31KeyHeader
 __OBJC_$_INSTANCE_METHODS_DP_OTA_TR31KeyHeader
-_OBJC_IVAR_$_DP_OTA_TR31KeyHeader.keyBlockVersion
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.keyBlockLength
+_OBJC_IVAR_$_DP_OTA_TR31KeyHeader.numberOfOptionalBlocks
+_OBJC_IVAR_$_DP_OTA_TR31KeyHeader.keyBlockVersion
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.keyUsage
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.algorithm
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.modeOfUse
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.keyVersionNumber
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.exportability
-_OBJC_IVAR_$_DP_OTA_TR31KeyHeader.numberOfOptionalBlocks
 _OBJC_IVAR_$_DP_OTA_TR31KeyHeader.optionalBlock
 __OBJC_$_INSTANCE_VARIABLES_DP_OTA_TR31KeyHeader
 __OBJC_$_PROP_LIST_DP_OTA_TR31KeyHeader
@@ -10978,8 +10977,8 @@ ___57-[DP_BBDeviceOTAController printDebugLog_DeviceInfoDict:]_block_invoke
 ___51-[DP_BBDeviceOTAController TC_onReturnOTAProgress:]_block_invoke
 -[DP_BBDeviceOTAController TC_onReturnOperationCallback:inUserOperationType:inDP_BBDeviceOTAResult:responseMessage:data:isReset:]
 ___129-[DP_BBDeviceOTAController TC_onReturnOperationCallback:inUserOperationType:inDP_BBDeviceOTAResult:responseMessage:data:isReset:]_block_invoke
-___copy_helper_block_e4_20o24o28o32o
-___destroy_helper_block_e4_20o24o28o32o
+___copy_helper_block_e8_32o40o48o56o
+___destroy_helper_block_e8_32o40o48o56o
 -[DP_BBDeviceOTAController getDP_BBDeviceOTAResultString:]
 -[DP_BBDeviceOTAController stopActionTimer]
 -[DP_BBDeviceOTAController startActionTimer_WS]
@@ -11051,12 +11050,13 @@ _OBJC_SELECTOR_REFERENCES_.616
 _OBJC_SELECTOR_REFERENCES_.634
 _OBJC_SELECTOR_REFERENCES_.636
 _OBJC_SELECTOR_REFERENCES_.638
-___block_descriptor_32_e4_20o24o_e5_v4?0l
+___block_descriptor_56_e8_32o40o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.661
 _OBJC_SELECTOR_REFERENCES_.687
 _OBJC_SELECTOR_REFERENCES_.694
 _OBJC_SELECTOR_REFERENCES_.696
 _OBJC_SELECTOR_REFERENCES_.698
+___block_descriptor_48_e8_32o_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.701
 _OBJC_SELECTOR_REFERENCES_.719
 _OBJC_SELECTOR_REFERENCES_.721
@@ -11267,7 +11267,7 @@ _OBJC_SELECTOR_REFERENCES_.1699
 _OBJC_SELECTOR_REFERENCES_.1703
 _OBJC_SELECTOR_REFERENCES_.1707
 _OBJC_SELECTOR_REFERENCES_.1711
-___block_descriptor_44_e4_20o24o28o32o_e5_v4?0l
+___block_descriptor_76_e8_32o40o48o56o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.1735
 _OBJC_SELECTOR_REFERENCES_.1737
 _OBJC_SELECTOR_REFERENCES_.1739
@@ -11311,8 +11311,8 @@ __OBJC_CLASS_RO_$_DP_BBDeviceOTAController
 /Users/alexwong/Desktop/BuildSDK/ProjectCode_Dup/DP_BBDeviceOTA-Dev/Classes/DP_BBDeviceOTAController.mm
 Classes/DP_BBDeviceOTAController.mm
 __47-[DP_BBDeviceOTAController handleTimeout_FwCmd]_block_invoke
-__destroy_helper_block_e4_20o24o28o32o
-__copy_helper_block_e4_20o24o28o32o
+__destroy_helper_block_e8_32o40o48o56o
+__copy_helper_block_e8_32o40o48o56o
 __129-[DP_BBDeviceOTAController TC_onReturnOperationCallback:inUserOperationType:inDP_BBDeviceOTAResult:responseMessage:data:isReset:]_block_invoke
 __51-[DP_BBDeviceOTAController TC_onReturnOTAProgress:]_block_invoke
 __57-[DP_BBDeviceOTAController printDebugLog_DeviceInfoDict:]_block_invoke
@@ -11423,26 +11423,30 @@ _OBJC_CLASSLIST_REFERENCES_$_.300
 _OBJC_CLASSLIST_REFERENCES_$_.310
 _OBJC_CLASSLIST_REFERENCES_$_.317
 _OBJC_CLASSLIST_REFERENCES_$_.346
+_OBJC_SELECTOR_REFERENCES_.350
 _OBJC_SELECTOR_REFERENCES_.352
 _OBJC_CLASSLIST_REFERENCES_$_.353
 _OBJC_SELECTOR_REFERENCES_.373
 _OBJC_SELECTOR_REFERENCES_.375
-_OBJC_SELECTOR_REFERENCES_.383
 _OBJC_SELECTOR_REFERENCES_.401
 _OBJC_SELECTOR_REFERENCES_.405
-_OBJC_SELECTOR_REFERENCES_.407
+_OBJC_SELECTOR_REFERENCES_.415
 _OBJC_SELECTOR_REFERENCES_.447
 _OBJC_SELECTOR_REFERENCES_.449
 _OBJC_SELECTOR_REFERENCES_.469
-_OBJC_SELECTOR_REFERENCES_.475
+_OBJC_SELECTOR_REFERENCES_.471
 _OBJC_CLASSLIST_REFERENCES_$_.476
 _OBJC_SELECTOR_REFERENCES_.480
 _OBJC_SELECTOR_REFERENCES_.482
 _OBJC_SELECTOR_REFERENCES_.485
+_OBJC_SELECTOR_REFERENCES_.487
 __OBJC_$_CLASS_METHODS_DP_OTA_CubeFlowKeyController
 __OBJC_CLASS_PROTOCOLS_$_DP_OTA_CubeFlowKeyController
 __OBJC_METACLASS_RO_$_DP_OTA_CubeFlowKeyController
 __OBJC_$_INSTANCE_METHODS_DP_OTA_CubeFlowKeyController
+_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._totalNumberOfKeySet
+_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._currPercentage
+_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._tempEachKeySetPercentage
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController.objTimeoutController
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._currCubeFlowKeyAction
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._WSData_sessionToken
@@ -11453,9 +11457,6 @@ _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._WSData_currKeyProfileID
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._userLoginInputDictionary
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._deviceInfoDictionary
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._SDKInfoDictionary
-_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._totalNumberOfKeySet
-_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._currPercentage
-_OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._tempEachKeySetPercentage
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._tempCubeFlowOTAErrorResult
 _OBJC_IVAR_$_DP_OTA_CubeFlowKeyController._tempCubeFlowOTAErrorMessage
 __OBJC_$_INSTANCE_VARIABLES_DP_OTA_CubeFlowKeyController
@@ -11534,15 +11535,15 @@ ___37-[DP_OTA_TimeoutController stopTimer]_block_invoke
 -[DP_OTA_TimeoutController setObjTimeoutInterval:]
 -[DP_OTA_TimeoutController isTimerRunnging]
 -[DP_OTA_TimeoutController setIsTimerRunnging:]
-___block_descriptor_29_e4_20o_e5_v4?0l
+___block_descriptor_45_e8_32o_e5_v8?0l
 __OBJC_METACLASS_RO_$_DP_OTA_TimeoutController
 __OBJC_$_INSTANCE_METHODS_DP_OTA_TimeoutController
 _OBJC_IVAR_$_DP_OTA_TimeoutController.isTimerRunnging
+_OBJC_IVAR_$_DP_OTA_TimeoutController.secCounterForRegularUpdated
+_OBJC_IVAR_$_DP_OTA_TimeoutController.objTimeoutInterval
 _OBJC_IVAR_$_DP_OTA_TimeoutController.mainTimer
 _OBJC_IVAR_$_DP_OTA_TimeoutController.regularUpdatedTimer
 _OBJC_IVAR_$_DP_OTA_TimeoutController.timerID
-_OBJC_IVAR_$_DP_OTA_TimeoutController.secCounterForRegularUpdated
-_OBJC_IVAR_$_DP_OTA_TimeoutController.objTimeoutInterval
 __OBJC_$_INSTANCE_VARIABLES_DP_OTA_TimeoutController
 __OBJC_$_PROP_LIST_DP_OTA_TimeoutController
 __OBJC_CLASS_RO_$_DP_OTA_TimeoutController
@@ -11745,15 +11746,15 @@ _OBJC_IVAR_$_DP_RecvCmdObject.commandStatus
 _OBJC_IVAR_$_DP_RecvCmdObject.commandBatteryStatus
 _OBJC_IVAR_$_DP_RecvCmdObject.isValidCRC
 _OBJC_IVAR_$_DP_RecvCmdObject.isValidLength
-_OBJC_IVAR_$_DP_RecvCmdObject.ChannelData_WholeCommand
 _OBJC_IVAR_$_DP_RecvCmdObject.ChannelHeader_CommandChannelStatus
 _OBJC_IVAR_$_DP_RecvCmdObject.ChannelHeader_CurrentBlockIndex
 _OBJC_IVAR_$_DP_RecvCmdObject.ChannelHeader_MaxBlockIndex
 _OBJC_IVAR_$_DP_RecvCmdObject.ChannelHeader_PayloadLength
+_OBJC_IVAR_$_DP_RecvCmdObject.commandPayloadLength
+_OBJC_IVAR_$_DP_RecvCmdObject.ChannelData_WholeCommand
 _OBJC_IVAR_$_DP_RecvCmdObject.ChannelData_PayloadData
 _OBJC_IVAR_$_DP_RecvCmdObject.commandFullChannelData
 _OBJC_IVAR_$_DP_RecvCmdObject.commandID
-_OBJC_IVAR_$_DP_RecvCmdObject.commandPayloadLength
 _OBJC_IVAR_$_DP_RecvCmdObject.commandPayloadData
 _OBJC_IVAR_$_DP_RecvCmdObject.commandPayloadTLVDictionary_NSMutableData
 _OBJC_IVAR_$_DP_RecvCmdObject.commandPayloadTLVDictionary_NSString
@@ -11791,11 +11792,11 @@ __OBJC_METACLASS_RO_$_DP_CallbackObject
 _OBJC_METACLASS_$_DP_CallbackObject
 __OBJC_$_INSTANCE_METHODS_DP_CallbackObject
 _OBJC_IVAR_$_DP_CallbackObject.Value_BOOL_1
+_OBJC_IVAR_$_DP_CallbackObject.Value_DP_BBDeviceEnum_1
+_OBJC_IVAR_$_DP_CallbackObject.Value_DP_BBDeviceEnum_2
 _OBJC_IVAR_$_DP_CallbackObject.Callback_Name
 _OBJC_IVAR_$_DP_CallbackObject.Callback_DebugLogMessage
 _OBJC_IVAR_$_DP_CallbackObject.Value_Message
-_OBJC_IVAR_$_DP_CallbackObject.Value_DP_BBDeviceEnum_1
-_OBJC_IVAR_$_DP_CallbackObject.Value_DP_BBDeviceEnum_2
 _OBJC_IVAR_$_DP_CallbackObject.Value_String_1
 _OBJC_IVAR_$_DP_CallbackObject.Value_NSNumber_1
 _OBJC_IVAR_$_DP_CallbackObject.Value_NSObject_1
@@ -12151,9 +12152,9 @@ _OBJC_CLASS_$_DP_CmdHistory
 __OBJC_METACLASS_RO_$_DP_CmdHistory
 _OBJC_METACLASS_$_DP_CmdHistory
 __OBJC_$_INSTANCE_METHODS_DP_CmdHistory
+_OBJC_IVAR_$_DP_CmdHistory.objMismatchedCounter
 _OBJC_IVAR_$_DP_CmdHistory.QueueArray_Sent
 _OBJC_IVAR_$_DP_CmdHistory.QueueArray_Recv
-_OBJC_IVAR_$_DP_CmdHistory.objMismatchedCounter
 __OBJC_$_INSTANCE_VARIABLES_DP_CmdHistory
 __OBJC_$_PROP_LIST_DP_CmdHistory
 __OBJC_CLASS_RO_$_DP_CmdHistory
@@ -12235,10 +12236,10 @@ _OBJC_IVAR_$_DP_BLEAutoConfig.delegate
 _OBJC_IVAR_$_DP_BLEAutoConfig.isStarted
 _OBJC_IVAR_$_DP_BLEAutoConfig.isWaitingMultipleSuccessResultOrTimeout
 _OBJC_IVAR_$_DP_BLEAutoConfig.isAbleToUseBLEWithoutResponseMode
+_OBJC_IVAR_$_DP_BLEAutoConfig.successReceivedCounter
 _OBJC_IVAR_$_DP_BLEAutoConfig.bID
 _OBJC_IVAR_$_DP_BLEAutoConfig.BTChipsetModelString
 _OBJC_IVAR_$_DP_BLEAutoConfig.BTChipsetModelEnum
-_OBJC_IVAR_$_DP_BLEAutoConfig.successReceivedCounter
 _OBJC_IVAR_$_DP_BLEAutoConfig.tempDeviceInfoResultDictionary
 __OBJC_$_INSTANCE_VARIABLES_DP_BLEAutoConfig
 __OBJC_$_PROP_LIST_DP_BLEAutoConfig
@@ -12336,11 +12337,11 @@ _OBJC_METACLASS_$_DP_TimeoutController
 __OBJC_$_INSTANCE_METHODS_DP_TimeoutController
 _OBJC_IVAR_$_DP_TimeoutController.delegate
 _OBJC_IVAR_$_DP_TimeoutController.isTimerRunnging
+_OBJC_IVAR_$_DP_TimeoutController.secCounterForRegularUpdated
+_OBJC_IVAR_$_DP_TimeoutController.objTimeoutInterval
 _OBJC_IVAR_$_DP_TimeoutController.mainTimer
 _OBJC_IVAR_$_DP_TimeoutController.regularUpdatedTimer
 _OBJC_IVAR_$_DP_TimeoutController.timerID
-_OBJC_IVAR_$_DP_TimeoutController.secCounterForRegularUpdated
-_OBJC_IVAR_$_DP_TimeoutController.objTimeoutInterval
 __OBJC_$_INSTANCE_VARIABLES_DP_TimeoutController
 __OBJC_$_PROP_LIST_DP_TimeoutController
 __OBJC_CLASS_RO_$_DP_TimeoutController
@@ -12591,6 +12592,7 @@ _OBJC_IVAR_$_DP_MainFlowData.currSentCmdName
 _OBJC_IVAR_$_DP_MainFlowData.currReceivedCmdName
 _OBJC_IVAR_$_DP_MainFlowData.currSwitchKIModeUsage
 _OBJC_IVAR_$_DP_MainFlowData.currSwitchKIModeType
+_OBJC_IVAR_$_DP_MainFlowData.CallbackDelay_onSessionInitialized
 _OBJC_IVAR_$_DP_MainFlowData.initResultDeviceInfoDictionary
 _OBJC_IVAR_$_DP_MainFlowData.previousChannelDataHash
 _OBJC_IVAR_$_DP_MainFlowData.tempDeviceInfoInput_User_CustomKey
@@ -12600,7 +12602,6 @@ _OBJC_IVAR_$_DP_MainFlowData.tempDeviceInfoDOL_SPoC
 _OBJC_IVAR_$_DP_MainFlowData.currDeviceInfoUsage
 _OBJC_IVAR_$_DP_MainFlowData.UserInput_startEmvInputDictionary
 _OBJC_IVAR_$_DP_MainFlowData.UserInput_AID
-_OBJC_IVAR_$_DP_MainFlowData.CallbackDelay_onSessionInitialized
 _OBJC_IVAR_$_DP_MainFlowData.tempCallbackObject_onError
 _OBJC_IVAR_$_DP_MainFlowData.tempCallbackObject_onBTRelatedError
 __OBJC_$_INSTANCE_VARIABLES_DP_MainFlowData
@@ -12876,8 +12877,8 @@ ___43-[DP_BBDeviceController cancelReferProcess]_block_invoke
 ___48-[DP_BBDeviceController setAmountConfirmResult:]_block_invoke
 -[DP_BBDeviceController enableInputAmount:currencyCharacters:]
 ___62-[DP_BBDeviceController enableInputAmount:currencyCharacters:]_block_invoke
-___copy_helper_block_e4_20o24o28o
-___destroy_helper_block_e4_20o24o28o
+___copy_helper_block_e8_32o40o48o
+___destroy_helper_block_e8_32o40o48o
 -[DP_BBDeviceController enableInputAmount:]
 ___43-[DP_BBDeviceController enableInputAmount:]_block_invoke
 -[DP_BBDeviceController enableInputAmount_Internal:]
@@ -13083,8 +13084,12 @@ ___32-[DP_BBDeviceController stopUsb]_block_invoke
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.911
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.920
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.920
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.925
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.932
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.937
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.942
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6
@@ -13118,57 +13123,53 @@ ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_33
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1085
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1088
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1091
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1094
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1097
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1104
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1107
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1110
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1113
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1116
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1119
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1122
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1125
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1126
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_8.1129
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_9.1134
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_10.1139
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_11.1144
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_12.1149
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_13.1154
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_14.1157
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_15.1164
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_16.1169
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_17.1172
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_18.1175
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_19.1178
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_20.1181
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_21.1184
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_22.1189
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_23.1194
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_24.1197
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_25.1204
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_26.1207
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_27.1212
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_28.1215
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_29.1224
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_30.1227
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_31.1236
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_32.1241
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_33.1246
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34.1251
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35.1256
+___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36.1259
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_37
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_38
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_39
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_40
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1081
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1084
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1087
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1090
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1093
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1100
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1103
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1106
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1109
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1112
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1115
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1118
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1121
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1122
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_8.1125
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_9.1130
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_10.1135
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_11.1140
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_12.1145
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_13.1150
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_14.1153
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_15.1160
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_16.1165
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_17.1168
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_18.1171
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_19.1174
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_20.1177
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_21.1180
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_22.1185
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_23.1190
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_24.1193
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_25.1200
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_26.1203
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_27.1208
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_28.1211
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_29.1220
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_30.1223
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_31.1232
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_32.1237
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_33.1242
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34.1247
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35.1252
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36.1255
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_37.1258
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_38.1263
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_39.1268
-___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_40.1271
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_41
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_42
 ___52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_43
@@ -13227,18 +13228,18 @@ __ZL27sharedDP_BBDeviceController
 _OBJC_METACLASS_$_DP_BBDeviceController
 __ZL28sharedDP_BBDeviceController2
 _OBJC_CLASSLIST_REFERENCES_$_.121
-___block_descriptor_40_e4_20o24o28o32o_e5_v4?0l
-___block_descriptor_25_e4_20o_e5_v4?0l
+___block_descriptor_72_e8_32o40o48o56o_e5_v8?0l
+___block_descriptor_41_e8_32o_e5_v8?0l
 _OBJC_CLASS_$_DP_MainController
+___block_descriptor_49_e8_32o_e5_v8?0l
 _OBJC_CLASSLIST_REFERENCES_$_.183
-___block_descriptor_32_e4_20o_e5_v4?0l
-___block_descriptor_33_e4_20o24o_e5_v4?0l
-___block_descriptor_36_e4_20o24o28o_e5_v4?0l
+___block_descriptor_56_e8_32o_e5_v8?0l
+___block_descriptor_52_e8_32o_e5_v8?0l
+___block_descriptor_57_e8_32o40o_e5_v8?0l
+___block_descriptor_64_e8_32o40o48o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.325
-___block_descriptor_36_e4_20o24o_e5_v4?0l
-___block_descriptor_36_e4_20o_e5_v4?0l
+___block_descriptor_60_e8_32o40o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.411
-_OBJC_SELECTOR_REFERENCES_.413
 _OBJC_CLASSLIST_REFERENCES_$_.440
 _OBJC_SELECTOR_REFERENCES_.484
 _OBJC_SELECTOR_REFERENCES_.490
@@ -13300,87 +13301,85 @@ _OBJC_SELECTOR_REFERENCES_.900
 _OBJC_SELECTOR_REFERENCES_.904
 _OBJC_SELECTOR_REFERENCES_.908
 _OBJC_SELECTOR_REFERENCES_.910
-___block_descriptor_32_e4_20o24o28o_e5_v4?0l
+___block_descriptor_56_e8_32o40o48o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.915
 _OBJC_SELECTOR_REFERENCES_.917
+___block_descriptor_52_e8_32o40o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.922
-_OBJC_SELECTOR_REFERENCES_.926
-_OBJC_SELECTOR_REFERENCES_.928
-_OBJC_SELECTOR_REFERENCES_.930
-_OBJC_SELECTOR_REFERENCES_.932
+___block_descriptor_60_e8_32o40o48o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.934
-_OBJC_SELECTOR_REFERENCES_.938
-_OBJC_SELECTOR_REFERENCES_.940
+_OBJC_SELECTOR_REFERENCES_.936
+_OBJC_SELECTOR_REFERENCES_.941
 _OBJC_SELECTOR_REFERENCES_.960
 _OBJC_SELECTOR_REFERENCES_.964
 _OBJC_SELECTOR_REFERENCES_.968
 _OBJC_SELECTOR_REFERENCES_.972
 _OBJC_SELECTOR_REFERENCES_.976
-_OBJC_SELECTOR_REFERENCES_.978
-_OBJC_SELECTOR_REFERENCES_.984
+_OBJC_SELECTOR_REFERENCES_.980
+_OBJC_SELECTOR_REFERENCES_.982
 _OBJC_SELECTOR_REFERENCES_.988
-_OBJC_SELECTOR_REFERENCES_.994
 _OBJC_SELECTOR_REFERENCES_.996
 _OBJC_SELECTOR_REFERENCES_.998
+_OBJC_SELECTOR_REFERENCES_.1000
 _OBJC_SELECTOR_REFERENCES_.1002
 _OBJC_SELECTOR_REFERENCES_.1006
-_OBJC_SELECTOR_REFERENCES_.1008
 _OBJC_SELECTOR_REFERENCES_.1010
+_OBJC_SELECTOR_REFERENCES_.1012
 _OBJC_SELECTOR_REFERENCES_.1014
 _OBJC_SELECTOR_REFERENCES_.1018
-_OBJC_SELECTOR_REFERENCES_.1020
 _OBJC_SELECTOR_REFERENCES_.1022
+_OBJC_SELECTOR_REFERENCES_.1024
 _OBJC_SELECTOR_REFERENCES_.1030
 _OBJC_SELECTOR_REFERENCES_.1034
-_OBJC_SELECTOR_REFERENCES_.1036
+_OBJC_SELECTOR_REFERENCES_.1038
 _OBJC_SELECTOR_REFERENCES_.1040
 _OBJC_SELECTOR_REFERENCES_.1048
 _OBJC_SELECTOR_REFERENCES_.1052
 _OBJC_SELECTOR_REFERENCES_.1058
 _OBJC_SELECTOR_REFERENCES_.1062
-_OBJC_SELECTOR_REFERENCES_.1064
 _OBJC_SELECTOR_REFERENCES_.1068
 _OBJC_SELECTOR_REFERENCES_.1070
-_OBJC_SELECTOR_REFERENCES_.1076
-_OBJC_SELECTOR_REFERENCES_.1078
-___block_descriptor_29_e4_20o24o_e5_v4?0l
-_OBJC_SELECTOR_REFERENCES_.1083
-_OBJC_SELECTOR_REFERENCES_.1086
-_OBJC_SELECTOR_REFERENCES_.1089
-_OBJC_SELECTOR_REFERENCES_.1092
-_OBJC_SELECTOR_REFERENCES_.1097
-_OBJC_SELECTOR_REFERENCES_.1099
-_OBJC_SELECTOR_REFERENCES_.1102
-_OBJC_SELECTOR_REFERENCES_.1105
-___block_descriptor_36_e4_20o24o28o32o_e5_v4?0l
-_OBJC_SELECTOR_REFERENCES_.1111
-_OBJC_SELECTOR_REFERENCES_.1117
-_OBJC_SELECTOR_REFERENCES_.1127
-_OBJC_SELECTOR_REFERENCES_.1132
-_OBJC_SELECTOR_REFERENCES_.1137
-_OBJC_SELECTOR_REFERENCES_.1142
-_OBJC_SELECTOR_REFERENCES_.1147
-_OBJC_SELECTOR_REFERENCES_.1152
-_OBJC_SELECTOR_REFERENCES_.1159
-_OBJC_SELECTOR_REFERENCES_.1162
-_OBJC_SELECTOR_REFERENCES_.1182
-_OBJC_SELECTOR_REFERENCES_.1187
-_OBJC_SELECTOR_REFERENCES_.1192
-_OBJC_SELECTOR_REFERENCES_.1197
-_OBJC_SELECTOR_REFERENCES_.1199
-_OBJC_SELECTOR_REFERENCES_.1202
-_OBJC_SELECTOR_REFERENCES_.1205
-_OBJC_SELECTOR_REFERENCES_.1210
-_OBJC_SELECTOR_REFERENCES_.1217
-_OBJC_SELECTOR_REFERENCES_.1222
-_OBJC_SELECTOR_REFERENCES_.1227
-_OBJC_SELECTOR_REFERENCES_.1229
-_OBJC_SELECTOR_REFERENCES_.1234
-_OBJC_SELECTOR_REFERENCES_.1239
-_OBJC_SELECTOR_REFERENCES_.1249
-_OBJC_SELECTOR_REFERENCES_.1251
-_OBJC_SELECTOR_REFERENCES_.1257
-_OBJC_SELECTOR_REFERENCES_.1270
+_OBJC_SELECTOR_REFERENCES_.1072
+_OBJC_SELECTOR_REFERENCES_.1074
+_OBJC_SELECTOR_REFERENCES_.1082
+___block_descriptor_49_e8_32o40o_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.1087
+_OBJC_SELECTOR_REFERENCES_.1090
+_OBJC_SELECTOR_REFERENCES_.1093
+_OBJC_SELECTOR_REFERENCES_.1096
+_OBJC_SELECTOR_REFERENCES_.1101
+_OBJC_SELECTOR_REFERENCES_.1103
+_OBJC_SELECTOR_REFERENCES_.1106
+_OBJC_SELECTOR_REFERENCES_.1109
+___block_descriptor_64_e8_32o40o48o56o_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.1115
+_OBJC_SELECTOR_REFERENCES_.1121
+_OBJC_SELECTOR_REFERENCES_.1131
+_OBJC_SELECTOR_REFERENCES_.1136
+_OBJC_SELECTOR_REFERENCES_.1141
+_OBJC_SELECTOR_REFERENCES_.1146
+_OBJC_SELECTOR_REFERENCES_.1151
+_OBJC_SELECTOR_REFERENCES_.1156
+_OBJC_SELECTOR_REFERENCES_.1163
+_OBJC_SELECTOR_REFERENCES_.1166
+_OBJC_SELECTOR_REFERENCES_.1186
+_OBJC_SELECTOR_REFERENCES_.1191
+_OBJC_SELECTOR_REFERENCES_.1196
+_OBJC_SELECTOR_REFERENCES_.1201
+_OBJC_SELECTOR_REFERENCES_.1203
+_OBJC_SELECTOR_REFERENCES_.1209
+_OBJC_SELECTOR_REFERENCES_.1214
+_OBJC_SELECTOR_REFERENCES_.1221
+_OBJC_SELECTOR_REFERENCES_.1226
+_OBJC_SELECTOR_REFERENCES_.1231
+_OBJC_SELECTOR_REFERENCES_.1233
+_OBJC_SELECTOR_REFERENCES_.1238
+_OBJC_SELECTOR_REFERENCES_.1243
+_OBJC_SELECTOR_REFERENCES_.1253
+_OBJC_SELECTOR_REFERENCES_.1255
+_OBJC_SELECTOR_REFERENCES_.1261
+_OBJC_SELECTOR_REFERENCES_.1263
+_OBJC_SELECTOR_REFERENCES_.1271
 _OBJC_SELECTOR_REFERENCES_.1275
 _OBJC_SELECTOR_REFERENCES_.1277
 _OBJC_SELECTOR_REFERENCES_.1279
@@ -13456,57 +13455,53 @@ __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_44
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_43
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_42
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_41
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_40.1271
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_39.1268
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_38.1263
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_37.1258
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36.1255
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35.1252
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34.1247
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_33.1242
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_32.1237
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_31.1232
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_30.1223
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_29.1220
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_28.1211
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_27.1208
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_26.1203
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_25.1200
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_24.1193
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_23.1190
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_22.1185
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_21.1180
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_20.1177
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_19.1174
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_18.1171
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_17.1168
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_16.1165
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_15.1160
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_14.1153
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_13.1150
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_12.1145
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_11.1140
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_10.1135
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_9.1130
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_8.1125
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1122
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1121
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1118
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1115
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1112
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1109
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1106
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1103
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1100
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1093
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1090
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1087
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1084
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1081
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_40
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_39
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_38
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_37
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36.1259
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35.1256
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34.1251
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_33.1246
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_32.1241
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_31.1236
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_30.1227
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_29.1224
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_28.1215
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_27.1212
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_26.1207
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_25.1204
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_24.1197
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_23.1194
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_22.1189
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_21.1184
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_20.1181
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_19.1178
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_18.1175
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_17.1172
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_16.1169
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_15.1164
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_14.1157
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_13.1154
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_12.1149
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_11.1144
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_10.1139
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_9.1134
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_8.1129
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1126
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1125
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1122
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1119
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1116
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1113
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1110
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7.1107
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6.1104
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5.1097
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4.1094
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.1091
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.1088
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.1085
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_36
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_35
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_34
@@ -13540,8 +13535,12 @@ __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_7
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_6
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_5
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_4
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3.942
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.937
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.932
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_3
-__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.920
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2.925
+__52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.920
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke.911
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke_2
 __52-[DP_BBDeviceController onEmvDeviceGenericCallback:]_block_invoke
@@ -13631,8 +13630,8 @@ __40-[DP_BBDeviceController cancelCheckCard]_block_invoke
 __43-[DP_BBDeviceController disableInputAmount]_block_invoke
 __52-[DP_BBDeviceController enableInputAmount_Internal:]_block_invoke
 __43-[DP_BBDeviceController enableInputAmount:]_block_invoke
-__destroy_helper_block_e4_20o24o28o
-__copy_helper_block_e4_20o24o28o
+__destroy_helper_block_e8_32o40o48o
+__copy_helper_block_e8_32o40o48o
 __62-[DP_BBDeviceController enableInputAmount:currencyCharacters:]_block_invoke
 __48-[DP_BBDeviceController setAmountConfirmResult:]_block_invoke
 __43-[DP_BBDeviceController cancelReferProcess]_block_invoke
@@ -13688,8 +13687,6 @@ __82-[DP_BBDeviceController TC_onReturnDebugLog:functionName:callbackName:logMes
 -[DP_EmvSwOldProtocl_MainController WillResignActiveNotification]
 -[DP_EmvSwOldProtocl_MainController performSelector_stopAudioAfterPressedHome:]
 ___79-[DP_EmvSwOldProtocl_MainController performSelector_stopAudioAfterPressedHome:]_block_invoke
-___copy_helper_block_e8_20o
-___destroy_helper_block_e8_20o
 -[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome]
 ___62-[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome]_block_invoke
 ___62-[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome]_block_invoke_2
@@ -13861,14 +13858,14 @@ ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invo
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.905
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.908
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.929
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.934
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.939
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_3.940
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_4.953
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.1020
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.1029
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_7.1032
-___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_8.1035
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.934
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_3.939
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_4.940
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.953
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.1020
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_7.1029
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_8.1032
+___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_9.1035
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.1040
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.1041
 ___64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.1044
@@ -13941,11 +13938,8 @@ ___99-[DP_EmvSwOldProtocl_MainController performSelector_onEmvSwipe0ReturnViposB
 -[DP_EmvSwOldProtocl_MainController setIsReleasedAudioResource:]
 __ZL39sharedDP_EmvSwOldProtocl_MainController
 _OBJC_CLASS_$_DP_EmvSwOldProtocl_MainController
-___block_descriptor_36_e8_20o_e5_v4?0l
 _OBJC_CLASSLIST_REFERENCES_$_.229
 _OBJC_CLASSLIST_REFERENCES_$_.252
-_OBJC_SELECTOR_REFERENCES_.382
-_OBJC_SELECTOR_REFERENCES_.390
 _OBJC_CLASS_$_DP_Amount
 _OBJC_CLASSLIST_REFERENCES_$_.397
 _OBJC_SELECTOR_REFERENCES_.417
@@ -13987,10 +13981,11 @@ _OBJC_SELECTOR_REFERENCES_.869
 _OBJC_SELECTOR_REFERENCES_.873
 _OBJC_CLASSLIST_REFERENCES_$_.878
 _OBJC_SELECTOR_REFERENCES_.880
+___block_descriptor_53_e8_32o40o_e5_v8?0l
 _OBJC_SELECTOR_REFERENCES_.914
 _OBJC_SELECTOR_REFERENCES_.920
 _OBJC_SELECTOR_REFERENCES_.924
-_OBJC_SELECTOR_REFERENCES_.936
+_OBJC_SELECTOR_REFERENCES_.928
 _OBJC_SELECTOR_REFERENCES_.973
 _OBJC_SELECTOR_REFERENCES_.1013
 _OBJC_SELECTOR_REFERENCES_.1015
@@ -14002,25 +13997,22 @@ _OBJC_SELECTOR_REFERENCES_.1039
 _OBJC_SELECTOR_REFERENCES_.1043
 _OBJC_SELECTOR_REFERENCES_.1046
 _OBJC_SELECTOR_REFERENCES_.1050
-_OBJC_SELECTOR_REFERENCES_.1072
-_OBJC_SELECTOR_REFERENCES_.1074
-_OBJC_SELECTOR_REFERENCES_.1082
+_OBJC_SELECTOR_REFERENCES_.1076
+_OBJC_SELECTOR_REFERENCES_.1078
 _OBJC_SELECTOR_REFERENCES_.1084
-_OBJC_SELECTOR_REFERENCES_.1101
-_OBJC_SELECTOR_REFERENCES_.1109
+_OBJC_SELECTOR_REFERENCES_.1099
+_OBJC_SELECTOR_REFERENCES_.1111
 _OBJC_SELECTOR_REFERENCES_.1119
-_OBJC_SELECTOR_REFERENCES_.1121
 _OBJC_SELECTOR_REFERENCES_.1129
-_OBJC_SELECTOR_REFERENCES_.1131
 _OBJC_SELECTOR_REFERENCES_.1143
 _OBJC_SELECTOR_REFERENCES_.1145
+_OBJC_SELECTOR_REFERENCES_.1147
 _OBJC_SELECTOR_REFERENCES_.1149
-_OBJC_SELECTOR_REFERENCES_.1151
 _OBJC_SELECTOR_REFERENCES_.1153
 _OBJC_SELECTOR_REFERENCES_.1155
 _OBJC_SELECTOR_REFERENCES_.1157
+_OBJC_SELECTOR_REFERENCES_.1159
 _OBJC_SELECTOR_REFERENCES_.1161
-_OBJC_SELECTOR_REFERENCES_.1163
 _OBJC_SELECTOR_REFERENCES_.1165
 _OBJC_SELECTOR_REFERENCES_.1167
 _OBJC_SELECTOR_REFERENCES_.1169
@@ -14029,18 +14021,18 @@ _OBJC_SELECTOR_REFERENCES_.1173
 _OBJC_SELECTOR_REFERENCES_.1175
 _OBJC_SELECTOR_REFERENCES_.1185
 _OBJC_SELECTOR_REFERENCES_.1189
-_OBJC_SELECTOR_REFERENCES_.1191
 _OBJC_SELECTOR_REFERENCES_.1193
 _OBJC_SELECTOR_REFERENCES_.1195
-_OBJC_SELECTOR_REFERENCES_.1203
-_OBJC_SELECTOR_REFERENCES_.1209
+_OBJC_SELECTOR_REFERENCES_.1197
+_OBJC_SELECTOR_REFERENCES_.1199
+_OBJC_SELECTOR_REFERENCES_.1205
 _OBJC_SELECTOR_REFERENCES_.1211
 _OBJC_SELECTOR_REFERENCES_.1213
 _OBJC_SELECTOR_REFERENCES_.1215
+_OBJC_SELECTOR_REFERENCES_.1217
 _OBJC_SELECTOR_REFERENCES_.1219
 _OBJC_SELECTOR_REFERENCES_.1223
 _OBJC_SELECTOR_REFERENCES_.1225
-_OBJC_SELECTOR_REFERENCES_.1263
 __OBJC_$_CLASS_METHODS_DP_EmvSwOldProtocl_MainController
 __OBJC_$_PROTOCOL_REFS_DP_GenericChannelControllerDelegate
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_DP_GenericChannelControllerDelegate
@@ -14090,14 +14082,14 @@ __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invok
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.1044
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.1041
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.1040
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_8.1035
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_7.1032
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.1029
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.1020
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_4.953
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_3.940
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.939
-__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.934
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_9.1035
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_8.1032
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_7.1029
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.1020
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.953
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_4.940
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_3.939
+__64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_2.934
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke.929
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_6.908
 __64-[DP_EmvSwOldProtocl_MainController EmvSwipe0DecodeCommandData:]_block_invoke_5.905
@@ -14173,8 +14165,6 @@ __67-[DP_EmvSwOldProtocl_MainController onChannelCB_AudioDevicePlugged]_block_in
 __85-[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome_WithoutBackgroundError]_block_invoke
 __62-[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome]_block_invoke_2
 __62-[DP_EmvSwOldProtocl_MainController stopAudioAfterPressedHome]_block_invoke
-__destroy_helper_block_e8_20o
-__copy_helper_block_e8_20o
 __79-[DP_EmvSwOldProtocl_MainController performSelector_stopAudioAfterPressedHome:]_block_invoke
 +[DP_CmdIDAndEnum GetCmdSetDict]
 +[DP_CmdIDAndEnum getCmdIDIntValueByCmdEnum:]
@@ -14302,6 +14292,7 @@ BBLibrary/BBLibrary_EmvDevice/EmvDevice3/DP_DebugController.m
 _OBJC_METACLASS_$_DP_Amount
 _OBJC_CLASSLIST_REFERENCES_$_.184
 _OBJC_CLASSLIST_REFERENCES_$_.265
+_OBJC_SELECTOR_REFERENCES_.381
 __OBJC_$_CLASS_METHODS_DP_Amount
 __OBJC_METACLASS_RO_$_DP_Amount
 __OBJC_CLASS_RO_$_DP_Amount
@@ -15096,10 +15087,11 @@ _OBJC_CLASSLIST_REFERENCES_$_.148
 _OBJC_CLASS_$_DP_CmdTimeoutController
 _OBJC_CLASSLIST_REFERENCES_$_.340
 _OBJC_SELECTOR_REFERENCES_.342
-_OBJC_SELECTOR_REFERENCES_.346
 _OBJC_CLASSLIST_REFERENCES_$_.349
 _OBJC_CLASS_$_DP_WPOldProtocl_MainController
 _OBJC_CLASSLIST_REFERENCES_$_.361
+_OBJC_CLASSLIST_REFERENCES_$_.364
+_OBJC_CLASSLIST_REFERENCES_$_.383
 _OBJC_SELECTOR_REFERENCES_.444
 _OBJC_CLASSLIST_REFERENCES_$_.451
 _OBJC_SELECTOR_REFERENCES_.455
@@ -15107,6 +15099,7 @@ _OBJC_SELECTOR_REFERENCES_.457
 _OBJC_SELECTOR_REFERENCES_.459
 _OBJC_SELECTOR_REFERENCES_.461
 _OBJC_SELECTOR_REFERENCES_.463
+_OBJC_SELECTOR_REFERENCES_.477
 _OBJC_CLASSLIST_REFERENCES_$_.506
 _OBJC_SELECTOR_REFERENCES_.528
 _OBJC_SELECTOR_REFERENCES_.550
@@ -15125,7 +15118,6 @@ _OBJC_SELECTOR_REFERENCES_.860
 _OBJC_SELECTOR_REFERENCES_.898
 _OBJC_SELECTOR_REFERENCES_.902
 _OBJC_CLASSLIST_REFERENCES_$_.911
-_OBJC_SELECTOR_REFERENCES_.941
 _OBJC_SELECTOR_REFERENCES_.943
 _OBJC_SELECTOR_REFERENCES_.945
 _OBJC_SELECTOR_REFERENCES_.947
@@ -15145,15 +15137,16 @@ _OBJC_SELECTOR_REFERENCES_.1059
 _OBJC_SELECTOR_REFERENCES_.1061
 _OBJC_CLASSLIST_REFERENCES_$_.1080
 _OBJC_CLASSLIST_REFERENCES_$_.1083
-_OBJC_SELECTOR_REFERENCES_.1087
+_OBJC_SELECTOR_REFERENCES_.1089
 _OBJC_SELECTOR_REFERENCES_.1095
 _OBJC_SELECTOR_REFERENCES_.1113
 _OBJC_SELECTOR_REFERENCES_.1179
-_OBJC_SELECTOR_REFERENCES_.1231
+_OBJC_SELECTOR_REFERENCES_.1227
 _OBJC_SELECTOR_REFERENCES_.1235
 _OBJC_SELECTOR_REFERENCES_.1241
 _OBJC_CLASS_$_DP_InputOption
 _OBJC_CLASSLIST_REFERENCES_$_.1242
+_OBJC_SELECTOR_REFERENCES_.1270
 _OBJC_SELECTOR_REFERENCES_.1274
 _OBJC_SELECTOR_REFERENCES_.1276
 _OBJC_SELECTOR_REFERENCES_.1278
@@ -15858,7 +15851,6 @@ __OBJC_$_INSTANCE_METHODS_DP_PrinterUtility
 __OBJC_CLASS_RO_$_DP_PrinterUtility
 /Users/alexwong/Desktop/BuildSDK/ProjectCode_Dup/DP_BBDevice-Dev/BBLibrary/BBLibrary_EmvDevice/EmvDevice3/DP_PrinterUtility.mm
 BBLibrary/BBLibrary_EmvDevice/EmvDevice3/DP_PrinterUtility.mm
-llvm.loop.isvectorized
 +[DP_InputOption sharedInstance]
 -[DP_InputOption init]
 -[DP_InputOption dealloc]
@@ -15917,11 +15909,11 @@ _OBJC_METACLASS_$_DP_CmdTimeoutController
 __OBJC_$_INSTANCE_METHODS_DP_CmdTimeoutController
 _OBJC_IVAR_$_DP_CmdTimeoutController.delegate
 _OBJC_IVAR_$_DP_CmdTimeoutController.objIsSendNACKAfterTimeout
-_OBJC_IVAR_$_DP_CmdTimeoutController.sendCommandTimeoutController
 _OBJC_IVAR_$_DP_CmdTimeoutController.objResendInterval
 _OBJC_IVAR_$_DP_CmdTimeoutController.objTotalNumberOfSend
 _OBJC_IVAR_$_DP_CmdTimeoutController.objRemainingSendCount
 _OBJC_IVAR_$_DP_CmdTimeoutController.objPreventInfiniteResumeCounter
+_OBJC_IVAR_$_DP_CmdTimeoutController.sendCommandTimeoutController
 __OBJC_$_INSTANCE_VARIABLES_DP_CmdTimeoutController
 __OBJC_$_PROP_LIST_DP_CmdTimeoutController
 __OBJC_CLASS_RO_$_DP_CmdTimeoutController
@@ -16368,29 +16360,29 @@ ___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2
 ___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_26
 ___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_27
 ___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_28
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_29
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_30
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_31
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1119
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1124
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1129
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_4.1132
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_5.1133
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_6.1136
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_7.1139
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_8.1142
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_9.1151
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_10.1152
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_11.1155
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_12.1160
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_13.1179
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_14.1182
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_15.1187
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_16.1192
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_17.1197
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_18.1202
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_19.1211
-___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_20.1214
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1100
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1105
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1119
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1122
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1127
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1132
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1135
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1136
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1139
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_4.1142
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_5.1145
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_6.1154
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_7.1155
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_8.1158
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_9.1163
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_10.1182
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_11.1185
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_12.1190
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_13.1195
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_14.1200
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_15.1205
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_16.1214
+___60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_17.1217
 -[DP_WPOldProtocl_MainController performSelector_onReturnDeviceInfo]
 ___68-[DP_WPOldProtocl_MainController performSelector_onReturnDeviceInfo]_block_invoke
 -[DP_WPOldProtocl_MainController performSelector_onReturnTransactionResult]
@@ -16426,8 +16418,8 @@ ___52-[DP_WPOldProtocl_MainController WP0_sendPrintData:]_block_invoke_3
 -[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]
 ___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke
 ___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2
-___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke.1321
-___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2.1326
+___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke.1324
+___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2.1329
 ___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_3
 ___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_4
 ___81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_5
@@ -16465,12 +16457,11 @@ ___72-[DP_WPOldProtocl_MainController triggerCallback_onWisePad0UsbConnected]_bl
 -[DP_WPOldProtocl_MainController setAmountErrorType]
 -[DP_WPOldProtocl_MainController setSetAmountErrorType:]
 __ZL36sharedDP_WPOldProtocl_MainController
+_OBJC_CLASSLIST_REFERENCES_$_.162
 _OBJC_CLASSLIST_REFERENCES_$_.167
 _OBJC_CLASSLIST_REFERENCES_$_.201
 _OBJC_CLASSLIST_REFERENCES_$_.298
-_OBJC_CLASSLIST_REFERENCES_$_.334
 _OBJC_SELECTOR_REFERENCES_.338
-_OBJC_SELECTOR_REFERENCES_.402
 _OBJC_CLASSLIST_REFERENCES_$_.483
 _OBJC_SELECTOR_REFERENCES_.507
 _OBJC_SELECTOR_REFERENCES_.585
@@ -16487,7 +16478,10 @@ _OBJC_SELECTOR_REFERENCES_.863
 _OBJC_SELECTOR_REFERENCES_.876
 _OBJC_SELECTOR_REFERENCES_.886
 _OBJC_SELECTOR_REFERENCES_.918
+_OBJC_SELECTOR_REFERENCES_.930
+_OBJC_SELECTOR_REFERENCES_.932
 _OBJC_SELECTOR_REFERENCES_.974
+_OBJC_SELECTOR_REFERENCES_.984
 _OBJC_SELECTOR_REFERENCES_.989
 _OBJC_SELECTOR_REFERENCES_.1004
 _OBJC_CLASSLIST_REFERENCES_$_.1015
@@ -16498,43 +16492,30 @@ _OBJC_SELECTOR_REFERENCES_.1071
 _OBJC_SELECTOR_REFERENCES_.1073
 _OBJC_SELECTOR_REFERENCES_.1075
 _OBJC_SELECTOR_REFERENCES_.1079
+_OBJC_SELECTOR_REFERENCES_.1083
 _OBJC_SELECTOR_REFERENCES_.1085
-_OBJC_SELECTOR_REFERENCES_.1093
-_OBJC_SELECTOR_REFERENCES_.1107
-_OBJC_CLASSLIST_REFERENCES_$_.1108
-_OBJC_SELECTOR_REFERENCES_.1141
-_OBJC_SELECTOR_REFERENCES_.1146
-_OBJC_SELECTOR_REFERENCES_.1148
-_OBJC_SELECTOR_REFERENCES_.1150
-_OBJC_SELECTOR_REFERENCES_.1174
-_OBJC_SELECTOR_REFERENCES_.1176
-_OBJC_SELECTOR_REFERENCES_.1184
-_OBJC_SELECTOR_REFERENCES_.1186
-_OBJC_SELECTOR_REFERENCES_.1196
-_OBJC_SELECTOR_REFERENCES_.1204
-_OBJC_SELECTOR_REFERENCES_.1218
-_OBJC_SELECTOR_REFERENCES_.1220
-_OBJC_SELECTOR_REFERENCES_.1224
-_OBJC_SELECTOR_REFERENCES_.1226
-_OBJC_SELECTOR_REFERENCES_.1264
-_OBJC_CLASSLIST_REFERENCES_$_.1265
-_OBJC_CLASSLIST_REFERENCES_$_.1270
+_OBJC_SELECTOR_REFERENCES_.1102
+_OBJC_CLASSLIST_REFERENCES_$_.1110
+_OBJC_SELECTOR_REFERENCES_.1134
+_OBJC_SELECTOR_REFERENCES_.1177
+_OBJC_SELECTOR_REFERENCES_.1187
+_OBJC_SELECTOR_REFERENCES_.1192
+_OBJC_SELECTOR_REFERENCES_.1202
+_OBJC_SELECTOR_REFERENCES_.1207
+_OBJC_SELECTOR_REFERENCES_.1216
+_OBJC_SELECTOR_REFERENCES_.1229
+_OBJC_SELECTOR_REFERENCES_.1247
+_OBJC_SELECTOR_REFERENCES_.1251
+_OBJC_SELECTOR_REFERENCES_.1257
+_OBJC_SELECTOR_REFERENCES_.1259
+_OBJC_CLASSLIST_REFERENCES_$_.1268
 _OBJC_SELECTOR_REFERENCES_.1272
-_OBJC_SELECTOR_REFERENCES_.1286
-_OBJC_SELECTOR_REFERENCES_.1306
-_OBJC_SELECTOR_REFERENCES_.1308
-_OBJC_SELECTOR_REFERENCES_.1310
-_OBJC_SELECTOR_REFERENCES_.1314
-_OBJC_SELECTOR_REFERENCES_.1316
-_OBJC_SELECTOR_REFERENCES_.1320
-_OBJC_SELECTOR_REFERENCES_.1332
-_OBJC_SELECTOR_REFERENCES_.1338
-_OBJC_SELECTOR_REFERENCES_.1340
-_OBJC_SELECTOR_REFERENCES_.1346
-_OBJC_SELECTOR_REFERENCES_.1352
-_OBJC_SELECTOR_REFERENCES_.1354
-_OBJC_SELECTOR_REFERENCES_.1358
-_OBJC_SELECTOR_REFERENCES_.1360
+_OBJC_CLASSLIST_REFERENCES_$_.1273
+_OBJC_SELECTOR_REFERENCES_.1281
+_OBJC_SELECTOR_REFERENCES_.1313
+_OBJC_SELECTOR_REFERENCES_.1328
+_OBJC_SELECTOR_REFERENCES_.1347
+_OBJC_SELECTOR_REFERENCES_.1355
 __OBJC_$_CLASS_METHODS_DP_WPOldProtocl_MainController
 __OBJC_CLASS_PROTOCOLS_$_DP_WPOldProtocl_MainController
 __OBJC_METACLASS_RO_$_DP_WPOldProtocl_MainController
@@ -16573,8 +16554,8 @@ __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandD
 __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_5
 __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_4
 __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_3
-__81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2.1326
-__81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke.1321
+__81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2.1329
+__81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke.1324
 __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke_2
 __81-[DP_WPOldProtocl_MainController decodeMappingByteCommandFormatData:commandData:]_block_invoke
 __52-[DP_WPOldProtocl_MainController WP0_sendPrintData:]_block_invoke_3
@@ -16585,29 +16566,29 @@ __75-[DP_WPOldProtocl_MainController performSelector_onReturnEncryptDataResult]_
 __69-[DP_WPOldProtocl_MainController performSelector_onReturnAmountByWP2]_block_invoke
 __75-[DP_WPOldProtocl_MainController performSelector_onReturnTransactionResult]_block_invoke
 __68-[DP_WPOldProtocl_MainController performSelector_onReturnDeviceInfo]_block_invoke
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_20.1214
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_19.1211
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_18.1202
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_17.1197
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_16.1192
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_15.1187
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_14.1182
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_13.1179
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_12.1160
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_11.1155
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_10.1152
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_9.1151
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_8.1142
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_7.1139
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_6.1136
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_5.1133
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_4.1132
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1129
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1124
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1119
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_31
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_30
-__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_29
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_17.1217
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_16.1214
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_15.1205
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_14.1200
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_13.1195
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_12.1190
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_11.1185
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_10.1182
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_9.1163
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_8.1158
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_7.1155
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_6.1154
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_5.1145
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_4.1142
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1139
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1136
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1135
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1132
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1127
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1122
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_3.1119
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_2.1105
+__60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke.1100
 __60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_28
 __60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_27
 __60-[DP_WPOldProtocl_MainController WisePad0DecodeCommandData:]_block_invoke_26
@@ -17319,13 +17300,14 @@ _OBJC_SELECTOR_REFERENCES_.887
 _OBJC_CLASSLIST_REFERENCES_$_.888
 _OBJC_SELECTOR_REFERENCES_.906
 _OBJC_SELECTOR_REFERENCES_.912
+_OBJC_SELECTOR_REFERENCES_.940
 _OBJC_SELECTOR_REFERENCES_.958
 _OBJC_SELECTOR_REFERENCES_.962
 _OBJC_SELECTOR_REFERENCES_.966
 _OBJC_SELECTOR_REFERENCES_.970
-_OBJC_SELECTOR_REFERENCES_.980
-_OBJC_SELECTOR_REFERENCES_.982
+_OBJC_SELECTOR_REFERENCES_.978
 _OBJC_SELECTOR_REFERENCES_.990
+_OBJC_SELECTOR_REFERENCES_.994
 _OBJC_CLASSLIST_REFERENCES_$_.997
 _OBJC_SELECTOR_REFERENCES_.999
 _OBJC_SELECTOR_REFERENCES_.1001
@@ -17339,22 +17321,31 @@ _OBJC_CLASSLIST_REFERENCES_$_.1045
 _OBJC_SELECTOR_REFERENCES_.1047
 _OBJC_SELECTOR_REFERENCES_.1049
 _OBJC_SELECTOR_REFERENCES_.1051
+_OBJC_SELECTOR_REFERENCES_.1064
 _OBJC_CLASSLIST_REFERENCES_$_.1081
 _OBJC_SELECTOR_REFERENCES_.1091
-_OBJC_SELECTOR_REFERENCES_.1115
+_OBJC_SELECTOR_REFERENCES_.1097
+_OBJC_SELECTOR_REFERENCES_.1107
+_OBJC_SELECTOR_REFERENCES_.1117
 _OBJC_SELECTOR_REFERENCES_.1123
 _OBJC_SELECTOR_REFERENCES_.1125
 _OBJC_SELECTOR_REFERENCES_.1133
 _OBJC_SELECTOR_REFERENCES_.1135
-_OBJC_SELECTOR_REFERENCES_.1177
+_OBJC_SELECTOR_REFERENCES_.1137
 _OBJC_SELECTOR_REFERENCES_.1181
 _OBJC_SELECTOR_REFERENCES_.1183
 _OBJC_CLASSLIST_REFERENCES_$_.1202
+_OBJC_SELECTOR_REFERENCES_.1204
 _OBJC_SELECTOR_REFERENCES_.1208
+_OBJC_SELECTOR_REFERENCES_.1210
 _OBJC_SELECTOR_REFERENCES_.1296
 _OBJC_SELECTOR_REFERENCES_.1304
+_OBJC_SELECTOR_REFERENCES_.1308
+_OBJC_SELECTOR_REFERENCES_.1310
 _OBJC_SELECTOR_REFERENCES_.1312
 _OBJC_SELECTOR_REFERENCES_.1326
+_OBJC_SELECTOR_REFERENCES_.1338
+_OBJC_SELECTOR_REFERENCES_.1346
 _OBJC_CLASSLIST_REFERENCES_$_.1359
 _OBJC_SELECTOR_REFERENCES_.1367
 _OBJC_SELECTOR_REFERENCES_.1371
