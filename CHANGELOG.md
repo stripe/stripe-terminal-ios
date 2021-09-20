@@ -9,6 +9,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Bug fix: Fixed a possible deadlock when calling `readReusableCard` and `processPayment` from background threads.
 * [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0))`.
 * Updated internal dependencies.
+* Added public convenience methods `stringFromCardBrand:` and `stringFromPaymentIntentStatus:`.
 
 # 2.1.1 2021-08-30
 
