@@ -9,18 +9,6 @@
 //  https://stripe.com/terminal/legal
 //
 
-#import <Availability.h>
-// The Stripe Terminal iOS SDK requires iOS >= 10.0.
-// If your app needs to target iOS 9, you can skip this check by defining
-// `SCP_SKIP_OS_VERSION_CHECK` in your build settings.
-// If you do this, make a runtime check and only use Terminal from iOS 10+,
-// otherwise you may encounter undefined breakages.
-#ifndef SCP_SKIP_OS_VERSION_CHECK
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0
-#error Module StripeTerminal requires deployment target of iOS 10.0 or later.
-#endif
-#endif
-
 #import <StripeTerminal/SCPAddress.h>
 #import <StripeTerminal/SCPBatteryStatus.h>
 #import <StripeTerminal/SCPBlocks.h>

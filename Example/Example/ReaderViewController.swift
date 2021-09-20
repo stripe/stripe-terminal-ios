@@ -11,7 +11,7 @@ import Static
 import StripeTerminal
 
 class ReaderViewController: TableViewController, CancelingViewController {
-    private var connectedReader: Reader? = nil {
+    internal var connectedReader: Reader? = nil {
         didSet {
             headerView.connectedReader = connectedReader
             updateContent()
@@ -24,7 +24,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
-    private let headerView = ReaderHeaderView()
+    internal let headerView = ReaderHeaderView()
     /// Will be set during connect from the DiscoveryViewController if an update is reported
     private var pendingUpdate: ReaderSoftwareUpdate?
 
@@ -64,7 +64,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.present(navController, animated: true, completion: nil)
     }
 
-    private func showDiscoverReaders() {
+    internal func showDiscoverReaders() {
         let config = DiscoveryConfiguration(
             discoveryMethod: ReaderViewController.readerConfiguration.discoveryMethod,
             simulated: ReaderViewController.readerConfiguration.simulated
@@ -79,7 +79,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.presentModalInNavigationController(discoveryVC)
     }
 
-    private func showRegisterReader() {
+    internal func showRegisterReader() {
         let registerVC = ReaderRegistrationViewController()
 
         registerVC.onConnectedToReader = { [weak registerVC] reader in
@@ -99,7 +99,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
-    private func disconnectFromReader() {
+    internal func disconnectFromReader() {
         Terminal.shared.disconnectReader { error in
             if let error = error {
                 print("Disconnect failed: \(error)")
@@ -153,7 +153,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    private func updateContent() {
+    internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
         if let connectedReader = self.connectedReader {
             var workflowRows = [

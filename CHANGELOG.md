@@ -4,6 +4,13 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.2.0 2021-09-20
+
+* Bug fix: Fixed a possible deadlock when calling `readReusableCard` and `processPayment` from background threads.
+* [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0))`.
+* Updated internal dependencies.
+* Added public convenience methods `stringFromCardBrand:` and `stringFromPaymentIntentStatus:`.
+
 # 2.1.1 2021-08-30
 
 * Bug fix: Fixed a crash if a Bluetooth reader disconnected during `processPayment`.
@@ -18,7 +25,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Bug fix: Calling `discoverReaders` via `.bluetoothScan` early in application startup should now always discover nearby readers fixing a bug where the discover call may not return the nearby readers.
 * Bug fix: Calling `processPayment` after the WisePad 3 has timed out now correctly returns a declined error instead of `UnexpectedSDKError`.
 * Bug fix: When connecting to a simulated Bluetooth reader and simulating a required update, canceling the update now correctly restarts the simulated discovery process and re-discovers simulated readers.
-* Updated internal dependencies
+* Updated internal dependencies.
 
 # 2.0.1 2021-07-14
 
