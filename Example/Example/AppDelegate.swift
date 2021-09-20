@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    public let defaultCurrency = "USD"
+
     // This can be used to set the location in the ConnectionConfiguration.
     var locationToRegisterTo: Location?
 

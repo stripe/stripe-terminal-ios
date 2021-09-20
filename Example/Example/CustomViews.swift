@@ -139,12 +139,17 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
 
     convenience init() {
         self.init(text: "Currency", footer: "")
-        textField.text = StripeCurrencies.supported.first
-        textField.keyboardType = .alphabet
         pickerView.dataSource = self
         pickerView.delegate = self
+        textField.keyboardType = .alphabet
         pickerView.backgroundColor = UIColor.white
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.inputView = pickerView
+
+        let currency = (UIApplication.shared.delegate as? AppDelegate)?.defaultCurrency.uppercased() ?? "USD"
+        let index = StripeCurrencies.supported.firstIndex(of: currency) ?? 0
+        textField.text = currency
+        pickerView.selectRow(index, inComponent: 0, animated: false)
     }
 
     func initialize() {
@@ -156,10 +161,13 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return StripeCurrencies.supported.count
+        return StripeCurrencies.supported.count + 1
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == StripeCurrencies.supported.count {
+            return "Input Other Currency"
+        }
         let currencyCode = StripeCurrencies.supported[row]
         var title = currencyCode
         if let localizedString = NSLocale.current.localizedString(forCurrencyCode: currencyCode.uppercased()) {
@@ -168,7 +176,20 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
         return title
     }
 
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
+        if let currency = textField.text {
+            onCurrencyUpdated(currency)
+        }
+    }
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row == StripeCurrencies.supported.count {
+            textField.inputView = nil
+            textField.text = ""
+            textField.reloadInputViews()
+            return
+        }
         let currency = StripeCurrencies.supported[row]
         onCurrencyUpdated(currency)
         textField.text = currency

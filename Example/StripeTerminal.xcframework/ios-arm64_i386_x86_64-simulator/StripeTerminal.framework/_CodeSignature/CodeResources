@@ -226,7 +226,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		lBnt0a4Q8gzdYXnNU4YSyejk+xQ=
+		Ijj7bS64gjdI+wRTd8TXDZ1JRL4=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -234,11 +234,11 @@
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		CPInvxAbTnwLNEyMntODIFNHddU=
+		j6/JsKpwKXGRr3RhJ//mduStwEY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3IQv/YwEl2S73keYylwEcaHBqI4=
+		RxjzJkLfWwTQeEBUDJ6ywoWXwcQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -856,11 +856,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lBnt0a4Q8gzdYXnNU4YSyejk+xQ=
+			Ijj7bS64gjdI+wRTd8TXDZ1JRL4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ATamsd6krPjcZ8SaWVoUMLSGRWs6jHPaW/Ngc6qNhoc=
+			o4lJ7lbBiwFKv3gMLBHUDGquQNO4eWVq4Qdhb2MaHWk=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -878,11 +878,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CPInvxAbTnwLNEyMntODIFNHddU=
+			j6/JsKpwKXGRr3RhJ//mduStwEY=
 			</data>
 			<key>hash2</key>
 			<data>
-			XhM4Jp0KSg280tSgx+rLRh8OYSSVhf2RKs64NIdqBaw=
+			9nOzf6iSQkspE7jhlNbak1UeVYgtN3gihHXlay4BZlM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.1.1 Docs
+          StripeTerminal 2.2.0 Docs
         </a>
         
       </p>
@@ -2866,6 +2866,71 @@ actually charged. Tax and total are also not automatically calculated and must b
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromCardBrand:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromCardBrand:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromCardBrand:">+stringFromCardBrand:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given card brand.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromCardBrand</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPCardBrand.html">SCPCardBrand</a></span><span class="p">)</span><span class="nv">cardBrand</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromCardBrand</span><span class="p">(</span><span class="n">_</span> <span class="nv">cardBrand</span><span class="p">:</span> <span class="kt">CardBrand</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromPaymentIntentStatus:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromPaymentIntentStatus:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromPaymentIntentStatus:">+stringFromPaymentIntentStatus:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given payment intent status.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromPaymentIntentStatus</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a></span><span class="p">)</span><span class="nv">paymentIntentStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromPaymentIntentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntentStatus</span><span class="p">:</span> <span class="kt">PaymentIntentStatus</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPTerminal(im)init">-init</a>
@@ -2933,7 +2998,7 @@ actually charged. Tax and total are also not automatically calculated and must b
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="noopener" rel="external">Stripe</a>. All rights reserved. (Last updated: 2021-08-30)</p>
+      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="noopener" rel="external">Stripe</a>. All rights reserved. (Last updated: 2021-09-20)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
     </section>
   </body>

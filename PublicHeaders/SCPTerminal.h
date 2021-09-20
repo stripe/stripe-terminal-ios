@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBlocks.h>
 #import <StripeTerminal/SCPBluetoothReaderDelegate.h>
+#import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
 #import <StripeTerminal/SCPDeviceType.h>
@@ -28,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.1.1";
+static NSString *const SCPSDKVersion = @"2.2.0";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
@@ -65,6 +66,7 @@ static NSString *const SCPSDKVersion = @"2.1.1";
  example application](https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift).
  */
 NS_SWIFT_NAME(Terminal)
+API_AVAILABLE(ios(10.0))
 @interface SCPTerminal : NSObject
 
 #pragma mark Initializing and accessing the SCPTerminal singleton
@@ -753,6 +755,16 @@ NS_SWIFT_NAME(Terminal)
  Returns an unlocalized string for the given discovery method.
  */
 + (NSString *)stringFromDiscoveryMethod:(SCPDiscoveryMethod)method NS_SWIFT_NAME(stringFromDiscoveryMethod(_:));
+
+/**
+ Returns an unlocalized string for the given card brand.
+ */
++ (NSString *)stringFromCardBrand:(SCPCardBrand)cardBrand NS_SWIFT_NAME(stringFromCardBrand(_:));
+
+/**
+ Returns an unlocalized string for the given payment intent status.
+ */
++ (NSString *)stringFromPaymentIntentStatus:(SCPPaymentIntentStatus)paymentIntentStatus NS_SWIFT_NAME(stringFromPaymentIntentStatus(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`
