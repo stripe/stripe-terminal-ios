@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The possible statuses for a refund.
- 
+
  @see https://stripe.com/docs/api/refunds/object#refund_object-status
  */
 typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
@@ -44,17 +44,17 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
 
 /**
  An object representing a Stripe refund.
- 
+
  Some payment methods, like Interac Debit payments, require that in-person payments
  also be refunded while the cardholder is present. The cardholder must present
  the Interac card to the card reader; these payments cannot be refunded via the
  dashboard or the API.
- 
+
  @see https://stripe.com/docs/terminal/canada#interac-refunds
- 
+
  The `collectRefundPaymentMethod:completion` and `processRefund` SDK methods
  allow you to build an in-person refund interface into your app.
- 
+
  The refund SDK methods and the `SCPRefund` class are only available for
  payment methods that require in-person refunds, such as Interac Debit. For
  all other refunds, use the Stripe Dashboard or the Stripe API.

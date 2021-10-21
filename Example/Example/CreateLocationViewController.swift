@@ -42,7 +42,7 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
     let addressCountryTextField = CountryInputView(header: "Country")
     let addressPostalCodeTextField = TextFieldView(header: "Postal code")
 
-    var message: (text: String, color: UIColor)? = nil {
+    var message: (text: String, color: UIColor)? {
         didSet {
             updateContent()
         }

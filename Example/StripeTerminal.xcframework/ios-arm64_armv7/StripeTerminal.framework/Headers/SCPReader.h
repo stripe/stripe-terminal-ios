@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  Some of the properties are only applicable to a certain device type.
  These properties are labeled with the reader or reader type to which they apply.
- 
+
  @see https://stripe.com/docs/terminal/readers
  */
 NS_SWIFT_NAME(Reader)

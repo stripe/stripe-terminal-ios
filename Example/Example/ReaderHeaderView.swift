@@ -11,7 +11,7 @@ import StripeTerminal
 
 class ReaderHeaderView: UIView {
 
-    var connectedReader: Reader? = nil {
+    var connectedReader: Reader? {
         didSet {
             updateContent()
         }

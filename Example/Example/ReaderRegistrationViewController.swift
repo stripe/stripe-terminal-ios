@@ -30,7 +30,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
     let readerLabelTextField = TextFieldView(text: "", footer: "")
     private var selectedLocation: Location?
 
-    var message: String? = nil {
+    var message: String? {
         didSet {
             updateContent()
         }

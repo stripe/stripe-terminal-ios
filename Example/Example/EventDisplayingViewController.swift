@@ -24,7 +24,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
         return .cancelCollectPaymentMethod
     }
 
-    internal var cancelable: Cancelable? = nil {
+    internal var cancelable: Cancelable? {
         didSet {
             setAllowedCancelMethods(cancelable != nil ? .all : [])
         }

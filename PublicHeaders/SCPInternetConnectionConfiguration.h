@@ -29,7 +29,7 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
  you to connect to a reader already connected to another device, and will break
  the existing reader-to-SDK connection on the other device when it attempts to
  collect payment.
- 
+
  If `Terminal.connectReader` is invoked without a `SCPInternetConnectionConfiguration`,
  then `failIfInUse` defaults to `NO`.
 
@@ -41,9 +41,9 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
  If set to true, the customer will be able to press the red X button on the
  Verifone P400 to cancel a `collectPaymentMethod`, `collectReusableCard`, or
  `collectRefundPaymentMethod` command.
- 
+
  The property defaults to `NO` if not set.
- 
+
  @note This behavior is part of a private beta. Setting this property will have
  no effect if you are not part of the allowCustomerCancel beta program.
  */
@@ -64,7 +64,7 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
 /**
  Initialize an `InternetConnectionConfiguration` object and set the
  `allowCustomerCancel` property.
- 
+
  This property is in private beta, and will have no effect if you are not part
  of the allowCustomerCancel beta program.
  */

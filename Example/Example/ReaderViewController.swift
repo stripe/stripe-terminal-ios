@@ -11,7 +11,7 @@ import Static
 import StripeTerminal
 
 class ReaderViewController: TableViewController, CancelingViewController {
-    internal var connectedReader: Reader? = nil {
+    internal var connectedReader: Reader? {
         didSet {
             headerView.connectedReader = connectedReader
             updateContent()

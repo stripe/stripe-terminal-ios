@@ -237,7 +237,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     /**
      An incompatible reader was detected. You can only use the Stripe Terminal
      iOS SDK with one of Stripe's pre-certified readers.
-     
+
      @see https://stripe.com/docs/terminal/readers
      */
     SCPErrorIncompatibleReader = 3030,
@@ -310,7 +310,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Connecting to reader over the internet timed out. Make sure your device and
      reader are on the same Wifi network and your reader is connected to the
      Wifi network.
-     
+
      @see https://stripe.com/docs/terminal/readers/verifone-p400#troubleshooting
      */
     SCPErrorInternetConnectTimeOut = 3870,
@@ -430,7 +430,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
  */
 typedef NSString *const SCPErrorKey NS_STRING_ENUM NS_SWIFT_NAME(ErrorKey);
 
-/** 
+/**
  An error message explaining what went wrong. You probably shouldn't show this
  to your users, but may want to use it yourself.
  */

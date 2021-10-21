@@ -80,7 +80,7 @@ NS_SWIFT_NAME(PaymentIntent)
 /**
  The amount to be collected by this PaymentIntent, provided in the currency's
  smallest unit.
- 
+
  @see https://stripe.com/docs/currencies#zero-decimal
  */
 @property (nonatomic, readonly) NSUInteger amount;

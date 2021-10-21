@@ -4,10 +4,20 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.3.0 2021-10-18
+
+* Update: WisePad 3 processing timeout increased from 15 seconds to 30 seconds.
+* Update: Added a simulated Stripe M2 device during simulated Bluetooth scan discovery. 
+* Bug fix: Fixed `SCPSimulateReaderUpdateLowBattery` so it more closely matches a real update and announces `didStartInstallingUpdate` and `didFinishInstallingUpdate`.
+* [Issue #115](https://github.com/stripe/stripe-terminal-ios/issues/115): Fixed requests to cancel `collectPaymentMethod` with a WisePad 3 during application, PIN, or account selection now cancel immediately.
+* [Issue #104](https://github.com/stripe/stripe-terminal-ios/issues/104): Fixed missing call to `didUpdateDiscoveredReaders:` with an empty array if the last Bluetooth reader was turned off or goes out of range.
+* [Issue #114](https://github.com/stripe/stripe-terminal-ios/issues/114): Fixed possible missing calls to `didReportReaderEvent:` when removing a card during `collectPaymentMethod`.
+* Updated internal dependencies.
+
 # 2.2.0 2021-09-20
 
 * Bug fix: Fixed a possible deadlock when calling `readReusableCard` and `processPayment` from background threads.
-* [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0))`.
+* [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0))`
 * Updated internal dependencies.
 * Added public convenience methods `stringFromCardBrand:` and `stringFromPaymentIntentStatus:`.
 

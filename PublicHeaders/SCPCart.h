@@ -28,7 +28,7 @@ NS_SWIFT_NAME(CartLineItem)
 
 /**
  The price of the item, provided in the cart's currency's smallest unit.
- 
+
  @see https://stripe.com/docs/currencies#zero-decimal
  */
 @property (nonatomic, readwrite, assign) NSInteger amount;
