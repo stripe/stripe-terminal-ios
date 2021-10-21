@@ -56,7 +56,7 @@ NS_SWIFT_NAME(Location)
 
 /**
  Any metadata attached to this Location
- 
+
  @see https://stripe.com/docs/api/terminal/locations/create#create_terminal_location-metadata
  */
 @property (nonatomic, nullable, strong, readonly) NSDictionary<NSString *, NSString *> *metadata;

@@ -35,7 +35,7 @@ NS_SWIFT_NAME(ListLocationsParameters)
  your place in the list. For instance, if you make a list request and receive 100
  objects, starting with `obj_bar`, your subsequent call can include
  `ending_before=obj_bar` in order to fetch the previous page of the list.
- 
+
  @see https://stripe.com/docs/api/terminal/locations/list#list_terminal_locations-ending_before
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *endingBefore;

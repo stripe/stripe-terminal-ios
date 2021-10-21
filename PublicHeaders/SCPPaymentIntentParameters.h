@@ -122,7 +122,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  after the PaymentIntent is confirmed and any required actions from the user are complete.
  If no Customer was provided, the payment method can still be attached to a Customer after
  the transaction completes.
- 
+
  Possible values:
  "on_session": Use "on_session" if you intend to only reuse the payment method when your
  customer is present in your checkout flow.

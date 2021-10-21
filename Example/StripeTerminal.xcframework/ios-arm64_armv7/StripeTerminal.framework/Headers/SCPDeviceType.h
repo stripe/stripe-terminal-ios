@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
      The BBPOS WisePad 3 mobile reader.
 
      Support for this reader is currently in beta.
-     
+
      @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3
      */
     SCPDeviceTypeWisePad3,

@@ -32,7 +32,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     private var updateProgress: Float?
     private var updateInstalledCompletion: () -> Void
 
-    internal var cancelable: Cancelable? = nil {
+    internal var cancelable: Cancelable? {
         didSet {
             updateContent()
         }
