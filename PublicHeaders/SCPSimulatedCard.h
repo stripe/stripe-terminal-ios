@@ -51,6 +51,16 @@ NS_SWIFT_NAME(SimulatedCard)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
+    Returns true if the card is online pin enabled.
+ */
+- (BOOL)isOnlinePin;
+
+/**
+    Returns true if the card is offline pin enabled.
+ */
+- (BOOL)isOfflinePin;
+
+/**
  You cannot instantiate this class without specifying a type or testcard number.
  */
 + (instancetype)new NS_UNAVAILABLE;

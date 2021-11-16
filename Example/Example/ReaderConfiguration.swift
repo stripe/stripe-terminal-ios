@@ -15,6 +15,7 @@ import StripeTerminal
  */
 struct ReaderConfiguration {
     var discoveryMethod: DiscoveryMethod = .bluetoothScan
+    var allowCustomerCancel: Bool = false
 
     #if targetEnvironment(simulator)
     var simulated = true
