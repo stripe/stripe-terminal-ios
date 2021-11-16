@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.3.0 Docs
+          StripeTerminal 2.4.0 Docs
         </a>
         
       </p>
@@ -1061,6 +1061,148 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOnlinePinCvm"></a>
+                    <a name="//apple_ref/objc/Case/SCPSimulatedCardTypeOnlinePinCvm" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOnlinePinCvm">SCPSimulatedCardTypeOnlinePinCvm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Payment attaches Online Pin to the transaction.
+    cardholder_verification_method will be set to online_pin in the resulting paymentIntent
+    WisePad3 only</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPSimulatedCardTypeOnlinePinCvm</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">onlinePinCvm</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOnlinePinScaRetry"></a>
+                    <a name="//apple_ref/objc/Case/SCPSimulatedCardTypeOnlinePinScaRetry" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOnlinePinScaRetry">SCPSimulatedCardTypeOnlinePinScaRetry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This flow simulates an Online Pin scenario with SCA compliance.
+    Payment is retried and user is prompted to input their pin.
+    Next an online pin being entered is simulated.</p>
+<pre class="highlight objective_c"><code><span class="n">cardholder_verification_method</span> <span class="n">will</span> <span class="n">be</span> <span class="n">set</span> <span class="n">to</span> <span class="n">online_pin</span> <span class="k">in</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">paymentIntent</span><span class="p">.</span>
+<span class="n">WisePad3</span> <span class="n">only</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPSimulatedCardTypeOnlinePinScaRetry</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">onlinePinScaRetry</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOfflinePinCvm"></a>
+                    <a name="//apple_ref/objc/Case/SCPSimulatedCardTypeOfflinePinCvm" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOfflinePinCvm">SCPSimulatedCardTypeOfflinePinCvm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Payment attaches Offline Pin to the transaction.
+    cardholder_verification_method will be set to offline_pin in the resulting paymentIntent
+    WisePad3 only</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPSimulatedCardTypeOfflinePinCvm</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">offlinePinCvm</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOfflinePinScaRetry"></a>
+                    <a name="//apple_ref/objc/Case/SCPSimulatedCardTypeOfflinePinScaRetry" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSimulatedCardType@SCPSimulatedCardTypeOfflinePinScaRetry">SCPSimulatedCardTypeOfflinePinScaRetry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This flow simulates an Offline Pin scenario with SCA compliance.
+    Payment is retried and user is prompted to insert their card.
+    Next a contact retry and an offline pin being entered are simulated.</p>
+<pre class="highlight objective_c"><code><span class="n">cardholder_verification_method</span> <span class="n">will</span> <span class="n">be</span> <span class="n">set</span> <span class="n">to</span> <span class="n">offline_pin</span> <span class="k">in</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">paymentIntent</span><span class="p">.</span>
+<span class="n">WisePad3</span> <span class="n">only</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPSimulatedCardTypeOfflinePinScaRetry</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">offlinePinScaRetry</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1069,7 +1211,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2021-10-21)</p>
+      <p>&copy; 2021 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2021-11-16)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

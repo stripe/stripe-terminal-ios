@@ -13,6 +13,7 @@ import StripeTerminal
 class ReaderDiscoveryViewController: TableViewController, CancelableViewController, CancelingViewController {
 
     private var selectedLocation: Location?
+    var onCanceled: () -> Void = {}
     var onConnectedToReader: (Reader) -> Void = { _ in }
     private let discoveryConfig: DiscoveryConfiguration
     internal var cancelable: Cancelable?
@@ -147,7 +148,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 self.presentLocationRequiredAlert()
             }
         case .verifoneP400, .wisePosE:
-            let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: false)
+            let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: ReaderViewController.readerConfiguration.allowCustomerCancel)
             Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
         @unknown default:
             fatalError()
@@ -161,12 +162,12 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 if let error = error {
                     print("cancel discoverReaders failed: \(error)")
                 } else {
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                    self.onCanceled()
                 }
                 self.cancelable = nil
             }
         } else {
-            presentingViewController?.dismiss(animated: true, completion: nil)
+            self.onCanceled()
         }
     }
 

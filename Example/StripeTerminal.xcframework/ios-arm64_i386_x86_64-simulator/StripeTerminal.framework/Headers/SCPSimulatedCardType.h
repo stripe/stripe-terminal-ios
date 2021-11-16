@@ -83,7 +83,33 @@ typedef NS_ENUM(NSUInteger, SCPSimulatedCardType) {
     SCPSimulatedCardTypeChargeDeclinedProcessingError,
 
     /// Refund is declined with a refund_fail error.
-    SCPSimulatedCardTypeRefundFailed
+    SCPSimulatedCardTypeRefundFailed,
+
+    /// Payment attaches Online Pin to the transaction.
+    /// cardholder_verification_method will be set to online_pin in the resulting paymentIntent
+    /// WisePad3 only
+    SCPSimulatedCardTypeOnlinePinCvm,
+
+    /// This flow simulates an Online Pin scenario with SCA compliance.
+    /// Payment is retried and user is prompted to input their pin.
+    /// Next an online pin being entered is simulated.
+    ///
+    /// cardholder_verification_method will be set to online_pin in the resulting paymentIntent.
+    /// WisePad3 only
+    SCPSimulatedCardTypeOnlinePinScaRetry,
+
+    /// Payment attaches Offline Pin to the transaction.
+    /// cardholder_verification_method will be set to offline_pin in the resulting paymentIntent
+    /// WisePad3 only
+    SCPSimulatedCardTypeOfflinePinCvm,
+
+    /// This flow simulates an Offline Pin scenario with SCA compliance.
+    /// Payment is retried and user is prompted to insert their card.
+    /// Next a contact retry and an offline pin being entered are simulated.
+    ///
+    /// cardholder_verification_method will be set to offline_pin in the resulting paymentIntent.
+    /// WisePad3 only
+    SCPSimulatedCardTypeOfflinePinScaRetry,
 
 } NS_SWIFT_NAME(SimulatedCardType);
 

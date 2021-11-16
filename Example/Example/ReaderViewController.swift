@@ -75,6 +75,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
         discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
             self.onReaderConnectFrom(viewController: discoveryVC, reader: reader)
         }
+        discoveryVC.onCanceled = {[unowned self] in
+            self.dismiss(animated: true, completion: nil)
+        }
 
         self.presentModalInNavigationController(discoveryVC)
     }

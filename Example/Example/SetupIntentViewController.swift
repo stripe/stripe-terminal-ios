@@ -69,6 +69,7 @@ class SetupIntentViewController: EventDisplayingViewController {
             }
         } else {
             var createEvent = LogEvent(method: .createSetupIntent)
+            self.events.append(createEvent)
             Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
                 if let error = createError {
                     createEvent.result = .errored

@@ -186,7 +186,7 @@
 		</data>
 		<key>Headers/SCPRefundParameters.h</key>
 		<data>
-		dKbQ2YjFP0sHaJcDkaI8LtQ8U/s=
+		zB2BkkCLQzu78ltQ5QqHaaKiWOk=
 		</data>
 		<key>Headers/SCPSetupAttempt.h</key>
 		<data>
@@ -214,11 +214,11 @@
 		</data>
 		<key>Headers/SCPSimulatedCard.h</key>
 		<data>
-		C5O2nwW+x083NSj7LkHAuaGFCPM=
+		Ke5DDkGtn1tp0tBNs5DiNrTPDlU=
 		</data>
 		<key>Headers/SCPSimulatedCardType.h</key>
 		<data>
-		ccif2r+osF29xTSwL68hFwqQCCI=
+		TgovI/02Z0a3Zm4KZp5JJcsRbg8=
 		</data>
 		<key>Headers/SCPSimulatorConfiguration.h</key>
 		<data>
@@ -226,7 +226,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		qwL6fXxPr5zxpKYeZyETwP0rTwM=
+		RfJpzbyZlJQBzPKDrMgG7fq+8Yo=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		acq+w/xGE4Ah4Hcv15hxDDHoZrQ=
+		3NS0QYHBbWhG7InUyQWB8uA+j6c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -746,11 +746,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dKbQ2YjFP0sHaJcDkaI8LtQ8U/s=
+			zB2BkkCLQzu78ltQ5QqHaaKiWOk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DiuxFbhaGR+cbDT4Xv+ZlqBsoyTpc24mP//EpykqoDk=
+			ivplxZ+fkYlqmQBBH1IpaEs9KbUHOzB/8n8ZBM8Kfqw=
 			</data>
 		</dict>
 		<key>Headers/SCPSetupAttempt.h</key>
@@ -823,22 +823,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			C5O2nwW+x083NSj7LkHAuaGFCPM=
+			Ke5DDkGtn1tp0tBNs5DiNrTPDlU=
 			</data>
 			<key>hash2</key>
 			<data>
-			dWpCSxdeVtsXYmMtZ3hieHet1vsW6js4ZMR7wRPoNHc=
+			h9sViIdBu8FjzKpqzFHZ0ZtymGsKAhcJ8fGBi2D9FqQ=
 			</data>
 		</dict>
 		<key>Headers/SCPSimulatedCardType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ccif2r+osF29xTSwL68hFwqQCCI=
+			TgovI/02Z0a3Zm4KZp5JJcsRbg8=
 			</data>
 			<key>hash2</key>
 			<data>
-			g2RcbdVnaM5ir7UAFplx6YwvIRw4IqI49AR3qO4ZPqw=
+			TTA20nKZpEbZVgZKLmci8g2RT+aYTiSgcSR5DiwD2oA=
 			</data>
 		</dict>
 		<key>Headers/SCPSimulatorConfiguration.h</key>
@@ -856,11 +856,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qwL6fXxPr5zxpKYeZyETwP0rTwM=
+			RfJpzbyZlJQBzPKDrMgG7fq+8Yo=
 			</data>
 			<key>hash2</key>
 			<data>
-			F8hnKZXqfW39CsvfV8uarqiVa7pGnbrq0EZUhfNko+Q=
+			1FzICfTrYMnKtCF0qjIhSGtdGEmpstiTJyPkAmoat1U=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>

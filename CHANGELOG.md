@@ -4,6 +4,11 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+
+# 2.4.0 2021-11-15
+* Add 4 new simulated test cards: `.onlinePinCvm`, `.onlinePinScaRetry`, ` .offlinePinCvm`, & `.offlinePinScaRetry` to [ `SCPSimulatedCardType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulatedCardType.html)
+* Fixes [Issue #119](https://github.com/stripe/stripe-terminal-ios/issues/119): Refund metadata not being set. The fix only applies to Bluetooth readers for now. Internet readers will still be missing the metadata.
+
 # 2.3.0 2021-10-18
 
 * Update: WisePad 3 processing timeout increased from 15 seconds to 30 seconds.
@@ -17,7 +22,7 @@ pod 'StripeTerminal', '~> 2.0'
 # 2.2.0 2021-09-20
 
 * Bug fix: Fixed a possible deadlock when calling `readReusableCard` and `processPayment` from background threads.
-* [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0)).`
+* [Issue #111](https://github.com/stripe/stripe-terminal-ios/issues/111): Replaced `__IPHONE_OS_VERSION_MIN_REQUIRED` that was causing some trouble with `API_AVAILABLE(ios(10.0))`.
 * Updated internal dependencies.
 * Added public convenience methods `stringFromCardBrand:` and `stringFromPaymentIntentStatus:`.
 
