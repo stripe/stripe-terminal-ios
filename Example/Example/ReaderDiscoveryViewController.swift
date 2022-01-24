@@ -386,10 +386,27 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             cellClass = DisabledSubtitleCell.self
         }
 
+        var image: UIImage?
+        switch reader.deviceType {
+        case .stripeM2:
+            image = UIImage(named: "stripe_m2")
+        case .chipper1X, .chipper2X, .wiseCube:
+            image = UIImage(named: "chipper")
+        case .verifoneP400:
+            image = UIImage(named: "verifone")
+        case .wisePad3:
+            image = UIImage(named: "wisepad")
+        case .wisePosE:
+            image = UIImage(named: "wisepose")
+        @unknown default:
+            image = nil
+        }
+
         // prefer reader's label, fall back to serial number
         return Row(text: reader.label ?? reader.serialNumber,
                    detailText: details.joined(separator: " • "),
                    selection: selection,
+                   image: image,
                    cellClass: cellClass
         )
     }

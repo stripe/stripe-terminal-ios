@@ -199,6 +199,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderSoftwareUpdateFailedExpiredUpdate = 2670,
     /**
+     The reader has a critically low battery and cannot connect to the
+     iOS device. Charge the reader before trying again.
+     */
+    SCPErrorBluetoothConnectionFailedBatteryCriticallyLow = 2680,
+    /**
      The card is not a chip card.
      */
     SCPErrorCardInsertNotRead = 2810,

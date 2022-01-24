@@ -61,7 +61,8 @@ class APIClient: NSObject, ConnectionTokenProvider {
                           parameters: [
                             "amount": params.amount,
                             "currency": params.currency,
-                            "description": params.statementDescriptor ?? "Example PaymentIntent"
+                            "description": params.statementDescriptor ?? "Example PaymentIntent",
+                            "payment_method_types": params.paymentMethodTypes
         ])
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in

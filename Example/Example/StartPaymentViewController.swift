@@ -16,6 +16,20 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
     private var interacPresentEnabled = false
+    private var setupFutureUsage: String?
+
+    private var connectedAccountId: String {
+        connectedAccountTextField.textField.text ?? ""
+    }
+
+    private let connectedAccountTextField = TextFieldView(
+        placeholderText: "Connected Stripe Account ID")
+
+    private var connectedReaderIsBluetoothReader: Bool {
+        [DeviceType.stripeM2,
+         DeviceType.chipper2X,
+         DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
+    }
 
     convenience init() {
         self.init(style: .grouped)
@@ -26,6 +40,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         self.addKeyboardDisplayObservers()
 
         title = "Collect card payment"
+
+        connectedAccountTextField.textField.autocorrectionType = .no
+        connectedAccountTextField.textField.autocapitalizationType = .none
+        connectedAccountTextField.textField.delegate = self
+        connectedAccountTextField.textField.clearButtonMode = .whileEditing
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -90,38 +109,106 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
                                                     currency: currencyView.currency,
                                                     paymentMethodTypes: paymentMethodTypes)
+
+        paymentParams.setupFutureUsage = self.setupFutureUsage
+
+        // Set up destination payment
+        if !connectedAccountId.isEmpty {
+            paymentParams.transferDataDestination = connectedAccountId
+            paymentParams.onBehalfOf = connectedAccountId
+        }
+
         let vc = PaymentViewController(paymentParams: paymentParams)
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
     }
 
-    private func updateContent() {
-        let amountSection = Section(header: "AMOUNT", rows: [],
-                                    footer: Section.Extremity.autoLayoutView(amountView))
+    private func makeAmountSection() -> Section {
+        Section(
+            header: "AMOUNT",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(amountView))
+    }
 
-        let currencySection = Section(header: "CURRENCY", rows: [],
-                                      footer: Section.Extremity.autoLayoutView(currencyView))
+    private func makeCurrencySection() -> Section {
+        Section(
+            header: "CURRENCY",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(currencyView))
+    }
 
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true &&
-            [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
+    private func makePaymentMethodSection() -> Section {
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true && connectedReaderIsBluetoothReader
 
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
             Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
-                self.interacPresentEnabled = !self.interacPresentEnabled
-            }),
+                self.interacPresentEnabled.toggle()
+            })
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 
-        var sections: [Section] = [
-            amountSection,
-            currencySection,
-            paymentMethodSection,
+        return paymentMethodSection
+    }
+
+    /// Makes the "SETUP FUTURE USAGE" section.
+    /// - Returns: A `Section` if the connected reader is a bluetooth reader. `nil` otherwise.
+    private func makeSetupFutureUsageSection() -> Section? {
+        guard connectedReaderIsBluetoothReader else { return nil }
+        let rows: [Row] = [
+            Row(text: "Value",
+                accessory: .segmentedControl(
+                    items: ["default", "on_session", "off_session"],
+                    selectedIndex: 0) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.setupFutureUsage = nil
+                        case 1: self.setupFutureUsage = "on_session"
+                        case 2: self.setupFutureUsage = "off_session"
+                        default:
+                            fatalError("Unknown option selected")
+                        }
+                    }
+               )
         ]
+
+        return Section(header: "SETUP FUTURE USAGE", rows: rows)
+    }
+
+    func makeDestinationPaymentSection() -> Section {
+
+        let destinationPaymentSection = Section(
+            header: "Destination Payment",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(connectedAccountTextField)
+        )
+
+        return destinationPaymentSection
+    }
+
+    private func updateContent() {
+
+        var sections: [Section] = [
+            self.makeAmountSection(),
+            self.makeCurrencySection(),
+            self.makePaymentMethodSection(),
+            self.makeDestinationPaymentSection()
+        ]
+
+        if let setupFutureUsageSection = self.makeSetupFutureUsageSection() {
+            sections.append(setupFutureUsageSection)
+        }
 
         if let startSection = self.startSection {
             sections.append(startSection)
         }
 
         dataSource.sections = sections
+    }
+}
+
+
+extension StartPaymentViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
