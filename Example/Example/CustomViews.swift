@@ -413,12 +413,12 @@ class TextFieldView: UIView {
         return label
     }()
 
-    init(text: String? = nil, header: String? = nil, footer: String? = nil) {
+    init(text: String? = nil, header: String? = nil, footer: String? = nil, placeholderText: String? = nil) {
         super.init(frame: .zero)
-        buildTextView(header: header, footer: footer)
+        buildTextView(header: header, footer: footer, placeholderText: placeholderText)
     }
 
-    private func buildTextView(header: String?, footer: String?) {
+    private func buildTextView(header: String?, footer: String?, placeholderText: String?) {
         backgroundColor = UIColor.white
         addSubview(textField)
         footerLabel.text = footer
@@ -442,6 +442,8 @@ class TextFieldView: UIView {
         } else {
             stack.anchorToSuperviewAnchors(withInsets: insets)
         }
+
+        textField.placeholder = placeholderText
     }
 
     required init?(coder aDecoder: NSCoder) {

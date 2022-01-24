@@ -5,6 +5,11 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.5.0 2022-01-24
+* Adds a new error code, `SCPErrorBluetoothConnectionFailedBatteryLow`, that is passed into the `connectBluetoothReader` completion handler when connection failed due to the reader's battery being critically low.
+* Fixes [Issue #124](https://github.com/stripe/stripe-terminal-ios/issues/124): Crash when Bluetooth reader reports low battery but BluetoothReaderDelegate was released.
+* Fixes [Issue #121](https://github.com/stripe/stripe-terminal-ios/issues/121): `SCPReader` `isCharging` and `batteryLevel` weren't being updated if the `SCPBluetoothReaderDelegate` `didReportBatteryLevel:` wasn't implemented.
+
 # 2.4.0 2021-11-15
 * Add 4 new simulated test cards: `.onlinePinCvm`, `.onlinePinScaRetry`, ` .offlinePinCvm`, & `.offlinePinScaRetry` to [ `SCPSimulatedCardType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulatedCardType.html)
 * Fixes [Issue #119](https://github.com/stripe/stripe-terminal-ios/issues/119): Refund metadata not being set. The fix only applies to Bluetooth readers for now. Internet readers will still be missing the metadata.

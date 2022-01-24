@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable, readwrite) NSDictionary *hardwareInfo;
 @end
 
-@interface SCPStripeAPIClient : NSObject
+@interface SCPStripeAPIOnlineClient : NSObject
 
 @property (class, nonatomic, strong, readwrite) NSURL *apiBaseUrl;
 
