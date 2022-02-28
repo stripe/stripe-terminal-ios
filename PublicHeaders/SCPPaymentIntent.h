@@ -62,15 +62,10 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
 NS_SWIFT_NAME(PaymentIntent)
 @interface SCPPaymentIntent : NSObject <SCPJSONDecodable, NSCopying>
 
-// SCP_NULLABLE_PAYMENT_INTENT_ID lines will be stripped during ./scripts/build_framework.sh
-#if defined(SCP_NULLABLE_PAYMENT_INTENT_ID)
-@property (nonatomic, nullable, readonly, copy) NSString *stripeId; // SCP_NULLABLE_PAYMENT_INTENT_ID
-#else                                                               // SCP_NULLABLE_PAYMENT_INTENT_ID
 /**
  The unique identifier for the intent.
  */
 @property (nonatomic, readonly, copy) NSString *stripeId;
-#endif                                                              // SCP_NULLABLE_PAYMENT_INTENT_ID
 
 /**
  When the intent was created.
