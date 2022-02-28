@@ -12,9 +12,13 @@ import StripeTerminal
 
 class StartRefundViewController: TableViewController {
 
+    private var refundApplicationFee: Bool?
+    private var reverseTransfer: Bool?
+
     private let amountView = AmountInputView()
     private let chargeIdView = TextFieldView(text: "text", footer: "")
     private var startSection: Section?
+
 
     convenience init() {
         self.init(style: .grouped)
@@ -24,6 +28,11 @@ class StartRefundViewController: TableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Collect refund"
+
+        chargeIdView.textField.autocorrectionType = .no
+        chargeIdView.textField.autocapitalizationType = .none
+        chargeIdView.textField.delegate = self
+        chargeIdView.textField.clearButtonMode = .whileEditing
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -56,6 +65,14 @@ class StartRefundViewController: TableViewController {
                                             amount: amountView.amount,
                                             currency: "cad")
 
+        if let refundApplicationFee = refundApplicationFee {
+            refundParams.refundApplicationFee = NSNumber(value: refundApplicationFee)
+        }
+
+        if let reverseTransfer = reverseTransfer {
+            refundParams.reverseTransfer = NSNumber(value: reverseTransfer)
+        }
+
         let vc = RefundViewController(refundParams: refundParams)
         let navController = LargeTitleNavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
@@ -78,6 +95,8 @@ class StartRefundViewController: TableViewController {
         var sections: [Section] = [
             chargeIdSection,
             amountSection,
+            makeRefundApplicationFeeSection(),
+            makeReverseTransferSection(),
             shouldShowTestCardPickerView ? paymentMethodSection : nil
         ].compactMap { $0 }
 
@@ -86,5 +105,52 @@ class StartRefundViewController: TableViewController {
         }
 
         dataSource.sections = sections
+    }
+
+    func makeRefundApplicationFeeSection() -> Section {
+        let rows: [Row] = [
+            Row(text: "Value",
+                accessory: .segmentedControl(
+                    items: ["default", "true", "false"],
+                    selectedIndex: 0) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.refundApplicationFee = nil
+                        case 1: self.refundApplicationFee = true
+                        case 2: self.refundApplicationFee = false
+                        default:
+                            fatalError("Unknown option selected")
+                        }
+                    }
+               )
+        ]
+
+        return Section(header: "REFUND APPLICATION FEE", rows: rows)
+    }
+
+    func makeReverseTransferSection() -> Section {
+        let rows: [Row] = [
+            Row(text: "Value",
+                accessory: .segmentedControl(
+                    items: ["default", "true", "false"],
+                    selectedIndex: 0) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.reverseTransfer = nil
+                        case 1: self.reverseTransfer = true
+                        case 2: self.reverseTransfer = false
+                        default:
+                            fatalError("Unknown option selected")
+                        }
+                    }
+               )
+        ]
+
+        return Section(header: "REVERSE TRANSFER", rows: rows)
+    }
+}
+
+extension StartRefundViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

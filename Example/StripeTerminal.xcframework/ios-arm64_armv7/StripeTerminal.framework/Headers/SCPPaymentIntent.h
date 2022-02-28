@@ -65,7 +65,7 @@ NS_SWIFT_NAME(PaymentIntent)
 /**
  The unique identifier for the intent.
  */
-@property (nonatomic, readonly) NSString *stripeId;
+@property (nonatomic, readonly, copy) NSString *stripeId;
 
 /**
  When the intent was created.

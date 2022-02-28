@@ -5,6 +5,12 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.6.0 2022-02-28
+* Adds support for using [SimulatedCard](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html#/c:objc(cs)SCPSimulatorConfiguration(py)simulatedCard) with simulated Internet readers. Note the `SimulatedCard` is still not supported when performing a card-present refund with a simulated Internet reader.
+* Simulated Bluetooth Proximity discovery will now return a simulated Stripe Reader M2 device instead of a BBPOS Chipper 2X BT.
+* Addressses [Issue #133](https://github.com/stripe/stripe-terminal-ios/issues/133): Fixes a bug where connecting to an internet reader then calling `cancel()` on the discovery cancelable would cause the SCPTerminal singleton to not reset state properly if that connection fails. As a result, the SCPTerminal singleton would prevent you from restarting discovery.
+* Adds `CollectConfiguration` as a parameter on `collectPaymentMethod` to suppress [on-reader tipping on the BBPOS WisePOS E](https://stripe.com/docs/terminal/features/collecting-tips/on-reader)
+
 # 2.5.0 2022-01-24
 * Adds a new error code, `SCPErrorBluetoothConnectionFailedBatteryLow`, that is passed into the `connectBluetoothReader` completion handler when connection failed due to the reader's battery being critically low.
 * Fixes [Issue #124](https://github.com/stripe/stripe-terminal-ios/issues/124): Crash when Bluetooth reader reports low battery but BluetoothReaderDelegate was released.
@@ -17,7 +23,7 @@ pod 'StripeTerminal', '~> 2.0'
 # 2.3.0 2021-10-18
 
 * Update: WisePad 3 processing timeout increased from 15 seconds to 30 seconds.
-* Update: Added a simulated Stripe M2 device during simulated Bluetooth scan discovery. 
+* Update: Added a simulated Stripe M2 device during simulated Bluetooth scan discovery.
 * Bug fix: Fixed `SCPSimulateReaderUpdateLowBattery` so it more closely matches a real update and announces `didStartInstallingUpdate` and `didFinishInstallingUpdate`.
 * [Issue #115](https://github.com/stripe/stripe-terminal-ios/issues/115): Fixed requests to cancel `collectPaymentMethod` with a WisePad 3 during application, PIN, or account selection now cancel immediately.
 * [Issue #104](https://github.com/stripe/stripe-terminal-ios/issues/104): Fixed missing call to `didUpdateDiscoveredReaders:` with an empty array if the last Bluetooth reader was turned off or goes out of range.
@@ -38,7 +44,7 @@ pod 'StripeTerminal', '~> 2.0'
 # 2.1.0 2021-08-23
 
 * Added [`SCPSimulateReaderUpdateLowBattery`](https://site-admin.stripe.com/docs/terminal/testing#simulated-reader-updates) which can be used to simulate an update that fails due to a reader's low battery level.
-* Added [`setupFutureUsage`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntentParameters.html#/c:objc(cs)SCPPaymentIntentParameters(py)setupFutureUsage) to `SCPPaymentIntentParameters`. 
+* Added [`setupFutureUsage`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntentParameters.html#/c:objc(cs)SCPPaymentIntentParameters(py)setupFutureUsage) to `SCPPaymentIntentParameters`.
 * Invite only: Added support for [`SetupIntents`](https://stripe.com/docs/api/setup_intents) with the WisePos E, Chipper 2X BT, and Stripe Reader M2 (SetupIntents was previously only supported with the WisePad 3).
 * Updated example app to show both Read Reusable Card and Create Setup Intent (beta) workflows.
 * Updated example app with more currencies in the payment flow and more countries when creating locations from the app.

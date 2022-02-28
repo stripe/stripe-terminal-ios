@@ -85,14 +85,14 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
 
         addressLine1TextField.textField.autocorrectionType = .no
         addressLine1TextField.textField.autocapitalizationType = .words
-        addressLine1TextField.textField.placeholder = "510 Townsend St"
+        addressLine1TextField.textField.placeholder = "354 Oyster Point Blvd"
 
         addressLine2TextField.textField.autocorrectionType = .no
         addressLine2TextField.textField.autocapitalizationType = .words
 
         addressCityTextField.textField.autocorrectionType = .no
         addressCityTextField.textField.autocapitalizationType = .words
-        addressCityTextField.textField.placeholder = "San Francisco"
+        addressCityTextField.textField.placeholder = "South San Francisco"
 
         addressStateTextField.textField.autocorrectionType = .no
         addressStateTextField.textField.autocapitalizationType = .words
@@ -100,7 +100,7 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
 
         addressPostalCodeTextField.textField.autocorrectionType = .no
         addressPostalCodeTextField.textField.autocapitalizationType = .none
-        addressPostalCodeTextField.textField.placeholder = "94103"
+        addressPostalCodeTextField.textField.placeholder = "94080"
 
         addressInputsView.addArrangedSubview(addressLine1TextField)
         addressInputsView.addArrangedSubview(addressLine2TextField)

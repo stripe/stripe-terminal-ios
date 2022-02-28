@@ -15,6 +15,7 @@
 #import <StripeTerminal/SCPBluetoothReaderDelegate.h>
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
+#import <StripeTerminal/SCPCollectConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
 #import <StripeTerminal/SCPDeviceType.h>
 #import <StripeTerminal/SCPDiscoveryMethod.h>
@@ -29,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.5.0";
+static NSString *const SCPSDKVersion = @"2.6.0";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
@@ -413,6 +414,21 @@ API_AVAILABLE(ios(10.0))
  */
 - (nullable SCPCancelable *)collectPaymentMethod:(SCPPaymentIntent *)paymentIntent
                                       completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(collectPaymentMethod(_:completion:));
+
+/**
+ Collects a payment method for the given `PaymentIntent`, with the specified configuration.
+
+ Note: `collectPaymentMethod` does not apply any changes to the PaymentIntent
+ API object. Updates to the PaymentIntent are local to the SDK, and persisted
+ in-memory.
+
+ @param paymentIntent       The PaymentIntent to collect a payment method for.
+ @param collectConfig   The CollectConfiguration object that contains settings for this call.
+ @param completion          The completion block called when the command completes.
+ */
+- (nullable SCPCancelable *)collectPaymentMethod:(SCPPaymentIntent *)paymentIntent
+                                   collectConfig:(nullable SCPCollectConfiguration *)collectConfig
+                                      completion:(SCPPaymentIntentCompletionBlock)completion;
 
 /**
  Processes a payment after collecting a payment method succeeds.
