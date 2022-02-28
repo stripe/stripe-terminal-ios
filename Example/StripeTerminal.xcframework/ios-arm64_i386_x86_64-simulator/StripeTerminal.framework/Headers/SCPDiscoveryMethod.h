@@ -49,8 +49,11 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
      a second time with an updated reader object, populated with additional
      info about the device, like its battery level.
 
-     @note The Bluetooth Proximity discovery method can only discovery Chipper
-     2X BT readers.
+     @note The Bluetooth Proximity discovery method can only discover
+     Stripe Reader M2 and BBPOS Chipper 2X BT readers.
+
+     @note The simulated Bluetooth Proximity discovery method will always return
+     a Stripe Reader M2 simulated device.
      */
     SCPDiscoveryMethodBluetoothProximity,
 

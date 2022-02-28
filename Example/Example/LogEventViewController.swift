@@ -259,6 +259,8 @@ struct LogEvent: CustomStringConvertible, Event {
         if case .paymentIntent(let intent) = object {
             if intent.status == .requiresConfirmation {
                 return "requires_confirmation"
+            } else if intent.status == .requiresCapture {
+                return "requires_capture"
             } else if let status = intent.originalJSON["status"] as? String {
                 return status
             } else {
@@ -334,7 +336,7 @@ extension LogEvent.AssociatedObject {
         case .paymentIntent(let intent) where intent.status == .requiresConfirmation:
             return nil
         case .paymentIntent(let intent):
-            return prettyPrint(json: intent.originalJSON)
+            return !intent.originalJSON.isEmpty ? prettyPrint(json: intent.originalJSON) : intent.debugDescription
         case .paymentMethod(let paymentMethod):
             return prettyPrint(json: paymentMethod.originalJSON)
         case .refund(let refund):

@@ -40,7 +40,7 @@ NS_SWIFT_NAME(SimulatorConfiguration)
  Create a SCPSimulatedCard and set it on the shared configuration object to
  test your integration with different card brands and in error scenarios.
 
- @note This currently only supports simulated Bluetooth readers.
+ @note Simulated Internet reader refunds do not use the specified simulated card.
 
  @see https://stripe.com/docs/terminal/testing#simulated-test-cards
  */

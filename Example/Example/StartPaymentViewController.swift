@@ -15,6 +15,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let amountView = AmountInputView()
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
+    private var skipTipping = false
     private var interacPresentEnabled = false
     private var setupFutureUsage: String?
 
@@ -22,8 +23,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         connectedAccountTextField.textField.text ?? ""
     }
 
+    private var applicationFeeAmount: NSNumber {
+        NSNumber(value: (Double(applicationFeeAmountTextField.textField.text ?? "0") ?? 0))
+    }
+
     private let connectedAccountTextField = TextFieldView(
         placeholderText: "Connected Stripe Account ID")
+
+    private let applicationFeeAmountTextField = TextFieldView(placeholderText: "Application Fee Amount")
 
     private var connectedReaderIsBluetoothReader: Bool {
         [DeviceType.stripeM2,
@@ -45,6 +52,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         connectedAccountTextField.textField.autocapitalizationType = .none
         connectedAccountTextField.textField.delegate = self
         connectedAccountTextField.textField.clearButtonMode = .whileEditing
+
+        applicationFeeAmountTextField.textField.autocorrectionType = .no
+        applicationFeeAmountTextField.textField.autocapitalizationType = .none
+        applicationFeeAmountTextField.textField.delegate = self
+        applicationFeeAmountTextField.textField.clearButtonMode = .whileEditing
+        applicationFeeAmountTextField.textField.keyboardType = .numberPad
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -118,7 +131,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentParams.onBehalfOf = connectedAccountId
         }
 
-        let vc = PaymentViewController(paymentParams: paymentParams)
+        if applicationFeeAmount != 0 {
+            paymentParams.applicationFeeAmount = applicationFeeAmount
+        }
+
+        let vc = PaymentViewController(paymentParams: paymentParams, collectConfig: .init(skipTipping: self.skipTipping))
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
@@ -138,8 +155,17 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             footer: Section.Extremity.autoLayoutView(currencyView))
     }
 
+    private func makeTippingSection() -> Section {
+        Section(
+            header: "TIPPING",
+            rows: [Row(text: "Skip Tipping", accessory: .switchToggle(value: self.skipTipping) { [unowned self] _ in
+                self.skipTipping.toggle()
+            })],
+            footer: .title("Must have on-reader tipping configured to have any effect."))
+    }
+
     private func makePaymentMethodSection() -> Section {
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true && connectedReaderIsBluetoothReader
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true
 
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
             Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
@@ -176,12 +202,22 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     func makeDestinationPaymentSection() -> Section {
 
         let destinationPaymentSection = Section(
-            header: "Destination Payment",
+            header: "Destination Charge",
             rows: [],
             footer: Section.Extremity.autoLayoutView(connectedAccountTextField)
         )
-
         return destinationPaymentSection
+    }
+
+    // TODO: Consolidate this section with the Destination Charge Section
+    func makeApplicationFeeAmountSection() -> Section {
+
+        let applicationFeeAmountSection = Section(
+            header: "Application Fee Amount",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(applicationFeeAmountTextField)
+        )
+        return applicationFeeAmountSection
     }
 
     private func updateContent() {
@@ -189,8 +225,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         var sections: [Section] = [
             self.makeAmountSection(),
             self.makeCurrencySection(),
+            self.makeTippingSection(),
             self.makePaymentMethodSection(),
-            self.makeDestinationPaymentSection()
+            self.makeDestinationPaymentSection(),
+            self.makeApplicationFeeAmountSection()
         ]
 
         if let setupFutureUsageSection = self.makeSetupFutureUsageSection() {

@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, strong, readwrite) NSURL *apiBaseUrl;
 
-@property (class, nonatomic, strong, readwrite) NSDictionary<NSString *, NSString *> *customHeaders;
+@property (class, nonatomic, copy, readwrite) NSDictionary<NSString *, NSString *> *customHeaders;
 
 @end
 

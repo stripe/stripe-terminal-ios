@@ -13,9 +13,11 @@ import StripeTerminal
 class PaymentViewController: EventDisplayingViewController {
 
     private let paymentParams: PaymentIntentParameters
+    private let collectConfig: CollectConfiguration
 
-    init(paymentParams: PaymentIntentParameters) {
+    init(paymentParams: PaymentIntentParameters, collectConfig: CollectConfiguration) {
         self.paymentParams = paymentParams
+        self.collectConfig = collectConfig
         super.init()
     }
 
@@ -96,7 +98,7 @@ class PaymentViewController: EventDisplayingViewController {
     private func collectPaymentMethod(intent: PaymentIntent) {
         var collectEvent = LogEvent(method: .collectPaymentMethod)
         self.events.append(collectEvent)
-        self.cancelable = Terminal.shared.collectPaymentMethod(intent) { intentWithPaymentMethod, attachError in
+        self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) { intentWithPaymentMethod, attachError in
             self.cancelable = nil
             if let error = attachError {
                 collectEvent.result = .errored

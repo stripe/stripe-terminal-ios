@@ -21,6 +21,7 @@
 #import <StripeTerminal/SCPCardPresentDetails.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCharge.h>
+#import <StripeTerminal/SCPCollectConfiguration.h>
 #import <StripeTerminal/SCPConfirmSetupIntentError.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
