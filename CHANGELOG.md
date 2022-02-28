@@ -17,7 +17,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Adds support for using [SimulatedCard](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html#/c:objc(cs)SCPSimulatorConfiguration(py)simulatedCard) with simulated Internet readers. Note the `SimulatedCard` is still not supported when performing a card-present refund with a simulated Internet reader.
 * Simulated Bluetooth Proximity discovery will now return a simulated Stripe Reader M2 device instead of a BBPOS Chipper 2X BT.
 * Addressses [Issue #133](https://github.com/stripe/stripe-terminal-ios/issues/133): Fixes a bug where connecting to an internet reader then calling `cancel()` on the discovery cancelable would cause the SCPTerminal singleton to not reset state properly if that connection fails. As a result, the SCPTerminal singleton would prevent you from restarting discovery.
-* Adds `CollectConfiguration` as a parameter on `collectPaymentMethod` to suppress [on-reader tipping on the BBPOS WisePOS E](https://stripe.com/docs/terminal/features/collecting-tips/on-reader)
+* Adds `CollectConfiguration` object to provide an option to skip tipping during `collectPaymentMethod`. See [Collect on-reader tips](https://stripe.com/docs/terminal/features/collecting-tips/on-reader) for details. Note that on-reader tips is in beta.
 
 # 2.5.0 2022-01-24
 * Adds a new error code, `SCPErrorBluetoothConnectionFailedBatteryLow`, that is passed into the `connectBluetoothReader` completion handler when connection failed due to the reader's battery being critically low.
