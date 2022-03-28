@@ -48,6 +48,11 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         // Need to set it explicitly here for first fetch to ensure updateContent renders the loading-specific content
         self.fetchingLocations = true
         self.updateContent()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         fetchNextPageOfLocations {
             self.updateContent()
         }

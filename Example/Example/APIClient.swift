@@ -57,12 +57,28 @@ class APIClient: NSObject, ConnectionTokenProvider {
     ///   - completion: called with result: either PaymentIntent client_secret, or the error
     func createPaymentIntent(_ params: PaymentIntentParameters, completion: @escaping (Swift.Result<String, Error>) -> Void) {
         let url = self.baseURL.appendingPathComponent("create_payment_intent")
+
+        var cardPresent: Parameters = [:]
+
+        let requestExtendedAuth = params.paymentMethodOptionsParameters.cardPresentParameters.requestExtendedAuthorization
+        if requestExtendedAuth {
+            cardPresent["request_extended_authorization"] = String(requestExtendedAuth)
+        }
+
+        let requestIncrementalAuth = params.paymentMethodOptionsParameters.cardPresentParameters.requestIncrementalAuthorizationSupport
+        if requestIncrementalAuth {
+            cardPresent["request_incremental_authorization_support"] = String(requestIncrementalAuth)
+        }
+
         Alamofire.request(url, method: .post,
                           parameters: [
                             "amount": params.amount,
                             "currency": params.currency,
                             "description": params.statementDescriptor ?? "Example PaymentIntent",
-                            "payment_method_types": params.paymentMethodTypes
+                            "payment_method_types": params.paymentMethodTypes,
+                            "payment_method_options": [
+                                "card_present": cardPresent
+                            ]
         ])
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in

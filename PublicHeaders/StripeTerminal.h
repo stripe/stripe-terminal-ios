@@ -19,6 +19,7 @@
 #import <StripeTerminal/SCPCardDetails.h>
 #import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPCardPresentDetails.h>
+#import <StripeTerminal/SCPCardPresentParameters.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCharge.h>
 #import <StripeTerminal/SCPCollectConfiguration.h>
@@ -42,6 +43,7 @@
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentMethod.h>
 #import <StripeTerminal/SCPPaymentMethodDetails.h>
+#import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
 #import <StripeTerminal/SCPProcessPaymentError.h>
