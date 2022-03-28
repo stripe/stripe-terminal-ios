@@ -44,6 +44,10 @@
 		<data>
 		87dqhyaOOWrF6AW67lVHRR3Fh+o=
 		</data>
+		<key>Headers/SCPCardPresentParameters.h</key>
+		<data>
+		P8lgoyp/jplwFftfw509aY0zpKM=
+		</data>
 		<key>Headers/SCPCart.h</key>
 		<data>
 		wBUBaW2BeUIbuYK1kkOTS58ykmo=
@@ -126,7 +130,7 @@
 		</data>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
 		<data>
-		MIHu1MXxI1w7DQEpP39tcIKzHJw=
+		meMzSOTFM3zQ329XEyNL09KAFZM=
 		</data>
 		<key>Headers/SCPPaymentMethod.h</key>
 		<data>
@@ -135,6 +139,10 @@
 		<key>Headers/SCPPaymentMethodDetails.h</key>
 		<data>
 		rRgnI8qlrz25oCyDKUi6cIg/z2E=
+		</data>
+		<key>Headers/SCPPaymentMethodOptionsParameters.h</key>
+		<data>
+		tt3Eucb6n6D6INra30EKzv0FPvI=
 		</data>
 		<key>Headers/SCPPaymentMethodType.h</key>
 		<data>
@@ -230,7 +238,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		uMrKumKPyRLRU58o6iQtYBjGajg=
+		vQfEWuPd1xmqVRBICvEqDZTFLFk=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -238,11 +246,11 @@
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		xz7qkB3aD7RtnU3m8wG5NYsnTS0=
+		IrbUUqm1N/417LW+uj5NEjKfLn0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lF8sOamq0Fwtk3wE7Xx6RqZ2NVA=
+		pyIbmDq/M044VY7sdg4MbiV9mrA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -359,6 +367,17 @@
 			<key>hash2</key>
 			<data>
 			tHvp+5nsg2fBnXd0yvOJy49Qdns6Sid0ssYD97i+G5k=
+			</data>
+		</dict>
+		<key>Headers/SCPCardPresentParameters.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P8lgoyp/jplwFftfw509aY0zpKM=
+			</data>
+			<key>hash2</key>
+			<data>
+			2y1vbl/jJhlaoNwsFCP+mR853p4VS9C39U4tNwNk14s=
 			</data>
 		</dict>
 		<key>Headers/SCPCart.h</key>
@@ -585,11 +604,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MIHu1MXxI1w7DQEpP39tcIKzHJw=
+			meMzSOTFM3zQ329XEyNL09KAFZM=
 			</data>
 			<key>hash2</key>
 			<data>
-			2qKwCFUJG+zqx3Pd8AjmwQTHkugGgkVmA0FYvz9bCbY=
+			pIe+Z3J3L4b4+oVzx4RvHuoi8s9r5+rJc7k8irV/3i0=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethod.h</key>
@@ -612,6 +631,17 @@
 			<key>hash2</key>
 			<data>
 			75R3Erlk1SaXzmsuwVFJdDu4jOYcDM3vbzYra6IE8dA=
+			</data>
+		</dict>
+		<key>Headers/SCPPaymentMethodOptionsParameters.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tt3Eucb6n6D6INra30EKzv0FPvI=
+			</data>
+			<key>hash2</key>
+			<data>
+			IFMZLvMroo9Qxgg587wJVfpHdjYz1/LWAXSgCK8RSwM=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethodType.h</key>
@@ -871,11 +901,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uMrKumKPyRLRU58o6iQtYBjGajg=
+			vQfEWuPd1xmqVRBICvEqDZTFLFk=
 			</data>
 			<key>hash2</key>
 			<data>
-			rQh6VzNd9m0CSkfmmtUQvhEyIokpLwwhv9BmEM2fYrc=
+			o9/Y5UWrmSbq5aeZR5D/GQK7iG4vAjw8j2SJ/Q9bsrI=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -893,11 +923,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xz7qkB3aD7RtnU3m8wG5NYsnTS0=
+			IrbUUqm1N/417LW+uj5NEjKfLn0=
 			</data>
 			<key>hash2</key>
 			<data>
-			8vGgUnTbHstP+HrCCskqifwkUi+wAn6zDHkyuUCgIBg=
+			0unK7JfHyLL3lsOnWHGsN4cZIMZ4c1gLeudEiE6/A90=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

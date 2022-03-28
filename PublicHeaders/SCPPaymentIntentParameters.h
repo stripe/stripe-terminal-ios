@@ -10,6 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -131,6 +132,11 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  @see https://stripe.com/docs/api/payment_intents/create#create_payment_intent-setup_future_usage
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *setupFutureUsage;
+
+/**
+ Specific options used during the creation of the PaymentMethod.
+ */
+@property (nonatomic, readwrite) SCPPaymentMethodOptionsParameters *paymentMethodOptionsParameters;
 
 /**
  Initializes SCPPaymentIntentParameters with the given parameters.

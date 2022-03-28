@@ -11,11 +11,18 @@ import UIKit
 extension UIViewController {
 
     private func canPresentViewController() -> Bool {
-        return isViewLoaded &&
-            view.window != nil &&
-            presentedViewController == nil &&
-            !isBeingDismissed &&
-            !isMovingToParent
+        return isViewLoaded
+            && view.window != nil
+            && presentedViewController == nil
+            && !isBeingDismissed
+            && !isMovingToParent
+    }
+
+    private func canPresentAlert() -> Bool {
+        return isViewLoaded
+            && view.window != nil
+            && presentedViewController == nil
+            && !isBeingDismissed
     }
 
     /**
@@ -59,7 +66,12 @@ extension UIViewController {
      Presents the given title and message using an alert view.
      */
     func presentAlert(title: String, message: String) {
-        guard canPresentViewController() else { return }
+        guard canPresentAlert() else {
+            print("‼️ \(title)")
+            print(message)
+            print("Also, there was an error displaying this as an alert controller.")
+            return
+        }
 
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
@@ -70,11 +82,16 @@ extension UIViewController {
     /**
      Presents the given title and message using an alert view with OK and cancel buttons.
      */
-    func presentAlert(title: String, message: String, okButtonTitle: String? = nil, handler: @escaping (Bool) -> Void) {
-        guard canPresentViewController() else { return }
+    func presentAlert(title: String, message: String, okButtonTitle: String = "OK", handler: @escaping (Bool) -> Void) {
+        guard canPresentAlert() else {
+            print("‼️ \(title)")
+            print(message)
+            print("Also, there was an error displaying this as an alert controller.")
+            return
+        }
 
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: okButtonTitle ?? "OK", style: .default) { _ in
+        let okAction = UIAlertAction(title: okButtonTitle, style: .default) { _ in
             handler(true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in

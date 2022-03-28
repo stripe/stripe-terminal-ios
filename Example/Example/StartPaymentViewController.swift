@@ -18,6 +18,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var skipTipping = false
     private var interacPresentEnabled = false
     private var setupFutureUsage: String?
+    private var requestExtendedAuthorization = false
+    private var requestIncrementalAuthorizationSupport = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -125,6 +127,9 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         paymentParams.setupFutureUsage = self.setupFutureUsage
 
+        let cardPresentParams = CardPresentParameters(requestExtendedAuthorization: self.requestExtendedAuthorization, requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport)
+        paymentParams.paymentMethodOptionsParameters = PaymentMethodOptionsParameters(cardPresentParameters: cardPresentParams)
+
         // Set up destination payment
         if !connectedAccountId.isEmpty {
             paymentParams.transferDataDestination = connectedAccountId
@@ -170,6 +175,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
             Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
                 self.interacPresentEnabled.toggle()
+            }),
+            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
+                self.requestExtendedAuthorization.toggle()
+            }),
+            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
+                self.requestIncrementalAuthorizationSupport.toggle()
             })
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 

@@ -5,6 +5,14 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.7.0 2022-03-28
+* Bug fix: In certain conditions, after connecting to a reader that had previously been connected to a different device, operations would erroneously fail with an error indicating an API key had expired.
+* Updated the Bluetooth proximity discovery method error reported when Bluetooth permission is unauthorized from generic BluetoothError to the more specific BluetoothAccessDenied.
+* Updated internal dependencies.
+* Beta: Incremental or extended authorization can be requested with `CardPresentParameters` and
+  `PaymentMethodOptionsParameters` objects. See [extended authorizations](https://stripe.com/docs/terminal/features/extended-authorizations#authorization-validity) and [incremental authorizations](https://stripe.com/docs/terminal/features/incremental-authorizations)
+
+
 # 2.6.0 2022-02-28
 * Adds support for using [SimulatedCard](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html#/c:objc(cs)SCPSimulatorConfiguration(py)simulatedCard) with simulated Internet readers. Note the `SimulatedCard` is still not supported when performing a card-present refund with a simulated Internet reader.
 * Simulated Bluetooth Proximity discovery will now return a simulated Stripe Reader M2 device instead of a BBPOS Chipper 2X BT.
