@@ -10,7 +10,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Updated the Bluetooth proximity discovery method error reported when Bluetooth permission is unauthorized from generic BluetoothError to the more specific BluetoothAccessDenied.
 * Updated internal dependencies.
 * Beta: Incremental or extended authorization can be requested with `CardPresentParameters` and
-  `PaymentMethodOptionsParameters` objects. See [extended auhorizations](https://stripe.com/docs/terminal/features/extended-authorizations#authorization-validity) and [incremental authorizations](https://stripe.com/docs/terminal/features/incremental-authorizations)
+  `PaymentMethodOptionsParameters` objects. See [extended authorizations](https://stripe.com/docs/terminal/features/extended-authorizations#authorization-validity) and [incremental authorizations](https://stripe.com/docs/terminal/features/incremental-authorizations)
 
 
 # 2.6.0 2022-02-28
