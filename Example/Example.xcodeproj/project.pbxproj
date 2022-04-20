@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		022B5728250BB8CF00595E19 /* Value1MultilineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B5727250BB8CF00595E19 /* Value1MultilineCell.swift */; };
-		022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */; };
 		02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02370F5C244C94D00056D896 /* CancelableViewController.swift */; };
-		02A6BF5624CB1C4D0054ADFF /* StripeTerminal.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DA8E3A24532E4900235921 /* DelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */; };
 		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
 		241B90F9249027DE0083C908 /* ReaderRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */; };
@@ -54,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02A6BF5624CB1C4D0054ADFF /* StripeTerminal.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +59,6 @@
 
 /* Begin PBXFileReference section */
 		022B5727250BB8CF00595E19 /* Value1MultilineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1MultilineCell.swift; sourceTree = "<group>"; };
-		022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */ = {isa = PBXFileReference; explicitFileType = wrapper.xcframework; path = StripeTerminal.xcframework; sourceTree = SOURCE_ROOT; };
 		02370F5C244C94D00056D896 /* CancelableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelableViewController.swift; sourceTree = "<group>"; };
 		02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateAnnouncer.swift; sourceTree = "<group>"; };
 		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
@@ -74,6 +70,7 @@
 		259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDisplayingViewController.swift; sourceTree = "<group>"; };
 		25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSetReaderDisplayViewController.swift; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
+		7B393CA627E048AC0021528E /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
 				5D82E1DAAEE1144A85E7B637 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,7 +120,6 @@
 				E2B5310C11053E97660C3C49 /* Pods-Example.debug.xcconfig */,
 				D6A5C3F2A9851084EB09FA06 /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,6 +144,7 @@
 		C16F409F2094F07B009CE87C /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				7B393CA627E048AC0021528E /* Example.entitlements */,
 				C16651B621963C51006EFACF /* APIClient.swift */,
 				C16F40A02094F07B009CE87C /* AppDelegate.swift */,
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
@@ -193,7 +189,6 @@
 		EE087B524FD387212EBE036B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
 				F45CF30CC471C5A07F5CE075 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
@@ -302,11 +297,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Static/Static.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/StripeTerminal/StripeTerminal.framework/StripeTerminal",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Static.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeTerminal.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -497,6 +494,7 @@
 			baseConfigurationReference = E2B5310C11053E97660C3C49 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -507,7 +505,7 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stripe-pos.demo.internal-k";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
@@ -521,6 +519,7 @@
 			baseConfigurationReference = D6A5C3F2A9851084EB09FA06 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -531,7 +530,7 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stripe-pos.demo.internal-k";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
