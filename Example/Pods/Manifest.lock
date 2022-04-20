@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (4.9.1)
   - Static (4.0.0)
+  - StripeTerminal (2.3.1-b2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - Static (from `https://github.com/venmo/Static`, tag `v4.0.0`)
+  - StripeTerminal (from `https://stripe-terminal-beta-sdk.s3.us-west-2.amazonaws.com/ios/2.3.1-b2-8a9b3a7903db9809ef46535d447cdc5c24966072e735a414894f62b20866f5e7.podspec`)
 
 SPEC REPOS:
   trunk:
@@ -14,6 +16,8 @@ EXTERNAL SOURCES:
   Static:
     :git: https://github.com/venmo/Static
     :tag: v4.0.0
+  StripeTerminal:
+    :podspec: https://stripe-terminal-beta-sdk.s3.us-west-2.amazonaws.com/ios/2.3.1-b2-8a9b3a7903db9809ef46535d447cdc5c24966072e735a414894f62b20866f5e7.podspec
 
 CHECKOUT OPTIONS:
   Static:
@@ -23,7 +27,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Static: 3204aad2dc648cfe08dc7aa4a26d65ee37e4853a
+  StripeTerminal: 7adccc2118e6b68e4cac637de4285687b12a20b0
 
-PODFILE CHECKSUM: 7ebac56af22e344f67e973c430d5280c917a820a
+PODFILE CHECKSUM: 7a4e4e09132ebb7e2877a0af2e528407196fe8ff
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

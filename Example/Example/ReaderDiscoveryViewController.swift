@@ -149,6 +149,16 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         case .verifoneP400, .wisePosE:
             let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: false)
             Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
+
+       case .appleBuiltIn:
+            let locationId = selectedLocation?.stripeId ?? reader.locationId
+            if let presentLocationId = locationId {
+           let connectionConfig = LocalMobileConnectionConfiguration(locationId: presentLocationId)
+            Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+            } else {
+                   self.presentLocationRequiredAlert()
+            }
+
         @unknown default:
             fatalError()
         }
@@ -206,6 +216,11 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             activityIndicatorView.title = "REGISTERED READERS"
         case (.internet, _, _):
             activityIndicatorView.title = "LOOKING UP REGISTERED READERS"
+
+        case (.localMobile, 0, .doneDiscovering):
+            activityIndicatorView.title = "NO SUPPORTED READERS FOUND"
+        case (.localMobile, _, _):
+            activityIndicatorView.title = "LOCAL MOBILE READERS"
 
         @unknown default:
             activityIndicatorView.title = "READERS"
@@ -272,11 +287,32 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     }
 
     private func buildLocationDescription(forReader reader: Reader, usingDiscoveryMethod discoveryMethod: DiscoveryMethod) -> String {
-        return discoveryMethod == .internet ?
-            buildLocationDescription(forInternetReader: reader) :
-            buildLocationDescription(forBlueoothReader: reader)
+        return {
+                switch discoveryMethod {
+                case .internet:
+                    return buildLocationDescription(forInternetReader: reader)
+                case .bluetoothProximity, .bluetoothScan:
+                    return buildLocationDescription(forBlueoothReader: reader)
+                case .localMobile:
+                    return buildLocationDescription(forLocalMobileReader: reader)
+                case _:
+                    return "Unknown location status"
+                }
+            }()
     }
 
+    private func buildLocationDescription(forLocalMobileReader reader: Reader) -> String {
+        switch reader.locationStatus {
+        case (.notSet):
+            return "Not registered to a location"
+        case (.set):
+            guard let readerLocation = reader.location else { fatalError() }
+            return "Registered to: \(readerLocation.displayString)"
+        case _:
+            return "Unknown location status"
+        }
+    }
+    
     private func buildLocationDescription(forInternetReader reader: Reader) -> String {
         // It's currently not possible to change an Internet reader's location directly via the SDK
         // so we only need to switch on the current locationStatus

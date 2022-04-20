@@ -7,5 +7,7 @@ target 'Example' do
     # pod 'StripeTerminal', '~>2.0'
     pod 'Alamofire', '~> 4.8'
     pod 'Static', :inhibit_warnings => true, git: 'https://github.com/venmo/Static', :tag => 'v4.0.0'
+    pod 'StripeTerminal', :podspec =>
+        'https://stripe-terminal-beta-sdk.s3.us-west-2.amazonaws.com/ios/2.3.1-b2-8a9b3a7903db9809ef46535d447cdc5c24966072e735a414894f62b20866f5e7.podspec'
 end
 

@@ -50,8 +50,14 @@ class DiscoveryMethodViewController: TableViewController {
                     self.onSelectedMethod(.internet)
                     self.navigationController?.popViewController(animated: true)
                     }, accessory: (method == .internet ? .checkmark : .none))
-            ], footer: "Discovers readers that have been registered to your account via the Stripe API or Dashboard.")
-        ]
+            ], footer: "Discovers readers that have been registered to your account via the Stripe API or Dashboard."),
+            Section(header: "", rows: [
+                Row(text: "Local Mobile", selection: { [unowned self] in
+                    self.onSelectedMethod(.localMobile)
+                    self.navigationController?.popViewController(animated: true)
+                    }, accessory: (method == .localMobile ? .checkmark : .none))
+            ], footer: "Discovers readers local to this mobile device.")
+        ]   
     }
 
 }

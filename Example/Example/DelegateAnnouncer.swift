@@ -127,6 +127,25 @@ class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegat
     }
 }
 
+/**
+ Allows the Example app to use a single persistent BluetoothReaderDelegate for the life of the connection
+ and still have the view controllers receive the BluetoothReaderDelegate events.
+ */
+class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDelegate>, LocalMobileReaderDelegate {
+    static let shared = LocalMobileReaderDelegateAnnouncer()
+    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+
+    }
+
+    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+
+    }
+
+    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+
+    }
+}
+
 final class WeakBox {
     weak var unbox: AnyObject?
     init(_ value: AnyObject) {
