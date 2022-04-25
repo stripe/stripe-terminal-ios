@@ -144,6 +144,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorBluetoothConnectionInvalidLocationIdParameter = 1910,
 
+    /**
+     A required parameter was invalid or missing.
+     */
+    SCPErrorInvalidRequiredParameter = 1920,
+
     /*
      USER ERRORS
      */

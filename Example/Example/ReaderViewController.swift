@@ -158,6 +158,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
+        let buildNameString = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "??"
+        let buildNumberString = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) ?? "??"
+        let versions = "SDK Version: \(StripeTerminal.SCPSDKVersion) \nTest Flight Build: \(buildNameString) - \(buildNumberString)"
         if let connectedReader = self.connectedReader {
             var workflowRows = [
                 Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
@@ -201,9 +204,16 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         self.disconnectFromReader()
                         }, cellClass: RedButtonCell.self)
                 ]),
-                Section(header: "COMMON WORKFLOWS", rows: workflowRows)
+                Section(header: "COMMON WORKFLOWS", rows: workflowRows, footer: .title(versions))
             ]
         } else {
+            let footerTitle = """
+                The SDK comes with the ability to simulate behavior \
+                without using physical hardware. This makes it easy to quickly \
+                test your integration end-to-end, from connecting a reader to \
+                taking payments.\n
+                \(versions)
+                """
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(header: rdrConnectionTitle, rows: [
@@ -224,12 +234,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         ReaderViewController.readerConfiguration.simulated = enabled
                         self.updateContent()
                     })
-                ], footer: """
-                The SDK comes with the ability to simulate behavior \
-                without using physical hardware. This makes it easy to quickly \
-                test your integration end-to-end, from connecting a reader to \
-                taking payments.
-                """)
+                ], footer: .title(footerTitle))
             ].compactMap({ $0})
         }
     }

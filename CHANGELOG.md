@@ -5,7 +5,14 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.8.0 2022-04-25
+
+* Added error, `SCPErrorInvalidRequiredParameter`, reported when a required parameter was invalid or missing. This does not replace more specific errors like `SCPErrorNilPaymentIntent` and `SCPErrorProcessInvalidPaymentIntent`, but will be returned when other unexpected inputs were invalid, such as passing a nil or empty string as the client secret into `retrievePaymentIntent:completion:`.
+* Bug fix: Previously, `SCPErrorUnexpectedSdkError` was returned when retrying `processPaymentIntent:` after a previous `processPaymentIntent:` completed with an error. Now, this behavior should not fail.
+* Bug fix: Location requests no longer time out if Terminal is initialized on a background thread. Previously, even if the device had an accurate location a location request could time out and cause a 5 second delay during `processPayment`. This was reported in #143.
+
 # 2.7.0 2022-03-28
+
 * Bug fix: In certain conditions, after connecting to a reader that had previously been connected to a different device, operations would erroneously fail with an error indicating an API key had expired.
 * Updated the Bluetooth proximity discovery method error reported when Bluetooth permission is unauthorized from generic BluetoothError to the more specific BluetoothAccessDenied.
 * Updated internal dependencies.
@@ -18,6 +25,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Simulated Bluetooth Proximity discovery will now return a simulated Stripe Reader M2 device instead of a BBPOS Chipper 2X BT.
 * Addressses [Issue #133](https://github.com/stripe/stripe-terminal-ios/issues/133): Fixes a bug where connecting to an internet reader then calling `cancel()` on the discovery cancelable would cause the SCPTerminal singleton to not reset state properly if that connection fails. As a result, the SCPTerminal singleton would prevent you from restarting discovery.
 * Adds `CollectConfiguration` object to provide an option to skip tipping during `collectPaymentMethod`. See [Collect on-reader tips](https://stripe.com/docs/terminal/features/collecting-tips/on-reader) for details. Note that on-reader tips is in beta.
+* Adds `CollectConfiguration` as a parameter on `collectPaymentMethod` to suppress [on-reader tipping on the BBPOS WisePOS E](https://stripe.com/docs/terminal/features/collecting-tips/on-reader)
 
 # 2.5.0 2022-01-24
 * Adds a new error code, `SCPErrorBluetoothConnectionFailedBatteryLow`, that is passed into the `connectBluetoothReader` completion handler when connection failed due to the reader's battery being critically low.
