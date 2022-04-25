@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.7.0";
+static NSString *const SCPSDKVersion = @"2.8.0";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
@@ -38,8 +38,7 @@ static NSString *const SCPSDKVersion = @"2.7.0";
     SCPInternetConnectionConfiguration,
     SCPListLocationsParameters,
     SCPPaymentIntentParameters,
-    SCPReadReusableCardParameters,
-    SCPUpdateReaderSoftwareParameters;
+    SCPReadReusableCardParameters;
 
 @protocol SCPConnectionTokenProvider
 , SCPTerminalDelegate, SCPDiscoveryDelegate;
@@ -362,8 +361,8 @@ API_AVAILABLE(ios(10.0))
  available in your app, you can create the PaymentIntent on your server and use
  the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
 
-     @note This cannot be used with the Verifone P400 reader. If used with the
-     Verifone P400, the completion handler will be called with
+     @note This cannot be used with Internet readers. If used with an
+     Internet reader, the completion handler will be called with
      an SCPErrorFeatureNotAvailableWithConnectedReader error.
 
  @see https://stripe.com/docs/terminal/payments#create

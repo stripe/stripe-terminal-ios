@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/charges/object#charge_object-payment_method_details-card_present-receipt
  */
 NS_SWIFT_NAME(ReceiptDetails)
-@interface SCPReceiptDetails : NSObject <SCPJSONDecodable>
+@interface SCPReceiptDetails : NSObject <SCPJSONDecodable, NSCopying>
 
 /**
  The type of account being debited or credited

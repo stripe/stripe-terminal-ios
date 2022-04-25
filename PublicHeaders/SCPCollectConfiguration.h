@@ -37,7 +37,7 @@ NS_SWIFT_NAME(CollectConfiguration)
 - (instancetype)initWithSkipTipping:(BOOL)skipTipping;
 
 /**
- Use `initWithSkipTipping:skipTipping:`
+ Use `initWithSkipTipping:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/SCPCollectConfiguration.h</key>
 		<data>
-		uSJGPcj3LWczq6WrlVaYizlBBWY=
+		xmWivJ2zNMzIxUNvw7bPFxnAFUA=
 		</data>
 		<key>Headers/SCPConfirmSetupIntentError.h</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		J2HOI3HaPXB8jhhGxp6tydtgmn0=
+		0g1fFCRkA+WcbGOWE4hpavtaJRY=
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>Headers/SCPReceiptDetails.h</key>
 		<data>
-		zqM9H8w9L8h+dcUwncM6IgEEaXI=
+		FyyoqbeJCEEDHmyVyvoozIa+6HM=
 		</data>
 		<key>Headers/SCPRefund.h</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		vQfEWuPd1xmqVRBICvEqDZTFLFk=
+		imaMHxv7nG78vr9Co1QCAoX+CCs=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -250,7 +250,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pyIbmDq/M044VY7sdg4MbiV9mrA=
+		QzPoeOwWW68H/RRWnUdZRlR8b7c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -406,11 +406,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uSJGPcj3LWczq6WrlVaYizlBBWY=
+			xmWivJ2zNMzIxUNvw7bPFxnAFUA=
 			</data>
 			<key>hash2</key>
 			<data>
-			yFqnEdl1chVuW5WsC3FUWDvM31IVeLoj9ERXGCQhZN8=
+			CheRQQe7r6Dfn+O+CpUG2/Feu2F009nLOSzGRYcm+7s=
 			</data>
 		</dict>
 		<key>Headers/SCPConfirmSetupIntentError.h</key>
@@ -516,11 +516,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J2HOI3HaPXB8jhhGxp6tydtgmn0=
+			0g1fFCRkA+WcbGOWE4hpavtaJRY=
 			</data>
 			<key>hash2</key>
 			<data>
-			J35Zi3tXog9W46jwFlePvz8dehHyIakhyBwkGMGiQN4=
+			7gFo2CY02bvL+QIxfM4TqAjTa/KdVwZkIzesv7uYoSs=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
@@ -769,11 +769,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zqM9H8w9L8h+dcUwncM6IgEEaXI=
+			FyyoqbeJCEEDHmyVyvoozIa+6HM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Hq+owZN9k8pQ7kY2/9Y3RuTFTGktHeMBVm/3W6WpnlI=
+			9SpdpSsT/nq5EkrdiqMnKAm3oq2+txtZkXgqYc6Gd4k=
 			</data>
 		</dict>
 		<key>Headers/SCPRefund.h</key>
@@ -901,11 +901,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vQfEWuPd1xmqVRBICvEqDZTFLFk=
+			imaMHxv7nG78vr9Co1QCAoX+CCs=
 			</data>
 			<key>hash2</key>
 			<data>
-			o9/Y5UWrmSbq5aeZR5D/GQK7iG4vAjw8j2SJ/Q9bsrI=
+			jiHafFFes1kuxls91FZPo/3K/hI/KrdvyB5IC5DbM7M=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
