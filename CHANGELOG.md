@@ -5,6 +5,10 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.9.0 2022-05-23
+
+* Added compatibility work to support our upcoming React Native SDK. 
+
 # 2.8.0 2022-04-25
 
 * Added error, `SCPErrorInvalidRequiredParameter`, reported when a required parameter was invalid or missing. This does not replace more specific errors like `SCPErrorNilPaymentIntent` and `SCPErrorProcessInvalidPaymentIntent`, but will be returned when other unexpected inputs were invalid, such as passing a nil or empty string as the client secret into `retrievePaymentIntent:completion:`.

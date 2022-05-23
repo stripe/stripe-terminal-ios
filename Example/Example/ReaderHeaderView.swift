@@ -98,7 +98,7 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 imageView.image = UIImage(named: "wisepad")
-            case .wisePosE:
+            case .wisePosE, .etna:
                 imageView.image = UIImage(named: "wisepose")
             @unknown default:
                 imageView.image = nil

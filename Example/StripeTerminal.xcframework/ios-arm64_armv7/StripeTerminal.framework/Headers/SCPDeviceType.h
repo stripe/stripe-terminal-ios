@@ -54,6 +54,13 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeWisePosE,
 
     /**
+     The BBPOS Etna countertop reader.
+
+     :nodoc: Support for this reader is not generally available.
+     */
+    SCPDeviceTypeEtna,
+
+    /**
      The BBPOS Chipper mobile reader.
 
      :nodoc: Support for this reader is not generally available.
