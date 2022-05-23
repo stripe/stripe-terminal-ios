@@ -82,7 +82,7 @@
 		</data>
 		<key>Headers/SCPDeviceType.h</key>
 		<data>
-		eHRanaKBR+K+FIIHjp9wnmIxW4Y=
+		nCa5eoJ5M+nNCIL8zJBvCfXnR5o=
 		</data>
 		<key>Headers/SCPDiscoveryConfiguration.h</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		imaMHxv7nG78vr9Co1QCAoX+CCs=
+		Hx5F23YyNLmEX3TKtTTJZ1rd4jA=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -250,7 +250,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QzPoeOwWW68H/RRWnUdZRlR8b7c=
+		YLaT6BPysUMwHwbBpR7+yegQ1EU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -472,11 +472,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eHRanaKBR+K+FIIHjp9wnmIxW4Y=
+			nCa5eoJ5M+nNCIL8zJBvCfXnR5o=
 			</data>
 			<key>hash2</key>
 			<data>
-			vVs6/x4ZxRLjQs4qlHFFy/BZfT7LtJ/vJ5Z6i8/bBxo=
+			kztl0H/z+Jh7ZcU8J2dDQ535f2XGhqJoNi0Qz0C3D24=
 			</data>
 		</dict>
 		<key>Headers/SCPDiscoveryConfiguration.h</key>
@@ -901,11 +901,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			imaMHxv7nG78vr9Co1QCAoX+CCs=
+			Hx5F23YyNLmEX3TKtTTJZ1rd4jA=
 			</data>
 			<key>hash2</key>
 			<data>
-			jiHafFFes1kuxls91FZPo/3K/hI/KrdvyB5IC5DbM7M=
+			66mRL7TMX7eMz+8AHM1YgBLjFdIyGg59x/2tVOMT3UM=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>

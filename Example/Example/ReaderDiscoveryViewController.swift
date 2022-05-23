@@ -147,8 +147,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             } else {
                 self.presentLocationRequiredAlert()
             }
-        case .verifoneP400, .wisePosE:
-            let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: ReaderViewController.readerConfiguration.allowCustomerCancel)
+        case .verifoneP400, .wisePosE, .etna:
+            let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: true)
             Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
         @unknown default:
             fatalError()
@@ -396,7 +396,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "verifone")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE:
+        case .wisePosE, .etna:
             image = UIImage(named: "wisepose")
         @unknown default:
             image = nil

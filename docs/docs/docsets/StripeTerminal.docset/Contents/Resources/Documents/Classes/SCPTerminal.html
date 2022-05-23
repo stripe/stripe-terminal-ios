@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.8.0 Docs
+          StripeTerminal 2.9.0 Docs
         </a>
         
       </p>
@@ -182,6 +182,9 @@
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
               </li>
               <li class="nav-group-task">
@@ -213,6 +216,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodOptionsParameters.html">SCPPaymentMethodOptionsParameters</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCollectConfiguration.html">SCPCollectConfiguration</a>
@@ -353,17 +359,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Other%20Classes.html">Other Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPPaymentMethodOptionsParameters.html">SCPPaymentMethodOptionsParameters</a>
               </li>
             </ul>
           </li>
@@ -1015,7 +1010,7 @@ try again.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectBluetoothReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">BluetoothReaderDelegate</span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectBluetoothReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">BluetoothReaderDelegate</span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1132,7 +1127,7 @@ header documentation for more details.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectInternetReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">connectInternetReader</span><span class="p">(</span><span class="n">_</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">,</span> <span class="nv">connectionConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a></span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1216,7 +1211,7 @@ the ID of one of these locations to register the reader to while connecting to a
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLocations</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a></span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">([</span><span class="kt"><a href="../Classes/SCPLocation.html">SCPLocation</a></span><span class="p">],</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLocations</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a></span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">([</span><span class="kt"><a href="../Classes/SCPLocation.html">SCPLocation</a></span><span class="p">],</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1355,7 +1350,7 @@ disconnect fails, the completion block is called with an error.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectReader</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectReader</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1412,7 +1407,7 @@ disconnect fails, the completion block is called with an error.</p>
 <p>Note: If the information required to create a PaymentIntent isn&rsquo;t readily
 available in your app, you can create the PaymentIntent on your server and use
 the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in your app.</p>
-<pre class="highlight objective_c"><code><span class="k">-</span> <span class="o">-</span> <span class="nf">note</span><span class="p">:</span> <span class="n">This</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">used</span> <span class="n">with</span> <span class="n">Internet</span> <span class="n">readers</span><span class="p">.</span> <span class="n">If</span> <span class="n">used</span> <span class="n">with</span> <span class="n">an</span>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="nf">note</span><span class="p">:</span> <span class="n">This</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">used</span> <span class="n">with</span> <span class="n">Internet</span> <span class="n">readers</span><span class="p">.</span> <span class="n">If</span> <span class="n">used</span> <span class="n">with</span> <span class="n">an</span>
 <span class="n">Internet</span> <span class="n">reader</span><span class="p">,</span> <span class="n">the</span> <span class="n">completion</span> <span class="n">handler</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="n">with</span>
 <span class="n">an</span> <span class="n">SCPErrorFeatureNotAvailableWithConnectedReader</span> <span class="n">error</span><span class="p">.</span>
 </code></pre>
@@ -1433,7 +1428,7 @@ the <code>retrievePaymentIntent</code> method to retrieve the PaymentIntent in y
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
 
                         </div>
                       </div>
@@ -1507,7 +1502,7 @@ method to retrieve the PaymentIntent in your app.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrievePaymentIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrievePaymentIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
 
                         </div>
                       </div>
@@ -1770,7 +1765,7 @@ updated PaymentIntent to try charging another card.</p></li>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">PaymentIntent</span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processPayment</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">)</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">PaymentIntent</span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPProcessPaymentError.html">SCPProcessPaymentError</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -1849,7 +1844,7 @@ an <code>SCPErrorFeatureNotAvailableWithConnectedReader</code> error.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">PaymentIntent</span></code></pre>
 
                         </div>
                       </div>
@@ -2027,7 +2022,7 @@ Chipper 2X BT or Verifone P400 reader.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntentParams</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntentParams</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2094,7 +2089,7 @@ Stripe Terminal SDK before calling <code>collectSetupIntentPaymentMethod</code>.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrieveSetupIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrieveSetupIntent</span><span class="p">(</span><span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2167,7 +2162,7 @@ fails, the completion block will be called with an error.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">intent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">intent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2363,7 +2358,7 @@ PaymentMethod can be used.</p></li>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPConfirmSetupIntentError.html">SCPConfirmSetupIntentError</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSetupIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">setupIntent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">)</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt"><a href="../Classes/SCPSetupIntent.html">SCPSetupIntent</a></span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPConfirmSetupIntentError.html">SCPConfirmSetupIntentError</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -2562,7 +2557,7 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processRefund</span><span class="p">()</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt"><a href="../Classes/SCPRefund.html">SCPRefund</a></span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processRefund</span><span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt"><a href="../Classes/SCPRefund.html">SCPRefund</a></span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPProcessRefundError.html">SCPProcessRefundError</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -2631,7 +2626,7 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearReaderDisplay</span><span class="p">()</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearReaderDisplay</span><span class="p">()</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2690,7 +2685,7 @@ actually charged. Tax and total are also not automatically calculated and must b
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">Cart</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setReaderDisplay</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">Cart</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3094,7 +3089,7 @@ actually charged. Tax and total are also not automatically calculated and must b
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-04-25)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-05-23)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
