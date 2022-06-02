@@ -5,6 +5,9 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.9.1 2022-06-02
+* Fixes [Issue #155](https://github.com/stripe/stripe-terminal-ios/issues/155): Bluetooth readers would not correctly identify the `SCPErrorCardLeftInReader` error if the previous transactions card was left in the reader when calling `collectPaymentMethod`.
+
 # 2.9.0 2022-05-23
 
 * Added compatibility work to support our upcoming React Native SDK. 
