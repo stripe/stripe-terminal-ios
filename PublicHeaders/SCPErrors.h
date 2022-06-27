@@ -429,7 +429,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
 
      */
     SCPErrorSessionExpired = 9060,
-
 } NS_SWIFT_NAME(ErrorCode);
 
 #pragma mark - UserInfo keys

@@ -5,11 +5,13 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.10.0 2022-06-27
+* Added `[SCPPaymentIntentParameters initWithAmount:currency:paymentMethodTypes:captureMethod:]` and `[SCPPaymentIntentParameters initWithAmount:currency:captureMethod:]`. Allows users to opt-in to automatically capturing payments. Existing integrations are unaffected as they will continue to default to manual capture, `SCPCaptureMethodManual`.
+
 # 2.9.1 2022-06-02
 * Fixes [Issue #155](https://github.com/stripe/stripe-terminal-ios/issues/155): Bluetooth readers would not correctly identify the `SCPErrorCardLeftInReader` error if the previous transactions card was left in the reader when calling `collectPaymentMethod`.
 
 # 2.9.0 2022-05-23
-
 * Added compatibility work to support our upcoming React Native SDK. 
 
 # 2.8.0 2022-04-25
