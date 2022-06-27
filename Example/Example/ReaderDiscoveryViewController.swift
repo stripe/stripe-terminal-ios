@@ -32,7 +32,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     }
     private var viewState = ViewState.preDiscovery
     private var updateReaderVC: UpdateReaderViewController? // Displayed when a required update is being installed
-    private var shouldShowLocationSelector: Bool {
+    private var shouldShowBTConnectionConfigSection: Bool {
         return discoveryConfig.discoveryMethod != .internet
     }
 
@@ -176,7 +176,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     private func updateContent() {
         updateActivityIndicatorView()
         dataSource.sections = [
-            shouldShowLocationSelector ? selectLocationSection() : nil,
+            shouldShowBTConnectionConfigSection ? bluetoothConnectionConfigurationSection() : nil,
             discoveryConfig.simulated && discoveryConfig.discoveryMethod != .internet ? simulatedUpdateSection() : nil,
             readerListSection()
         ].compactMap({ $0 })
@@ -221,7 +221,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
     // MARK: - Location Selection UI
 
-    private func selectLocationSection() -> Section {
+    private func bluetoothConnectionConfigurationSection() -> Section {
         if discoveryConfig.simulated {
             return Section(
                 header: Section.Extremity.title("Select location"),
@@ -236,7 +236,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             )
         } else {
             return Section(
-                header: Section.Extremity.title("Select location"),
+                header: Section.Extremity.title("Connection Configuration"),
                 rows: [
                     Row(
                         text: selectedLocation != nil ? selectedLocation?.displayString : "No location selected",

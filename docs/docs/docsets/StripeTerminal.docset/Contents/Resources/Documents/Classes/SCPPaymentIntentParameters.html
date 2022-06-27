@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.9.1 Docs
+          StripeTerminal 2.10.0 Docs
         </a>
         
       </p>
@@ -222,6 +222,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCollectConfiguration.html">SCPCollectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a>
               </li>
             </ul>
           </li>
@@ -488,6 +491,38 @@ The default is value for this is [&ldquo;card_present&rdquo;].</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentMethodTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPPaymentIntentParameters(py)captureMethod"></a>
+                    <a name="//apple_ref/objc/Property/captureMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentIntentParameters(py)captureMethod">captureMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The capture method that this PaymentIntent should use. Defaults to <code>SCPCaptureMethodManual</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a></span> <span class="n">captureMethod</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">CaptureMethod</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1070,6 +1105,198 @@ payment. Currently allowed payment method types for a Terminal transaction are
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPPaymentIntentParameters(im)initWithAmount:currency:captureMethod:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAmount:currency:captureMethod:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentIntentParameters(im)initWithAmount:currency:captureMethod:">-initWithAmount:<wbr>currency:<wbr>captureMethod:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes SCPPaymentIntentParameters with the given parameters.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>In testmode, only amounts ending in &ldquo;00&rdquo; will be approved. All other
+amounts will be declined by the Stripe API. For more information about this
+feature, see <a href="https://stripe.com/docs/terminal/testing#test-card">https://stripe.com/docs/terminal/testing#test-card</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAmount</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">amount</span>
+                              <span class="nf">currency</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">currency</span>
+                         <span class="nf">captureMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a></span><span class="p">)</span><span class="nv">captureMethod</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">amount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">CaptureMethod</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of the payment, provided in the currency&rsquo;s
+smallest unit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The currency of the payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>captureMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of capture method used for this payment.
+Passing in <code>SCPCaptureMethodAutomatic</code> will result in a capture occurring automatically
+whereas <code>SCPCaptureMethodManual</code> will require an explicit call to capture payments
+(see: <a href="https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#capture-payment">https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#capture-payment</a>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPPaymentIntentParameters(im)initWithAmount:currency:paymentMethodTypes:captureMethod:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAmount:currency:paymentMethodTypes:captureMethod:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentIntentParameters(im)initWithAmount:currency:paymentMethodTypes:captureMethod:">-initWithAmount:<wbr>currency:<wbr>paymentMethodTypes:<wbr>captureMethod:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes SCPPaymentIntentParameters with the given parameters.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>In testmode, only amounts ending in &ldquo;00&rdquo; will be approved. All other
+amounts will be declined by the Stripe API. For more information about this
+feature, see <a href="https://stripe.com/docs/terminal/testing#test-card">https://stripe.com/docs/terminal/testing#test-card</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAmount</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">amount</span>
+                              <span class="nf">currency</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">currency</span>
+                    <span class="nf">paymentMethodTypes</span><span class="p">:</span>
+                        <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentMethodTypes</span>
+                         <span class="nf">captureMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a></span><span class="p">)</span><span class="nv">captureMethod</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">amount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">paymentMethodTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">CaptureMethod</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of the payment, provided in the currency&rsquo;s
+smallest unit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The currency of the payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentMethodTypes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The payment method types allowed for this
+payment. Currently allowed payment method types for a Terminal transaction are
+&ldquo;card_present&rdquo; and &ldquo;interac_present&rdquo;.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>captureMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of capture method used for this payment.
+Passing in <code>SCPCaptureMethodAutomatic</code> will result in a capture occuring automatically
+whereas <code>SCPCaptureMethodManual</code> will require an explicit call to capture payments
+(see: <a href="https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#capture-payment">https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#capture-payment</a>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPPaymentIntentParameters(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPPaymentIntentParameters(im)init">-init</a>
@@ -1174,7 +1401,7 @@ payment. Currently allowed payment method types for a Terminal transaction are
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-06-27)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

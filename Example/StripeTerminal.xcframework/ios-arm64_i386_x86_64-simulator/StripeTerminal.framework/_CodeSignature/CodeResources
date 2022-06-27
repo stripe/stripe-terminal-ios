@@ -76,6 +76,10 @@
 		<data>
 		H2pJJS6qYrlugsAgz0QyecuQtC4=
 		</data>
+		<key>Headers/SCPCreateConfiguration.h</key>
+		<data>
+		QWQYjTGq1sYO1B7MBDFzvZfSUkk=
+		</data>
 		<key>Headers/SCPDeprecations.h</key>
 		<data>
 		tRT3dw9A5dRLjCrfJUodhHxVPAA=
@@ -98,7 +102,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		0g1fFCRkA+WcbGOWE4hpavtaJRY=
+		QkN0v+RsJvnwaVDmk6ZBMp4SFw8=
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
@@ -124,13 +128,21 @@
 		<data>
 		lIVOqizpiKlreMM5KjqNt5PqlgI=
 		</data>
+		<key>Headers/SCPNetworkStatus.h</key>
+		<data>
+		alMP9tPpkf1YYjKIQMLZkPmw+EQ=
+		</data>
+		<key>Headers/SCPOfflineDelegate.h</key>
+		<data>
+		DOnB4fIS/B7OxGn5nM6L4kA66bs=
+		</data>
 		<key>Headers/SCPPaymentIntent.h</key>
 		<data>
-		sV6Cb2LYsklqipLZIiNFY8qmgUg=
+		vDTv9xdHNtsFi9FYeH8qVHm033A=
 		</data>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
 		<data>
-		meMzSOTFM3zQ329XEyNL09KAFZM=
+		cDwrRaxJ9mnwlmkeVLnTQvO/28E=
 		</data>
 		<key>Headers/SCPPaymentMethod.h</key>
 		<data>
@@ -238,7 +250,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		J15hZ4IFzdicM1kiU/AS5dRHy6A=
+		74Gzrl+h079++EG+fu3au4WIoKA=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -246,11 +258,11 @@
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		IrbUUqm1N/417LW+uj5NEjKfLn0=
+		BDNf4FRoDkJNw1WajHdnlCeu2EQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iy256r7crnq7Q1U+GKdTHPd9VRs=
+		dqmIml+LTT32Jky55rAfO2SB36Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -457,6 +469,17 @@
 			wj29PWKJE8M8IiJQfc2t5blawh/fJsJyMbyx3iRRX4g=
 			</data>
 		</dict>
+		<key>Headers/SCPCreateConfiguration.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QWQYjTGq1sYO1B7MBDFzvZfSUkk=
+			</data>
+			<key>hash2</key>
+			<data>
+			WACbV9+lAGMccNyZkKcHU3f93vEPeB8joYTJH8FhZlQ=
+			</data>
+		</dict>
 		<key>Headers/SCPDeprecations.h</key>
 		<dict>
 			<key>hash</key>
@@ -516,11 +539,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0g1fFCRkA+WcbGOWE4hpavtaJRY=
+			QkN0v+RsJvnwaVDmk6ZBMp4SFw8=
 			</data>
 			<key>hash2</key>
 			<data>
-			7gFo2CY02bvL+QIxfM4TqAjTa/KdVwZkIzesv7uYoSs=
+			7Qitlo3JsLQezMIxLus7MVv4VOQf4biTJSxWrFBcm7E=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
@@ -589,26 +612,48 @@
 			c9oYngLHcSysRq0fjHt9Z+81E+90LvfkQbpspmg6KMo=
 			</data>
 		</dict>
+		<key>Headers/SCPNetworkStatus.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			alMP9tPpkf1YYjKIQMLZkPmw+EQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			Oqrg2AADmvJ6eeKFGUuh2aK5Ox7NMKuLSsMqdgOZ1O8=
+			</data>
+		</dict>
+		<key>Headers/SCPOfflineDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DOnB4fIS/B7OxGn5nM6L4kA66bs=
+			</data>
+			<key>hash2</key>
+			<data>
+			9YMtkOv2y+xm4PRPBk9CclWwSJK4oyFspIyicjJCJYQ=
+			</data>
+		</dict>
 		<key>Headers/SCPPaymentIntent.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sV6Cb2LYsklqipLZIiNFY8qmgUg=
+			vDTv9xdHNtsFi9FYeH8qVHm033A=
 			</data>
 			<key>hash2</key>
 			<data>
-			tTh3EdTesaRJWttcqi9UtAn1KAEKE09wkB1J0yC0LqE=
+			PbigFfXZwpsp6CglbZFF10eA7c6q84zdeGucau+q/pE=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			meMzSOTFM3zQ329XEyNL09KAFZM=
+			cDwrRaxJ9mnwlmkeVLnTQvO/28E=
 			</data>
 			<key>hash2</key>
 			<data>
-			pIe+Z3J3L4b4+oVzx4RvHuoi8s9r5+rJc7k8irV/3i0=
+			lD8RSunxXnneJ1SC6l0yt6Ej7uowxwx3SwIP+RqsST4=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethod.h</key>
@@ -901,11 +946,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J15hZ4IFzdicM1kiU/AS5dRHy6A=
+			74Gzrl+h079++EG+fu3au4WIoKA=
 			</data>
 			<key>hash2</key>
 			<data>
-			a6do21SPJ6zK7Xh2hR6R9wtvFerlBt+WEp5MSZyMHs0=
+			LvlZ3LoB7XBvU2iZUMOeKg3YhuN0+WLZ3f+fT+6wPbY=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -923,11 +968,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IrbUUqm1N/417LW+uj5NEjKfLn0=
+			BDNf4FRoDkJNw1WajHdnlCeu2EQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			0unK7JfHyLL3lsOnWHGsN4cZIMZ4c1gLeudEiE6/A90=
+			YThEKjTwiNwAlZqXSpf5bCf1arQfvBbIXpnZJnx5sdA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

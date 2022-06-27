@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCPCharge, SCPProcessPaymentError;
 
+
 /**
  The possible statuses for a PaymentIntent.
 

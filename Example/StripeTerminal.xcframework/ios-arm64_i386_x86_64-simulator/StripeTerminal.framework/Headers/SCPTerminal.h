@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.9.1";
+static NSString *const SCPSDKVersion = @"2.10.0";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
@@ -42,6 +42,7 @@ static NSString *const SCPSDKVersion = @"2.9.1";
 
 @protocol SCPConnectionTokenProvider
 , SCPTerminalDelegate, SCPDiscoveryDelegate;
+
 
 /**
  The `SCPTerminal` singleton object exposes an interface for discovering readers,
@@ -372,6 +373,7 @@ API_AVAILABLE(ios(10.0))
  */
 - (void)createPaymentIntent:(SCPPaymentIntentParameters *)parameters
                  completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(createPaymentIntent(_:completion:));
+
 
 /**
  Retrieves a `SCPPaymentIntent` with a client secret.
@@ -731,6 +733,7 @@ API_AVAILABLE(ios(10.0))
               completion:(SCPErrorCompletionBlock)completion
     NS_SWIFT_NAME(setReaderDisplay(_:completion:));
 
+
 /**
  Returns an unlocalized string for the given reader input options, e.g.
  "Swipe / Insert"
@@ -780,6 +783,7 @@ API_AVAILABLE(ios(10.0))
  Returns an unlocalized string for the given payment intent status.
  */
 + (NSString *)stringFromPaymentIntentStatus:(SCPPaymentIntentStatus)paymentIntentStatus NS_SWIFT_NAME(stringFromPaymentIntentStatus(_:));
+
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`
