@@ -127,6 +127,28 @@ class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegat
     }
 }
 
+class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
+    static let shared = ReconnectionDelegateAnnouncer()
+
+    func terminal(_ terminal: Terminal, didStartReaderReconnect cancelable: Cancelable) {
+        announce { delegate in
+            delegate.terminal(terminal, didStartReaderReconnect: cancelable)
+        }
+    }
+
+    func terminalDidFailReaderReconnect(_ terminal: Terminal) {
+        announce { delegate in
+            delegate.terminalDidFailReaderReconnect(terminal)
+        }
+    }
+
+    func terminalDidSucceedReaderReconnect(_ terminal: Terminal) {
+        announce { delegate in
+            delegate.terminalDidSucceedReaderReconnect(terminal)
+        }
+    }
+}
+
 final class WeakBox {
     weak var unbox: AnyObject?
     init(_ value: AnyObject) {

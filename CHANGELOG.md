@@ -5,6 +5,10 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.11.0 2022-07-25
+* Added an automatic capture toggle to example app on the collect card payment view controller.
+* Added `autoReconnectOnUnexpectedDisconnect` and `autoReconnectionDelegate` to the [`SCPBluetoothConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPBluetoothConnectionConfiguration.html). When `autoReconnectOnUnexpectedDisconnect` is enabled, the SDK will attempt to restore connection upon any unexpected disconnect to a reader. See [Stripe documentation](https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#automatic-reconnection) for details.
+
 # 2.10.0 2022-06-27
 * Added `[SCPPaymentIntentParameters initWithAmount:currency:paymentMethodTypes:captureMethod:]` and `[SCPPaymentIntentParameters initWithAmount:currency:captureMethod:]`. Allows users to opt-in to automatically capturing payments. Existing integrations are unaffected as they will continue to default to manual capture, `SCPCaptureMethodManual`.
 

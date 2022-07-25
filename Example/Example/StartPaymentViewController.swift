@@ -17,6 +17,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var startSection: Section?
     private var skipTipping = false
     private var interacPresentEnabled = false
+    private var automaticCaptureEnabled = false
     private var setupFutureUsage: String?
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
@@ -115,6 +116,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     // MARK: - Internal
 
     internal func startPayment() {
+        let captureMethod = self.automaticCaptureEnabled ? CaptureMethod.automatic : CaptureMethod.manual
         var paymentMethodTypes = ["card_present"]
 
         if self.interacPresentEnabled {
@@ -123,7 +125,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         let paymentParams = PaymentIntentParameters(amount: amountView.amount,
                                                     currency: currencyView.currency,
-                                                    paymentMethodTypes: paymentMethodTypes)
+                                                    paymentMethodTypes: paymentMethodTypes,
+                                                    captureMethod: captureMethod)
 
         paymentParams.setupFutureUsage = self.setupFutureUsage
 
@@ -175,6 +178,9 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
             Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
                 self.interacPresentEnabled.toggle()
+            }),
+            Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
+                self.automaticCaptureEnabled.toggle()
             }),
             Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
                 self.requestExtendedAuthorization.toggle()

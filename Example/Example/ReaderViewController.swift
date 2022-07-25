@@ -27,6 +27,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
     internal let headerView = ReaderHeaderView()
     /// Will be set during connect from the DiscoveryViewController if an update is reported
     private var pendingUpdate: ReaderSoftwareUpdate?
+    private var reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader has disconnected", preferredStyle: .alert)
 
     init() {
         super.init(style: .grouped)
@@ -41,6 +42,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
         BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        ReconnectionDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -51,6 +53,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
         TerminalDelegateAnnouncer.shared.addListener(self)
         BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        ReconnectionDelegateAnnouncer.shared.addListener(self)
 
         ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
 
@@ -299,6 +302,39 @@ extension ReaderViewController: BluetoothReaderDelegate {
     }
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    }
+}
+
+extension ReaderViewController: ReconnectionDelegate {
+    func terminal(_ terminal: Terminal, didStartReaderReconnect cancelable: Cancelable) {
+        self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader has disconnected", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in cancelable.cancel { error in
+            // If terminalDidFailReaderReconnect did not present anything, present results of cancel and clear alert
+            if self.reconnectionAlertController.isBeingPresented {
+                self.reconnectionAlertController.dismiss(animated: true) {
+                    if let error = error {
+                        self.presentAlert(title: "Cancellation failed", message: error.localizedDescription)
+                    } else {
+                        self.presentAlert(title: "Cancelled", message: "Reconnection has been cancelled.")
+                    }
+                }
+            }
+        }}
+        reconnectionAlertController.addAction(cancelAction)
+        present(reconnectionAlertController, animated: true, completion: nil)
+    }
+
+    func terminalDidFailReaderReconnect(_ terminal: Terminal) {
+        self.reconnectionAlertController.dismiss(animated: true) {
+            self.presentAlert(title: "Reader Disconnected", message: "Reader reconnection failed!")
+        }
+        connectedReader = nil
+    }
+
+    func terminalDidSucceedReaderReconnect(_ terminal: Terminal) {
+        self.reconnectionAlertController.dismiss(animated: true) {
+            self.presentAlert(title: "Reconnected!", message: "We were able to reconnect to the reader.")
+        }
     }
 }
 

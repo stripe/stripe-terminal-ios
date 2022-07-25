@@ -13,6 +13,7 @@ import StripeTerminal
 class ReaderDiscoveryViewController: TableViewController, CancelableViewController, CancelingViewController {
 
     private var selectedLocation: Location?
+    private var autoReconnectOnUnexpectedDisconnect: Bool = false
     var onCanceled: () -> Void = {}
     var onConnectedToReader: (Reader) -> Void = { _ in }
     private let discoveryConfig: DiscoveryConfiguration
@@ -142,7 +143,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
             let locationId = selectedLocation?.stripeId ?? reader.locationId
             if let presentLocationId = locationId {
-                let connectionConfig = BluetoothConnectionConfiguration(locationId: presentLocationId)
+                let connectionConfig = BluetoothConnectionConfiguration(locationId: presentLocationId, autoReconnectOnUnexpectedDisconnect: autoReconnectOnUnexpectedDisconnect, autoReconnectionDelegate: ReconnectionDelegateAnnouncer.shared)
                 Terminal.shared.connectBluetoothReader(reader, delegate: BluetoothReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
             } else {
                 self.presentLocationRequiredAlert()
@@ -238,6 +239,9 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             return Section(
                 header: Section.Extremity.title("Connection Configuration"),
                 rows: [
+                    Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { _ in
+                        self.autoReconnectOnUnexpectedDisconnect.toggle()
+                    })),
                     Row(
                         text: selectedLocation != nil ? selectedLocation?.displayString : "No location selected",
                         selection: { [unowned self] in self.showLocationSelector() },

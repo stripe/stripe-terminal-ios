@@ -74,6 +74,7 @@ class APIClient: NSObject, ConnectionTokenProvider {
                           parameters: [
                             "amount": params.amount,
                             "currency": params.currency,
+                            "capture_method": params.captureMethod.toString(),
                             "description": params.statementDescriptor ?? "Example PaymentIntent",
                             "payment_method_types": params.paymentMethodTypes,
                             "payment_method_options": [

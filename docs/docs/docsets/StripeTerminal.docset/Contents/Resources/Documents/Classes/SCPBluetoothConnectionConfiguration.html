@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.10.0 Docs
+          StripeTerminal 2.11.0 Docs
         </a>
         
       </p>
@@ -55,6 +55,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
@@ -443,6 +446,76 @@ on the <code>locationId</code> property.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectOnUnexpectedDisconnect"></a>
+                    <a name="//apple_ref/objc/Property/autoReconnectOnUnexpectedDisconnect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectOnUnexpectedDisconnect">autoReconnectOnUnexpectedDisconnect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When set to true, the Terminal SDK  will attempt a Bluetooth auto-reconnection on any unexpected disconnect.
+You must also set an <code><a href="../Classes/SCPBluetoothConnectionConfiguration.html#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a></code> for your application to respond accordingly to reconnection attempts.
+Enabling <code>autoReconnectOnUnexpectedDisconnect</code> without providing an <code><a href="../Classes/SCPBluetoothConnectionConfiguration.html#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a></code> will error with <code>SCPErrorReaderConnectionConfigurationInvalid</code>.</p>
+
+<p>When set to false, we will immediately surface any disconnection through TerminalDelegate.</p>
+
+<p>Defaults to false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">autoReconnectOnUnexpectedDisconnect</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">autoReconnectOnUnexpectedDisconnect</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectionDelegate"></a>
+                    <a name="//apple_ref/objc/Property/autoReconnectionDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains callback methods for Bluetooth auto-reconnection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a></span><span class="o">&gt;</span> <span class="n">autoReconnectionDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">autoReconnectionDelegate</span><span class="p">:</span> <span class="kt">ReconnectionDelegate</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:"></a>
                     <a name="//apple_ref/objc/Method/-initWithLocationId:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:">-initWithLocationId:<wbr></a>
@@ -472,6 +545,43 @@ on the <code>locationId</code> property.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:autoReconnectOnUnexpectedDisconnect:autoReconnectionDelegate:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithLocationId:autoReconnectOnUnexpectedDisconnect:autoReconnectionDelegate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBluetoothConnectionConfiguration(im)initWithLocationId:autoReconnectOnUnexpectedDisconnect:autoReconnectionDelegate:">-initWithLocationId:<wbr>autoReconnectOnUnexpectedDisconnect:<wbr>autoReconnectionDelegate:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize your connect options with a location ID and an expected behavior for unexpected disconnects.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithLocationId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">locationId</span>
+       <span class="nf">autoReconnectOnUnexpectedDisconnect</span><span class="p">:</span>
+           <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">autoReconnectOnUnexpectedDisconnect</span>
+                  <span class="nf">autoReconnectionDelegate</span><span class="p">:</span>
+                      <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a></span><span class="o">&gt;</span><span class="p">)</span>
+                          <span class="n"><a href="../Classes/SCPBluetoothConnectionConfiguration.html#/c:objc(cs)SCPBluetoothConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a></span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">locationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">autoReconnectOnUnexpectedDisconnect</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">autoReconnectionDelegate</span><span class="p">:</span> <span class="kt">ReconnectionDelegate</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -480,7 +590,7 @@ on the <code>locationId</code> property.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-06-27)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-07-25)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
