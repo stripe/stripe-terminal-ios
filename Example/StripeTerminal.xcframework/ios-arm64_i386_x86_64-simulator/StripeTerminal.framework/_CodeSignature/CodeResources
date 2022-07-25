@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/SCPBluetoothConnectionConfiguration.h</key>
 		<data>
-		e4K/vwfBnMiVHx/tuQd+o4vkVbQ=
+		9fGEv4GaA54VHqBWmN24sf4mnFo=
 		</data>
 		<key>Headers/SCPBluetoothReaderDelegate.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		QkN0v+RsJvnwaVDmk6ZBMp4SFw8=
+		sdmk/m0CFwJ6sB1W71e34rLLjTc=
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
@@ -134,7 +134,11 @@
 		</data>
 		<key>Headers/SCPOfflineDelegate.h</key>
 		<data>
-		DOnB4fIS/B7OxGn5nM6L4kA66bs=
+		ihwItq+29rBuAAZT6Ox19A5avjk=
+		</data>
+		<key>Headers/SCPOfflineDetails.h</key>
+		<data>
+		Hr2YTWlUt/J41E3Aa2VQM6Ehkqs=
 		</data>
 		<key>Headers/SCPPaymentIntent.h</key>
 		<data>
@@ -204,6 +208,10 @@
 		<data>
 		FyyoqbeJCEEDHmyVyvoozIa+6HM=
 		</data>
+		<key>Headers/SCPReconnectionDelegate.h</key>
+		<data>
+		Zwccl39pqHJQxOk8NJuc2px/SBg=
+		</data>
 		<key>Headers/SCPRefund.h</key>
 		<data>
 		GICph+gFfPqrLzUI2sM1tiIv/eU=
@@ -250,7 +258,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		74Gzrl+h079++EG+fu3au4WIoKA=
+		XXZwTtNFGfkywjBeSjZ8/OiJ0hI=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -258,11 +266,11 @@
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		BDNf4FRoDkJNw1WajHdnlCeu2EQ=
+		/Nv4XTtDREv660BElJpJTJANwGE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dqmIml+LTT32Jky55rAfO2SB36Q=
+		kiLE/T7bNS3WEob9jlJJKUEEX3s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -308,11 +316,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e4K/vwfBnMiVHx/tuQd+o4vkVbQ=
+			9fGEv4GaA54VHqBWmN24sf4mnFo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ABQLy1Y1QmfmtkbW1wqnIFN8RdmGjux9QXQdv0PIzfg=
+			8ezWtKLl77FXF2Cj/AashTAw7FpM1rHWq8/EhIZn6jo=
 			</data>
 		</dict>
 		<key>Headers/SCPBluetoothReaderDelegate.h</key>
@@ -539,11 +547,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QkN0v+RsJvnwaVDmk6ZBMp4SFw8=
+			sdmk/m0CFwJ6sB1W71e34rLLjTc=
 			</data>
 			<key>hash2</key>
 			<data>
-			7Qitlo3JsLQezMIxLus7MVv4VOQf4biTJSxWrFBcm7E=
+			4gPSz4W5XTYi07wBpX81Sgwfdet5J4v/FqD5f0UBl0A=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
@@ -627,11 +635,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DOnB4fIS/B7OxGn5nM6L4kA66bs=
+			ihwItq+29rBuAAZT6Ox19A5avjk=
 			</data>
 			<key>hash2</key>
 			<data>
-			9YMtkOv2y+xm4PRPBk9CclWwSJK4oyFspIyicjJCJYQ=
+			Hqk2nAfkEjQGCMnRtBHPcmAFIPZMkgLTBCSYohiIefk=
+			</data>
+		</dict>
+		<key>Headers/SCPOfflineDetails.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Hr2YTWlUt/J41E3Aa2VQM6Ehkqs=
+			</data>
+			<key>hash2</key>
+			<data>
+			MIwGoH+HvDjDU0a2Ri5GDA0JnAhkWo9VTBS74ze+5wk=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentIntent.h</key>
@@ -821,6 +840,17 @@
 			9SpdpSsT/nq5EkrdiqMnKAm3oq2+txtZkXgqYc6Gd4k=
 			</data>
 		</dict>
+		<key>Headers/SCPReconnectionDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Zwccl39pqHJQxOk8NJuc2px/SBg=
+			</data>
+			<key>hash2</key>
+			<data>
+			m/6ZzfQOLcZMroPUCqBtCZnldBm4G9sTYnEpDNbFZ/g=
+			</data>
+		</dict>
 		<key>Headers/SCPRefund.h</key>
 		<dict>
 			<key>hash</key>
@@ -946,11 +976,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			74Gzrl+h079++EG+fu3au4WIoKA=
+			XXZwTtNFGfkywjBeSjZ8/OiJ0hI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LvlZ3LoB7XBvU2iZUMOeKg3YhuN0+WLZ3f+fT+6wPbY=
+			Sl7GLvbytoIG/eSLFr0/0mcIaCZpT43jgsHQctOR/04=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -968,11 +998,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BDNf4FRoDkJNw1WajHdnlCeu2EQ=
+			/Nv4XTtDREv660BElJpJTJANwGE=
 			</data>
 			<key>hash2</key>
 			<data>
-			YThEKjTwiNwAlZqXSpf5bCf1arQfvBbIXpnZJnx5sdA=
+			dFPuKpx0ZOEyh9GJFC+N0xYl8g6pXpNrIYn5lYX2vgY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

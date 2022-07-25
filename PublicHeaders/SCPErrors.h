@@ -149,6 +149,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorInvalidRequiredParameter = 1920,
 
+
+    /**
+     An invalid ConnectionConfiguration was passed through `connect`.
+     */
+    SCPErrorReaderConnectionConfigurationInvalid = 1940,
+
     /*
      USER ERRORS
      */
@@ -336,6 +342,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      @see https://stripe.com/docs/terminal/readers/connecting/verifone-p400#connect-reader-ios
      */
     SCPErrorConnectFailedReaderIsInUse = 3880,
+
+    /**
+     The Bluetooth reader has disconnected and we are attempting to reconnect.
+     */
+    SCPErrorBluetoothReconnectStarted = 3890,
 
     /*
      UNEXPECTED ERRORS

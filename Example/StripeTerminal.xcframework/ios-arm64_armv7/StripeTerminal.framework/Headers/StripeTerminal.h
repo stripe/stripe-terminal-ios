@@ -56,6 +56,7 @@
 #import <StripeTerminal/SCPReaderNetworkStatus.h>
 #import <StripeTerminal/SCPReaderSoftwareUpdate.h>
 #import <StripeTerminal/SCPReceiptDetails.h>
+#import <StripeTerminal/SCPReconnectionDelegate.h>
 #import <StripeTerminal/SCPRefund.h>
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSetupAttempt.h>

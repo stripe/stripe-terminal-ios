@@ -28,6 +28,7 @@ struct StripeCurrencies {
         "NZD",
         "SEK",
         "SGD",
+        "MYR",
     ]
 
     static let all: [String] = [
