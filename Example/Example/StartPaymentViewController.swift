@@ -41,6 +41,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
          DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
     }
 
+
     convenience init() {
         self.init(style: .grouped)
     }
@@ -61,6 +62,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         applicationFeeAmountTextField.textField.delegate = self
         applicationFeeAmountTextField.textField.clearButtonMode = .whileEditing
         applicationFeeAmountTextField.textField.keyboardType = .numberPad
+
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -102,7 +104,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             navigationController?.popViewController(animated: true)
             return
         }
-        amountView.textField.becomeFirstResponder()
     }
 
     // MARK: - UIAdaptivePresentationControllerDelegate
@@ -143,7 +144,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentParams.applicationFeeAmount = applicationFeeAmount
         }
 
-        let vc = PaymentViewController(paymentParams: paymentParams, collectConfig: .init(skipTipping: self.skipTipping))
+        let vc = PaymentViewController(paymentParams: paymentParams, collectConfig: .init(skipTipping: self.skipTipping)
+        )
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
@@ -237,6 +239,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return applicationFeeAmountSection
     }
 
+
     private func updateContent() {
 
         var sections: [Section] = [
@@ -245,7 +248,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeTippingSection(),
             self.makePaymentMethodSection(),
             self.makeDestinationPaymentSection(),
-            self.makeApplicationFeeAmountSection()
+            self.makeApplicationFeeAmountSection(),
         ]
 
         if let setupFutureUsageSection = self.makeSetupFutureUsageSection() {

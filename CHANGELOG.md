@@ -5,6 +5,15 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.12.0 2022-08-29
+* Bug fix: Attempting to connect to a smart reader after an unexpected disconnect no longer errors with "The Stripe Terminal ConnectionToken has already been redeemed".
+* Added support for new currency: Czech koruna ( CZK ) in the Example Terminal app.
+* Added better handling for intermittent network connectivity during payment confirmation.
+* Fixes [Issue #166](https://github.com/stripe/stripe-terminal-ios/issues/166): Removed asserts for missing Info.plist keys if running in a test environment.
+* Bug fix: `platform_api_key_expired` API errors now get reported as `SCPErrorSessionExpired` instead of `SCPErrorStripeAPIError`.
+* Increased the collectPaymentMethod timeout from 5 minutes to 60 minutes.
+* WisePad 3 only: Increased account type selection timeout from 60 seconds to 90 seconds to match application selection timeout of 90 seconds.
+
 # 2.11.0 2022-07-25
 * Added an automatic capture toggle to example app on the collect card payment view controller.
 * Added `autoReconnectOnUnexpectedDisconnect` and `autoReconnectionDelegate` to the [`SCPBluetoothConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPBluetoothConnectionConfiguration.html). When `autoReconnectOnUnexpectedDisconnect` is enabled, the SDK will attempt to restore connection upon any unexpected disconnect to a reader. See [Stripe documentation](https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#automatic-reconnection) for details.
@@ -16,7 +25,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Fixes [Issue #155](https://github.com/stripe/stripe-terminal-ios/issues/155): Bluetooth readers would not correctly identify the `SCPErrorCardLeftInReader` error if the previous transactions card was left in the reader when calling `collectPaymentMethod`.
 
 # 2.9.0 2022-05-23
-* Added compatibility work to support our upcoming React Native SDK. 
+* Added compatibility work to support our upcoming React Native SDK.
 
 # 2.8.0 2022-04-25
 

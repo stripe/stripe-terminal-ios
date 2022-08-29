@@ -123,7 +123,7 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         }
     }
 
-    private func updateContent() {
+    internal func updateContent() {
         var rows: [Row] = []
         if fetchingLocations {
             activityIndicatorHeader.title = "Fetching Locations"
@@ -142,7 +142,7 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         ]
     }
 
-    private func row(for location: Location) -> Row {
+    internal func row(for location: Location) -> Row {
         return Row(
             text: location.displayName ?? location.stripeId,
             detailText: location.stripeId,

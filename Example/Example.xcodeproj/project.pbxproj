@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,6 @@
 		259FDFDF2485AF0F0097686C /* EventDisplayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */; };
 		25CB2CF724941F8D0018535C /* StartSetReaderDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */; };
 		3936853E28860BDE0026A906 /* CaptureMethod+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936853D28860BDE0026A906 /* CaptureMethod+String.swift */; };
-		612B346C59FFC39B950F5C86 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A61902041D19E9595075313D /* Pods_Example.framework */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
 		A40E7CF027F64191005879C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		A63E8431260D073B006CB90C /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8430260D073B006CB90C /* CreateLocationViewController.swift */; };
@@ -46,6 +45,7 @@
 		C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */; };
 		C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D221438E9800A3026F /* UIView+Layout.swift */; };
 		C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F78BDA2144F0830094BE37 /* CustomViews.swift */; };
+		D181D09110D7E8B2D1305D66 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374B30391CC9A224E0099ACB /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,11 +74,11 @@
 		24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderConfiguration.swift; sourceTree = "<group>"; };
 		259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDisplayingViewController.swift; sourceTree = "<group>"; };
 		25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSetReaderDisplayViewController.swift; sourceTree = "<group>"; };
+		355B20EA3A4F97F1C734E4D0 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		374B30391CC9A224E0099ACB /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3936853D28860BDE0026A906 /* CaptureMethod+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureMethod+String.swift"; sourceTree = "<group>"; };
-		48382D996638091D9DBBCA68 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		5FA36C5DEEBB90002190DE23 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
-		94AB0F1C519990C1403954BE /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A61902041D19E9595075313D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
@@ -113,20 +113,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
-				612B346C59FFC39B950F5C86 /* Pods_Example.framework in Frameworks */,
+				D181D09110D7E8B2D1305D66 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9EAE0C4F0EF1CE92E6273C87 /* Pods */ = {
+		BBC7F71C568562A4DEFDB8B4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				94AB0F1C519990C1403954BE /* Pods-Example.debug.xcconfig */,
-				48382D996638091D9DBBCA68 /* Pods-Example.release.xcconfig */,
+				355B20EA3A4F97F1C734E4D0 /* Pods-Example.debug.xcconfig */,
+				5FA36C5DEEBB90002190DE23 /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,7 +135,7 @@
 				C16F409F2094F07B009CE87C /* Example */,
 				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				9EAE0C4F0EF1CE92E6273C87 /* Pods */,
+				BBC7F71C568562A4DEFDB8B4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
-				A61902041D19E9595075313D /* Pods_Example.framework */,
+				374B30391CC9A224E0099ACB /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,12 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				D64F49D82C275823BA9BD2E9 /* [CP] Check Pods Manifest.lock */,
+				33B70BA0956B446C3A7C9E8B /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				04CE41F4B6FDEE18CA477837 /* [CP] Embed Pods Frameworks */,
+				2231015225BA94FB61FF090A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +273,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04CE41F4B6FDEE18CA477837 /* [CP] Embed Pods Frameworks */ = {
+		2231015225BA94FB61FF090A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,7 +293,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D64F49D82C275823BA9BD2E9 /* [CP] Check Pods Manifest.lock */ = {
+		33B70BA0956B446C3A7C9E8B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -491,14 +490,15 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94AB0F1C519990C1403954BE /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 355B20EA3A4F97F1C734E4D0 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -510,7 +510,10 @@
 				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -522,7 +525,7 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48382D996638091D9DBBCA68 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 5FA36C5DEEBB90002190DE23 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -534,7 +537,10 @@
 				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.your-domain.stripe-terminal-example$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

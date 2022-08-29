@@ -73,6 +73,11 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
      :nodoc: Support for this reader is not generally available.
      */
     SCPDeviceTypeWiseCube,
+
+    /**
+     The Stripe S7 countertop reader.
+     */
+    SCPDeviceTypeS7,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END
