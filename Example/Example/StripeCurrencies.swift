@@ -21,6 +21,7 @@ struct StripeCurrencies {
         "AUD",
         "CAD",
         "CHF",
+        "CZK",
         "DKK",
         "EUR",
         "GBP",

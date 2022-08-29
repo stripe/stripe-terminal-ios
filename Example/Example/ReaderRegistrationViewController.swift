@@ -125,20 +125,20 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         }
     }
 
-    private func presentModalInNavigationController(_ vc: UIViewController) {
+    internal func presentModalInNavigationController(_ vc: UIViewController) {
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
     }
 
-    private func onLocationSelect(viewController: SelectLocationViewController, location: Location) {
+    internal func onLocationSelect(viewController: SelectLocationViewController, location: Location) {
         self.selectedLocation = location
         viewController.dismiss(animated: true) {
             self.updateContent()
         }
     }
 
-    private func showLocationSelector() {
+    internal func showLocationSelector() {
         let selectLocationVC = SelectLocationViewController()
         selectLocationVC.onSelectLocation = { [unowned selectLocationVC] location in
             self.onLocationSelect(viewController: selectLocationVC, location: location)

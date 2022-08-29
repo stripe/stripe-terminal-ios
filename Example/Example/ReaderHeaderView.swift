@@ -100,6 +100,8 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "wisepad")
             case .wisePosE, .etna:
                 imageView.image = UIImage(named: "wisepose")
+            case .S7:
+                imageView.image = UIImage(named: "s7")
             @unknown default:
                 imageView.image = nil
             }

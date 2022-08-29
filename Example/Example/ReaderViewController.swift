@@ -62,7 +62,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     // MARK: - Private
 
-    private func presentModalInNavigationController(_ vc: UIViewController) {
+    internal func presentModalInNavigationController(_ vc: UIViewController) {
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
@@ -96,7 +96,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.presentModalInNavigationController(registerVC)
     }
 
-    private func onReaderConnectFrom(viewController: UIViewController?, reader: Reader) {
+    internal func onReaderConnectFrom(viewController: UIViewController?, reader: Reader) {
         guard let viewController = viewController else { return }
 
         self.connectedReader = reader
@@ -160,6 +160,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
         let buildNameString = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "??"
@@ -178,6 +179,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
             ]
 
+
             switch connectedReader.deviceType {
             case .stripeM2, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
                 if let pendingUpdate = pendingUpdate {
@@ -187,7 +189,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                             }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
                     )
                 }
-            case .verifoneP400, .wisePosE, .etna:
+            case .verifoneP400, .wisePosE, .etna, .S7:
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
@@ -195,7 +197,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 break
             }
 
-            if connectedReader.deviceType != .chipper2X || connectedReader.deviceType != .stripeM2 {
+            if connectedReader.deviceType != .chipper2X && connectedReader.deviceType != .stripeM2 {
                 workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
@@ -305,6 +307,7 @@ extension ReaderViewController: BluetoothReaderDelegate {
     }
 }
 
+// MARK: ReconnectionDelegate
 extension ReaderViewController: ReconnectionDelegate {
     func terminal(_ terminal: Terminal, didStartReaderReconnect cancelable: Cancelable) {
         self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader has disconnected", preferredStyle: .alert)
@@ -337,6 +340,7 @@ extension ReaderViewController: ReconnectionDelegate {
         }
     }
 }
+
 
 extension DeviceType: CustomStringConvertible {
     public var description: String {

@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/SCPCardBrand.h</key>
 		<data>
-		Btm+Bz4lBVmpV9MWxrLEf2tBPT4=
+		HhBu7zm0NRDWsVCSfqABoygTd3E=
 		</data>
 		<key>Headers/SCPCardDetails.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Headers/SCPDeviceType.h</key>
 		<data>
-		nCa5eoJ5M+nNCIL8zJBvCfXnR5o=
+		sfTZ8yLIUPAsXAi81b617WsEG4c=
 		</data>
 		<key>Headers/SCPDiscoveryConfiguration.h</key>
 		<data>
@@ -258,7 +258,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		XXZwTtNFGfkywjBeSjZ8/OiJ0hI=
+		cc/5xqlCsUBX1DzrN/HyD1Mwm2U=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -270,7 +270,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kiLE/T7bNS3WEob9jlJJKUEEX3s=
+		REQLJOy7A+GdP6InWdxbtyALAF0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -349,11 +349,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Btm+Bz4lBVmpV9MWxrLEf2tBPT4=
+			HhBu7zm0NRDWsVCSfqABoygTd3E=
 			</data>
 			<key>hash2</key>
 			<data>
-			8I8nq2I/wmm+46QG+W+B4ep6nDUjtcI+lAfHs8qMmo8=
+			Uw6UFJ6Lauj096SlnAchXkJGXF72eNDGw7rlMVFrerY=
 			</data>
 		</dict>
 		<key>Headers/SCPCardDetails.h</key>
@@ -503,11 +503,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nCa5eoJ5M+nNCIL8zJBvCfXnR5o=
+			sfTZ8yLIUPAsXAi81b617WsEG4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			kztl0H/z+Jh7ZcU8J2dDQ535f2XGhqJoNi0Qz0C3D24=
+			VmvB2IpqaondIYYl+eZCJYI49rq2XJ8eJNfRZlsj4CI=
 			</data>
 		</dict>
 		<key>Headers/SCPDiscoveryConfiguration.h</key>
@@ -976,11 +976,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XXZwTtNFGfkywjBeSjZ8/OiJ0hI=
+			cc/5xqlCsUBX1DzrN/HyD1Mwm2U=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sl7GLvbytoIG/eSLFr0/0mcIaCZpT43jgsHQctOR/04=
+			oAcfc1XVbP176Kv/XVg7VJvS/F9ipE6dF5jqCSheBv4=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
