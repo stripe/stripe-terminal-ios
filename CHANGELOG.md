@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.13.0 2022-10-03
+* Added new [`updatePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration.html#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent) to `SCPCollectConfiguration` which will attach a PaymentMethod to the server-side PaymentIntent and provide that [`SCPPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)paymentMethod) on the `SCPPaymentIntent` returned during `collectPaymentMethod`. See [Stripe documentation](https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#collect-inspect-payment-method) for details.
+* Added new [`networks`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPNetworks.html) to `SCPCardPresentDetails`. The networks property will only be present in the PaymentIntent returned during collect when using `updatePaymentIntent` set to true.
 
 # 2.12.0 2022-08-29
 * Bug fix: Attempting to connect to a smart reader after an unexpected disconnect no longer errors with "The Stripe Terminal ConnectionToken has already been redeemed".

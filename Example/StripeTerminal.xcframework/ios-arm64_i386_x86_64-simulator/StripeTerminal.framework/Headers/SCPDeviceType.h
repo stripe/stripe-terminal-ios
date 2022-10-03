@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     /**
      The Stripe S7 countertop reader.
      */
-    SCPDeviceTypeS7,
+    SCPDeviceTypeStripeS700,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

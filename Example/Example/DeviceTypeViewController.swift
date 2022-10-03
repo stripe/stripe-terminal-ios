@@ -56,7 +56,7 @@ class DeviceTypeViewController: TableViewController {
             Section(header: "Countertop Readers", rows: [
                 vendDeviceRow(label: "Verifone P400", deviceType: .verifoneP400),
                 vendDeviceRow(label: "WisePOS E", deviceType: .wisePosE),
-                vendDeviceRow(label: "S7", deviceType: .S7),
+                vendDeviceRow(label: "S7", deviceType: .stripeS700),
             ], footer: "Countertop readers must be registered to your account via the Stripe API or Dashboard before they're discoverable."),
         ]
     }

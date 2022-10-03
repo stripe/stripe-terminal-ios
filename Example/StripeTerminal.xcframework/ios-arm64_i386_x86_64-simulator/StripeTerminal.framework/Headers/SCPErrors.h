@@ -155,6 +155,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderConnectionConfigurationInvalid = 1940,
 
+    /**
+     An invalid usage of `eligibleAmount` or `skipTipping` was passed into `collect`.
+     */
+    SCPErrorReaderTippingParameterInvalid = 1950,
+
     /*
      USER ERRORS
      */

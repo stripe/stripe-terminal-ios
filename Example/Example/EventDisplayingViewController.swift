@@ -32,6 +32,11 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     var events: [Event] = [] {
         didSet {
             updateContent()
+            let lastSection = tableView.numberOfSections - 1
+            let lastRow = tableView.numberOfRows(inSection: lastSection) - 1
+            if lastSection >= 0 && lastRow >= 0 {
+                tableView.scrollToRow(at: IndexPath(row: lastRow, section: lastSection), at: .bottom, animated: true)
+            }
         }
     }
 
