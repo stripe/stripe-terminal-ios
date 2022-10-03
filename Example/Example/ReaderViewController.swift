@@ -189,7 +189,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                             }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
                     )
                 }
-            case .verifoneP400, .wisePosE, .etna, .S7:
+            case .verifoneP400, .wisePosE, .etna, .stripeS700:
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))

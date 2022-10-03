@@ -14,10 +14,17 @@ class PaymentViewController: EventDisplayingViewController {
 
     private let paymentParams: PaymentIntentParameters
     private let collectConfig: CollectConfiguration
+    private let declineCardBrand: CardBrand?
+    private let recollectAfterCardBrandDecline: Bool
 
-    init(paymentParams: PaymentIntentParameters, collectConfig: CollectConfiguration) {
+    init(paymentParams: PaymentIntentParameters,
+         collectConfig: CollectConfiguration,
+         declineCardBrand: CardBrand?,
+         recollectAfterCardBrandDecline: Bool) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
+        self.declineCardBrand = declineCardBrand
+        self.recollectAfterCardBrandDecline = recollectAfterCardBrandDecline
         super.init()
     }
 
@@ -44,7 +51,7 @@ class PaymentViewController: EventDisplayingViewController {
         if Terminal.shared.connectedReader?.deviceType == .verifoneP400
             || Terminal.shared.connectedReader?.deviceType == .wisePosE
             || Terminal.shared.connectedReader?.deviceType == .etna
-            || Terminal.shared.connectedReader?.deviceType == .S7 {
+            || Terminal.shared.connectedReader?.deviceType == .stripeS700 {
             // For internet-connected readers, PaymentIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreatePaymentIntent)
             self.events.append(createEvent)
@@ -103,6 +110,7 @@ class PaymentViewController: EventDisplayingViewController {
         var collectEvent = LogEvent(method: .collectPaymentMethod)
         self.events.append(collectEvent)
         self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) { intentWithPaymentMethod, attachError in
+            let collectCancelable = self.cancelable
             self.cancelable = nil
             if let error = attachError {
                 collectEvent.result = .errored
@@ -110,6 +118,38 @@ class PaymentViewController: EventDisplayingViewController {
                 self.events.append(collectEvent)
                 self.complete()
             } else if let intent = intentWithPaymentMethod {
+                // Before proceeding check if the card brand provided matches the brand chosen to reject
+                if let declineCardBrand = self.declineCardBrand,
+                   let paymentMethod = intent.paymentMethod,
+                   let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
+                   details.brand == declineCardBrand {
+                    collectEvent.result = .errored
+                    let error = NSError(domain: "com.stripe-terminal-ios.example",
+                                        code: 1000,
+                                        userInfo: [NSLocalizedDescriptionKey: "Integration rejected card due to card brand"])
+                    collectEvent.object = .error(error)
+                    self.events.append(collectEvent)
+                    if self.recollectAfterCardBrandDecline {
+                        // Start collect all over
+                        self.collectPaymentMethod(intent: intent)
+                    } else {
+                        // Cancel to ensure the reader resets back to its idle state
+                        collectCancelable?.cancel { cancelError in
+                            var cancelEvent = LogEvent(method: .cancelCollectPaymentMethod)
+                            if let error = cancelError {
+                                cancelEvent.result = .errored
+                                cancelEvent.object = .error(error as NSError)
+                            } else {
+                                cancelEvent.result = .succeeded
+                                cancelEvent.object = .paymentIntent(intent)
+                            }
+                            self.events.append(cancelEvent)
+                            self.complete()
+                        }
+                    }
+                    return
+                }
+
                 collectEvent.result = .succeeded
                 collectEvent.object = .paymentIntent(intent)
                 self.events.append(collectEvent)

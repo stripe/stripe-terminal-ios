@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.12.0 Docs
+          StripeTerminal 2.13.0 Docs
         </a>
         
       </p>
@@ -228,6 +228,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPNetworks.html">SCPNetworks</a>
               </li>
             </ul>
           </li>
@@ -540,6 +546,70 @@ e.g. if the type is <code>SCPPaymentMethodTypeCard</code>, the <code><a href="..
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPPaymentMethod(py)cardPresent"></a>
+                    <a name="//apple_ref/objc/Property/cardPresent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentMethod(py)cardPresent">cardPresent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If this is a card_present PaymentMethod (ie <code>self.type == SCPPaymentMethodTypeCardPresent</code>), this contains additional details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a></span> <span class="o">*</span><span class="n">cardPresent</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cardPresent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPPaymentMethod(py)interacPresent"></a>
+                    <a name="//apple_ref/objc/Property/interacPresent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentMethod(py)interacPresent">interacPresent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If this is an Interac_present PaymentMethod (ie <code>self.type == SCPPaymentMethodTypeInteracPresent</code>), this contains additional details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a></span> <span class="o">*</span><span class="n">interacPresent</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">interacPresent</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPPaymentMethod(py)customer"></a>
                     <a name="//apple_ref/objc/Property/customer" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPPaymentMethod(py)customer">customer</a>
@@ -676,8 +746,8 @@ e.g. if the type is <code>SCPPaymentMethodTypeCard</code>, the <code><a href="..
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-08-29)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-03)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

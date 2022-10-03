@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCardDetails;
+@class SCPCardDetails, SCPCardPresentDetails;
 
 /**
  PaymentMethod objects represent your customer's payment instruments.
@@ -49,6 +49,16 @@ NS_SWIFT_NAME(PaymentMethod)
  If this is a card PaymentMethod (ie `self.type == SCPPaymentMethodTypeCard`), this contains additional details.
  */
 @property (nonatomic, nullable, readonly) SCPCardDetails *card;
+
+/**
+ If this is a card_present PaymentMethod (ie `self.type == SCPPaymentMethodTypeCardPresent`), this contains additional details.
+ */
+@property (nonatomic, nullable, readonly) SCPCardPresentDetails *cardPresent;
+
+/**
+ If this is an Interac_present PaymentMethod (ie `self.type == SCPPaymentMethodTypeInteracPresent`), this contains additional details.
+ */
+@property (nonatomic, nullable, readonly) SCPCardPresentDetails *interacPresent;
 
 /**
  The Customer that this PaymentMethod is attached to, or nil.

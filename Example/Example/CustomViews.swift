@@ -95,8 +95,8 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
     var numberFormatter = NumberFormatter()
     private let defaultAmount: UInt = 100
 
-    convenience init() {
-        self.init(text: "Amount", footer: "")
+    convenience init(header: String? = nil, footer: String? = nil, placeholderText: String? = nil) {
+        self.init(text: "Amount", header: header, footer: footer, placeholderText: placeholderText)
         textField.text = String(defaultAmount)
         textField.delegate = self
         textField.keyboardType = .numberPad
@@ -331,6 +331,7 @@ class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .jcb,
         .unionPay,
         .interac,
+        .eftposAuDebit,
         .onlinePinCvm,
         .onlinePinScaRetry,
         .offlinePinCvm,

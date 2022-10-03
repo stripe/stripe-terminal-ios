@@ -45,7 +45,7 @@ NS_SWIFT_NAME(PaymentMethodDetails)
 @property (nonatomic, nullable, readonly) SCPCardPresentDetails *cardPresent;
 
 /**
- If this is a card present payment method (ie `self.type == SCPPaymentMethodTypeInteracPresent`),
+ If this is an Interac present payment method (ie `self.type == SCPPaymentMethodTypeInteracPresent`),
  this contains additional information.
  */
 @property (nonatomic, nullable, readonly) SCPCardPresentDetails *interacPresent;

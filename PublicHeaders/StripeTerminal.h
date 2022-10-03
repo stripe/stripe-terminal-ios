@@ -39,6 +39,7 @@
 #import <StripeTerminal/SCPLocation.h>
 #import <StripeTerminal/SCPLocationStatus.h>
 #import <StripeTerminal/SCPLogLevel.h>
+#import <StripeTerminal/SCPNetworks.h>
 #import <StripeTerminal/SCPPaymentIntent.h>
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentMethod.h>
@@ -70,4 +71,5 @@
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPTerminalDelegate.h>
+#import <StripeTerminal/SCPTippingConfiguration.h>
 

@@ -34,7 +34,7 @@ class SetupIntentViewController: EventDisplayingViewController {
     private func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping SetupIntentCompletionBlock) {
         if Terminal.shared.connectedReader?.deviceType == .wisePosE
             || Terminal.shared.connectedReader?.deviceType == .etna
-            || Terminal.shared.connectedReader?.deviceType == .S7 {
+            || Terminal.shared.connectedReader?.deviceType == .stripeS700 {
             // For internet-connected readers, SetupIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreateSetupIntent)
             self.events.append(createEvent)

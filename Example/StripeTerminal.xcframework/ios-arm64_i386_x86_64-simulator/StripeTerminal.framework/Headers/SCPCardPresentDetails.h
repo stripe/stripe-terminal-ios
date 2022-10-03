@@ -17,7 +17,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPReceiptDetails;
+@class SCPReceiptDetails, SCPNetworks;
 
 /**
  An object representing details from a transaction using a card_present
@@ -99,6 +99,13 @@ NS_SWIFT_NAME(CardPresentDetails)
  Only available for interac_present payments.
  */
 @property (nonatomic, copy, nullable, readonly) NSArray<NSString *> *preferredLocales;
+
+/**
+ Contains information about card networks that can be used to process the payment.
+
+ Only available after collectPaymentMethod when using updatePaymentIntent on the CollectConfiguration.
+ */
+@property (nonatomic, copy, nullable, readonly) SCPNetworks *networks;
 
 /**
  You cannot directly instantiate this class.

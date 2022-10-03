@@ -21,6 +21,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var setupFutureUsage: String?
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
+    private var declineCardBrand: CardBrand?
+    private var recollectAfterCardBrandDecline = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -41,6 +43,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
          DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
     }
 
+
+    private lazy var tipEligibleAmountTextField: AmountInputView = {
+        let textField = AmountInputView(footer: "Must have on-reader tipping configured to have any effect.", placeholderText: "Tip-eligible amount")
+        textField.textField.text = nil
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .numbersAndPunctuation
+        return textField
+    }()
 
     convenience init() {
         self.init(style: .grouped)
@@ -144,7 +154,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentParams.applicationFeeAmount = applicationFeeAmount
         }
 
-        let vc = PaymentViewController(paymentParams: paymentParams, collectConfig: .init(skipTipping: self.skipTipping)
+        let collectConfig = CollectConfiguration(skipTipping: self.skipTipping, updatePaymentIntent: declineCardBrand != nil)
+        if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
+            let tippingConfig = TippingConfiguration(eligibleAmount: eligibleAmount)
+            collectConfig.tippingConfiguration = tippingConfig
+        }
+        let vc = PaymentViewController(paymentParams: paymentParams,
+                                       collectConfig: collectConfig,
+                                       declineCardBrand: declineCardBrand,
+                                       recollectAfterCardBrandDecline: recollectAfterCardBrandDecline
         )
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
@@ -171,7 +189,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             rows: [Row(text: "Skip Tipping", accessory: .switchToggle(value: self.skipTipping) { [unowned self] _ in
                 self.skipTipping.toggle()
             })],
-            footer: .title("Must have on-reader tipping configured to have any effect."))
+            footer: .autoLayoutView(tipEligibleAmountTextField))
     }
 
     private func makePaymentMethodSection() -> Section {
@@ -184,12 +202,36 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
                 self.automaticCaptureEnabled.toggle()
             }),
+            Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in
+                let brands: [CardBrand] = [
+                    .visa,
+                    .amex,
+                    .masterCard,
+                    .discover,
+                    .JCB,
+                    .dinersClub,
+                    .interac,
+                    .unionPay,
+                    .eftposAu,
+                ]
+                self.presentValuePicker(options: ["None"] + brands.map { Terminal.stringFromCardBrand($0) }) { picked in
+                    self.declineCardBrand = nil
+                    for brand in brands where picked == Terminal.stringFromCardBrand(brand) {
+                        self.declineCardBrand = brand
+                        break
+                    }
+                    self.updateContent()
+                }
+            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
+            Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
+                recollectAfterCardBrandDecline.toggle()
+            }),
             Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
                 self.requestExtendedAuthorization.toggle()
             }),
             Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
                 self.requestIncrementalAuthorizationSupport.toggle()
-            })
+            }),
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 
         return paymentMethodSection

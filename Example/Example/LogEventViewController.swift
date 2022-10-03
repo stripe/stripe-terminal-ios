@@ -333,8 +333,6 @@ extension LogEvent.AssociatedObject {
             return prettyPrint(json: error.userInfo)
         case .json(let json):
             return prettyPrint(json: json)
-        case .paymentIntent(let intent) where intent.status == .requiresConfirmation:
-            return nil
         case .paymentIntent(let intent):
             return !intent.originalJSON.isEmpty ? prettyPrint(json: intent.originalJSON) : intent.debugDescription
         case .paymentMethod(let paymentMethod):

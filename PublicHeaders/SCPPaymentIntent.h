@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPProcessPaymentError;
+@class SCPCharge, SCPProcessPaymentError, SCPPaymentMethod;
 
 
 /**
@@ -100,6 +100,13 @@ NS_SWIFT_NAME(PaymentIntent)
  Charges that were created by this PaymentIntent, if any.
  */
 @property (nonatomic, readonly) NSArray<SCPCharge *> *charges;
+
+/**
+ The payment method to be used in this PaymentIntent. Only valid in the
+ intent returned during `collectPaymentMethod` when using the `updatePaymentIntent`
+ option in the `SCPCollectConfiguration`.
+ */
+@property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethod;
 
 /**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use
