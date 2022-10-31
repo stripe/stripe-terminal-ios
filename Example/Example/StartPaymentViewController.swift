@@ -188,6 +188,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             header: "TIPPING",
             rows: [Row(text: "Skip Tipping", accessory: .switchToggle(value: self.skipTipping) { [unowned self] _ in
                 self.skipTipping.toggle()
+                self.updateContent()
             })],
             footer: .autoLayoutView(tipEligibleAmountTextField))
     }
@@ -198,9 +199,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
             Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
                 self.interacPresentEnabled.toggle()
+                self.updateContent()
             }),
             Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
                 self.automaticCaptureEnabled.toggle()
+                self.updateContent()
             }),
             Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in
                 let brands: [CardBrand] = [
@@ -225,12 +228,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
             Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
                 recollectAfterCardBrandDecline.toggle()
+                self.updateContent()
             }),
             Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
                 self.requestExtendedAuthorization.toggle()
+                self.updateContent()
             }),
             Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
                 self.requestIncrementalAuthorizationSupport.toggle()
+                self.updateContent()
             }),
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 

@@ -50,6 +50,7 @@ class PaymentViewController: EventDisplayingViewController {
     private func createPaymentIntent(_ parameters: PaymentIntentParameters, completion: @escaping PaymentIntentCompletionBlock) {
         if Terminal.shared.connectedReader?.deviceType == .verifoneP400
             || Terminal.shared.connectedReader?.deviceType == .wisePosE
+            || Terminal.shared.connectedReader?.deviceType == .wisePosEDevKit
             || Terminal.shared.connectedReader?.deviceType == .etna
             || Terminal.shared.connectedReader?.deviceType == .stripeS700 {
             // For internet-connected readers, PaymentIntents must be created via your backend

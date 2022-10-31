@@ -127,6 +127,52 @@ class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegat
     }
 }
 
+/**
+ Allows the Example app to use a single persistent LocalMobileReaderDelegate for the life of the connection
+ and still have the view controllers receive the LocalMobileReaderDelegate events.
+ */
+class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDelegate>, LocalMobileReaderDelegate {
+    static let shared = LocalMobileReaderDelegateAnnouncer()
+
+    // MARK: - LocalMobileReaderDelegate
+
+    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        announce { delegate in
+            delegate.localMobileReader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
+        }
+    }
+
+    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+        announce { delegate in
+            delegate.localMobileReader(reader, didReportReaderSoftwareUpdateProgress: progress)
+        }
+    }
+
+    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        announce { delegate in
+            delegate.localMobileReader(reader, didFinishInstallingUpdate: update, error: error)
+        }
+    }
+
+    func localMobileReaderDidAcceptTermsOfService(_ reader: Reader) {
+        announce { delegate in
+            delegate.localMobileReaderDidAcceptTermsOfService?(reader)
+        }
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+        announce { delegate in
+            delegate.localMobileReader(reader, didRequestReaderInput: inputOptions)
+        }
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+        announce { delegate in
+            delegate.localMobileReader(reader, didRequestReaderDisplayMessage: displayMessage)
+        }
+    }
+}
+
 class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
     static let shared = ReconnectionDelegateAnnouncer()
 

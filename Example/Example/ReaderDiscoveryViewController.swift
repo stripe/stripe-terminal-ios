@@ -43,6 +43,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         self.title = "Discovery"
         TerminalDelegateAnnouncer.shared.addListener(self)
         BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +53,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
         BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -90,6 +92,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     }
 
     // 2. connect to a selected reader
+    // swiftlint:disable:next cyclomatic_complexity
     private func connect(to reader: Reader, failIfInUse: Bool = false) {
         setAllowedCancelMethods([])
         viewState = .connecting
@@ -148,9 +151,17 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             } else {
                 self.presentLocationRequiredAlert()
             }
-        case .verifoneP400, .wisePosE, .etna, .stripeS700:
+        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700:
             let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: true)
             Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
+        case .appleBuiltIn:
+            let locationId = selectedLocation?.stripeId ?? reader.locationId
+            if let presentLocationId = locationId {
+                let connectionConfig = LocalMobileConnectionConfiguration(locationId: presentLocationId)
+                Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+            } else {
+                self.presentLocationRequiredAlert()
+            }
         @unknown default:
             fatalError()
         }
@@ -183,6 +194,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         ].compactMap({ $0 })
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     private func updateActivityIndicatorView() {
         if viewState == .discovering || viewState == .connecting {
             activityIndicatorView.activityIndicator.startAnimating()
@@ -208,6 +220,11 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             activityIndicatorView.title = "REGISTERED READERS"
         case (.internet, _, _):
             activityIndicatorView.title = "LOOKING UP REGISTERED READERS"
+
+        case (.localMobile, 0, .doneDiscovering):
+            activityIndicatorView.title = "NO SUPPORTED READERS FOUND"
+        case (.localMobile, _, _):
+            activityIndicatorView.title = "LOCAL MOBILE READERS"
 
         @unknown default:
             activityIndicatorView.title = "READERS"
@@ -277,9 +294,18 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     }
 
     private func buildLocationDescription(forReader reader: Reader, usingDiscoveryMethod discoveryMethod: DiscoveryMethod) -> String {
-        return discoveryMethod == .internet ?
-            buildLocationDescription(forInternetReader: reader) :
-            buildLocationDescription(forBlueoothReader: reader)
+        return {
+            switch discoveryMethod {
+            case .internet:
+                return buildLocationDescription(forInternetReader: reader)
+            case .bluetoothProximity, .bluetoothScan:
+                return buildLocationDescription(forBlueoothReader: reader)
+            case .localMobile:
+                return buildLocationDescription(forLocalMobileReader: reader)
+            case _:
+                return "Unknown location status"
+            }
+        }()
     }
 
     private func buildLocationDescription(forInternetReader reader: Reader) -> String {
@@ -318,6 +344,18 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             return "❗️Unknown last location, please select one first"
         case (_, _):
             fatalError("Crash in buildLocationDescription. Reader is \(reader.debugDescription)")
+        }
+    }
+
+    private func buildLocationDescription(forLocalMobileReader reader: Reader) -> String {
+        switch reader.locationStatus {
+        case (.notSet):
+            return "Not registered to a location"
+        case (.set):
+            guard let readerLocation = reader.location else { fatalError() }
+            return "Registered to: \(readerLocation.displayString)"
+        case _:
+            return "Unknown location status"
         }
     }
 
@@ -365,6 +403,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     ///   - discoveryMethod: how the reader was discovered
     ///   - selection: action to take when row is selected
     /// - Returns: A Row (from Static library) for this reader
+    // swiftlint:disable:next cyclomatic_complexity
     private func row(forReader reader: Reader, discoveryMethod: DiscoveryMethod, selection: @escaping Selection) -> Row {
         var cellClass: Cell.Type = SubtitleCell.self
         var details = [String]()
@@ -400,8 +439,10 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "verifone")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE, .etna, .stripeS700:
+        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700:
             image = UIImage(named: "wisepose")
+        case .appleBuiltIn:
+            image = nil
         @unknown default:
             image = nil
         }
@@ -449,6 +490,7 @@ extension ReaderDiscoveryViewController: TerminalDelegate {
     }
 }
 
+// MARK: - BluetoothReaderDelegate
 extension ReaderDiscoveryViewController: BluetoothReaderDelegate {
     func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
     }
@@ -472,6 +514,33 @@ extension ReaderDiscoveryViewController: BluetoothReaderDelegate {
     }
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    }
+}
+
+// MARK: - LocalMobileReaderDelegate
+extension ReaderDiscoveryViewController: LocalMobileReaderDelegate {
+    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        updateReaderVC = UpdateReaderViewController(updateBeingInstalled: update, cancelable: cancelable, updateInstalledCompletion: { [unowned self] in
+            self.updateReaderVC?.dismiss(animated: true, completion: nil)
+        })
+        if let vc = updateReaderVC {
+            self.present(LargeTitleNavigationController(rootViewController: vc), animated: true, completion: nil)
+        }
+    }
+
+    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    }
+
+    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    }
+
+    func localMobileReaderDidAcceptTermsOfService(_ reader: Reader) {
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
 }
 

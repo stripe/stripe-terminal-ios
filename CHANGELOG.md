@@ -4,6 +4,13 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+
+# 2.14.0 2022-10-31
+* Minimum deployment target changed from iOS 10.0 to iOS 11.0
+* Added support for [Tap to Pay on iPhone](https://stripe.com/docs/terminal/payments/setup-reader/tap-on-mobile-ios#get-started).
+* Added new [`SCPTippingConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTippingConfiguration.html) property on `SCPCollectConfiguration`, which allows for per-transaction tip-eligible amounts to be set on the BBPOS WisePos E. See [Stripe documentation](https://stripe.com/docs/terminal/features/collecting-tips/on-reader#tip-eligible) for details. 
+* Fixes [Issue #176](https://github.com/stripe/stripe-terminal-ios/issues/176): Fixed warning from the SDK umbrella header, StripeTerminal.h, missing an import.
+
 # 2.13.0 2022-10-03
 * Added new [`updatePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration.html#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent) to `SCPCollectConfiguration` which will attach a PaymentMethod to the server-side PaymentIntent and provide that [`SCPPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)paymentMethod) on the `SCPPaymentIntent` returned during `collectPaymentMethod`. See [Stripe documentation](https://stripe.com/docs/terminal/payments/collect-payment?terminal-sdk-platform=ios#collect-inspect-payment-method) for details.
 * Added new [`networks`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPNetworks.html) to `SCPCardPresentDetails`. The networks property will only be present in the PaymentIntent returned during collect when using `updatePaymentIntent` set to true.
