@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 2.13.0 Docs
+          StripeTerminal 2.14.0 Docs
         </a>
         
       </p>
@@ -92,6 +92,9 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -131,6 +134,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -306,6 +312,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyDeviceBannedUntilDate">SCPErrorKeyDeviceBannedUntilDate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
@@ -503,6 +512,44 @@ reader, such as the Chipper 2X BT and the WisePad 3.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">BluetoothReaderDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPLocalMobileReaderDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPLocalMobileReaderDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPLocalMobileReaderDelegate">SCPLocalMobileReaderDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement this protocol to handle a connected local mobile reader&rsquo;s events throughout
+the lifetime of its connection.</p>
+
+<p>Implementing this delegate is required when connecting to any Local Mobile reader.</p>
+
+<p>The provided delegate must be retained by your application until the reader disconnects.</p>
+
+                        <a href="Protocols/SCPLocalMobileReaderDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPLocalMobileReaderDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LocalMobileReaderDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -773,7 +820,7 @@ during checkout.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-03)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

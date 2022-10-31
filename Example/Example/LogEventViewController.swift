@@ -362,9 +362,16 @@ extension LogEvent.AssociatedObject {
                 }
             }
         }
+
         do {
-            let data: Data = try JSONSerialization.data(withJSONObject: sanitizedJson,
-                                                        options: .prettyPrinted)
+            var data: Data
+            if #available(iOS 11.0, *) {
+                data = try JSONSerialization.data(withJSONObject: sanitizedJson,
+                                                            options: [.prettyPrinted, .sortedKeys])
+            } else {
+                data = try JSONSerialization.data(withJSONObject: sanitizedJson,
+                                                  options: [.prettyPrinted])
+            }
             return String(data: data, encoding: .utf8) ?? sanitizedJson.description
         } catch _ {
             return json.description

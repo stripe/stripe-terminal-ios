@@ -87,7 +87,14 @@ class ReaderHeaderView: UIView {
 
     func updateContent() {
         func setUIForReader(_ reader: Reader) {
-            titleLabel.text = "\(Terminal.stringFromDeviceType(reader.deviceType)) \(reader.label ?? reader.serialNumber)"
+            titleLabel.text = {
+                if reader.deviceType == .appleBuiltIn {
+                    // Apple Built-In reader type has the entire readable name in the label.
+                    return reader.label
+                } else {
+                    return "\(Terminal.stringFromDeviceType(reader.deviceType)) \(reader.label ?? reader.serialNumber)"
+                }
+            }()
 
             switch reader.deviceType {
             case .stripeM2:
@@ -98,10 +105,13 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 imageView.image = UIImage(named: "wisepad")
-            case .wisePosE, .etna:
+            case .wisePosE, .wisePosEDevKit, .etna:
                 imageView.image = UIImage(named: "wisepose")
             case .stripeS700:
                 imageView.image = UIImage(named: "s700")
+            case .appleBuiltIn:
+                // TODO:KINGS-39: Add Apple Built-In Image Collateral to SDK.
+                imageView.image = nil
             @unknown default:
                 imageView.image = nil
             }

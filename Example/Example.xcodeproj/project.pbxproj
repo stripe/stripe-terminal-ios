@@ -20,15 +20,14 @@
 		24FAAAFF2345067A00D47D40 /* ReaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */; };
 		259FDFDF2485AF0F0097686C /* EventDisplayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */; };
 		25CB2CF724941F8D0018535C /* StartSetReaderDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */; };
+		274A725D098E4DA5F138F95A /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B011BF76962A079357D43FE /* Pods_Example.framework */; };
 		3936853E28860BDE0026A906 /* CaptureMethod+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936853D28860BDE0026A906 /* CaptureMethod+String.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
-		7C3897E544F85C02B06232A3 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E7B6B0B335542BD72EF3F /* Pods_Example.framework */; };
 		A40E7CF027F64191005879C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		A63E8431260D073B006CB90C /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8430260D073B006CB90C /* CreateLocationViewController.swift */; };
 		A63E8435260D0A0D006CB90C /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */; };
 		A63E8457260D23C9006CB90C /* StripeCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8456260D23C9006CB90C /* StripeCountries.swift */; };
 		B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C24C6B23285BF6003271BD /* ifaddrs.swift */; };
-		C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */; };
 		C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */; };
 		C152F7782149ECA30078BD07 /* ReadReusableCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */; };
 		C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F77B214A18C00078BD07 /* StripeCurrencies.swift */; };
@@ -74,16 +73,15 @@
 		24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderConfiguration.swift; sourceTree = "<group>"; };
 		259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDisplayingViewController.swift; sourceTree = "<group>"; };
 		25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSetReaderDisplayViewController.swift; sourceTree = "<group>"; };
-		311E7B6B0B335542BD72EF3F /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3936853D28860BDE0026A906 /* CaptureMethod+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureMethod+String.swift"; sourceTree = "<group>"; };
+		6DF664D18DFA213325847B14 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
+		7B011BF76962A079357D43FE /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
-		AC01E3D826437E42AB2D28DA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
 		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
 		C152F7772149ECA20078BD07 /* ReadReusableCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadReusableCardViewController.swift; sourceTree = "<group>"; };
 		C152F77B214A18C00078BD07 /* StripeCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCurrencies.swift; sourceTree = "<group>"; };
@@ -104,7 +102,7 @@
 		C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 		C1DE30D221438E9800A3026F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		C1F78BDA2144F0830094BE37 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
-		C9FA9D8BD8EE560EB7622445 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DF30C3687B05FD566C9639DC /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,18 +111,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
-				7C3897E544F85C02B06232A3 /* Pods_Example.framework in Frameworks */,
+				274A725D098E4DA5F138F95A /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75FCEA740A1F0B5A9E1BE0EC /* Pods */ = {
+		BF0713AF03233C6769A2045C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C9FA9D8BD8EE560EB7622445 /* Pods-Example.debug.xcconfig */,
-				AC01E3D826437E42AB2D28DA /* Pods-Example.release.xcconfig */,
+				6DF664D18DFA213325847B14 /* Pods-Example.debug.xcconfig */,
+				DF30C3687B05FD566C9639DC /* Pods-Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -135,7 +133,7 @@
 				C16F409F2094F07B009CE87C /* Example */,
 				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				75FCEA740A1F0B5A9E1BE0EC /* Pods */,
+				BF0713AF03233C6769A2045C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,7 +156,6 @@
 				A63E8430260D073B006CB90C /* CreateLocationViewController.swift */,
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
 				02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */,
-				C141842E214B3A3C00F4C0AA /* DeviceTypeViewController.swift */,
 				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
 				259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */,
 				B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */,
@@ -196,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
-				311E7B6B0B335542BD72EF3F /* Pods_Example.framework */,
+				7B011BF76962A079357D43FE /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,12 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				66E77B0F2FAB9AB325A6B052 /* [CP] Check Pods Manifest.lock */,
+				7FA15A8DB917FCF534E70B33 /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				484BCF9434128F99A00B78FB /* [CP] Embed Pods Frameworks */,
+				4CB38B3446609A2C6B732274 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,7 +270,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		484BCF9434128F99A00B78FB /* [CP] Embed Pods Frameworks */ = {
+		4CB38B3446609A2C6B732274 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,7 +290,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66E77B0F2FAB9AB325A6B052 /* [CP] Check Pods Manifest.lock */ = {
+		7FA15A8DB917FCF534E70B33 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +334,6 @@
 				241B90F9249027DE0083C908 /* ReaderRegistrationViewController.swift in Sources */,
 				022B5728250BB8CF00595E19 /* Value1MultilineCell.swift in Sources */,
 				B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */,
-				C141842F214B3A3C00F4C0AA /* DeviceTypeViewController.swift in Sources */,
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				2446E3EF25AF499B00FB4510 /* SetupIntentViewController.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
@@ -498,7 +494,7 @@
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9FA9D8BD8EE560EB7622445 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 6DF664D18DFA213325847B14 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -508,8 +504,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +515,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -525,7 +523,7 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC01E3D826437E42AB2D28DA /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = DF30C3687B05FD566C9639DC /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -535,8 +533,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +544,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -60,6 +60,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         super.init(style: .grouped)
         TerminalDelegateAnnouncer.shared.addListener(self)
         BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -69,6 +70,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
         BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -95,7 +97,17 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     }
 
     private func updateContent() {
-        let currentVersion = Terminal.shared.connectedReader?.deviceSoftwareVersion ?? "unknown"
+        let currentVersion: String = {
+            guard let connectedReader = Terminal.shared.connectedReader else {
+                return "unknown"
+            }
+            if connectedReader.deviceType == .appleBuiltIn {
+                // Device software version is unavailable on Apple Built-In readers.
+                return "current"
+            }
+            return connectedReader.deviceSoftwareVersion ?? "unknown"
+        }()
+
         let updateButtonText: String
         let updateFooter: String
         let updateRow: Row
@@ -268,5 +280,33 @@ extension UpdateReaderViewController: BluetoothReaderDelegate {
     }
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    }
+}
+
+// MARK: LocalMobileReaderDelegate
+extension UpdateReaderViewController: LocalMobileReaderDelegate {
+    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        self.cancelable = cancelable
+    }
+
+    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+        self.updateProgress = progress
+        self.updateContent()
+    }
+
+    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        // No-op.
+    }
+
+    func localMobileReaderDidAcceptTermsOfService(_ reader: Reader) {
+        // No-op.
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+        // No-op.
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+        // No-op.
     }
 }

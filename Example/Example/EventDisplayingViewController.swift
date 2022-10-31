@@ -53,6 +53,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
         BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -72,6 +73,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
         TerminalDelegateAnnouncer.shared.addListener(self)
         BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
 
         if completed || Terminal.shared.paymentStatus != .ready {
             return
@@ -142,9 +144,12 @@ extension EventDisplayingViewController: TerminalDelegate {
     }
 
     func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+        let displayIdentifier = reader.label ?? reader.serialNumber
+
         var logEvent = LogEvent(method: .reportReaderEvent)
-        logEvent.result = .message("Disconnected from reader: \(reader.serialNumber)")
+        logEvent.result = .message("Disconnected from reader: \(displayIdentifier)")
         self.events.append(logEvent)
+
         presentAlert(title: "Reader disconnected!", message: "")
     }
 }
@@ -179,5 +184,36 @@ extension EventDisplayingViewController: BluetoothReaderDelegate {
     }
 
     func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    }
+}
+
+// MARK: LocalMobileReaderDelegate
+extension EventDisplayingViewController: LocalMobileReaderDelegate {
+    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        // No-op.
+    }
+
+    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+        // No-op.
+    }
+
+    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        // No-op.
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+        self.events.append({
+            var event = LogEvent(method: .requestReaderInput)
+            event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
+            return event
+        }())
+    }
+
+    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+        self.events.append({
+            var event = LogEvent(method: .requestReaderDisplayMessage)
+            event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
+            return event
+        }())
     }
 }

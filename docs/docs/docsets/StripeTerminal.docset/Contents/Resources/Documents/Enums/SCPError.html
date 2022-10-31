@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.13.0 Docs
+          StripeTerminal 2.14.0 Docs
         </a>
         
       </p>
@@ -92,6 +92,9 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -131,6 +134,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -306,6 +312,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyDeviceBannedUntilDate">SCPErrorKeyDeviceBannedUntilDate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
@@ -1177,6 +1186,38 @@ assuming there is an update app version with a supported version of our SDK.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidLocationIdParameter"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidLocationIdParameter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidLocationIdParameter">SCPErrorInvalidLocationIdParameter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The provided location ID parameter was invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidLocationIdParameter</span> <span class="o">=</span> <span class="mi">1960</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidLocationIdParameter</span> <span class="o">=</span> <span class="mi">1960</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorCanceled"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorCanceled" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorCanceled">SCPErrorCanceled</a>
@@ -1684,6 +1725,272 @@ with <code>SCPReaderEventCardRemoved</code> when the card is removed.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorCommandNotAllowed"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCommandNotAllowed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCommandNotAllowed">SCPErrorCommandNotAllowed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The command was not permitted to execute by the operating system.
+This can happen for a number of reasons, but most commonly:</p>
+
+<ul>
+<li>Your application does not have the necessary entitlements.</li>
+<li>Your application bundle is invalid.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCommandNotAllowed</span> <span class="o">=</span> <span class="mi">2900</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">commandNotAllowed</span> <span class="o">=</span> <span class="mi">2900</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorUnsupportedMobileDeviceConfiguration"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorUnsupportedMobileDeviceConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorUnsupportedMobileDeviceConfiguration">SCPErrorUnsupportedMobileDeviceConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The mobile device on which the app is running is in an unsupported
+configuration. Verify that the device is running a supported version of
+iOS and that the mobile device has the capability you are attempting to use.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorUnsupportedMobileDeviceConfiguration</span> <span class="o">=</span> <span class="mi">2910</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedMobileDeviceConfiguration</span> <span class="o">=</span> <span class="mi">2910</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPasscodeNotEnabled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPasscodeNotEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPasscodeNotEnabled">SCPErrorPasscodeNotEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The mobile device on which the app is running must have a passcode set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPasscodeNotEnabled</span> <span class="o">=</span> <span class="mi">2920</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">passcodeNotEnabled</span> <span class="o">=</span> <span class="mi">2920</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorCommandNotAllowedDuringCall"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorCommandNotAllowedDuringCall" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorCommandNotAllowedDuringCall">SCPErrorCommandNotAllowedDuringCall</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The card reader cannot be used while a phone call is active.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorCommandNotAllowedDuringCall</span> <span class="o">=</span> <span class="mi">2930</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">commandNotAllowedDuringCall</span> <span class="o">=</span> <span class="mi">2930</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidAmount"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidAmount">SCPErrorInvalidAmount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An attempt was made to charge an amount not supported by the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidAmount</span> <span class="o">=</span> <span class="mi">2940</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidAmount</span> <span class="o">=</span> <span class="mi">2940</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidCurrency"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidCurrency" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidCurrency">SCPErrorInvalidCurrency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An attempt was made to charge an amount in a currency not supported by the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidCurrency</span> <span class="o">=</span> <span class="mi">2950</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidCurrency</span> <span class="o">=</span> <span class="mi">2950</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn">SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Failed to accept reader-specific terms of service because there is no iCloud
+user signed in. Direct the user to sign into an appropriate iCloud account
+via iOS Settings and try again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn</span> <span class="o">=</span> <span class="mi">2960</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn</span> <span class="o">=</span> <span class="mi">2960</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled">SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The user cancelled reader-specific terms of service acceptance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled</span> <span class="o">=</span> <span class="mi">2970</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderTOSAcceptanceCanceled</span> <span class="o">=</span> <span class="mi">2970</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorReaderBusy"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorReaderBusy" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorReaderBusy">SCPErrorReaderBusy</a>
@@ -1777,6 +2084,39 @@ iOS SDK with one of Stripe&rsquo;s pre-certified readers.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerCommunicationError</span> <span class="o">=</span> <span class="mi">3060</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorNFCDisabled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorNFCDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorNFCDisabled">SCPErrorNFCDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>NFC functionality is disabled.
+Among other things, it may indicate that the app does not have permission to use NFC.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorNFCDisabled</span> <span class="o">=</span> <span class="mi">3100</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nfcDisabled</span> <span class="o">=</span> <span class="mi">3100</span></code></pre>
 
                         </div>
                       </div>
@@ -2248,6 +2588,233 @@ reader.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderNotAccessibleInBackground"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderNotAccessibleInBackground" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderNotAccessibleInBackground">SCPErrorReaderNotAccessibleInBackground</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An attempt was made to interact with the reader while the the app is in the background.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderNotAccessibleInBackground</span> <span class="o">=</span> <span class="mi">3900</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerNotAccessibleInBackground</span> <span class="o">=</span> <span class="mi">3900</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderFailedToPrepare"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderFailedToPrepare" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderFailedToPrepare">SCPErrorAppleBuiltInReaderFailedToPrepare</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Preparing the Apple Built-In reader to collect payments failed.
+Try connecting again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderFailedToPrepare</span> <span class="o">=</span> <span class="mi">3910</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderFailedToPrepare</span> <span class="o">=</span> <span class="mi">3910</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderDeviceBanned"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderDeviceBanned" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderDeviceBanned">SCPErrorAppleBuiltInReaderDeviceBanned</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This device cannot be used to process using the Apple Built-In reader as it has been banned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderDeviceBanned</span> <span class="o">=</span> <span class="mi">3920</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderDeviceBanned</span> <span class="o">=</span> <span class="mi">3920</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSNotYetAccepted"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderTOSNotYetAccepted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSNotYetAccepted">SCPErrorAppleBuiltInReaderTOSNotYetAccepted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The operation could not be completed because the reader-specific terms of service have
+not yet been accepted. Try connecting again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderTOSNotYetAccepted</span> <span class="o">=</span> <span class="mi">3930</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderTOSNotYetAccepted</span> <span class="o">=</span> <span class="mi">3930</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceFailed"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderTOSAcceptanceFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderTOSAcceptanceFailed">SCPErrorAppleBuiltInReaderTOSAcceptanceFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Failed to accept reader-specific terms of service using the signed-in Apple ID.
+Ensure the Apple ID is still active and in a good standing and try again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderTOSAcceptanceFailed</span> <span class="o">=</span> <span class="mi">3940</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderTOSAcceptanceFailed</span> <span class="o">=</span> <span class="mi">3940</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderMerchantBlocked"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderMerchantBlocked" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderMerchantBlocked">SCPErrorAppleBuiltInReaderMerchantBlocked</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This merchant account cannot be used with Apple Built-In reader as it has been blocked.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderMerchantBlocked</span> <span class="o">=</span> <span class="mi">3950</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderMerchantBlocked</span> <span class="o">=</span> <span class="mi">3950</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAppleBuiltInReaderInvalidMerchant"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAppleBuiltInReaderInvalidMerchant" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAppleBuiltInReaderInvalidMerchant">SCPErrorAppleBuiltInReaderInvalidMerchant</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This merchant account cannot be used with the Apple Built-In reader as it is invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAppleBuiltInReaderInvalidMerchant</span> <span class="o">=</span> <span class="mi">3960</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">appleBuiltInReaderInvalidMerchant</span> <span class="o">=</span> <span class="mi">3960</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorUnexpectedSdkError"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorUnexpectedSdkError" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedSdkError">SCPErrorUnexpectedSdkError</a>
@@ -2695,7 +3262,7 @@ to disconnect manually by turning the reader off.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-03)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

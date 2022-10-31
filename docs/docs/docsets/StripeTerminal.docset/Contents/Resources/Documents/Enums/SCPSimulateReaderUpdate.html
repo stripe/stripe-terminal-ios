@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.13.0 Docs
+          StripeTerminal 2.14.0 Docs
         </a>
         
       </p>
@@ -92,6 +92,9 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -131,6 +134,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -308,6 +314,9 @@
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyDeviceBannedUntilDate">SCPErrorKeyDeviceBannedUntilDate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
               </li>
               <li class="nav-group-task">
@@ -394,7 +403,7 @@
                 </div>
               </div>
             <p>Enum used to simulate various types of reader updates being available for
-a simulated bluetooth reader.</p>
+a simulated bluetooth or local mobile reader.</p>
 
           </div>
         </section>
@@ -416,7 +425,14 @@ a simulated bluetooth reader.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Default: An update is available that is marked as needing to be installed within 7 days</p>
+                        <p>Default value.</p>
+
+<ul>
+<li>When connecting to a Bluetooth reader, an update is available that is marked
+as needing to be installed within 7 days.</li>
+<li>When connecting to a Local Mobile reader, a mandatory update will complete
+during the connection flow.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -483,10 +499,15 @@ a simulated bluetooth reader.</p>
                         <p>A required full reader software update exists. Use this to simulate the
 auto-install of a required update that will be applied during connect.
 This simulated update will take 1 minute and progress will be provided
-to the delegate provided to <code>connectBluetoothReader</code>.</p>
+to the delegate provided to <code>connectBluetoothReader</code> or
+<code>connectLocalMobileReader</code> as appropriate.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     SCPBluetoothReaderReaderDelegate
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    SCPLocalMobileReaderDelegate
 
 </div>
 
@@ -520,9 +541,14 @@ to the delegate provided to <code>connectBluetoothReader</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A required update exists. When the SDK connects
-to the reader, the connection will fail because the reader&rsquo;s
-battery is too low for the update to begin.</p>
+                        <p>A required update exists.</p>
+
+<ul>
+<li>When connecting to a Bluetooth reader, the connection will fail because
+the reader&rsquo;s battery is too low for an update to begin.</li>
+<li>When connecting to a Local Mobile reader, a mandatory update will
+complete during the connection flow.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -582,7 +608,7 @@ various states.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-03)</p>
+      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-10-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

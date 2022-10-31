@@ -189,15 +189,17 @@ class ReaderViewController: TableViewController, CancelingViewController {
                             }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
                     )
                 }
-            case .verifoneP400, .wisePosE, .etna, .stripeS700:
+            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700:
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            case .appleBuiltIn:
+                fallthrough
             @unknown default:
                 break
             }
 
-            if connectedReader.deviceType != .chipper2X && connectedReader.deviceType != .stripeM2 {
+            if connectedReader.deviceType != .chipper2X && connectedReader.deviceType != .stripeM2 && connectedReader.deviceType != .appleBuiltIn {
                 workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
