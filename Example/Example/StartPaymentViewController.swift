@@ -18,6 +18,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var skipTipping = false
     private var interacPresentEnabled = false
     private var automaticCaptureEnabled = false
+    private var manualPreferredEnabled = false
     private var setupFutureUsage: String?
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
@@ -141,7 +142,20 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         paymentParams.setupFutureUsage = self.setupFutureUsage
 
-        let cardPresentParams = CardPresentParameters(requestExtendedAuthorization: self.requestExtendedAuthorization, requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport)
+        let cardPresentParams = {
+            if self.manualPreferredEnabled {
+                return CardPresentParameters(
+                    requestExtendedAuthorization: self.requestExtendedAuthorization,
+                    requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport,
+                    captureMethod: .manualPreferred
+                )
+            } else {
+                return CardPresentParameters(
+                    requestExtendedAuthorization: self.requestExtendedAuthorization,
+                    requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport
+                )
+            }
+        }()
         paymentParams.paymentMethodOptionsParameters = PaymentMethodOptionsParameters(cardPresentParameters: cardPresentParams)
 
         // Set up destination payment
@@ -203,6 +217,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             }),
             Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
                 self.automaticCaptureEnabled.toggle()
+                self.updateContent()
+            }),
+            Row(text: "Enable Manual Preferred", accessory: .switchToggle(value: self.manualPreferredEnabled) { [unowned self] _ in
+                self.manualPreferredEnabled.toggle()
                 self.updateContent()
             }),
             Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in

@@ -588,6 +588,7 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIDocUrl;
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorParameter;
 
+
 /**
  The HTTP status code of the response.
  */

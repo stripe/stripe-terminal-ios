@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.15.0 2022-11-21
+* Added support for creating Payment Intents with `SCPCardPresentCaptureMethodManualPreferred` capture method set on the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).
+* Fixes an issue where `processRefund` and `confirmSetupIntent` were returning error `SCPErrorUnexpectedSdkError` instead of `SCPErrorBusy` or `SCPErrorNotConnectedToReader` for those error cases.
 
 # 2.14.0 2022-10-31
 * Minimum deployment target changed from iOS 10.0 to iOS 11.0
