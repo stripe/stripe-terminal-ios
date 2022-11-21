@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/SCPCardPresentParameters.h</key>
 		<data>
-		P8lgoyp/jplwFftfw509aY0zpKM=
+		Rt12LgfwHgfgOYvultMOkAqBU5E=
 		</data>
 		<key>Headers/SCPCart.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		FSK8Umc30VZKUxDOEkEKq+XjKOs=
+		hNjRj0up1zG0ChQ9Dwtmg8jyIZc=
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
@@ -270,7 +270,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		XFUV1VAEtZE73EOoFt3J6Dqd0cg=
+		C1Mdk9B8ksajKr4NqY8NlrpsYMg=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -290,11 +290,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		BjnEpCEo9sVmZk/IdqfOBUvPzVY=
+		snj+DGMLs1JC5vp7O2KkTipZT/A=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		585yyMjknaFkQrZ6KcqRxpQOSIY=
+		0dj7xeWJnU6dlDKjigyefKfYg54=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -310,11 +310,11 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		1w5XF1TpfXYH1FiJdvGxyrJAfGQ=
+		mREqGuORBfqAdWzZ5JlGpleFZEo=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		585yyMjknaFkQrZ6KcqRxpQOSIY=
+		0dj7xeWJnU6dlDKjigyefKfYg54=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -330,7 +330,7 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		B2She+jRdZwMJtuPxCsRXMVQX0k=
+		2H9v5Wws1ft447GpW2UZ8bkb0Us=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -413,7 +413,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2y1vbl/jJhlaoNwsFCP+mR853p4VS9C39U4tNwNk14s=
+			IVLCjznFqePFJMdf6r0Dsh3UZIaMLFd/EDA5ZJjIBII=
 			</data>
 		</dict>
 		<key>Headers/SCPCart.h</key>
@@ -511,7 +511,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			y2+hQ3KC0Psc4jJW0FcnxQsftLm0LLOCytL0/eIdm7M=
+			ox9XTY2LKWWmYPpAutXLknxhZB1ZgNxJBICC/2+Q3As=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
@@ -805,7 +805,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N5dvRMNSHodpjEHuPdaA6MgBPqr3bbaK7CM1ljRjgC0=
+			Qrdv5ySvM+/TH7KnqmBlaQIctQJ/uPj78dZ3KhTMUSg=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -840,7 +840,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Lqcsn5gtN20aaAyr185HETy2BLdRlhBTmN7l2MubJI=
+			5sWL4PPS+/f0nNS9m/OLLisCOpOfR0U5ins9R288MME=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -868,14 +868,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IjvDN/VTcm07pTmhrag2giPnHAp6xHtpPAbVuZvGUsU=
+			pxx4ojDjsqx3J+79bQKBUWAEH9j41DNCDp0x0sisGM8=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Lqcsn5gtN20aaAyr185HETy2BLdRlhBTmN7l2MubJI=
+			5sWL4PPS+/f0nNS9m/OLLisCOpOfR0U5ins9R288MME=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -903,7 +903,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PF9zAXhJLjhujU3sIi+7XqpHP9hXlAnc+woFr+ys5H4=
+			+ZV7jppd3gUU5DAawAs/lqYpqABdaKpYH1DDdbEKbv0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
