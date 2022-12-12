@@ -4,6 +4,10 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.16.0 2022-12-12
+* Fixes [Issue #189](https://github.com/stripe/stripe-terminal-ios/issues/189) by adding `-no-serialize-debugging-options` to Swift flags.
+* Fixes an issue where the SDK could stop responding or incorrectly report `CardLeftInReader` if an unsupported card was inserted during the previous transaction.
+
 # 2.15.0 2022-11-21
 * Added support for creating Payment Intents with `SCPCardPresentCaptureMethodManualPreferred` capture method set on the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).
 * Fixes an issue where `processRefund` and `confirmSetupIntent` were returning error `SCPErrorUnexpectedSdkError` instead of `SCPErrorBusy` or `SCPErrorNotConnectedToReader` for those error cases.
@@ -11,7 +15,7 @@ pod 'StripeTerminal', '~> 2.0'
 # 2.14.0 2022-10-31
 * Minimum deployment target changed from iOS 10.0 to iOS 11.0
 * Added support for [Tap to Pay on iPhone](https://stripe.com/docs/terminal/payments/setup-reader/tap-on-mobile-ios#get-started).
-* Added new [`SCPTippingConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTippingConfiguration.html) property on `SCPCollectConfiguration`, which allows for per-transaction tip-eligible amounts to be set on the BBPOS WisePos E. See [Stripe documentation](https://stripe.com/docs/terminal/features/collecting-tips/on-reader#tip-eligible) for details. 
+* Added new [`SCPTippingConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTippingConfiguration.html) property on `SCPCollectConfiguration`, which allows for per-transaction tip-eligible amounts to be set on the BBPOS WisePos E. See [Stripe documentation](https://stripe.com/docs/terminal/features/collecting-tips/on-reader#tip-eligible) for details.
 * Fixes [Issue #176](https://github.com/stripe/stripe-terminal-ios/issues/176): Fixed warning from the SDK umbrella header, StripeTerminal.h, missing an import.
 
 # 2.13.0 2022-10-03

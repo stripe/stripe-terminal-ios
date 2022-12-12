@@ -270,7 +270,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		C1Mdk9B8ksajKr4NqY8NlrpsYMg=
+		XtgV+N04/SX+sNJ3Eatz6zwK4fo=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -290,11 +290,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		snj+DGMLs1JC5vp7O2KkTipZT/A=
+		6b/yaHNnavPHb1JThD15nf5wonk=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		0dj7xeWJnU6dlDKjigyefKfYg54=
+		pZLdJWiwxPRwSHRn5T3qT8UKA18=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -310,11 +310,11 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		mREqGuORBfqAdWzZ5JlGpleFZEo=
+		QGV1PzIlgNEhkJUaHm5wQqlenIY=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		0dj7xeWJnU6dlDKjigyefKfYg54=
+		pZLdJWiwxPRwSHRn5T3qT8UKA18=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -330,7 +330,7 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2H9v5Wws1ft447GpW2UZ8bkb0Us=
+		X6hYN/IOEAUA6NSjuy6B2vgxFgo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -805,7 +805,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qrdv5ySvM+/TH7KnqmBlaQIctQJ/uPj78dZ3KhTMUSg=
+			WPoXMvlkFP7rFsf3uVtPurFSBWGo3U1I19S/nFTXZIM=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -840,7 +840,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5sWL4PPS+/f0nNS9m/OLLisCOpOfR0U5ins9R288MME=
+			hhCBaijsU7sBjUTr07rCNvwL26z2zvSqC6OBfugxmGk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -868,14 +868,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pxx4ojDjsqx3J+79bQKBUWAEH9j41DNCDp0x0sisGM8=
+			YAOvqDBUWHsfeZkeNPlgh8cmDuXAr8xyAcOPVeass8M=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5sWL4PPS+/f0nNS9m/OLLisCOpOfR0U5ins9R288MME=
+			hhCBaijsU7sBjUTr07rCNvwL26z2zvSqC6OBfugxmGk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -903,7 +903,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+ZV7jppd3gUU5DAawAs/lqYpqABdaKpYH1DDdbEKbv0=
+			TJCHacysBPKkoG/oXTmUD577nTxKN8kbwE7E6ue4TsE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
