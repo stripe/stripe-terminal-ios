@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.16.1 2022-12-20
+* Fixes an on-reader tipping issue when collecting tips using WisePad 3 readers. If a cardholder selected a tip, they presented their card contactlessly, and the transaction was soft declined due to Strong Customer Authentication (SCA), the tip amount was not included in the authorization amount.
+
 # 2.16.0 2022-12-12
 * Fixes [Issue #189](https://github.com/stripe/stripe-terminal-ios/issues/189) by adding `-no-serialize-debugging-options` to Swift flags.
 * Fixes an issue where the SDK could stop responding or incorrectly report `CardLeftInReader` if an unsupported card was inserted during the previous transaction.
