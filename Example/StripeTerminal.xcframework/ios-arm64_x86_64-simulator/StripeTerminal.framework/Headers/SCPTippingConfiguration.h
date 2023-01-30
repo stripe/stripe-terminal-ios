@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 The `TippingConfiguration` contains configuration information relevant to collecting tips.
  */
 NS_SWIFT_NAME(TippingConfiguration)
-@interface SCPTippingConfiguration : NSObject
+@interface SCPTippingConfiguration : NSObject <NSCopying>
 
 /**
  The amount of the payment total eligible for tips.

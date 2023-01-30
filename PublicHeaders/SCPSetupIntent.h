@@ -108,8 +108,10 @@ NS_SWIFT_NAME(SetupIntent)
 
 /**
  Set of key-value pairs attached to the object.
+
+ @see https://stripe.com/docs/api#metadata
 */
-@property (nonatomic, nullable, readonly) NSDictionary *metadata;
+@property (nonatomic, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  An SCPSetupIntentUsage value describing how the SetupIntent will be used.

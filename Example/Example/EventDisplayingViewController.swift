@@ -15,7 +15,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     private let headerView = ReaderHeaderView()
     private let logHeaderView = ActivityIndicatorHeaderView(title: "EVENT LOG")
     internal weak var cancelButton: UIBarButtonItem?
-    private weak var doneButton: UIBarButtonItem?
+    weak var doneButton: UIBarButtonItem?
     private var completed = false
 
     /// Override this property with the log event that should be displayed when

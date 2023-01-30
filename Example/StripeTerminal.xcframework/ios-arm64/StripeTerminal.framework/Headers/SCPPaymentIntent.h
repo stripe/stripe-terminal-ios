@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPProcessPaymentError, SCPPaymentMethod;
+@class SCPCharge, SCPProcessPaymentError, SCPPaymentMethod, SCPAmountDetails;
 
 
 /**
@@ -93,8 +93,10 @@ NS_SWIFT_NAME(PaymentIntent)
 
 /**
  Set of key-value pairs attached to the object.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, nullable, readonly) NSDictionary *metadata;
+@property (nonatomic, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Charges that were created by this PaymentIntent, if any.
@@ -107,6 +109,33 @@ NS_SWIFT_NAME(PaymentIntent)
  option in the `SCPCollectConfiguration`.
  */
 @property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethod;
+
+/**
+ Details about items included in the amount after confirmation.
+ */
+@property (nonatomic, nullable, readonly) SCPAmountDetails *amountDetails;
+
+/**
+ Indicates how much the user intends to tip in addition to the amount by at confirmation time.
+ This is only non-null in the `PaymentIntent` instance returned during collect when using
+ `updatePaymentIntent` set to true in the `CollectConfiguration`.
+
+ After `processPaymentIntent` the `amount` will have this tip amount added to it and the
+ `amountDetails` will contain the breakdown of how much of the amount was a tip.
+ */
+@property (nonatomic, nullable, readonly) NSNumber *amountTip;
+
+/**
+ Extra information about a PaymentIntent. This will appear on your customer’s statement when
+ this PaymentIntent succeeds in creating a charge.
+ */
+@property (nonatomic, nullable, readonly) NSString *statementDescriptor;
+
+/**
+ Extra dynamic information about a PaymentIntent. This will appear concatenated with the statementDescriptor on
+ your customer’s statement when this PaymentIntent succeeds in creating a charge.
+ */
+@property (nonatomic, nullable, readonly) NSString *statementDescriptorSuffix;
 
 /**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use

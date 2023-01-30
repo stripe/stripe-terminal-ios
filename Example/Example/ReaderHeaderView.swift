@@ -107,7 +107,7 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "wisepad")
             case .wisePosE, .wisePosEDevKit, .etna:
                 imageView.image = UIImage(named: "wisepose")
-            case .stripeS700:
+            case .stripeS700, .stripeS700DevKit:
                 imageView.image = UIImage(named: "s700")
             case .appleBuiltIn:
                 // TODO:KINGS-39: Add Apple Built-In Image Collateral to SDK.

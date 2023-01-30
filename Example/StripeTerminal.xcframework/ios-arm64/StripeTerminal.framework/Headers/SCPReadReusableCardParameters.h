@@ -42,8 +42,10 @@ NS_SWIFT_NAME(ReadReusableCardParameters)
 
 /**
  Optional set of key-value pairs attached to the object. The default is nil.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, copy, nullable, readwrite) NSDictionary *metadata;
+@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString *, NSString *> *metadata;
 
 @end
 

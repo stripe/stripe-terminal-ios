@@ -82,9 +82,14 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeWiseCube,
 
     /**
-     The Stripe S7 countertop reader.
+     Stripe Reader S700.
      */
     SCPDeviceTypeStripeS700,
+
+    /**
+     Stripe Reader S700 DevKit.
+     */
+    SCPDeviceTypeStripeS700DevKit,
 
     /**
      Apple Built-In reader.
