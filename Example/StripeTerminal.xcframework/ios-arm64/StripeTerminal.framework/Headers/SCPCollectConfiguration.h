@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  * method.
  */
 NS_SWIFT_NAME(CollectConfiguration)
-@interface SCPCollectConfiguration : NSObject
+@interface SCPCollectConfiguration : NSObject <NSCopying>
 
 /**
  Bypass tipping selection if it would have otherwise been shown.

@@ -39,8 +39,10 @@ NS_SWIFT_NAME(SetupIntentParameters)
 /**
  Set of key-value pairs that you can attach to an object. This can be useful for
  storing additional information about the object in a structured format.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, copy, nullable, readwrite) NSDictionary *metadata;
+@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Indicates how the payment method is intended to be used in the future. If not

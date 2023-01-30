@@ -91,8 +91,10 @@ NS_SWIFT_NAME(Refund)
 
 /**
  Metadata associated with the refund.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, readonly) NSDictionary *metadata;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Reason for the refund, either user-provided (`duplicate`, `fraudulent`, or

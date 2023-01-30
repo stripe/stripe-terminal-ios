@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.16.1 Docs
+          StripeTerminal 2.17.0 Docs
         </a>
         
       </p>
@@ -191,10 +191,19 @@
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAmountDetails.html">SCPAmountDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTip.html">SCPTip</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
@@ -243,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPNetworks.html">SCPNetworks</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
               </li>
             </ul>
           </li>
@@ -427,6 +439,68 @@ These properties are labeled with the reader or reader type to which they apply.
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPReader(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SCPReader(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>You cannot directly instantiate this class.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPReader(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SCPReader(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>You cannot directly instantiate this class.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">new</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPReader(py)deviceType"></a>
                     <a name="//apple_ref/objc/Property/deviceType" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPReader(py)deviceType">deviceType</a>
@@ -544,8 +618,8 @@ If you need to change your internet reader&rsquo;s location, re-register the rea
 specify the new location id in the <code><a href="../Classes/SCPReader.html#/c:objc(cs)SCPReader(py)location">location</a></code> param.
 See <a href="https://stripe.com/docs/api/terminal/readers/create">https://stripe.com/docs/api/terminal/readers/create</a></p>
 
-<p>Bluetooth readers are designed to be more mobile and must be registered to a
-location upon each connection. For Bluetooth readers, this field represents the last
+<p>Bluetooth and Apple Built-In readers are designed to be more mobile and must be
+registered to a location upon each connection. This field represents the last
 location that the reader was registered to. If the reader has not been used before,
 this field will be nil. If you associate the reader to a different location while calling
 <code>connectBluetoothReader</code>, this field will update to that new location&rsquo;s ID.</p>
@@ -586,9 +660,10 @@ this field will be nil. If you associate the reader to a different location whil
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Used to tell whether the <code><a href="../Classes/SCPReader.html#/c:objc(cs)SCPReader(py)location">location</a></code> field has been set.
-Note that the Verifone P400 and simulated readers will always
-have an <code>unknown</code> <code>locationStatus</code>.
-(Chipper 2X BT and WisePad 3 only.)</p>
+Note that the Internet and simulated readers will always
+have an <code>unknown</code> <code>locationStatus</code>.</p>
+
+<p>(Bluetooth and Apple Built-In readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -632,10 +707,7 @@ See <code><a href="../Classes/SCPReader.html#/c:objc(cs)SCPReader(py)locationId"
 registered to a new location. See <a href="https://stripe.com/docs/api/terminal/locations/retrieve">https://stripe.com/docs/api/terminal/locations/retrieve</a>
 for documentation on retrieving location details in your app.</p>
 
-<p>Note that the Verifone P400 and simulated readers will always
-have a nil <code>location</code>.</p>
-
-<p>(Chipper 2X BT and WisePad 3 only.)</p>
+<p>(Bluetooth and Apple Built-In readers only.)</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <a href="https://stripe.com/docs/api/terminal/locations">https://stripe.com/docs/api/terminal/locations</a>
@@ -702,81 +774,6 @@ have a nil <code>location</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SCPReader(im)init"></a>
-                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
-                    <a class="token discouraged" href="#/c:objc(cs)SCPReader(im)init">-init</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="aside aside-unavailable">
-                        <p class="aside-title">Unavailable</p>
-                        
-                      </div>
-                      <div class="abstract">
-                        <p>You cannot directly instantiate this class.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)SCPReader(cm)new"></a>
-                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
-                    <a class="token discouraged" href="#/c:objc(cs)SCPReader(cm)new">+new</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="aside aside-unavailable">
-                        <p class="aside-title">Unavailable</p>
-                        
-                      </div>
-                      <div class="abstract">
-                        <p>You cannot directly instantiate this class.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">new</span><span class="p">;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Bluetooth%20Reader%20Properties"></a>
-                <a name="//apple_ref/objc/Section/Bluetooth Reader Properties" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Bluetooth%20Reader%20Properties"></a>
-                  <h3 class="section-name"><span>Bluetooth Reader Properties</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(cs)SCPReader(py)deviceSoftwareVersion"></a>
                     <a name="//apple_ref/objc/Property/deviceSoftwareVersion" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPReader(py)deviceSoftwareVersion">deviceSoftwareVersion</a>
@@ -807,6 +804,19 @@ unavailable.</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Bluetooth%20Reader%20Properties"></a>
+                <a name="//apple_ref/objc/Section/Bluetooth Reader Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Bluetooth%20Reader%20Properties"></a>
+                  <h3 class="section-name"><span>Bluetooth Reader Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -829,6 +839,8 @@ This update will also have been announced via
 <p>calls to <code>installAvailableUpdate</code> when <code>availableUpdate</code> is nil will result
 in <code>- [BluetoothReaderDelegate reader:didFinishInstallingUpdate:error:]</code> called
 immediately with a nil update and nil error.</p>
+
+<p>(Bluetooth readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -862,7 +874,9 @@ immediately with a nil update and nil error.</p>
                       <div class="abstract">
                         <p>The reader&rsquo;s battery level, represented as a boxed float in the range <code>[0, 1]</code>.
 If the reader does not have a battery, or the battery level is unknown, this
-value is <code>nil</code>. (Bluetooth readers only.)</p>
+value is <code>nil</code>.</p>
+
+<p>(Bluetooth readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -896,6 +910,8 @@ value is <code>nil</code>. (Bluetooth readers only.)</p>
                       <div class="abstract">
                         <p>The reader&rsquo;s battery status. Usable as a general classification for the current
 battery state.</p>
+
+<p>(Bluetooth readers only.)</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     SCPBatteryStatus
@@ -934,7 +950,9 @@ battery state.</p>
                       <div class="abstract">
                         <p>The reader&rsquo;s charging state, represented as a BOOL
 If the reader does not have a battery, or the battery level is unknown, this
-value is <code>nil</code>. (Bluetooth readers only.)</p>
+value is <code>nil</code>.</p>
+
+<p>(Bluetooth readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -979,7 +997,9 @@ value is <code>nil</code>. (Bluetooth readers only.)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The IP address of the reader. (Internet reader only.)</p>
+                        <p>The IP address of the reader.</p>
+
+<p>(Internet readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -998,19 +1018,6 @@ value is <code>nil</code>. (Bluetooth readers only.)</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Internet%20Reader%20and%20Apple%20Built-In%20Reader%20Properties"></a>
-                <a name="//apple_ref/objc/Section/Internet Reader and Apple Built-In Reader Properties" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Internet%20Reader%20and%20Apple%20Built-In%20Reader%20Properties"></a>
-                  <h3 class="section-name"><span>Internet Reader and Apple Built-In Reader Properties</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -1025,8 +1032,9 @@ value is <code>nil</code>. (Bluetooth readers only.)</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The networking status of the reader: either <code>offline</code> or <code>online</code>. Note that
-the Chipper 2X and the WisePad 3&rsquo;s statuses will always be <code>offline</code>.
-(Internet Readers and Apple Built-In readers only).</p>
+non-Internet readers <code>status</code> will always be <code>offline</code>.</p>
+
+<p>(Internet readers only).</p>
 
                       </div>
                       <div class="declaration">
@@ -1058,8 +1066,9 @@ the Chipper 2X and the WisePad 3&rsquo;s statuses will always be <code>offline</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A custom label that may be given to a reader for easier identification.
-(Verifone P400 only.)</p>
+                        <p>A custom label that may be given to a reader for easier identification.</p>
+
+<p>(Internet readers only.)</p>
 
                       </div>
                       <div class="declaration">
@@ -1086,7 +1095,7 @@ the Chipper 2X and the WisePad 3&rsquo;s statuses will always be <code>offline</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-12-20)</p>
+      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-01-30)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

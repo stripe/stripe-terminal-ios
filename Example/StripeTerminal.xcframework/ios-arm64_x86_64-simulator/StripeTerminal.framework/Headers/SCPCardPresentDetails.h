@@ -20,6 +20,29 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCPReceiptDetails, SCPNetworks;
 
 /**
+ Represents the ability for a PaymentIntent to be incrementally authorized.
+
+ @see https://stripe.com/docs/terminal/features/incremental-authorizations
+ */
+typedef NS_ENUM(NSUInteger, SCPIncrementalAuthorizationStatus) {
+    /**
+     It is undetermined whether or not this `PaymentIntent` will be eligible for incremental authorizations.
+     You can only perform incremental authorizations on uncaptured payments after confirmation.
+     */
+    SCPIncrementalAuthorizationStatusUnknown,
+
+    /**
+     This PaymentIntent is not eligible for incremental authorizations, or it was not requested.
+     */
+    SCPIncrementalAuthorizationStatusNotSupported,
+
+    /**
+     This PaymentIntent is eligible for incremental authorizations.
+     */
+    SCPIncrementalAuthorizationStatusSupported,
+};
+
+/**
  An object representing details from a transaction using a card_present
  payment method.
 
@@ -107,6 +130,12 @@ NS_SWIFT_NAME(CardPresentDetails)
  */
 @property (nonatomic, copy, nullable, readonly) SCPNetworks *networks;
 
+/**
+ * Whether this payment method is eligible for incremental authorizations.
+ *
+ * Note: This is only known if the PaymentIntent was confirmed.
+ */
+@property (nonatomic, assign, readonly) SCPIncrementalAuthorizationStatus incrementalAuthorizationStatus;
 /**
  You cannot directly instantiate this class.
  */
