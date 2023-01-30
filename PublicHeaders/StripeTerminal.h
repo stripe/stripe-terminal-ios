@@ -10,6 +10,7 @@
 //
 
 #import <StripeTerminal/SCPAddress.h>
+#import <StripeTerminal/SCPAmountDetails.h>
 #import <StripeTerminal/SCPBatteryStatus.h>
 #import <StripeTerminal/SCPBlocks.h>
 #import <StripeTerminal/SCPBluetoothConnectionConfiguration.h>
@@ -73,5 +74,6 @@
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPTerminalDelegate.h>
+#import <StripeTerminal/SCPTip.h>
 #import <StripeTerminal/SCPTippingConfiguration.h>
 

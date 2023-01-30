@@ -7,7 +7,7 @@ Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/i
 > Upgrading from an older version of the SDK? See our [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) for guidance.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 10 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 11 and above.
 
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.

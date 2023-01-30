@@ -4,12 +4,25 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.17.0 2023-01-30
+* Added [`amountTip`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amountTip) to `PaymentIntent` that represents the on-reader tip amount, if any, in the Payment Intent returned after `collectPaymentMethod` when using [`updatePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent).
+* Added missing type annotations of `<NSString *, NSString *>` to all `metadata` dictionaries.
+* Added support for creating Payment Intents with a requested routing priority (`SCPCardPresentRouting`) set on the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).
+* Added [`CardPresentDetails.incrementalAuthorizationStatus`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPIncrementalAuthorizationStatus.html) which indicates whether incremental authorizations are supported or not after the `PaymentIntent` has been confirmed.
+* Added Statement descriptor suffix field added to `PaymentIntentParameters`, `PaymentIntent`, and `Charge`.
+* Added calculated statement descriptor field to `Charge`.
+* Added more supported currency symbols when collecting payments with a WisePad 3.
+* Fixes [#145](https://github.com/stripe/stripe-terminal-ios/issues/145): Tip amounts are now accessible through the [`PaymentIntent.amountDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amountDetails) object. See [Collect on-reader tips](https://stripe.com/docs/terminal/features/collecting-tips/on-reader) for details on tipping.
+* Fixes [#119](https://github.com/stripe/stripe-terminal-ios/issues/119): `metadata` on `RefundParameters` is now correctly set when collecting a refund with a WisePOS E.
+* Fixes [#184](https://github.com/stripe/stripe-terminal-ios/issues/184): `SCPAppleBuiltInReaderErrorCodeNotAllowed` is now returned more consistently when attempting to discover Tap to Pay on iPhone readers on apps with a missing entitlement.
+* Fixes [#199](https://github.com/stripe/stripe-terminal-ios/issues/199): `deviceSoftwareVersion` on `Reader` could start returning `fw-config-ksid` instead of the reader's correct software version.
+
 # 2.16.1 2022-12-20
 * Fixes an on-reader tipping issue when collecting tips using WisePad 3 readers. If a cardholder selected a tip, they presented their card contactlessly, and the transaction was soft declined due to Strong Customer Authentication (SCA), the tip amount was not included in the authorization amount.
 
 # 2.16.0 2022-12-12
-* Fixes [Issue #189](https://github.com/stripe/stripe-terminal-ios/issues/189) by adding `-no-serialize-debugging-options` to Swift flags.
-* Fixes an issue where the SDK could stop responding or incorrectly report `CardLeftInReader` if an unsupported card was inserted during the previous transaction.
+* Added `-no-serialize-debugging-options` to Swift flags to fix lldb "couldn't IRGen expression" issue when trying to do anything in lldb.
+* Fixed an issue where the SDK could stop responding or incorrectly report `CardLeftInReader` if an unsupported card was inserted during the previous transaction.
 
 # 2.15.0 2022-11-21
 * Added support for creating Payment Intents with `SCPCardPresentCaptureMethodManualPreferred` capture method set on the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).

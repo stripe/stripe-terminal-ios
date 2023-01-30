@@ -19,14 +19,16 @@ class StartRefundViewController: TableViewController {
     private let chargeIdView = TextFieldView(text: "text", footer: "")
     private var startSection: Section?
 
-
-    convenience init() {
+    convenience init(chargeId: String = "", amount: UInt = 100) {
         self.init(style: .grouped)
         amountView.numberFormatter.currencyCode = "CAD"
+        amountView.textField.text = String(amount)
+        chargeIdView.textField.text = chargeId
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDisplayObservers()
         title = "Collect refund"
 
         chargeIdView.textField.autocorrectionType = .no
@@ -57,7 +59,6 @@ class StartRefundViewController: TableViewController {
             navigationController?.popViewController(animated: true)
             return
         }
-        amountView.textField.becomeFirstResponder()
     }
 
     internal func startRefund() {

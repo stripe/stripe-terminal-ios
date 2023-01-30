@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 2.16.1 Docs
+          StripeTerminal 2.17.0 Docs
         </a>
         
       </p>
@@ -191,10 +191,19 @@
                 <a class="nav-group-task-link" href="Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAmountDetails.html">SCPAmountDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTip.html">SCPTip</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
@@ -243,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPNetworks.html">SCPNetworks</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
               </li>
             </ul>
           </li>
@@ -559,6 +571,74 @@ into <code>Terminal.shared.createPaymentIntent()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPAmountDetails"></a>
+                    <a name="//apple_ref/objc/Class/SCPAmountDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPAmountDetails">SCPAmountDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains details about items included in the [PaymentIntent] amount</p>
+
+                        <a href="Classes/SCPAmountDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPAmountDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="p">,</span> <span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPAmountDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTip"></a>
+                    <a name="//apple_ref/objc/Class/SCPTip" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTip">SCPTip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains details about tips</p>
+
+<p>For more information, see the official Stripe docs: <a href="https://stripe.com/docs/terminal/features/collecting-tips/on-reader">Collect on-reader tips</a></p>
+
+                        <a href="Classes/SCPTip.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPTip</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="p">,</span> <span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPTip</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPCardPresentParameters"></a>
                     <a name="//apple_ref/objc/Class/SCPCardPresentParameters" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPCardPresentParameters">SCPCardPresentParameters</a>
@@ -622,6 +702,39 @@ into <code>Terminal.shared.createPaymentIntent()</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CardPresentCaptureMethod</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPCardPresentRouting"></a>
+                    <a name="//apple_ref/objc/Enum/SCPCardPresentRouting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPCardPresentRouting">SCPCardPresentRouting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Network routing priority on co-branded EMV cards supporting domestic debit and international card schemes.</p>
+
+                        <a href="Enums/SCPCardPresentRouting.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPCardPresentRouting</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CardPresentRouting</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1116,12 +1229,12 @@ method.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
-<span class="k">@interface</span> <span class="nc">SCPCollectConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+<span class="k">@interface</span> <span class="nc">SCPCollectConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CollectConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CollectConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
 
                         </div>
                       </div>
@@ -1188,12 +1301,12 @@ method.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code>
-<span class="k">@interface</span> <span class="nc">SCPTippingConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+<span class="k">@interface</span> <span class="nc">SCPTippingConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TippingConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TippingConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
 
                         </div>
                       </div>
@@ -1238,6 +1351,44 @@ method.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPIncrementalAuthorizationStatus"></a>
+                    <a name="//apple_ref/objc/Enum/SCPIncrementalAuthorizationStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPIncrementalAuthorizationStatus">SCPIncrementalAuthorizationStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the ability for a PaymentIntent to be incrementally authorized.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/features/incremental-authorizations">https://stripe.com/docs/terminal/features/incremental-authorizations</a>
+
+</div>
+
+                        <a href="Enums/SCPIncrementalAuthorizationStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPIncrementalAuthorizationStatus</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">SCPIncrementalAuthorizationStatus</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1246,7 +1397,7 @@ method.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-12-20)</p>
+      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-01-30)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

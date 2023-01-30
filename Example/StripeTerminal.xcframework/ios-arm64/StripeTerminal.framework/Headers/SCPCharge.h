@@ -69,13 +69,27 @@ NS_SWIFT_NAME(Charge)
 
 /**
  Metadata associated with the charge.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, readonly) NSDictionary *metadata;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  The unique identifier for the charge.
  */
 @property (nonatomic, readonly) NSString *stripeId;
+
+/**
+ Extra dynamic information about a Charge. This will appear concatenated with the statementDescriptor on
+ your customer's credit card’s statement.
+ */
+@property (nonatomic, nullable, readonly) NSString *statementDescriptorSuffix;
+
+/**
+ The full statement descriptor that is displayed on your customer's credit card's statement, after the
+ static statementDescriptor and dynamic statementDescriptorSuffix portions are combined.
+ */
+@property (nonatomic, nullable, readonly) NSString *calculatedStatementDescriptor;
 
 /**
  You cannot directly instantiate this class.

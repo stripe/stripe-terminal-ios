@@ -52,7 +52,8 @@ class PaymentViewController: EventDisplayingViewController {
             || Terminal.shared.connectedReader?.deviceType == .wisePosE
             || Terminal.shared.connectedReader?.deviceType == .wisePosEDevKit
             || Terminal.shared.connectedReader?.deviceType == .etna
-            || Terminal.shared.connectedReader?.deviceType == .stripeS700 {
+            || Terminal.shared.connectedReader?.deviceType == .stripeS700
+            || Terminal.shared.connectedReader?.deviceType == .stripeS700DevKit {
             // For internet-connected readers, PaymentIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreatePaymentIntent)
             self.events.append(createEvent)
@@ -189,6 +190,19 @@ class PaymentViewController: EventDisplayingViewController {
                         // a single-message payment method, like Interac in Canada.
                         self.complete()
                     }
+
+                    // Show a refund button if this was an Interac charge to make it easy to refund.
+                    // Require iOS 16 since we're using a 16+ SF Symbol
+                    if #available(iOS 16.0, *),
+                       let charge = intent.charges.first,
+                       charge.paymentMethodDetails?.interacPresent != nil {
+                        let refundButton = UIBarButtonItem(
+                            image: UIImage(systemName: "dollarsign.arrow.circlepath"),
+                            primaryAction: UIAction(handler: { [weak self] _ in
+                                self?.refund(chargeId: charge.stripeId, amount: intent.amount)
+                            }))
+                        self.navigationItem.rightBarButtonItems = [self.doneButton, refundButton].compactMap({ $0 })
+                    }
                 } else {
                     // The intent should be succeeded or requiresCapture.
                     // This is unexpected, report it as an error
@@ -215,5 +229,12 @@ class PaymentViewController: EventDisplayingViewController {
             self.events.append(captureEvent)
             self.complete()
         }
+    }
+
+    public func refund(chargeId: String, amount: UInt) {
+        self.navigationController?.pushViewController(
+            StartRefundViewController(chargeId: chargeId, amount: amount),
+            animated: true
+        )
     }
 }

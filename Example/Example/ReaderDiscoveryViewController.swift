@@ -151,7 +151,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             } else {
                 self.presentLocationRequiredAlert()
             }
-        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700:
+        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
             let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: true)
             Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
         case .appleBuiltIn:
@@ -439,7 +439,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "verifone")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700:
+        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
             image = UIImage(named: "wisepose")
         case .appleBuiltIn:
             image = nil

@@ -20,6 +20,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var automaticCaptureEnabled = false
     private var manualPreferredEnabled = false
     private var setupFutureUsage: String?
+    private var requestedPriority: String?
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
     private var declineCardBrand: CardBrand?
@@ -37,12 +38,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         placeholderText: "Connected Stripe Account ID")
 
     private let applicationFeeAmountTextField = TextFieldView(placeholderText: "Application Fee Amount")
-
-    private var connectedReaderIsBluetoothReader: Bool {
-        [DeviceType.stripeM2,
-         DeviceType.chipper2X,
-         DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
-    }
 
 
     private lazy var tipEligibleAmountTextField: AmountInputView = {
@@ -142,21 +137,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         paymentParams.setupFutureUsage = self.setupFutureUsage
 
-        let cardPresentParams = {
-            if self.manualPreferredEnabled {
-                return CardPresentParameters(
-                    requestExtendedAuthorization: self.requestExtendedAuthorization,
-                    requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport,
-                    captureMethod: .manualPreferred
-                )
-            } else {
-                return CardPresentParameters(
-                    requestExtendedAuthorization: self.requestExtendedAuthorization,
-                    requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport
-                )
-            }
-        }()
-        paymentParams.paymentMethodOptionsParameters = PaymentMethodOptionsParameters(cardPresentParameters: cardPresentParams)
+        paymentParams.paymentMethodOptionsParameters = makePaymentMethodOptionsParameters()
 
         // Set up destination payment
         if !connectedAccountId.isEmpty {
@@ -181,6 +162,26 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let navController = LargeTitleNavigationController(rootViewController: vc)
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
+    }
+
+    private func makePaymentMethodOptionsParameters() -> PaymentMethodOptionsParameters {
+        let cardPresentParams: CardPresentParameters = CardPresentParameters(
+            requestExtendedAuthorization: self.requestExtendedAuthorization,
+            requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport)
+
+        if self.manualPreferredEnabled {
+            cardPresentParams.captureMethod = NSNumber(value: CardPresentCaptureMethod.manualPreferred.rawValue)
+        }
+
+        if requestedPriority == "Domestic" {
+            cardPresentParams.requestedPriority = NSNumber(value: CardPresentRouting.domestic.rawValue)
+        }
+
+        if requestedPriority == "International" {
+            cardPresentParams.requestedPriority = NSNumber(value: CardPresentRouting.international.rawValue)
+        }
+
+        return PaymentMethodOptionsParameters(cardPresentParameters: cardPresentParams)
     }
 
     private func makeAmountSection() -> Section {
@@ -244,6 +245,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                     self.updateContent()
                 }
             }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
+            Row(text: "Requested Routing Priority",
+                detailText: requestedPriority ?? "None",
+                selection: { [unowned self] in
+                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
+                        self.requestedPriority = (picked == "None") ? nil : picked
+                        self.updateContent()
+                    }
+            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
             Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
                 recollectAfterCardBrandDecline.toggle()
                 self.updateContent()
@@ -262,9 +271,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }
 
     /// Makes the "SETUP FUTURE USAGE" section.
-    /// - Returns: A `Section` if the connected reader is a bluetooth reader. `nil` otherwise.
     private func makeSetupFutureUsageSection() -> Section? {
-        guard connectedReaderIsBluetoothReader else { return nil }
         let rows: [Row] = [
             Row(text: "Value",
                 accessory: .segmentedControl(

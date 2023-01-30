@@ -25,6 +25,21 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentCaptureMethod) {
 } NS_SWIFT_NAME(CardPresentCaptureMethod);
 
 /**
+ Network routing priority on co-branded EMV cards supporting domestic debit and international card schemes.
+ */
+typedef NS_ENUM(NSUInteger, SCPCardPresentRouting) {
+    /**
+     Prioritize domestic debit network routing on payment method collection.
+     */
+    SCPCardPresentRoutingDomestic,
+
+    /**
+     Prioritize international network routing on payment method collection.
+     */
+    SCPCardPresentRoutingInternational,
+} NS_SWIFT_NAME(CardPresentRouting);
+
+/**
  Parameters that will be applied to the card present PaymentIntent.
 
  @see https://stripe.com/docs/api/payment_intents/create#create_payment_intent-payment_method_options-card_present
@@ -48,6 +63,11 @@ NS_SWIFT_NAME(CardPresentParameters)
  SCPCardPresentCaptureMethod as a nullable NSNumber.
  */
 @property (nonatomic, strong, nullable) NSNumber *captureMethod;
+
+/**
+ The requested routing priority as a nullable NSNumber.
+ */
+@property (nonatomic, strong, nullable) NSNumber *requestedPriority;
 
 /**
  Initializes a CardPresentParameters
@@ -102,7 +122,43 @@ NS_SWIFT_NAME(CardPresentParameters)
 - (instancetype)initWithCaptureMethod:(SCPCardPresentCaptureMethod)captureMethod;
 
 /**
- Use `initWithRequestExtendedAuthorization:requiresIncrementalAuthorization:`
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization            Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param captureMethod                           Card present capture method.
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                       captureMethod:(SCPCardPresentCaptureMethod)captureMethod
+                                   requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization            Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                   requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param captureMethod                           Card present capture method.
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithCaptureMethod:(SCPCardPresentCaptureMethod)captureMethod
+                    requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Use alternative initializer.
  */
 - (instancetype)init NS_UNAVAILABLE;
 

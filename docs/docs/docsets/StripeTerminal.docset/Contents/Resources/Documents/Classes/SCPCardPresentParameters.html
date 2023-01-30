@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.16.1 Docs
+          StripeTerminal 2.17.0 Docs
         </a>
         
       </p>
@@ -191,10 +191,19 @@
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAmountDetails.html">SCPAmountDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTip.html">SCPTip</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
@@ -243,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPNetworks.html">SCPNetworks</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
               </li>
             </ul>
           </li>
@@ -520,6 +532,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCardPresentParameters(py)requestedPriority"></a>
+                    <a name="//apple_ref/objc/Property/requestedPriority" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCardPresentParameters(py)requestedPriority">requestedPriority</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The requested routing priority as a nullable NSNumber.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">requestedPriority</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">requestedPriority</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -964,6 +1008,297 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPCardPresentParameters(im)initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:captureMethod:requestedPriority:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:captureMethod:requestedPriority:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCardPresentParameters(im)initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:captureMethod:requestedPriority:">-initWithRequestExtendedAuthorization:<wbr>requestIncrementalAuthorizationSupport:<wbr>captureMethod:<wbr>requestedPriority:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a CardPresentParameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span>
+      <span class="nf">initWithRequestExtendedAuthorization</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requestExtendedAuthorization</span>
+    <span class="nf">requestIncrementalAuthorizationSupport</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requestIncrementalAuthorizationSupport</span>
+                             <span class="nf">captureMethod</span><span class="p">:</span>
+                                 <span class="p">(</span><span class="n"><a href="../Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a></span><span class="p">)</span><span class="nv">captureMethod</span>
+                         <span class="nf">requestedPriority</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n"><a href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a></span><span class="p">)</span><span class="nv">requestedPriority</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">requestExtendedAuthorization</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">requestIncrementalAuthorizationSupport</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">CardPresentCaptureMethod</span><span class="p">,</span> <span class="nv">requestedPriority</span><span class="p">:</span> <span class="kt">CardPresentRouting</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestExtendedAuthorization</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Uses the extended authorization feature to extend capture elgibility</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestIncrementalAuthorizationSupport</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Uses the incremental authorization feature to allow additional charges before capture</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>captureMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Card present capture method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestedPriority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Requested card present routing option.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCardPresentParameters(im)initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:requestedPriority:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:requestedPriority:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCardPresentParameters(im)initWithRequestExtendedAuthorization:requestIncrementalAuthorizationSupport:requestedPriority:">-initWithRequestExtendedAuthorization:<wbr>requestIncrementalAuthorizationSupport:<wbr>requestedPriority:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a CardPresentParameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span>
+      <span class="nf">initWithRequestExtendedAuthorization</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requestExtendedAuthorization</span>
+    <span class="nf">requestIncrementalAuthorizationSupport</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requestIncrementalAuthorizationSupport</span>
+                         <span class="nf">requestedPriority</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n"><a href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a></span><span class="p">)</span><span class="nv">requestedPriority</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">requestExtendedAuthorization</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">requestIncrementalAuthorizationSupport</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">requestedPriority</span><span class="p">:</span> <span class="kt">CardPresentRouting</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestExtendedAuthorization</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Uses the extended authorization feature to extend capture elgibility</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestIncrementalAuthorizationSupport</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Uses the incremental authorization feature to allow additional charges before capture</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestedPriority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Requested card present routing option.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCardPresentParameters(im)initWithCaptureMethod:requestedPriority:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithCaptureMethod:requestedPriority:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCardPresentParameters(im)initWithCaptureMethod:requestedPriority:">-initWithCaptureMethod:<wbr>requestedPriority:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a CardPresentParameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span>
+    <span class="nf">initWithCaptureMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a></span><span class="p">)</span><span class="nv">captureMethod</span>
+        <span class="nf">requestedPriority</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a></span><span class="p">)</span><span class="nv">requestedPriority</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">captureMethod</span><span class="p">:</span> <span class="kt">CardPresentCaptureMethod</span><span class="p">,</span> <span class="nv">requestedPriority</span><span class="p">:</span> <span class="kt">CardPresentRouting</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>captureMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Card present capture method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestedPriority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Requested card present routing option.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCardPresentParameters(im)initWithRequestedPriority:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithRequestedPriority:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCardPresentParameters(im)initWithRequestedPriority:">-initWithRequestedPriority:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a CardPresentParameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithRequestedPriority</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a></span><span class="p">)</span><span class="nv">requestedPriority</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">requestedPriority</span><span class="p">:</span> <span class="kt">CardPresentRouting</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestedPriority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Requested card present routing option.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPCardPresentParameters(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPCardPresentParameters(im)init">-init</a>
@@ -978,7 +1313,7 @@
                         
                       </div>
                       <div class="abstract">
-                        <p>Use <code>initWithRequestExtendedAuthorization:requiresIncrementalAuthorization:</code></p>
+                        <p>Use alternative initializer.</p>
 
                       </div>
                       <div class="declaration">
@@ -1000,7 +1335,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2022-12-20)</p>
+      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-01-30)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

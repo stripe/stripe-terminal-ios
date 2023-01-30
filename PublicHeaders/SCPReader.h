@@ -35,6 +35,16 @@ NS_SWIFT_NAME(Reader)
 @interface SCPReader : NSObject <SCPJSONDecodable>
 
 /**
+ You cannot directly instantiate this class.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ You cannot directly instantiate this class.
+ */
++ (instancetype)new NS_UNAVAILABLE;
+
+/**
  The reader's device type.
  */
 @property (nonatomic, readonly) SCPDeviceType deviceType;
@@ -61,8 +71,8 @@ NS_SWIFT_NAME(Reader)
  specify the new location id in the `location` param.
  See https://stripe.com/docs/api/terminal/readers/create
 
- Bluetooth readers are designed to be more mobile and must be registered to a
- location upon each connection. For Bluetooth readers, this field represents the last
+ Bluetooth and Apple Built-In readers are designed to be more mobile and must be
+ registered to a location upon each connection. This field represents the last
  location that the reader was registered to. If the reader has not been used before,
  this field will be nil. If you associate the reader to a different location while calling
  `connectBluetoothReader`, this field will update to that new location's ID.
@@ -73,9 +83,10 @@ NS_SWIFT_NAME(Reader)
 
 /**
  Used to tell whether the `location` field has been set.
- Note that the Verifone P400 and simulated readers will always
+ Note that the Internet and simulated readers will always
  have an `unknown` `locationStatus`.
- (Chipper 2X BT and WisePad 3 only.)
+
+ (Bluetooth and Apple Built-In readers only.)
  */
 @property (atomic, readonly) SCPLocationStatus locationStatus;
 
@@ -92,10 +103,7 @@ NS_SWIFT_NAME(Reader)
  registered to a new location. See https://stripe.com/docs/api/terminal/locations/retrieve
  for documentation on retrieving location details in your app.
 
- Note that the Verifone P400 and simulated readers will always
- have a nil `location`.
-
- (Chipper 2X BT and WisePad 3 only.)
+ (Bluetooth and Apple Built-In readers only.)
 
  @see https://stripe.com/docs/api/terminal/locations
  @see https://stripe.com/docs/terminal/readers/fleet-management#bbpos-wisepad3
@@ -109,22 +117,12 @@ NS_SWIFT_NAME(Reader)
 @property (nonatomic, readonly) NSString *serialNumber;
 
 /**
- You cannot directly instantiate this class.
- */
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- You cannot directly instantiate this class.
- */
-+ (instancetype)new NS_UNAVAILABLE;
-
-#pragma mark Bluetooth Reader Properties
-
-/**
  The reader's current device software version, or `nil` if this information is
  unavailable.
  */
 @property (atomic, nullable, readonly) NSString *deviceSoftwareVersion;
+
+#pragma mark Bluetooth Reader Properties
 
 /**
  The available update for this reader, or nil if no update is available.
@@ -136,19 +134,25 @@ NS_SWIFT_NAME(Reader)
  calls to `installAvailableUpdate` when `availableUpdate` is nil will result
  in `- [BluetoothReaderDelegate reader:didFinishInstallingUpdate:error:]` called
  immediately with a nil update and nil error.
+
+ (Bluetooth readers only.)
  */
 @property (atomic, nullable, readonly) SCPReaderSoftwareUpdate *availableUpdate;
 
 /**
  The reader's battery level, represented as a boxed float in the range `[0, 1]`.
  If the reader does not have a battery, or the battery level is unknown, this
- value is `nil`. (Bluetooth readers only.)
+ value is `nil`.
+
+ (Bluetooth readers only.)
  */
 @property (atomic, nullable, readonly) NSNumber *batteryLevel;
 
 /**
  The reader's battery status. Usable as a general classification for the current
  battery state.
+
+ (Bluetooth readers only.)
 
  @see SCPBatteryStatus
  */
@@ -157,29 +161,33 @@ NS_SWIFT_NAME(Reader)
 /**
  The reader's charging state, represented as a BOOL
  If the reader does not have a battery, or the battery level is unknown, this
- value is `nil`. (Bluetooth readers only.)
+ value is `nil`.
+
+ (Bluetooth readers only.)
  */
 @property (atomic, nullable, readonly) NSNumber *isCharging;
 
 #pragma mark Internet Reader Properties
 
 /**
- The IP address of the reader. (Internet reader only.)
+ The IP address of the reader.
+
+ (Internet readers only.)
  */
 @property (nonatomic, nullable, readonly) NSString *ipAddress;
 
-#pragma mark Internet Reader and Apple Built-In Reader Properties
-
 /**
  The networking status of the reader: either `offline` or `online`. Note that
- the Chipper 2X and the WisePad 3's statuses will always be `offline`.
- (Internet Readers and Apple Built-In readers only).
+ non-Internet readers `status` will always be `offline`.
+
+ (Internet readers only).
  */
 @property (nonatomic, readonly) SCPReaderNetworkStatus status;
 
 /**
  A custom label that may be given to a reader for easier identification.
- (Verifone P400 only.)
+
+ (Internet readers only.)
  */
 @property (nonatomic, nullable, readonly) NSString *label;
 

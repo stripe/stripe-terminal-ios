@@ -62,8 +62,10 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 /**
  Set of key-value pairs that you can attach to an object. This can be useful for
  storing additional information about the object in a structured format.
+
+ @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, copy, nullable, readwrite) NSDictionary *metadata;
+@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  An arbitrary string attached to the object. If you send a receipt email for
@@ -80,6 +82,15 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  display it incorrectly or not at all.
  */
 @property (nonatomic, copy, nullable, readwrite) NSString *statementDescriptor;
+
+/**
+ A string to specify details about the transaction so your customer can understand it clearly on their statement.
+ The suffix is concatenated with the `statementDescriptor`, the `*` symbol, and a space to form the complete statement
+ descriptor that your customer sees. Maximum 22 characters for the final concatenated descriptor.
+
+ @see https://stripe.com/docs/account/statement-descriptors
+ */
+@property (nonatomic, copy, nullable, readwrite) NSString *statementDescriptorSuffix;
 
 /**
  Email address that the receipt for the resulting payment will be sent to.
