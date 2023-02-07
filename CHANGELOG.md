@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.17.1 2023-02-07
+* Fixes an issue where the SDK may report a failure during `processPayment` if a reader error or disconnect is received while process is in-progress but the /confirm request was successful. The SDK will now wait for the /confirm API response and will report success if the PaymentIntent status moved to `requires_capture` or `succeeded`.
+
 # 2.17.0 2023-01-30
 * Added [`amountTip`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amountTip) to `PaymentIntent` that represents the on-reader tip amount, if any, in the Payment Intent returned after `collectPaymentMethod` when using [`updatePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent).
 * Added missing type annotations of `<NSString *, NSString *>` to all `metadata` dictionaries.
@@ -12,7 +15,7 @@ pod 'StripeTerminal', '~> 2.0'
 * Added Statement descriptor suffix field added to `PaymentIntentParameters`, `PaymentIntent`, and `Charge`.
 * Added calculated statement descriptor field to `Charge`.
 * Added more supported currency symbols when collecting payments with a WisePad 3.
-* Fixes [#145](https://github.com/stripe/stripe-terminal-ios/issues/145): Tip amounts are now accessible through the [`PaymentIntent.amountDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amountDetails) object. See [Collect on-reader tips](https://stripe.com/docs/terminal/features/collecting-tips/on-reader) for details on tipping.
+* Fixes [#145](https://github.com/stripe/stripe-terminal-ios/issues/145): Tip amounts are now accessible through the [`PaymentIntent.amountDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amountDetails) object.
 * Fixes [#119](https://github.com/stripe/stripe-terminal-ios/issues/119): `metadata` on `RefundParameters` is now correctly set when collecting a refund with a WisePOS E.
 * Fixes [#184](https://github.com/stripe/stripe-terminal-ios/issues/184): `SCPAppleBuiltInReaderErrorCodeNotAllowed` is now returned more consistently when attempting to discover Tap to Pay on iPhone readers on apps with a missing entitlement.
 * Fixes [#199](https://github.com/stripe/stripe-terminal-ios/issues/199): `deviceSoftwareVersion` on `Reader` could start returning `fw-config-ksid` instead of the reader's correct software version.
