@@ -253,6 +253,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorCardLeftInReader = 2850,
 
     /**
+     The reader failed to read the data from the presented payment method. If you encounter
+     this error repeatedly, the reader may be faulty.
+     */
+    SCPErrorMissingEMVData = 2892,
+
+    /**
      The command was not permitted to execute by the operating system.
      This can happen for a number of reasons, but most commonly:
      - Your application does not have the necessary entitlements.

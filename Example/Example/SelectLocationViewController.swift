@@ -87,7 +87,7 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         let startingAfter = !locations.isEmpty ? locations[locations.count - 1].stripeId : nil
 
         let parameters = ListLocationsParameters.init(
-            limit: NSNumber.init(value: 100),
+            limit: NSNumber(value: 100),
             endingBefore: nil,
             startingAfter: startingAfter
         )

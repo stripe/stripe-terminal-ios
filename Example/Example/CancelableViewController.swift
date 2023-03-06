@@ -56,13 +56,7 @@ extension CancelableViewController {
     }
 }
 
-// Implement on a view controller and call `didDismiss` from `presentationControllerDidDismiss` and optionally from
-// `presentationControllerShouldDismiss`.
-//
-// Why would you want to cancel in `ShouldDismiss`? It's possible to start drag-to-dismiss, hold it half way dismissed
-// and then release letting it dismiss, even if isModalInPresentation has been set to true before committing the dismiss.
-// This allows for canceling in a state that shouldn't be canceled. To handle that, if the presentation controller
-// has gotten far enough to ask `ShouldDismiss`, you may want to cancel right away to protect against this state.
+// Implement on a view controller and call `didDismiss` from `presentationControllerDidDismiss`.
 protocol CancelingViewController: UIAdaptivePresentationControllerDelegate {}
 
 extension CancelingViewController where Self: UIViewController {

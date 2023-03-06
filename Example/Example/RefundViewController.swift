@@ -55,6 +55,9 @@ class RefundViewController: EventDisplayingViewController {
                         processEvent.result = .errored
                         processEvent.object = .error(error as NSError)
                         self.events.append(processEvent)
+                        #if SCP_SHOWS_RECEIPTS
+                        self.events.append(ReceiptEvent(refund: error.refund, paymentIntent: nil))
+                        #endif
                         self.complete()
                     } else if let refund = processedRefund, refund.status == .succeeded {
                         processEvent.result = .succeeded

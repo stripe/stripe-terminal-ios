@@ -36,6 +36,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     private var shouldShowBTConnectionConfigSection: Bool {
         return discoveryConfig.discoveryMethod != .internet
     }
+    private let onBehalfOfTextField = TextFieldView(placeholderText: "On behalf of account ID (optional)")
 
     init(discoveryConfig: DiscoveryConfiguration) {
         self.discoveryConfig = discoveryConfig
@@ -157,7 +158,10 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         case .appleBuiltIn:
             let locationId = selectedLocation?.stripeId ?? reader.locationId
             if let presentLocationId = locationId {
-                let connectionConfig = LocalMobileConnectionConfiguration(locationId: presentLocationId)
+                let useOBO = !(onBehalfOfTextField.textField.text?.isEmpty ?? false)
+                let connectionConfig = LocalMobileConnectionConfiguration(locationId: presentLocationId,
+                                                                          merchantDisplayName: nil, // use the location name
+                                                                          onBehalfOf: useOBO ? onBehalfOfTextField.textField.text : nil)
                 Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
             } else {
                 self.presentLocationRequiredAlert()
@@ -190,6 +194,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         dataSource.sections = [
             shouldShowBTConnectionConfigSection ? bluetoothConnectionConfigurationSection() : nil,
             discoveryConfig.simulated && discoveryConfig.discoveryMethod != .internet ? simulatedUpdateSection() : nil,
+            discoveryConfig.discoveryMethod == .localMobile ? onBehalfOfSection() : nil,
             readerListSection()
         ].compactMap({ $0 })
     }
@@ -236,6 +241,12 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         navController.presentationController?.delegate = self
         self.present(navController, animated: true, completion: nil)
     }
+
+    private func onBehalfOfSection() -> Section {
+        return Section(header: "Destination charges", rows: [],
+                       footer: Section.Extremity.autoLayoutView(onBehalfOfTextField))
+    }
+
 
     // MARK: - Location Selection UI
 
@@ -393,6 +404,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         )
     }
 
+    // swiftlint:disable cyclomatic_complexity
     /// Returns a Row with details about the reader.
     ///
     /// The row formatting depends on the current discoveryMethod, as there are
@@ -403,7 +415,6 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     ///   - discoveryMethod: how the reader was discovered
     ///   - selection: action to take when row is selected
     /// - Returns: A Row (from Static library) for this reader
-    // swiftlint:disable:next cyclomatic_complexity
     private func row(forReader reader: Reader, discoveryMethod: DiscoveryMethod, selection: @escaping Selection) -> Row {
         var cellClass: Cell.Type = SubtitleCell.self
         var details = [String]()
@@ -455,6 +466,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                    cellClass: cellClass
         )
     }
+    // swiftlint:enable cyclomatic_complexity
 
     /// Optionally return footer for this discovery method & readers.
     ///
