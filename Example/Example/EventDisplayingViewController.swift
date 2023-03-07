@@ -26,7 +26,9 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
     internal var cancelable: Cancelable? {
         didSet {
-            setAllowedCancelMethods(cancelable != nil ? .all : [])
+            // Only allow explicit button cancel (no swipe to dismiss) for users of EventDisablingVC which are
+            // used for collecting payment methods and so may have some additional work to do to fully cancel.
+            setAllowedCancelMethods(cancelable != nil ? .button : [])
         }
     }
     var events: [Event] = [] {

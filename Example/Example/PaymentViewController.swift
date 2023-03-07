@@ -48,13 +48,8 @@ class PaymentViewController: EventDisplayingViewController {
     }
 
     private func createPaymentIntent(_ parameters: PaymentIntentParameters, completion: @escaping PaymentIntentCompletionBlock) {
-        if Terminal.shared.connectedReader?.deviceType == .verifoneP400
-            || Terminal.shared.connectedReader?.deviceType == .wisePosE
-            || Terminal.shared.connectedReader?.deviceType == .wisePosEDevKit
-            || Terminal.shared.connectedReader?.deviceType == .etna
-            || Terminal.shared.connectedReader?.deviceType == .stripeS700
-            || Terminal.shared.connectedReader?.deviceType == .stripeS700DevKit {
-            // For internet-connected readers, PaymentIntents must be created via your backend
+        if Terminal.shared.connectedReader?.deviceType == .verifoneP400 {
+            // When using a Verifone P400, PaymentIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreatePaymentIntent)
             self.events.append(createEvent)
 
@@ -170,6 +165,9 @@ class PaymentViewController: EventDisplayingViewController {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)
                 self.events.append(processEvent)
+                #if SCP_SHOWS_RECEIPTS
+                self.events.append(ReceiptEvent(refund: nil, paymentIntent: error.paymentIntent))
+                #endif
                 self.complete()
             } else if let intent = processedIntent {
                 if intent.status == .succeeded || intent.status == .requiresCapture {

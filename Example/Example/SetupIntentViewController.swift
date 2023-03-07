@@ -32,61 +32,20 @@ class SetupIntentViewController: EventDisplayingViewController {
     }
 
     private func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping SetupIntentCompletionBlock) {
-        if Terminal.shared.connectedReader?.deviceType == .wisePosE
-            || Terminal.shared.connectedReader?.deviceType == .wisePosEDevKit
-            || Terminal.shared.connectedReader?.deviceType == .etna
-            || Terminal.shared.connectedReader?.deviceType == .stripeS700
-            || Terminal.shared.connectedReader?.deviceType == .stripeS700DevKit {
-            // For internet-connected readers, SetupIntents must be created via your backend
-            var createEvent = LogEvent(method: .backendCreateSetupIntent)
-            self.events.append(createEvent)
-
-            AppDelegate.apiClient?.createSetupIntent(params) { (result) in
-                switch result {
-                case .failure(let error):
-                    createEvent.result = .errored
-                    createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
-                    completion(nil, error)
-
-                case .success(let clientSecret):
-                    createEvent.result = .succeeded
-                    createEvent.object = .object(clientSecret)
-                    self.events.append(createEvent)
-
-                    // and then retrieved w/Terminal SDK
-                    var retrieveEvent = LogEvent(method: .retrieveSetupIntent)
-                    self.events.append(retrieveEvent)
-                    Terminal.shared.retrieveSetupIntent(clientSecret: clientSecret) { (intent, error) in
-                        if let error = error {
-                            retrieveEvent.result = .errored
-                            retrieveEvent.object = .error(error as NSError)
-                            self.events.append(retrieveEvent)
-                        } else if let intent = intent {
-                            retrieveEvent.result = .succeeded
-                            retrieveEvent.object = .setupIntent(intent)
-                            self.events.append(retrieveEvent)
-                        }
-                        completion(intent, error)
-                    }
-                }
+        var createEvent = LogEvent(method: .createSetupIntent)
+        self.events.append(createEvent)
+        Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
+            if let error = createError {
+                createEvent.result = .errored
+                createEvent.object = .error(error as NSError)
+                self.events.append(createEvent)
+            } else if let si = createdSetupIntent {
+                createEvent.result = .succeeded
+                createEvent.object = .setupIntent(si)
+                self.events.append(createEvent)
             }
-        } else {
-            var createEvent = LogEvent(method: .createSetupIntent)
-            self.events.append(createEvent)
-            Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
-                if let error = createError {
-                    createEvent.result = .errored
-                    createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
-                } else if let si = createdSetupIntent {
-                    createEvent.result = .succeeded
-                    createEvent.object = .setupIntent(si)
-                    self.events.append(createEvent)
-                }
-                completion(createdSetupIntent, createError)
-            })
-        }
+            completion(createdSetupIntent, createError)
+        })
     }
 
     private func collectSetupIntent(intent: SetupIntent) {

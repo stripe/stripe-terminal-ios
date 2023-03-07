@@ -4,6 +4,12 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.18.0 2023-03-06
+* New: Create `PaymentIntent` and `SetupIntent` via the SDK when connected to an internet reader by calling [`createPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:) or [`createSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createSetupIntent:completion:) instead of using your backend.
+    * _Note: This feature requires version `2.10.1.0` or later to be installed on your internet reader._
+* Fixed bug where the SDK may have not called [`reader:didReportReaderEvent:info:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didReportReaderEvent:info:) or [`reader:didRequestReaderInput:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didRequestReaderInput:) when it should have.
+* Fixed an issue where faulty readers may fail `processPayment` with "You passed an empty string for 'payment_method_data[card_present][emv_data]'". These readers will now fail `collectPaymentMethod` with error code `SCPErrorMissingEMVData`.
+
 # 2.17.1 2023-02-07
 * Fixes an issue where the SDK may report a failure during `processPayment` if a reader error or disconnect is received while process is in-progress but the /confirm request was successful. The SDK will now wait for the /confirm API response and will report success if the PaymentIntent status moved to `requires_capture` or `succeeded`.
 

@@ -258,10 +258,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     // MARK: - UIAdaptivePresentationControllerDelegate
 
-    // See comment in `CancelingViewController` for why we're canceling during `ShouldDismiss` instead of `DidDismiss`
-    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         performCancel(presentationController: presentationController)
-        return true
     }
 }
 

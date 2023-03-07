@@ -585,6 +585,19 @@ SWIFT_PROTOCOL_NAMED("AppleBuiltInReaderPrepareDelegate")
 /// Delegate methods pertaining to carrying out transactions.
 SWIFT_PROTOCOL_NAMED("AppleBuiltInReaderTransactionDelegate")
 @protocol SCPAppleBuiltInReaderTransactionDelegate <NSObject>
+/// An attempt to perform a transaction completed successfully.
+/// \param reader Apple Built-In reader.
+///
+/// \param data EMV blob associated with the payment card suitable for transaction processing.
+///
+/// \param paymentCardId An identifier associated with the payment card.
+///
+/// \param type The kind of the transaction effected.
+///
+/// \param amount The amount of the transaction, if applicable to the transaction type.
+///
+/// \param currencyCode ISO 4217 alphabetic currency code associated with the amount.
+///
 - (void)appleBuiltInReader:(id <SCPAppleBuiltInReader> _Nonnull)reader didCollectPaymentCard:(NSString * _Nullable)data paymentCardId:(NSString * _Nonnull)paymentCardId merchantReference:(NSString * _Nonnull)merchantReference forTransactionOfType:(enum SCPAppleBuiltInReaderTransactionType)type amount:(NSDecimalNumber * _Nullable)amount currencyCode:(NSString * _Nonnull)currencyCode;
 /// An attempt to perform a transaction failed.
 /// \param reader Apple Built-In reader.
