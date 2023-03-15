@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.18.1 2023-03-15
+* Fixes an issue where the SDK may report a failure during `processPayment` when using a WisePad 3 and the reader times out waiting for the /confirm response from the Stripe API. The SDK will now will report success if the PaymentIntent status moved to `requires_capture` or `succeeded`.
+
 # 2.18.0 2023-03-06
 * New: Create `PaymentIntent` and `SetupIntent` via the SDK when connected to an internet reader by calling [`createPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createPaymentIntent:completion:) or [`createSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)createSetupIntent:completion:) instead of using your backend.
     * _Note: This feature requires version `2.10.1.0` or later to be installed on your internet reader._
