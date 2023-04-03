@@ -113,7 +113,11 @@ class PaymentViewController: EventDisplayingViewController {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)
                 self.events.append(collectEvent)
-                self.complete()
+                if (error as NSError).code == ErrorCode.canceled.rawValue {
+                    self.cancelPaymentIntent(intent: intent)
+                } else {
+                    self.complete()
+                }
             } else if let intent = intentWithPaymentMethod {
                 // Before proceeding check if the card brand provided matches the brand chosen to reject
                 if let declineCardBrand = self.declineCardBrand,
@@ -141,7 +145,7 @@ class PaymentViewController: EventDisplayingViewController {
                                 cancelEvent.object = .paymentIntent(intent)
                             }
                             self.events.append(cancelEvent)
-                            self.complete()
+                            self.cancelPaymentIntent(intent: intent)
                         }
                     }
                     return
@@ -154,6 +158,23 @@ class PaymentViewController: EventDisplayingViewController {
                 // 3. confirm PaymentIntent
                 self.confirmPaymentIntent(intent: intent)
             }
+        }
+    }
+
+    private func cancelPaymentIntent(intent: PaymentIntent) {
+        var cancelEvent = LogEvent(method: .cancelPaymentIntent)
+        self.events.append(cancelEvent)
+        Terminal.shared.cancelPaymentIntent(intent) { canceledPaymentIntent, cancelError in
+            if let error = cancelError {
+                cancelEvent.result = .errored
+                cancelEvent.object = .error(error as NSError)
+                self.events.append(cancelEvent)
+            } else if let intent = canceledPaymentIntent {
+                cancelEvent.result = .succeeded
+                cancelEvent.object = .paymentIntent(intent)
+                self.events.append(cancelEvent)
+            }
+            self.complete()
         }
     }
 

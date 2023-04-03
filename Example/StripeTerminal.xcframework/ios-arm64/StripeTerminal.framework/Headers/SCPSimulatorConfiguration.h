@@ -47,6 +47,12 @@ NS_SWIFT_NAME(SimulatorConfiguration)
 @property (nonatomic, readwrite) SCPSimulatedCard *simulatedCard;
 
 /**
+ Set this to simulate a Terminal configuration object with this fixed tip
+ amount for all currencies.
+ */
+@property (nonatomic, readwrite, nullable) NSNumber *simulatedTipAmount;
+
+/**
  You cannot directly instantiate this class.
  Set exposed properties via `SCPTerminal.shared.simulatorConfiguration`
  */

@@ -132,7 +132,6 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
                 event.object = .error(error as NSError)
             } else {
                 event.result = .succeeded
-                self.dismiss(animated: true, completion: nil)
             }
             self.events.append(event)
         }
