@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
+#import <StripeTerminal/SCPPaymentIntentParameters.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -85,6 +86,11 @@ NS_SWIFT_NAME(PaymentIntent)
  @see https://stripe.com/docs/currencies#zero-decimal
  */
 @property (nonatomic, readonly) NSUInteger amount;
+
+/**
+ Controls when the funds will be captured from the customer’s account.
+ */
+@property (nonatomic, readonly) SCPCaptureMethod captureMethod;
 
 /**
  The currency of the payment.

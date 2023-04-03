@@ -48,6 +48,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
+    private lazy var simulatedTipAmountTextField: AmountInputView = {
+        let textField = AmountInputView(placeholderText: "Simulated tip amount")
+        textField.textField.text = nil
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .numberPad
+        return textField
+    }()
+
     convenience init() {
         self.init(style: .grouped)
     }
@@ -147,6 +155,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentParams.applicationFeeAmount = applicationFeeAmount
         }
 
+        Terminal.shared.simulatorConfiguration.simulatedTipAmount = NSNumber(value: simulatedTipAmountTextField.amount)
+
         let collectConfig = CollectConfiguration(skipTipping: self.skipTipping, updatePaymentIntent: declineCardBrand != nil)
         if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
             let tippingConfig = TippingConfiguration(eligibleAmount: eligibleAmount)
@@ -204,6 +214,16 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.updateContent()
             })],
             footer: .autoLayoutView(tipEligibleAmountTextField))
+    }
+
+    private func makeSimulatedTipAmountSection() -> Section? {
+        if Terminal.shared.connectedReader?.simulated == true {
+            return Section(
+                header: "SIMULATED TIP AMOUNT",
+                footer: .autoLayoutView(simulatedTipAmountTextField))
+        } else {
+            return nil
+        }
     }
 
     private func makePaymentMethodSection() -> Section {
@@ -313,24 +333,19 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private func updateContent() {
 
-        var sections: [Section] = [
+        let sections: [Section?] = [
             self.makeAmountSection(),
             self.makeCurrencySection(),
             self.makeTippingSection(),
+            self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),
+            self.makeSetupFutureUsageSection(),
+            self.startSection
         ]
 
-        if let setupFutureUsageSection = self.makeSetupFutureUsageSection() {
-            sections.append(setupFutureUsageSection)
-        }
-
-        if let startSection = self.startSection {
-            sections.append(startSection)
-        }
-
-        dataSource.sections = sections
+        dataSource.sections = sections.compactMap { $0 }
     }
 }
 

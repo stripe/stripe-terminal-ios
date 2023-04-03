@@ -4,6 +4,14 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.19.0 2023-04-03
+* New: Cancel `PaymentIntent` and `SetupIntent` via the SDK when connected to an internet reader by calling [`cancelPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:) or [`cancelSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelSetupIntent:completion:) instead of using your backend.
+    * _Note: This feature requires version `2.11.0.24` or later to be installed on your internet reader._
+* Added [`authorizationCode`](https://stripe.com/docs/api/charges/object#charge_object-payment_method_details-card_present-receipt-authorization_code) to [`SCPReceiptDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReceiptDetails.html).
+* Added support for simulating an on-reader tip amount to the [`SCPSimulatorConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html) when collecting and processing a payment using a simulated reader.
+* Add two new simulated test cards: `.eftposAuVisaDebit` & `.eftposAuDebitMastercard` to [ `SCPSimulatedCardType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulatedCardType.html)
+* Added [`captureMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)captureMethod) property to `SCPPaymentIntent`.
+
 # 2.18.1 2023-03-15
 * Fixes an issue where the SDK may report a failure during `processPayment` when using a WisePad 3 and the reader times out waiting for the /confirm response from the Stripe API. The SDK will now will report success if the PaymentIntent status moved to `requires_capture` or `succeeded`.
 

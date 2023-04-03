@@ -61,6 +61,8 @@ struct LogEvent: CustomStringConvertible, Event {
         case backendCreateSetupIntent = "backend.createSetupIntent"
         case retrieveSetupIntent = "backend.retrieveSetupIntent"
         case captureSetupIntent = "backend.captuteSetupIntent"
+        case cancelPaymentIntent = "terminal.cancelPaymentIntent"
+        case cancelSetupIntent = "terminal.cancelSetupIntent"
     }
 
     enum AssociatedObject {
@@ -232,6 +234,20 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Capture SetupIntent"
             case .succeeded: string = "Captured SetupIntent"
             case .errored: string = "Capture SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelPaymentIntent:
+            switch result {
+            case .started: string = "Cancel PaymentIntent"
+            case .succeeded: string = "Canceled PaymentIntent"
+            case .errored: string = "Cancel PaymentIntent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelSetupIntent:
+            switch result {
+            case .started: string = "Cancel SetupIntent"
+            case .succeeded: string = "Canceled SetupIntent"
+            case .errored: string = "Cancel SetupIntent Failed"
             case .message(let message): string = message
             }
         }

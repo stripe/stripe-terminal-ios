@@ -21,6 +21,7 @@
 #import <StripeTerminal/SCPDiscoveryMethod.h>
 #import <StripeTerminal/SCPLocalMobileReaderDelegate.h>
 #import <StripeTerminal/SCPLogLevel.h>
+#import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPRefundParameters.h>
@@ -31,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.18.1";
+static NSString *const SCPSDKVersion = @"2.19.0";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
@@ -605,8 +606,8 @@ before connecting which specifies the location to which this
 
  @see https://stripe.com/docs/api/setup_intents/create
 
- @param setupIntentParams   The parameters that control the creation of the SetupIntent
- @param completion          The compltion block called when the command completes
+ @param setupIntentParams   The parameters that control the creation of the SetupIntent.
+ @param completion          The completion block called when the command completes.
  */
 - (void)createSetupIntent:(SCPSetupIntentParameters *)setupIntentParams
                completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(createSetupIntent(_:completion:));
@@ -617,7 +618,7 @@ before connecting which specifies the location to which this
  If you've created a SetupIntent on your backend, you must retrieve it in the
  Stripe Terminal SDK before calling `collectSetupIntentPaymentMethod`.
 
- @param clientSecret    The client secret of the SetupIntent to be retrieved
+ @param clientSecret    The client secret of the SetupIntent to be retrieved.
  @param completion      The completion block called when the command completes.
  */
 - (void)retrieveSetupIntent:(NSString *)clientSecret
@@ -854,6 +855,11 @@ before connecting which specifies the location to which this
  Returns an unlocalized string for the given payment intent status.
  */
 + (NSString *)stringFromPaymentIntentStatus:(SCPPaymentIntentStatus)paymentIntentStatus NS_SWIFT_NAME(stringFromPaymentIntentStatus(_:));
+
+/**
+ Returns an unlocalized string for the given capture method.
+ */
++ (NSString *)stringFromCaptureMethod:(SCPCaptureMethod)captureMethod NS_SWIFT_NAME(stringFromCaptureMethod(_:));
 
 
 /**

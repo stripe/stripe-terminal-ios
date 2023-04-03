@@ -165,6 +165,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorInvalidLocationIdParameter = 1960,
 
+
     /*
      USER ERRORS
      */

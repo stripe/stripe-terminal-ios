@@ -16,6 +16,7 @@
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderInputOptions.h>
 
+
 @class SCPReader;
 @class SCPReaderSoftwareUpdate;
 @class SCPCancelable;
@@ -32,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  The provided delegate must be retained by your application until the reader disconnects.
  */
 NS_SWIFT_NAME(BluetoothReaderDelegate)
-@protocol SCPBluetoothReaderDelegate <NSObject>
+@protocol SCPBluetoothReaderDelegate
+    <NSObject>
 
 /**
  The SDK is reporting that an update is available for the reader.

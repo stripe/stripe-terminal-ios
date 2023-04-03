@@ -64,6 +64,12 @@ typedef NS_ENUM(NSUInteger, SCPSimulatedCardType) {
     /// Eftpos Australia
     SCPSimulatedCardTypeEftposAuDebit,
 
+    /// Eftpos Australia/Visa
+    SCPSimulatedCardTypeEftposAuVisaDebit,
+
+    /// Eftpos Australia/Mastercard
+    SCPSimulatedCardTypeEftposAuDebitMastercard,
+
     /// Charge is declined with a card_declined code.
     SCPSimulatedCardTypeChargeDeclined,
 

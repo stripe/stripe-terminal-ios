@@ -56,13 +56,34 @@ class SetupIntentViewController: EventDisplayingViewController {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)
                 self.events.append(collectEvent)
-                self.complete()
+                if (error as NSError).code == ErrorCode.canceled.rawValue {
+                    self.cancelSetupIntent(intent: intent)
+                } else {
+                    self.complete()
+                }
             } else if let intent = collectedSetupIntent {
                 collectEvent.result = .succeeded
                 collectEvent.object = .setupIntent(intent)
                 self.events.append(collectEvent)
                 self.confirmSetupIntent(intent)
             }
+        }
+    }
+
+    private func cancelSetupIntent(intent: SetupIntent) {
+        var cancelEvent = LogEvent(method: .cancelSetupIntent)
+        self.events.append(cancelEvent)
+        Terminal.shared.cancelSetupIntent(intent) { canceledSetupIntent, cancelError in
+            if let error = cancelError {
+                cancelEvent.result = .errored
+                cancelEvent.object = .error(error as NSError)
+                self.events.append(cancelEvent)
+            } else if let intent = canceledSetupIntent {
+                cancelEvent.result = .succeeded
+                cancelEvent.object = .setupIntent(intent)
+                self.events.append(cancelEvent)
+            }
+            self.complete()
         }
     }
 

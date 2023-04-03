@@ -12,6 +12,7 @@
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderInputOptions.h>
 
+
 @class SCPReader;
 @class SCPReaderSoftwareUpdate;
 @class SCPCancelable;
@@ -27,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  The provided delegate must be retained by your application until the reader disconnects.
  */
 NS_SWIFT_NAME(LocalMobileReaderDelegate)
-@protocol SCPLocalMobileReaderDelegate <NSObject>
+@protocol SCPLocalMobileReaderDelegate
+    <NSObject>
 
 /**
  The reader has started installing a software update.

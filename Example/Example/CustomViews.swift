@@ -332,6 +332,8 @@ class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .unionPay,
         .interac,
         .eftposAuDebit,
+        .eftposAuVisaDebit,
+        .eftposAuDebitMastercard,
         .onlinePinCvm,
         .onlinePinScaRetry,
         .offlinePinCvm,

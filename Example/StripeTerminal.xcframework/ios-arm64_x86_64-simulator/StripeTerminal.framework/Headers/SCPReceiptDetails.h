@@ -39,6 +39,11 @@ NS_SWIFT_NAME(ReceiptDetails)
 @property (nonatomic, readonly) NSString *dedicatedFileName;
 
 /**
+ Identifier for this transaction
+ */
+@property (nonatomic, nullable, readonly) NSString *authorizationCode;
+
+/**
  Authorization Response Code
  */
 @property (nonatomic, readonly) NSString *authorizationResponseCode;
