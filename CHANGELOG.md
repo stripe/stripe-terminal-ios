@@ -4,6 +4,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.19.1 2023-04-10
+* Fixes an issue where the SDK could get stuck in an "AlreadyConnectedToReader" state when using Tap to Pay on iPhone.
+
 # 2.19.0 2023-04-03
 * New: Cancel `PaymentIntent` and `SetupIntent` via the SDK when connected to an internet reader by calling [`cancelPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:) or [`cancelSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)cancelSetupIntent:completion:) instead of using your backend.
     * _Note: This feature requires version `2.11.0.24` or later to be installed on your internet reader._
