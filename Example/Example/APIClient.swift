@@ -85,7 +85,7 @@ class APIClient: NSObject, ConnectionTokenProvider {
             .responseJSON { responseJSON in
                 switch responseJSON.result {
                 case .success(let json as [String: AnyObject]):
-                    if let secret = json["secret"] as? String {
+                    if let secret = json["client_secret"] as? String {
                         completion(.success(secret))
                         return
                     }
