@@ -51,6 +51,10 @@ typedef NS_ENUM(NSUInteger, SCPReaderDisplayMessage) {
      The card is invalid. Try another card.
      */
     SCPReaderDisplayMessageTryAnotherCard,
+    /**
+     Card removed too early, try again.
+     */
+    SCPReaderDisplayMessageCardRemovedTooEarly,
 } NS_SWIFT_NAME(ReaderDisplayMessage);
 
 NS_ASSUME_NONNULL_END

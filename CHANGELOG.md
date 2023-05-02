@@ -4,6 +4,15 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.20.0 2023-05-01
+* Fixes a possible crash if a Bluetooth reader disconnects while `connectBluetoothReader` is running.
+* Fixes a bug where a `PaymentIntent` created with `captureMethod` set to `automatic` may, under poor network conditions, have a `status` of `requires_capture`, when it should have had a `status` of `succeeded`.
+* Added error [`SCPErrorConnectionTokenProviderTimedOut`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorConnectionTokenProviderTimedOut). Returned when the [`SCPConnectionTokenProvider`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPConnectionTokenProvider.html#/c:objc(pl)SCPConnectionTokenProvider(im)fetchConnectionToken:) does not call the provided completion block within 60 seconds.
+* Throws an error when attempting to use the simulated `.eftposAuDebit` card with an unsupported PaymentIntent capture method. Use this card with the capture method set to `SCPCaptureMethodAutomatic` or `SCPCardPresentCaptureMethodManualPreferred`.
+* Added `SCPReaderDisplayMessageCardRemovedTooEarly` sent when a card is removed too early during a contact payment.
+* Fixes a bug where the SDK would fail `processPayment` with `SCPErrorDeclinedByStripeAPI` if the WisePad 3 timed out in between `collectPaymentMethod` and `processPayment`. This will now error with `SCPErrorCardReadTimedOut`. 
+* Fixes a bug where `SCPReaderEventCardInserted` could be announced multiple times for a single card insert.
+
 # 2.19.1 2023-04-10
 * Fixes an issue where the SDK could get stuck in an "AlreadyConnectedToReader" state when using Tap to Pay on iPhone.
 

@@ -11,7 +11,6 @@ import Alamofire
 import StripeTerminal
 
 class APIClient: NSObject, ConnectionTokenProvider {
-
     // This comes from `AppDelegate.backendUrl`, set URL there
     var baseURLString: String?
 
@@ -26,26 +25,30 @@ class APIClient: NSObject, ConnectionTokenProvider {
     // MARK: ConnectionTokenProvider
     func fetchConnectionToken(_ completion: @escaping ConnectionTokenCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("connection_token")
-        Alamofire.request(url, method: .post, parameters: [:])
+
+        AF.request(url, method: .post, parameters: [:])
             .validate(statusCode: 200..<300)
-            .responseJSON { responseJSON in
-                switch responseJSON.result {
-                case .success(let json as [String: AnyObject]) where json["secret"] is String:
-                    completion((json["secret"] as! String), nil)
-                case .success,
-                     .failure where responseJSON.response?.statusCode == 402:
-                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
-                        ?? "Failed to decode connection token"
+            .stripeResponseJSON { (result, afDataResponse) in
+                switch result {
+                case .success(let json):
+                    if let secret = json["secret"] as? String {
+                        completion(secret, nil)
+                    } else {
+                        fallthrough // fallthrough and report failed to decode
+                    }
+                case .failure where afDataResponse.response?.statusCode == 402:
+                    let description = afDataResponse.data.flatMap({ String(data: $0, encoding: .utf8) })
+                    ?? "Failed to decode connection token"
                     let error = NSError(domain: "example",
                                         code: 1,
                                         userInfo: [
                                             NSLocalizedDescriptionKey: description
-                    ])
+                                        ])
                     completion(nil, error)
                 case .failure(let error):
                     completion(nil, error)
                 }
-        }
+            }
     }
 
     // MARK: Endpoints for App
@@ -70,7 +73,7 @@ class APIClient: NSObject, ConnectionTokenProvider {
             cardPresent["request_incremental_authorization_support"] = String(requestIncrementalAuth)
         }
 
-        Alamofire.request(url, method: .post,
+        AF.request(url, method: .post,
                           parameters: [
                             "amount": params.amount,
                             "currency": params.currency,
@@ -81,34 +84,33 @@ class APIClient: NSObject, ConnectionTokenProvider {
                                 "card_present": cardPresent
                             ]
         ])
-            .validate(statusCode: 200..<300)
-            .responseJSON { responseJSON in
-                switch responseJSON.result {
-                case .success(let json as [String: AnyObject]):
-                    if let secret = json["secret"] as? String {
-                        completion(.success(secret))
-                        return
-                    }
-                    fallthrough
-                case .success,
-                     .failure where responseJSON.response?.statusCode == 402:
-                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
-                        ?? "Failed to create PaymentIntent"
-                    let error = NSError(domain: "example",
-                                        code: 4,
-                                        userInfo: [
-                                            NSLocalizedDescriptionKey: description
-                    ])
-                    completion(.failure(error))
-                case .failure(let error):
-                    completion(.failure(error))
+        .validate(statusCode: 200..<300)
+        .stripeResponseJSON { (result, afDataResponse) in
+            switch result {
+            case .success(let json):
+                if let secret = json["secret"] as? String {
+                    completion(.success(secret))
+                    return
                 }
+                fallthrough
+            case .failure where afDataResponse.response?.statusCode == 402:
+                let description = afDataResponse.data.flatMap({ String(data: $0, encoding: .utf8) })
+                ?? "Failed to create PaymentIntent"
+                let error = NSError(domain: "example",
+                                    code: 4,
+                                    userInfo: [
+                                        NSLocalizedDescriptionKey: description
+                                    ])
+                completion(.failure(error))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 
     func capturePaymentIntent(_ paymentIntentId: String, completion: @escaping ErrorCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("capture_payment_intent")
-        Alamofire.request(url, method: .post,
+        AF.request(url, method: .post,
                           parameters: ["payment_intent_id": paymentIntentId])
             .validate(statusCode: 200..<300)
             .responseString { response in
@@ -130,101 +132,55 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
-    func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping (Swift.Result<String, Error>) -> Void) {
-        var alamofireParams: Parameters = [
-            "payment_method_types": [ "card_present" ],
-        ]
-
-        if let customer = params.customer {
-            alamofireParams["customer"] = customer
-        }
-
-        if let onBehalfOf = params.onBehalfOf {
-            alamofireParams["on_behalf_of"] = onBehalfOf
-        }
-
-        if let description = params.stripeDescription {
-            alamofireParams["description"] = description
-        }
-
-        let url = self.baseURL.appendingPathComponent("create_setup_intent")
-        Alamofire.request(url, method: .post,
-                          parameters: alamofireParams)
-            .validate(statusCode: 200..<300)
-            .responseJSON { responseJSON in
-                switch responseJSON.result {
-                case .success(let json as [String: AnyObject]):
-                    if let secret = json["secret"] as? String {
-                        completion(.success(secret))
-                        return
-                    }
-                    fallthrough
-                case .success,
-                     .failure where responseJSON.response?.statusCode == 402:
-                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
-                        ?? "Failed to create SetupIntent"
-                    let error = NSError(domain: "example",
-                                        code: 4,
-                                        userInfo: [
-                                            NSLocalizedDescriptionKey: description
-                    ])
-                    completion(.failure(error))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-        }
-    }
-
     func attachPaymentMethod(_ paymentMethodId: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let url = self.baseURL.appendingPathComponent("attach_payment_method_to_customer")
-        Alamofire.request(url, method: .post,
-                          parameters: ["payment_method_id": paymentMethodId])
-            .validate(statusCode: 200..<300)
-            .responseJSON { responseJSON in
-                switch responseJSON.result {
-                case .success(let json as [String: AnyObject]):
-                    completion(json, nil)
-                case .success,
-                     .failure where responseJSON.response?.statusCode == 402:
-                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
-                        ?? "Failed to decode PaymentMethod & Customer"
-                    let error = NSError(domain: "example",
-                                        code: 3,
-                                        userInfo: [
-                                            NSLocalizedDescriptionKey: description
-                    ])
-                    completion(nil, error)
-                case .failure(let error):
-                    completion(nil, error)
-                }
+        AF.request(url, method: .post,
+                   parameters: ["payment_method_id": paymentMethodId])
+        .validate(statusCode: 200..<300)
+        .stripeResponseJSON { (result, afDataResponse) in
+            switch result {
+            case .success(let json):
+                completion(json, nil)
+            case .failure where afDataResponse.response?.statusCode == 402:
+                let description = afDataResponse.data.flatMap({ String(data: $0, encoding: .utf8) })
+                ?? "Failed to decode PaymentMethod & Customer"
+                let error = NSError(domain: "example",
+                                    code: 3,
+                                    userInfo: [
+                                        NSLocalizedDescriptionKey: description
+                                    ])
+                completion(nil, error)
+            case .failure(let error):
+                completion(nil, error)
+            }
         }
     }
 
     func registerReader(withCode registrationCode: String, label: String, locationId: String, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let url = self.baseURL.appendingPathComponent("register_reader")
-        Alamofire.request(url, method: .post, parameters: [
+        AF.request(url, method: .post, parameters: [
             "label": label,
             "registration_code": registrationCode,
             "location": locationId
         ])
-            .validate(statusCode: 200..<300)
-            .responseJSON { responseJSON in
-                switch responseJSON.result {
-                case .success(let json as [String: AnyObject]):
-                    completion(json, nil)
-                case .success,
-                     .failure where responseJSON.response?.statusCode == 402:
-                    let description = responseJSON.data.flatMap({ String(data: $0, encoding: .utf8) })
-                        ?? "Failed to decode registered reader"
-                    let error = NSError(domain: "example",
-                                        code: 3,
-                                        userInfo: [
-                                            NSLocalizedDescriptionKey: description
-                    ])
-                    completion(nil, error)
-                case .failure(let error):
-                    completion(nil, error)
-                }
+        .validate(statusCode: 200..<300)
+        .stripeResponseJSON { (result, afDataResponse) in
+            switch result {
+            case .success(let json):
+                completion(json, nil)
+            case .failure where afDataResponse.response?.statusCode == 402:
+                let description = afDataResponse.data.flatMap({ String(data: $0, encoding: .utf8) })
+                ?? "Failed to decode registered reader"
+
+                let error = NSError(domain: "example",
+                                    code: 3,
+                                    userInfo: [
+                                        NSLocalizedDescriptionKey: description
+                                    ])
+                completion(nil, error)
+            case .failure(let error):
+                completion(nil, error)
+            }
         }
     }
 
@@ -238,21 +194,20 @@ class APIClient: NSObject, ConnectionTokenProvider {
             "address": address
         ]
 
-        Alamofire.request(url,
-                          method: .post,
-                          parameters: parameters
-                          )
+        AF.request(url, method: .post, parameters: parameters)
         .validate(statusCode: 200..<300)
-        .responseJSON { responseJSON in
-            switch responseJSON.result {
-            case .success(let json as [String: AnyObject]):
-                completion(Location.decodedObject(fromJSON: json), nil)
-            case .success:
-                completion(nil, NSError(domain: "example",
-                                        code: 3,
-                                        userInfo: [
-                                            NSLocalizedDescriptionKey: "Failed to decode created location"
-                    ]))
+        .stripeResponseJSON { (result, _) in
+            switch result {
+            case .success(let json):
+                if let location = Location.decodedObject(fromJSON: json) {
+                    completion(location, nil)
+                } else {
+                    completion(nil, NSError(domain: "example",
+                                            code: 3,
+                                            userInfo: [
+                                                NSLocalizedDescriptionKey: "Failed to decode created location"
+                                            ]))
+                }
             case .failure(let error):
                 completion(nil, error)
             }

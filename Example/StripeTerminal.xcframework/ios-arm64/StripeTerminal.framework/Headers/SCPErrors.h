@@ -508,6 +508,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      called the completion block with an error.
      */
     SCPErrorConnectionTokenProviderCompletedWithError = 9050,
+    /**
+     Your implementation of `-[SCPConnectionTokenProvider fetchConnectionToken:]`
+     did not call the provided completion block within 60 seconds.
+     */
+    SCPErrorConnectionTokenProviderTimedOut = 9052,
 
     /**
      The current session has expired and the reader must be disconnected and
