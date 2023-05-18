@@ -4,6 +4,10 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+
+# 2.20.1 2023-05-16
+* Fixes a latent bug where closing and reopening the app several times leads to increased CPU usage.
+
 # 2.20.0 2023-05-01
 * Fixes a possible crash if a Bluetooth reader disconnects while `connectBluetoothReader` is running.
 * Fixes a bug where a `PaymentIntent` created with `captureMethod` set to `automatic` may, under poor network conditions, have a `status` of `requires_capture`, when it should have had a `status` of `succeeded`.
