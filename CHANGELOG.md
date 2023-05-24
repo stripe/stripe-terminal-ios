@@ -5,6 +5,9 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 2.0'
 ```
 
+# 2.20.2 2023-05-24
+* Fixes a regression in 2.20.0 where `retrieveSetupIntent` would fail with an API error stating "The provided key 'pss_test_*****************' does not have the required permissions for this endpoint"
+
 # 2.20.1 2023-05-16
 * Fixes a latent bug where closing and reopening the app several times leads to increased CPU usage.
 
