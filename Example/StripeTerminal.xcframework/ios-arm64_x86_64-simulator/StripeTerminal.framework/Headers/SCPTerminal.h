@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"2.20.1";
+static NSString *const SCPSDKVersion = @"2.20.2";
 
 @class SCPCancelable,
     SCPBluetoothConnectionConfiguration,
