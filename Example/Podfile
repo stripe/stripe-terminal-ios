@@ -8,3 +8,12 @@ target 'Example' do
   pod 'Alamofire', '~> 5.0'
   pod 'Static', inhibit_warnings: true, git: 'https://github.com/venmo/Static', tag: 'v4.0.0'
 end
+
+# Set deployment target to 11.0, minimum required by Stripe Terminal
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+    end
+  end
+end

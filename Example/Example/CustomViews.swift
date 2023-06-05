@@ -319,6 +319,7 @@ class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
     let cardTypesInDisplayOrder: [SimulatedCardType] = [
         .visa,
         .visaDebit,
+        .visaUsCommonDebit,
         .mastercard,
         .masterDebit,
         .mastercardPrepaid,
