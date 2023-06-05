@@ -4,6 +4,14 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.21.0 2023-06-05
+* Built with Xcode 14.1, Swift version 5.7.1.
+* Fixes a bug where `collectPaymentMethod` could have failed with "Transaction is cancelled by the user" shortly after calling `collectPaymentMethod`.
+* Reduces the latency of subsequent attempts to connect to an Apple Built-In reader.
+* Fixes a crash if the `discoverReaders` cancelable was canceled in `didUpdateDiscoveredReaders` after `connectReader` failed connecting to the reader.
+* Added a new simulated test card `.visaUsCommonDebit` [`SCPSimulatedCardType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulatedCardType.html).
+* Fixes a bug where `processPayment` could result in an error stating "This PaymentIntent could not be updated because it has a status of succeeded" on slow networks.
+* Fixes a crash if the reader disconnects during the `/confirm` API request as part of `processPayment`.
 
 # 2.20.2 2023-05-24
 * Fixes a regression in 2.20.0 where `retrieveSetupIntent` would fail with an API error stating "The provided key 'pss_test_*****************' does not have the required permissions for this endpoint"

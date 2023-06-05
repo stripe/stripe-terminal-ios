@@ -25,6 +25,9 @@ typedef NS_ENUM(NSUInteger, SCPSimulatedCardType) {
     /// Visa (debit)
     SCPSimulatedCardTypeVisaDebit,
 
+    /// Visa debit supporting both international and US Common Debit applications
+    SCPSimulatedCardTypeVisaUsCommonDebit,
+
     /// Mastercard
     SCPSimulatedCardTypeMastercard,
 

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StripeTerminal
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -57,6 +57,11 @@ extension StripeTerminal.Terminal {
   case cardReadFailed
   case paymentReadFailed
   case paymentCardDeclined
+  case pinEntryFailed
+  case pinTokenInvalid
+  case pinEntryTimeout
+  case pinCancelled
+  case pinNotAllowed
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -92,8 +97,8 @@ extension Foundation.NSError {
   @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToPrepareWithError error: Swift.Error)
 }
 @objc(SCPAppleBuiltInReaderTransactionDelegate) public protocol AppleBuiltInReaderTransactionDelegate : ObjectiveC.NSObjectProtocol {
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String, forTransactionOfType type: StripeTerminal.AppleBuiltInReaderTransactionType, amount: Foundation.NSDecimalNumber?, currencyCode: Swift.String)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToPerformTransactionOfType type: StripeTerminal.AppleBuiltInReaderTransactionType, error: Swift.Error)
+  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String)
+  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToPerformTransaction error: Swift.Error)
   @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didReportTransactionEvent event: StripeTerminal.AppleBuiltInReaderTransactionEvent)
   @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToCancelTransaction error: Swift.Error)
   @objc func appleBuiltInReaderDidCompleteMockTransaction(_ reader: StripeTerminal.AppleBuiltInReaderProtocol)
@@ -107,6 +112,8 @@ extension Foundation.NSError {
   case retry
   case readCanceled
   case readNotCompleted
+  case pinEntryRequested
+  case pinEntryCompleted
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -142,6 +149,7 @@ extension Foundation.NSError {
   @objc final public func prepare(usingToken token: Swift.String, merchantReference: Swift.String) throws
   @objc final public func cancelTransaction() throws
   @objc final public func performTransaction(type transactionType: StripeTerminal.AppleBuiltInReaderTransactionType, amount: Foundation.NSDecimalNumber?, currencyCode: Swift.String) throws
+  @objc final public func capturePIN(usingToken token: Swift.String, cardReaderTransactionID: Swift.String) throws
   @objc final public func performMockTransaction(type transactionType: StripeTerminal.AppleBuiltInReaderTransactionType, amount: Foundation.NSDecimalNumber?, currencyCode: Swift.String) throws
   @objc deinit
 }
@@ -160,6 +168,7 @@ extension Foundation.NSError {
   @objc func prepare(usingToken token: Swift.String, merchantReference: Swift.String) throws
   @objc func cancelTransaction() throws
   @objc func performTransaction(type transactionType: StripeTerminal.AppleBuiltInReaderTransactionType, amount: Foundation.NSDecimalNumber?, currencyCode: Swift.String) throws
+  @objc func capturePIN(usingToken token: Swift.String, cardReaderTransactionID: Swift.String) throws
   @objc func performMockTransaction(type transactionType: StripeTerminal.AppleBuiltInReaderTransactionType, amount: Foundation.NSDecimalNumber?, currencyCode: Swift.String) throws
 }
 @objc(SCPAppleBuiltInReaderTransactionType) public enum AppleBuiltInReaderTransactionType : Swift.Int, Swift.Sendable, Swift.RawRepresentable {
