@@ -59,8 +59,17 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
  - If NO, the terms of service will not be presented and the connection will fail with an error.
 
  @see SCPErrorAppleBuiltInReaderTOSNotYetAccepted
+ @note Defaults to `YES` when not otherwise specified.
  */
 @property (nonatomic, assign, readonly, getter=isTOSAcceptancePermitted) BOOL tosAcceptancePermitted;
+
+/**
+ In iOS 16.4 and later, the local mobile reader can return the card read results as soon as they are
+ available instead of waiting for the system UI to dismiss completely. This flow can substantially reduce
+ the amount of time it takes for a transaction to complete.
+ @note Defaults to `YES` when not otherwise specified.
+ */
+@property (nonatomic, assign, readonly, getter=isReturnReadResultImmediatelyEnabled) BOOL returnReadResultImmediatelyEnabled;
 
 /**
  Initialize ConnectionConfiguration with a location ID.
@@ -70,8 +79,8 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
 - (instancetype)initWithLocationId:(NSString *)locationId;
 
 /**
- Initialize ConnectionConfiguration with a location ID, custom merchant display name, and 'on behalf of'
- connected account ID.
+ Initialize a configuration with a location ID, custom merchant display name and 'on behalf of'
+   connected account ID.
  @param locationId ID of the location to be associated with the reader.
  @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
    for the cardholder to present their card.
@@ -84,8 +93,8 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
                         onBehalfOf:(nullable NSString *)onBehalfOf;
 
 /**
- Initialize ConnectionConfiguration with a location ID, custom merchant display name, 'on behalf of'
- connected account ID and terms of service acceptance configuration.
+ Initialize a configuration with a location ID, custom merchant display name 'on behalf of'
+   connected account ID and terms of service acceptance configuration.
  @param locationId ID of the location to be associated with the reader.
  @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
    for the cardholder to present their card.
@@ -98,7 +107,29 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
 - (instancetype)initWithLocationId:(NSString *)locationId
                merchantDisplayName:(nullable NSString *)merchantDisplayName
                         onBehalfOf:(nullable NSString *)onBehalfOf
-            tosAcceptancePermitted:(BOOL)tosAcceptancePermitted NS_DESIGNATED_INITIALIZER;
+            tosAcceptancePermitted:(BOOL)tosAcceptancePermitted;
+
+/**
+ Initialize a configuration with a location ID, custom merchant display name, 'on behalf of'
+   connected account ID, terms of service acceptance configuration and defined behavior
+   in regards to when the card data should be returned.
+ @param locationId ID of the location to be associated with the reader.
+ @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
+   for the cardholder to present their card.
+ @param onBehalfOf Connected account id that the merchant is taking payments on behalf of.
+ @param tosAcceptancePermitted Determines how to handle the situation where merchant-specific
+   terms of service need to be presented in order to connect to a reader.
+ @param returnReadResultsImmediately When possible the card read results are returned as
+   early as possible, prior to the complete dismissal of card reader UI.
+ @returns A new instance of the receiver configured with a location ID, merchant
+   display name, 'on behalf of' connected account ID, terms of service acceptance configuration
+   and defined behavior in regards to when the card data should be returned.
+ */
+- (instancetype)initWithLocationId:(NSString *)locationId
+               merchantDisplayName:(nullable NSString *)merchantDisplayName
+                        onBehalfOf:(nullable NSString *)onBehalfOf
+            tosAcceptancePermitted:(BOOL)tosAcceptancePermitted
+      returnReadResultsImmediately:(BOOL)returnReadResultsImmediately NS_DESIGNATED_INITIALIZER;
 
 @end
 
