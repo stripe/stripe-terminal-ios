@@ -4,6 +4,12 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.22.0 2023-07-05
+* Built with Xcode 14.3, Swift version 5.8.
+* Tap to Pay on iPhone now returns card read results immediately by default on iOS 16.4+ to reduce transaction time.
+* Fixes [#229](https://github.com/stripe/stripe-terminal-ios/issues/229): `connectedReader` and `connectionStatus` is now correctly set when the `disconnectReader` completion block is run when using the simulated Bluetooth reader.
+* Fixes [#232](https://github.com/stripe/stripe-terminal-ios/issues/232): `didReportBatteryLevel` now correctly reports `batteryLevel` as a float between 0 and 1 as documented.
+
 # 2.21.0 2023-06-05
 * Built with Xcode 14.1, Swift version 5.7.1.
 * Fixes a bug where `collectPaymentMethod` could have failed with "Transaction is cancelled by the user" shortly after calling `collectPaymentMethod`.

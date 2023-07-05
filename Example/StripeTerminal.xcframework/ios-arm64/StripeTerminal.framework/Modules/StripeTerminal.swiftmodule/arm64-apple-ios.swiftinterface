@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StripeTerminal
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -10,20 +10,20 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 extension StripeTerminal.Terminal {
-  public func supportsReaders(of deviceType: StripeTerminal.DeviceType, discoveryMethod: StripeTerminal.DiscoveryMethod, simulated isSimulated: Swift.Bool) -> Swift.Result<(), Swift.Error>
+  public func supportsReaders(of deviceType: StripeTerminal.DeviceType, discoveryMethod: StripeTerminal.DiscoveryMethod, simulated isSimulated: Swift.Bool) -> Swift.Result<(), any Swift.Error>
 }
 @objc(SCPAppleBuiltInReader) final public class AppleBuiltInReader : ObjectiveC.NSObject, StripeTerminal.AppleBuiltInReaderProtocol {
   @objc public static func isSupported(simulated: Swift.Bool) throws
-  @objc public static func discoverAvailableReaderIdentifiers(completion: @escaping (Swift.Set<Swift.String>?, Swift.Error?) -> Swift.Void)
+  @objc public static func discoverAvailableReaderIdentifiers(completion: @escaping (Swift.Set<Swift.String>?, (any Swift.Error)?) -> Swift.Void)
   @objc required public init(readerIdentifier crid: Swift.String, connectionConfiguration: StripeTerminal.LocalMobileConnectionConfiguration, isSimulated simulated: Swift.Bool = false)
   @objc deinit
   @objc final public let readerIdentifier: Swift.String
   @objc final public let isSimulated: Swift.Bool
   @objc final public let connectionConfiguration: StripeTerminal.LocalMobileConnectionConfiguration
   @objc final public var merchantReference: Swift.String?
-  @objc weak final public var accountLinkingDelegate: StripeTerminal.AppleBuiltInReaderAccountLinkingDelegate?
-  @objc weak final public var prepareDelegate: StripeTerminal.AppleBuiltInReaderPrepareDelegate?
-  @objc weak final public var transactionDelegate: StripeTerminal.AppleBuiltInReaderTransactionDelegate?
+  @objc weak final public var accountLinkingDelegate: (any StripeTerminal.AppleBuiltInReaderAccountLinkingDelegate)?
+  @objc weak final public var prepareDelegate: (any StripeTerminal.AppleBuiltInReaderPrepareDelegate)?
+  @objc weak final public var transactionDelegate: (any StripeTerminal.AppleBuiltInReaderTransactionDelegate)?
   @objc final public func linkAccount(usingToken token: Swift.String, merchantReference: Swift.String) throws
   @objc final public func prepare(usingToken token: Swift.String, merchantReference: Swift.String) throws
   @objc final public func cancelTransaction() throws
@@ -107,21 +107,21 @@ extension Foundation.NSError {
   }
 }
 @objc(SCPAppleBuiltInReaderAccountLinkingDelegate) public protocol AppleBuiltInReaderAccountLinkingDelegate : ObjectiveC.NSObjectProtocol {
-  @objc func appleBuiltInReaderDidLinkAccount(_ reader: StripeTerminal.AppleBuiltInReaderProtocol)
-  @objc func appleBuiltInReaderDidPreviouslyLinkAccount(_ reader: StripeTerminal.AppleBuiltInReaderProtocol)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToLinkAccountWithError error: Swift.Error)
+  @objc func appleBuiltInReaderDidLinkAccount(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol)
+  @objc func appleBuiltInReaderDidPreviouslyLinkAccount(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToLinkAccountWithError error: any Swift.Error)
 }
 @objc(SCPAppleBuiltInReaderPrepareDelegate) public protocol AppleBuiltInReaderPrepareDelegate : ObjectiveC.NSObjectProtocol {
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didReportPrepareProgress progress: Swift.Float)
-  @objc func appleBuiltInReaderDidPrepare(_ reader: StripeTerminal.AppleBuiltInReaderProtocol)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToPrepareWithError error: Swift.Error)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didReportPrepareProgress progress: Swift.Float)
+  @objc func appleBuiltInReaderDidPrepare(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToPrepareWithError error: any Swift.Error)
 }
 @objc(SCPAppleBuiltInReaderTransactionDelegate) public protocol AppleBuiltInReaderTransactionDelegate : ObjectiveC.NSObjectProtocol {
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToPerformTransaction error: Swift.Error)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didReportTransactionEvent event: StripeTerminal.AppleBuiltInReaderTransactionEvent)
-  @objc func appleBuiltInReader(_ reader: StripeTerminal.AppleBuiltInReaderProtocol, didFailToCancelTransaction error: Swift.Error)
-  @objc func appleBuiltInReaderDidCompleteMockTransaction(_ reader: StripeTerminal.AppleBuiltInReaderProtocol)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToPerformTransaction error: any Swift.Error)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didReportTransactionEvent event: StripeTerminal.AppleBuiltInReaderTransactionEvent)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToCancelTransaction error: any Swift.Error)
+  @objc func appleBuiltInReaderDidCompleteMockTransaction(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol)
 }
 @objc(SCPAppleBuiltInReaderTransactionEventCode) public enum AppleBuiltInReaderTransactionEventCode : Swift.Int, Swift.Sendable, Swift.RawRepresentable {
   case unknown = 0
@@ -156,14 +156,14 @@ extension Foundation.NSError {
 }
 @objc(SCPAppleBuiltInReader) public protocol AppleBuiltInReaderProtocol : ObjectiveC.NSObjectProtocol {
   @objc static func isSupported(simulated: Swift.Bool) throws
-  @objc static func discoverAvailableReaderIdentifiers(completion: @escaping (Swift.Set<Swift.String>?, Swift.Error?) -> Swift.Void)
+  @objc static func discoverAvailableReaderIdentifiers(completion: @escaping (Swift.Set<Swift.String>?, (any Swift.Error)?) -> Swift.Void)
   @objc var readerIdentifier: Swift.String { get }
   @objc var isSimulated: Swift.Bool { get }
   @objc var connectionConfiguration: StripeTerminal.LocalMobileConnectionConfiguration { get }
   @objc var merchantReference: Swift.String? { get set }
-  @objc weak var accountLinkingDelegate: StripeTerminal.AppleBuiltInReaderAccountLinkingDelegate? { get set }
-  @objc weak var prepareDelegate: StripeTerminal.AppleBuiltInReaderPrepareDelegate? { get set }
-  @objc weak var transactionDelegate: StripeTerminal.AppleBuiltInReaderTransactionDelegate? { get set }
+  @objc weak var accountLinkingDelegate: (any StripeTerminal.AppleBuiltInReaderAccountLinkingDelegate)? { get set }
+  @objc weak var prepareDelegate: (any StripeTerminal.AppleBuiltInReaderPrepareDelegate)? { get set }
+  @objc weak var transactionDelegate: (any StripeTerminal.AppleBuiltInReaderTransactionDelegate)? { get set }
   @objc init(readerIdentifier crid: Swift.String, connectionConfiguration: StripeTerminal.LocalMobileConnectionConfiguration, isSimulated: Swift.Bool)
   @objc func linkAccount(usingToken token: Swift.String, merchantReference: Swift.String) throws
   @objc func prepare(usingToken token: Swift.String, merchantReference: Swift.String) throws
