@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 2.22.0 Docs
+          StripeTerminal 2.23.0 Docs
         </a>
         
       </p>
@@ -332,6 +332,9 @@
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyDeviceBannedUntilDate">SCPErrorKeyDeviceBannedUntilDate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyPrepareFailedReason">SCPErrorKeyPrepareFailedReason</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
               </li>
               <li class="nav-group-task">
@@ -495,6 +498,52 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPPaymentIntentStatus@SCPPaymentIntentStatusRequiresAction"></a>
+                    <a name="//apple_ref/objc/Case/SCPPaymentIntentStatusRequiresAction" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPPaymentIntentStatus@SCPPaymentIntentStatusRequiresAction">SCPPaymentIntentStatusRequiresAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Next step: the payment requires additional actions, such as authenticating with 3D Secure.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>PaymentIntents collected with the Terminal SDK should not end in the <code>requires_action</code> status.
+You can use the <code>intent.originalJSON</code> to review the <code>next_action</code>.</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/payments/paymentintents/lifecycle#intent-statuses">https://stripe.com/docs/payments/paymentintents/lifecycle#intent-statuses</a></p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><a href="https://stripe.com/docs/api/payment_intents/object#payment_intent_object-next_action">https://stripe.com/docs/api/payment_intents/object#payment_intent_object-next_action</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPPaymentIntentStatusRequiresAction</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requiresAction</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPPaymentIntentStatus@SCPPaymentIntentStatusRequiresCapture"></a>
                     <a name="//apple_ref/objc/Case/SCPPaymentIntentStatusRequiresCapture" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPPaymentIntentStatus@SCPPaymentIntentStatusRequiresCapture">SCPPaymentIntentStatusRequiresCapture</a>
@@ -517,7 +566,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requiresCapture</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requiresCapture</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -549,7 +598,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">processing</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">processing</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -581,7 +630,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">canceled</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">canceled</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -613,7 +662,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">succeeded</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">succeeded</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -628,7 +677,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-07-05)</p>
+      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-07-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

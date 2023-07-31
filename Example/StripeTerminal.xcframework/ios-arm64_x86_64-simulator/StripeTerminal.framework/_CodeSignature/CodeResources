@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		/ggTECBymm2DCzo5wz6LjziZ+IM=
+		+N9hMZqeqLq044SpWzWDKCm/vKg=
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>Headers/SCPPaymentIntent.h</key>
 		<data>
-		FNrR0ywUkmHvgdZ5XALUgiM36sg=
+		fxi+l3L0RHKbHh1eOPYRrBMqv4A=
 		</data>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
 		<data>
@@ -286,7 +286,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		BWDrE7SES8/EAxFocRCfjj514KI=
+		KMQC7P75RP2LGcnyRkPTbuTAXu4=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -302,7 +302,7 @@
 		</data>
 		<key>Headers/StripeTerminal-Swift.h</key>
 		<data>
-		wN/53UZdvwZmS/EnxZWRGs8wYrs=
+		wDellcFrHNzrxwjnIUGXbzjYQeQ=
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
@@ -310,47 +310,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C+2xD1Ppl+7qFonCwViYvkVJV2E=
+		CvS9IJmzn5Je9xLYGuxLLZKRB9c=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		aoGvyHOTAnvbFQtFuwW5Eyl+kSc=
+		zkNRx39MQ4THcbEfZyxuzu4Ab8k=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		CLUc0qtPdHbBrpKl6CPzSBUE2wM=
+		pShegEKrqIpPhZC509fM3pSRqDE=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		mN1T6teos0eiTbLWlTQL2ruNKWs=
+		FzPGySt5Gr4ShwSlqogZsOulyZ0=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		CLUc0qtPdHbBrpKl6CPzSBUE2wM=
+		pShegEKrqIpPhZC509fM3pSRqDE=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		EAhu6dEqIDVYwV97jM7jWmMzlbo=
+		QE9cXTv8qM0AyazYb0S6zCkE7GI=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		aoGvyHOTAnvbFQtFuwW5Eyl+kSc=
+		zkNRx39MQ4THcbEfZyxuzu4Ab8k=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		WX6ORht5ZTGGTynzqLx485sX8e0=
+		siYHXfnGHWe9woJggykwM0LhtSA=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		D8opiCTprtb9U3+zqvS7l3pJ/OI=
+		jEKs7wGY7Ujvop7njp+eTtGJqTs=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		WX6ORht5ZTGGTynzqLx485sX8e0=
+		siYHXfnGHWe9woJggykwM0LhtSA=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		LvFL58qCkdHRb0QCYtPxubgaFMk=
+		I1tQot7ehB0lO3xKct7CZObEkh4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -538,7 +538,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			48plw0cyiderXZNbNZ3HaoimBFJrsVYZJPstKzWKFTQ=
+			QC/ZUwcRMWquZjyhoFatnl9KeGg2XST+YpLIv2CAObA=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
@@ -636,7 +636,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lIvOccgoAdLic7zZxWT88y+Obhuf3jZ4+7f4GZDDnZw=
+			NjjfOjFdcu9NGLJKNn8eRQg12y9KnYy/H4VGG1HLcn0=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
@@ -853,7 +853,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QdiFQtiC4bLMxcr7q2Y8hM+J2xxDUTJzPcUAvgDOX/0=
+			lzuyFMoaHN1+Ar5HYZWKy/p2hNxhJIyg/v0wpnpZQ0o=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -881,7 +881,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LghpcWwCkisAHt243NjTuFECeEWOwYtF6rCCGinoZBo=
+			Y0w53PIyos2VNK9NHBAi5DE+Rh1vX4HWaBHfPKvlk4U=
 			</data>
 		</dict>
 		<key>Headers/StripeTerminal.h</key>
@@ -895,70 +895,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7mb66pEx7MZXmi2rpBbF8INq7ifJb32sD6fHypq1+q4=
+			sGaKt/Ff/KgOyiSOk7Wrz/njonpCR7ITJm5U4LBeOKA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ikINnF8FwdUrVTxHXYgY8q4BSin0kzrhJEVz3ojP6ig=
+			X3HSopJiFmjBULZI/Q45WEp6IO4UzZRZHuAe2sOU0Bk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fr/+1VPH9v7QP8pk2DGvvBgSpeM7HqIU7udsV4LqWxw=
+			JgEE9ZLC6JRvfYa8dPyDViHPjEDMeEq5HHvACTmrJBI=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ikINnF8FwdUrVTxHXYgY8q4BSin0kzrhJEVz3ojP6ig=
+			X3HSopJiFmjBULZI/Q45WEp6IO4UzZRZHuAe2sOU0Bk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S7WtU579hf7S8afp83MB9plQLJ39+8LviL+HHHNKj4c=
+			UpaY+9FrrJPdwuIpl+BUz6gU6it3hZwNdTOlbT3THDA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7mb66pEx7MZXmi2rpBbF8INq7ifJb32sD6fHypq1+q4=
+			sGaKt/Ff/KgOyiSOk7Wrz/njonpCR7ITJm5U4LBeOKA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F1Lafcbb9tWUDUty8N37Jk/zdMErwLfOyrStEDeTmGU=
+			mEI+n0IirsKwZpVZDs21xL+YGRLBNndzvHasFeytHUg=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			izyHECLPCRkCthB738MW3ubHxMJJ3AHyXy+lCS3q1MY=
+			gnO/ny3NFBHcEVUJJbQCXmkHY2yREjY27G2BpfOBh9I=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F1Lafcbb9tWUDUty8N37Jk/zdMErwLfOyrStEDeTmGU=
+			mEI+n0IirsKwZpVZDs21xL+YGRLBNndzvHasFeytHUg=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5kkh5Hgp0lWPrPVq9l9vJNay18dDFR9/Str6PK72QKY=
+			aJv2N7EKvBxrB89yXtJxgSz1JKGxtiVsi0nve90miHA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

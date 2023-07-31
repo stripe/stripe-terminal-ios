@@ -430,7 +430,7 @@ SWIFT_PROTOCOL_NAMED("AppleBuiltInReaderProtocol")
 ///
 /// \param cardReaderTransactionID Identifier of the transaction associated with the PIN
 /// capture attempt. This value is returned as <code>paymentCardId</code> in the <code>AppleBuiltInReaderTransactionDelegate</code>’s
-/// <code>appleBuiltInReader(_:didCollectPaymentCard:paymentCardId:merchantReference:)</code>
+/// <code>appleBuiltInReader(_:didCollectPaymentCard:generalCardData:paymentCardId:merchantReference:)</code>
 /// delegate method.
 ///
 ///
@@ -564,56 +564,60 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SCPAppleBuiltInReaderErrorCode, "AppleBuiltI
   SCPAppleBuiltInReaderErrorCodeAccountLinkingRequiresiCloudSignIn = 23,
 /// An error indicating the user cancelled the linking operation.
   SCPAppleBuiltInReaderErrorCodeAccountLinkingCancelled = 24,
+/// An error that indicates the system couldn’t check the account status of the merchant.
+  SCPAppleBuiltInReaderErrorCodeAccountLinkingCheckFailed = 25,
 /// Merchant is blocked.
-  SCPAppleBuiltInReaderErrorCodeMerchantBlocked = 25,
+  SCPAppleBuiltInReaderErrorCodeMerchantBlocked = 26,
 /// Merchant is invalid.
-  SCPAppleBuiltInReaderErrorCodeInvalidMerchant = 26,
+  SCPAppleBuiltInReaderErrorCodeInvalidMerchant = 27,
 /// Read not allowed at this time. Validate entitlements to proceed.
-  SCPAppleBuiltInReaderErrorCodeReadNotAllowed = 27,
+  SCPAppleBuiltInReaderErrorCodeReadNotAllowed = 28,
 /// It is not possible to interact with the Apple Built-In reader while the app is backgrounded.
-  SCPAppleBuiltInReaderErrorCodeReadFromBackgroundError = 28,
+  SCPAppleBuiltInReaderErrorCodeReadFromBackgroundError = 29,
 /// Unable to connect to internal UI or other services.
-  SCPAppleBuiltInReaderErrorCodeReaderServiceConnectionError = 29,
+  SCPAppleBuiltInReaderErrorCodeReaderServiceConnectionError = 30,
 /// General reader service internal state issue, unexpected error, etc…
-  SCPAppleBuiltInReaderErrorCodeReaderServiceError = 30,
+  SCPAppleBuiltInReaderErrorCodeReaderServiceError = 31,
 /// No reader session or not ready. The reader connection must be re-initialized.
-  SCPAppleBuiltInReaderErrorCodeNoReaderSession = 31,
+  SCPAppleBuiltInReaderErrorCodeNoReaderSession = 32,
 /// Reader session expired and unable to refresh. The reader connection must be re-initialized.
-  SCPAppleBuiltInReaderErrorCodeReaderSessionExpired = 32,
+  SCPAppleBuiltInReaderErrorCodeReaderSessionExpired = 33,
 /// Unable to refresh reader session as configuration token is expired. The reader connection must be re-initialized.
-  SCPAppleBuiltInReaderErrorCodeReaderTokenExpired = 33,
+  SCPAppleBuiltInReaderErrorCodeReaderTokenExpired = 34,
 /// Unable to refresh reader session due to network error.
-  SCPAppleBuiltInReaderErrorCodeReaderSessionNetworkError = 34,
+  SCPAppleBuiltInReaderErrorCodeReaderSessionNetworkError = 35,
 /// Auth error, while refreshing reader session.
-  SCPAppleBuiltInReaderErrorCodeReaderSessionAuthenticationError = 35,
+  SCPAppleBuiltInReaderErrorCodeReaderSessionAuthenticationError = 36,
 /// Reader is busy with another session. Try again later.
-  SCPAppleBuiltInReaderErrorCodeReaderSessionBusy = 36,
+  SCPAppleBuiltInReaderErrorCodeReaderSessionBusy = 37,
 /// Current read or reader session cancelled.
-  SCPAppleBuiltInReaderErrorCodeReadCancelled = 37,
+  SCPAppleBuiltInReaderErrorCodeReadCancelled = 38,
 /// Invalid amount, must be a positive.
-  SCPAppleBuiltInReaderErrorCodeInvalidAmount = 38,
+  SCPAppleBuiltInReaderErrorCodeInvalidAmount = 39,
 /// Invalid or unsupported currency code.
-  SCPAppleBuiltInReaderErrorCodeInvalidCurrency = 39,
+  SCPAppleBuiltInReaderErrorCodeInvalidCurrency = 40,
 /// NFC is disabled. NFC must be enabled to proceed.
-  SCPAppleBuiltInReaderErrorCodeNfcDisabled = 40,
+  SCPAppleBuiltInReaderErrorCodeNfcDisabled = 41,
 /// It is not possible to interact with the Apple Built-In reader while the app is backgrounded.
-  SCPAppleBuiltInReaderErrorCodeReadNotAllowedDuringCall = 41,
+  SCPAppleBuiltInReaderErrorCodeReadNotAllowedDuringCall = 42,
 /// An error occurred while attempting to read the payment card.
-  SCPAppleBuiltInReaderErrorCodeCardReadFailed = 42,
+  SCPAppleBuiltInReaderErrorCodeCardReadFailed = 43,
 /// Unable to proceed with payment read due to internal failure.
-  SCPAppleBuiltInReaderErrorCodePaymentReadFailed = 43,
+  SCPAppleBuiltInReaderErrorCodePaymentReadFailed = 44,
 /// The payment card declined the transaction.
-  SCPAppleBuiltInReaderErrorCodePaymentCardDeclined = 44,
-/// An error occured when capturing the PIN.
-  SCPAppleBuiltInReaderErrorCodePinEntryFailed = 45,
+  SCPAppleBuiltInReaderErrorCodePaymentCardDeclined = 45,
+/// The preferred AID specified in the transaction request is invalid.
+  SCPAppleBuiltInReaderErrorCodeInvalidPreferredAID = 46,
+/// An error occurred when capturing the PIN.
+  SCPAppleBuiltInReaderErrorCodePinEntryFailed = 47,
 /// An error that indicates an invalid PIN token.
-  SCPAppleBuiltInReaderErrorCodePinTokenInvalid = 46,
+  SCPAppleBuiltInReaderErrorCodePinTokenInvalid = 48,
 /// The current PIN capture was not completed in allowed time.
-  SCPAppleBuiltInReaderErrorCodePinEntryTimeout = 47,
+  SCPAppleBuiltInReaderErrorCodePinEntryTimeout = 49,
 /// The current PIN capture was cancelled, also cancelling any ongoing read operation.
-  SCPAppleBuiltInReaderErrorCodePinCancelled = 48,
+  SCPAppleBuiltInReaderErrorCodePinCancelled = 50,
 /// The time window allowing for a PIN capture after a card read has expired.
-  SCPAppleBuiltInReaderErrorCodePinNotAllowed = 49,
+  SCPAppleBuiltInReaderErrorCodePinNotAllowed = 51,
 };
 
 
@@ -647,11 +651,15 @@ SWIFT_PROTOCOL_NAMED("AppleBuiltInReaderTransactionDelegate")
 /// An attempt to perform a transaction completed successfully.
 /// \param reader Apple Built-In reader.
 ///
-/// \param data EMV blob associated with the payment card suitable for transaction processing.
+/// \param data Encrypted EMV blob associated with the payment card suitable for transaction processing.
+///
+/// \param generalCardData Un-encrypted EMV blob associated with the payment card.
 ///
 /// \param paymentCardId An identifier associated with the payment card.
 ///
-- (void)appleBuiltInReader:(id <SCPAppleBuiltInReader> _Nonnull)reader didCollectPaymentCard:(NSString * _Nullable)data paymentCardId:(NSString * _Nonnull)paymentCardId merchantReference:(NSString * _Nonnull)merchantReference;
+/// \param merchantReference Merchant reference.
+///
+- (void)appleBuiltInReader:(id <SCPAppleBuiltInReader> _Nonnull)reader didCollectPaymentCard:(NSString * _Nullable)data generalCardData:(NSString * _Nullable)generalCardData paymentCardId:(NSString * _Nonnull)paymentCardId merchantReference:(NSString * _Nonnull)merchantReference;
 /// An attempt to perform a transaction failed.
 /// \param reader Apple Built-In reader.
 ///
@@ -749,6 +757,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Apple Built-In reader error User Info device banned until date key.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull scp_appleBuiltInReaderErrorUserInfoDeviceBannedUntilDateKey;)
 + (NSString * _Nonnull)scp_appleBuiltInReaderErrorUserInfoDeviceBannedUntilDateKey SWIFT_WARN_UNUSED_RESULT;
+/// Apple Built-In reader error User Info device prepare failed reason key.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull scp_appleBuiltInReaderErrorUserInfoPrepareFailedReasonKey;)
++ (NSString * _Nonnull)scp_appleBuiltInReaderErrorUserInfoPrepareFailedReasonKey SWIFT_WARN_UNUSED_RESULT;
 /// seealso:
 /// <code>AppleBuiltInReaderErrorCode.unknown</code>
 ///

@@ -626,4 +626,11 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyReaderMessage;
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyDeviceBannedUntilDate;
 
+/**
+ If an Apple Built-In reader fails to prepare and includes an associated reason string,
+ the associated `NSString` will be returned under this key.
+ @see SCPErrorAppleBuiltInReaderFailedToPrepare
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyPrepareFailedReason;
+
 NS_ASSUME_NONNULL_END
