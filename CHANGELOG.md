@@ -1,9 +1,19 @@
 # Stripe Terminal iOS SDK changelog
 
+This document details changes made to the SDK by version. The current status
+of each release can be found in the [Support Lifecycle](SUPPORT.md).
+
 If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.23.0 2023-07-31
+* Built with Xcode 14.3, Swift version 5.8.
+* Support for CVM PIN transactions when using Tap to Pay on iPhone. See [Tap to Pay on iPhone docs](https://stripe.com/docs/terminal/payments/setup-reader/tap-to-pay?platform=ios) for specifics on supported countries and payment methods.
+* Fixes a bug where connecting to an internet reader after being connected to a Bluetooth reader could error with "ConnectionToken has already been redeemed".
+* Provides additional debugging information when an Apple Built-In reader fails to prepare. See the new `SCPErrorKeyPrepareFailedReason` error key.
+* Fixes a regression where `SCPErrorUnexpectedSdkError` would be returned when connecting to a reader without `discoverReaders` running. Now returns a specific error, `SCPErrorMustBeDiscoveringToConnect`.
+
 # 2.22.0 2023-07-05
 * Built with Xcode 14.3, Swift version 5.8.
 * Tap to Pay on iPhone now returns card read results immediately by default on iOS 16.4+ to reduce transaction time.

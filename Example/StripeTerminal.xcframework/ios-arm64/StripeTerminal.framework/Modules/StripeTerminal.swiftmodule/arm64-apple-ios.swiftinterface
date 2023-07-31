@@ -57,6 +57,7 @@ extension StripeTerminal.Terminal {
   case accountLinkingFailed
   case accountLinkingRequiresiCloudSignIn
   case accountLinkingCancelled
+  case accountLinkingCheckFailed
   case merchantBlocked
   case invalidMerchant
   case readNotAllowed
@@ -77,6 +78,7 @@ extension StripeTerminal.Terminal {
   case cardReadFailed
   case paymentReadFailed
   case paymentCardDeclined
+  case invalidPreferredAID
   case pinEntryFailed
   case pinTokenInvalid
   case pinEntryTimeout
@@ -93,6 +95,7 @@ extension Foundation.NSError {
   @objc public static let scp_appleBuiltInReaderErrorUserInfoNameKey: Swift.String
   @objc public static let scp_appleBuiltInReaderErrorUserInfoReaderMessageKey: Swift.String
   @objc public static let scp_appleBuiltInReaderErrorUserInfoDeviceBannedUntilDateKey: Swift.String
+  @objc public static let scp_appleBuiltInReaderErrorUserInfoPrepareFailedReasonKey: Swift.String
   @objc dynamic public class func scp_unknownAppleBuiltInReaderError() -> Foundation.NSError
   @objc dynamic public class func scp_invalidAmountError() -> Foundation.NSError
   @objc dynamic public class func scp_invalidCurrencyError() -> Foundation.NSError
@@ -117,7 +120,7 @@ extension Foundation.NSError {
   @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToPrepareWithError error: any Swift.Error)
 }
 @objc(SCPAppleBuiltInReaderTransactionDelegate) public protocol AppleBuiltInReaderTransactionDelegate : ObjectiveC.NSObjectProtocol {
-  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String)
+  @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didCollectPaymentCard data: Swift.String?, generalCardData: Swift.String?, paymentCardId: Swift.String, merchantReference: Swift.String)
   @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToPerformTransaction error: any Swift.Error)
   @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didReportTransactionEvent event: StripeTerminal.AppleBuiltInReaderTransactionEvent)
   @objc func appleBuiltInReader(_ reader: any StripeTerminal.AppleBuiltInReaderProtocol, didFailToCancelTransaction error: any Swift.Error)

@@ -33,6 +33,16 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      */
     SCPPaymentIntentStatusRequiresConfirmation,
     /**
+     Next step: the payment requires additional actions, such as authenticating with 3D Secure.
+
+     @note PaymentIntents collected with the Terminal SDK should not end in the `requires_action` status.
+     You can use the `intent.originalJSON` to review the `next_action`.
+
+     @see https://stripe.com/docs/payments/paymentintents/lifecycle#intent-statuses
+     @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-next_action
+     */
+    SCPPaymentIntentStatusRequiresAction,
+    /**
      Next step: capture the PaymentIntent on your backend via the Stripe API.
      */
     SCPPaymentIntentStatusRequiresCapture,
