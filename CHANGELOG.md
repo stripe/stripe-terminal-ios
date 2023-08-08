@@ -7,6 +7,10 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 2.0'
 ```
+# 2.23.1 2023-08-08
+* Built with Xcode 14.3, Swift version 5.8.
+* Fixes a regression in 2.21.0 where the SDK could get stuck running `discoverReaders` if `connectBluetoothReader` failed and the discovery cancelable was canceled in the connect completion block.
+
 # 2.23.0 2023-07-31
 * Built with Xcode 14.3, Swift version 5.8.
 * Support for CVM PIN transactions when using Tap to Pay on iPhone. See [Tap to Pay on iPhone docs](https://stripe.com/docs/terminal/payments/setup-reader/tap-to-pay?platform=ios) for specifics on supported countries and payment methods.
