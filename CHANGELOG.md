@@ -7,7 +7,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
-# 3.0.0 2023-09-05
+# 3.0.0 2023-09-08
+3.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for more details.
+
 * Built with Xcode 14.3, Swift version 5.8.
 * New: Private beta support for offline payments.
     * See [Collect payments while offline](https://stripe.com/docs/terminal/features/operate-offline/collect-payments) for details.
