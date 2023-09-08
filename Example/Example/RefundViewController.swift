@@ -46,29 +46,29 @@ class RefundViewController: EventDisplayingViewController {
                 self.events.append(collectEvent)
 
                 // 2. process refund
-                var processEvent = LogEvent(method: .processRefund)
-                self.events.append(processEvent)
-                Terminal.shared.processRefund { [weak self] processedRefund, processError in
+                var confirmEvent = LogEvent(method: .confirmRefund)
+                self.events.append(confirmEvent)
+                Terminal.shared.confirmRefund { [weak self] confirmedRefund, confirmError in
                     guard let self = self else { return }
 
-                    if let error = processError {
-                        processEvent.result = .errored
-                        processEvent.object = .error(error as NSError)
-                        self.events.append(processEvent)
+                    if let error = confirmError {
+                        confirmEvent.result = .errored
+                        confirmEvent.object = .error(error as NSError)
+                        self.events.append(confirmEvent)
                         #if SCP_SHOWS_RECEIPTS
                         self.events.append(ReceiptEvent(refund: error.refund, paymentIntent: nil))
                         #endif
                         self.complete()
-                    } else if let refund = processedRefund, refund.status == .succeeded {
-                        processEvent.result = .succeeded
-                        processEvent.object = .refund(refund)
-                        self.events.append(processEvent)
+                    } else if let refund = confirmedRefund, refund.status == .succeeded {
+                        confirmEvent.result = .succeeded
+                        confirmEvent.object = .refund(refund)
+                        self.events.append(confirmEvent)
                         #if SCP_SHOWS_RECEIPTS
                         self.events.append(ReceiptEvent(refund: refund, paymentIntent: nil))
                         #endif
                         self.complete()
-                    } else if processedRefund != nil {
-                        self.events.append(processEvent)
+                    } else if confirmedRefund != nil {
+                        self.events.append(confirmEvent)
                         self.complete()
                     }
                 }

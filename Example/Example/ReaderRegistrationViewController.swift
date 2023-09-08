@@ -28,7 +28,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
 
     let registrationCodeTextField = TextFieldView(text: "", footer: "")
     let readerLabelTextField = TextFieldView(text: "", footer: "")
-    private var selectedLocation: Location?
+    private var selectedLocationStub: LocationStub?
 
     var message: String? {
         didSet {
@@ -88,7 +88,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 return
         }
 
-        guard let selectedLocation = selectedLocation else {
+        guard let selectedLocationId = selectedLocationStub?.stripeId else {
             message = "Please select a location."
             return
         }
@@ -100,7 +100,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         registrationInProgress = true
         setAllowedCancelMethods([])
         self.message = "Registering..."
-        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label, locationId: selectedLocation.stripeId) { [unowned self] response, error in
+        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label, locationId: selectedLocationId) { [unowned self] response, error in
             if let error = error {
                 self.registrationInProgress = false
                 self.setAllowedCancelMethods(.all)
@@ -111,15 +111,22 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 self.setAllowedCancelMethods(.all)
                 self.message = "Rediscovering..."
 
-                let config = DiscoveryConfiguration(discoveryMethod: .internet, simulated: false)
-                self.cancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
-                    self.cancelable = nil
-                    if let error = error {
-                        self.registrationInProgress = false
-                        self.setAllowedCancelMethods(.all)
-                        self.message = "Could not discover readers."
-                        print(error)
+                do {
+                    let config = try InternetDiscoveryConfigurationBuilder().setLocationId(selectedLocationId).build()
+                    self.cancelable = Terminal.shared.discoverReaders(config, delegate: self) { error in
+                        self.cancelable = nil
+                        if let error = error {
+                            self.registrationInProgress = false
+                            self.setAllowedCancelMethods(.all)
+                            self.message = "Could not discover readers."
+                            print(error)
+                        }
                     }
+                } catch {
+                    self.registrationInProgress = false
+                    self.setAllowedCancelMethods(.all)
+                    self.message = "Could not discover readers. \(error.localizedDescription)"
+                    print(error)
                 }
             }
         }
@@ -131,8 +138,8 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         self.present(navController, animated: true, completion: nil)
     }
 
-    internal func onLocationSelect(viewController: SelectLocationViewController, location: Location) {
-        self.selectedLocation = location
+    internal func onLocationSelect(viewController: SelectLocationViewController, locationStub: LocationStub) {
+        self.selectedLocationStub = locationStub
         viewController.dismiss(animated: true) {
             self.updateContent()
         }
@@ -140,8 +147,8 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
 
     internal func showLocationSelector() {
         let selectLocationVC = SelectLocationViewController()
-        selectLocationVC.onSelectLocation = { [unowned selectLocationVC] location in
-            self.onLocationSelect(viewController: selectLocationVC, location: location)
+        selectLocationVC.onSelectLocation = { [unowned selectLocationVC] locationStub in
+            self.onLocationSelect(viewController: selectLocationVC, locationStub: locationStub)
         }
         self.presentModalInNavigationController(selectLocationVC)
     }
@@ -160,7 +167,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 header: Section.Extremity.title("Location"),
                 rows: [
                     Row(
-                        text: selectedLocation != nil ? selectedLocation?.displayString : "No location selected",
+                        text: selectedLocationStub != nil ? selectedLocationStub?.displayName : "No location selected",
                         selection: { [unowned self] in self.showLocationSelector() },
                         accessory: .disclosureIndicator
                     )

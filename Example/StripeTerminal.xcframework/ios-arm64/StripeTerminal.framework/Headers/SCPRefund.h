@@ -52,7 +52,7 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
 
  @see https://stripe.com/docs/terminal/canada#interac-refunds
 
- The `collectRefundPaymentMethod:completion` and `processRefund` SDK methods
+ The `collectRefundPaymentMethod:completion` and `confirmRefund` SDK methods
  allow you to build an in-person refund interface into your app.
 
  The refund SDK methods and the `SCPRefund` class are only available for

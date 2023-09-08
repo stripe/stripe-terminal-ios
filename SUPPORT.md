@@ -36,6 +36,7 @@ their SDK as soon as possible to avoid any interruption in functionality.
 |------------------|-------------------|---------------------|
 | Versions 1.x.x   | October, 2019     | October, 2023       |
 | Versions 2.x.x   | June, 2021        | August, 2024        |
+| Versions 3.x.x   | September, 2023   | September, 2025     |
 
 ## Tap-to-Pay Support
 

@@ -176,21 +176,43 @@ class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDel
 class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
     static let shared = ReconnectionDelegateAnnouncer()
 
-    func terminal(_ terminal: Terminal, didStartReaderReconnect cancelable: Cancelable) {
+    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable) {
         announce { delegate in
-            delegate.terminal(terminal, didStartReaderReconnect: cancelable)
+            delegate.reader(reader, didStartReconnect: cancelable)
         }
     }
 
-    func terminalDidFailReaderReconnect(_ terminal: Terminal) {
+    func readerDidFailReconnect(_ reader: Reader) {
         announce { delegate in
-            delegate.terminalDidFailReaderReconnect(terminal)
+            delegate.readerDidFailReconnect(reader)
         }
     }
 
-    func terminalDidSucceedReaderReconnect(_ terminal: Terminal) {
+    func readerDidSucceedReconnect(_ reader: Reader) {
         announce { delegate in
-            delegate.terminalDidSucceedReaderReconnect(terminal)
+            delegate.readerDidSucceedReconnect(reader)
+        }
+    }
+}
+
+class OfflineDelegateAnnouncer: DelegateAnnouncer<OfflineDelegate>, OfflineDelegate {
+    static let shared = OfflineDelegateAnnouncer()
+
+    func terminal(_ terminal: Terminal, didChange offlineStatus: OfflineStatus) {
+        announce { delegate in
+            delegate.terminal(terminal, didChange: offlineStatus)
+        }
+    }
+
+    func terminal(_ terminal: Terminal, didForwardPaymentIntent intent: PaymentIntent, error: Error?) {
+        announce { delegate in
+            delegate.terminal(terminal, didForwardPaymentIntent: intent, error: error)
+        }
+    }
+
+    func terminal(_ terminal: Terminal, didReportForwardingError error: Error) {
+        announce { delegate in
+            delegate.terminal(terminal, didReportForwardingError: error)
         }
     }
 }

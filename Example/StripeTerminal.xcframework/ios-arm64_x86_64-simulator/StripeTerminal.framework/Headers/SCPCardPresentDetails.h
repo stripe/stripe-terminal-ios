@@ -83,11 +83,6 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, readonly) SCPCardBrand brand;
 
 /**
- A string uniquely identifying this card number.
- */
-@property (nonatomic, readonly) NSString *fingerprint;
-
-/**
  ID of a `card` PaymentMethod that may be attached to a Customer for future
  transactions. Only present if it was possible to generate a `card`
  PaymentMethod.

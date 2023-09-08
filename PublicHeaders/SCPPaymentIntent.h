@@ -15,8 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPProcessPaymentError, SCPPaymentMethod, SCPAmountDetails;
-
+@class SCPCharge, SCPConfirmPaymentIntentError, SCPPaymentMethod, SCPAmountDetails;
 
 /**
  The possible statuses for a PaymentIntent.
@@ -29,7 +28,7 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      */
     SCPPaymentIntentStatusRequiresPaymentMethod,
     /**
-     Next step: process the payment by calling `processPayment`.
+     Next step: confirm the payment by calling `confirmPaymentIntent`.
      */
     SCPPaymentIntentStatusRequiresConfirmation,
     /**
@@ -76,8 +75,14 @@ NS_SWIFT_NAME(PaymentIntent)
 
 /**
  The unique identifier for the intent.
+
+ If the intent was created offline the stripeId will be nil.
+ See `offlineDetails.stripeId` for a unique ID to use while offline.
+
+ After the payment has been forwarded the intent's stripeId will
+ be filled in.
  */
-@property (nonatomic, readonly, copy) NSString *stripeId;
+@property (nonatomic, nullable, readonly, copy) NSString *stripeId;
 
 /**
  When the intent was created.
@@ -136,7 +141,7 @@ NS_SWIFT_NAME(PaymentIntent)
  This is only non-null in the `PaymentIntent` instance returned during collect when using
  `updatePaymentIntent` set to true in the `CollectConfiguration`.
 
- After `processPaymentIntent` the `amount` will have this tip amount added to it and the
+ After `confirmPaymentIntent` the `amount` will have this tip amount added to it and the
  `amountDetails` will contain the breakdown of how much of the amount was a tip.
  */
 @property (nonatomic, nullable, readonly) NSNumber *amountTip;

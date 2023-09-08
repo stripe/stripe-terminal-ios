@@ -71,20 +71,26 @@ class StartSetReaderDisplayViewController: TableViewController {
     }
 
     internal func startSetReaderDisplay() {
-        let cart = Cart(currency: currencyView.currency, tax: Int(taxView.amount), total: Int(totalView.amount))
-        guard let lineItems = (lineItems as NSArray).mutableCopy() as? NSMutableArray else {
-            return
-        }
-        cart.lineItems = lineItems
+        do {
+            let cart = try CartBuilder(currency: currencyView.currency)
+                .setTax(Int(taxView.amount))
+                .setTotal(Int(totalView.amount))
+                .setLineItems(lineItems)
+                .build()
 
-        Terminal.shared.setReaderDisplay(cart) { [weak self] error in
-            guard let self = self else { return }
+            Terminal.shared.setReaderDisplay(cart) { [weak self] error in
+                guard let self = self else {
+                    return
+                }
 
-            if let error = error {
-                self.presentAlert(error: error)
-            } else {
-                self.presentAlert(title: "Set Reader Display", message: "Successfully updated the display with the specified cart")
+                if let error = error {
+                    self.presentAlert(error: error)
+                } else {
+                    self.presentAlert(title: "Set Reader Display", message: "Successfully updated the display with the specified cart")
+                }
             }
+        } catch {
+            self.presentAlert(error: error)
         }
     }
 
@@ -124,8 +130,15 @@ class StartSetReaderDisplayViewController: TableViewController {
                 return
             }
 
-            let lineItem = CartLineItem(displayName: displayName, quantity: quantity, amount: amount)
-            self.lineItems.append(lineItem)
+            do {
+                let lineItem = try CartLineItemBuilder(displayName: displayName)
+                    .setAmount(amount)
+                    .setQuantity(quantity)
+                    .build()
+                lineItems.append(lineItem)
+            } catch {
+                self.presentAlert(error: error)
+            }
             self.updateContent()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) -> Void in })

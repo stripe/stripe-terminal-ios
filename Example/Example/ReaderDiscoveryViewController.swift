@@ -12,7 +12,7 @@ import StripeTerminal
 
 class ReaderDiscoveryViewController: TableViewController, CancelableViewController, CancelingViewController {
 
-    private var selectedLocation: Location?
+    private var selectedLocationStub: LocationStub?
     private var autoReconnectOnUnexpectedDisconnect: Bool = false
     var onCanceled: () -> Void = {}
     var onConnectedToReader: (Reader) -> Void = { _ in }
@@ -21,6 +21,10 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     internal weak var cancelButton: UIBarButtonItem?
     private let activityIndicatorView = ActivityIndicatorHeaderView(title: "HOLD READER NEARBY")
     private var readers: [Reader] = []
+
+    @UserDefaultsBacked(key: "savedLocationStubs", defaultValue: [])
+    static var savedLocationStubs: [LocationStub]
+
     private enum ViewState {
         /// Have not started discovering Readers yet
         case preDiscovery
@@ -31,6 +35,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         /// Done actively discovering readers
         case doneDiscovering
     }
+
     private var viewState = ViewState.preDiscovery
     private var updateReaderVC: UpdateReaderViewController? // Displayed when a required update is being installed
     private var shouldShowBTConnectionConfigSection: Bool {
@@ -74,32 +79,60 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
         if viewState == .preDiscovery {
             // 1. discover readers
-            cancelable = Terminal.shared.discoverReaders(discoveryConfig, delegate: self) { [weak self] error in
-                guard let self = self else { return }
+            startDiscovery()
+        }
+    }
 
-                if let error = error {
+    private func startDiscovery() {
+        readers = []
+
+        // If local mobile, make sure the iOS device supports it.
+        if discoveryConfig.discoveryMethod == .localMobile {
+            let supported = Terminal.shared.supportsReaders(of: .appleBuiltIn, discoveryMethod: .localMobile, simulated: discoveryConfig.simulated)
+            switch supported {
+            case .success:
+                break
+            case .failure(let error):
+                self.presentAlert(error: error) { _ in
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
+                return
+            }
+        }
+
+        cancelable = Terminal.shared.discoverReaders(discoveryConfig, delegate: self) { [weak self] error in
+            guard let self = self else { return }
+
+            if let error = error as? NSError {
+                if error.domain != StripeTerminal.ErrorDomain || error.code != StripeTerminal.ErrorCode.canceled.rawValue {
                     print("discoverReaders failed: \(error)")
                     self.presentAlert(error: error) { _ in
                         self.presentingViewController?.dismiss(animated: true, completion: nil)
                     }
                 }
+            }
+            if self.viewState == .discovering {
                 self.cancelable = nil
                 self.viewState = .doneDiscovering
-                self.updateContent()
-            }
-            viewState = .discovering
-            updateContent()
+            } // else connect has started
+
+            self.updateContent()
         }
+        viewState = .discovering
+        updateContent()
     }
 
     // 2. connect to a selected reader
+    // failIfInUse defaults to true so we can then prompt the user if they want to interrupt the existing
+    // payment collection, if needed.
     // swiftlint:disable:next cyclomatic_complexity
-    private func connect(to reader: Reader, failIfInUse: Bool = false) {
+    private func connect(to reader: Reader, failIfInUse: Bool = true) {
         setAllowedCancelMethods([])
         viewState = .connecting
         updateContent()
 
         let connectCompletion: ReaderCompletionBlock = { connectedReader, error in
+            self.cancelable = nil
             if let connectedReader = connectedReader {
                 self.cancelable = nil
                 if let vc = self.updateReaderVC {
@@ -111,7 +144,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 }
                 return
             } else if let error = error as NSError?,
-                error.code == ErrorCode.connectFailedReaderIsInUse.rawValue {
+                      error.code == ErrorCode.connectFailedReaderIsInUse.rawValue {
                 self.presentAlert(
                     title: "\(reader.label ?? reader.serialNumber) in use",
                     message: "Reader is already collecting a payment. Interrupt the in-progress transaction?",
@@ -120,15 +153,13 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                         if shouldInterrupt {
                             self.connect(to: reader, failIfInUse: false)
                         } else {
-                            self.viewState = .discovering
-                            self.updateContent()
+                            self.startDiscovery()
                         }
                     })
             } else if let error = error {
                 let showError = {
                     self.presentAlert(error: error)
-                    self.viewState = .discovering
-                    self.updateContent()
+                    self.startDiscovery()
                 }
 
                 // Dismiss the update VC if needed so the error presents correctly
@@ -143,47 +174,63 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             self.setAllowedCancelMethods(.all)
         }
 
-        switch reader.deviceType {
-        case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
-            let locationId = selectedLocation?.stripeId ?? reader.locationId
-            if let presentLocationId = locationId {
-                let connectionConfig = BluetoothConnectionConfiguration(locationId: presentLocationId, autoReconnectOnUnexpectedDisconnect: autoReconnectOnUnexpectedDisconnect, autoReconnectionDelegate: ReconnectionDelegateAnnouncer.shared)
-                Terminal.shared.connectBluetoothReader(reader, delegate: BluetoothReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
-            } else {
-                self.presentLocationRequiredAlert()
+        do {
+            switch reader.deviceType {
+            case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
+                let locationId = selectedLocationStub?.stripeId ?? reader.locationId
+                if let presentLocationId = locationId {
+                    let connectionConfig = try BluetoothConnectionConfigurationBuilder(locationId: presentLocationId)
+                        .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
+                        .setAutoReconnectionDelegate(ReconnectionDelegateAnnouncer.shared)
+                        .build()
+                    return Terminal.shared.connectBluetoothReader(reader, delegate: BluetoothReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+                } else {
+                    self.presentLocationRequiredAlert()
+                }
+            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
+                let connectionConfig = try InternetConnectionConfigurationBuilder()
+                    .setFailIfInUse(failIfInUse)
+                    .setAllowCustomerCancel(true)
+                    .build()
+                return Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
+            case .appleBuiltIn:
+                let locationId = selectedLocationStub?.stripeId ?? reader.locationId
+                if let presentLocationId = locationId {
+                    let useOBO = !(onBehalfOfTextField.textField.text?.isEmpty ?? false)
+                    let connectionConfig = try LocalMobileConnectionConfigurationBuilder(locationId: presentLocationId)
+                        .setMerchantDisplayName(nil) // use the location name
+                        .setOnBehalfOf(useOBO ? onBehalfOfTextField.textField.text : nil)
+                        .build()
+                    return Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+                } else {
+                    self.presentLocationRequiredAlert()
+                }
+            @unknown default:
+                fatalError()
             }
-        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
-            let connectionConfig = InternetConnectionConfiguration(failIfInUse: failIfInUse, allowCustomerCancel: true)
-            Terminal.shared.connectInternetReader(reader, connectionConfig: connectionConfig, completion: connectCompletion)
-        case .appleBuiltIn:
-            let locationId = selectedLocation?.stripeId ?? reader.locationId
-            if let presentLocationId = locationId {
-                let useOBO = !(onBehalfOfTextField.textField.text?.isEmpty ?? false)
-                let connectionConfig = LocalMobileConnectionConfiguration(locationId: presentLocationId,
-                                                                          merchantDisplayName: nil, // use the location name
-                                                                          onBehalfOf: useOBO ? onBehalfOfTextField.textField.text : nil)
-                Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
-            } else {
-                self.presentLocationRequiredAlert()
-            }
-        @unknown default:
-            fatalError()
+        } catch {
+            self.presentAlert(error: error)
         }
     }
 
     @objc
     func dismissAction() {
+        // capture the viewState at time of cancel being requested so we know if it was
+        // canceling a discovery or connect.
+        let viewState = viewState
         if let cancelable = cancelable {
-            cancelable.cancel { error in
+            // Nil out the cancelable now. If this is canceling a connect the connect's completion may run and restart
+            // discovery and set a new self.cancelable that we don't want to clear.
+            self.cancelable = nil
+            cancelable.cancel { [weak self] error in
                 if let error = error {
-                    print("cancel discoverReaders failed: \(error)")
-                } else {
-                    self.onCanceled()
+                    print("cancel failed: \(error)")
+                } else if viewState != .connecting { // don't dismiss if this was canceling the connect call
+                    self?.onCanceled()
                 }
-                self.cancelable = nil
             }
         } else {
-            self.onCanceled()
+            onCanceled()
         }
     }
 
@@ -267,14 +314,14 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             return Section(
                 header: Section.Extremity.title("Connection Configuration"),
                 rows: [
-                    Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { _ in
+                    Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { [unowned self] _ in
                         self.autoReconnectOnUnexpectedDisconnect.toggle()
                     })),
                     Row(
-                        text: selectedLocation != nil ? selectedLocation?.displayString : "No location selected",
+                        text: selectedLocationStub != nil ? selectedLocationStub?.displayName : "No location selected",
                         selection: { [unowned self] in self.showLocationSelector() },
                         accessory: .disclosureIndicator
-                    )
+                    ),
                 ],
                 footer: Section.Extremity.title("Bluetooth readers must be registered to a location during the connection process. If you do not select a location, the reader will attempt to register to the same location it was registered to during the previous connection.")
             )
@@ -283,15 +330,15 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
     internal func showLocationSelector() {
         let selectLocationVC = SelectLocationViewController()
-        selectLocationVC.onSelectLocation = { [unowned selectLocationVC] location in
-            self.onLocationSelect(viewController: selectLocationVC, location: location)
+        selectLocationVC.onSelectLocation = { [unowned selectLocationVC] locationStub in
+            self.onLocationSelect(viewController: selectLocationVC, locationStub: locationStub)
         }
         self.presentModalInNavigationController(selectLocationVC)
     }
 
-    internal func onLocationSelect(viewController: SelectLocationViewController, location: Location) {
-        self.selectedLocation = location
-
+    internal func onLocationSelect(viewController: UIViewController?, locationStub: LocationStub) {
+        self.selectedLocationStub = locationStub
+        guard let viewController = viewController else { return }
         viewController.dismiss(animated: true) {
             self.updateContent()
         }
@@ -334,23 +381,23 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     }
 
     private func buildLocationDescription(forBlueoothReader reader: Reader) -> String {
-        let isLocationSelected = selectedLocation != nil
+        let isLocationSelected = selectedLocationStub != nil
 
         switch (reader.locationStatus, isLocationSelected) {
         case (.set, false):
             guard let readerLocation = reader.location else { fatalError() }
             return "Will register to last location: \(readerLocation.displayString)"
         case (.set, true):
-            guard let readerLocation = reader.location, let selectedLocation = selectedLocation else { fatalError() }
+            guard let readerLocation = reader.location, let selectedLocation = selectedLocationStub else { fatalError() }
             return readerLocation.stripeId == selectedLocation.stripeId ?
-             "Will register to last location: \(selectedLocation.displayString)" :
-             "Will change location from \(readerLocation.displayString) to \(selectedLocation.displayString)"
+            "Will register to last location: \(selectedLocation.displayName)" :
+            "Will change location from \(readerLocation.displayString) to \(selectedLocation.displayName)"
         case (.notSet, false):
             return "❗️No last registered location, please select one first"
         case (.notSet, true),
-             (.unknown, true):
-            guard let selectedLocation = selectedLocation else { fatalError() }
-            return "Will register to location: \(selectedLocation.displayString)"
+            (.unknown, true):
+            guard let selectedLocation = selectedLocationStub else { fatalError() }
+            return "Will register to location: \(selectedLocation.displayName)"
         case (.unknown, false):
             return "❗️Unknown last location, please select one first"
         case (_, _):
@@ -388,19 +435,19 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             row(forReader: reader,
                 discoveryMethod: self.discoveryConfig.discoveryMethod,
                 selection: { [unowned self] in
-                    if readerRequiresLocationToHaveBeenSelected(reader: reader) && self.selectedLocation == nil {
-                        self.presentLocationRequiredAlert()
-                    } else {
-                        self.connect(to: reader)
-                    }
-                })
+                if readerRequiresLocationToHaveBeenSelected(reader: reader) && self.selectedLocationStub == nil {
+                    self.presentLocationRequiredAlert()
+                } else {
+                    self.connect(to: reader)
+                }
+            })
         }
 
         return Section(header: Section.Extremity.view(activityIndicatorView),
                        rows: rows,
                        footer: (readers.isEmpty
-                                    ? nil
-                                    : readerListFooter(for: readers, discoveryMethod: self.discoveryConfig.discoveryMethod))
+                                ? nil
+                                : readerListFooter(for: readers, discoveryMethod: self.discoveryConfig.discoveryMethod))
         )
     }
 
@@ -434,7 +481,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         let locationMessage = self.buildLocationDescription(forReader: reader, usingDiscoveryMethod: discoveryMethod)
         details.append("📍 \(locationMessage)")
 
-        if discoveryConfig.discoveryMethod != .internet && reader.locationStatus != .set && selectedLocation == nil {
+        if discoveryConfig.discoveryMethod != .internet && reader.locationStatus != .set && selectedLocationStub == nil {
             // Prevent connecting to a Bluetooth reader that doesn't have a previous location
             // and the user hasn't selected a new location to register to
             cellClass = DisabledSubtitleCell.self

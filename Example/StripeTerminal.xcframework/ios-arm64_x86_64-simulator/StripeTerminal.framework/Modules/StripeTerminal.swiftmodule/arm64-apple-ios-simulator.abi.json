@@ -6268,7 +6268,7 @@
         "usr": "c:objc(cs)SCPTerminal",
         "moduleName": "StripeTerminal",
         "isOpen": true,
-        "intro_iOS": "11.0",
+        "intro_iOS": "13.0",
         "objc_name": "SCPTerminal",
         "declAttributes": [
           "Available",
@@ -8680,259 +8680,259 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3869,
+      "offset": 4134,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 5724,
+      "offset": 5989,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 5870,
+      "offset": 6135,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6190,
+      "offset": 6455,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6322,
+      "offset": 6587,
       "length": 25,
       "value": "\"Tap to Simulate Payment\""
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6468,
+      "offset": 6733,
       "length": 4,
       "value": "24.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6539,
+      "offset": 6804,
       "length": 4,
       "value": "0.95"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6552,
+      "offset": 6817,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6610,
+      "offset": 6875,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6622,
+      "offset": 6887,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6636,
+      "offset": 6901,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6649,
+      "offset": 6914,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 6691,
+      "offset": 6956,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6726,
+      "offset": 6991,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7017,
+      "offset": 7282,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7373,
+      "offset": 7638,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7503,
+      "offset": 7768,
       "length": 10,
       "value": "\"✕\""
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7634,
+      "offset": 7899,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7705,
+      "offset": 7970,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7717,
+      "offset": 7982,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7777,
+      "offset": 8042,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7794,
+      "offset": 8059,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7855,
+      "offset": 8120,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7872,
+      "offset": 8137,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 7913,
+      "offset": 8178,
       "length": 4,
       "value": "24.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7949,
+      "offset": 8214,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8529,
+      "offset": 8794,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8649,
+      "offset": 8914,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8767,
+      "offset": 9032,
       "length": 5,
       "value": "-20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8890,
+      "offset": 9155,
       "length": 5,
       "value": "-20.0"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9080,
+      "offset": 9345,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9628,
+      "offset": 9893,
       "length": 3,
       "value": "249"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9744,
+      "offset": 10009,
       "length": 3,
       "value": "749"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11068,
+      "offset": 11333,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11243,
+      "offset": 11508,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11556,
+      "offset": 11821,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11880,
+      "offset": 12145,
       "length": 4,
       "value": "true"
     },
