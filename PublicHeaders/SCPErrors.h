@@ -31,14 +31,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
 
     /**
-     The SDK is busy executing another command. The SDK can only execute a
-     single command at a time. You can use the `paymentStatus` or
-     `connectionStatus` properties on your `SCPTerminal` instance (or the
-     corresponding delegate methods) to determine if the SDK is ready to accept
-     another command.
-     */
-    SCPErrorBusy = 1000,
-    /**
      Canceling a command failed because the command already completed.
      */
     SCPErrorCancelFailedAlreadyCompleted = 1010,
@@ -57,21 +49,26 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorConnectionTokenProviderCompletedWithNothing = 1510,
     /**
-     `processPayment` was called with an unknown or invalid PaymentIntent.
-     You must process a payment immediately after collecting a payment method.
+     Error reported while forwarding offline payments when the connection token
+     provider neither returns a token nor an error.
      */
-    SCPErrorProcessInvalidPaymentIntent = 1530,
+    SCPErrorConnectionTokenProviderCompletedWithNothingWhileForwarding = 1511,
     /**
-     `collectPaymentMethod` or `processPayment` was called with a `nil` PaymentIntent.
+     `confirmPaymentIntent` was called with an unknown or invalid PaymentIntent.
+     You must confirm a payment immediately after collecting a payment method.
+     */
+    SCPErrorConfirmInvalidPaymentIntent = 1530,
+    /**
+     `collectPaymentMethod` or `confirmPaymentIntent` was called with a `nil` PaymentIntent.
      */
     SCPErrorNilPaymentIntent = 1540,
     /**
-     `collectSetupIntentPaymentMethod` or `processSetupIntent` was called with
+     `collectSetupIntentPaymentMethod` or `confirmSetupIntent` was called with
      a `nil` SetupIntent.
      */
     SCPErrorNilSetupIntent = 1542,
     /**
-     `processRefund` was called without calling `collectRefundPaymentMethod`
+     `confirmRefund` was called without calling `collectRefundPaymentMethod`
      beforehand.
      */
     SCPErrorNilRefundPaymentMethod = 1550,
@@ -85,19 +82,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      A PaymentIntent or SetupIntent was referenced using an invalid client secret.
      */
     SCPErrorInvalidClientSecret = 1560,
-    /**
-     The SDK must be actively Discovering Readers in order to successfully
-     connect to a reader. See documentation on
-     `-[SCPTerminal discoverReaders:delegate:completion:]`
-     and `-[SCPTerminal connectReader:completion:]`
-     */
-    SCPErrorMustBeDiscoveringToConnect = 1570,
-    /**
-     Before connecting to a reader, it must have already been discovered in the
-     current discovery session. Trying to connect to a reader from a previous
-     discovery session is not supported.
-     */
-    SCPErrorCannotConnectToUndiscoveredReader = 1580,
     /**
      `discoverReaders` was called using an invalid SCPDiscoveryConfiguration.
      Your app selected a discovery method that is either incompatible with the
@@ -149,6 +133,36 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorInvalidRequiredParameter = 1920,
 
+    /**
+     Error reported when forwarding stored offline payments. The fetched connection
+     token was generated with a different account ID than the stored payment.
+     */
+    SCPErrorAccountIdMismatchWhileForwarding = 1930,
+
+    /**
+     Error reported when calling collectPaymentMethod with an offline PaymentIntent
+     and a CollectConfiguration with updatePaymentIntent set to true.
+     */
+    SCPErrorUpdatePaymentIntentUnavailableWhileOffline = 1935,
+
+    /**
+     Error reported when calling collectPaymentMethod with offline mode enabled
+     and a CollectConfiguration with updatePaymentIntent set to true.
+     */
+    SCPErrorUpdatePaymentIntentUnavailableWhileOfflineModeEnabled = 1936,
+
+    /**
+     Error reported when a test payment attempted to forward while operating
+     in livemode. The testmode transaction will be deleted.
+     */
+    SCPErrorForwardingTestModePaymentInLiveMode = 1937,
+
+    /**
+     Error reported when a live payment attempted to forward while operating
+     in testmode. Reconnect to this account with livemode keys to resume
+     forwarding livemode transactions.
+     */
+    SCPErrorForwardingLiveModePaymentInTestMode = 1938,
 
     /**
      An invalid ConnectionConfiguration was passed through `connect`.
@@ -252,6 +266,43 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      The Chipper 2x and WisePad 3 will beep until the card is removed.
      */
     SCPErrorCardLeftInReader = 2850,
+    /**
+     Error reported when the offline payments database has too many records.
+
+     The iOS device should be brought back online to sync payments before collecting more.
+     */
+    SCPErrorOfflinePaymentsDatabaseTooLarge = 2860,
+
+    /**
+     Connecting to the reader failed because the most recently connected account
+     hasn't connected to a reader of this type while online. To connect to a reader offline,
+     the SDK must have connected to a reader of the same type and location within the past 90 days.
+     */
+    SCPErrorReaderConnectionNotAvailableOffline = 2870,
+
+    /**
+     Connecting to the reader failed because the reader was most recently connected
+     to a different location while online.
+     */
+    SCPErrorReaderConnectionOfflineLocationMismatch = 2871,
+
+    /**
+     The SDK has not activated a reader online yet, meaning there is no account
+     with which the SDK can associate offline operations.
+     */
+    SCPErrorNoLastSeenAccount = 2880,
+
+    /**
+     Error reported when the PaymentIntent's amount exceeds the configured allowable maximum
+     amount for offline transactions.
+     */
+    SCPErrorAmountExceedsMaxOfflineAmount = 2890,
+
+    /**
+     Error reported when the PaymentIntent's currency is not configured as a valid currency
+     for offline transactions.
+     */
+    SCPErrorInvalidOfflineCurrency = 2891,
 
     /**
      The reader failed to read the data from the presented payment method. If you encounter
@@ -365,7 +416,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderSoftwareUpdateFailedServerError = 3840,
     /**
-     `processPayment` was called from a reader with an unsupported reader
+     `confirmPaymentIntent` was called from a reader with an unsupported reader
      version. You will need to update your reader to the most recent version in
      order to accept payments. We suggest you prompt your user
      to disconnect and reconnect their reader in order to update the reader.
@@ -479,6 +530,44 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorRefundFailed = 6800,
 
+    /**
+     Error reported when collectPaymentMethod or confirmPaymentIntent was called while
+     offline and the card was read using the swipe method.
+
+     Payment method data collected using the Swipe card read method cannot be processed online.
+
+     Retry the payment by calling `collectPaymentMethod()` again.
+     */
+    SCPErrorCardSwipeNotAvailable = 6900,
+
+    /**
+     Error reported when collectPaymentMethod or confirmPaymentIntent was called while
+     offline and the presented card was an Interac card.
+
+     Retry the payment by calling `collectPaymentMethod()` again.
+     */
+    SCPErrorInteracNotSupportedOffline = 6901,
+
+    /**
+     Confirming a payment while offline and the card was identified as being expired.
+     */
+    SCPErrorOfflineAndCardExpired = 6902,
+
+    /**
+     Confirming a payment while offline and the card's verification failed.
+
+     Retry the payment by calling `collectPaymentMethod()` again and try a different card if the error persists.
+     */
+    SCPErrorOfflineTransactionDeclined = 6903,
+
+    /**
+     Error reported when collectPaymentMethod was called while online
+     and confirmPaymentIntent was called while offline.
+
+     Retry the payment by calling `collectPaymentMethod()` again.
+     */
+    SCPErrorOfflineCollectAndConfirmMismatch = 6904,
+
     /*
      NETWORK ERRORS
      */
@@ -509,6 +598,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorConnectionTokenProviderCompletedWithError = 9050,
     /**
+     Error reported while forwarding offline payments when the connection token
+     provider returns an error.
+     */
+    SCPErrorConnectionTokenProviderCompletedWithErrorWhileForwarding = 9051,
+    /**
      Your implementation of `-[SCPConnectionTokenProvider fetchConnectionToken:]`
      did not call the provided completion block within 60 seconds.
      */
@@ -530,15 +624,31 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
 
      * `-[SCPTerminal createPaymentIntent:completion:]`
      * `-[SCPTerminal retrievePaymentIntent:completion:]`
-     * `-[SCPTerminal collectPaymentMethod:delegate:completion:]` if connected to a Verifone P400 or a BBPOS WisePOS E
-     * `-[SCPTerminal processPayment:completion:]`
+     * `-[SCPTerminal collectPaymentMethod:delegate:completion:]` if connected to an Internet reader
+     * `-[SCPTerminal confirmPaymentIntent:completion:]`
      * `-[SCPTerminal cancelPaymentIntent:completion:]`
-     * `-[SCPTerminal readReusableCard:delegate:completion:]`
-     * `-[SCPTerminal collectRefundMethod:parameters]`
-     * `-[SCPTerminal processRefund:completion]`
+     * `-[SCPTerminal collectRefundMethod:parameters]` if connected to an Internet reader
+     * `-[SCPTerminal confirmRefund:completion]`
+     * `-[SCPTerminal createSetupIntent:completion:]`
+     * `-[SCPTerminal collectSetupIntentPaymentMethod:customerConsentCollected:completion:]` if connected to an Internet reader
+     * `-[SCPTerminal confirmSetupIntent:completion:]`
+     * `-[SCPTerminal cancelSetupIntent:completion:]`
 
      */
     SCPErrorSessionExpired = 9060,
+    /**
+     Error reported when the iOS device is offline and the PaymentIntent was created with
+     `offlineBehavior` set to `requireOnline`.
+     */
+    SCPErrorNotConnectedToInternetAndOfflineBehaviorRequireOnline = 10106,
+
+    /**
+     Error reported when a `SCPPaymentIntent` was created with `SCPOfflineBehaviorForceOffline`
+     and the reader in use is not configured to operate offline. Use the Terminal Configuration API to enable
+     the functionality or retry with another value for `SCPOfflineBehavior`.
+     */
+    SCPErrorOfflineBehaviorForceOfflineWithFeatureDisabled = 10107,
+
 } NS_SWIFT_NAME(ErrorCode);
 
 #pragma mark - UserInfo keys
@@ -600,6 +710,10 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIDocUrl;
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorParameter;
 
+/**
+ If a decline occurs while offline, the reason for the failure.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyOfflineDeclineReason;
 
 /**
  The HTTP status code of the response.

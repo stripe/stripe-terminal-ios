@@ -10,6 +10,8 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPCardPresentParameters.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
 
@@ -25,18 +27,44 @@ NS_SWIFT_NAME(PaymentMethodOptionsParameters)
  Card-present-specific configuration for this PaymentMethod.
  @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-payment_method_options-card_present
 */
-@property (nonatomic, strong) SCPCardPresentParameters *cardPresentParameters;
+@property (nonatomic, readonly) SCPCardPresentParameters *cardPresentParameters;
 
 /**
- Initialize a PaymentMethodOptionsParameters
- @param cardPresentParameters  Payment-method-specific configuration for this PaymentIntent.
+ Use `SCPPaymentMethodOptionsParametersBuilder`
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ Use `SCPPaymentMethodOptionsParametersBuilder`
+ */
++ (instancetype)new NS_UNAVAILABLE;
+
+@end
+
+/**
+ Builder class for `SCPPaymentMethodOptionsParameters`.
+ */
+NS_SWIFT_NAME(PaymentMethodOptionsParametersBuilder)
+@interface SCPPaymentMethodOptionsParametersBuilder : SCPBuilder <SCPPaymentMethodOptionsParameters *>
+
+/**
+ * @param cardPresentParameters Card-present-specific configuration for this PaymentMethod.
+ * @return Initialized `SCPPaymentMethodOptionsParametersBuilder` instance.
  */
 - (instancetype)initWithCardPresentParameters:(SCPCardPresentParameters *)cardPresentParameters;
 
+/// @see `SCPPaymentMethodOptionsParameters.cardPresentParameters`
+- (SCPPaymentMethodOptionsParametersBuilder *)setCardPresentParameters:(SCPCardPresentParameters *)cardPresentParameters;
+
 /**
- Use `initWithCardPresentParameters:(SCPCardPresentParameters)cardPresentParameters`
+ Use `initWithCardPresentParameters:`
  */
 - (instancetype)init NS_UNAVAILABLE;
+
+/**
+ Use `initWithCardPresentParameters:`
+ */
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

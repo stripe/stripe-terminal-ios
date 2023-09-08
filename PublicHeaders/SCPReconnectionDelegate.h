@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Implement this protocol to handle bluetooth auto-reconnection.
+ Implement this protocol to handle Bluetooth auto-reconnection.
  */
 NS_SWIFT_NAME(ReconnectionDelegate)
 @protocol SCPReconnectionDelegate <NSObject>
@@ -26,11 +26,11 @@ NS_SWIFT_NAME(ReconnectionDelegate)
 
  Requires `autoReconnectOnUnexpectedDisconnect` is set to `true` in the `SCPBluetoothConnectionConfig`
 
- @param terminal          The originating terminal.
+ @param reader            The reader that is attempting to be reconnected to.
  @param cancelable        A cancelable that can be used to stop reconnection
 
  */
-- (void)terminal:(SCPTerminal *)terminal didStartReaderReconnect:(SCPCancelable *)cancelable NS_SWIFT_NAME(terminal(_:didStartReaderReconnect:));
+- (void)reader:(SCPReader *)reader didStartReconnect:(SCPCancelable *)cancelable NS_SWIFT_NAME(reader(_:didStartReconnect:));
 
 /**
  The SDK was able to reconnect to the previously connected Bluetooth reader.
@@ -40,9 +40,9 @@ NS_SWIFT_NAME(ReconnectionDelegate)
 
  Requires `autoReconnectOnUnexpectedDisconnect` is set to `true` in the `SCPBluetoothConnectionConfig`
 
- @param terminal            The originating terminal.
+ @param reader  The reader that has now been reconnected to.
  */
-- (void)terminalDidSucceedReaderReconnect:(SCPTerminal *)terminal NS_SWIFT_NAME(terminalDidSucceedReaderReconnect(_:));
+- (void)readerDidSucceedReconnect:(SCPReader *)reader NS_SWIFT_NAME(readerDidSucceedReconnect(_:));
 
 /**
  The SDK was not able to reconnect to the previously connected bluetooth reader. The SDK is now disconnected from any readers.
@@ -52,9 +52,10 @@ NS_SWIFT_NAME(ReconnectionDelegate)
 
  Requires `autoReconnectOnUnexpectedDisconnect` is set to `true` in the `SCPBluetoothConnectionConfig`
 
- @param terminal            The originating terminal.
+ @param reader    The reader that failed to be reconnected to.
  */
-- (void)terminalDidFailReaderReconnect:(SCPTerminal *)terminal NS_SWIFT_NAME(terminalDidFailReaderReconnect(_:));
+- (void)readerDidFailReconnect:(SCPReader *)reader NS_SWIFT_NAME(readerDidFailReconnect(_:));
+
 @end
 
 NS_ASSUME_NONNULL_END

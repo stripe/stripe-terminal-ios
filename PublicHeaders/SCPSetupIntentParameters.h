@@ -10,6 +10,8 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPSetupIntent.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -29,12 +31,12 @@ NS_SWIFT_NAME(SetupIntentParameters)
  on successful setup. Payment methods attached to other Customers cannot be
  used with this SetupIntent.
  */
-@property (nonatomic, copy, nullable, readwrite) NSString *customer;
+@property (nonatomic, copy, nullable, readonly) NSString *customer;
 
 /**
  An arbitrary string attached to the object. Often useful for displaying to users.
  */
-@property (nonatomic, copy, nullable, readwrite) NSString *stripeDescription;
+@property (nonatomic, copy, nullable, readonly) NSString *stripeDescription;
 
 /**
  Set of key-value pairs that you can attach to an object. This can be useful for
@@ -42,34 +44,26 @@ NS_SWIFT_NAME(SetupIntentParameters)
 
  @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString *, NSString *> *metadata;
+@property (nonatomic, copy, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Indicates how the payment method is intended to be used in the future. If not
  provided, this value defaults to `SCPSetupIntentUsageOffSession`.
  */
-@property (nonatomic, readwrite) SCPSetupIntentUsage usage;
+@property (nonatomic, readonly) SCPSetupIntentUsage usage;
 
 /**
  **Connect Only:** The Stripe account ID for which this SetupIntent is created.
  */
-@property (nonatomic, copy, nullable, readwrite) NSString *onBehalfOf;
+@property (nonatomic, copy, nullable, readonly) NSString *onBehalfOf;
 
 /**
- Initializes SCPSetupIntentParameters with the given customer ID.
-
- @param customerId ID of the customer this SetupIntent belongs to, if one exists.
- Stripe will attach this SetupIntent to the customer on successful creation.
- */
-- (instancetype)initWithCustomer:(NSString *_Nullable)customerId;
-
-/**
- Use `initWithCustomer:`
+ Use `SCPSetupIntentParametersBuilder`
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Use `initWithCustomer:`
+ Use `SCPSetupIntentParametersBuilder`
  */
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -77,6 +71,29 @@ NS_SWIFT_NAME(SetupIntentParameters)
  Use stripeDescription for the string attached to the object.
 */
 @property (nonatomic, copy, readonly) NSString *description DEPRECATED_MSG_ATTRIBUTE("Did you mean to use stripeDescription?");
+
+@end
+
+/**
+ Builder class for `SCPSetupIntentParameters`.
+ */
+NS_SWIFT_NAME(SetupIntentParametersBuilder)
+@interface SCPSetupIntentParametersBuilder : SCPBuilder <SCPSetupIntentParameters *>
+
+/// @see SCPSetupIntentParameters.customer
+- (SCPSetupIntentParametersBuilder *)setCustomer:(nullable NSString *)customer;
+
+/// @see SCPSetupIntentParameters.stripeDescription
+- (SCPSetupIntentParametersBuilder *)setStripeDescription:(nullable NSString *)stripeDescription;
+
+/// @see SCPSetupIntentParameters.metadata
+- (SCPSetupIntentParametersBuilder *)setMetadata:(nullable NSDictionary<NSString *, NSString *> *)metadata;
+
+/// @see SCPSetupIntentParameters.usage
+- (SCPSetupIntentParametersBuilder *)setUsage:(SCPSetupIntentUsage)usage;
+
+/// @see SCPSetupIntentParameters.onBehalfOf
+- (SCPSetupIntentParametersBuilder *)setOnBehalfOf:(nullable NSString *)onBehalfOf;
 
 @end
 
