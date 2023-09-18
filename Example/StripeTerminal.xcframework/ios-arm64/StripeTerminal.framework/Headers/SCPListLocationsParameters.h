@@ -12,8 +12,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -30,7 +28,7 @@ NS_SWIFT_NAME(ListLocationsParameters)
 
  @see https://stripe.com/docs/api/terminal/locations/list#list_terminal_locations-limit
  */
-@property (nonatomic, readonly) NSNumber *limit;
+@property (nonatomic, nullable, readwrite) NSNumber *limit;
 
 /**
  A cursor for use in pagination. `ending_before` is an object ID that defines
@@ -40,7 +38,7 @@ NS_SWIFT_NAME(ListLocationsParameters)
 
  @see https://stripe.com/docs/api/terminal/locations/list#list_terminal_locations-ending_before
  */
-@property (nonatomic, copy, nullable, readonly) NSString *endingBefore;
+@property (nonatomic, copy, nullable, readwrite) NSString *endingBefore;
 
 /**
  A cursor for use in pagination. `starting_after` is an object ID that defines
@@ -50,34 +48,26 @@ NS_SWIFT_NAME(ListLocationsParameters)
 
  @see https://stripe.com/docs/api/terminal/locations/list#list_terminal_locations-starting_after
  */
-@property (nonatomic, copy, nullable, readonly) NSString *startingAfter;
+@property (nonatomic, copy, nullable, readwrite) NSString *startingAfter;
 
 /**
- Use `SCPListLocationsParametersBuilder`.
+ Initializes SCPListLocationsParameters with the given parameters.
+
+ @param limit A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.
+
+ @param endingBefore A cursor for use in pagination. `ending_before` is an object ID that defines
+ your place in the list. For instance, if you make a list request and receive 100
+ objects, starting with `obj_bar`, your subsequent call can include
+ `ending_before=obj_bar` in order to fetch the previous page of the list.
+
+ @param startingAfter  A cursor for use in pagination. `starting_after` is an object ID that defines
+ your place in the list. For instance, if you make a list request and receive 100
+ objects, ending with `obj_foo`, your subsequent call can include
+ `starting_after=obj_foo` in order to fetch the next page of the list.
  */
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- Use `SCPListLocationsParametersBuilder`.
- */
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- Builder class for `SCPListLocationsParameters`.
- */
-NS_SWIFT_NAME(ListLocationsParametersBuilder)
-@interface SCPListLocationsParametersBuilder : SCPBuilder <SCPListLocationsParameters *>
-
-/// @see SCPListLocationsParameters.limit
-- (SCPListLocationsParametersBuilder *)setLimit:(NSUInteger)limit;
-
-/// @see SCPListLocationsParameters.endingBefore
-- (SCPListLocationsParametersBuilder *)setEndingBefore:(nullable NSString *)endingBefore;
-
-/// @see SCPListLocationsParameters.startingAfter
-- (SCPListLocationsParametersBuilder *)setStartingAfter:(nullable NSString *)startingAfter;
+- (instancetype)initWithLimit:(nullable NSNumber *)limit
+                 endingBefore:(nullable NSString *)endingBefore
+                startingAfter:(nullable NSString *)startingAfter;
 
 @end
 

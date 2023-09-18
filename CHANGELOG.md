@@ -5,28 +5,11 @@ of each release can be found in the [Support Lifecycle](SUPPORT.md).
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '~> 3.0'
+pod 'StripeTerminal', '~> 2.0'
 ```
-# 3.0.0 2023-09-08
-3.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for more details.
-
-* Built with Xcode 14.3, Swift version 5.8.
-* New: Private beta support for offline payments.
-    * See [Collect payments while offline](https://stripe.com/docs/terminal/features/operate-offline/collect-payments) for details.
-* Update: Minimum deployment target updated from iOS 11.0 to iOS 13.0. 
-* Update: `SCPPaymentIntent.stripeId` is now nullable to support offline payments.
-* Update: `Terminal.processPayment` has been renamed to `Terminal.confirmPaymentIntent`.
-* Update: `Terminal.processRefund` has been renamed to `Terminal.confirmRefund`.
-* Update: `ReconnectionDelegate` methods now provide the instance of the `Reader` that is being reconnected to instead of the `Terminal` instance.
-* Update: Removed the `SCPErrorBusy` error. The SDK will now queue incoming commands if another command is already running.
-* Update: Removed `SCPErrorCannotConnectToUndiscoveredReader` and `SCPErrorMustBeDiscoveringToConnect` errors. The SDK now supports connecting to an `SCPReader` instance that was previously discovered without needing to restart discovery.
-* Update: Removed `Terminal.readReusableCard`. This functionality is replaced by [SetupIntents](https://stripe.com/docs/terminal/features/saving-cards/save-cards-directly?terminal-sdk-platform=ios).
-* Update: `discoverReaders` is now completed when `connectReader` is called. This is a behavior change from 2.x where `discoverReaders` would continue running until connect succeeded. If connect fails you can retry connecting to a previously discovered `SCPReader` or restart `discoverReaders`.
-* Update: Canceling `discoverReaders` now completes with an `SCPErrorCanceled` error. Previously no error was provided when canceled.
-* Update: `DiscoveryConfiguration` is now a protocol with concrete classes for each discovery method: `BluetoothScanDiscoveryConfiguration`, `BluetoothProximityDiscoveryConfiguration`, `InternetDiscoveryConfiguration`, and `LocalMobileDiscoveryConfiguration`. Each class has a `Builder` exposing only the configuration values that apply to that discovery method.
-* Update: Configuration and parameter classes are now immutable and need to be built with builders. Example: To create `SCPPaymentIntentParameters` use `SCPPaymentIntentParametersBuilder` which has setters for all the parameters and a `build:` method to create the `SCPPaymentIntentParameters` instance.
-* Update: Removed `CardDetails.fingerprint` and `CardPresentDetails.fingerprint`. You will still be able to access the fingerprint server-side using [Stripe server-side SDKs](https://stripe.com/docs/libraries#server-side-libraries).
-* Fixes [#240](https://github.com/stripe/stripe-terminal-ios/issues/240): `SCPDiscoveryConfiguration.timeout` is now respected when using simulated Bluetooth scan.
+# 2.23.2 2023-09-18
+* Fixes an issue where the SDK wouldn't announce an unexpected disconnect if an internet reader receives an invalid session error. This can happen after the reader reboots while the SDK is in the background.
+* Fixes [#252](https://github.com/stripe/stripe-terminal-ios/issues/252): `SCPLocalMobileConnectionConfiguration` `- initWithLocationId:merchantDisplayName:onBehalfOf:tosAcceptancePermitted:` now correctly sets the `tosAcceptancePermitted` value in the retuned configuration.
 
 # 2.23.1 2023-08-08
 * Built with Xcode 14.3, Swift version 5.8.

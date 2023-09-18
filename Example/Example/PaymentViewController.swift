@@ -16,38 +16,15 @@ class PaymentViewController: EventDisplayingViewController {
     private let collectConfig: CollectConfiguration
     private let declineCardBrand: CardBrand?
     private let recollectAfterCardBrandDecline: Bool
-    private var offlineCreateConfig: CreateConfiguration?
 
     init(paymentParams: PaymentIntentParameters,
          collectConfig: CollectConfiguration,
          declineCardBrand: CardBrand?,
-         recollectAfterCardBrandDecline: Bool,
-         offlineTransactionLimit: Int,
-         offlineTotalTransactionLimit: Int,
-         forceOffline: Bool) {
+         recollectAfterCardBrandDecline: Bool) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
         self.declineCardBrand = declineCardBrand
         self.recollectAfterCardBrandDecline = recollectAfterCardBrandDecline
-
-        var isOverOfflineTransactionLimit = paymentParams.amount >= offlineTransactionLimit
-        if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.offlinePaymentAmountsByCurrency[paymentParams.currency]?.intValue {
-            isOverOfflineTransactionLimit = isOverOfflineTransactionLimit || (offlinePaymentTotalByCurrency >= offlineTotalTransactionLimit)
-        }
-        let offlineBehavior: SCPOfflineBehavior = {
-            if forceOffline {
-                return .forceOffline
-            } else if isOverOfflineTransactionLimit {
-                return .requireOnline
-            } else {
-                return .preferOnline
-            }
-        }()
-        do {
-            self.offlineCreateConfig = try CreateConfigurationBuilder().setOfflineBehavior(offlineBehavior).build()
-        } catch {
-            fatalError("Invalid create configuration: \(error.localizedDescription)")
-        }
         super.init()
     }
 
@@ -109,7 +86,8 @@ class PaymentViewController: EventDisplayingViewController {
         } else {
             var createEvent = LogEvent(method: .createPaymentIntent)
             self.events.append(createEvent)
-            Terminal.shared.createPaymentIntent(parameters, createConfig: offlineCreateConfig) { intent, error in
+            Terminal.shared.createPaymentIntent(parameters
+            ) { intent, error in
                 if let error = error {
                     createEvent.result = .errored
                     createEvent.object = .error(error as NSError)
@@ -201,9 +179,9 @@ class PaymentViewController: EventDisplayingViewController {
     }
 
     private func confirmPaymentIntent(intent: PaymentIntent) {
-        var processEvent = LogEvent(method: .confirmPaymentIntent)
+        var processEvent = LogEvent(method: .processPayment)
         self.events.append(processEvent)
-        Terminal.shared.confirmPaymentIntent(intent) { processedIntent, processError in
+        Terminal.shared.processPayment(intent) { processedIntent, processError in
             if let error = processError {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)
@@ -256,35 +234,19 @@ class PaymentViewController: EventDisplayingViewController {
         }
     }
 
-    private func writeOfflineIntentLogToDisk(_ intent: PaymentIntent) {
-        guard let offlineDetails = intent.offlineDetails() else { return }
-        let logString = "\(NSDate()) Offline payment intent \(offlineDetails.stripeId) saved to disk"
-        if #available(iOS 11.0, *) {
-            OfflinePaymentsLogViewController.writeLogToDisk(logString, details: intent)
-        }
-    }
 
     private func capturePaymentIntent(intent: PaymentIntent) {
-        if let offlineDetails = intent.offlineDetails(), offlineDetails.requiresUpload {
-            // Offline intent, not capturing.
-            self.writeOfflineIntentLogToDisk(intent)
-            self.complete()
-        } else if let piID = intent.stripeId {
-            // Online, capture intent.
-            var captureEvent = LogEvent(method: .capturePaymentIntent)
-            self.events.append(captureEvent)
-            AppDelegate.apiClient?.capturePaymentIntent(piID) { captureError in
-                if let error = captureError {
-                    captureEvent.result = .errored
-                    captureEvent.object = .error(error as NSError)
-                } else {
-                    captureEvent.result = .succeeded
-                }
-                self.events.append(captureEvent)
-                self.complete()
+        var captureEvent = LogEvent(method: .capturePaymentIntent)
+        self.events.append(captureEvent)
+        AppDelegate.apiClient?.capturePaymentIntent(intent.stripeId) { captureError in
+            if let error = captureError {
+                captureEvent.result = .errored
+                captureEvent.object = .error(error as NSError)
+            } else {
+                captureEvent.result = .succeeded
             }
-        } else {
-            fatalError("Bad payment intent state identified, this should not happen")
+            self.events.append(captureEvent)
+            self.complete()
         }
     }
 

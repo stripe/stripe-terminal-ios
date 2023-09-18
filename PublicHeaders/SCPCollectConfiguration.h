@@ -10,8 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -32,51 +30,90 @@ NS_SWIFT_NAME(CollectConfiguration)
 
  @see https://stripe.com/docs/terminal/features/collecting-tips/on-reader
 */
-@property (nonatomic, assign, readonly) BOOL skipTipping;
+@property (nonatomic, assign) BOOL skipTipping;
 
 /**
  The tipping configuration for this payment collection.
 
  @see https://stripe.com/docs/terminal/features/collecting-tips/on-reader#tip-eligible
  */
-@property (nonatomic, strong, nullable, readonly) SCPTippingConfiguration *tippingConfiguration;
+@property (nonatomic, strong, nullable) SCPTippingConfiguration *tippingConfiguration;
 
 /**
  Whether or not to update the PaymentIntent server side during `collectPaymentMethod`.
 
- Attempting to collect with `updatePaymentIntent` enabled and a PaymentIntent created while offline
- will error with `SCPErrorUpdatePaymentIntentUnavailableWhileOffline`.
-
  Defaults to NO.
  */
-@property (nonatomic, assign, readonly) BOOL updatePaymentIntent;
+@property (nonatomic, assign) BOOL updatePaymentIntent;
 
 /**
- Use `SCPCollectConfigurationBuilder`.
+ Initialize a CollectConfiguration
+
+ @param skipTipping Bypass tipping selection if it would have otherwise been shown.
+ */
+- (instancetype)initWithSkipTipping:(BOOL)skipTipping;
+
+/**
+ Initialize a CollectConfiguration
+
+ @param updatePaymentIntent Whether or not to update the PaymentIntent server side during `collectPaymentMethod`.
+ */
+- (instancetype)initWithUpdatePaymentIntent:(BOOL)updatePaymentIntent;
+
+/**
+ Initialize a CollectConfiguration.
+
+ @param tippingConfiguration Tipping configuration for the payment method collection.
+ */
+- (instancetype)initWithTippingConfiguration:(SCPTippingConfiguration *)tippingConfiguration;
+
+/**
+ Initialize a CollectConfiguration
+
+ @param skipTipping Bypass tipping selection if it would have otherwise been shown.
+ @param updatePaymentIntent Whether or not to update the PaymentIntent server side during `collectPaymentMethod`.
+ */
+- (instancetype)initWithSkipTipping:(BOOL)skipTipping
+                updatePaymentIntent:(BOOL)updatePaymentIntent;
+
+/**
+ Initialize a CollectConfiguration.
+
+ @param skipTipping Bypass tipping selection if it would have otherwise been shown.
+ @param tippingConfiguration Tipping configuration for the payment method collection.
+ */
+- (instancetype)initWithSkipTipping:(BOOL)skipTipping
+               tippingConfiguration:(nullable SCPTippingConfiguration *)tippingConfiguration;
+
+/**
+ Initialize a CollectConfiguration.
+
+ @param updatePaymentIntent Whether or not to update the PaymentIntent server side during `collectPaymentMethod`.
+ @param tippingConfiguration Tipping configuration for the payment method collection.
+ */
+- (instancetype)initWithUpdatePaymentIntent:(BOOL)updatePaymentIntent
+                       tippingConfiguration:(nullable SCPTippingConfiguration *)tippingConfiguration;
+
+/**
+ Initialize a CollectConfiguration.
+
+ @param skipTipping Bypass tipping selection if it would have otherwise been shown.
+ @param updatePaymentIntent Whether or not to update the PaymentIntent server side during `collectPaymentMethod`.
+ @param tippingConfiguration Tipping configuration for the payment method collection.
+ */
+- (instancetype)initWithSkipTipping:(BOOL)skipTipping
+                updatePaymentIntent:(BOOL)updatePaymentIntent
+               tippingConfiguration:(nullable SCPTippingConfiguration *)tippingConfiguration NS_DESIGNATED_INITIALIZER;
+
+/**
+ Use `initWithSkipTipping:updatePaymentIntent:tippingConfiguration:` or helper initializers.
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Use `SCPCollectConfigurationBuilder`.
+ Use `initWithSkipTipping:updatePaymentIntent:tippingConfiguration:` or helper initializers.
  */
 + (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- The `CollectConfigurationBuilder` is used to create a `CollectConfiguration` object.
- */
-NS_SWIFT_NAME(CollectConfigurationBuilder)
-@interface SCPCollectConfigurationBuilder : SCPBuilder <SCPCollectConfiguration *>
-
-/// Set the skipTipping property for the `CollectConfiguration` object that will be built.
-- (SCPCollectConfigurationBuilder *)setSkipTipping:(BOOL)skipTipping;
-
-/// Set the tippingConfiguration property for the `CollectConfiguration` object that will be built.
-- (SCPCollectConfigurationBuilder *)setTippingConfiguration:(nullable SCPTippingConfiguration *)tippingConfiguration;
-
-/// Set the updatePaymentIntent property for the `CollectConfiguration` object that will be built.
-- (SCPCollectConfigurationBuilder *)setUpdatePaymentIntent:(BOOL)updatePaymentIntent;
 
 @end
 

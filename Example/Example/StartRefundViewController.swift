@@ -62,26 +62,21 @@ class StartRefundViewController: TableViewController {
     }
 
     internal func startRefund() {
-        let refundParamsBuilder = RefundParametersBuilder(chargeId: chargeIdView.textField.text ?? "",
-            amount: amountView.amount,
-            currency: "cad")
+        let refundParams = RefundParameters(chargeId: chargeIdView.textField.text ?? "",
+                                            amount: amountView.amount,
+                                            currency: "cad")
 
         if let refundApplicationFee = refundApplicationFee {
-            refundParamsBuilder.setRefundApplicationFee(refundApplicationFee)
+            refundParams.refundApplicationFee = NSNumber(value: refundApplicationFee)
         }
 
         if let reverseTransfer = reverseTransfer {
-            refundParamsBuilder.setReverseTransfer(reverseTransfer)
+            refundParams.reverseTransfer = NSNumber(value: reverseTransfer)
         }
 
-        do {
-            let refundParams = try refundParamsBuilder.build()
-            let vc = RefundViewController(refundParams: refundParams)
-            let navController = LargeTitleNavigationController(rootViewController: vc)
-            self.present(navController, animated: true, completion: nil)
-        } catch {
-            self.presentAlert(error: error)
-        }
+        let vc = RefundViewController(refundParams: refundParams)
+        let navController = LargeTitleNavigationController(rootViewController: vc)
+        self.present(navController, animated: true, completion: nil)
     }
 
     private func updateContent() {

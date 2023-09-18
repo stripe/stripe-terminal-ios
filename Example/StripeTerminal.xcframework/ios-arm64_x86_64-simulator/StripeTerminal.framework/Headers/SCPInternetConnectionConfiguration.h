@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -51,28 +50,25 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
 @property (nonatomic, readonly) BOOL allowCustomerCancel;
 
 /**
- Use `SCPInternetConnectionConfigurationBuilder`.
+ Initialize an `InternetConnectionConfiguration` object with all possible properties.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithFailIfInUse:(BOOL)failIfInUse
+                allowCustomerCancel:(BOOL)allowCustomerCancel;
 
 /**
- Use `SCPInternetConnectionConfigurationBuilder`.
+ Initalize an `InternetConnectionConfiguration` object and set the `failIfInUse`
+ property.
  */
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
+- (instancetype)initWithFailIfInUse:(BOOL)failIfInUse;
 
 /**
- Use this to build `SCPInternetConnectionConfiguration` objects.
+ Initialize an `InternetConnectionConfiguration` object and set the
+ `allowCustomerCancel` property.
+
+ This property is in private beta, and will have no effect if you are not part
+ of the allowCustomerCancel beta program.
  */
-NS_SWIFT_NAME(InternetConnectionConfigurationBuilder)
-@interface SCPInternetConnectionConfigurationBuilder : SCPBuilder <SCPInternetConnectionConfiguration *>
-
-/// Set the `failIfInUse` property for the `SCPInternetConnectionConfiguration` object that will be built.
-- (SCPInternetConnectionConfigurationBuilder *)setFailIfInUse:(BOOL)failIfInUse;
-
-/// Set the `allowCustomerCancel` property for the `SCPInternetConnectionConfiguration` object that will be built.
-- (SCPInternetConnectionConfigurationBuilder *)setAllowCustomerCancel:(BOOL)allowCustomerCancel;
+- (instancetype)initWithAllowCustomerCancel:(BOOL)allowCustomerCancel;
 
 @end
 

@@ -14,8 +14,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPPaymentMethod,
-    SCPConfirmPaymentIntentError,
-    SCPConfirmRefundError,
+    SCPProcessPaymentError,
+    SCPProcessRefundError,
     SCPReader,
     SCPLocation,
     SCPPaymentIntent,
@@ -61,22 +61,22 @@ typedef void (^SCPErrorCompletionBlock)(NSError *__nullable error)
     NS_SWIFT_NAME(ErrorCompletionBlock);
 
 /**
- A block called with a PaymentIntent or a ConfirmPaymentIntentError
+ A block called with a PaymentIntent or a ProcessPaymentError
 
  @param intent      The PaymentIntent, or nil.
  @param error       An error if one occurred, or nil.
  */
-typedef void (^SCPConfirmPaymentIntentCompletionBlock)(SCPPaymentIntent *__nullable intent, SCPConfirmPaymentIntentError *__nullable error)
-    NS_SWIFT_NAME(ConfirmPaymentIntentCompletionBlock);
+typedef void (^SCPProcessPaymentCompletionBlock)(SCPPaymentIntent *__nullable intent, SCPProcessPaymentError *__nullable error)
+    NS_SWIFT_NAME(ProcessPaymentCompletionBlock);
 
 /**
- A block called with a Refund or a ConfirmRefundError.
+ A block called with a Refund or a ProcessRefundError.
 
  @param refund      The Refund, or nil.
  @param error       An error if one occurred, or nil.
  */
-typedef void (^SCPConfirmRefundCompletionBlock)(SCPRefund *__nullable refund, SCPConfirmRefundError *__nullable error)
-    NS_SWIFT_NAME(ConfirmRefundCompletionBlock);
+typedef void (^SCPProcessRefundCompletionBlock)(SCPRefund *__nullable refund, SCPProcessRefundError *__nullable error)
+    NS_SWIFT_NAME(ProcessRefundCompletionBlock);
 
 /**
  A block called with a Refund or an error.

@@ -10,8 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPPaymentIntent.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -47,7 +45,7 @@ NS_SWIFT_NAME(RefundParameters)
 
  @see https://stripe.com/docs/api#metadata
  */
-@property (nonatomic, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
+@property (nonatomic, copy, nullable, readwrite) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Connect only: Nullable boolean indicating whether the transfer should be
@@ -60,7 +58,7 @@ NS_SWIFT_NAME(RefundParameters)
 
  @see https://stripe.com/docs/api/refunds/create#create_refund-reverse_transfer
  */
-@property (nonatomic, nullable, readonly) NSNumber *reverseTransfer;
+@property (nonatomic, nullable, readwrite) NSNumber *reverseTransfer;
 
 /**
  Connect only: Nullable boolean indicating whether the application fee should be
@@ -74,28 +72,10 @@ NS_SWIFT_NAME(RefundParameters)
 
  @see https://stripe.com/docs/api/refunds/create#create_refund-refund_application_fee
  */
-@property (nonatomic, nullable, readonly) NSNumber *refundApplicationFee;
+@property (nonatomic, nullable, readwrite) NSNumber *refundApplicationFee;
 
 /**
- Use `SCPRefundParametersBuilder`
- */
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- Use `SCPRefundParametersBuilder`
- */
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- Builder class for `SCPRefundParameters`.
- */
-NS_SWIFT_NAME(RefundParametersBuilder)
-@interface SCPRefundParametersBuilder : SCPBuilder <SCPRefundParameters *>
-
-/**
- Initializes `SCPRefundParametersBuilder` with the given charge, amount, and currency.
+ Initializes `SCPRefundParameters` with the given charge, amount, and currency.
 
  @param chargeId    The ID of the charge to be refunded.
 
@@ -108,24 +88,6 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 - (instancetype)initWithChargeId:(NSString *)chargeId
                           amount:(NSUInteger)amount
                         currency:(NSString *)currency;
-
-/// @see SCPRefundParameters.chargeId
-- (SCPRefundParametersBuilder *)setChargeId:(NSString *)chargeId;
-
-/// @see SCPRefundParameters.amount
-- (SCPRefundParametersBuilder *)setAmount:(NSUInteger)amount;
-
-/// @see SCPRefundParameters.currency
-- (SCPRefundParametersBuilder *)setCurrency:(NSString *)currency;
-
-/// @see SCPRefundParameters.metadata
-- (SCPRefundParametersBuilder *)setMetadata:(nullable NSDictionary<NSString *, NSString *> *)metadata;
-
-/// @see SCPRefundParameters.reverseTransfer
-- (SCPRefundParametersBuilder *)setReverseTransfer:(BOOL)reverseTransfer;
-
-/// @see SCPRefundParameters.refundApplicationFee
-- (SCPRefundParametersBuilder *)setRefundApplicationFee:(BOOL)refundApplicationFee;
 
 /**
  Use `initWithChargeId:amount:currency:`

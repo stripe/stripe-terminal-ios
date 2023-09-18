@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -53,54 +51,116 @@ NS_SWIFT_NAME(CardPresentParameters)
  Using the extended authorizations feature, users in eligible categories can capture up to 31 days later, depending on the card brand.
  @see https://stripe.com/docs/terminal/features/extended-authorizations#authorization-validity
 */
-@property (nonatomic, assign, readonly) BOOL requestExtendedAuthorization;
+@property (nonatomic, assign) BOOL requestExtendedAuthorization;
 
 /**
  Allows you to increase the authorized amount on a confirmed PaymentIntent before you capture it. This means you can update the amount on a payment if the estimated price changes or goods and services are added. Before capture, each incremental authorization appears on your customer’s credit card statement as an additional pending charge.
  @see https://stripe.com/docs/terminal/features/incremental-authorizations
 */
-@property (nonatomic, assign, readonly) BOOL requestIncrementalAuthorizationSupport;
+@property (nonatomic, assign) BOOL requestIncrementalAuthorizationSupport;
 
 /**
- `SCPCardPresentCaptureMethod` as a nullable NSNumber.
+ SCPCardPresentCaptureMethod as a nullable NSNumber.
  */
-@property (nonatomic, strong, nullable, readonly) NSNumber *captureMethod;
+@property (nonatomic, strong, nullable) NSNumber *captureMethod;
 
 /**
- `SCPCardPresentRouting` as a nullable NSNumber.
+ The requested routing priority as a nullable NSNumber.
  */
-@property (nonatomic, strong, nullable, readonly) NSNumber *requestedPriority;
+@property (nonatomic, strong, nullable) NSNumber *requestedPriority;
 
 /**
- Use `SCPCardPresentParametersBuilder`.
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization  Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization  Uses the extended authorization feature to extend capture elgibility
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ */
+- (instancetype)initWithRequestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization            Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param captureMethod                           Card present capture method.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                       captureMethod:(SCPCardPresentCaptureMethod)captureMethod;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization  Uses the extended authorization feature to extend capture elgibility
+ @param captureMethod                 Card present capture method.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+                                       captureMethod:(SCPCardPresentCaptureMethod)captureMethod;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param captureMethod                           Card present capture method.
+ */
+- (instancetype)initWithRequestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                                 captureMethod:(SCPCardPresentCaptureMethod)captureMethod;
+
+/**
+ Initializes a CardPresentParameters
+ @param captureMethod   Card present capture method.
+ */
+- (instancetype)initWithCaptureMethod:(SCPCardPresentCaptureMethod)captureMethod;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization            Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param captureMethod                           Card present capture method.
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                       captureMethod:(SCPCardPresentCaptureMethod)captureMethod
+                                   requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestExtendedAuthorization            Uses the extended authorization feature to extend capture elgibility
+ @param requestIncrementalAuthorizationSupport  Uses the incremental authorization feature to allow additional charges before capture
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization
+              requestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport
+                                   requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param captureMethod                           Card present capture method.
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithCaptureMethod:(SCPCardPresentCaptureMethod)captureMethod
+                    requestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Initializes a CardPresentParameters
+ @param requestedPriority                    Requested card present routing option.
+ */
+- (instancetype)initWithRequestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/**
+ Use alternative initializer.
  */
 - (instancetype)init NS_UNAVAILABLE;
 
-/**
- Use `SCPCardPresentParametersBuilder`.
- */
-+ (instancetype)new NS_UNAVAILABLE;
-
 @end
-
-/**
- Builder class for `SCPCardPresentParameters`.
- */
-NS_SWIFT_NAME(CardPresentParametersBuilder)
-@interface SCPCardPresentParametersBuilder : SCPBuilder <SCPCardPresentParameters *>
-
-/// @see `SCPCardPresentParameters.requestExtendedAuthorization`
-- (SCPCardPresentParametersBuilder *)setRequestExtendedAuthorization:(BOOL)requestExtendedAuthorization;
-
-/// @see `SCPCardPresentParameters.requestIncrementalAuthorizationSupport`
-- (SCPCardPresentParametersBuilder *)setRequestIncrementalAuthorizationSupport:(BOOL)requestIncrementalAuthorizationSupport;
-
-/// @see `SCPCardPresentParameters.captureMethod`
-- (SCPCardPresentParametersBuilder *)setCaptureMethod:(SCPCardPresentCaptureMethod)captureMethod;
-
-/// @see `SCPCardPresentParameters.requestedPriority`
-- (SCPCardPresentParametersBuilder *)setRequestedPriority:(SCPCardPresentRouting)requestedPriority;
-
-@end
-
 NS_ASSUME_NONNULL_END

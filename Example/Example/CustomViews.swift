@@ -53,7 +53,7 @@ open class MethodStartCell: UITableViewCell, Cell {
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         self.textLabel?.font = UIFont(name: "Menlo", size: UIFont.smallSystemFontSize)
-        self.backgroundColor = UIColor.systemGroupedBackground
+        self.backgroundColor = UIColor.groupTableViewBackground
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -399,7 +399,7 @@ class TextFieldView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        label.backgroundColor = UIColor.systemGroupedBackground
+        label.backgroundColor = UIColor.groupTableViewBackground
         label.textColor = UIColor.gray
         label.isUserInteractionEnabled = true
         return label
@@ -411,7 +411,7 @@ class TextFieldView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        label.backgroundColor = UIColor.systemGroupedBackground
+        label.backgroundColor = UIColor.groupTableViewBackground
         label.textColor = UIColor.gray
         label.isUserInteractionEnabled = true
         return label
@@ -532,7 +532,7 @@ class LinkTextView: UIView {
 
 class ActivityIndicatorHeaderView: UIView {
 
-    let activityIndicator = UIActivityIndicatorView(style: .medium)
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
     var title: String {
         didSet {
             label.text = title.uppercased()

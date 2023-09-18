@@ -19,19 +19,15 @@ class SetupIntentViewController: EventDisplayingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            let params = try SetupIntentParametersBuilder().build()
+        let params = SetupIntentParameters(customer: nil)
 
-            createSetupIntent(params) { intent, createError in
-                if createError != nil {
-                    self.complete()
-                } else if let intent = intent {
-                    // 2. collectSetupIntent
-                    self.collectSetupIntent(intent: intent)
-                }
+        createSetupIntent(params) { intent, createError in
+            if createError != nil {
+                self.complete()
+            } else if let intent = intent {
+                // 2. collectSetupIntent
+                self.collectSetupIntent(intent: intent)
             }
-        } catch {
-            self.presentAlert(error: error)
         }
     }
 

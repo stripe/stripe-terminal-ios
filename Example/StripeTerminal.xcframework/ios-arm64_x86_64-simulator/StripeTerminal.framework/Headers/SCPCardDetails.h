@@ -58,6 +58,13 @@ NS_SWIFT_NAME(CardDetails)
 @property (nonatomic, nullable, readonly) NSString *last4;
 
 /**
+ Uniquely identifies this particular card number. You can use this attribute
+ to check whether two customers who’ve signed up with you are using the
+ same card number, for example.
+ */
+@property (nonatomic, nullable, readonly) NSString *fingerprint;
+
+/**
  You cannot directly instantiate this class.
  */
 - (instancetype)init NS_UNAVAILABLE;
