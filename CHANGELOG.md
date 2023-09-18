@@ -28,6 +28,11 @@ pod 'StripeTerminal', '~> 3.0'
 * Update: Removed `CardDetails.fingerprint` and `CardPresentDetails.fingerprint`. You will still be able to access the fingerprint server-side using [Stripe server-side SDKs](https://stripe.com/docs/libraries#server-side-libraries).
 * Fixes [#240](https://github.com/stripe/stripe-terminal-ios/issues/240): `SCPDiscoveryConfiguration.timeout` is now respected when using simulated Bluetooth scan.
 
+# 2.23.2 2023-09-18
+* Built with Xcode 14.3, Swift version 5.8.
+* Fixes an issue where the SDK wouldn't announce an unexpected disconnect if an internet reader receives an invalid session error. This can happen after the reader reboots while the SDK is in the background.
+* Fixes [#252](https://github.com/stripe/stripe-terminal-ios/issues/252): `SCPLocalMobileConnectionConfiguration` `- initWithLocationId:merchantDisplayName:onBehalfOf:tosAcceptancePermitted:` now correctly sets the `tosAcceptancePermitted` value in the retuned configuration.
+
 # 2.23.1 2023-08-08
 * Built with Xcode 14.3, Swift version 5.8.
 * Fixes a regression in 2.21.0 where the SDK could get stuck running `discoverReaders` if `connectBluetoothReader` failed and the discovery cancelable was canceled in the connect completion block.
