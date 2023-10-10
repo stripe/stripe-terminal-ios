@@ -134,6 +134,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorInvalidRequiredParameter = 1920,
 
     /**
+     The PaymentIntent uses `on_behalf_of` but the Connected Account ID was not set in SCPLocalMobileConnectionConfiguration:
+     https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#connect-reader
+     */
+    SCPErrorInvalidRequiredParameterOnBehalfOf = 1921,
+
+    /**
      Error reported when forwarding stored offline payments. The fetched connection
      token was generated with a different account ID than the stored payment.
      */
@@ -285,6 +291,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      to a different location while online.
      */
     SCPErrorReaderConnectionOfflineLocationMismatch = 2871,
+
+    /**
+     The device software version running on this reader is out of date. You must connect to this
+     reader while online to install required updates before this reader can be used for offline payments.
+     */
+    SCPErrorReaderConnectionOfflineNeedsUpdate = 2872,
 
     /**
      The SDK has not activated a reader online yet, meaning there is no account
@@ -505,6 +517,20 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Unexpected reader error.
      */
     SCPErrorUnexpectedReaderError = 5001,
+    /**
+     Encryption key failed to initialize. Offline payments not available.
+
+     The encryption key needed to decrypt the payment records is not available. This can happen if an iOS backup
+     that included offline payment records was restored on a new device. Those records must be forwarded from
+     the original device and the records must be deleted from this device.
+
+     Please contact support at https://support.stripe.com/ for more help.
+     */
+    SCPErrorEncryptionKeyFailure = 5002,
+    /**
+     Encryption key still initializing. Offline payments are not yet available, please try again.
+     */
+    SCPErrorEncryptionKeyStillInitializing = 5003,
 
     /*
      PAYMENT ERRORS
@@ -567,6 +593,18 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Retry the payment by calling `collectPaymentMethod()` again.
      */
     SCPErrorOfflineCollectAndConfirmMismatch = 6904,
+
+    /**
+     Error reported when confirmPaymentIntent was called while
+     offline and the presented card was authenticated with an online PIN.
+     Retry the payment with another card.
+     */
+    SCPErrorOnlinePinNotSupportedOffline = 6905,
+
+    /**
+     Error reported when the card used is a known test card and the SDK is operating in livemode.
+     */
+    SCPErrorOfflineTestCardInLivemode = 6906,
 
     /*
      NETWORK ERRORS

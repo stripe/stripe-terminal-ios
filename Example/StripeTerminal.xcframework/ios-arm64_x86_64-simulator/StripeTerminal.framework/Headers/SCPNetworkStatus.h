@@ -9,8 +9,6 @@
 //  https://stripe.com/terminal/legal
 //
 
-#ifdef SCP_OFFLINE_MODE
-
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,5 +32,3 @@ typedef NS_ENUM(NSUInteger, SCPNetworkStatus) {
 } NS_SWIFT_NAME(NetworkStatus);
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

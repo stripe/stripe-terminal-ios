@@ -138,17 +138,23 @@ class ReaderViewController: TableViewController, CancelingViewController {
     }
 
     internal func showStartPayment() {
-        let vc = StartPaymentViewController()
+        let vc = StartPaymentViewController(isSposReader: isSposReader())
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     internal func showStartRefund() {
-        let vc = StartRefundViewController()
+        let vc = StartRefundViewController(isSposReader: isSposReader())
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     internal func showSetupIntent() {
-        self.presentModalInNavigationController(SetupIntentViewController())
+        let vc = StartSetupIntentViewController(isSposReader: isSposReader())
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func isSposReader() -> Bool {
+        let isSposReader = [DeviceType.stripeS700, DeviceType.stripeS700DevKit, DeviceType.wisePosE, DeviceType.wisePosEDevKit, DeviceType.etna].contains(Terminal.shared.connectedReader?.deviceType)
+        return isSposReader
     }
 
     internal func showUpdateReader(update: ReaderSoftwareUpdate) {
@@ -381,10 +387,10 @@ extension ReaderViewController: OfflineDelegate {
 
     func terminal(_ terminal: Terminal, didForwardPaymentIntent intent: PaymentIntent, error: Error?) {
         if let error = error {
-            OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Error forwarding offline payment intent \(intent.offlineDetails()?.stripeId ?? intent.stripeId ?? "N/A") \(error.localizedDescription)", details: intent)
+            OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Error forwarding offline payment intent \(intent.offlineId ?? intent.description) \(error.localizedDescription)", details: intent)
             return
         }
-        OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Successfully forwarded offline payment intent \(intent.stripeId ?? "N/A") status: \(Terminal.stringFromPaymentIntentStatus(intent.status))", details: intent)
+        OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Successfully forwarded offline payment intent \(intent.stripeId ?? "N/A") with offline id \(intent.offlineId ?? "nil offline id") status: \(Terminal.stringFromPaymentIntentStatus(intent.status))", details: intent)
         if intent.status == .requiresCapture, let id = intent.stripeId {
             AppDelegate.apiClient?.capturePaymentIntent(id, completion: { error in
                 if let error = error {

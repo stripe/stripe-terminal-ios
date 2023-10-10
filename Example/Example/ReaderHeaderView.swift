@@ -62,11 +62,7 @@ class ReaderHeaderView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets(top: 14, left: 16, bottom: 10, right: 16)
-        if #available(iOS 11.0, *) {
-            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
-        } else {
-            stack.anchorToSuperviewAnchors(withInsets: insets)
-        }
+        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
 
         bounds.size.height = 110
         let hardcodedImageViewHeight: CGFloat = 38

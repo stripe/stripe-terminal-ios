@@ -9,29 +9,22 @@
 //  https://stripe.com/terminal/legal
 //
 
-#ifdef SCP_OFFLINE_MODE
-
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPReceiptDetails;
 @class SCPAmountDetails;
+@class SCPOfflineCardPresentDetails;
 
 /**
  The payment details available via intent.offlineDetails when a payment is created
  or confirmed while offline.
 
- When an intent is created offline, the intent.stripeId will be nil. Use the
- intent.offlineDetails.stripeId as the unique identifier for this transaction.
+ When an intent is created offline, the intent.stripeId will be nil. To keep track of
+ offline payments, we recommend using the intent.metadata with your own identifiers.
  */
 NS_SWIFT_NAME(OfflineDetails)
 @interface SCPOfflineDetails : NSObject <NSCopying>
-
-/**
- The unique identifier for this offline transaction.
- */
-@property (nonatomic, readonly, strong) NSString *stripeId;
 
 /**
  Time that the payment was collected.
@@ -44,17 +37,15 @@ NS_SWIFT_NAME(OfflineDetails)
 @property (nonatomic, readwrite) BOOL requiresUpload;
 
 /**
- The receipt details read from the card during the offline transaction.
- */
-@property (nonatomic, nullable, readonly, strong) SCPReceiptDetails *receiptDetails;
-
-/**
- The amount details read during collection. Includes tip
+ The amount details read during collection. Includes tip.
  */
 @property (nonatomic, nullable, readonly, strong) SCPAmountDetails *amountDetails;
+
+/**
+ Details about the card-present payment method used to process this PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly, strong) SCPOfflineCardPresentDetails *cardPresentDetails;
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

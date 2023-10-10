@@ -8,7 +8,6 @@
 //  Use of this SDK is subject to the Stripe Terminal Terms:
 //  https://stripe.com/terminal/legal
 //
-#ifdef SCP_OFFLINE_MODE
 
 #import <Foundation/Foundation.h>
 
@@ -32,7 +31,7 @@ typedef NS_ENUM(NSInteger, SCPOfflineBehavior) {
       The PaymentIntent will only be transacted offline, regardless of network connectivity.
      */
     SCPOfflineBehaviorForceOffline
-};
+} NS_SWIFT_NAME(OfflineBehavior);
 
 /**
  The `CreateConfiguration` contains configuration relevant to creating a payment intent.
@@ -74,5 +73,3 @@ NS_SWIFT_NAME(CreateConfigurationBuilder)
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

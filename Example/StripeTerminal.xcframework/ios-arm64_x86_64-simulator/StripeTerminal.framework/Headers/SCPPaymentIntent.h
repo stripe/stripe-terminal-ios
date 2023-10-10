@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPConfirmPaymentIntentError, SCPPaymentMethod, SCPAmountDetails;
+@class SCPCharge, SCPConfirmPaymentIntentError, SCPOfflineDetails, SCPPaymentMethod, SCPAmountDetails;
 
 /**
  The possible statuses for a PaymentIntent.
@@ -76,8 +76,8 @@ NS_SWIFT_NAME(PaymentIntent)
 /**
  The unique identifier for the intent.
 
- If the intent was created offline the stripeId will be nil.
- See `offlineDetails.stripeId` for a unique ID to use while offline.
+ When an intent is created offline, the stripeId will be nil. To keep track of
+ offline payments, we recommend using the metadata with your own identifiers.
 
  After the payment has been forwarded the intent's stripeId will
  be filled in.
@@ -157,6 +157,20 @@ NS_SWIFT_NAME(PaymentIntent)
  your customer’s statement when this PaymentIntent succeeds in creating a charge.
  */
 @property (nonatomic, nullable, readonly) NSString *statementDescriptorSuffix;
+
+/**
+ The offline details for this intent, if created or processed while offline.
+
+ When an intent is created offline, the intent.stripeId will be nil. To keep track of
+ offline payments, we recommend using the intent.metadata with your own identifiers.
+
+ The `OfflineDetails` `requiresUpload` can be used to
+ identify that the intent was processed offline and requires the device to be
+ brought back online so the intent can be forwarded.
+
+ @see https://stripe.com/docs/terminal/features/operate-offline/
+ */
+@property (nonatomic, nullable, readonly) SCPOfflineDetails *offlineDetails;
 
 /**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use

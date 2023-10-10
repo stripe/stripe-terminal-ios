@@ -441,11 +441,7 @@ class TextFieldView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets.zero
-        if #available(iOS 11.0, *) {
-            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
-        } else {
-            stack.anchorToSuperviewAnchors(withInsets: insets)
-        }
+        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
 
         textField.placeholder = placeholderText
     }
@@ -566,11 +562,7 @@ class ActivityIndicatorHeaderView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets(top: 14, left: 16, bottom: 6, right: 16)
-        if #available(iOS 11.0, *) {
-            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
-        } else {
-            stack.anchorToSuperviewAnchors(withInsets: insets)
-        }
+        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
 
         bounds.size.height = 50
     }
@@ -638,13 +630,7 @@ open class LargeTitleNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
-
-        if #available(iOS 11.0, *) {
-            navigationBar.prefersLargeTitles = true
-        }
-
-        if #available(iOS 13.0, *) {
-            navigationBar.isTranslucent = true
-        }
+        navigationBar.prefersLargeTitles = true
+        navigationBar.isTranslucent = true
     }
 }

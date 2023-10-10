@@ -9,8 +9,6 @@
 //  https://stripe.com/terminal/legal
 //
 
-#ifdef SCP_OFFLINE_MODE
-
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPNetworkStatus.h>
@@ -63,5 +61,3 @@ NS_SWIFT_NAME(OfflineDelegate)
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

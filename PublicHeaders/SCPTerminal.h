@@ -21,10 +21,16 @@
 #import <StripeTerminal/SCPDiscoveryMethod.h>
 #import <StripeTerminal/SCPLocalMobileReaderDelegate.h>
 #import <StripeTerminal/SCPLogLevel.h>
+#import <StripeTerminal/SCPNetworkStatus.h>
+#import <StripeTerminal/SCPOfflineDelegate.h>
+#import <StripeTerminal/SCPOfflineStatus.h>
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
+#import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReaderEvent.h>
+#import <StripeTerminal/SCPRefundConfiguration.h>
 #import <StripeTerminal/SCPRefundParameters.h>
+#import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -32,9 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"3.0.0";
+static NSString *const SCPSDKVersion = @"3.1.0";
 
 @class SCPCancelable,
+    SCPCreateConfiguration,
     SCPBluetoothConnectionConfiguration,
     SCPInternetConnectionConfiguration,
     SCPListLocationsParameters,
@@ -643,6 +650,50 @@ before connecting which specifies the location to which this
                                                  completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:customerConsentCollected:completion:));
 
 /**
+ Collects a payment method for the given `SCPSetupIntent`.
+
+ This method does not update the SetupIntent API object. All updates are local
+ to the SDK and only persisted in memory. You must confirm the SetupIntent to
+ create a PaymentMethod API object and (optionally) attach that PaymentMethod
+ to a customer.
+
+ If collecting a payment method fails, the completion block will be called with
+ an error. After resolving the error, you may call `collectSetupIntentPaymentMethod`
+ again to either try the same card again, or try a different card.
+
+ If collecting a payment method succeeds, the completion block will be called
+ with a SetupIntent with status `.requiresConfirmation`, indicating that you
+ should call `confirmSetupIntent:customerConsentCollected:completion:` to
+ finish the payment.
+
+ Note that if `collectSetupIntentPaymentMethod` is canceled, the completion
+ block will be called with a `Canceled` error.
+
+ Collecting cardholder consent
+ -----------------------------
+
+ Card networks require that you collect consent from the customer before saving
+ and reusing their card information. The SetupIntent confirmation API method
+ normally takes a `mandate_data` hash that lets you specify details about the
+ customer's consent. The Stripe Terminal SDK will fill in the `mandate_data`
+ hash with relevant information, but in order for it to do so, you must specify
+ whether you have gathered consent from the cardholder to collect their payment
+ information in this method's second parameter.
+
+ The payment method will not be collected without the cardholder's consent.
+
+ @param setupIntent     The SetupIntent to which payment method information is attached.
+ @param customerConsentCollected    A boolean that should be set to true if you
+ have successfully collected consent from the cardholder to save their payment information.
+ @param setupConfig     An optional SCPSetupIntentConfiguration to configure per-setup overrides.
+ @param completion      The completion block called when collection completes.
+ */
+- (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
+                                   customerConsentCollected:(BOOL)customerConsentCollected
+                                                setupConfig:(nullable SCPSetupIntentConfiguration *)setupConfig
+                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:customerConsentCollected:setupConfig:completion:));
+
+/**
  Confirms a SetupIntent after the payment method has been successfully collected.
 
  Handling failures
@@ -715,6 +766,47 @@ before connecting which specifies the location to which this
     NS_SWIFT_NAME(collectRefundPaymentMethod(_:completion:));
 
 /**
+ Initiates an in-person refund with a given set of `SCPRefundParameters` by
+ collecting the payment method that is to be refunded.
+
+ Some payment methods, like Interac Debit payments, require that in-person payments
+ also be refunded while the cardholder is present. The cardholder must present
+ the Interac card to the card reader; these payments cannot be refunded via the
+ dashboard or the API.
+
+ For payment methods that don't require the cardholder be present, see
+ https://stripe.com/docs/terminal/payments/refunds
+
+ This method, along with `confirmRefund`, allow you to design an in-person refund
+ flow into your app.
+
+ If collecting a payment method fails, the completion block will be called with
+ an error. After resolving the error, you may call `collectRefundPaymentMethod`
+ again to either try the same card again, or try a different card.
+
+ If collecting a payment method succeeds, the completion block will be called
+ with an `nil` error. At that point, you can call `confirmRefund` to finish
+ refunding the payment method.
+
+ Calling any other SDK methods between `collectRefundPaymentMethod` and
+ `confirmRefund` will result in undefined behavior.
+
+ Note that if `collectRefundPaymentMethod` is canceled, the completion block
+ will be called with a `Canceled` error.
+
+ @see https://stripe.com/docs/terminal/canada#interac-refunds
+
+ @param refundParams  The SCPRefundParameters object that describes how the
+ refund will be created.
+ @param refundConfig An optional SCPRefundConfiguration to configure per-refund overrides.
+ @param completion  The completion block called when the command completes.
+ */
+- (nullable SCPCancelable *)collectRefundPaymentMethod:(SCPRefundParameters *)refundParams
+                                          refundConfig:(nullable SCPRefundConfiguration *)refundConfig
+                                            completion:(SCPErrorCompletionBlock)completion
+    NS_SWIFT_NAME(collectRefundPaymentMethod(_:refundConfig:completion:));
+
+/**
  Confirms an in-person refund after the refund payment method has been collected.
 
  The completion block will either be called with the successful `SCPRefund` or
@@ -740,6 +832,38 @@ before connecting which specifies the location to which this
  @param completion  The completion block called when the command completes.
  */
 - (void)confirmRefund:(SCPConfirmRefundCompletionBlock)completion NS_SWIFT_NAME(confirmRefund(completion:));
+
+#pragma mark Offline mode
+
+/** Set to receive offline reporting events from the SDK.
+ */
+@property (nonatomic, nullable, readwrite) id<SCPOfflineDelegate> offlineDelegate;
+
+/**
+ The offline-related statistics and status for both the SDK and any connected smart reader.
+ */
+@property (nonatomic, readonly) SCPOfflineStatus *offlineStatus;
+
+/**
+ Creates a new `SCPPaymentIntent` with the given parameters.
+
+ Note: If the information required to create a PaymentIntent isn't readily
+ available in your app, you can create the PaymentIntent on your server and use
+ the `retrievePaymentIntent` method to retrieve the PaymentIntent in your app.
+
+     @note This cannot be used with the Verifone P400. If used with the
+     Verifone P400, the completion handler will be called with
+     an SCPErrorFeatureNotAvailableWithConnectedReader error.
+
+ @see https://stripe.com/docs/terminal/payments#create
+
+ @param parameters      The parameters for the PaymentIntent to be created.
+ @param createConfig    Optional configuration overrides used when creating this payment intent.
+ @param completion      The completion block called when the command completes.
+ */
+- (void)createPaymentIntent:(SCPPaymentIntentParameters *)parameters
+               createConfig:(nullable SCPCreateConfiguration *)createConfig
+                 completion:(SCPPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(createPaymentIntent(_:createConfig:completion:));
 
 #pragma mark Displaying information to customers
 
@@ -820,6 +944,16 @@ before connecting which specifies the location to which this
  Returns an unlocalized string for the given capture method.
  */
 + (NSString *)stringFromCaptureMethod:(SCPCaptureMethod)captureMethod NS_SWIFT_NAME(stringFromCaptureMethod(_:));
+
+/**
+ Returns an unlocalized string for the given read method.
+ */
++ (NSString *)stringFromReadMethod:(SCPReadMethod)method NS_SWIFT_NAME(stringFromReadMethod(_:));
+
+/**
+ Returns an unlocalized string for the given network status, e.g. "Online"
+ */
++ (NSString *)stringFromNetworkStatus:(SCPNetworkStatus)networkStatus NS_SWIFT_NAME(stringFromNetworkStatus(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

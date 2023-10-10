@@ -9,14 +9,15 @@
 //  https://stripe.com/terminal/legal
 //
 
-#ifdef SCP_OFFLINE_MODE
-
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPNetworkStatus.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Contains status and statistics relevant to operating offline.
+ */
 NS_SWIFT_NAME(OfflineStatusDetails)
 @interface SCPOfflineStatusDetails : NSObject
 
@@ -26,7 +27,7 @@ NS_SWIFT_NAME(OfflineStatusDetails)
 
  This count will be nil after calling `clearCachedCredentials`.
  */
-@property (nonatomic, nullable, readonly, strong) NSNumber *offlinePaymentsCount;
+@property (nonatomic, nullable, readonly, strong) NSNumber *paymentsCount;
 
 /**
  Returns the total amount of processed offline payment intents stored locally. The key
@@ -44,7 +45,7 @@ NS_SWIFT_NAME(OfflineStatusDetails)
 
  This will reset to an empty dictionary after calling `clearCachedCredentials`.
  */
-@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSNumber *> *offlinePaymentAmountsByCurrency;
+@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSNumber *> *paymentAmountsByCurrency;
 
 /**
  The current network status. At initialization, the network status has a value
@@ -65,5 +66,3 @@ NS_SWIFT_NAME(OfflineStatusDetails)
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

@@ -17,34 +17,35 @@ class PaymentViewController: EventDisplayingViewController {
     private let declineCardBrand: CardBrand?
     private let recollectAfterCardBrandDecline: Bool
     private var offlineCreateConfig: CreateConfiguration?
+    private let isSposReader: Bool
 
     init(paymentParams: PaymentIntentParameters,
          collectConfig: CollectConfiguration,
          declineCardBrand: CardBrand?,
          recollectAfterCardBrandDecline: Bool,
+         isSposReader: Bool,
          offlineTransactionLimit: Int,
          offlineTotalTransactionLimit: Int,
-         forceOffline: Bool) {
+         offlineBehavior: OfflineBehavior) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
         self.declineCardBrand = declineCardBrand
         self.recollectAfterCardBrandDecline = recollectAfterCardBrandDecline
+        self.isSposReader = isSposReader
 
         var isOverOfflineTransactionLimit = paymentParams.amount >= offlineTransactionLimit
-        if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.offlinePaymentAmountsByCurrency[paymentParams.currency]?.intValue {
+        if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.paymentAmountsByCurrency[paymentParams.currency]?.intValue {
             isOverOfflineTransactionLimit = isOverOfflineTransactionLimit || (offlinePaymentTotalByCurrency >= offlineTotalTransactionLimit)
         }
-        let offlineBehavior: SCPOfflineBehavior = {
-            if forceOffline {
-                return .forceOffline
-            } else if isOverOfflineTransactionLimit {
+        let offlineBehaviorFromTransactionLimit: OfflineBehavior = {
+            if isOverOfflineTransactionLimit {
                 return .requireOnline
             } else {
-                return .preferOnline
+                return offlineBehavior
             }
         }()
         do {
-            self.offlineCreateConfig = try CreateConfigurationBuilder().setOfflineBehavior(offlineBehavior).build()
+            self.offlineCreateConfig = try CreateConfigurationBuilder().setOfflineBehavior(offlineBehaviorFromTransactionLimit).build()
         } catch {
             fatalError("Invalid create configuration: \(error.localizedDescription)")
         }
@@ -257,15 +258,12 @@ class PaymentViewController: EventDisplayingViewController {
     }
 
     private func writeOfflineIntentLogToDisk(_ intent: PaymentIntent) {
-        guard let offlineDetails = intent.offlineDetails() else { return }
-        let logString = "\(NSDate()) Offline payment intent \(offlineDetails.stripeId) saved to disk"
-        if #available(iOS 11.0, *) {
-            OfflinePaymentsLogViewController.writeLogToDisk(logString, details: intent)
-        }
+        let logString = "\(NSDate()) Offline payment intent \(intent.offlineId ?? intent.description) saved to disk"
+        OfflinePaymentsLogViewController.writeLogToDisk(logString, details: intent)
     }
 
     private func capturePaymentIntent(intent: PaymentIntent) {
-        if let offlineDetails = intent.offlineDetails(), offlineDetails.requiresUpload {
+        if let offlineDetails = intent.offlineDetails, offlineDetails.requiresUpload {
             // Offline intent, not capturing.
             self.writeOfflineIntentLogToDisk(intent)
             self.complete()
@@ -290,7 +288,7 @@ class PaymentViewController: EventDisplayingViewController {
 
     public func refund(chargeId: String, amount: UInt) {
         self.navigationController?.pushViewController(
-            StartRefundViewController(chargeId: chargeId, amount: amount),
+            StartRefundViewController(isSposReader: self.isSposReader, chargeId: chargeId, amount: amount),
             animated: true
         )
     }

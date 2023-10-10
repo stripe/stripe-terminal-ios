@@ -14,16 +14,23 @@ class StartRefundViewController: TableViewController {
 
     private var refundApplicationFee: Bool?
     private var reverseTransfer: Bool?
+    private var enableCustomerCancellation: Bool = false
+    private let isSposReader: Bool
 
     private let amountView = AmountInputView()
     private let chargeIdView = TextFieldView(text: "text", footer: "")
     private var startSection: Section?
 
-    convenience init(chargeId: String = "", amount: UInt = 100) {
-        self.init(style: .grouped)
+    init(isSposReader: Bool, chargeId: String = "", amount: UInt = 100) {
+        self.isSposReader = isSposReader
+        super.init(style: .grouped)
         amountView.numberFormatter.currencyCode = "CAD"
         amountView.textField.text = String(amount)
         chargeIdView.textField.text = chargeId
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -76,7 +83,10 @@ class StartRefundViewController: TableViewController {
 
         do {
             let refundParams = try refundParamsBuilder.build()
-            let vc = RefundViewController(refundParams: refundParams)
+            let refundConfig = try RefundConfigurationBuilder()
+                .setEnableCustomerCancellation(enableCustomerCancellation)
+                .build()
+            let vc = RefundViewController(refundParams: refundParams, refundConfig: refundConfig)
             let navController = LargeTitleNavigationController(rootViewController: vc)
             self.present(navController, animated: true, completion: nil)
         } catch {
@@ -97,10 +107,10 @@ class StartRefundViewController: TableViewController {
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [],
                                            footer: Section.Extremity.autoLayoutView(TestCardPickerView()))
 
-
         var sections: [Section] = [
             chargeIdSection,
             amountSection,
+            makeTransactionSection(),
             makeRefundApplicationFeeSection(),
             makeReverseTransferSection(),
             shouldShowTestCardPickerView ? paymentMethodSection : nil
@@ -111,6 +121,19 @@ class StartRefundViewController: TableViewController {
         }
 
         dataSource.sections = sections
+    }
+
+    private func makeTransactionSection() -> Section? {
+        if self.isSposReader {
+            return Section(
+                header: "TRANSACTION FEATURES",
+                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                    self.enableCustomerCancellation.toggle()
+                    self.updateContent()
+                })])
+        } else {
+            return nil
+        }
     }
 
     func makeRefundApplicationFeeSection() -> Section {
