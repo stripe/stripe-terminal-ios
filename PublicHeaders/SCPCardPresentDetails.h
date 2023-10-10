@@ -14,6 +14,7 @@
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
+#import <StripeTerminal/SCPReadMethod.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -131,6 +132,12 @@ NS_SWIFT_NAME(CardPresentDetails)
  * Note: This is only known if the PaymentIntent was confirmed.
  */
 @property (nonatomic, assign, readonly) SCPIncrementalAuthorizationStatus incrementalAuthorizationStatus;
+
+/**
+ How the card was read in this transaction.
+ */
+@property (nonatomic, readonly, assign) SCPReadMethod readMethod;
+
 /**
  You cannot directly instantiate this class.
  */

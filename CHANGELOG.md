@@ -7,8 +7,23 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.1.0 2023-10-10
+* Built with Xcode 14.3, Swift version 5.8.
+* New: Public beta support for offline payments.
+    * See [Collect payments while offline](https://stripe.com/docs/terminal/features/operate-offline/collect-payments) for details.
+* Beta: Allow customer-initiated cancellation for PaymentIntent, SetupIntent, and Refund payment method collection with internet readers. See `setEnableCustomerCancellation:` on `SCPCollectConfigurationBuilder`, `SCPSetupIntentConfigurationBuilder`, and `SCPRefundConfigurationBuilder`.
+    * _Note: This feature requires [reader software version](https://stripe.com/docs/terminal/readers/bbpos-wisepos-e#reader-software-version) `2.17` or later to be installed on your internet reader._
+    * Please [contact us](mailto:stripe-terminal-betas@stripe.com) if you want to support customer-initiated cancellation.
+* Update: When connecting to internet readers, the SDK no longer relies on DNS. This resolves an [error](https://support.stripe.com/questions/the-stripe-terminal-sdk-is-encountering-dns-errors-when-connecting-to-an-internet-reader) experienced by users of some DNS providers.
+* Fixes an issue where tipping and offline configs may not be fetched when connecting to an mPOS reader. Tipping and offline mode users should upgrade their SDK.
+* Fixes an issue where the SDK wouldn't announce an unexpected disconnect if an internet reader receives an invalid session error. This can happen after the reader reboots while the SDK is in the background.
+* Fixes an issue where the SDK would error with `SCPErrorFeatureNotAvailableWithConnectedReader` instead of `SCPErrorNotConnectedToReader` when calling certain commands without being connected to a reader.
+* Fixes a bug where the SDK could deadlock if attempting to connect to the same reader twice.
+* Fixes a crash running `Terminal.shared.supportsReaders` on M1 Mac.
+* Improved `confirmPaymentIntent` performance when location is not available.
+
 # 3.0.0 2023-09-08
-3.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for more details.
+3.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide) for more details.
 
 * Built with Xcode 14.3, Swift version 5.8.
 * New: Private beta support for offline payments.

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.0.0 Docs
+          StripeTerminal 3.1.0 Docs
         </a>
         
       </p>
@@ -60,6 +60,12 @@
                 <a class="nav-group-task-link" href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPOfflineDelegate.html">SCPOfflineDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPOfflineStatus.html">SCPOfflineStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPLogLevel.html">SCPLogLevel</a>
               </li>
               <li class="nav-group-task">
@@ -70,6 +76,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Terminal.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPNetworkStatus.html">SCPNetworkStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPBuilder.html">SCPBuilder</a>
@@ -302,7 +311,37 @@
                 <a class="nav-group-task-link" href="../Classes/SCPCollectConfigurationBuilder.html">SCPCollectConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntentConfiguration.html">SCPSetupIntentConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSetupIntentConfigurationBuilder.html">SCPSetupIntentConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundConfiguration.html">SCPRefundConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPRefundConfigurationBuilder.html">SCPRefundConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPCaptureMethod.html">SCPCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCreateConfiguration.html">SCPCreateConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCreateConfigurationBuilder.html">SCPCreateConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPOfflineBehavior.html">SCPOfflineBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPOfflineCardPresentDetails.html">SCPOfflineCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPOfflineDetails.html">SCPOfflineDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -315,6 +354,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReadMethod.html">SCPReadMethod</a>
               </li>
             </ul>
           </li>
@@ -1125,6 +1167,39 @@ assuming there is an update app version with a supported version of our SDK.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequiredParameter</span> <span class="o">=</span> <span class="mi">1920</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorInvalidRequiredParameterOnBehalfOf"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorInvalidRequiredParameterOnBehalfOf" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorInvalidRequiredParameterOnBehalfOf">SCPErrorInvalidRequiredParameterOnBehalfOf</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The PaymentIntent uses <code>on_behalf_of</code> but the Connected Account ID was not set in SCPLocalMobileConnectionConfiguration:
+<a href="https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#connect-reader">https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&amp;reader-type=tap-to-pay#connect-reader</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorInvalidRequiredParameterOnBehalfOf</span> <span class="o">=</span> <span class="mi">1921</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequiredParameterOnBehalfOf</span> <span class="o">=</span> <span class="mi">1921</span></code></pre>
 
                         </div>
                       </div>
@@ -1995,6 +2070,39 @@ to a different location while online.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerConnectionOfflineLocationMismatch</span> <span class="o">=</span> <span class="mi">2871</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderConnectionOfflineNeedsUpdate"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderConnectionOfflineNeedsUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderConnectionOfflineNeedsUpdate">SCPErrorReaderConnectionOfflineNeedsUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The device software version running on this reader is out of date. You must connect to this
+reader while online to install required updates before this reader can be used for offline payments.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderConnectionOfflineNeedsUpdate</span> <span class="o">=</span> <span class="mi">2872</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerConnectionOfflineNeedsUpdate</span> <span class="o">=</span> <span class="mi">2872</span></code></pre>
 
                         </div>
                       </div>
@@ -3290,6 +3398,76 @@ Ensure the Apple ID is still active and in a good standing and try again.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorEncryptionKeyFailure"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorEncryptionKeyFailure" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorEncryptionKeyFailure">SCPErrorEncryptionKeyFailure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encryption key failed to initialize. Offline payments not available.</p>
+
+<p>The encryption key needed to decrypt the payment records is not available. This can happen if an iOS backup
+that included offline payment records was restored on a new device. Those records must be forwarded from
+the original device and the records must be deleted from this device.</p>
+
+<p>Please contact support at <a href="https://support.stripe.com/">https://support.stripe.com/</a> for more help.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorEncryptionKeyFailure</span> <span class="o">=</span> <span class="mi">5002</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">encryptionKeyFailure</span> <span class="o">=</span> <span class="mi">5002</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorEncryptionKeyStillInitializing"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorEncryptionKeyStillInitializing" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorEncryptionKeyStillInitializing">SCPErrorEncryptionKeyStillInitializing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encryption key still initializing. Offline payments are not yet available, please try again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorEncryptionKeyStillInitializing</span> <span class="o">=</span> <span class="mi">5003</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">encryptionKeyStillInitializing</span> <span class="o">=</span> <span class="mi">5003</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorDeclinedByStripeAPI"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorDeclinedByStripeAPI" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorDeclinedByStripeAPI">SCPErrorDeclinedByStripeAPI</a>
@@ -3585,6 +3763,72 @@ and confirmPaymentIntent was called while offline.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">offlineCollectAndConfirmMismatch</span> <span class="o">=</span> <span class="mi">6904</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorOnlinePinNotSupportedOffline"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorOnlinePinNotSupportedOffline" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorOnlinePinNotSupportedOffline">SCPErrorOnlinePinNotSupportedOffline</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error reported when confirmPaymentIntent was called while
+offline and the presented card was authenticated with an online PIN.
+Retry the payment with another card.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorOnlinePinNotSupportedOffline</span> <span class="o">=</span> <span class="mi">6905</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">onlinePinNotSupportedOffline</span> <span class="o">=</span> <span class="mi">6905</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorOfflineTestCardInLivemode"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorOfflineTestCardInLivemode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorOfflineTestCardInLivemode">SCPErrorOfflineTestCardInLivemode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error reported when the card used is a known test card and the SDK is operating in livemode.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorOfflineTestCardInLivemode</span> <span class="o">=</span> <span class="mi">6906</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">offlineTestCardInLivemode</span> <span class="o">=</span> <span class="mi">6906</span></code></pre>
 
                         </div>
                       </div>
@@ -3955,7 +4199,7 @@ to disconnect manually by turning the reader off.</p>
                       <div class="abstract">
                         <p>Error reported when a <code><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></code> was created with <code>SCPOfflineBehaviorForceOffline</code>
 and the reader in use is not configured to operate offline. Use the Terminal Configuration API to enable
-the functionality or retry with another value for <code>SCPOfflineBehavior</code>.</p>
+the functionality or retry with another value for <code><a href="../Enums/SCPOfflineBehavior.html">SCPOfflineBehavior</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3982,8 +4226,8 @@ the functionality or retry with another value for <code>SCPOfflineBehavior</code
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-09-08)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2023 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2023-10-10)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

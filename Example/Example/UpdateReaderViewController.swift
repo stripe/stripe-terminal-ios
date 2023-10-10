@@ -146,16 +146,14 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
                 Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
             ])
 
-            if #available(iOS 13.0, *) {
-                // Cram a nice down arrow in between the two versions to clarify what's being installed
-                let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
-                imageView.contentMode = .scaleAspectFit
-                let spacer = UIView()
-                let stack = UIStackView(arrangedSubviews: [spacer, imageView])
-                stack.axis = .vertical
-                stack.spacing = 20
-                downArrow = .autoLayoutView(stack)
-            }
+            // Cram a nice down arrow in between the two versions to clarify what's being installed
+            let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
+            imageView.contentMode = .scaleAspectFit
+            let spacer = UIView()
+            let stack = UIStackView(arrangedSubviews: [spacer, imageView])
+            stack.axis = .vertical
+            stack.spacing = 20
+            downArrow = .autoLayoutView(stack)
         }
 
         dataSource.sections = [

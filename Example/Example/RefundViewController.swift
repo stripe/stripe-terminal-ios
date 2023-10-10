@@ -17,9 +17,11 @@ class RefundViewController: EventDisplayingViewController {
     }
 
     private let refundParameters: RefundParameters
+    private let refundConfig: RefundConfiguration
 
-    init(refundParams: RefundParameters) {
+    init(refundParams: RefundParameters, refundConfig: RefundConfiguration) {
         self.refundParameters = refundParams
+        self.refundConfig = refundConfig
         super.init()
     }
 
@@ -33,7 +35,7 @@ class RefundViewController: EventDisplayingViewController {
         // 1. collectRefundMethod
         var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
         self.events.append(collectEvent)
-        self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters) { [weak self] collectError in
+        self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters, refundConfig: self.refundConfig) { [weak self] collectError in
             guard let self = self else { return }
 
             if let error = collectError {

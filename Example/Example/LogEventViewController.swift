@@ -257,15 +257,7 @@ struct LogEvent: CustomStringConvertible, Event {
 
     var paymentIntentStatus: String? {
         if case .paymentIntent(let intent) = object {
-            if intent.status == .requiresConfirmation {
-                return "requires_confirmation"
-            } else if intent.status == .requiresCapture {
-                return "requires_capture"
-            } else if let status = intent.originalJSON["status"] as? String {
-                return status
-            } else {
-                return "unknown"
-            }
+            return Terminal.stringFromPaymentIntentStatus(intent.status)
         }
         return nil
     }
@@ -364,14 +356,8 @@ extension LogEvent.AssociatedObject {
         }
 
         do {
-            var data: Data
-            if #available(iOS 11.0, *) {
-                data = try JSONSerialization.data(withJSONObject: sanitizedJson,
-                                                            options: [.prettyPrinted, .sortedKeys])
-            } else {
-                data = try JSONSerialization.data(withJSONObject: sanitizedJson,
-                                                  options: [.prettyPrinted])
-            }
+            let data = try JSONSerialization.data(withJSONObject: sanitizedJson,
+                                                  options: [.prettyPrinted, .sortedKeys])
             return String(data: data, encoding: .utf8) ?? sanitizedJson.description
         } catch _ {
             return json.description

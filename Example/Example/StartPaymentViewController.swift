@@ -16,6 +16,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
     private var skipTipping = false
+    private var enableCustomerCancellation = false
     private var interacPresentEnabled = false
     private var automaticCaptureEnabled = false
     private var manualPreferredEnabled = false
@@ -25,6 +26,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var requestIncrementalAuthorizationSupport = false
     private var declineCardBrand: CardBrand?
     private var recollectAfterCardBrandDecline = false
+    private let isSposReader: Bool
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -39,7 +41,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private let applicationFeeAmountTextField = TextFieldView(placeholderText: "Application Fee Amount")
 
-    private var forceOffline = false
+    private var offlineBehavior: OfflineBehavior = .preferOnline
 
     private lazy var offlineTransactionLimitTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "10000")
@@ -75,8 +77,13 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
-    convenience init() {
-        self.init(style: .grouped)
+    init(isSposReader: Bool) {
+        self.isSposReader = isSposReader
+        super.init(style: .grouped)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -163,6 +170,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             .setCaptureMethod(captureMethod)
             .setSetupFutureUsage(setupFutureUsage)
             .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
+            .setMetadata([PaymentIntent.offlineIdMetadataKey: UUID().uuidString])
 
         // Set up destination payment
         if !connectedAccountId.isEmpty {
@@ -179,6 +187,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let collectConfigBuilder = CollectConfigurationBuilder()
             .setSkipTipping(self.skipTipping)
             .setUpdatePaymentIntent(declineCardBrand != nil)
+            .setEnableCustomerCancellation(self.enableCustomerCancellation)
 
         do {
             if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
@@ -192,12 +201,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             let vc = PaymentViewController(paymentParams: try paymentParamsBuilder.build(),
                 collectConfig: collectConfig,
                 declineCardBrand: declineCardBrand,
-                recollectAfterCardBrandDecline: recollectAfterCardBrandDecline
-                // OFFLINE_BEGIN
-                , offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
+                recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
+                isSposReader: self.isSposReader,
+                offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
                 offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000") ?? 50000,
-                forceOffline: self.forceOffline
-                // OFFLINE_END
+                offlineBehavior: self.offlineBehavior
             )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             navController.presentationController?.delegate = self
@@ -254,6 +262,19 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.updateContent()
             })],
             footer: .autoLayoutView(tipEligibleAmountTextField))
+    }
+
+    private func makeTransactionSection() -> Section? {
+        if self.isSposReader {
+            return Section(
+                header: "TRANSACTION FEATURES",
+                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                    self.enableCustomerCancellation.toggle()
+                    self.updateContent()
+                })])
+        } else {
+            return nil
+        }
     }
 
     private func makeSimulatedTipAmountSection() -> Section? {
@@ -380,14 +401,23 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return offlineStoredTransactionLimitSection
     }
 
-    private func makeForceOfflineSection() -> Section {
+    private func makeOfflineBehaviorSection() -> Section {
         let rows: [Row] = [
-            Row(text: "Force Offline", accessory: .switchToggle(value: self.forceOffline, { [unowned self] _ in
-                self.forceOffline.toggle()
-                self.updateContent()
-            }))
+            Row(accessory: .segmentedControl(
+                    items: ["prefer online", "require online", "force offline"],
+                    selectedIndex: 0) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.offlineBehavior = .preferOnline
+                        case 1: self.offlineBehavior = .requireOnline
+                        case 2: self.offlineBehavior = .forceOffline
+                        default:
+                            fatalError("Unknown option selected")
+                        }
+                    }
+               )
         ]
-        return Section(rows: rows)
+
+        return Section(header: "OFFLINE BEHAVIOR", rows: rows)
     }
 
     private func updateContent() {
@@ -396,13 +426,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeAmountSection(),
             self.makeCurrencySection(),
             self.makeTippingSection(),
+            self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),
             self.makeOfflineTransactionLimitSection(),
             self.makeOfflineStoredTransactionLimitSection(),
-            self.makeForceOfflineSection(),
+            self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
             self.startSection
         ]
@@ -416,5 +447,14 @@ extension StartPaymentViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - PaymentIntent Metadata Helpers
+extension PaymentIntent {
+    public static let offlineIdMetadataKey = "offlineId"
+
+    public var offlineId: String? {
+        return metadata?[PaymentIntent.offlineIdMetadataKey]
     }
 }

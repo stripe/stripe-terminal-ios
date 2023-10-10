@@ -52,6 +52,7 @@
 #import <StripeTerminal/SCPLogLevel.h>
 #import <StripeTerminal/SCPNetworkStatus.h>
 #import <StripeTerminal/SCPNetworks.h>
+#import <StripeTerminal/SCPOfflineCardPresentDetails.h>
 #import <StripeTerminal/SCPOfflineDelegate.h>
 #import <StripeTerminal/SCPOfflineDetails.h>
 #import <StripeTerminal/SCPOfflineStatus.h>
@@ -63,6 +64,7 @@
 #import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
+#import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReader.h>
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderEvent.h>
@@ -72,17 +74,18 @@
 #import <StripeTerminal/SCPReceiptDetails.h>
 #import <StripeTerminal/SCPReconnectionDelegate.h>
 #import <StripeTerminal/SCPRefund.h>
+#import <StripeTerminal/SCPRefundConfiguration.h>
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSetupAttempt.h>
 #import <StripeTerminal/SCPSetupAttemptCardPresentDetails.h>
 #import <StripeTerminal/SCPSetupAttemptPaymentMethodDetails.h>
 #import <StripeTerminal/SCPSetupIntent.h>
+#import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSetupIntentParameters.h>
 #import <StripeTerminal/SCPSimulateReaderUpdate.h>
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCardType.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
-#import <StripeTerminal/SCPTerminal+OfflineMode.h>
 #import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPTerminalDelegate.h>
 #import <StripeTerminal/SCPTip.h>

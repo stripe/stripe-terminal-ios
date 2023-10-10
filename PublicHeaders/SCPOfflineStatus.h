@@ -9,14 +9,15 @@
 //  https://stripe.com/terminal/legal
 //
 
-#ifdef SCP_OFFLINE_MODE
-
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPOfflineStatusDetails.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Provides offline status details for the connected reader and the SDK.
+ */
 NS_SWIFT_NAME(OfflineStatus)
 @interface SCPOfflineStatus : NSObject
 
@@ -44,5 +45,3 @@ NS_SWIFT_NAME(OfflineStatus)
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif // SCP_OFFLINE_MODE

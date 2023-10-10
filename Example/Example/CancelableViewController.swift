@@ -9,7 +9,7 @@
 import UIKit
 import StripeTerminal
 
-// Used to control whether swiping to dismiss (iOS 13 only) is allowed independent of the state of the cancel button
+// Used to control whether swiping to dismiss is allowed independent of the state of the cancel button
 // Used in `CancelableViewController`s `setAllowedCancelMethods`.
 //
 // Example usage is after installing an update the Cancel button is disabled (done is enabled) but you can still swipe
@@ -24,7 +24,7 @@ struct CancelableMethods: OptionSet {
 }
 
 // Implement this on view controllers that host a cancelable. `ReaderViewController` checks for this when a
-// view controller is dismissed and will call cancel. This is used as a way to handle iOS 13 swipe to dismiss.
+// view controller is dismissed and will call cancel. This is used as a way to handle swipe to dismiss.
 protocol CancelableViewController: UIViewController {
     var cancelable: Cancelable? { get }
     var cancelButton: UIBarButtonItem? { get }
@@ -49,9 +49,7 @@ extension CancelableViewController {
     }
 
     func setAllowedCancelMethods(_ allowedMethods: CancelableMethods) {
-        if #available(iOS 13.0, *) {
-            self.isModalInPresentation = !(allowedMethods.contains(.swipe))
-        }
+        self.isModalInPresentation = !(allowedMethods.contains(.swipe))
         cancelButton?.isEnabled = allowedMethods.contains(.button)
     }
 }

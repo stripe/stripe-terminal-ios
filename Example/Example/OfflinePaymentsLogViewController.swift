@@ -9,7 +9,6 @@
 import Static
 import StripeTerminal
 
-@available(iOS 11.0, *)
 class OfflinePaymentsLogViewController: TableViewController {
 
     static let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

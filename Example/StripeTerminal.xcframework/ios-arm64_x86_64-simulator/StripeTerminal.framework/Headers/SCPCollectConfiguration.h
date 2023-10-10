@@ -52,6 +52,13 @@ NS_SWIFT_NAME(CollectConfiguration)
 @property (nonatomic, assign, readonly) BOOL updatePaymentIntent;
 
 /**
+ Whether to show a cancel button in transaction UI on Stripe smart readers.
+
+ Defaults to NO.
+ */
+@property (nonatomic, assign, readonly) BOOL enableCustomerCancellation;
+
+/**
  Use `SCPCollectConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -77,6 +84,9 @@ NS_SWIFT_NAME(CollectConfigurationBuilder)
 
 /// Set the updatePaymentIntent property for the `CollectConfiguration` object that will be built.
 - (SCPCollectConfigurationBuilder *)setUpdatePaymentIntent:(BOOL)updatePaymentIntent;
+
+/// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
+- (SCPCollectConfigurationBuilder *)setEnableCustomerCancellation:(BOOL)enableCustomerCancellation;
 
 @end
 

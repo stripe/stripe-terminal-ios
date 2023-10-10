@@ -35,9 +35,9 @@ extension OfflineUIHandler: OfflineDelegate {
         case .unknown:
             rightBarButtonItemView.backgroundColor = .gray
         case .offline:
-            rightBarButtonItemView.backgroundColor = .red.withAlphaComponent(0.4)
+            rightBarButtonItemView.backgroundColor = .stripeOrange
         case .online:
-            rightBarButtonItemView.backgroundColor = .green.withAlphaComponent(0.4)
+            rightBarButtonItemView.backgroundColor = .stripeGreen
         @unknown default:
             fatalError()
         }
@@ -53,7 +53,7 @@ extension OfflineUIHandler: OfflineDelegate {
             // Show the error right away (these may stack)
             if let rootViewController = ((UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? RootViewController) {
                 let labelOverlayView = LabelOverlayView(
-                    labelText: "⚠️ Error forwarding payment \(intent.offlineDetails()?.stripeId ?? intent.stripeId ?? "N/A")\n\(error.localizedDescription)"
+                    labelText: "⚠️ Error forwarding payment \(intent.offlineId ?? intent.description)\n\(error.localizedDescription)"
                 )
                 rootViewController.toastView(viewToToast: labelOverlayView)
             }
@@ -66,7 +66,7 @@ extension OfflineUIHandler: OfflineDelegate {
         }
 
         // If we're done, report
-        if Terminal.shared.offlineStatus.sdk.offlinePaymentsCount == 0 {
+        if Terminal.shared.offlineStatus.sdk.paymentsCount == 0 {
             reportForwardCountsAndReset()
         }
     }
