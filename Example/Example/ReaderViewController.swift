@@ -57,7 +57,6 @@ class ReaderViewController: TableViewController, CancelingViewController {
         ReconnectionDelegateAnnouncer.shared.addListener(self)
         OfflineDelegateAnnouncer.shared.addListener(self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: OfflineUIHandler.shared.rightBarButtonItemView)
-        OfflineUIHandler.shared.additionalDelegates.append(self)
 
         ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
 

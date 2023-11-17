@@ -7,6 +7,24 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.2.0 2023-11-17
+* Built with Xcode 14.3, Swift version 5.8.
+* Update: `retrievePaymentIntent` and `retrieveSetupIntent` no longer require a connected reader.
+* Update: Adds `SCPCharge.authorizationCode` to the sdk's [`SCPCharge`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCharge.html) model when it is available.
+  * _Note for internet reader integrations, this feature requires [reader software version](https://stripe.com/docs/terminal/readers/bbpos-wisepos-e#reader-software-version) `2.18` or later to be installed on your internet reader._
+* Update: Added `network` and `wallet` to `SCPCardPresentDetails`.
+* Update: Added `paymentMethodId` to `SCPPaymentIntent`.
+* Update: The amount of time a reader can be used offline before needing to be activated online has been reduced to 30 days.
+* Update: `SCPReaderNetworkStatus` has a new case (`SCPReaderStatusUnknown`) that represents the network status of an internet reader that was discovered while the SDK is operating in offline mode.
+* Fix: `SCPSetupIntent.status` is now `SCPSetupIntentStatusRequiresConfirmation` after the payment has been collected.
+* Fixes a rare crash when connecting to a Bluetooth reader with a critically low battery.
+* Fixes a rare crash when installing a Bluetooth reader update.
+* Fixes a bug where cancelPaymentIntent, createSetupIntent, and cancelSetupIntent were not being queued and could error with an unexpected SDK error if called while another command was in progress.
+* Fixes merchant choice routing not updating upon switching reader regions.
+* Fixes [#262](https://github.com/stripe/stripe-terminal-ios/issues/262): Initial Bluetooth reader battery level is reported immediately after connecting to the reader.
+* Fixes error messaging to not return an unexpected SDK error in some situations when connected to a smart reader.
+* Fixes an issue where integrations could hit `SCPErrorSessionExpired` when the SDK comes back online while using offline mode.
+
 # 3.1.0 2023-10-10
 * Built with Xcode 14.3, Swift version 5.8.
 * New: Public beta support for offline payments.
@@ -28,7 +46,7 @@ pod 'StripeTerminal', '~> 3.0'
 * Built with Xcode 14.3, Swift version 5.8.
 * New: Private beta support for offline payments.
     * See [Collect payments while offline](https://stripe.com/docs/terminal/features/operate-offline/collect-payments) for details.
-* Update: Minimum deployment target updated from iOS 11.0 to iOS 13.0. 
+* Update: Minimum deployment target updated from iOS 11.0 to iOS 13.0.
 * Update: `SCPPaymentIntent.stripeId` is now nullable to support offline payments.
 * Update: `Terminal.processPayment` has been renamed to `Terminal.confirmPaymentIntent`.
 * Update: `Terminal.processRefund` has been renamed to `Terminal.confirmRefund`.
@@ -86,7 +104,7 @@ pod 'StripeTerminal', '~> 3.0'
 * Added error [`SCPErrorConnectionTokenProviderTimedOut`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorConnectionTokenProviderTimedOut). Returned when the [`SCPConnectionTokenProvider`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPConnectionTokenProvider.html#/c:objc(pl)SCPConnectionTokenProvider(im)fetchConnectionToken:) does not call the provided completion block within 60 seconds.
 * Throws an error when attempting to use the simulated `.eftposAuDebit` card with an unsupported PaymentIntent capture method. Use this card with the capture method set to `SCPCaptureMethodAutomatic` or `SCPCardPresentCaptureMethodManualPreferred`.
 * Added `SCPReaderDisplayMessageCardRemovedTooEarly` sent when a card is removed too early during a contact payment.
-* Fixes a bug where the SDK would fail `processPayment` with `SCPErrorDeclinedByStripeAPI` if the WisePad 3 timed out in between `collectPaymentMethod` and `processPayment`. This will now error with `SCPErrorCardReadTimedOut`. 
+* Fixes a bug where the SDK would fail `processPayment` with `SCPErrorDeclinedByStripeAPI` if the WisePad 3 timed out in between `collectPaymentMethod` and `processPayment`. This will now error with `SCPErrorCardReadTimedOut`.
 * Fixes a bug where `SCPReaderEventCardInserted` could be announced multiple times for a single card insert.
 
 # 2.19.1 2023-04-10

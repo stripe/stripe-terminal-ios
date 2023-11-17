@@ -132,6 +132,11 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethod;
 
 /**
+ ID of the payment method used in this PaymentIntent.
+ */
+@property (nonatomic, copy, nullable, readonly) NSString *paymentMethodId;
+
+/**
  Details about items included in the amount after confirmation.
  */
 @property (nonatomic, nullable, readonly) SCPAmountDetails *amountDetails;

@@ -326,7 +326,7 @@ extension LogEvent.AssociatedObject {
         case .json(let json):
             return prettyPrint(json: json)
         case .paymentIntent(let intent):
-            return !intent.originalJSON.isEmpty ? prettyPrint(json: intent.originalJSON) : intent.debugDescription
+            return !intent.originalJSON.isEmpty ? "\(prettyPrint(json: intent.originalJSON)) \nOFFLINE DETAILS:\n\(intent.offlineDetails.debugDescription)" : intent.debugDescription
         case .paymentMethod(let paymentMethod):
             return prettyPrint(json: paymentMethod.originalJSON)
         case .refund(let refund):

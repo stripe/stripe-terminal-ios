@@ -275,14 +275,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     /**
      Error reported when the offline payments database has too many records.
 
-     The iOS device should be brought back online to sync payments before collecting more.
+     The offline device should be brought back online to sync payments before collecting more.
      */
     SCPErrorOfflinePaymentsDatabaseTooLarge = 2860,
 
     /**
      Connecting to the reader failed because the most recently connected account
      hasn't connected to a reader of this type while online. To connect to a reader offline,
-     the SDK must have connected to a reader of the same type and location within the past 90 days.
+     the SDK must have connected to a reader of the same type and location within the past 30 days.
      */
     SCPErrorReaderConnectionNotAvailableOffline = 2870,
 

@@ -84,5 +84,5 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 We maintain an archive of the API reference for the previous major version.
 
-- [2.3.0](https://stripe.dev/stripe-terminal-ios/2.3.0/)
+- [2.23.0](https://stripe.dev/stripe-terminal-ios/2.23.0/)
 
