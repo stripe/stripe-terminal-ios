@@ -15,9 +15,10 @@ class OfflineUIHandler {
     static var shared = OfflineUIHandler()
     var successfulForwardCount = 0
     var failedForwardCount = 0
-    public var additionalDelegates = [OfflineDelegate]()
 
-    // See SettingsViewController for where this class is set as the Terminal.offlineDelegate
+    init() {
+        OfflineDelegateAnnouncer.shared.addListener(self)
+    }
 
     let rightBarButtonItemView: UIView = {
         let dimension: CGFloat = 10
@@ -41,9 +42,6 @@ extension OfflineUIHandler: OfflineDelegate {
         @unknown default:
             fatalError()
         }
-        for delegate in additionalDelegates {
-            delegate.terminal(terminal, didChange: offlineStatus)
-        }
     }
 
     func terminal(_ terminal: Terminal, didForwardPaymentIntent intent: PaymentIntent, error: Error?) {
@@ -61,10 +59,6 @@ extension OfflineUIHandler: OfflineDelegate {
             successfulForwardCount += 1
         }
 
-        for delegate in additionalDelegates {
-            delegate.terminal(terminal, didForwardPaymentIntent: intent, error: error)
-        }
-
         // If we're done, report
         if Terminal.shared.offlineStatus.sdk.paymentsCount == 0 {
             reportForwardCountsAndReset()
@@ -77,15 +71,11 @@ extension OfflineUIHandler: OfflineDelegate {
             labelText: "⚠️ Error forwarding: \(error.localizedDescription)"
         )
         rootViewController.toastView(viewToToast: labelOverlayView)
-
-        for delegate in additionalDelegates {
-            delegate.terminal(terminal, didReportForwardingError: error)
-        }
     }
 
     func reportForwardCountsAndReset() {
-        guard let rootViewController = ((UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? RootViewController),
-              (failedForwardCount > 0 || successfulForwardCount > 0) else {
+        guard let rootViewController = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? RootViewController,
+              failedForwardCount > 0 || successfulForwardCount > 0 else {
             return
         }
 

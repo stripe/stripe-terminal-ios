@@ -27,6 +27,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var declineCardBrand: CardBrand?
     private var recollectAfterCardBrandDecline = false
     private let isSposReader: Bool
+    private var updatePaymentIntent = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -184,9 +185,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         Terminal.shared.simulatorConfiguration.simulatedTipAmount = NSNumber(value: simulatedTipAmountTextField.amount)
 
+        let updatePaymentIntent = self.updatePaymentIntent || (self.declineCardBrand != nil)
         let collectConfigBuilder = CollectConfigurationBuilder()
             .setSkipTipping(self.skipTipping)
-            .setUpdatePaymentIntent(declineCardBrand != nil)
+            .setUpdatePaymentIntent(updatePaymentIntent)
             .setEnableCustomerCancellation(self.enableCustomerCancellation)
 
         do {
@@ -303,6 +305,36 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.manualPreferredEnabled.toggle()
                 self.updateContent()
             }),
+            Row(text: "Requested Routing Priority",
+                detailText: requestedPriority ?? "None",
+                selection: { [unowned self] in
+                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
+                        self.requestedPriority = (picked == "None") ? nil : picked
+                        self.updateContent()
+                    }
+            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
+            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
+                self.requestExtendedAuthorization.toggle()
+                self.updateContent()
+            }),
+            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
+                self.requestIncrementalAuthorizationSupport.toggle()
+                self.updateContent()
+            }),
+        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
+
+        return paymentMethodSection
+    }
+
+    // Makes the UPDATE PAYMENT INTENT section
+    private func makeUpdatePaymentIntentSection() -> Section? {
+        let switchRow: [Row] = [
+            Row(text: "Update PaymentIntent", accessory: .switchToggle(value: self.updatePaymentIntent) { [unowned self] _ in
+                self.updatePaymentIntent.toggle()
+                self.updateContent()
+            })
+        ]
+        let contentRows: [Row] = [
             Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in
                 let brands: [CardBrand] = [
                     .visa,
@@ -324,29 +356,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                     self.updateContent()
                 }
             }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
-            Row(text: "Requested Routing Priority",
-                detailText: requestedPriority ?? "None",
-                selection: { [unowned self] in
-                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
-                        self.requestedPriority = (picked == "None") ? nil : picked
-                        self.updateContent()
-                    }
-            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
             Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
                 recollectAfterCardBrandDecline.toggle()
                 self.updateContent()
             }),
-            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
-                self.requestExtendedAuthorization.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
-                self.requestIncrementalAuthorizationSupport.toggle()
-                self.updateContent()
-            }),
-        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
+        ]
+        let rows = self.updatePaymentIntent ? (switchRow + contentRows) : switchRow
 
-        return paymentMethodSection
+        return Section(header: "UPDATE PAYMENT INTENT", rows: rows)
     }
 
     /// Makes the "SETUP FUTURE USAGE" section.
@@ -429,6 +446,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
+            self.makeUpdatePaymentIntentSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),
             self.makeOfflineTransactionLimitSection(),

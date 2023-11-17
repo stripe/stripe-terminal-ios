@@ -83,10 +83,6 @@ NS_SWIFT_NAME(Reader)
 
 /**
  Used to tell whether the `location` field has been set.
- Note that the Internet and simulated readers will always
- have an `unknown` `locationStatus`.
-
- (Bluetooth and Apple Built-In readers only.)
  */
 @property (atomic, readonly) SCPLocationStatus locationStatus;
 
@@ -96,17 +92,10 @@ NS_SWIFT_NAME(Reader)
  During discovery, `location` will be nil for Bluetooth readers that have never
  been connected to.
 
- You must assign a Bluetooth reader to a location from the SDK during `connectBluetoothReader`.
- See `locationId` in `SCPBluetoothConnectionConfiguration`.
-
- After connecting to a reader, `location` will be nil if the reader has been
- registered to a new location. See https://stripe.com/docs/api/terminal/locations/retrieve
- for documentation on retrieving location details in your app.
-
- (Bluetooth and Apple Built-In readers only.)
+ You must assign a reader to a location from the SDK when attempting to connect to it.
 
  @see https://stripe.com/docs/api/terminal/locations
- @see https://stripe.com/docs/terminal/readers/fleet-management#bbpos-wisepad3
+ @see https://stripe.com/docs/terminal/fleet/locations
  @see `SCPConnectionConfiguration`
  */
 @property (atomic, nullable, readonly) SCPLocation *location;
@@ -177,9 +166,10 @@ NS_SWIFT_NAME(Reader)
 @property (nonatomic, nullable, readonly) NSString *ipAddress;
 
 /**
- The networking status of the reader: either `offline` or `online`. Note that
+ The networking status of the reader: usually `online` or `offline`. Note that
  non-Internet readers `status` will always be `offline`.
 
+ Internet readers will return a status of `unknown` if this reader was discovered while operating in offline mode.
  (Internet readers only).
  */
 @property (nonatomic, readonly) SCPReaderNetworkStatus status;

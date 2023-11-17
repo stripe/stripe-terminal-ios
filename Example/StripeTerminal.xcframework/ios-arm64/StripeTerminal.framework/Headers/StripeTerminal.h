@@ -90,4 +90,5 @@
 #import <StripeTerminal/SCPTerminalDelegate.h>
 #import <StripeTerminal/SCPTip.h>
 #import <StripeTerminal/SCPTippingConfiguration.h>
+#import <StripeTerminal/SCPWallet.h>
 

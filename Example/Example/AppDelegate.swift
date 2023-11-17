@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 import StripeTerminal
 
 @UIApplicationMain
@@ -43,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         apiClient.baseURLString = backendUrl
         Terminal.setTokenProvider(apiClient)
         Terminal.shared.delegate = TerminalDelegateAnnouncer.shared
-        Terminal.shared.offlineDelegate = OfflineUIHandler.shared
+        Terminal.shared.offlineDelegate = OfflineDelegateAnnouncer.shared
         AppDelegate.apiClient = apiClient
 
         // To log events from the SDK to the console:

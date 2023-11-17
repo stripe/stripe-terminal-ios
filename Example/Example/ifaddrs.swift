@@ -40,7 +40,7 @@ enum Ifaddrs_h {
             let dontHaveAddressYet = wifiIPAddress == nil
 
             // prefer ipv4 addresses over ipv6, ignore any others
-            if (isIPv4Address || (isIPv6Address && dontHaveAddressYet)),
+            if isIPv4Address || (isIPv6Address && dontHaveAddressYet),
                 // stack overflow says wifi is always 'en0' on iOS
                 let ifa_name = interface.ifa_name, "en0" == String(cString: ifa_name) {
 

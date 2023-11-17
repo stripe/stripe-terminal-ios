@@ -469,8 +469,10 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         if discoveryMethod == .internet {
             if reader.status == .online, let ipAddress = reader.ipAddress {
                 details.append("🌐 \(ipAddress)")
-            } else {
+            } else if reader.status == .offline {
                 details.append("🌐 (offline)")
+            } else if reader.status == .unknown, let ipAddress = reader.ipAddress {
+                details.append("🌐 \(ipAddress)")
             }
         } else {
             if let battery = reader.batteryLevel {
