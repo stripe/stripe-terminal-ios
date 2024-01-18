@@ -178,6 +178,41 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) SCPOfflineDetails *offlineDetails;
 
 /**
+ The account (if any) for which the funds of the PaymentIntent are intended. See the PaymentIntents use case
+ for connected accounts for details.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-on_behalf_of
+ */
+@property (nonatomic, nullable, readonly) NSString *onBehalfOf;
+
+/**
+ The client secret of this PaymentIntent. Used for client-side retrieval using a publishable key.
+
+ The client secret can be used to complete a payment from your frontend. It should not be stored, logged, 
+ or exposed to anyone other than the customer. Make sure that you have TLS enabled on any page that
+ includes the client secret.
+
+ Refer to our docs to accept a payment and learn about how client_secret should be handled.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-client_secret
+ */
+@property (nonatomic, nullable, readonly) NSString *clientSecret;
+
+/**
+ Amount that this PaymentIntent collects.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-amount_received
+ */
+@property (nonatomic, readonly) NSNumber *amountReceived;
+
+/**
+ Amount that can be captured from this PaymentIntent.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-amount_capturable
+ */
+@property (nonatomic, readonly) NSNumber *amountCapturable;
+
+/**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use
  one that has been returned by our SDK.
 
