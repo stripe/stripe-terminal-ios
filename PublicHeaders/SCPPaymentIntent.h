@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPConfirmPaymentIntentError, SCPOfflineDetails, SCPPaymentMethod, SCPAmountDetails;
+@class SCPCharge, SCPConfirmPaymentIntentError, SCPOfflineDetails, SCPPaymentMethod, SCPAmountDetails, SCPTransferData;
 
 /**
  The possible statuses for a PaymentIntent.
@@ -178,8 +178,8 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) SCPOfflineDetails *offlineDetails;
 
 /**
- The account (if any) for which the funds of the PaymentIntent are intended. See the PaymentIntents use case
- for connected accounts for details.
+ The account (if any) for which the funds of the PaymentIntent are intended. See the PaymentIntents [use case
+ for connected accounts](https://stripe.com/docs/payments/connected-accounts) for details.
  
  @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-on_behalf_of
  */
@@ -188,11 +188,12 @@ NS_SWIFT_NAME(PaymentIntent)
 /**
  The client secret of this PaymentIntent. Used for client-side retrieval using a publishable key.
 
- The client secret can be used to complete a payment from your frontend. It should not be stored, logged, 
+ The client secret can be used to complete a payment from your frontend. It should not be stored, logged,
  or exposed to anyone other than the customer. Make sure that you have TLS enabled on any page that
  includes the client secret.
 
- Refer to our docs to accept a payment and learn about how client_secret should be handled.
+ Refer to our docs to [accept a payment](https://stripe.com/docs/payments/accept-a-payment?ui=elements)
+ and learn about how `client_secret` should be handled.
  
  @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-client_secret
  */
@@ -203,14 +204,106 @@ NS_SWIFT_NAME(PaymentIntent)
  
  @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-amount_received
  */
-@property (nonatomic, readonly) NSNumber *amountReceived;
+@property (nonatomic, readonly) NSNumber amountReceived;
 
 /**
  Amount that can be captured from this PaymentIntent.
  
  @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-amount_capturable
  */
-@property (nonatomic, readonly) NSNumber *amountCapturable;
+@property (nonatomic, readonly) NSNumber amountCapturable;
+
+/**
+ ID of the Connect application that created the PaymentIntent.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-application
+ */
+@property (nonatomic, nullable, readonly) NSString *application;
+
+/**
+ The amount of the application fee (if any) that will be requested to be applied to the payment
+ and transferred to the application owner’s Stripe account. The amount of the application fee
+ collected will be capped at the total payment amount. 
+ 
+ For more information, see the PaymentIntents [use case for connected accounts](https://stripe.com/docs/payments/connected-accounts).
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-application_fee_amount
+ */
+@property (nonatomic, nullable, readonly) NSNumber *applicationFeeAmount;
+
+/**
+ Populated when `status` is `canceled`, this is the time at which the PaymentIntent was canceled.
+ Measured in seconds since the Unix epoch.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-canceled_at
+ */
+@property (nonatomic, nullable, readonly) NSDate *canceledAt;
+
+/**
+ ID of the Customer this PaymentIntent belongs to, if one exists.
+
+ Payment methods attached to other Customers cannot be used with this PaymentIntent.
+
+ If present in combination with [setup_future_usage](https://stripe.com/docs/api/payment_intents/object#payment_intent_object-setup_future_usage),
+ this PaymentIntent’s payment method will be attached to the Customer after the PaymentIntent
+ has been confirmed and any required actions from the user are complete.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-customer
+ */
+@property (nonatomic, nullable, readonly) NSString *customer;
+
+/**
+ An arbitrary string attached to the object. Often useful for displaying to users.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-description
+ */
+@property (nonatomic, nullable, readonly) NSString *description;
+
+/**
+ The latest charge created by this PaymentIntent.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-latest_charge
+ */
+@property (nonatomic, nullable, readonly) NSString *latestCharge;
+
+/**
+ Email address that the receipt for the resulting payment will be sent to. If `receipt_email`
+ is specified for a payment in live mode, a receipt will be sent regardless of your [email settings](https://dashboard.stripe.com/account/emails).
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-receipt_email
+ */
+@property (nonatomic, nullable, readonly) NSString *receiptEmail;
+
+/**
+ String representing the object’s type. Objects of the same type share the same value.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-object
+ */
+@property (nonatomic, readonly) NSString object;
+
+/**
+ ID of the invoice that created this PaymentIntent, if it exists.
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-invoice
+ */
+@property (nonatomic, nullable, readonly) NSString *invoice;
+
+/**
+ The data that automatically creates a Transfer after the payment finalizes.
+ 
+ Learn more about the [use case for connected accounts](https://stripe.com/docs/payments/connected-accounts).
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-transfer_data
+ */
+@property (nonatomic, nullable, readonly) SCPTransferData *transferData;
+
+/**
+ A string that identifies the resulting payment as part of a group. Learn more about the [use case for 
+ connected accounts](https://stripe.com/docs/payments/connected-accounts).
+ 
+ @see https://stripe.com/docs/api/payment_intents/object#payment_intent_object-transfer_group
+ */
+@property (nonatomic, nullable, readonly) NSString *transferGroup;
 
 /**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use
