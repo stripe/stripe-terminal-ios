@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		02A6BF5624CB1C4D0054ADFF /* StripeTerminal.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DA8E3A24532E4900235921 /* DelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */; };
 		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
+		1F65BFFD2AF42F8500043452 /* StartCollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */; };
+		1F65BFFF2AF44F4000043452 /* CollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */; };
 		241B90F9249027DE0083C908 /* ReaderRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */; };
 		2446E3EF25AF499B00FB4510 /* SetupIntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */; };
 		248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248EAA0624427FD500DDB433 /* RefundViewController.swift */; };
@@ -29,8 +31,10 @@
 		2E4563E87B89E64B8BD7C592 /* DataRequest+StripeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E456576084719ED476A4DAB /* DataRequest+StripeJSON.swift */; };
 		3936853E28860BDE0026A906 /* CaptureMethod+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936853D28860BDE0026A906 /* CaptureMethod+String.swift */; };
 		395970602A8D85830015F0F3 /* LocationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959705F2A8D85830015F0F3 /* LocationStub.swift */; };
+		50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */; };
+		50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */; };
+		532CFE3343972E6D9922133E /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EDBA643A6C17C59F35F02B /* Pods_Example.framework */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
-		71C1DEA26D972EDD54E281EA /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869F52E23413F57E8B88093C /* Pods_Example.framework */; };
 		A40E7CF027F64191005879C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		A63E8431260D073B006CB90C /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8430260D073B006CB90C /* CreateLocationViewController.swift */; };
 		A63E8435260D0A0D006CB90C /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */; };
@@ -69,7 +73,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		012AC6ED64AEAD90444D6582 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		022B5727250BB8CF00595E19 /* Value1MultilineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1MultilineCell.swift; sourceTree = "<group>"; };
 		022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */ = {isa = PBXFileReference; explicitFileType = wrapper.xcframework; path = StripeTerminal.xcframework; sourceTree = SOURCE_ROOT; };
 		02370F5C244C94D00056D896 /* CancelableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelableViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 		028DC8562A9D28B40069E4BE /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateAnnouncer.swift; sourceTree = "<group>"; };
 		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
+		1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCollectInputsViewController.swift; sourceTree = "<group>"; };
+		1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectInputsViewController.swift; sourceTree = "<group>"; };
 		241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderRegistrationViewController.swift; sourceTree = "<group>"; };
 		2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIntentViewController.swift; sourceTree = "<group>"; };
 		248EAA0624427FD500DDB433 /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
@@ -89,17 +94,20 @@
 		259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDisplayingViewController.swift; sourceTree = "<group>"; };
 		25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSetReaderDisplayViewController.swift; sourceTree = "<group>"; };
 		2E456576084719ED476A4DAB /* DataRequest+StripeJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataRequest+StripeJSON.swift"; sourceTree = "<group>"; };
+		34EDBA643A6C17C59F35F02B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3936853D28860BDE0026A906 /* CaptureMethod+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureMethod+String.swift"; sourceTree = "<group>"; };
 		3959705F2A8D85830015F0F3 /* LocationStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStub.swift; sourceTree = "<group>"; };
+		50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartReaderSettingsViewController.swift; sourceTree = "<group>"; };
+		50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+StripeTerminal.swift"; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
-		869F52E23413F57E8B88093C /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CE009C273623AEFB29EA2F4 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9DF074FE5CB7218FDD96EA5F /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
 		AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSetupIntentViewController.swift; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
 		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		BD818DABCF519E74DCCC8062 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
 		C152F77B214A18C00078BD07 /* StripeCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCurrencies.swift; sourceTree = "<group>"; };
 		C16651B621963C51006EFACF /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -127,18 +135,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
-				71C1DEA26D972EDD54E281EA /* Pods_Example.framework in Frameworks */,
+				532CFE3343972E6D9922133E /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7797877F8D6A8D5798C7D6C6 /* Pods */ = {
+		2019376AEABD6BD348CA0EC2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD818DABCF519E74DCCC8062 /* Pods-Example.debug.xcconfig */,
-				012AC6ED64AEAD90444D6582 /* Pods-Example.release.xcconfig */,
+				9CE009C273623AEFB29EA2F4 /* Pods-Example.debug.xcconfig */,
+				9DF074FE5CB7218FDD96EA5F /* Pods-Example.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -150,7 +158,7 @@
 				C16F409F2094F07B009CE87C /* Example */,
 				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				7797877F8D6A8D5798C7D6C6 /* Pods */,
+				2019376AEABD6BD348CA0EC2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +184,7 @@
 				2E456576084719ED476A4DAB /* DataRequest+StripeJSON.swift */,
 				02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */,
 				6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */,
+				50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */,
 				259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */,
 				B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */,
 				B3C24C6B23285BF6003271BD /* ifaddrs.swift */,
@@ -197,8 +206,10 @@
 				248EAA0624427FD500DDB433 /* RefundViewController.swift */,
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */,
+				1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */,
 				2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
+				50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */,
 				24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */,
 				AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */,
 				25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */,
@@ -210,6 +221,7 @@
 				C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */,
 				025BEC112A8EC7BA00955C73 /* UserDefaultsBacked.swift */,
 				022B5727250BB8CF00595E19 /* Value1MultilineCell.swift */,
+				1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -218,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
-				869F52E23413F57E8B88093C /* Pods_Example.framework */,
+				34EDBA643A6C17C59F35F02B /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,12 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				FBC0385F527D76A44E397E30 /* [CP] Check Pods Manifest.lock */,
+				2044B5478660D6ED31842684 /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				47D3632AEF100B2D5F42B4D4 /* [CP] Embed Pods Frameworks */,
+				8B4D7251E555AA4CCA02C6E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,27 +308,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47D3632AEF100B2D5F42B4D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Static/Static.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Static.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FBC0385F527D76A44E397E30 /* [CP] Check Pods Manifest.lock */ = {
+		2044B5478660D6ED31842684 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,6 +328,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B4D7251E555AA4CCA02C6E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Static/Static.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Static.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -365,14 +377,18 @@
 				B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */,
 				028DC8572A9D28B40069E4BE /* Color.swift in Sources */,
 				395970602A8D85830015F0F3 /* LocationStub.swift in Sources */,
+				1F65BFFF2AF44F4000043452 /* CollectInputsViewController.swift in Sources */,
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				2446E3EF25AF499B00FB4510 /* SetupIntentViewController.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
 				C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */,
 				248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */,
+				1F65BFFD2AF42F8500043452 /* StartCollectInputsViewController.swift in Sources */,
 				02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */,
 				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
 				199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */,
+				50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */,
+				50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */,
 				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
 				A63E8431260D073B006CB90C /* CreateLocationViewController.swift in Sources */,
 				25CB2CF724941F8D0018535C /* StartSetReaderDisplayViewController.swift in Sources */,
@@ -530,7 +546,7 @@
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD818DABCF519E74DCCC8062 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 9CE009C273623AEFB29EA2F4 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -562,7 +578,7 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 012AC6ED64AEAD90444D6582 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 9DF074FE5CB7218FDD96EA5F /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";

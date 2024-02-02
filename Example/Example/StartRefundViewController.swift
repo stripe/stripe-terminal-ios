@@ -16,9 +16,10 @@ class StartRefundViewController: TableViewController {
     private var reverseTransfer: Bool?
     private var enableCustomerCancellation: Bool = false
     private let isSposReader: Bool
+    private var refundWithChargeId: Bool?
 
     private let amountView = AmountInputView()
-    private let chargeIdView = TextFieldView(text: "text", footer: "")
+    private let paymentOrChargeIdView = TextFieldView(text: "text", footer: "")
     private var startSection: Section?
 
     init(isSposReader: Bool, chargeId: String = "", amount: UInt = 100) {
@@ -26,7 +27,8 @@ class StartRefundViewController: TableViewController {
         super.init(style: .grouped)
         amountView.numberFormatter.currencyCode = "CAD"
         amountView.textField.text = String(amount)
-        chargeIdView.textField.text = chargeId
+        paymentOrChargeIdView.textField.text = chargeId
+        self.refundWithChargeId = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,10 +40,10 @@ class StartRefundViewController: TableViewController {
         self.addKeyboardDisplayObservers()
         title = "Collect refund"
 
-        chargeIdView.textField.autocorrectionType = .no
-        chargeIdView.textField.autocapitalizationType = .none
-        chargeIdView.textField.delegate = self
-        chargeIdView.textField.clearButtonMode = .whileEditing
+        paymentOrChargeIdView.textField.autocorrectionType = .no
+        paymentOrChargeIdView.textField.autocapitalizationType = .none
+        paymentOrChargeIdView.textField.delegate = self
+        paymentOrChargeIdView.textField.clearButtonMode = .whileEditing
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -69,9 +71,16 @@ class StartRefundViewController: TableViewController {
     }
 
     internal func startRefund() {
-        let refundParamsBuilder = RefundParametersBuilder(chargeId: chargeIdView.textField.text ?? "",
-            amount: amountView.amount,
-            currency: "cad")
+        let refundParamsBuilder: RefundParametersBuilder
+        if self.refundWithChargeId == true {
+            refundParamsBuilder = RefundParametersBuilder(chargeId: paymentOrChargeIdView.textField.text ?? "",
+                                                            amount: amountView.amount,
+                                                          currency: "cad")
+        } else {
+            refundParamsBuilder = RefundParametersBuilder(paymentIntentId: paymentOrChargeIdView.textField.text ?? "",
+                                                                   amount: amountView.amount,
+                                                                 currency: "cad")
+        }
 
         if let refundApplicationFee = refundApplicationFee {
             refundParamsBuilder.setRefundApplicationFee(refundApplicationFee)
@@ -95,9 +104,6 @@ class StartRefundViewController: TableViewController {
     }
 
     private func updateContent() {
-        let chargeIdSection = Section(header: "Charge ID", rows: [],
-                                      footer: Section.Extremity.autoLayoutView(chargeIdView))
-
         let amountSection = Section(header: "Amount", rows: [],
                                     footer: Section.Extremity.autoLayoutView(amountView))
 
@@ -108,7 +114,7 @@ class StartRefundViewController: TableViewController {
                                            footer: Section.Extremity.autoLayoutView(TestCardPickerView()))
 
         var sections: [Section] = [
-            chargeIdSection,
+            makeIdLabelSection(),
             amountSection,
             makeTransactionSection(),
             makeRefundApplicationFeeSection(),
@@ -121,6 +127,32 @@ class StartRefundViewController: TableViewController {
         }
 
         dataSource.sections = sections
+    }
+
+    func makeIdLabelSection() -> Section {
+        var selectedIndex: Int
+        if self.refundWithChargeId == true {
+            selectedIndex = 0
+        } else {
+            selectedIndex = 1
+        }
+        let rows: [Row] = [
+            Row(text: "Value",
+                accessory: .segmentedControl(
+                    items: ["charge id", "payment intent id"],
+                    selectedIndex: selectedIndex) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.refundWithChargeId = true
+                        case 1: self.refundWithChargeId = false
+                        default:
+                            self.refundWithChargeId = true
+                        }
+                        self.updateContent()
+                    }
+               )
+        ]
+
+        return Section(header: "REFUND ID", rows: rows, footer: Section.Extremity.autoLayoutView(paymentOrChargeIdView))
     }
 
     private func makeTransactionSection() -> Section? {

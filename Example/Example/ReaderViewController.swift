@@ -136,6 +136,14 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
+    internal func rebootReader() {
+        Terminal.shared.rebootReader { error in
+            if let error = error {
+                self.presentAlert(error: error)
+            } // else, the reader will have disconnected
+        }
+    }
+
     internal func showStartPayment() {
         let vc = StartPaymentViewController(isSposReader: isSposReader())
         self.navigationController?.pushViewController(vc, animated: true)
@@ -179,10 +187,21 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func showStartReaderSettings() {
+        let vc = StartReaderSettingsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     internal func showOfflinePaymentLogs() {
         let vc = OfflinePaymentsLogViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
+    internal func showCollectInputs() {
+        let vc = StartCollectInputsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
 
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
@@ -205,8 +224,14 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
             )
 
-            switch connectedReader.deviceType {
+            var rebootRow: Row?
+            let deviceType = connectedReader.deviceType
+            switch deviceType {
             case .stripeM2, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
+                rebootRow = Row(text: "Reboot Reader", selection: { [unowned self] in
+                    self.rebootReader()
+                }, cellClass: ButtonCell.self)
+
                 if let pendingUpdate = pendingUpdate {
                     workflowRows.append(
                         Row(text: "Update reader software", detailText: "Install an available software update for the reader.", selection: { [unowned self] in
@@ -218,15 +243,24 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
                     self.showStartSetReaderDisplay()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+                workflowRows.append(Row(text: "Reader settings", detailText: "View and change reader settings", selection: { [unowned self] in
+                    self.showStartReaderSettings()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             case .appleBuiltIn:
                 fallthrough
             @unknown default:
                 break
             }
 
-            if connectedReader.deviceType != .chipper2X && connectedReader.deviceType != .stripeM2 && connectedReader.deviceType != .appleBuiltIn {
+            if deviceType != .chipper2X && deviceType != .stripeM2 && deviceType != .appleBuiltIn {
                 workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            }
+
+            if deviceType == .wisePosE || deviceType == .wisePosEDevKit || deviceType == .stripeS700 || deviceType == .stripeS700DevKit {
+                workflowRows.append(Row(text: "Collect Inputs", detailText: "Collect information with forms", selection: { [unowned self] in
+                self.showCollectInputs()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             }
 
@@ -235,8 +269,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 Section(header: rdrConnectionTitle, rows: [
                     Row(text: "Disconnect", selection: { [unowned self] in
                         self.disconnectFromReader()
-                        }, cellClass: RedButtonCell.self)
-                ]),
+                        }, cellClass: RedButtonCell.self),
+                    rebootRow,
+                ].compactMap { $0 }),
                 Section(header: "COMMON WORKFLOWS", rows: workflowRows, footer: .title(versions))
             ]
         } else {
@@ -334,12 +369,21 @@ extension ReaderViewController: BluetoothReaderDelegate {
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
+
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        // Ignore if user requested (no need to advertise that)
+        if reason == .disconnectRequested {
+            return
+        }
+        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))")
+        connectedReader = nil
+    }
 }
 
 // MARK: ReconnectionDelegate
 extension ReaderViewController: ReconnectionDelegate {
-    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable) {
-        self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader \(reader.serialNumber) has disconnected", preferredStyle: .alert)
+    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
+        self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader \(reader.serialNumber) has disconnected: \(Terminal.stringFromDisconnectReason(disconnectReason))", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in cancelable.cancel { error in
             // If terminalDidFailReaderReconnect did not present anything, present results of cancel and clear alert
             if self.reconnectionAlertController.isBeingPresented {

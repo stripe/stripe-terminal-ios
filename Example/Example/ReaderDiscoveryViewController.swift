@@ -298,10 +298,16 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     // MARK: - Location Selection UI
 
     private func bluetoothConnectionConfigurationSection() -> Section {
+        let commonRows = [
+            Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { [unowned self] _ in
+                self.autoReconnectOnUnexpectedDisconnect.toggle()
+            })),
+        ]
+
         if discoveryConfig.simulated {
             return Section(
                 header: Section.Extremity.title("Select location"),
-                rows: [
+                rows: commonRows + [
                     Row(
                         text: "Mock simulated reader location",
                         accessory: .disclosureIndicator,
@@ -313,10 +319,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         } else {
             return Section(
                 header: Section.Extremity.title("Connection Configuration"),
-                rows: [
-                    Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { [unowned self] _ in
-                        self.autoReconnectOnUnexpectedDisconnect.toggle()
-                    })),
+                rows: commonRows + [
                     Row(
                         text: selectedLocationStub != nil ? selectedLocationStub?.displayName : "No location selected",
                         selection: { [unowned self] in self.showLocationSelector() },

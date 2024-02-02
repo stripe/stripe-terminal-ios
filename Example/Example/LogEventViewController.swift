@@ -61,6 +61,8 @@ struct LogEvent: CustomStringConvertible, Event {
         case captureSetupIntent = "backend.captuteSetupIntent"
         case cancelPaymentIntent = "terminal.cancelPaymentIntent"
         case cancelSetupIntent = "terminal.cancelSetupIntent"
+        case collectInputs = "terminal.collectInputs"
+        case cancelCollectInputs = "terminal.cancelCollectInputs"
     }
 
     enum AssociatedObject {
@@ -71,6 +73,7 @@ struct LogEvent: CustomStringConvertible, Event {
         case paymentMethod(PaymentMethod)
         case refund(Refund)
         case setupIntent(SetupIntent)
+        case collectInputs([CollectInputsResult])
         case object(CustomStringConvertible)
     }
 
@@ -234,7 +237,22 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Cancel SetupIntent Failed"
             case .message(let message): string = message
             }
+        case .collectInputs:
+            switch result {
+            case .started: string = "Started CollectInputs"
+            case .succeeded: string = "Completed CollectInputs"
+            case .errored: string = "CollectInputs Failed"
+            case .message(let message): string = message
+            }
+        case .cancelCollectInputs:
+            switch result {
+            case .started: string = "Cancel CollectInputs"
+            case .succeeded: string = "Canceled CollectInputs"
+            case .errored: string = "Cancel CollectInputs Failed"
+            case .message(let message): string = message
+            }
         }
+
         return string
     }
 
@@ -279,6 +297,7 @@ extension LogEvent.AssociatedObject {
         case .paymentMethod: return "PAYMENTMETHOD"
         case .refund: return "REFUND"
         case .setupIntent: return "SETUPINTENT"
+        case .collectInputs: return "COLLECTINPUTS"
         case .object: return "OBJECT"
         }
     }
@@ -333,6 +352,8 @@ extension LogEvent.AssociatedObject {
             return prettyPrint(json: refund.originalJSON)
         case .setupIntent(let setupIntent):
             return prettyPrint(json: setupIntent.originalJSON)
+        case .collectInputs(let collectInputs):
+            return collectInputs.description
         case .object(let object):
             return object.description
         }

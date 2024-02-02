@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StripeTerminal
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -8,6 +8,7 @@ import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 extension StripeTerminal.Terminal {
   public func supportsReaders(of deviceType: StripeTerminal.DeviceType, discoveryMethod: StripeTerminal.DiscoveryMethod, simulated isSimulated: Swift.Bool) -> Swift.Result<(), any Swift.Error>
 }
@@ -38,6 +39,7 @@ extension StripeTerminal.Terminal {
   case accountLinkingRequiresiCloudSignIn
   case accountLinkingCancelled
   case accountLinkingCheckFailed
+  case accountDeactivated
   case merchantBlocked
   case invalidMerchant
   case readNotAllowed

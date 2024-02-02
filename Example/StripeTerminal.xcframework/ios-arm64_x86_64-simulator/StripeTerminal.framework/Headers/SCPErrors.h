@@ -73,9 +73,9 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorNilRefundPaymentMethod = 1550,
     /**
-     The RefundParameters object has invalid values. The Charge ID (ch_123abc)
+     The RefundParameters object has invalid values. The Charge ID (ch_123abc) or PaymentIntent ID (pi_123abc)
      can be found on the `PaymentIntent` object, which you should get from
-     your backend.
+     your backend. You must have only one of a charge or payment intent ID set.
      */
     SCPErrorInvalidRefundParameters = 1555,
     /**
@@ -185,6 +185,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorInvalidLocationIdParameter = 1960,
 
+
+    /**
+     * An invalid parameter was used to start a collect inputs operation.
+     */
+    SCPErrorCollectInputsInvalidParameter = 1997,
+
+    /**
+     * Error reported when the connected account does not have access to this feature, or the reader/SDK version is
+     * not compatible with the collect inputs operation.
+     */
+    SCPErrorCollectInputsUnsupported = 1998,
 
     /*
      USER ERRORS
@@ -362,6 +373,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled = 2970,
 
+    /**
+     * A timeout occurred while processing a collect inputs operation.
+     */
+    SCPErrorCollectInputsTimedOut = 2971,
+
     /*
      READER ERRORS
      */
@@ -505,6 +521,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorAppleBuiltInReaderInvalidMerchant = 3960,
 
+    /**
+     An error that indicates the linked Apple ID account has been deactivated by the merchant.
+     */
+    SCPErrorAppleBuiltInReaderAccountDeactivated = 3970,
+
     /*
      UNEXPECTED ERRORS
      */
@@ -531,6 +552,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Encryption key still initializing. Offline payments are not yet available, please try again.
      */
     SCPErrorEncryptionKeyStillInitializing = 5003,
+    /**
+     * An unexpected error occurred while processing a collectInputs operation.
+     */
+    SCPErrorCollectInputsApplicationError = 5004,
 
     /*
      PAYMENT ERRORS
@@ -671,6 +696,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      * `-[SCPTerminal collectSetupIntentPaymentMethod:customerConsentCollected:completion:]` if connected to an Internet reader
      * `-[SCPTerminal confirmSetupIntent:completion:]`
      * `-[SCPTerminal cancelSetupIntent:completion:]`
+     * `-[SCPTerminal collectInputs:completion:]`
 
      */
     SCPErrorSessionExpired = 9060,

@@ -25,6 +25,11 @@ NS_SWIFT_NAME(RefundParameters)
 @interface SCPRefundParameters : NSObject
 
 /**
+ The ID of the payment intent to be refunded.
+ */
+@property (nonatomic, nullable, readonly) NSString *paymentIntentId;
+
+/**
  The ID of the charge to be refunded.
  */
 @property (nonatomic, nullable, readonly) NSString *chargeId;
@@ -95,6 +100,21 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 @interface SCPRefundParametersBuilder : SCPBuilder <SCPRefundParameters *>
 
 /**
+ Initializes `SCPRefundParametersBuilder` with the given payment intent, amount, and currency.
+
+ @param paymentIntentId    The ID of the PaymentIntent to be refunded.
+
+ @param amount      The amount to be refunded, provided in the currency's
+ smallest unit.
+
+ @param currency    The currency of the original charge. You cannot refund a charge
+ with a different currency than the currency that was used to create the charge.
+ */
+- (instancetype)initWithPaymentIntentId:(NSString *)paymentIntentId
+                                 amount:(NSUInteger)amount
+                               currency:(NSString *)currency;
+
+/**
  Initializes `SCPRefundParametersBuilder` with the given charge, amount, and currency.
 
  @param chargeId    The ID of the charge to be refunded.
@@ -112,6 +132,9 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 /// @see SCPRefundParameters.chargeId
 - (SCPRefundParametersBuilder *)setChargeId:(NSString *)chargeId;
 
+/// @see SCPRefundParameters.paymentIntentId
+- (SCPRefundParametersBuilder *)setPaymentIntentId:(NSString *)paymentIntentId;
+
 /// @see SCPRefundParameters.amount
 - (SCPRefundParametersBuilder *)setAmount:(NSUInteger)amount;
 
@@ -128,7 +151,7 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 - (SCPRefundParametersBuilder *)setRefundApplicationFee:(BOOL)refundApplicationFee;
 
 /**
- Use `initWithChargeId:amount:currency:`
+ Use `initWithChargeId:amount:currency:` or `initWithPaymentIntentId:amount:currency:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 

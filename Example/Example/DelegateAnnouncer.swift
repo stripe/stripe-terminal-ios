@@ -125,6 +125,12 @@ class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegat
             delegate.readerDidReportLowBatteryWarning?(reader)
         }
     }
+
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        announce { delegate in
+            delegate.reader?(reader, didDisconnect: reason)
+        }
+    }
 }
 
 /**
@@ -176,9 +182,9 @@ class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDel
 class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
     static let shared = ReconnectionDelegateAnnouncer()
 
-    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable) {
+    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
         announce { delegate in
-            delegate.reader(reader, didStartReconnect: cancelable)
+            delegate.reader?(reader, didStartReconnect: cancelable, disconnectReason: disconnectReason)
         }
     }
 
