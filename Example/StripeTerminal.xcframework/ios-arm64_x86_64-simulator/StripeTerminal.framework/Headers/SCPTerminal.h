@@ -16,8 +16,11 @@
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCollectConfiguration.h>
+#import <StripeTerminal/SCPCollectInputsParameters.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
+#import <StripeTerminal/SCPCreateConfiguration.h>
 #import <StripeTerminal/SCPDeviceType.h>
+#import <StripeTerminal/SCPDisconnectReason.h>
 #import <StripeTerminal/SCPDiscoveryMethod.h>
 #import <StripeTerminal/SCPLocalMobileReaderDelegate.h>
 #import <StripeTerminal/SCPLogLevel.h>
@@ -28,6 +31,7 @@
 #import <StripeTerminal/SCPPaymentStatus.h>
 #import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReaderEvent.h>
+#import <StripeTerminal/SCPReaderSettingsParameters.h>
 #import <StripeTerminal/SCPRefundConfiguration.h>
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSetupIntentConfiguration.h>
@@ -38,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"3.2.1";
+static NSString *const SCPSDKVersion = @"3.3.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -230,9 +234,6 @@ API_AVAILABLE(ios(13.0))
  The discovery process will stop on its own when the terminal successfully
  connects to a reader, if the command is canceled, or if a discovery error occurs.
 
- @note If `discoverReaders` is canceled, the completion block will be called
- with `nil` (rather than an `SCPErrorCanceled` error).
-
  @see https://stripe.com/docs/terminal/readers/connecting
 
  @param configuration   The configuration for reader discovery.
@@ -416,6 +417,20 @@ before connecting which specifies the location to which this
  @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#updating-reader-software
  */
 - (void)installAvailableUpdate;
+
+/**
+ Reboots the connected reader.
+
+ If the reboot succeeds, the completion block is called with `nil`. If the
+ reboot fails, the completion block is called with an error.
+
+ @note: This method is only available for Bluetooth readers.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
+
+ @param completion      The completion block called when the command completes.
+ */
+- (void)rebootReader:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(rebootReader(_:));
 
 /**
  Attempts to disconnect from the currently connected reader.
@@ -891,6 +906,37 @@ before connecting which specifies the location to which this
     NS_SWIFT_NAME(setReaderDisplay(_:completion:));
 
 /**
+ Configures settings on the connected reader.
+
+ @param params The `SCPReaderSettingsParameters` instance with the values to set on the reader.
+ @param completion The `SCPReaderSettingsCompletionBlock` to be called when the operation completes.
+ */
+- (void)setReaderSettings:(id<SCPReaderSettingsParameters>)params
+               completion:(SCPReaderSettingsCompletionBlock)completion
+    NS_SWIFT_NAME(setReaderSettings(_:completion:));
+
+/**
+ Retrieves the current settings from the connected reader.
+
+ @param completion The `SCPReaderSettingsCompletionBlock` to be called when the operation completes.
+ */
+- (void)retrieveReaderSettings:(SCPReaderSettingsCompletionBlock)completion
+    NS_SWIFT_NAME(retrieveReaderSettings(_:));
+
+/**
+ Displays forms and collects information from customers. Available for BBPOS WisePOS E and Stripe S700.
+
+ @param collectInputsParams  parameters to configure forms
+ @param completion  The completion block called when the command completes.
+
+ @see https://stripe.com/docs/terminal/features/collect-inputs
+
+ */
+- (nullable SCPCancelable *)collectInputs:(SCPCollectInputsParameters *)collectInputsParams
+                               completion:(SCPCollectInputsCompletionBlock)completion
+    NS_SWIFT_NAME(collectInputs(_:completion:));
+
+/**
  Returns an unlocalized string for the given reader input options, e.g.
  "Swipe / Insert"
  */
@@ -954,6 +1000,16 @@ before connecting which specifies the location to which this
  Returns an unlocalized string for the given network status, e.g. "Online"
  */
 + (NSString *)stringFromNetworkStatus:(SCPNetworkStatus)networkStatus NS_SWIFT_NAME(stringFromNetworkStatus(_:));
+
+/**
+ Returns an unlocalized string for the given disconnect reason, e.g. "Reboot requested"
+ */
++ (NSString *)stringFromDisconnectReason:(SCPDisconnectReason)reason NS_SWIFT_NAME(stringFromDisconnectReason(_:));
+
+/**
+ Returns an unlocalized string for the given offline behavior.
+ */
++ (NSString *)stringFromOfflineBehavior:(SCPOfflineBehavior)behavior NS_SWIFT_NAME(stringFromOfflineBehavior(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

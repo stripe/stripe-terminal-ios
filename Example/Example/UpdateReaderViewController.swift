@@ -279,6 +279,13 @@ extension UpdateReaderViewController: BluetoothReaderDelegate {
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
+
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))") { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+        headerView.connectedReader = nil
+    }
 }
 
 // MARK: LocalMobileReaderDelegate
