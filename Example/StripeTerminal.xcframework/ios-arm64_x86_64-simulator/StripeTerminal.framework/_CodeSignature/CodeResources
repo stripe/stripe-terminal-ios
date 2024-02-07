@@ -402,7 +402,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		ibXfm2pw4lfpyPpch9e3SJhG2Vk=
+		StLFW/0ofCVXegVUQIpUmodgdVU=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -438,11 +438,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		blvfwk05Esb+GkgG9kjtjfDLRS0=
+		a5eMxLq0eVk5BJ9ZiS4NvGLmdHg=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		gRphC1bO3gCfhwj+MZgpJbW6a98=
+		CvENCQHrrd4gDqFvEOR3nlKQONM=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -462,7 +462,7 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		gRphC1bO3gCfhwj+MZgpJbW6a98=
+		CvENCQHrrd4gDqFvEOR3nlKQONM=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -1184,7 +1184,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			w8CJtZWmc03s1OHzra8OP5i1/5v/YPsyaQGvUOA8W8k=
+			QHSLtPDr/WCFGeiNQU9qCiOe2wFsX2Wlwj9+h9z2JjU=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -1247,7 +1247,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oNUf8m8Ez6HQDVzTJ2W1tQtmty29W6Xy/L7JDb0DS5k=
+			821plr1CVmFjGdvXeSRxFgRTH9UJjw5ovuhD2rTiR6w=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1282,7 +1282,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oNUf8m8Ez6HQDVzTJ2W1tQtmty29W6Xy/L7JDb0DS5k=
+			821plr1CVmFjGdvXeSRxFgRTH9UJjw5ovuhD2rTiR6w=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>

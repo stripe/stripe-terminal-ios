@@ -7,6 +7,11 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.3.1 2024-02-07
+* Built with Xcode 15.2, Swift version 5.9.
+* Fixes [#282](https://github.com/stripe/stripe-terminal-ios/issues/282): Fixes a crash when connecting to Stripe Reader M2 or BBPOS Chipper 2X devices that are running older configs.
+* Fixes a race condition that could result in a crash when an internet reader unexpectedly disconnects.
+
 # 3.3.0 2024-02-02
 * Built with Xcode 15.2, Swift version 5.9.
 * New: [`rebootReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)rebootReader:) method to reboot Bluetooth readers.
