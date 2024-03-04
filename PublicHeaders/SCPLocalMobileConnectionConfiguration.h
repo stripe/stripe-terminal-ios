@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
+#import <StripeTerminal/SCPReconnectionDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -73,6 +74,22 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
 @property (nonatomic, assign, readonly, getter=isReturnReadResultImmediatelyEnabled) BOOL returnReadResultImmediatelyEnabled;
 
 /**
+ When set to true, the Terminal SDK  will attempt a local mobile auto-reconnection on any unexpected disconnect.
+ You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
+ Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
+
+ When set to false, we will immediately surface any disconnection through TerminalDelegate.
+
+ Defaults to false.
+ */
+@property (nonatomic, assign, readonly, getter=isAutoReconnectOnUnexpectedDisconnect) BOOL autoReconnectOnUnexpectedDisconnect;
+
+/**
+ Contains callback methods for local mobile auto-reconnection.
+ */
+@property (nonatomic, weak, readonly, nullable) id<SCPReconnectionDelegate> autoReconnectionDelegate;
+
+/**
  Use `SCPLocalMobileConnectionConfigurationBuilder`
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -131,6 +148,22 @@ NS_SWIFT_NAME(LocalMobileConnectionConfigurationBuilder)
  * @see `SCPLocalMobileConnectionConfiguration.returnReadResultImmediatelyEnabled`
  */
 - (SCPLocalMobileConnectionConfigurationBuilder *)setReturnReadResultImmediatelyEnabled:(BOOL)returnReadResultImmediatelyEnabled;
+
+/**
+ When set to true, the Terminal SDK  will attempt a local mobile auto-reconnection on any unexpected disconnect.
+ You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
+ Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
+
+ When set to false, we will immediately surface any disconnection through TerminalDelegate.
+
+ Defaults to false.
+ */
+- (SCPLocalMobileConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/**
+ Contains callback methods for local mobile auto-reconnection.
+ */
+- (SCPLocalMobileConnectionConfigurationBuilder *)setAutoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
 
 /**
  Use `initWithLocationId:`

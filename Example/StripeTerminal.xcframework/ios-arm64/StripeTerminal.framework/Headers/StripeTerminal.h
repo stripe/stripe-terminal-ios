@@ -60,6 +60,7 @@
 #import <StripeTerminal/SCPNetworks.h>
 #import <StripeTerminal/SCPNumericInput.h>
 #import <StripeTerminal/SCPNumericResult.h>
+#import <StripeTerminal/SCPOfflineBehavior.h>
 #import <StripeTerminal/SCPOfflineCardPresentDetails.h>
 #import <StripeTerminal/SCPOfflineDelegate.h>
 #import <StripeTerminal/SCPOfflineDetails.h>

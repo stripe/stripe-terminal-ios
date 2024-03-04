@@ -73,9 +73,6 @@ For your app to run in the background and remain connected to the reader, add th
 
 For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:
 
-- Privacy - Bluetooth Peripheral Usage Description
-  - Key: `NSBluetoothPeripheralUsageDescription`
-  - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
 - Privacy - Bluetooth Always Usage Description
   - Key: `NSBluetoothAlwaysUsageDescription`
   - Value: "This app uses Bluetooth to connect to supported card readers."

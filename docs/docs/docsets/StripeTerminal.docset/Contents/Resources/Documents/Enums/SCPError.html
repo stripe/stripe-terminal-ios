@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.3.1 Docs
+          StripeTerminal 3.4.0 Docs
         </a>
         
       </p>
@@ -1512,6 +1512,71 @@ forwarding livemode transactions.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent">SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error reported when calling collectPaymentMethod with request dynamic currency conversion
+and a CollectConfiguration with updatePaymentIntent set to false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent</span> <span class="o">=</span> <span class="mi">1941</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestDynamicCurrencyConversionRequiresUpdatePaymentIntent</span> <span class="o">=</span> <span class="mi">1941</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorDynamicCurrencyConversionNotAvailable"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorDynamicCurrencyConversionNotAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorDynamicCurrencyConversionNotAvailable">SCPErrorDynamicCurrencyConversionNotAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dynamic Currency Conversion is not currently available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorDynamicCurrencyConversionNotAvailable</span> <span class="o">=</span> <span class="mi">1942</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dynamicCurrencyConversionNotAvailable</span> <span class="o">=</span> <span class="mi">1942</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorReaderTippingParameterInvalid"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorReaderTippingParameterInvalid" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorReaderTippingParameterInvalid">SCPErrorReaderTippingParameterInvalid</a>
@@ -2273,6 +2338,39 @@ reader while online to install required updates before this reader can be used f
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerConnectionOfflineNeedsUpdate</span> <span class="o">=</span> <span class="mi">2872</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderConnectionOfflinePairingUnseenDisabled"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderConnectionOfflinePairingUnseenDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderConnectionOfflinePairingUnseenDisabled">SCPErrorReaderConnectionOfflinePairingUnseenDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connecting to unseen readers offline is disabled. You must connect to this
+reader at this location while online before it can be used for offline payments.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderConnectionOfflinePairingUnseenDisabled</span> <span class="o">=</span> <span class="mi">2873</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerConnectionOfflinePairingUnseenDisabled</span> <span class="o">=</span> <span class="mi">2873</span></code></pre>
 
                         </div>
                       </div>
@@ -3568,6 +3666,39 @@ Ensure the Apple ID is still active and in a good standing and try again.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorReaderMissingEncryptionKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys">SCPErrorReaderMissingEncryptionKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader is missing encryption keys required for taking payments and has disconnected. Reconnect to the reader
+to attempt to re-install the keys. If the error persists, contact support.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorReaderMissingEncryptionKeys</span> <span class="o">=</span> <span class="mi">3980</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readerMissingEncryptionKeys</span> <span class="o">=</span> <span class="mi">3980</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorUnexpectedSdkError"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorUnexpectedSdkError" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedSdkError">SCPErrorUnexpectedSdkError</a>
@@ -4493,7 +4624,7 @@ the functionality or retry with another value for <code><a href="../Enums/SCPOff
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-02-07)</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-03-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

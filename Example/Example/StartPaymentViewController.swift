@@ -28,6 +28,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var recollectAfterCardBrandDecline = false
     private let isSposReader: Bool
     private var updatePaymentIntent = false
+    private var requestDcc = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -190,6 +191,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             .setSkipTipping(self.skipTipping)
             .setUpdatePaymentIntent(updatePaymentIntent)
             .setEnableCustomerCancellation(self.enableCustomerCancellation)
+            .setRequestDynamicCurrencyConversion(self.requestDcc)
 
         do {
             if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
@@ -437,6 +439,16 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return Section(header: "OFFLINE BEHAVIOR", rows: rows)
     }
 
+    /// Makes the "DCC" section.
+    private func makeRequestDcc() -> Section {
+        let rows: [Row] = [
+            Row(text: "Request Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
+                self.requestDcc.toggle()
+            })
+        ]
+        return Section(header: "Request Dynamic Currency Conversion", rows: rows)
+    }
+
     private func updateContent() {
 
         let sections: [Section?] = [
@@ -453,6 +465,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeOfflineStoredTransactionLimitSection(),
             self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
+            self.makeRequestDcc(),
             self.startSection
         ]
 

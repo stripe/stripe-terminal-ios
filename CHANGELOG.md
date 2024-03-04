@@ -7,6 +7,18 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.4.0 2024-03-04
+* New: For Tap to Pay on iPhone, added `autoReconnectOnUnexpectedDisconnect` and `autoReconnectionDelegate` to the [`SCPLocalMobileConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPLocalMobileConnectionConfiguration.html). When `autoReconnectOnUnexpectedDisconnect` is enabled, the SDK will attempt to restore connection upon any unexpected disconnect to your local mobile reader. See [Stripe documentation](https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#handle-disconnects) for details.
+* Update: Formatting on certain fields exposed in `SCPOfflineCardPresentDetails` is now consistent with `SCPCardPresentDetails`
+  * `expYear` is a four-digit number
+  * `receiptDetails.accountType` is no longer a number, and is one of `default`, `savings`, `checking`, or `credit`
+* Update: The SDK now requires that a `NSBluetoothAlwaysUsageDescription` key be present in your app's Info.plist instead of a `NSBluetoothPeripheralUsageDescription` key.
+* Update: Allow `SCPCollectConfiguration.updatePaymentIntent` to be true for offline enabled readers when `SCPCreateConfiguration` has `offlineBehavior` set to `SCPOfflineBehaviorRequireOnline`.
+* Update: Added new `SCPErrorReaderMissingEncryptionKeys`. Returned in a rare condition where the reader is missing the required keys to encrypt payment method data. The reader will disconnect if this error is hit. Reconnecting to the reader should re-install the keys.
+* Update: More descriptive error messages in `SCPErrorKeyMessage` for operations that fail due to network-related errors.
+* Fixes a bug where `SCPPaymentIntent.stripeId` was not `nil` in the response to `confirmPaymentIntent` when operating offline with a smart reader.
+* Fixes a rare bug where Bluetooth readers could get into a state where they would no longer accept payments and needed to be replaced.
+
 # 3.3.1 2024-02-07
 * Built with Xcode 15.2, Swift version 5.9.
 * Fixes [#282](https://github.com/stripe/stripe-terminal-ios/issues/282): Fixes a crash when connecting to Stripe Reader M2 or BBPOS Chipper 2X devices that are running older configs.

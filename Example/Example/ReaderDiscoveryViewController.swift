@@ -200,6 +200,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                     let connectionConfig = try LocalMobileConnectionConfigurationBuilder(locationId: presentLocationId)
                         .setMerchantDisplayName(nil) // use the location name
                         .setOnBehalfOf(useOBO ? onBehalfOfTextField.textField.text : nil)
+                        .setAutoReconnectOnUnexpectedDisconnect(self.autoReconnectOnUnexpectedDisconnect)
+                        .setAutoReconnectionDelegate(ReconnectionDelegateAnnouncer.shared)
                         .build()
                     return Terminal.shared.connectLocalMobileReader(reader, delegate: LocalMobileReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
                 } else {
@@ -301,6 +303,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         let commonRows = [
             Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { [unowned self] _ in
                 self.autoReconnectOnUnexpectedDisconnect.toggle()
+                self.updateContent()
             })),
         ]
 
