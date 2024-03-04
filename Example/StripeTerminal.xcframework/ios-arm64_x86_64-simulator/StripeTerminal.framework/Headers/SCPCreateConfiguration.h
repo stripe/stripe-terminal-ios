@@ -12,26 +12,9 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBuilder.h>
+#import <StripeTerminal/SCPOfflineBehavior.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-/**
-  The available operating modes that define how payment intents respond to changes in network connectivity.
- */
-typedef NS_ENUM(NSInteger, SCPOfflineBehavior) {
-    /**
-      When network connectivity is available, this PaymentIntent will be transacted online. When network connectivity is unavailable, the PaymentIntent will be transacted offline.
-     */
-    SCPOfflineBehaviorPreferOnline,
-    /**
-      The PaymentIntent will only be transacted when network connectivity is available.
-     */
-    SCPOfflineBehaviorRequireOnline,
-    /**
-      The PaymentIntent will only be transacted offline, regardless of network connectivity.
-     */
-    SCPOfflineBehaviorForceOffline
-} NS_SWIFT_NAME(OfflineBehavior);
 
 /**
  The `CreateConfiguration` contains configuration relevant to creating a payment intent.

@@ -176,6 +176,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorReaderConnectionConfigurationInvalid = 1940,
 
     /**
+     Error reported when calling collectPaymentMethod with request dynamic currency conversion
+     and a CollectConfiguration with updatePaymentIntent set to false.
+     */
+    SCPErrorRequestDynamicCurrencyConversionRequiresUpdatePaymentIntent = 1941,
+
+    /**
+     Dynamic Currency Conversion is not currently available.
+     */
+    SCPErrorDynamicCurrencyConversionNotAvailable = 1942,
+
+    /**
      An invalid usage of `eligibleAmount` or `skipTipping` was passed into `collect`.
      */
     SCPErrorReaderTippingParameterInvalid = 1950,
@@ -308,6 +319,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      reader while online to install required updates before this reader can be used for offline payments.
      */
     SCPErrorReaderConnectionOfflineNeedsUpdate = 2872,
+
+    /**
+     Connecting to unseen readers offline is disabled. You must connect to this
+     reader at this location while online before it can be used for offline payments.
+     */
+    SCPErrorReaderConnectionOfflinePairingUnseenDisabled = 2873,
 
     /**
      The SDK has not activated a reader online yet, meaning there is no account
@@ -525,6 +542,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      An error that indicates the linked Apple ID account has been deactivated by the merchant.
      */
     SCPErrorAppleBuiltInReaderAccountDeactivated = 3970,
+
+    /**
+     The reader is missing encryption keys required for taking payments and has disconnected. Reconnect to the reader
+     to attempt to re-install the keys. If the error persists, contact support.
+     */
+    SCPErrorReaderMissingEncryptionKeys = 3980,
 
     /*
      UNEXPECTED ERRORS

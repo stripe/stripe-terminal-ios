@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.3.1 Docs
+          StripeTerminal 3.4.0 Docs
         </a>
         
       </p>
@@ -849,6 +849,78 @@ the amount of time it takes for a transaction to complete.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectOnUnexpectedDisconnect"></a>
+                    <a name="//apple_ref/objc/Property/autoReconnectOnUnexpectedDisconnect" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectOnUnexpectedDisconnect">autoReconnectOnUnexpectedDisconnect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When set to true, the Terminal SDK  will attempt a local mobile auto-reconnection on any unexpected disconnect.
+You must also set an <code><a href="../Classes/SCPLocalMobileConnectionConfiguration.html#/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a></code> for your application to respond accordingly to reconnection attempts.
+Enabling <code>autoReconnectOnUnexpectedDisconnect</code> without providing an <code><a href="../Classes/SCPLocalMobileConnectionConfiguration.html#/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a></code> will error with <code>SCPErrorReaderConnectionConfigurationInvalid</code>.</p>
+
+<p>When set to false, we will immediately surface any disconnection through TerminalDelegate.</p>
+
+<p>Defaults to false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">unsafe_unretained</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span>
+          <span class="n">getter</span><span class="o">=</span><span class="n">isAutoReconnectOnUnexpectedDisconnect</span><span class="p">)</span>
+    <span class="n">BOOL</span> <span class="n">autoReconnectOnUnexpectedDisconnect</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isAutoReconnectOnUnexpectedDisconnect</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectionDelegate"></a>
+                    <a name="//apple_ref/objc/Property/autoReconnectionDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocalMobileConnectionConfiguration(py)autoReconnectionDelegate">autoReconnectionDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains callback methods for local mobile auto-reconnection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a></span><span class="o">&gt;</span> <span class="n">autoReconnectionDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">autoReconnectionDelegate</span><span class="p">:</span> <span class="kt">ReconnectionDelegate</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPLocalMobileConnectionConfiguration(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPLocalMobileConnectionConfiguration(im)init">-init</a>
@@ -916,7 +988,7 @@ the amount of time it takes for a transaction to complete.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-02-07)</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-03-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

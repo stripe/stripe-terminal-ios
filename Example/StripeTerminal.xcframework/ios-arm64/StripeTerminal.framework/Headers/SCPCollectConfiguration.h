@@ -59,6 +59,15 @@ NS_SWIFT_NAME(CollectConfiguration)
 @property (nonatomic, assign, readonly) BOOL enableCustomerCancellation;
 
 /**
+ Request Dynamic Currency Conversion for the presented payment method if available.
+
+ `updatePaymentIntent` must be set to true for dynamic currency conversion to be enabled.
+
+ Defaults to NO.
+ */
+@property (nonatomic, assign, readonly) BOOL requestDynamicCurrencyConversion;
+
+/**
  Use `SCPCollectConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -87,6 +96,9 @@ NS_SWIFT_NAME(CollectConfigurationBuilder)
 
 /// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
 - (SCPCollectConfigurationBuilder *)setEnableCustomerCancellation:(BOOL)enableCustomerCancellation;
+
+/// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
+- (SCPCollectConfigurationBuilder *)setRequestDynamicCurrencyConversion:(BOOL)requestDynamicCurrencyConversion;
 
 @end
 
