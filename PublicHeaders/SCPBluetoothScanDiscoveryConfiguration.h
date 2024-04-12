@@ -39,12 +39,6 @@ NS_SWIFT_NAME(BluetoothScanDiscoveryConfiguration)
 
 /**
  Builder class for SCPBluetoothScanDiscoveryConfiguration
-
- Example usage:
-
- `[[[SCPBluetoothScanDiscoveryConfigurationBuilder new] setTimeout:10] build]`
-
- `BluetoothScanDiscoveryConfigurationBuilder().setTimeout(10).build()`
  */
 NS_SWIFT_NAME(BluetoothScanDiscoveryConfigurationBuilder)
 @interface SCPBluetoothScanDiscoveryConfigurationBuilder : SCPBuilder <SCPBluetoothScanDiscoveryConfiguration *>

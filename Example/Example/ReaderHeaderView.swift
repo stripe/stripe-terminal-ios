@@ -70,11 +70,11 @@ class ReaderHeaderView: UIView {
 
         updateContent()
 
-        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     deinit {
-        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {

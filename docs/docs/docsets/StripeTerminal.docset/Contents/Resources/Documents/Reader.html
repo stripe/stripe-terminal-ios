@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 3.4.0 Docs
+          StripeTerminal 3.5.0 Docs
         </a>
         
       </p>
@@ -290,6 +290,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTextResult.html">SCPTextResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPToggle.html">SCPToggle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPToggleValue.html">SCPToggleValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPToggleResult.html">SCPToggleResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPToggleBuilder.html">SCPToggleBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPReaderSettings.html">SCPReaderSettings</a>
@@ -727,7 +739,7 @@ These properties are labeled with the reader or reader type to which they apply.
 the lifetime of its connection.</p>
 
 <p>Implementing this delegate is required when connecting to any Bluetooth connected
-reader, such as the Chipper 2X BT and the WisePad 3.</p>
+reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.</p>
 
 <p>The provided delegate must be retained by your application until the reader disconnects.</p>
 
@@ -2037,6 +2049,145 @@ displayed reflect what the customer is actually charged.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPToggle"></a>
+                    <a name="//apple_ref/objc/Class/SCPToggle" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPToggle">SCPToggle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains information about a Toggle to display as part of a form</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/features/collect-inputs">https://stripe.com/docs/terminal/features/collect-inputs</a>
+
+</div>
+
+                        <a href="Classes/SCPToggle.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPToggle</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Toggle</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPToggleValue"></a>
+                    <a name="//apple_ref/objc/Enum/SCPToggleValue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPToggleValue">SCPToggleValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible toggle default values</p>
+
+                        <a href="Enums/SCPToggleValue.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPToggleValue</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ToggleValue</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPToggleResult"></a>
+                    <a name="//apple_ref/objc/Enum/SCPToggleResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPToggleResult">SCPToggleResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible toggle result values</p>
+
+                        <a href="Enums/SCPToggleResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPToggleResult</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ToggleResult</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPToggleBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPToggleBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPToggleBuilder">SCPToggleBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builder class for <code><a href="Classes/SCPToggle.html">SCPToggle</a></code>.</p>
+
+                        <a href="Classes/SCPToggleBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPToggleBuilder</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPToggle.html">SCPToggle</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ToggleBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">Toggle</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPReaderSettings"></a>
                     <a name="//apple_ref/objc/Class/SCPReaderSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPReaderSettings">SCPReaderSettings</a>
@@ -2330,7 +2481,7 @@ errors setting the values.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-03-04)</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-04-12)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

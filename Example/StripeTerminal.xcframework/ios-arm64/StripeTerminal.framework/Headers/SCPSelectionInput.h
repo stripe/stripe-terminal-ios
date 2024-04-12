@@ -14,6 +14,7 @@
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPInput.h>
 #import <StripeTerminal/SCPSelectionButton.h>
+#import <StripeTerminal/SCPToggle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,6 +45,11 @@ NS_SWIFT_NAME(SelectionInput)
  Represents the selection buttons
  */
 @property (nonatomic, readonly, copy) NSArray<SCPSelectionButton *> *selectionButtons;
+
+/**
+ Represents the toggles
+ */
+@property (nonatomic, readonly, copy) NSArray<SCPToggle *> *toggles;
 
 /**
  Use `SCPSelectionInputBuilder`.
@@ -83,6 +89,9 @@ NS_SWIFT_NAME(SelectionInputBuilder)
 
 /// @see `SCPSelectionInput.selectionButtons`
 - (SCPSelectionInputBuilder *)setSelectionButtons:(NSArray<SCPSelectionButton *> *)selectionButton;
+
+/// @see `SCPSelectionInput.toggles`
+- (SCPSelectionInputBuilder *)setToggles:(NSArray<SCPToggle *> *)toggles;
 
 /**
  Use `initWithTitle`.

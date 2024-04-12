@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPCollectInputsResult.h>
+#import <StripeTerminal/SCPToggle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,11 @@ NS_SWIFT_NAME(TextResult)
  Represents the collected text. This value is nil if the form was skipped.
  */
 @property (nonatomic, nullable, readonly) NSString *text;
+
+/**
+ Represents the collected toggles, a list of SCPToggleResult. The value is SCPToggleResultSkipped if a form is skipped.
+ */
+@property (nonatomic, readonly, copy) NSArray<NSNumber *> *toggles;
 
 /**
  You cannot directly instantiate this class.

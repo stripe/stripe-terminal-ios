@@ -54,7 +54,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
@@ -74,7 +74,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
         navigationItem.rightBarButtonItem = doneButton
 
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
 
         if completed || Terminal.shared.paymentStatus != .ready {

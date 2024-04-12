@@ -18,6 +18,7 @@
 		028DC8572A9D28B40069E4BE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DC8562A9D28B40069E4BE /* Color.swift */; };
 		02A6BF5624CB1C4D0054ADFF /* StripeTerminal.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DA8E3A24532E4900235921 /* DelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */; };
+		13C28D04C46011324EF66D3A /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70137AB501656B7EF2D0D6A /* Pods_Example.framework */; };
 		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
 		1F65BFFD2AF42F8500043452 /* StartCollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */; };
 		1F65BFFF2AF44F4000043452 /* CollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */; };
@@ -33,7 +34,6 @@
 		395970602A8D85830015F0F3 /* LocationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959705F2A8D85830015F0F3 /* LocationStub.swift */; };
 		50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */; };
 		50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */; };
-		69092AD1CCEBF84170CD7D63 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535CA1E41E7360156543924B /* Pods_Example.framework */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
 		A40E7CF027F64191005879C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16F40A72094F07C009CE87C /* Assets.xcassets */; };
 		A63E8431260D073B006CB90C /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E8430260D073B006CB90C /* CreateLocationViewController.swift */; };
@@ -98,14 +98,13 @@
 		3959705F2A8D85830015F0F3 /* LocationStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStub.swift; sourceTree = "<group>"; };
 		50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartReaderSettingsViewController.swift; sourceTree = "<group>"; };
 		50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+StripeTerminal.swift"; sourceTree = "<group>"; };
-		535CA1E41E7360156543924B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		556562530934C2D63572BBBB /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
+		92862E4CECD89146959A3130 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
-		A7096A00C8A1B7ED617D5F92 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSetupIntentViewController.swift; sourceTree = "<group>"; };
-		AE36D4A64F68E1F598854908 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
 		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 		C1DE30D221438E9800A3026F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		C1F78BDA2144F0830094BE37 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		C70137AB501656B7EF2D0D6A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,18 +135,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
-				69092AD1CCEBF84170CD7D63 /* Pods_Example.framework in Frameworks */,
+				13C28D04C46011324EF66D3A /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D14F5909F6B4B3C4C7ADB51 /* Pods */ = {
+		9FCFA23AC473B71F0918A4C7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE36D4A64F68E1F598854908 /* Pods-Example.debug.xcconfig */,
-				A7096A00C8A1B7ED617D5F92 /* Pods-Example.release.xcconfig */,
+				92862E4CECD89146959A3130 /* Pods-Example.debug.xcconfig */,
+				556562530934C2D63572BBBB /* Pods-Example.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -158,7 +158,7 @@
 				C16F409F2094F07B009CE87C /* Example */,
 				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				7D14F5909F6B4B3C4C7ADB51 /* Pods */,
+				9FCFA23AC473B71F0918A4C7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +178,7 @@
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
 				02370F5C244C94D00056D896 /* CancelableViewController.swift */,
 				3936853D28860BDE0026A906 /* CaptureMethod+String.swift */,
+				1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */,
 				028DC8562A9D28B40069E4BE /* Color.swift */,
 				A63E8430260D073B006CB90C /* CreateLocationViewController.swift */,
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
@@ -206,13 +207,13 @@
 				248EAA0624427FD500DDB433 /* RefundViewController.swift */,
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */,
-				1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */,
 				2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */,
+				1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
 				50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */,
 				24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */,
-				AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */,
 				25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */,
+				AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */,
 				A63E8456260D23C9006CB90C /* StripeCountries.swift */,
 				C152F77B214A18C00078BD07 /* StripeCurrencies.swift */,
 				199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */,
@@ -221,7 +222,6 @@
 				C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */,
 				025BEC112A8EC7BA00955C73 /* UserDefaultsBacked.swift */,
 				022B5727250BB8CF00595E19 /* Value1MultilineCell.swift */,
-				1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
-				535CA1E41E7360156543924B /* Pods_Example.framework */,
+				C70137AB501656B7EF2D0D6A /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,12 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				20FDBDABF850DEA46881F7E4 /* [CP] Check Pods Manifest.lock */,
+				A3995688CFAE4071CF577A87 /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				7E30A310E73EC72D2DA01740 /* [CP] Embed Pods Frameworks */,
+				C72BADAFAA19B63BAE2091B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,7 +308,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20FDBDABF850DEA46881F7E4 /* [CP] Check Pods Manifest.lock */ = {
+		A3995688CFAE4071CF577A87 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -330,7 +330,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7E30A310E73EC72D2DA01740 /* [CP] Embed Pods Frameworks */ = {
+		C72BADAFAA19B63BAE2091B1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,7 +546,7 @@
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE36D4A64F68E1F598854908 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 92862E4CECD89146959A3130 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -559,6 +559,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"SCP_USB_ENABLED=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -578,7 +579,7 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7096A00C8A1B7ED617D5F92 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 556562530934C2D63572BBBB /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -591,6 +592,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"SCP_USB_ENABLED=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;

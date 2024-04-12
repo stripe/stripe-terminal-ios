@@ -7,7 +7,22 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.5.0 2024-04-12
+* Built with Xcode 15.2, Swift version 5.9.
+* Beta: [`CollectInputs`](https://stripe.com/docs/terminal/features/collect-inputs?terminal-sdk-platform=ios) can now display optional `toggles` in each input type.
+  * If you are interested in joining this beta, please email stripe-terminal-betas@stripe.com.
+* New: Support for connecting to mPOS readers over USB-C on iPads with M-series chips.
+  * This feature is in private beta. Please [contact us](mailto:stripe-terminal-betas@stripe.com) if you are interested in joining this beta.
+* New: Added an xcprivacy file to the framework listing our data use and [required reason API](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api?language=objc) usage.
+* Update: Added [`SetupIntentParameters.paymentMethodTypes`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentParameters.html#/c:objc(cs)SCPSetupIntentParameters(py)paymentMethodTypes).
+  - _Note for internet reader integrations, this feature requires [reader software version](https://stripe.com/docs/terminal/readers/bbpos-wisepos-e#reader-software-version) `2.22` or later to be installed on your internet reader._
+* Update: [`supportsReadersOfType`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)supportsReadersOfType:discoveryMethod:simulated:error:) now returns NO with error `SCPErrorInvalidDiscoveryConfiguration` if the device type and discovery method are incompatible.
+* Update: When a Bluetooth reader has an error installing a required update the SDK will allow connecting to the reader if the reader is running a recent version. The error installing the update will still be communicated in the [`reader:didFinishInstallingUpdate:error:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didFinishInstallingUpdate:error:) callback. The update will be available to be retried using [`installAvailableUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)installAvailableUpdate). If the update isn't installed with `installAvailableUpdate` the installation will be retried the next time connecting to the reader. 
+* Fixes [#291](https://github.com/stripe/stripe-terminal-ios/issues/291): Fixes a bug where the cancelable returned by [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) was not responsive in certain conditions when a card was left in the reader or inserted before calling `collectPaymentMethod`.
+* Fixes a bug where `rebootReader` would return `SCPErrorUnexpectedSdkError` if called after the reader received a firmware update.
+
 # 3.4.0 2024-03-04
+* Built with Xcode 15.2, Swift version 5.9.
 * New: For Tap to Pay on iPhone, added `autoReconnectOnUnexpectedDisconnect` and `autoReconnectionDelegate` to the [`SCPLocalMobileConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPLocalMobileConnectionConfiguration.html). When `autoReconnectOnUnexpectedDisconnect` is enabled, the SDK will attempt to restore connection upon any unexpected disconnect to your local mobile reader. See [Stripe documentation](https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#handle-disconnects) for details.
 * Update: Formatting on certain fields exposed in `SCPOfflineCardPresentDetails` is now consistent with `SCPCardPresentDetails`
   * `expYear` is a four-digit number

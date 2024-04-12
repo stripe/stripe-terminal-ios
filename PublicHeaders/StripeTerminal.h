@@ -112,5 +112,9 @@
 #import <StripeTerminal/SCPTextResult.h>
 #import <StripeTerminal/SCPTip.h>
 #import <StripeTerminal/SCPTippingConfiguration.h>
+#import <StripeTerminal/SCPToggle.h>
+#import <StripeTerminal/SCPUsbConnectionConfiguration.h>
+#import <StripeTerminal/SCPUsbDiscoveryConfiguration.h>
+#import <StripeTerminal/SCPUsbReaderDelegate.h>
 #import <StripeTerminal/SCPWallet.h>
 

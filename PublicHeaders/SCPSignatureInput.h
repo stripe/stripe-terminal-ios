@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPInput.h>
+#import <StripeTerminal/SCPToggle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,6 +44,11 @@ NS_SWIFT_NAME(SignatureInput)
  Represents the submit button text
  */
 @property (nonatomic, nullable, readonly) NSString *submitButtonText;
+
+/**
+ Represents the toggles
+ */
+@property (nonatomic, readonly, copy) NSArray<SCPToggle *> *toggles;
 
 /**
  Use `SCPSignatureInputBuilder`.
@@ -82,6 +88,9 @@ NS_SWIFT_NAME(SignatureInputBuilder)
 
 /// @see `SCPSignatureInput.submitButton`
 - (SCPSignatureInputBuilder *)setSubmitButtonText:(NSString *)submitButtonText;
+
+/// @see `SCPSignatureInput.toggles`
+- (SCPSignatureInputBuilder *)setToggles:(NSArray<SCPToggle *> *)toggles;
 
 /**
  Use `initWithTitle`.

@@ -102,6 +102,47 @@ class StartCollectInputsViewController: TableViewController {
         }
     }
 
+    internal func startSignatureAndSelectionFormsWithToggles() {
+        do {
+            let firstToggle = try ToggleBuilder(defaultValue: .disabled)
+                .setTitle("Confirm you have read the TOS")
+                .build()
+
+            let secondToggle = try ToggleBuilder(defaultValue: .enabled)
+                .setStripeDescription("Sign up for emails")
+                .build()
+
+            let signatureInput = try SignatureInputBuilder(title: "Please sign")
+                .setStripeDescription("Please sign if you agree to the terms and conditions")
+                .setSkipButtonText("skip form")
+                .setSubmitButtonText("submit signature")
+                .setToggles([firstToggle, secondToggle])
+                .build()
+
+            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes")
+                .build()
+
+            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No")
+                .build()
+
+            let selectionInput = try SelectionInputBuilder(title: "Choose an option")
+                .setStripeDescription("Were you happy with customer service?")
+                .setRequired(true)
+                .setSelectionButtons([firstSelectionButton, secondSelectionButton])
+                .setToggles([firstToggle, secondToggle])
+                .build()
+
+            let collectInputsParams = try CollectInputsParametersBuilder(
+                inputs: [signatureInput, selectionInput]
+            ).build()
+            let vc = CollectInputsViewController(collectInputsParams: collectInputsParams)
+            let navController = LargeTitleNavigationController(rootViewController: vc)
+            self.present(navController, animated: true, completion: nil)
+        } catch {
+            self.presentAlert(error: error)
+        }
+    }
+
     private func updateContent() {
         var sections = [Section]()
         let signatureAndSelectionForms = Section(rows: [
@@ -116,8 +157,15 @@ class StartCollectInputsViewController: TableViewController {
             }, cellClass: ButtonCell.self),
         ])
 
+        let signatureAndSelectionFormsWithToggles = Section(rows: [
+            Row(text: "Signature and selection forms with toggles", selection: { [unowned self] in
+                self.startSignatureAndSelectionFormsWithToggles()
+            }, cellClass: ButtonCell.self),
+        ])
+
         sections.append(signatureAndSelectionForms)
         sections.append(textNumericEmailPhoneForms)
+        sections.append(signatureAndSelectionFormsWithToggles)
         dataSource.sections = sections
     }
 }

@@ -32,6 +32,11 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
 
     /// @see `SCPLocalMobileDiscoveryConfiguration`
     SCPDiscoveryMethodLocalMobile,
+
+#ifdef SCP_USB_ENABLED
+    /// @see `SCPUsbDiscoveryConfiguration`
+    SCPDiscoveryMethodUsb
+#endif
 } NS_SWIFT_NAME(DiscoveryMethod);
 
 NS_ASSUME_NONNULL_END

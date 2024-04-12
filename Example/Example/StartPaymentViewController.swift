@@ -334,6 +334,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             Row(text: "Update PaymentIntent", accessory: .switchToggle(value: self.updatePaymentIntent) { [unowned self] _ in
                 self.updatePaymentIntent.toggle()
                 self.updateContent()
+                self.declineCardBrand = nil
+                self.recollectAfterCardBrandDecline = false
             })
         ]
         let contentRows: [Row] = [
@@ -440,7 +442,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }
 
     /// Makes the "DCC" section.
-    private func makeRequestDcc() -> Section {
+    private func makeRequestDccSection() -> Section {
         let rows: [Row] = [
             Row(text: "Request Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
                 self.requestDcc.toggle()
@@ -465,7 +467,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeOfflineStoredTransactionLimitSection(),
             self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
-            self.makeRequestDcc(),
+            self.makeRequestDccSection(),
             self.startSection
         ]
 

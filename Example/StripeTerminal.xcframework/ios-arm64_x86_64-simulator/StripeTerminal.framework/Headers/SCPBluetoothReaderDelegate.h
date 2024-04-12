@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  the lifetime of its connection.
 
  Implementing this delegate is required when connecting to any Bluetooth connected
- reader, such as the Chipper 2X BT and the WisePad 3.
+ reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.
 
  The provided delegate must be retained by your application until the reader disconnects.
  */

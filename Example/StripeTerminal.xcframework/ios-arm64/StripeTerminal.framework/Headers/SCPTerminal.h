@@ -36,13 +36,15 @@
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
+#import <StripeTerminal/SCPUsbConnectionConfiguration.h>
+#import <StripeTerminal/SCPUsbReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"3.4.0";
+static NSString *const SCPSDKVersion = @"3.5.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -372,6 +374,51 @@ before connecting which specifies the location to which this
                 connectionConfig:(SCPLocalMobileConnectionConfiguration *)connectionConfig
                       completion:(SCPReaderCompletionBlock)completion
     NS_SWIFT_NAME(connectLocalMobileReader(_:delegate:connectionConfig:completion:));
+
+#ifdef SCP_USB_ENABLED
+/**
+ Attempts to connect to the given USB reader with a given connection
+ configuration.
+
+ To connect to a USB reader, your app must register that reader to a
+ [Location](https://stripe.com/docs/api/terminal/locations/object) upon connection.
+ You should create a `SCPUsbConnectionConfiguration`
+ at some point before connecting which specifies the location to which this
+ reader belongs.
+
+ Throughout the lifetime of the connection, the reader will communicate
+ with your app via the `SCPReaderDelegate` to announce transaction
+ status, battery level, and software update information.
+
+ If the connection succeeds, the completion block will be called with the
+ connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
+
+ If the connection fails, the completion block will be called with an error.
+
+ The SDK must be actively discovering readers in order to connect to one.
+ The discovery process will stop if this connection request succeeds, otherwise
+ the SDK will continue discovering.
+
+ When this method is called, the SDK uses a connection token and the given
+ reader information to register the reader to your Stripe account. If the SDK
+ does not already have a connection token, it will call the `fetchConnectionToken`
+ method in your `SCPConnectionTokenProvider` implementation.
+
+ @see https://stripe.com/docs/terminal/readers/connecting
+
+ @param reader          The reader to connect to. This should be a reader
+ recently returned to the `didUpdateDiscoveredReaders:` method in the discovery delegate.
+ @param delegate        The delegate used during the lifetime of the connection.
+ See `SCPBluetoothReaderDelegate`.
+ @param connectionConfig   The connection configuration for options while
+ connecting to a reader. See `SCPBluetoothConnectionConfiguration` for more details.
+ @param completion      The completion block called when the command completes.
+ */
+- (void)connectUsbReader:(SCPReader *)reader
+                delegate:(id<SCPUsbReaderDelegate>)delegate
+        connectionConfig:(SCPUsbConnectionConfiguration *)connectionConfig
+              completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectUsbReader(_:delegate:connectionConfig:completion:));
+#endif // SCP_USB_ENABLED
 
 /**
  Retrieves a list of `SCPLocation` objects belonging to your merchant. You must specify

@@ -65,11 +65,11 @@ class TerminalDelegateAnnouncer: DelegateAnnouncer<TerminalDelegate>, TerminalDe
 }
 
 /**
- Allows the Example app to use a single persistent BluetoothReaderDelegate for the life of the connection
- and still have the view controllers receive the BluetoothReaderDelegate events.
+ Allows the Example app to use a single persistent BluetoothReaderDelegate and UsbReaderDelegate for the life of the connection
+ and still have the view controllers receive the BluetoothReaderDelegate and UsbReaderDelegate events.
  */
-class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegate>, BluetoothReaderDelegate {
-    static let shared = BluetoothReaderDelegateAnnouncer()
+class BluetoothOrUsbReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegate>, BluetoothReaderDelegate, UsbReaderDelegate {
+    static let shared = BluetoothOrUsbReaderDelegateAnnouncer()
 
     // MARK: - BluetoothReaderDelegate
     func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
