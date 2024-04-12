@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPCollectInputsResult.h>
+#import <StripeTerminal/SCPToggle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,11 @@ NS_SWIFT_NAME(EmailResult)
  Represents the collected email. This value is nil if the form was skipped.
  */
 @property (nonatomic, nullable, readonly) NSString *email;
+
+/**
+ Represents a list of SCPToggleResult. The values are SCPToggleResultSkipped if the form was skipped.
+ */
+@property (nonatomic, readonly, copy) NSArray<NSNumber *> *toggles;
 
 /**
  You cannot directly instantiate this class.

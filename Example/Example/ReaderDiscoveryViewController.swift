@@ -48,7 +48,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         super.init(style: .grouped)
         self.title = "Discovery"
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
@@ -58,7 +58,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
@@ -179,11 +179,19 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
                 let locationId = selectedLocationStub?.stripeId ?? reader.locationId
                 if let presentLocationId = locationId {
-                    let connectionConfig = try BluetoothConnectionConfigurationBuilder(locationId: presentLocationId)
-                        .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
-                        .setAutoReconnectionDelegate(ReconnectionDelegateAnnouncer.shared)
-                        .build()
-                    return Terminal.shared.connectBluetoothReader(reader, delegate: BluetoothReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+                    if discoveryConfig.discoveryMethod == .usb {
+                        let connectionConfig = try UsbConnectionConfigurationBuilder(locationId: presentLocationId)
+                            .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
+                            .setAutoReconnectionDelegate(ReconnectionDelegateAnnouncer.shared)
+                            .build()
+                        return Terminal.shared.connectUsbReader(reader, delegate: BluetoothOrUsbReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+                    } else {
+                        let connectionConfig = try BluetoothConnectionConfigurationBuilder(locationId: presentLocationId)
+                            .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
+                            .setAutoReconnectionDelegate(ReconnectionDelegateAnnouncer.shared)
+                            .build()
+                        return Terminal.shared.connectBluetoothReader(reader, delegate: BluetoothOrUsbReaderDelegateAnnouncer.shared, connectionConfig: connectionConfig, completion: connectCompletion)
+                    }
                 } else {
                     self.presentLocationRequiredAlert()
                 }
@@ -241,7 +249,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     private func updateContent() {
         updateActivityIndicatorView()
         dataSource.sections = [
-            shouldShowBTConnectionConfigSection ? bluetoothConnectionConfigurationSection() : nil,
+            shouldShowBTConnectionConfigSection ? mobileReaderConnectionConfigurationSection() : nil,
             discoveryConfig.simulated && discoveryConfig.discoveryMethod != .internet ? simulatedUpdateSection() : nil,
             discoveryConfig.discoveryMethod == .localMobile ? onBehalfOfSection() : nil,
             readerListSection()
@@ -267,6 +275,9 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
         case (.bluetoothScan, _, _):
             activityIndicatorView.title = "NEARBY READERS"
+
+        case (.usb, _, _):
+            activityIndicatorView.title = "USB CONNECTED READER"
 
         case (.internet, 0, .doneDiscovering):
             activityIndicatorView.title = "NO REGISTERED READERS FOUND"
@@ -299,7 +310,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
     // MARK: - Location Selection UI
 
-    private func bluetoothConnectionConfigurationSection() -> Section {
+    private func mobileReaderConnectionConfigurationSection() -> Section {
         let commonRows = [
             Row(text: "Enable Auto-Reconnect", accessory: .switchToggle(value: autoReconnectOnUnexpectedDisconnect, { [unowned self] _ in
                 self.autoReconnectOnUnexpectedDisconnect.toggle()
@@ -362,11 +373,11 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             switch discoveryMethod {
             case .internet:
                 return buildLocationDescription(forInternetReader: reader)
-            case .bluetoothProximity, .bluetoothScan:
-                return buildLocationDescription(forBlueoothReader: reader)
+            case .bluetoothProximity, .bluetoothScan, .usb:
+                return buildLocationDescription(forMobileReader: reader)
             case .localMobile:
                 return buildLocationDescription(forLocalMobileReader: reader)
-            case _:
+            @unknown default:
                 return "Unknown location status"
             }
         }()
@@ -386,7 +397,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         }
     }
 
-    private func buildLocationDescription(forBlueoothReader reader: Reader) -> String {
+    private func buildLocationDescription(forMobileReader reader: Reader) -> String {
         let isLocationSelected = selectedLocationStub != nil
 
         switch (reader.locationStatus, isLocationSelected) {
@@ -616,15 +627,17 @@ extension ReaderDiscoveryViewController: DiscoveryDelegate {
     func terminal(_ terminal: Terminal, didUpdateDiscoveredReaders readers: [Reader]) {
         self.readers = readers
         switch (self.discoveryConfig.discoveryMethod, readers.count) {
-        case (.bluetoothProximity, 1) where readers.first?.batteryLevel != nil:
+        case (.bluetoothProximity, 1) where readers.first?.batteryLevel != nil,
+            (.usb, 1):
             // Once we've received battery level, don't expect further callbacks
             viewState = .doneDiscovering
-        case (.internet, _):
-            // internet only has one callback
-            viewState = .doneDiscovering
-        default:
+        case (.bluetoothScan, _), (.bluetoothProximity, _), (.usb, _):
             // If receiving `didUpdateDiscoveredReaders` calls, still actively discovering.
-            // This also covers the case where the `.bluetoothProximity` Reader goes away.
+            viewState = .discovering
+        case (.internet, _), (.localMobile, _):
+            // internet, and local mobile only callback once.
+            viewState = .doneDiscovering
+        @unknown default:
             viewState = .discovering
         }
         updateContent()

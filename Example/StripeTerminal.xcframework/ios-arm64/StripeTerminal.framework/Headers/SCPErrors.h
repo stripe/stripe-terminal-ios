@@ -115,6 +115,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
 
     /**
      This feature is not currently available.
+     More details available in the error's `userInfo` in the `SCPErrorKeyMessage` key
      */
     SCPErrorFeatureNotAvailable = 1890,
 
@@ -391,9 +392,16 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled = 2970,
 
     /**
-     * A timeout occurred while processing a collect inputs operation.
+     A timeout occurred while processing a collect inputs operation.
      */
     SCPErrorCollectInputsTimedOut = 2971,
+
+    /**
+     Scanning for USB devices timed out.
+
+     @see `SCPUsbDiscoveryConfiguration.timeout`
+     */
+    SCPErrorUsbDiscoveryTimedOut = 2972,
 
     /*
      READER ERRORS
@@ -548,6 +556,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      to attempt to re-install the keys. If the error persists, contact support.
      */
     SCPErrorReaderMissingEncryptionKeys = 3980,
+
+    /**
+     The USB device was disconnected unexpectedly.
+     */
+    SCPErrorUsbDisconnected = 3990,
 
     /*
      UNEXPECTED ERRORS

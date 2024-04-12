@@ -59,7 +59,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         self.updateType = type
         super.init(style: .grouped)
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
@@ -69,7 +69,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 

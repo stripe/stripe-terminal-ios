@@ -41,7 +41,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
         ReconnectionDelegateAnnouncer.shared.removeListener(self)
         OfflineDelegateAnnouncer.shared.removeListener(self)
     }
@@ -53,7 +53,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         headerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapReaderHeaderView)))
 
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
         ReconnectionDelegateAnnouncer.shared.addListener(self)
         OfflineDelegateAnnouncer.shared.addListener(self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: OfflineUIHandler.shared.rightBarButtonItemView)
@@ -83,6 +83,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 return try InternetDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             case .localMobile:
                 return try LocalMobileDiscoveryConfigurationBuilder().setSimulated(simulated).build()
+            case .usb:
+                return try UsbDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             @unknown default:
                 // This could happen if we introduced a new discovery method and the user downgrades to a
                 // version of the app that doesn't know about it.
@@ -458,6 +460,9 @@ extension DeviceType: CustomStringConvertible {
 
 extension DiscoveryMethod: CustomStringConvertible {
     public var description: String {
+        if self == .usb {
+            return "USB (Private Beta)"
+        }
         return Terminal.stringFromDiscoveryMethod(self)
     }
 }

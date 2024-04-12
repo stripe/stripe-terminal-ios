@@ -58,6 +58,12 @@ NS_SWIFT_NAME(SetupIntentParameters)
 @property (nonatomic, copy, nullable, readonly) NSString *onBehalfOf;
 
 /**
+ The list of payment method types that this SetupIntent is allowed to use.
+ The default is value for this is ["card_present"].
+ */
+@property (nonatomic, readonly) NSArray<NSString *> *paymentMethodTypes;
+
+/**
  Use `SCPSetupIntentParametersBuilder`
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -94,6 +100,9 @@ NS_SWIFT_NAME(SetupIntentParametersBuilder)
 
 /// @see SCPSetupIntentParameters.onBehalfOf
 - (SCPSetupIntentParametersBuilder *)setOnBehalfOf:(nullable NSString *)onBehalfOf;
+
+/// @see SCPSetupIntentParameters.paymentMethodTypes
+- (SCPSetupIntentParametersBuilder *)setPaymentMethodTypes:(NSArray<NSString *> *)paymentMethodTypes;
 
 @end
 
