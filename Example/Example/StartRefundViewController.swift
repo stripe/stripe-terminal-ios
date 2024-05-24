@@ -16,15 +16,19 @@ class StartRefundViewController: TableViewController {
     private var reverseTransfer: Bool?
     private var enableCustomerCancellation: Bool = false
     private let isSposReader: Bool
-    private var refundWithChargeId: Bool?
+    private var refundWithChargeId: Bool = true
+    private var chargeId: String = ""
+    private var paymentIntentId: String = ""
 
     private let amountView = AmountInputView()
     private let paymentOrChargeIdView = TextFieldView(text: "text", footer: "")
     private var startSection: Section?
 
-    init(isSposReader: Bool, chargeId: String = "", amount: UInt = 100) {
+    init(isSposReader: Bool, chargeId: String = "", paymentIntentId: String = "", amount: UInt = 100) {
         self.isSposReader = isSposReader
         super.init(style: .grouped)
+        self.chargeId = chargeId
+        self.paymentIntentId = paymentIntentId
         amountView.numberFormatter.currencyCode = "CAD"
         amountView.textField.text = String(amount)
         paymentOrChargeIdView.textField.text = chargeId
@@ -146,6 +150,20 @@ class StartRefundViewController: TableViewController {
                         case 1: self.refundWithChargeId = false
                         default:
                             self.refundWithChargeId = true
+                        }
+                        // copy text from the payment/charge id view into a temp string
+                        let tempId: String = paymentOrChargeIdView.textField.text ?? ""
+                        if newIndex != selectedIndex {
+                            // when change to index occurs
+                            if self.refundWithChargeId {
+                                // update the payment or charge id view with the stored chargeid, and save the temp value to the
+                                paymentOrChargeIdView.textField.text = self.chargeId
+                                self.paymentIntentId = tempId
+                            } else {
+                                // update the payment or charge id view ith the stored payment id
+                                paymentOrChargeIdView.textField.text = self.paymentIntentId
+                                self.chargeId = tempId
+                            }
                         }
                         self.updateContent()
                     }

@@ -92,12 +92,8 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
             self.fetchingLocations = true
             Terminal.shared.listLocations(parameters: parameters) { [unowned self] (locations: [Location]?, hasMore: Bool, error: Error?) in
                 if let fetchLocationError = error {
-                if (fetchLocationError as NSError).code == ErrorCode.notConnectedToInternet.rawValue ||
-                    (fetchLocationError as NSError).code == ErrorCode.connectionTokenProviderCompletedWithError.rawValue {
                     self.locations = ReaderDiscoveryViewController.savedLocationStubs
-                } else {
                     self.presentAlert(error: fetchLocationError)
-                }
             }
             var locationStubSet = Set(ReaderDiscoveryViewController.savedLocationStubs)
             if let unwrappedLocations = locations {

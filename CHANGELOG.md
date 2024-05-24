@@ -7,6 +7,14 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.6.0 2024-05-23
+* Built with Xcode 15.2, Swift version 5.9.
+* Update: Using [`SCPOfflineBehaviorRequireOnline`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPOfflineBehavior.html#/c:@E@SCPOfflineBehavior@SCPOfflineBehaviorRequireOnline) will attempt online network calls regardless of the current network status. This may cause requests while the network is offline to take longer as requests will always be attempted online first.
+* Update: Tapping or inserting an unsupported card will now report `SCPReaderDisplayMessageTryAnotherCard` instead of `SCPReaderDisplayMessageTryAnotherReadMethod`.
+* Update: [`paymentStatus`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)paymentStatus) now stays `ready` while API-only commands are in-progress. This includes `createPaymentIntent`, `createSetupIntent`, `cancelPaymentIntent`, and `cancelSetupIntent`.
+* Update: [`paymentStatus`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)paymentStatus) now updates to `waitingForInput` while [`collectInputs`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectInputs:completion:) is running.
+* Update: If a reader receives the `SCPErrorReaderMissingEncryptionKeys` error when collecting a payment the SDK now also reboots the reader in addition to the existing behavior of disconnecting from the reader. Reconnecting to the reader should re-install the keys and allow the reader to collect payments again.
+
 # 3.5.0 2024-04-12
 * Built with Xcode 15.2, Swift version 5.9.
 * Beta: [`CollectInputs`](https://stripe.com/docs/terminal/features/collect-inputs?terminal-sdk-platform=ios) can now display optional `toggles` in each input type.

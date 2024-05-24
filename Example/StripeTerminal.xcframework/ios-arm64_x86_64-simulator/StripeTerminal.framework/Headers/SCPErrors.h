@@ -552,8 +552,8 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorAppleBuiltInReaderAccountDeactivated = 3970,
 
     /**
-     The reader is missing encryption keys required for taking payments and has disconnected. Reconnect to the reader
-     to attempt to re-install the keys. If the error persists, contact support.
+     The reader is missing encryption keys required for taking payments and has disconnected and rebooted.
+     Reconnect to the reader to attempt to re-install the keys. If the error persists, contact support.
      */
     SCPErrorReaderMissingEncryptionKeys = 3980,
 
