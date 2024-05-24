@@ -29,6 +29,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let isSposReader: Bool
     private var updatePaymentIntent = false
     private var requestDcc = false
+    private var skipCapture = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -209,7 +210,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 isSposReader: self.isSposReader,
                 offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
                 offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000") ?? 50000,
-                offlineBehavior: self.offlineBehavior
+                offlineBehavior: self.offlineBehavior,
+                skipCapture: self.skipCapture
             )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             navController.presentationController?.delegate = self
@@ -321,6 +323,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             }),
             Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
                 self.requestIncrementalAuthorizationSupport.toggle()
+                self.updateContent()
+            }),
+            Row(text: "Skip Capture (if available)", accessory: .switchToggle(value: self.skipCapture) { [unowned self] _ in
+                self.skipCapture.toggle()
                 self.updateContent()
             }),
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
@@ -444,8 +450,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     /// Makes the "DCC" section.
     private func makeRequestDccSection() -> Section {
         let rows: [Row] = [
-            Row(text: "Request Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
+            Row(text: "Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
+                if !updatePaymentIntent {
+                    self.updatePaymentIntent.toggle()
+                }
                 self.requestDcc.toggle()
+                self.updateContent()
             })
         ]
         return Section(header: "Request Dynamic Currency Conversion", rows: rows)
@@ -460,6 +470,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
+            self.makeRequestDccSection(),
             self.makeUpdatePaymentIntentSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),
@@ -467,7 +478,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeOfflineStoredTransactionLimitSection(),
             self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
-            self.makeRequestDccSection(),
             self.startSection
         ]
 

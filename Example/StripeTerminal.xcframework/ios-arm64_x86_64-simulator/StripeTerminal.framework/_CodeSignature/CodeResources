@@ -146,7 +146,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		Qa3YUkU10tx33EMtTPvQpIeEOPs=
+		LVERkaxR86MTaowZIIX4+jzAzhA=
 		</data>
 		<key>Headers/SCPInput.h</key>
 		<data>
@@ -406,7 +406,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		ZEniQAfC3POPA8UWe84rU1jErjY=
+		r+TnF2Y1/uUvQ9EdeUbMVEvXwUY=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -458,11 +458,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		l0jFCjU4CiAERu4CMJgPokCGS00=
+		caaHjTwcc1NDfkgd+Vlzt3PpWNc=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		vEiI6lGGalQrPoFM3oWC58MCM04=
+		mnGLh1iBJrE1B5oGqdALuuhTtpk=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -482,7 +482,7 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		vEiI6lGGalQrPoFM3oWC58MCM04=
+		mnGLh1iBJrE1B5oGqdALuuhTtpk=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -760,7 +760,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IFWBDUj7PGe5mKSBaMMOl5jtlrCtws9wu9hGXZ5uHts=
+			Zx8r1yyXuLLR+OVpgR8rEZ9etaPjDltjGe2xpXeXL70=
 			</data>
 		</dict>
 		<key>Headers/SCPInput.h</key>
@@ -1215,7 +1215,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pd+lS+NTzlOuGmhyMYTCitn8J6deshT2JMHGUbIputs=
+			+lyZkhDoUSlHj1uQxPDxoRwTq1YJBIK2PA15XsHCYRw=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -1306,7 +1306,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gUiMTcu20fHngmDsc/1KH7VAiQbrzy57wzbBAiLVHeQ=
+			HjTgEOPNpTAvuJYK3zHX0oxRdQUeUWSc94EZWRb3xvA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1341,7 +1341,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gUiMTcu20fHngmDsc/1KH7VAiQbrzy57wzbBAiLVHeQ=
+			HjTgEOPNpTAvuJYK3zHX0oxRdQUeUWSc94EZWRb3xvA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>

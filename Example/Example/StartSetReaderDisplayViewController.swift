@@ -108,19 +108,19 @@ class StartSetReaderDisplayViewController: TableViewController {
 
     internal func addLineItem() {
         let alertController = UIAlertController(title: "Add New Line Item", message: "", preferredStyle: UIAlertController.Style.alert)
-        alertController.addTextField { (textField: UITextField) -> Void in
+        alertController.addTextField { (textField: UITextField) in
             textField.placeholder = "Display Name"
         }
-        alertController.addTextField { (textField: UITextField) -> Void in
+        alertController.addTextField { (textField: UITextField) in
             textField.placeholder = "Price"
             textField.keyboardType = .numberPad
         }
-        alertController.addTextField { (textField: UITextField) -> Void in
+        alertController.addTextField { (textField: UITextField) in
             textField.placeholder = "Quantity"
             textField.keyboardType = .numberPad
         }
 
-        let createAction = UIAlertAction(title: "Create", style: UIAlertAction.Style.default, handler: { [unowned self] _ -> Void in
+        let createAction = UIAlertAction(title: "Create", style: UIAlertAction.Style.default, handler: { [unowned self] _ in
             guard let displayNameTextField = alertController.textFields?[0],
                 let priceTextField = alertController.textFields?[1],
                 let quantityTextField = alertController.textFields?[2],
@@ -141,7 +141,7 @@ class StartSetReaderDisplayViewController: TableViewController {
             }
             self.updateContent()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) -> Void in })
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) in })
 
         alertController.addAction(cancelAction)
         alertController.addAction(createAction)
