@@ -267,6 +267,7 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .none,
         .required,
         .lowBattery,
+        .lowBatterySucceedConnect,
         .random
     ]
 
@@ -275,6 +276,7 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .none: "No Update",
         .required: "Update Required",
         .lowBattery: "Update required; reader has low battery",
+        .lowBatterySucceedConnect: "Required update fails, reader connects",
         .random: "Random"
     ]
 

@@ -27,8 +27,11 @@
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCharge.h>
 #import <StripeTerminal/SCPCollectConfiguration.h>
+#import <StripeTerminal/SCPCollectDataConfiguration.h>
 #import <StripeTerminal/SCPCollectInputsParameters.h>
 #import <StripeTerminal/SCPCollectInputsResult.h>
+#import <StripeTerminal/SCPCollectedData.h>
+#import <StripeTerminal/SCPConfirmConfiguration.h>
 #import <StripeTerminal/SCPConfirmPaymentIntentError.h>
 #import <StripeTerminal/SCPConfirmRefundError.h>
 #import <StripeTerminal/SCPConfirmSetupIntentError.h>
@@ -106,6 +109,7 @@
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCardType.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
+#import <StripeTerminal/SCPSurcharge.h>
 #import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPTerminalDelegate.h>
 #import <StripeTerminal/SCPTextInput.h>

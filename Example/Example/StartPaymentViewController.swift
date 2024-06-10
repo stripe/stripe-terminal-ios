@@ -80,6 +80,24 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
+    private lazy var surchargeNoticeTextField: TextFieldView = {
+        let textField = TextFieldView(placeholderText: "Surcharge Notice")
+        textField.textField.autocorrectionType = .no
+        textField.textField.autocapitalizationType = .none
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .default
+        return textField
+    }()
+
+    private lazy var amountSurchargeTextField: TextFieldView = {
+        let textField = TextFieldView(placeholderText: "Amount Surcharge")
+        textField.textField.autocorrectionType = .no
+        textField.textField.autocapitalizationType = .none
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .numberPad
+        return textField
+    }()
+
     init(isSposReader: Bool) {
         self.isSposReader = isSposReader
         super.init(style: .grouped)
@@ -108,6 +126,9 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         offlineTransactionLimitTextField.textField.delegate = self
         offlineStoredTransactionLimitTextField.textField.delegate = self
+
+        surchargeNoticeTextField.textField.delegate = self
+        amountSurchargeTextField.textField.delegate = self
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -188,11 +209,23 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         Terminal.shared.simulatorConfiguration.simulatedTipAmount = NSNumber(value: simulatedTipAmountTextField.amount)
 
         let updatePaymentIntent = self.updatePaymentIntent || (self.declineCardBrand != nil)
+        var surchargeNotice: String?
+        if let text = surchargeNoticeTextField.textField.text, !text.isEmpty {
+            surchargeNotice = text
+        }
         let collectConfigBuilder = CollectConfigurationBuilder()
             .setSkipTipping(self.skipTipping)
             .setUpdatePaymentIntent(updatePaymentIntent)
             .setEnableCustomerCancellation(self.enableCustomerCancellation)
             .setRequestDynamicCurrencyConversion(self.requestDcc)
+            .setSurchargeNotice(surchargeNotice)
+        let confirmConfigBuilder = ConfirmConfigurationBuilder()
+
+        if let amountSurcharge = amountSurchargeTextField.textField.text {
+            if let parsedAmount = UInt(amountSurcharge, radix: 10) {
+                confirmConfigBuilder.setAmountSurcharge(parsedAmount)
+            }
+        }
 
         do {
             if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
@@ -203,8 +236,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 )
             }
             let collectConfig = try collectConfigBuilder.build()
+            let confirmConfig = try confirmConfigBuilder.build()
             let vc = PaymentViewController(paymentParams: try paymentParamsBuilder.build(),
                 collectConfig: collectConfig,
+                confirmConfig: confirmConfig,
                 declineCardBrand: declineCardBrand,
                 recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
                 isSposReader: self.isSposReader,
@@ -461,6 +496,18 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return Section(header: "Request Dynamic Currency Conversion", rows: rows)
     }
 
+    /// Makes the "Surcharge notice" section.
+    private func makeSurchargeNoticeSection() -> Section {
+        let offlineTransactionLimitSection = Section(header: .title("Surcharge Notice"), rows: [], footer: .autoLayoutView(surchargeNoticeTextField))
+        return offlineTransactionLimitSection
+    }
+
+    /// Makes the "Amount Surcharge" section.
+    private func makeAmountSurchargeSection() -> Section {
+        let offlineTransactionLimitSection = Section(header: .title("Amount Surcharge"), rows: [], footer: .autoLayoutView(amountSurchargeTextField))
+        return offlineTransactionLimitSection
+    }
+
     private func updateContent() {
 
         let sections: [Section?] = [
@@ -471,6 +518,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
             self.makeRequestDccSection(),
+            self.makeSurchargeNoticeSection(),
+            self.makeAmountSurchargeSection(),
             self.makeUpdatePaymentIntentSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),

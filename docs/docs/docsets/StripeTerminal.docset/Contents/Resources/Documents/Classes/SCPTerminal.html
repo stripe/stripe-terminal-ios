@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.6.0 Docs
+          StripeTerminal 3.7.0 Docs
         </a>
         
       </p>
@@ -87,6 +87,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPBuilder.html">SCPBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectDataConfiguration.html">SCPCollectDataConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectDataConfigurationBuilder.html">SCPCollectDataConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCollectDataType.html">SCPCollectDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectedData.html">SCPCollectedData</a>
               </li>
             </ul>
           </li>
@@ -424,6 +436,12 @@
                 <a class="nav-group-task-link" href="../Classes/SCPCollectConfigurationBuilder.html">SCPCollectConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmConfiguration.html">SCPConfirmConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmConfigurationBuilder.html">SCPConfirmConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPSetupIntentConfiguration.html">SCPSetupIntentConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -455,6 +473,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSurcharge.html">SCPSurcharge</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -625,6 +646,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectInputsCompletionBlock">SCPCollectInputsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -2367,6 +2391,84 @@ updated PaymentIntent to try charging another card.</p></li>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:confirmConfig:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-confirmPaymentIntent:confirmConfig:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:confirmConfig:completion:">-confirmPaymentIntent:<wbr>confirmConfig:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirm a payment after collecting a payment method succeeds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">confirmPaymentIntent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPPaymentIntent.html">SCPPaymentIntent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">paymentIntent</span>
+               <span class="nf">confirmConfig</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPConfirmConfiguration.html">SCPConfirmConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmConfig</span>
+                  <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPConfirmPaymentIntentCompletionBlock">SCPConfirmPaymentIntentCompletionBlock</a></span><span class="p">)</span>
+                                 <span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmPaymentIntent</span><span class="p">(</span><span class="n">_</span> <span class="nv">paymentIntent</span><span class="p">:</span> <span class="kt">PaymentIntent</span><span class="p">,</span> <span class="nv">confirmConfig</span><span class="p">:</span> <span class="kt">ConfirmConfiguration</span><span class="p">?)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">PaymentIntent</span><span class="p">?,</span> <span class="kt"><a href="../Classes/SCPConfirmPaymentIntentError.html">SCPConfirmPaymentIntentError</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentIntent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The PaymentIntent to confirm.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>confirmConfig</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ConfirmConfiguration object that contains settings for this call.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the confirm completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:"></a>
                     <a name="//apple_ref/objc/Method/-cancelPaymentIntent:completion:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPTerminal(im)cancelPaymentIntent:completion:">-cancelPaymentIntent:<wbr>completion:<wbr></a>
@@ -3776,6 +3878,72 @@ actually charged. Tax and total are also not automatically calculated and must b
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)collectData:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-collectData:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)collectData:completion:">-collectData:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Collects data using the hardware interfaces on the reader.
+Currently available on mobile readers that support magstripe.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">collectData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPCollectDataConfiguration.html">SCPCollectDataConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">collectDataConfiguration</span>
+     <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">collectData</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectDataConfiguration</span><span class="p">:</span> <span class="kt">CollectDataConfiguration</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">CollectedDataCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>collectDataConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The CollectDataConfiguration object that contains settings for this call</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromReaderInputOptions:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromReaderInputOptions:">+stringFromReaderInputOptions:<wbr></a>
@@ -4299,8 +4467,8 @@ actually charged. Tax and total are also not automatically calculated and must b
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-05-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-06-10)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

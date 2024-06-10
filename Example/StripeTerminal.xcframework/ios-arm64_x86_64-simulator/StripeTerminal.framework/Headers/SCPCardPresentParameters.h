@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBuilder.h>
+#import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,13 +42,15 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentRouting) {
     SCPCardPresentRoutingInternational,
 } NS_SWIFT_NAME(CardPresentRouting);
 
+@class SCPSurcharge;
+
 /**
  Parameters that will be applied to the card present PaymentIntent.
 
  @see https://stripe.com/docs/api/payment_intents/create#create_payment_intent-payment_method_options-card_present
  */
 NS_SWIFT_NAME(CardPresentParameters)
-@interface SCPCardPresentParameters : NSObject
+@interface SCPCardPresentParameters : NSObject <SCPJSONDecodable, NSCopying>
 
 /**
  Using the extended authorizations feature, users in eligible categories can capture up to 31 days later, depending on the card brand.
@@ -70,6 +73,11 @@ NS_SWIFT_NAME(CardPresentParameters)
  `SCPCardPresentRouting` as a nullable NSNumber.
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber *requestedPriority;
+
+/**
+ Details about the availability and maximum amount for surcharging on this PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly) SCPSurcharge *surcharge;
 
 /**
  Use `SCPCardPresentParametersBuilder`.
@@ -100,6 +108,9 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.requestedPriority`
 - (SCPCardPresentParametersBuilder *)setRequestedPriority:(SCPCardPresentRouting)requestedPriority;
+
+/// @see `SCPCardPresentParameters.surcharge`
+- (SCPCardPresentParametersBuilder *)setSurcharge:(nullable SCPSurcharge *)surcharge;
 
 @end
 

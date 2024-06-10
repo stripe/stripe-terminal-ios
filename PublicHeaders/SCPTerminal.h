@@ -16,7 +16,9 @@
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCollectConfiguration.h>
+#import <StripeTerminal/SCPCollectDataConfiguration.h>
 #import <StripeTerminal/SCPCollectInputsParameters.h>
+#import <StripeTerminal/SCPConfirmConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
 #import <StripeTerminal/SCPCreateConfiguration.h>
 #import <StripeTerminal/SCPDeviceType.h>
@@ -44,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"3.6.0";
+static NSString *const SCPSDKVersion = @"3.7.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -611,6 +613,17 @@ before connecting which specifies the location to which this
                   completion:(SCPConfirmPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(confirmPaymentIntent(_:completion:));
 
 /**
+ Confirm a payment after collecting a payment method succeeds.
+
+ @param paymentIntent   The PaymentIntent to confirm.
+ @param confirmConfig   The ConfirmConfiguration object that contains settings for this call.
+ @param completion      The completion block called when the confirm completes.
+ */
+- (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
+               confirmConfig:(nullable SCPConfirmConfiguration *)confirmConfig
+                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion;
+
+/**
  Cancels an `SCPPaymentIntent`.
 
  If the cancel request succeeds, the completion block will be called with the
@@ -982,6 +995,17 @@ before connecting which specifies the location to which this
 - (nullable SCPCancelable *)collectInputs:(SCPCollectInputsParameters *)collectInputsParams
                                completion:(SCPCollectInputsCompletionBlock)completion
     NS_SWIFT_NAME(collectInputs(_:completion:));
+
+/**
+ Collects data using the hardware interfaces on the reader.
+ Currently available on mobile readers that support magstripe.
+
+ @param collectDataConfiguration The CollectDataConfiguration object that contains settings for this call
+ @param completion The completion block called when the command completes.
+ */
+- (nullable SCPCancelable *)collectData:(SCPCollectDataConfiguration *)collectDataConfiguration
+                             completion:(SCPCollectedDataCompletionBlock)completion
+    NS_SWIFT_NAME(collectData(_:completion:));
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.
