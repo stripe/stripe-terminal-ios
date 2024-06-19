@@ -188,9 +188,24 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorDynamicCurrencyConversionNotAvailable = 1942,
 
     /**
+     Surcharging is not currently available.
+     */
+    SCPErrorSurchargingNotAvailable = 1943,
+
+    /**
      An invalid usage of `eligibleAmount` or `skipTipping` was passed into `collect`.
      */
     SCPErrorReaderTippingParameterInvalid = 1950,
+
+    /**
+     `surchargeNotice` was specified with a CollectConfiguration with updatePaymentIntent set to false.
+     */
+    SCPErrorSurchargeNoticeRequiresUpdatePaymentIntent = 1951,
+
+    /**
+     Surcharging was attempted while also using dynamic currency conversion.
+     */
+    SCPErrorSurchargeUnavailableWithDynamicCurrencyConversion = 1952,
 
     /**
      The provided location ID parameter was invalid.

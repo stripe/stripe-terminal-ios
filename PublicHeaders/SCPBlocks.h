@@ -25,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
     SCPSetupIntent,
     SCPSetupIntentParameters,
     SCPConfirmSetupIntentError,
-    SCPReaderSettings;
+    SCPReaderSettings,
+    SCPCollectedData;
 
 /**
  A block called with a connection token or an error from your backend.
@@ -157,5 +158,13 @@ typedef void (^SCPCollectInputsCompletionBlock)(NSArray<SCPCollectInputsResult *
  */
 typedef void (^SCPReaderSettingsCompletionBlock)(SCPReaderSettings *__nullable readerSettings, NSError *__nullable error)
     NS_SWIFT_NAME(ReaderSettingsCompletionBlock);
+
+/**
+ A block called with a CollectedData object or an error.
+
+ @param collectedData       The collected data object, or nil.
+ @param error                         An error if one occurred, or nil.
+ */
+typedef void (^SCPCollectedDataCompletionBlock)(SCPCollectedData *__nullable collectedData, NSError *__nullable error) NS_SWIFT_NAME(CollectedDataCompletionBlock);
 
 NS_ASSUME_NONNULL_END

@@ -52,6 +52,16 @@ typedef NS_ENUM(NSUInteger, SCPSimulateReaderUpdate) {
     SCPSimulateReaderUpdateLowBattery,
 
     /**
+     A required update exists.
+     - When connecting to a Bluetooth reader, the update will fail because
+       the reader's battery is too low for an update to begin, but the
+       the connection succeeds because the reader is on a recent software version.
+     - When connecting to a Local Mobile reader, a mandatory update will
+       complete during the connection flow.
+     */
+    SCPSimulateReaderUpdateLowBatterySucceedConnect,
+
+    /**
      Randomly picks a type of update for the reader to help exercise the
      various states.
      */

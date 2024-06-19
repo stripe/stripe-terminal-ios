@@ -19,7 +19,6 @@
 		02A6BF5624CB1C4D0054ADFF /* StripeTerminal.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DA8E3A24532E4900235921 /* DelegateAnnouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */; };
 		199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */; };
-		1F65BFFD2AF42F8500043452 /* StartCollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */; };
 		1F65BFFF2AF44F4000043452 /* CollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */; };
 		241B90F9249027DE0083C908 /* ReaderRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */; };
 		2446E3EF25AF499B00FB4510 /* SetupIntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */; };
@@ -29,9 +28,12 @@
 		259FDFDF2485AF0F0097686C /* EventDisplayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */; };
 		25CB2CF724941F8D0018535C /* StartSetReaderDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */; };
 		2E4563E87B89E64B8BD7C592 /* DataRequest+StripeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E456576084719ED476A4DAB /* DataRequest+StripeJSON.swift */; };
+		390B93752BED7B9100557850 /* StartCollectDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B93742BED7B9100557850 /* StartCollectDataViewController.swift */; };
+		390B93772BED7BCC00557850 /* StartCollectInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B93762BED7BCC00557850 /* StartCollectInputsViewController.swift */; };
+		390B937B2BED7C1800557850 /* CollectDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B937A2BED7C1800557850 /* CollectDataViewController.swift */; };
 		3936853E28860BDE0026A906 /* CaptureMethod+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936853D28860BDE0026A906 /* CaptureMethod+String.swift */; };
 		395970602A8D85830015F0F3 /* LocationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959705F2A8D85830015F0F3 /* LocationStub.swift */; };
-		3F43219D34A852EDBC517901 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249B284F00D67C27DCB9B0DD /* Pods_Example.framework */; };
+		4A340AEC41979F8F8EBC0F2B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA771CD71D16BCCB03F74D2 /* Pods_Example.framework */; };
 		50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */; };
 		50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
@@ -83,29 +85,31 @@
 		025BEC192A8EC94400955C73 /* LabelOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelOverlayView.swift; sourceTree = "<group>"; };
 		028DC8562A9D28B40069E4BE /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateAnnouncer.swift; sourceTree = "<group>"; };
+		0CA771CD71D16BCCB03F74D2 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
-		1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCollectInputsViewController.swift; sourceTree = "<group>"; };
 		1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectInputsViewController.swift; sourceTree = "<group>"; };
 		241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderRegistrationViewController.swift; sourceTree = "<group>"; };
 		2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIntentViewController.swift; sourceTree = "<group>"; };
 		248EAA0624427FD500DDB433 /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
-		249B284F00D67C27DCB9B0DD /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartRefundViewController.swift; sourceTree = "<group>"; };
 		24FAAAFE2345067A00D47D40 /* ReaderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderConfiguration.swift; sourceTree = "<group>"; };
 		259FDFDE2485AF0F0097686C /* EventDisplayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDisplayingViewController.swift; sourceTree = "<group>"; };
 		25CB2CF624941F8D0018535C /* StartSetReaderDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSetReaderDisplayViewController.swift; sourceTree = "<group>"; };
 		2E456576084719ED476A4DAB /* DataRequest+StripeJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataRequest+StripeJSON.swift"; sourceTree = "<group>"; };
+		390B93742BED7B9100557850 /* StartCollectDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCollectDataViewController.swift; sourceTree = "<group>"; };
+		390B93762BED7BCC00557850 /* StartCollectInputsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCollectInputsViewController.swift; sourceTree = "<group>"; };
+		390B937A2BED7C1800557850 /* CollectDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectDataViewController.swift; sourceTree = "<group>"; };
 		3936853D28860BDE0026A906 /* CaptureMethod+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CaptureMethod+String.swift"; sourceTree = "<group>"; };
 		3959705F2A8D85830015F0F3 /* LocationStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStub.swift; sourceTree = "<group>"; };
 		50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartReaderSettingsViewController.swift; sourceTree = "<group>"; };
 		50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+StripeTerminal.swift"; sourceTree = "<group>"; };
+		6DABF011FD4442AD89944ABA /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
-		8992714C282AF44B508E9D56 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		8D3B8FAE0E5C944CCEC9C301 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
 		AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSetupIntentViewController.swift; sourceTree = "<group>"; };
-		B312B3CE35315BB8719CEA12 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C24C6B23285BF6003271BD /* ifaddrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifaddrs.swift; sourceTree = "<group>"; };
 		B3C53B8B23286DA9003A707B /* Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateReaderViewController.swift; sourceTree = "<group>"; };
@@ -135,20 +139,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				022FB25B245868EF00F4C321 /* StripeTerminal.xcframework in Frameworks */,
-				3F43219D34A852EDBC517901 /* Pods_Example.framework in Frameworks */,
+				4A340AEC41979F8F8EBC0F2B /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14ED5875116E1BB6B7B0D50F /* Pods */ = {
+		8461B7B0DBE3249902C0F08C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B312B3CE35315BB8719CEA12 /* Pods-Example.debug.xcconfig */,
-				8992714C282AF44B508E9D56 /* Pods-Example.release.xcconfig */,
+				6DABF011FD4442AD89944ABA /* Pods-Example.debug.xcconfig */,
+				8D3B8FAE0E5C944CCEC9C301 /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,7 +161,7 @@
 				C16F409F2094F07B009CE87C /* Example */,
 				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				14ED5875116E1BB6B7B0D50F /* Pods */,
+				8461B7B0DBE3249902C0F08C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +182,7 @@
 				02370F5C244C94D00056D896 /* CancelableViewController.swift */,
 				3936853D28860BDE0026A906 /* CaptureMethod+String.swift */,
 				1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */,
+				390B937A2BED7C1800557850 /* CollectDataViewController.swift */,
 				028DC8562A9D28B40069E4BE /* Color.swift */,
 				A63E8430260D073B006CB90C /* CreateLocationViewController.swift */,
 				C1F78BDA2144F0830094BE37 /* CustomViews.swift */,
@@ -208,7 +212,8 @@
 				C16F40B52094F0A1009CE87C /* RootViewController.swift */,
 				A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */,
 				2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */,
-				1F65BFFC2AF42F8500043452 /* StartCollectInputsViewController.swift */,
+				390B93742BED7B9100557850 /* StartCollectDataViewController.swift */,
+				390B93762BED7BCC00557850 /* StartCollectInputsViewController.swift */,
 				C1B4BCA72142515D00E2ECE6 /* StartPaymentViewController.swift */,
 				50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */,
 				24B7B00D23F1D40100F58FCA /* StartRefundViewController.swift */,
@@ -230,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				022FB25A245868EF00F4C321 /* StripeTerminal.xcframework */,
-				249B284F00D67C27DCB9B0DD /* Pods_Example.framework */,
+				0CA771CD71D16BCCB03F74D2 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,12 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				892BCA8479EB75591B46DB5B /* [CP] Check Pods Manifest.lock */,
+				FF40E8BB78B6D2A8A62B15DD /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				2AC29A608566CCF040611020 /* [CP] Embed Pods Frameworks */,
+				9D93C1BAE0F2BCEA379D2097 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,7 +313,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AC29A608566CCF040611020 /* [CP] Embed Pods Frameworks */ = {
+		9D93C1BAE0F2BCEA379D2097 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,7 +333,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		892BCA8479EB75591B46DB5B /* [CP] Check Pods Manifest.lock */ = {
+		FF40E8BB78B6D2A8A62B15DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,6 +365,7 @@
 				C16F40BC2094F0A1009CE87C /* RootViewController.swift in Sources */,
 				C1D7649421001086000A4B94 /* ReaderDiscoveryViewController.swift in Sources */,
 				025BEC1A2A8EC94400955C73 /* LabelOverlayView.swift in Sources */,
+				390B937B2BED7C1800557850 /* CollectDataViewController.swift in Sources */,
 				025BEC162A8EC86400955C73 /* OfflinePaymentsLogViewController.swift in Sources */,
 				C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */,
 				C1B4BCA421423D8600E2ECE6 /* ReaderHeaderView.swift in Sources */,
@@ -383,10 +389,11 @@
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
 				C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */,
 				248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */,
-				1F65BFFD2AF42F8500043452 /* StartCollectInputsViewController.swift in Sources */,
 				02370F5D244C94D00056D896 /* CancelableViewController.swift in Sources */,
 				C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */,
+				390B93752BED7B9100557850 /* StartCollectDataViewController.swift in Sources */,
 				199A008D245A2D7000E89BE9 /* TableViewController+StripeTerminal.swift in Sources */,
+				390B93772BED7BCC00557850 /* StartCollectInputsViewController.swift in Sources */,
 				50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */,
 				50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */,
 				C1D3A024214208800095A07B /* ReaderViewController.swift in Sources */,
@@ -546,12 +553,12 @@
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B312B3CE35315BB8719CEA12 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 6DABF011FD4442AD89944ABA /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y28TH9SHX7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -579,12 +586,12 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8992714C282AF44B508E9D56 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 8D3B8FAE0E5C944CCEC9C301 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y28TH9SHX7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -68,6 +68,15 @@ NS_SWIFT_NAME(CollectConfiguration)
 @property (nonatomic, assign, readonly) BOOL requestDynamicCurrencyConversion;
 
 /**
+ Display a notice on the reader collection screen to inform cardholders about surcharging on a transaction
+
+ `updatePaymentIntent` must be set to true for to display a surcharge notice
+
+ Defaults to nil.
+ */
+@property (nonatomic, strong, nullable, readonly) NSString *surchargeNotice;
+
+/**
  Use `SCPCollectConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -99,6 +108,9 @@ NS_SWIFT_NAME(CollectConfigurationBuilder)
 
 /// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
 - (SCPCollectConfigurationBuilder *)setRequestDynamicCurrencyConversion:(BOOL)requestDynamicCurrencyConversion;
+
+/// Set the surchargeNotice property for the `CollectConfiguration` object that will be built.
+- (SCPCollectConfigurationBuilder *)setSurchargeNotice:(nullable NSString *)surchargeNotice;
 
 @end
 

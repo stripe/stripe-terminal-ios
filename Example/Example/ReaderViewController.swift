@@ -204,6 +204,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func showCollectData() {
+        let vc = StartCollectDataViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
@@ -255,14 +260,20 @@ class ReaderViewController: TableViewController, CancelingViewController {
             }
 
             if deviceType != .chipper2X && deviceType != .stripeM2 && deviceType != .appleBuiltIn {
-                workflowRows.append(Row(text: "In-Person Refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
+                workflowRows.append(Row(text: "In-Person refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             }
 
             if deviceType == .wisePosE || deviceType == .wisePosEDevKit || deviceType == .stripeS700 || deviceType == .stripeS700DevKit {
-                workflowRows.append(Row(text: "Collect Inputs", detailText: "Collect information with forms", selection: { [unowned self] in
+                workflowRows.append(Row(text: "Collect inputs", detailText: "Collect information with forms", selection: { [unowned self] in
                 self.showCollectInputs()
+                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            }
+
+            if deviceType == .chipper2X || deviceType == .stripeM2 || deviceType == .chipper1X {
+                workflowRows.append(Row(text: "Collect data", detailText: "Collect non-payment data using the reader hardware.", selection: { [unowned self] in
+                    self.showCollectData()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
             }
 
