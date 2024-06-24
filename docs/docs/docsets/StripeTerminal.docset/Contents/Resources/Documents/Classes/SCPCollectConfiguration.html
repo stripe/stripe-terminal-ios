@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.6.0 Docs
+          StripeTerminal 3.7.0 Docs
         </a>
         
       </p>
@@ -87,6 +87,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPBuilder.html">SCPBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectDataConfiguration.html">SCPCollectDataConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectDataConfigurationBuilder.html">SCPCollectDataConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCollectDataType.html">SCPCollectDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPCollectedData.html">SCPCollectedData</a>
               </li>
             </ul>
           </li>
@@ -424,6 +436,12 @@
                 <a class="nav-group-task-link" href="../Classes/SCPCollectConfigurationBuilder.html">SCPCollectConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmConfiguration.html">SCPConfirmConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPConfirmConfigurationBuilder.html">SCPConfirmConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPSetupIntentConfiguration.html">SCPSetupIntentConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -455,6 +473,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSurcharge.html">SCPSurcharge</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -625,6 +646,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectInputsCompletionBlock">SCPCollectInputsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -844,6 +868,42 @@ will error with <code>SCPErrorUpdatePaymentIntentUnavailableWhileOffline</code>.
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPCollectConfiguration(py)surchargeNotice"></a>
+                    <a name="//apple_ref/objc/Property/surchargeNotice" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCollectConfiguration(py)surchargeNotice">surchargeNotice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display a notice on the reader collection screen to inform cardholders about surcharging on a transaction</p>
+
+<p><code><a href="../Classes/SCPCollectConfiguration.html#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent">updatePaymentIntent</a></code> must be set to true for to display a surcharge notice</p>
+
+<p>Defaults to nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">surchargeNotice</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">surchargeNotice</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPCollectConfiguration(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPCollectConfiguration(im)init">-init</a>
@@ -911,8 +971,8 @@ will error with <code>SCPErrorUpdatePaymentIntentUnavailableWhileOffline</code>.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-05-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-06-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

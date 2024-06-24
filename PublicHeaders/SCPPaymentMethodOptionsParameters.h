@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  * The `PaymentMethodOptionsParameters` contains options for PaymentMethod creation.
  */
 NS_SWIFT_NAME(PaymentMethodOptionsParameters)
-@interface SCPPaymentMethodOptionsParameters : NSObject
+@interface SCPPaymentMethodOptionsParameters : NSObject <SCPJSONDecodable, NSCopying>
 
 /**
  Card-present-specific configuration for this PaymentMethod.

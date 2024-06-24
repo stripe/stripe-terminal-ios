@@ -7,7 +7,23 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
-# 3.6.0 2024-05-23
+
+# 3.7.0 2024-06-24
+* Built with Xcode 15.2, Swift version 5.9.
+* Beta: Surcharging is now available in private beta. 
+  * added a `surchargeNotice` parameter to [`SCPCollectConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration.html) to display a surcharge notice on the payment collection screen.
+  * added a `SCPSurcharge` field to the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html) object.
+  * added a [`SCPConfirmConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmConfiguration.html) class to allow per-transaction overrides for [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:).
+  * added an `amountSurcharge` parameter to [`SCPConfirmConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmConfiguration.html) to surcharge when confirming a payment.
+  * If you are interested in joining this beta, please email stripe-terminal-betas@stripe.com.
+* Beta: Added a `collectData` method to collect eligible magstripe data, such as gift cards.
+  * If you are interested in joining this beta, please email stripe-terminal-betas@stripe.com.
+* Update: Added [`SCPSimulateReaderUpdateLowBatterySucceedConnect`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulateReaderUpdate.html#/c:@E@SCPSimulateReaderUpdate@SCPSimulateReaderUpdateLowBatterySucceedConnect) to simulate an error scenario where a required update fails on a mobile reader due to low battery, but the SDK still successfully connects to the reader. 
+  * see [Simulated reader updates](https://docs.stripe.com/terminal/references/testing?terminal-sdk-platform=ios#simulated-reader-updates) for details.
+* Update: if a mobile reader receives the [`SCPErrorReaderMissingEncryptionKeys`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys) error during payment collection, the SDK will disconnect from the reader. Note that auto reconnection will not work in this scenario. The error will automatically recover once the reader is reconnected.
+* Fix: Fixed a crash that occurred when canceling [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) after [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:) had already been called on the `PaymentIntent`.
+
+# 3.6.0 2024-05-13
 * Built with Xcode 15.2, Swift version 5.9.
 * Update: Using [`SCPOfflineBehaviorRequireOnline`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPOfflineBehavior.html#/c:@E@SCPOfflineBehavior@SCPOfflineBehaviorRequireOnline) will attempt online network calls regardless of the current network status. This may cause requests while the network is offline to take longer as requests will always be attempted online first.
 * Update: Tapping or inserting an unsupported card will now report `SCPReaderDisplayMessageTryAnotherCard` instead of `SCPReaderDisplayMessageTryAnotherReadMethod`.
