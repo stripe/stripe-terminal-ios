@@ -63,6 +63,8 @@ struct LogEvent: CustomStringConvertible, Event {
         case cancelSetupIntent = "terminal.cancelSetupIntent"
         case collectInputs = "terminal.collectInputs"
         case cancelCollectInputs = "terminal.cancelCollectInputs"
+        case collectData = "terminal.collectData"
+        case cancelCollectData = "terminal.cancelCollectData"
     }
 
     enum AssociatedObject {
@@ -74,6 +76,7 @@ struct LogEvent: CustomStringConvertible, Event {
         case refund(Refund)
         case setupIntent(SetupIntent)
         case collectInputs([CollectInputsResult])
+        case collectedData(CollectedData)
         case object(CustomStringConvertible)
     }
 
@@ -251,7 +254,22 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Cancel CollectInputs Failed"
             case .message(let message): string = message
             }
+        case .collectData:
+            switch result {
+            case .started: string = "Started CollectData"
+            case .succeeded: string = "Completed CollectData"
+            case .errored: string = "CollectData Failed"
+            case .message(let message): string = message
+            }
+        case .cancelCollectData:
+            switch result {
+            case .started: string = "Cancel CollectData"
+            case .succeeded: string = "Canceled CollectData"
+            case .errored: string = "Cancel CollectData Failed"
+            case .message(let message): string = message
+            }
         }
+
 
         return string
     }
@@ -298,6 +316,7 @@ extension LogEvent.AssociatedObject {
         case .refund: return "REFUND"
         case .setupIntent: return "SETUPINTENT"
         case .collectInputs: return "COLLECTINPUTS"
+        case .collectedData: return "COLLECTDATA"
         case .object: return "OBJECT"
         }
     }
@@ -354,6 +373,8 @@ extension LogEvent.AssociatedObject {
             return prettyPrint(json: setupIntent.originalJSON)
         case .collectInputs(let collectInputs):
             return collectInputs.description
+        case .collectedData(let collectedData):
+            return collectedData.description
         case .object(let object):
             return object.description
         }

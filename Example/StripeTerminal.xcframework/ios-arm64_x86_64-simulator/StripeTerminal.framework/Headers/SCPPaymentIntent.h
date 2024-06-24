@@ -178,6 +178,20 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) SCPOfflineDetails *offlineDetails;
 
 /**
+ Payment-method-specific configuration for this PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly) SCPPaymentMethodOptionsParameters *paymentMethodOptions;
+
+/**
+ Indicates that you intend to make future payments with this PaymentIntent’s payment method.
+
+ Providing this parameter will attach the payment method to the PaymentIntent’s Customer, if present, after the PaymentIntent is confirmed and any required actions from the user are complete. If no Customer was provided, the payment method can still be attached to a Customer after the transaction completes.
+
+ When processing card payments, Stripe also uses setup_future_usage to dynamically optimize your payment flow and comply with regional legislation and network rules, such as SCA.
+ */
+@property (nonatomic, nullable, readonly) NSString *setupFutureUsage;
+
+/**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use
  one that has been returned by our SDK.
 

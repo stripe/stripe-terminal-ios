@@ -14,6 +14,7 @@ class PaymentViewController: EventDisplayingViewController {
 
     private let paymentParams: PaymentIntentParameters
     private let collectConfig: CollectConfiguration
+    private let confirmConfig: ConfirmConfiguration
     private let declineCardBrand: CardBrand?
     private let recollectAfterCardBrandDecline: Bool
     private var offlineCreateConfig: CreateConfiguration?
@@ -22,6 +23,7 @@ class PaymentViewController: EventDisplayingViewController {
 
     init(paymentParams: PaymentIntentParameters,
          collectConfig: CollectConfiguration,
+         confirmConfig: ConfirmConfiguration,
          declineCardBrand: CardBrand?,
          recollectAfterCardBrandDecline: Bool,
          isSposReader: Bool,
@@ -31,6 +33,7 @@ class PaymentViewController: EventDisplayingViewController {
          skipCapture: Bool) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
+        self.confirmConfig = confirmConfig
         self.declineCardBrand = declineCardBrand
         self.recollectAfterCardBrandDecline = recollectAfterCardBrandDecline
         self.isSposReader = isSposReader
@@ -207,7 +210,7 @@ class PaymentViewController: EventDisplayingViewController {
     private func confirmPaymentIntent(intent: PaymentIntent) {
         var processEvent = LogEvent(method: .confirmPaymentIntent)
         self.events.append(processEvent)
-        Terminal.shared.confirmPaymentIntent(intent) { processedIntent, processError in
+        Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) { processedIntent, processError in
             if let error = processError {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)
