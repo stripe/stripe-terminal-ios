@@ -259,7 +259,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 break
             }
 
-            if deviceType != .chipper2X && deviceType != .stripeM2 && deviceType != .appleBuiltIn {
+            if deviceType != .chipper2X && deviceType != .stripeM2 {
                 workflowRows.append(Row(text: "In-Person refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
                 self.showStartRefund()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))

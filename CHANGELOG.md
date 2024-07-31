@@ -8,6 +8,13 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 3.0'
 ```
 
+# 3.8.0 2024-07-31
+* Built with Xcode 15.2, Swift version 5.9.
+* Fix an issue running on iOS 18 where the SDK fails [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) with [`SCPErrorUnexpectedSdkError`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorUnexpectedSdkError) when collecting amounts greater than 99999.
+* Fix an issue where the SDK can report a reader as connected if it had disconnected while installing a required update.
+* Fix a rare race condition where [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:) could incorrectly fail with [`SCPErrorReaderBusy`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorReaderBusy).
+* Fix `supportsReadersOfType` returning `true` for `SCPDeviceTypeAppleBuiltIn` on iOS versions below 16.7 (minimum supported version).
+
 # 3.7.0 2024-06-24
 * Built with Xcode 15.2, Swift version 5.9.
 * Beta: Surcharging is now available in private beta. 

@@ -87,8 +87,9 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         readers = []
 
         // If local mobile, make sure the iOS device supports it.
-        if discoveryConfig.discoveryMethod == .localMobile {
-            let supported = Terminal.shared.supportsReaders(of: .appleBuiltIn, discoveryMethod: .localMobile, simulated: discoveryConfig.simulated)
+        if discoveryConfig.discoveryMethod == .localMobile || discoveryConfig.discoveryMethod == .usb {
+            let deviceType = discoveryConfig.discoveryMethod == .localMobile ? DeviceType.appleBuiltIn : DeviceType.stripeM2
+            let supported = Terminal.shared.supportsReaders(of: deviceType, discoveryMethod: discoveryConfig.discoveryMethod, simulated: discoveryConfig.simulated)
             switch supported {
             case .success:
                 break

@@ -7033,2030 +7033,2030 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 1687,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 1796,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 1822,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 1848,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 1875,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 2100,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3088,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3234,
       "length": 4,
       "value": "10.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3470,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 3497,
       "length": 11,
       "value": "\"💳\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3594,
       "length": 4,
       "value": "72.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3876,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3967,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 4025,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4071,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4151,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4399,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 4490,
       "length": 4,
       "value": "72.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 4550,
       "length": 4,
       "value": "0.25"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4597,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4677,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4949,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 5040,
       "length": 4,
       "value": "36.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 5096,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5142,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 5218,
       "length": 11,
       "value": "\"Save Card\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5255,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5484,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6171,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6218,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 6471,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 6536,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6679,
       "length": 34,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6712,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6789,
       "length": 38,
       "value": "\"Pay \""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6826,
       "length": 1,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 6872,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 818,
+      "offset": 817,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 909,
+      "offset": 908,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1009,
+      "offset": 1008,
       "length": 22,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1173,
+      "offset": 1172,
       "length": 16,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1374,
+      "offset": 1373,
       "length": 10,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1495,
+      "offset": 1494,
       "length": 27,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1587,
+      "offset": 1586,
       "length": 11,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1653,
+      "offset": 1652,
       "length": 21,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1723,
+      "offset": 1722,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1797,
+      "offset": 1796,
       "length": 12,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1870,
+      "offset": 1869,
       "length": 26,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1953,
+      "offset": 1952,
       "length": 22,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2068,
+      "offset": 2067,
       "length": 8,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2135,
+      "offset": 2134,
       "length": 16,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2229,
+      "offset": 2228,
       "length": 18,
       "value": "14"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2348,
+      "offset": 2347,
       "length": 13,
       "value": "15"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2475,
+      "offset": 2474,
       "length": 14,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2578,
+      "offset": 2577,
       "length": 12,
       "value": "17"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2687,
+      "offset": 2686,
       "length": 12,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2746,
+      "offset": 2745,
       "length": 16,
       "value": "19"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2872,
+      "offset": 2871,
       "length": 10,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2987,
+      "offset": 2986,
       "length": 16,
       "value": "21"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3133,
+      "offset": 3132,
       "length": 20,
       "value": "22"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3217,
+      "offset": 3216,
       "length": 34,
       "value": "23"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3331,
+      "offset": 3330,
       "length": 23,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3460,
+      "offset": 3459,
       "length": 25,
       "value": "25"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3593,
+      "offset": 3592,
       "length": 18,
       "value": "26"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3650,
+      "offset": 3649,
       "length": 15,
       "value": "27"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3704,
+      "offset": 3703,
       "length": 15,
       "value": "28"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3878,
+      "offset": 3877,
       "length": 14,
       "value": "29"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4003,
+      "offset": 4002,
       "length": 23,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4096,
+      "offset": 4095,
       "length": 28,
       "value": "31"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4212,
+      "offset": 4211,
       "length": 18,
       "value": "32"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4326,
+      "offset": 4325,
       "length": 15,
       "value": "33"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4451,
+      "offset": 4450,
       "length": 20,
       "value": "34"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4603,
+      "offset": 4602,
       "length": 18,
       "value": "35"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4694,
+      "offset": 4693,
       "length": 25,
       "value": "36"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4782,
+      "offset": 4781,
       "length": 32,
       "value": "37"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4886,
+      "offset": 4885,
       "length": 17,
       "value": "38"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4963,
+      "offset": 4962,
       "length": 13,
       "value": "39"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5030,
+      "offset": 5029,
       "length": 13,
       "value": "40"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5099,
+      "offset": 5098,
       "length": 15,
       "value": "41"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5181,
+      "offset": 5180,
       "length": 11,
       "value": "42"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5303,
+      "offset": 5302,
       "length": 24,
       "value": "43"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5406,
+      "offset": 5405,
       "length": 14,
       "value": "44"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5499,
+      "offset": 5498,
       "length": 17,
       "value": "45"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5577,
+      "offset": 5576,
       "length": 19,
       "value": "46"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5681,
+      "offset": 5680,
       "length": 19,
       "value": "47"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5848,
+      "offset": 5847,
       "length": 14,
       "value": "48"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5926,
+      "offset": 5925,
       "length": 15,
       "value": "49"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6018,
+      "offset": 6017,
       "length": 15,
       "value": "50"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6134,
+      "offset": 6133,
       "length": 12,
       "value": "51"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6238,
+      "offset": 6237,
       "length": 13,
       "value": "52"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6454,
+      "offset": 6453,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6512,
+      "offset": 6511,
       "length": 15,
       "value": "\"UnexpectedNil\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6585,
+      "offset": 6584,
       "length": 24,
       "value": "\"InvalidTransactionType\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6661,
+      "offset": 6660,
       "length": 18,
       "value": "\"PasscodeDisabled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6725,
+      "offset": 6724,
       "length": 12,
       "value": "\"NotAllowed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6800,
+      "offset": 6799,
       "length": 29,
       "value": "\"BackgroundRequestNotAllowed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6876,
+      "offset": 6875,
       "length": 13,
       "value": "\"Unsupported\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 6946,
+      "offset": 6945,
       "length": 23,
       "value": "\"OsVersionNotSupported\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7022,
+      "offset": 7021,
       "length": 19,
       "value": "\"ModelNotSupported\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7089,
+      "offset": 7088,
       "length": 14,
       "value": "\"NetworkError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7165,
+      "offset": 7164,
       "length": 28,
       "value": "\"NetworkAuthenticationError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7251,
+      "offset": 7250,
       "length": 24,
       "value": "\"ServiceConnectionError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7319,
+      "offset": 7318,
       "length": 10,
       "value": "\"NotReady\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7381,
+      "offset": 7380,
       "length": 18,
       "value": "\"EmptyReaderToken\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7453,
+      "offset": 7452,
       "length": 20,
       "value": "\"InvalidReaderToken\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7522,
+      "offset": 7521,
       "length": 15,
       "value": "\"PrepareFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7587,
+      "offset": 7586,
       "length": 16,
       "value": "\"PrepareExpired\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7651,
+      "offset": 7650,
       "length": 14,
       "value": "\"TokenExpired\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7713,
+      "offset": 7712,
       "length": 14,
       "value": "\"DeviceBanned\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7779,
+      "offset": 7778,
       "length": 18,
       "value": "\"ReaderMemoryFull\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7843,
+      "offset": 7842,
       "length": 12,
       "value": "\"ReaderBusy\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7907,
+      "offset": 7906,
       "length": 18,
       "value": "\"AccountNotLinked\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 7981,
+      "offset": 7980,
       "length": 22,
       "value": "\"AccountLinkingFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8073,
+      "offset": 8072,
       "length": 36,
       "value": "\"AccountLinkingRequiresiCloudSignIn\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8168,
+      "offset": 8167,
       "length": 25,
       "value": "\"AccountLinkingCancelled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8244,
+      "offset": 8243,
       "length": 17,
       "value": "\"MerchantBlocked\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8312,
+      "offset": 8311,
       "length": 17,
       "value": "\"InvalidMerchant\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8379,
+      "offset": 8378,
       "length": 16,
       "value": "\"ReadNotAllowed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8454,
+      "offset": 8453,
       "length": 25,
       "value": "\"ReadFromBackgroundError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8543,
+      "offset": 8542,
       "length": 30,
       "value": "\"ReaderServiceConnectionError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8627,
+      "offset": 8626,
       "length": 20,
       "value": "\"ReaderServiceError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8698,
+      "offset": 8697,
       "length": 17,
       "value": "\"NoReaderSession\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8771,
+      "offset": 8770,
       "length": 22,
       "value": "\"ReaderSessionExpired\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8847,
+      "offset": 8846,
       "length": 20,
       "value": "\"ReaderTokenExpired\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 8928,
+      "offset": 8927,
       "length": 27,
       "value": "\"ReaderSessionNetworkError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9023,
+      "offset": 9022,
       "length": 34,
       "value": "\"ReaderSessionAuthenticationError\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9110,
+      "offset": 9109,
       "length": 19,
       "value": "\"ReaderSessionBusy\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9178,
+      "offset": 9177,
       "length": 15,
       "value": "\"ReadCancelled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9242,
+      "offset": 9241,
       "length": 15,
       "value": "\"InvalidAmount\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9308,
+      "offset": 9307,
       "length": 17,
       "value": "\"InvalidCurrency\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9372,
+      "offset": 9371,
       "length": 13,
       "value": "\"NfcDisabled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9445,
+      "offset": 9444,
       "length": 26,
       "value": "\"ReadNotAllowedDuringCall\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9521,
+      "offset": 9520,
       "length": 16,
       "value": "\"CardReadFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9590,
+      "offset": 9589,
       "length": 19,
       "value": "\"PaymentReadFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9664,
+      "offset": 9663,
       "length": 21,
       "value": "\"PaymentCardDeclined\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9735,
+      "offset": 9734,
       "length": 16,
       "value": "\"PinEntryFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9802,
+      "offset": 9801,
       "length": 17,
       "value": "\"PinTokenInvalid\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9870,
+      "offset": 9869,
       "length": 17,
       "value": "\"PinEntryTimeout\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9935,
+      "offset": 9934,
       "length": 14,
       "value": "\"PinCancelled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 9998,
+      "offset": 9997,
       "length": 15,
       "value": "\"PinNotAllowed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10074,
+      "offset": 10073,
       "length": 27,
       "value": "\"AccountLinkingCheckFailed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10156,
+      "offset": 10155,
       "length": 21,
       "value": "\"InvalidPreferredAID\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10231,
+      "offset": 10230,
       "length": 20,
       "value": "\"AccountDeactivated\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 818,
+      "offset": 817,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 909,
+      "offset": 908,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1009,
+      "offset": 1008,
       "length": 22,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1173,
+      "offset": 1172,
       "length": 16,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1374,
+      "offset": 1373,
       "length": 10,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1495,
+      "offset": 1494,
       "length": 27,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1587,
+      "offset": 1586,
       "length": 11,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1653,
+      "offset": 1652,
       "length": 21,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1723,
+      "offset": 1722,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1797,
+      "offset": 1796,
       "length": 12,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1870,
+      "offset": 1869,
       "length": 26,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 1953,
+      "offset": 1952,
       "length": 22,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2068,
+      "offset": 2067,
       "length": 8,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2135,
+      "offset": 2134,
       "length": 16,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2229,
+      "offset": 2228,
       "length": 18,
       "value": "14"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2348,
+      "offset": 2347,
       "length": 13,
       "value": "15"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2475,
+      "offset": 2474,
       "length": 14,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2578,
+      "offset": 2577,
       "length": 12,
       "value": "17"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2687,
+      "offset": 2686,
       "length": 12,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2746,
+      "offset": 2745,
       "length": 16,
       "value": "19"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2872,
+      "offset": 2871,
       "length": 10,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 2987,
+      "offset": 2986,
       "length": 16,
       "value": "21"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3133,
+      "offset": 3132,
       "length": 20,
       "value": "22"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3217,
+      "offset": 3216,
       "length": 34,
       "value": "23"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3331,
+      "offset": 3330,
       "length": 23,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3460,
+      "offset": 3459,
       "length": 25,
       "value": "25"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3593,
+      "offset": 3592,
       "length": 18,
       "value": "26"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3650,
+      "offset": 3649,
       "length": 15,
       "value": "27"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3704,
+      "offset": 3703,
       "length": 15,
       "value": "28"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 3878,
+      "offset": 3877,
       "length": 14,
       "value": "29"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4003,
+      "offset": 4002,
       "length": 23,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4096,
+      "offset": 4095,
       "length": 28,
       "value": "31"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4212,
+      "offset": 4211,
       "length": 18,
       "value": "32"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4326,
+      "offset": 4325,
       "length": 15,
       "value": "33"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4451,
+      "offset": 4450,
       "length": 20,
       "value": "34"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4603,
+      "offset": 4602,
       "length": 18,
       "value": "35"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4694,
+      "offset": 4693,
       "length": 25,
       "value": "36"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4782,
+      "offset": 4781,
       "length": 32,
       "value": "37"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4886,
+      "offset": 4885,
       "length": 17,
       "value": "38"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4963,
+      "offset": 4962,
       "length": 13,
       "value": "39"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5030,
+      "offset": 5029,
       "length": 13,
       "value": "40"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5099,
+      "offset": 5098,
       "length": 15,
       "value": "41"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5181,
+      "offset": 5180,
       "length": 11,
       "value": "42"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5303,
+      "offset": 5302,
       "length": 24,
       "value": "43"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5406,
+      "offset": 5405,
       "length": 14,
       "value": "44"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5499,
+      "offset": 5498,
       "length": 17,
       "value": "45"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5577,
+      "offset": 5576,
       "length": 19,
       "value": "46"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5681,
+      "offset": 5680,
       "length": 19,
       "value": "47"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5848,
+      "offset": 5847,
       "length": 14,
       "value": "48"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5926,
+      "offset": 5925,
       "length": 15,
       "value": "49"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6018,
+      "offset": 6017,
       "length": 15,
       "value": "50"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6134,
+      "offset": 6133,
       "length": 12,
       "value": "51"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 6238,
+      "offset": 6237,
       "length": 13,
       "value": "52"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10475,
+      "offset": 10474,
       "length": 34,
       "value": "\"SCPAppleBuiltInReaderErrorDomain\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10646,
+      "offset": 10645,
       "length": 43,
       "value": "\"SCPAppleBuiltInReaderErrorUserInfoNameKey\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 10839,
+      "offset": 10838,
       "length": 49,
       "value": "\"SCPAppleBuiltInReaderErrorUserInfoReaderMessage\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 11056,
+      "offset": 11055,
       "length": 57,
       "value": "\"SCPAppleBuiltInReaderErrorUserInfoDeviceBannedUntilDate\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 11283,
+      "offset": 11282,
       "length": 55,
       "value": "\"SCPAppleBuiltInReaderErrorUserInfoPrepareFailedReason\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 11775,
+      "offset": 11774,
       "length": 15,
       "value": "\"Unknown error\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 12505,
+      "offset": 12504,
       "length": 16,
       "value": "\"Invalid amount\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 13244,
+      "offset": 13243,
       "length": 18,
       "value": "\"Invalid currency\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 14029,
+      "offset": 14028,
       "length": 26,
       "value": "\"Invalid transaction type\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 14862,
+      "offset": 14861,
       "length": 26,
       "value": "\"OS version not supported\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 15649,
+      "offset": 15648,
       "length": 28,
       "value": "\"Device model not supported\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 16375,
+      "offset": 16374,
       "length": 18,
       "value": "\"Reader not ready\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 17123,
+      "offset": 17122,
       "length": 16,
       "value": "\"Unexpected nil\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPAppleBuiltInReader.swift",
       "kind": "StringLiteral",
-      "offset": 17850,
+      "offset": 17849,
       "length": 26,
       "value": "\"The command was canceled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 750,
+      "offset": 749,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 848,
+      "offset": 847,
       "length": 11,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 921,
+      "offset": 920,
       "length": 12,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1004,
+      "offset": 1003,
       "length": 10,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1076,
+      "offset": 1075,
       "length": 9,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1177,
+      "offset": 1176,
       "length": 5,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1231,
+      "offset": 1230,
       "length": 12,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1298,
+      "offset": 1297,
       "length": 16,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1357,
+      "offset": 1356,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1417,
+      "offset": 1416,
       "length": 17,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1637,
+      "offset": 1636,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1693,
+      "offset": 1692,
       "length": 13,
       "value": "\"ReadyForTap\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1754,
+      "offset": 1753,
       "length": 14,
       "value": "\"CardDetected\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1814,
+      "offset": 1813,
       "length": 12,
       "value": "\"RemoveCard\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1871,
+      "offset": 1870,
       "length": 11,
       "value": "\"Completed\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1923,
+      "offset": 1922,
       "length": 7,
       "value": "\"Retry\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 1978,
+      "offset": 1977,
       "length": 14,
       "value": "\"ReadCanceled\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 2044,
+      "offset": 2043,
       "length": 18,
       "value": "\"ReadNotCompleted\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 2115,
+      "offset": 2114,
       "length": 19,
       "value": "\"PinEntryRequested\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "StringLiteral",
-      "offset": 2187,
+      "offset": 2186,
       "length": 19,
       "value": "\"PinEntryCompleted\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 750,
+      "offset": 749,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 848,
+      "offset": 847,
       "length": 11,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 921,
+      "offset": 920,
       "length": 12,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1004,
+      "offset": 1003,
       "length": 10,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1076,
+      "offset": 1075,
       "length": 9,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1177,
+      "offset": 1176,
       "length": 5,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1231,
+      "offset": 1230,
       "length": 12,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1298,
+      "offset": 1297,
       "length": 16,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1357,
+      "offset": 1356,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1417,
+      "offset": 1416,
       "length": 17,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionEvent.swift",
       "kind": "BooleanLiteral",
-      "offset": 3753,
+      "offset": 3751,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderStub.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderStub.swift",
       "kind": "StringLiteral",
       "offset": 5818,
       "length": 10,
       "value": "\"Merchant\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderStub.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderStub.swift",
       "kind": "StringLiteral",
       "offset": 856,
       "length": 18,
       "value": "\"StripeTerminal.AppleBuiltInReader\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 2332,
       "length": 4,
       "value": "30.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 4134,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 5989,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6135,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 6455,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "StringLiteral",
       "offset": 6587,
       "length": 25,
       "value": "\"Tap to Simulate Payment\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6733,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6804,
       "length": 4,
       "value": "0.95"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6817,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6875,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6887,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6901,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6914,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6956,
       "length": 3,
       "value": "4.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 6991,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7282,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7638,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "StringLiteral",
       "offset": 7768,
       "length": 10,
       "value": "\"✕\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7899,
       "length": 4,
       "value": "32.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7970,
       "length": 3,
       "value": "0.9"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7982,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8042,
       "length": 4,
       "value": "48.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 8059,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8120,
       "length": 4,
       "value": "48.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 8137,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8178,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 8214,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8794,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8914,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 9032,
       "length": 5,
       "value": "-20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 9155,
       "length": 5,
       "value": "-20.0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 9345,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "IntegerLiteral",
       "offset": 9893,
       "length": 3,
       "value": "249"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "IntegerLiteral",
       "offset": 10009,
       "length": 3,
       "value": "749"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 11333,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 11508,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 11821,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 12145,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderMockViewController.swift",
       "kind": "StringLiteral",
       "offset": 2031,
       "length": 36,
       "value": "\"StripeTerminal.AppleBuiltInReaderMockViewController\""
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 466,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 514,
       "length": 8,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 569,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 620,
       "length": 12,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 466,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 514,
       "length": 8,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 569,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/henryx\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPAppleBuiltInReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 620,
       "length": 12,
