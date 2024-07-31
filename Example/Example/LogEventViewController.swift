@@ -65,6 +65,7 @@ struct LogEvent: CustomStringConvertible, Event {
         case cancelCollectInputs = "terminal.cancelCollectInputs"
         case collectData = "terminal.collectData"
         case cancelCollectData = "terminal.cancelCollectData"
+        case retrieveCollectedData = "terminal.retrieveCollectedData"
     }
 
     enum AssociatedObject {
@@ -268,8 +269,14 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Cancel CollectData Failed"
             case .message(let message): string = message
             }
+        case .retrieveCollectedData:
+            switch result {
+            case .started: string = "Retrieve Collected Data"
+            case .succeeded: string = "Retrieved Collected Data"
+            case .errored: string = "Retrieve Collected Data Failed"
+            case .message(let message): string = message
+            }
         }
-
 
         return string
     }
