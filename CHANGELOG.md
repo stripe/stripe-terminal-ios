@@ -7,6 +7,8 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.8.1 2024-08-06
+* Fix a deadlock in the logger that can cause the SDK to crash.
 
 # 3.8.0 2024-07-31
 * Built with Xcode 15.2, Swift version 5.9.
