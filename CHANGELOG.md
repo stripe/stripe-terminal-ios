@@ -7,6 +7,9 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.8.2 2024-08-08
+* Fix another path that could result in a logger deadlock, further reducing the risk of SDK crashes.
+
 # 3.8.1 2024-08-06
 * Fix a deadlock in the logger that can cause the SDK to crash.
 
