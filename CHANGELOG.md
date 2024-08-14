@@ -152,6 +152,12 @@ pod 'StripeTerminal', '~> 3.0'
 * Update: Removed `CardDetails.fingerprint` and `CardPresentDetails.fingerprint`. You will still be able to access the fingerprint server-side using [Stripe server-side SDKs](https://stripe.com/docs/libraries#server-side-libraries).
 * Fixes [#240](https://github.com/stripe/stripe-terminal-ios/issues/240): `SCPDiscoveryConfiguration.timeout` is now respected when using simulated Bluetooth scan.
 
+# 2.23.3 2024-08-14
+* Built with Xcode 15.2, Swift version 5.9.
+* Minimum deployment target changed from iOS 11.0 to iOS 12.0 as required by Xcode 15.
+* Fix an issue running on iOS 18 where the SDK fails [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/2.23.0/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) with [`SCPErrorUnexpectedSdkError`](https://stripe.dev/stripe-terminal-ios/2.23.0/Enums/SCPError.html#/c:@E@SCPError@SCPErrorUnexpectedSdkError) when collecting [amounts](https://stripe.dev/stripe-terminal-ios/2.23.0/Classes/SCPPaymentIntent.html#/c:objc(cs)SCPPaymentIntent(py)amount) greater than 99999.
+* Fix an issue where the [`SCPCardPresentDetails`](https://stripe.dev/stripe-terminal-ios/2.23.0/Classes/SCPCardPresentDetails.html) object would be null for a [`SCPPaymentIntent`](https://stripe.dev/stripe-terminal-ios/2.23.0/Classes/SCPPaymentIntent.html).
+
 # 2.23.2 2023-09-18
 * Built with Xcode 14.3, Swift version 5.8.
 * Fixes an issue where the SDK wouldn't announce an unexpected disconnect if an internet reader receives an invalid session error. This can happen after the reader reboots while the SDK is in the background.
