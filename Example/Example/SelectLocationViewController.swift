@@ -12,10 +12,10 @@ import StripeTerminal
 
 class SelectLocationViewController: TableViewController, UITableViewDelegate, CancelingViewController {
 
-    var onSelectLocation: (LocationStub) -> Void = { _ in }
+    var onSelectLocation: (Location) -> Void = { _ in }
     internal var cancelButton: UIBarButtonItem?
     internal var newLocationButton: UIBarButtonItem?
-    private var locations: [LocationStub] = []
+    private var locations: [Location] = []
     private var hasMore: Bool = false
     private var fetchingLocations = false
     private let activityIndicatorHeader = ActivityIndicatorHeaderView(title: "Fetching Locations")
@@ -74,7 +74,7 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         let createLocationVC = CreateLocationViewController()
         createLocationVC.onCreateLocation = { [unowned createLocationVC, unowned self] location in
             createLocationVC.dismissAction()
-            self.locations.insert(location.toLocationStub(), at: 0)
+            self.locations.insert(location, at: 0)
             self.updateContent()
         }
         self.presentModalInNavigationController(createLocationVC)
@@ -86,33 +86,29 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         // If we already have some locations, use the latest one for the startingAfter pagination cursor
         let startingAfter = !locations.isEmpty ? locations[locations.count - 1].stripeId : nil
 
-        do {
-            let parameters = try ListLocationsParametersBuilder().setLimit(100).setStartingAfter(startingAfter).build()
+        let parameters = ListLocationsParameters.init(
+            limit: NSNumber(value: 100),
+            endingBefore: nil,
+            startingAfter: startingAfter
+        )
 
-            self.fetchingLocations = true
-            Terminal.shared.listLocations(parameters: parameters) { [unowned self] (locations: [Location]?, hasMore: Bool, error: Error?) in
-                if let fetchLocationError = error {
-                    self.locations = ReaderDiscoveryViewController.savedLocationStubs
-                    self.presentAlert(error: fetchLocationError)
+        self.fetchingLocations = true
+        Terminal.shared.listLocations(parameters: parameters) { [unowned self] (locations: [Location]?, hasMore: Bool, error: Error?) in
+            if let fetchLocationError = error {
+                self.presentAlert(error: fetchLocationError)
             }
-            var locationStubSet = Set(ReaderDiscoveryViewController.savedLocationStubs)
             if let unwrappedLocations = locations {
                 for location in unwrappedLocations {
-                    self.locations.append(location.toLocationStub())
-                    locationStubSet.insert(location.toLocationStub())
+                    self.locations.append(location)
                 }
                 self.hasMore = hasMore
             }
-            ReaderDiscoveryViewController.savedLocationStubs = Array(locationStubSet)
 
-                self.activityIndicatorHeader.activityIndicator.stopAnimating()
-                self.fetchingLocations = false
-                if let completion = completion {
-                    completion()
-                }
+            self.activityIndicatorHeader.activityIndicator.stopAnimating()
+            self.fetchingLocations = false
+            if let completion = completion {
+                completion()
             }
-        } catch {
-            self.presentAlert(error: error)
         }
     }
 
@@ -146,9 +142,9 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         ]
     }
 
-    internal func row(for location: LocationStub) -> Row {
+    internal func row(for location: Location) -> Row {
         return Row(
-            text: location.displayName,
+            text: location.displayName ?? location.stripeId,
             detailText: location.stripeId,
             selection: { [unowned self] in
                 self.onSelectLocation(location)

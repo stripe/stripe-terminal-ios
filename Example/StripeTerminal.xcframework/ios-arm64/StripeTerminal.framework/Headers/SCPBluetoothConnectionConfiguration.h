@@ -11,9 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
-#import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPReconnectionDelegate.h>
+
+#import <StripeTerminal/SCPConnectionConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -57,44 +57,14 @@ NS_SWIFT_NAME(BluetoothConnectionConfiguration)
 @property (nonatomic, weak, readonly, nullable) id<SCPReconnectionDelegate> autoReconnectionDelegate;
 
 /**
- Use `SCPBluetoothConnectionConfigurationBuilder`.
+ Initialize your connect options with a location ID.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithLocationId:(NSString *)locationId;
 
 /**
- Use `SCPBluetoothConnectionConfigurationBuilder`.
+ Initialize your connect options with a location ID and an expected behavior for unexpected disconnects.
  */
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- The `CollectConfigurationBuilder` is used to create a `CollectConfiguration` object.
- */
-NS_SWIFT_NAME(BluetoothConnectionConfigurationBuilder)
-@interface SCPBluetoothConnectionConfigurationBuilder : SCPBuilder <SCPBluetoothConnectionConfiguration *>
-
-/// Create a `BluetoothConnectionConfiguration` with the provided locationId.
-- (instancetype)initWithLocationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
-
-/// Set the locationId property for the `BluetoothConnectionConfiguration` object that will be built.
-- (SCPBluetoothConnectionConfigurationBuilder *)setLocationId:(NSString *)locationId;
-
-/// Set the autoReconnectOnUnexpectedDisconnect property for the `BluetoothConnectionConfiguration` object that will be built.
-- (SCPBluetoothConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
-
-/// Set the autoReconnectionDelegate property for the `BluetoothConnectionConfiguration` object that will be built.
-- (SCPBluetoothConnectionConfigurationBuilder *)setAutoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
-
-/**
- Use `initWithLocationId:`
- */
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- Use `initWithLocationId:`
- */
-+ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithLocationId:(NSString *)locationId autoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect autoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
 
 @end
 

@@ -53,7 +53,7 @@ open class MethodStartCell: UITableViewCell, Cell {
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         self.textLabel?.font = UIFont(name: "Menlo", size: UIFont.smallSystemFontSize)
-        self.backgroundColor = UIColor.systemGroupedBackground
+        self.backgroundColor = UIColor.groupTableViewBackground
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -267,7 +267,6 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .none,
         .required,
         .lowBattery,
-        .lowBatterySucceedConnect,
         .random
     ]
 
@@ -276,7 +275,6 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .none: "No Update",
         .required: "Update Required",
         .lowBattery: "Update required; reader has low battery",
-        .lowBatterySucceedConnect: "Required update fails, reader connects",
         .random: "Random"
     ]
 
@@ -401,7 +399,7 @@ class TextFieldView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        label.backgroundColor = UIColor.systemGroupedBackground
+        label.backgroundColor = UIColor.groupTableViewBackground
         label.textColor = UIColor.gray
         label.isUserInteractionEnabled = true
         return label
@@ -413,7 +411,7 @@ class TextFieldView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        label.backgroundColor = UIColor.systemGroupedBackground
+        label.backgroundColor = UIColor.groupTableViewBackground
         label.textColor = UIColor.gray
         label.isUserInteractionEnabled = true
         return label
@@ -443,7 +441,11 @@ class TextFieldView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets.zero
-        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        if #available(iOS 11.0, *) {
+            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        } else {
+            stack.anchorToSuperviewAnchors(withInsets: insets)
+        }
 
         textField.placeholder = placeholderText
     }
@@ -530,7 +532,7 @@ class LinkTextView: UIView {
 
 class ActivityIndicatorHeaderView: UIView {
 
-    let activityIndicator = UIActivityIndicatorView(style: .medium)
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
     var title: String {
         didSet {
             label.text = title.uppercased()
@@ -564,7 +566,11 @@ class ActivityIndicatorHeaderView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets(top: 14, left: 16, bottom: 6, right: 16)
-        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        if #available(iOS 11.0, *) {
+            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        } else {
+            stack.anchorToSuperviewAnchors(withInsets: insets)
+        }
 
         bounds.size.height = 50
     }
@@ -632,7 +638,13 @@ open class LargeTitleNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
-        navigationBar.prefersLargeTitles = true
-        navigationBar.isTranslucent = true
+
+        if #available(iOS 11.0, *) {
+            navigationBar.prefersLargeTitles = true
+        }
+
+        if #available(iOS 13.0, *) {
+            navigationBar.isTranslucent = true
+        }
     }
 }

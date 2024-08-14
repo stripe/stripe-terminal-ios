@@ -14,12 +14,10 @@
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
-#import <StripeTerminal/SCPReadMethod.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPReceiptDetails, SCPNetworks;
-@class SCPWallet;
 
 /**
  Represents the ability for a PaymentIntent to be incrementally authorized.
@@ -85,6 +83,11 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, readonly) SCPCardBrand brand;
 
 /**
+ A string uniquely identifying this card number.
+ */
+@property (nonatomic, readonly) NSString *fingerprint;
+
+/**
  ID of a `card` PaymentMethod that may be attached to a Customer for future
  transactions. Only present if it was possible to generate a `card`
  PaymentMethod.
@@ -128,49 +131,11 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, copy, nullable, readonly) SCPNetworks *networks;
 
 /**
- Identifies which network this charge was processed on.
-
- Contains SCPCardBrand represented as a nullable NSNumber.
-
- Only available after confirming the PaymentIntent.
- */
-@property (nonatomic, copy, nullable, readonly) NSNumber *network;
-
-/**
  * Whether this payment method is eligible for incremental authorizations.
  *
  * Note: This is only known if the PaymentIntent was confirmed.
  */
 @property (nonatomic, assign, readonly) SCPIncrementalAuthorizationStatus incrementalAuthorizationStatus;
-
-/**
- How the card was read in this transaction.
- */
-@property (nonatomic, readonly, assign) SCPReadMethod readMethod;
-
-/**
- If this payment is from a card wallet, this contains the details of the card wallet.
- */
-@property (nonatomic, nullable, readonly) SCPWallet *wallet;
-
-/**
- Issuer identification number of the card. (For internal use only and not typically available
- in standard API requests.)
- */
-@property (nonatomic, copy, nullable, readonly) NSString *iin;
-
-/**
- The name of the card's issuing bank. (For internal use only and not typically available in
- standard API requests.)
- */
-@property (nonatomic, copy, nullable, readonly) NSString *issuer;
-
-/**
- * A high-level description of the type of cards issued in this range. (For internal use only
- * and not typically available in standard API requests.)
- */
-@property (nonatomic, copy, nullable, readonly) NSString *stripeDescription;
-
 /**
  You cannot directly instantiate this class.
  */

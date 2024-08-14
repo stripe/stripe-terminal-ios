@@ -25,19 +25,4 @@ class RootViewController: LargeTitleNavigationController {
         self.pushViewController(vc, animated: false)
     }
 
-    func toastView(viewToToast: UIView) {
-        view.addSubview(viewToToast)
-
-        viewToToast.alpha = 0.0
-        UIView.animate(withDuration: 0.25, animations: {
-            viewToToast.alpha = 1.0
-        })
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
-            UIView.animate(withDuration: 0.25, animations: {
-                viewToToast.alpha = 0.0
-            }, completion: { _ in
-                viewToToast.removeFromSuperview()
-            })
-        }
-    }
 }

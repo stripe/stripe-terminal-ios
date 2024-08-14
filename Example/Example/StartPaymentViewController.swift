@@ -16,7 +16,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
     private var skipTipping = false
-    private var enableCustomerCancellation = false
     private var interacPresentEnabled = false
     private var automaticCaptureEnabled = false
     private var manualPreferredEnabled = false
@@ -26,10 +25,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var requestIncrementalAuthorizationSupport = false
     private var declineCardBrand: CardBrand?
     private var recollectAfterCardBrandDecline = false
-    private let isSposReader: Bool
-    private var updatePaymentIntent = false
-    private var requestDcc = false
-    private var skipCapture = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -44,25 +39,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private let applicationFeeAmountTextField = TextFieldView(placeholderText: "Application Fee Amount")
 
-    private var offlineBehavior: OfflineBehavior = .preferOnline
-
-    private lazy var offlineTransactionLimitTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "10000")
-        textField.textField.autocorrectionType = .no
-        textField.textField.autocapitalizationType = .none
-        textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
-        return textField
-    }()
-
-    private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "50000")
-        textField.textField.autocorrectionType = .no
-        textField.textField.autocapitalizationType = .none
-        textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
-        return textField
-    }()
 
     private lazy var tipEligibleAmountTextField: AmountInputView = {
         let textField = AmountInputView(footer: "Must have on-reader tipping configured to have any effect.", placeholderText: "Tip-eligible amount")
@@ -80,31 +56,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
-    private lazy var surchargeNoticeTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "Surcharge Notice")
-        textField.textField.autocorrectionType = .no
-        textField.textField.autocapitalizationType = .none
-        textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .default
-        return textField
-    }()
-
-    private lazy var amountSurchargeTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "Amount Surcharge")
-        textField.textField.autocorrectionType = .no
-        textField.textField.autocapitalizationType = .none
-        textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
-        return textField
-    }()
-
-    init(isSposReader: Bool) {
-        self.isSposReader = isSposReader
-        super.init(style: .grouped)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    convenience init() {
+        self.init(style: .grouped)
     }
 
     override func viewDidLoad() {
@@ -124,11 +77,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         applicationFeeAmountTextField.textField.clearButtonMode = .whileEditing
         applicationFeeAmountTextField.textField.keyboardType = .numberPad
 
-        offlineTransactionLimitTextField.textField.delegate = self
-        offlineStoredTransactionLimitTextField.textField.delegate = self
-
-        surchargeNoticeTextField.textField.delegate = self
-        amountSurchargeTextField.textField.delegate = self
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -188,97 +136,60 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentMethodTypes.append("interac_present")
         }
 
-        let paymentParamsBuilder = PaymentIntentParametersBuilder(amount: amountView.amount,
-                                                    currency: currencyView.currency)
-            .setPaymentMethodTypes(paymentMethodTypes)
-            .setCaptureMethod(captureMethod)
-            .setSetupFutureUsage(setupFutureUsage)
-            .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
-            .setMetadata([PaymentIntent.offlineIdMetadataKey: UUID().uuidString])
+        let paymentParams = PaymentIntentParameters(amount: amountView.amount,
+                                                    currency: currencyView.currency,
+                                                    paymentMethodTypes: paymentMethodTypes,
+                                                    captureMethod: captureMethod)
+
+        paymentParams.setupFutureUsage = self.setupFutureUsage
+
+        paymentParams.paymentMethodOptionsParameters = makePaymentMethodOptionsParameters()
 
         // Set up destination payment
         if !connectedAccountId.isEmpty {
-            paymentParamsBuilder.setTransferDataDestination(connectedAccountId)
-            paymentParamsBuilder.setOnBehalfOf(connectedAccountId)
+            paymentParams.transferDataDestination = connectedAccountId
+            paymentParams.onBehalfOf = connectedAccountId
         }
 
         if applicationFeeAmount != 0 {
-            paymentParamsBuilder.setApplicationFeeAmount(applicationFeeAmount)
+            paymentParams.applicationFeeAmount = applicationFeeAmount
         }
 
         Terminal.shared.simulatorConfiguration.simulatedTipAmount = NSNumber(value: simulatedTipAmountTextField.amount)
 
-        let updatePaymentIntent = self.updatePaymentIntent || (self.declineCardBrand != nil)
-        var surchargeNotice: String?
-        if let text = surchargeNoticeTextField.textField.text, !text.isEmpty {
-            surchargeNotice = text
+        let collectConfig = CollectConfiguration(skipTipping: self.skipTipping, updatePaymentIntent: declineCardBrand != nil)
+        if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
+            let tippingConfig = TippingConfiguration(eligibleAmount: eligibleAmount)
+            collectConfig.tippingConfiguration = tippingConfig
         }
-        let collectConfigBuilder = CollectConfigurationBuilder()
-            .setSkipTipping(self.skipTipping)
-            .setUpdatePaymentIntent(updatePaymentIntent)
-            .setEnableCustomerCancellation(self.enableCustomerCancellation)
-            .setRequestDynamicCurrencyConversion(self.requestDcc)
-            .setSurchargeNotice(surchargeNotice)
-        let confirmConfigBuilder = ConfirmConfigurationBuilder()
-
-        if let amountSurcharge = amountSurchargeTextField.textField.text {
-            if let parsedAmount = UInt(amountSurcharge, radix: 10) {
-                confirmConfigBuilder.setAmountSurcharge(parsedAmount)
-            }
-        }
-
-        do {
-            if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
-                collectConfigBuilder.setTippingConfiguration(
-                    try TippingConfigurationBuilder()
-                        .setEligibleAmount(eligibleAmount)
-                        .build()
-                )
-            }
-            let collectConfig = try collectConfigBuilder.build()
-            let confirmConfig = try confirmConfigBuilder.build()
-            let vc = PaymentViewController(paymentParams: try paymentParamsBuilder.build(),
-                collectConfig: collectConfig,
-                confirmConfig: confirmConfig,
-                declineCardBrand: declineCardBrand,
-                recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
-                isSposReader: self.isSposReader,
-                offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
-                offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000") ?? 50000,
-                offlineBehavior: self.offlineBehavior,
-                skipCapture: self.skipCapture
-            )
-            let navController = LargeTitleNavigationController(rootViewController: vc)
-            navController.presentationController?.delegate = self
-            self.present(navController, animated: true, completion: nil)
-        } catch {
-            // Validation error generating the config.
-            self.presentAlert(error: error)
-        }
+        let vc = PaymentViewController(paymentParams: paymentParams,
+                                       collectConfig: collectConfig,
+                                       declineCardBrand: declineCardBrand,
+                                       recollectAfterCardBrandDecline: recollectAfterCardBrandDecline
+        )
+        let navController = LargeTitleNavigationController(rootViewController: vc)
+        navController.presentationController?.delegate = self
+        self.present(navController, animated: true, completion: nil)
     }
 
     private func makePaymentMethodOptionsParameters() -> PaymentMethodOptionsParameters {
-        let cardPresentParamsBuilder = CardPresentParametersBuilder()
-            .setRequestExtendedAuthorization(self.requestExtendedAuthorization)
-            .setRequestIncrementalAuthorizationSupport(self.requestIncrementalAuthorizationSupport)
+        let cardPresentParams: CardPresentParameters = CardPresentParameters(
+            requestExtendedAuthorization: self.requestExtendedAuthorization,
+            requestIncrementalAuthorizationSupport: self.requestIncrementalAuthorizationSupport)
 
-        if manualPreferredEnabled {
-            cardPresentParamsBuilder.setCaptureMethod(CardPresentCaptureMethod.manualPreferred)
+        if self.manualPreferredEnabled {
+            cardPresentParams.captureMethod = NSNumber(value: CardPresentCaptureMethod.manualPreferred.rawValue)
         }
 
         if requestedPriority == "Domestic" {
-            cardPresentParamsBuilder.setRequestedPriority(CardPresentRouting.domestic)
+            cardPresentParams.requestedPriority = NSNumber(value: CardPresentRouting.domestic.rawValue)
         }
 
         if requestedPriority == "International" {
-            cardPresentParamsBuilder.setRequestedPriority(CardPresentRouting.international)
+            cardPresentParams.requestedPriority = NSNumber(value: CardPresentRouting.international.rawValue)
         }
 
-        do {
-            return try PaymentMethodOptionsParametersBuilder(cardPresentParameters: try cardPresentParamsBuilder.build()).build()
-        } catch {
-            fatalError("Error building PaymentMethodOptionsParameters: \(error.localizedDescription)")
-        }
+        return PaymentMethodOptionsParameters(cardPresentParameters: cardPresentParams)
     }
 
     private func makeAmountSection() -> Section {
@@ -303,19 +214,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.updateContent()
             })],
             footer: .autoLayoutView(tipEligibleAmountTextField))
-    }
-
-    private func makeTransactionSection() -> Section? {
-        if self.isSposReader {
-            return Section(
-                header: "TRANSACTION FEATURES",
-                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                    self.enableCustomerCancellation.toggle()
-                    self.updateContent()
-                })])
-        } else {
-            return nil
-        }
     }
 
     private func makeSimulatedTipAmountSection() -> Section? {
@@ -344,42 +242,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.manualPreferredEnabled.toggle()
                 self.updateContent()
             }),
-            Row(text: "Requested Routing Priority",
-                detailText: requestedPriority ?? "None",
-                selection: { [unowned self] in
-                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
-                        self.requestedPriority = (picked == "None") ? nil : picked
-                        self.updateContent()
-                    }
-            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
-            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
-                self.requestExtendedAuthorization.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
-                self.requestIncrementalAuthorizationSupport.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Skip Capture (if available)", accessory: .switchToggle(value: self.skipCapture) { [unowned self] _ in
-                self.skipCapture.toggle()
-                self.updateContent()
-            }),
-        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
-
-        return paymentMethodSection
-    }
-
-    // Makes the UPDATE PAYMENT INTENT section
-    private func makeUpdatePaymentIntentSection() -> Section? {
-        let switchRow: [Row] = [
-            Row(text: "Update PaymentIntent", accessory: .switchToggle(value: self.updatePaymentIntent) { [unowned self] _ in
-                self.updatePaymentIntent.toggle()
-                self.updateContent()
-                self.declineCardBrand = nil
-                self.recollectAfterCardBrandDecline = false
-            })
-        ]
-        let contentRows: [Row] = [
             Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in
                 let brands: [CardBrand] = [
                     .visa,
@@ -401,14 +263,29 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                     self.updateContent()
                 }
             }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
+            Row(text: "Requested Routing Priority",
+                detailText: requestedPriority ?? "None",
+                selection: { [unowned self] in
+                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
+                        self.requestedPriority = (picked == "None") ? nil : picked
+                        self.updateContent()
+                    }
+            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
             Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
                 recollectAfterCardBrandDecline.toggle()
                 self.updateContent()
             }),
-        ]
-        let rows = self.updatePaymentIntent ? (switchRow + contentRows) : switchRow
+            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
+                self.requestExtendedAuthorization.toggle()
+                self.updateContent()
+            }),
+            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
+                self.requestIncrementalAuthorizationSupport.toggle()
+                self.updateContent()
+            }),
+        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 
-        return Section(header: "UPDATE PAYMENT INTENT", rows: rows)
+        return paymentMethodSection
     }
 
     /// Makes the "SETUP FUTURE USAGE" section.
@@ -453,60 +330,6 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return applicationFeeAmountSection
     }
 
-    private func makeOfflineTransactionLimitSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Offline Mode Transaction Limit"), rows: [], footer: .autoLayoutView(offlineTransactionLimitTextField))
-        return offlineTransactionLimitSection
-    }
-
-    private func makeOfflineStoredTransactionLimitSection() -> Section {
-        let offlineStoredTransactionLimitSection = Section(header: .title("Offline Mode Stored Transaction Limit"), rows: [], footer: .autoLayoutView(offlineStoredTransactionLimitTextField))
-        return offlineStoredTransactionLimitSection
-    }
-
-    private func makeOfflineBehaviorSection() -> Section {
-        let rows: [Row] = [
-            Row(accessory: .segmentedControl(
-                    items: ["prefer online", "require online", "force offline"],
-                    selectedIndex: 0) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.offlineBehavior = .preferOnline
-                        case 1: self.offlineBehavior = .requireOnline
-                        case 2: self.offlineBehavior = .forceOffline
-                        default:
-                            fatalError("Unknown option selected")
-                        }
-                    }
-               )
-        ]
-
-        return Section(header: "OFFLINE BEHAVIOR", rows: rows)
-    }
-
-    /// Makes the "DCC" section.
-    private func makeRequestDccSection() -> Section {
-        let rows: [Row] = [
-            Row(text: "Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
-                if !updatePaymentIntent {
-                    self.updatePaymentIntent.toggle()
-                }
-                self.requestDcc.toggle()
-                self.updateContent()
-            })
-        ]
-        return Section(header: "Request Dynamic Currency Conversion", rows: rows)
-    }
-
-    /// Makes the "Surcharge notice" section.
-    private func makeSurchargeNoticeSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Surcharge Notice"), rows: [], footer: .autoLayoutView(surchargeNoticeTextField))
-        return offlineTransactionLimitSection
-    }
-
-    /// Makes the "Amount Surcharge" section.
-    private func makeAmountSurchargeSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Amount Surcharge"), rows: [], footer: .autoLayoutView(amountSurchargeTextField))
-        return offlineTransactionLimitSection
-    }
 
     private func updateContent() {
 
@@ -514,18 +337,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeAmountSection(),
             self.makeCurrencySection(),
             self.makeTippingSection(),
-            self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodSection(),
-            self.makeRequestDccSection(),
-            self.makeSurchargeNoticeSection(),
-            self.makeAmountSurchargeSection(),
-            self.makeUpdatePaymentIntentSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),
-            self.makeOfflineTransactionLimitSection(),
-            self.makeOfflineStoredTransactionLimitSection(),
-            self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
             self.startSection
         ]
@@ -539,14 +354,5 @@ extension StartPaymentViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-// MARK: - PaymentIntent Metadata Helpers
-extension PaymentIntent {
-    public static let offlineIdMetadataKey = "offlineId"
-
-    public var offlineId: String? {
-        return metadata?[PaymentIntent.offlineIdMetadataKey]
     }
 }

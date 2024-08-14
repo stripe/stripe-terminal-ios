@@ -15,7 +15,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCharge, SCPConfirmPaymentIntentError, SCPOfflineDetails, SCPPaymentMethod, SCPAmountDetails;
+@class SCPCharge, SCPProcessPaymentError, SCPPaymentMethod, SCPAmountDetails;
+
 
 /**
  The possible statuses for a PaymentIntent.
@@ -28,7 +29,7 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      */
     SCPPaymentIntentStatusRequiresPaymentMethod,
     /**
-     Next step: confirm the payment by calling `confirmPaymentIntent`.
+     Next step: process the payment by calling `processPayment`.
      */
     SCPPaymentIntentStatusRequiresConfirmation,
     /**
@@ -75,14 +76,8 @@ NS_SWIFT_NAME(PaymentIntent)
 
 /**
  The unique identifier for the intent.
-
- When an intent is created offline, the stripeId will be nil. To keep track of
- offline payments, we recommend using the metadata with your own identifiers.
-
- After the payment has been forwarded the intent's stripeId will
- be filled in.
  */
-@property (nonatomic, nullable, readonly, copy) NSString *stripeId;
+@property (nonatomic, readonly, copy) NSString *stripeId;
 
 /**
  When the intent was created.
@@ -132,11 +127,6 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethod;
 
 /**
- ID of the payment method used in this PaymentIntent.
- */
-@property (nonatomic, copy, nullable, readonly) NSString *paymentMethodId;
-
-/**
  Details about items included in the amount after confirmation.
  */
 @property (nonatomic, nullable, readonly) SCPAmountDetails *amountDetails;
@@ -146,7 +136,7 @@ NS_SWIFT_NAME(PaymentIntent)
  This is only non-null in the `PaymentIntent` instance returned during collect when using
  `updatePaymentIntent` set to true in the `CollectConfiguration`.
 
- After `confirmPaymentIntent` the `amount` will have this tip amount added to it and the
+ After `processPaymentIntent` the `amount` will have this tip amount added to it and the
  `amountDetails` will contain the breakdown of how much of the amount was a tip.
  */
 @property (nonatomic, nullable, readonly) NSNumber *amountTip;
@@ -162,34 +152,6 @@ NS_SWIFT_NAME(PaymentIntent)
  your customer’s statement when this PaymentIntent succeeds in creating a charge.
  */
 @property (nonatomic, nullable, readonly) NSString *statementDescriptorSuffix;
-
-/**
- The offline details for this intent, if created or processed while offline.
-
- When an intent is created offline, the intent.stripeId will be nil. To keep track of
- offline payments, we recommend using the intent.metadata with your own identifiers.
-
- The `OfflineDetails` `requiresUpload` can be used to
- identify that the intent was processed offline and requires the device to be
- brought back online so the intent can be forwarded.
-
- @see https://stripe.com/docs/terminal/features/operate-offline/
- */
-@property (nonatomic, nullable, readonly) SCPOfflineDetails *offlineDetails;
-
-/**
- Payment-method-specific configuration for this PaymentIntent.
- */
-@property (nonatomic, nullable, readonly) SCPPaymentMethodOptionsParameters *paymentMethodOptions;
-
-/**
- Indicates that you intend to make future payments with this PaymentIntent’s payment method.
-
- Providing this parameter will attach the payment method to the PaymentIntent’s Customer, if present, after the PaymentIntent is confirmed and any required actions from the user are complete. If no Customer was provided, the payment method can still be attached to a Customer after the transaction completes.
-
- When processing card payments, Stripe also uses setup_future_usage to dynamically optimize your payment flow and comply with regional legislation and network rules, such as SCA.
- */
-@property (nonatomic, nullable, readonly) NSString *setupFutureUsage;
 
 /**
  You cannot directly instantiate `SCPPaymentIntent`. You should only use

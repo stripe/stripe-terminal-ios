@@ -130,11 +130,6 @@ NS_SWIFT_NAME(SetupIntent)
 @property (nonatomic, nullable, readonly) SCPSetupAttempt *latestAttempt;
 
 /**
- The list of payment method types that this SetupIntent is allowed to use.
- */
-@property (nonatomic, readonly) NSArray<NSString *> *paymentMethodTypes;
-
-/**
  You cannot directly instantiate this class. You should only use SetupIntents
  that have been returned by other methods in our SDK.
  */

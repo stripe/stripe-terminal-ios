@@ -59,7 +59,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         self.updateType = type
         super.init(style: .grouped)
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
@@ -69,7 +69,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
         LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
@@ -146,14 +146,16 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
                 Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
             ])
 
-            // Cram a nice down arrow in between the two versions to clarify what's being installed
-            let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
-            imageView.contentMode = .scaleAspectFit
-            let spacer = UIView()
-            let stack = UIStackView(arrangedSubviews: [spacer, imageView])
-            stack.axis = .vertical
-            stack.spacing = 20
-            downArrow = .autoLayoutView(stack)
+            if #available(iOS 13.0, *) {
+                // Cram a nice down arrow in between the two versions to clarify what's being installed
+                let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
+                imageView.contentMode = .scaleAspectFit
+                let spacer = UIView()
+                let stack = UIStackView(arrangedSubviews: [spacer, imageView])
+                stack.axis = .vertical
+                stack.spacing = 20
+                downArrow = .autoLayoutView(stack)
+            }
         }
 
         dataSource.sections = [
@@ -278,13 +280,6 @@ extension UpdateReaderViewController: BluetoothReaderDelegate {
     }
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
-    }
-
-    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
-        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))") { [weak self] _ in
-            self?.dismiss(animated: true)
-        }
-        headerView.connectedReader = nil
     }
 }
 

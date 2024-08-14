@@ -14,9 +14,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPPaymentMethod,
-    SCPCollectInputsResult,
-    SCPConfirmPaymentIntentError,
-    SCPConfirmRefundError,
+    SCPProcessPaymentError,
+    SCPProcessRefundError,
     SCPReader,
     SCPLocation,
     SCPPaymentIntent,
@@ -24,9 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
     SCPRefund,
     SCPSetupIntent,
     SCPSetupIntentParameters,
-    SCPConfirmSetupIntentError,
-    SCPReaderSettings,
-    SCPCollectedData;
+    SCPConfirmSetupIntentError;
 
 /**
  A block called with a connection token or an error from your backend.
@@ -64,22 +61,22 @@ typedef void (^SCPErrorCompletionBlock)(NSError *__nullable error)
     NS_SWIFT_NAME(ErrorCompletionBlock);
 
 /**
- A block called with a PaymentIntent or a ConfirmPaymentIntentError
+ A block called with a PaymentIntent or a ProcessPaymentError
 
  @param intent      The PaymentIntent, or nil.
  @param error       An error if one occurred, or nil.
  */
-typedef void (^SCPConfirmPaymentIntentCompletionBlock)(SCPPaymentIntent *__nullable intent, SCPConfirmPaymentIntentError *__nullable error)
-    NS_SWIFT_NAME(ConfirmPaymentIntentCompletionBlock);
+typedef void (^SCPProcessPaymentCompletionBlock)(SCPPaymentIntent *__nullable intent, SCPProcessPaymentError *__nullable error)
+    NS_SWIFT_NAME(ProcessPaymentCompletionBlock);
 
 /**
- A block called with a Refund or a ConfirmRefundError.
+ A block called with a Refund or a ProcessRefundError.
 
  @param refund      The Refund, or nil.
  @param error       An error if one occurred, or nil.
  */
-typedef void (^SCPConfirmRefundCompletionBlock)(SCPRefund *__nullable refund, SCPConfirmRefundError *__nullable error)
-    NS_SWIFT_NAME(ConfirmRefundCompletionBlock);
+typedef void (^SCPProcessRefundCompletionBlock)(SCPRefund *__nullable refund, SCPProcessRefundError *__nullable error)
+    NS_SWIFT_NAME(ProcessRefundCompletionBlock);
 
 /**
  A block called with a Refund or an error.
@@ -135,36 +132,5 @@ typedef void (^SCPLocationsCompletionBlock)(NSArray<SCPLocation *> *__nullable l
  */
 typedef void (^SCPReaderCompletionBlock)(SCPReader *__nullable reader, NSError *__nullable error)
     NS_SWIFT_NAME(ReaderCompletionBlock);
-
-/**
- A block called with an array of collect inputs result or an error.
-
- @param collectInputsResults      The collect inputs results, or nil.
- @param error       An error if one occurred, or nil.
- */
-typedef void (^SCPCollectInputsCompletionBlock)(NSArray<SCPCollectInputsResult *> *__nullable collectInputsResults, NSError *__nullable error)
-    NS_SWIFT_NAME(CollectInputsCompletionBlock);
-
-/**
- A block called with a `SCPReaderSettings`.
-
- Success denotes the command was received by the
- reader and responded to. But the contents of
- ReaderSettings should be checked for reader
- errors setting the values.
-
- @param readerSettings  `SCPReaderSettings` object, or nil if an error occurred.
- @param error  An error if one occurred, or nil.
- */
-typedef void (^SCPReaderSettingsCompletionBlock)(SCPReaderSettings *__nullable readerSettings, NSError *__nullable error)
-    NS_SWIFT_NAME(ReaderSettingsCompletionBlock);
-
-/**
- A block called with a CollectedData object or an error.
-
- @param collectedData       The collected data object, or nil.
- @param error                         An error if one occurred, or nil.
- */
-typedef void (^SCPCollectedDataCompletionBlock)(SCPCollectedData *__nullable collectedData, NSError *__nullable error) NS_SWIFT_NAME(CollectedDataCompletionBlock);
 
 NS_ASSUME_NONNULL_END

@@ -35,10 +35,6 @@ NS_SWIFT_NAME(TerminalDelegate)
 
  You can trigger this call in your app by powering off the connected reader.
 
- @note When connected to a Bluetooth reader you can get more information about
- the disconnect by implementing the `SCPBluetoothReaderDelegate`s
- `reader:didDisconnect:` method.
-
  @see https://stripe.com/docs/terminal/readers/connecting
 
  @param terminal    The originating terminal.

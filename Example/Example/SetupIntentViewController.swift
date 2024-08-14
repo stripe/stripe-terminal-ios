@@ -11,18 +11,6 @@ import Static
 import StripeTerminal
 
 class SetupIntentViewController: EventDisplayingViewController {
-    private let setupParams: SetupIntentParameters
-    private let setupConfig: SetupIntentConfiguration
-
-    init(setupParams: SetupIntentParameters, setupConfig: SetupIntentConfiguration) {
-        self.setupParams = setupParams
-        self.setupConfig = setupConfig
-        super.init()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override var cancelLogMethod: LogEvent.Method {
         return .cancelCollectSetupIntentPaymentMethod
@@ -31,7 +19,9 @@ class SetupIntentViewController: EventDisplayingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createSetupIntent(self.setupParams) { intent, createError in
+        let params = SetupIntentParameters(customer: nil)
+
+        createSetupIntent(params) { intent, createError in
             if createError != nil {
                 self.complete()
             } else if let intent = intent {
@@ -61,7 +51,7 @@ class SetupIntentViewController: EventDisplayingViewController {
     private func collectSetupIntent(intent: SetupIntent) {
         var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
         self.events.append(collectEvent)
-        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, customerConsentCollected: true, setupConfig: self.setupConfig) { (collectedSetupIntent, collectError) in
+        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, customerConsentCollected: true) { (collectedSetupIntent, collectError) in
             if let error = collectError {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)

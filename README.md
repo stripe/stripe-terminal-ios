@@ -7,7 +7,7 @@ Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/i
 > Upgrading from an older version of the SDK? See our [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) for guidance.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 13 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 11 and above.
 
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
@@ -32,7 +32,7 @@ In Xcode, select **File > Swift Packages > Add Package Dependency** and enter ht
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '~> 3.0'
+pod 'StripeTerminal', '~> 2.0'
 ```
 
 3. Run the following command:
@@ -73,13 +73,16 @@ For your app to run in the background and remain connected to the reader, add th
 
 For your app to pass validation when submitting to the App Store, add the following key-value pairs as well:
 
+- Privacy - Bluetooth Peripheral Usage Description
+  - Key: `NSBluetoothPeripheralUsageDescription`
+  - Value: “Bluetooth access is required in order to connect to supported bluetooth card readers.”
 - Privacy - Bluetooth Always Usage Description
   - Key: `NSBluetoothAlwaysUsageDescription`
   - Value: "This app uses Bluetooth to connect to supported card readers."
 
 ## Previous API References
 
-We maintain an archive of the API reference for the previous major version.
+We maintain archives of the SDK's API reference for older versions of the SDK.
 
-- [2.23.0](https://stripe.dev/stripe-terminal-ios/2.23.0/)
+- [1.4.0](https://stripe.dev/stripe-terminal-ios/1.4.0/)
 

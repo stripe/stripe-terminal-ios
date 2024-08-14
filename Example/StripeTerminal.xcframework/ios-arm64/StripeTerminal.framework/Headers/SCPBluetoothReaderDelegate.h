@@ -12,7 +12,6 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBatteryStatus.h>
-#import <StripeTerminal/SCPDisconnectReason.h>
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderInputOptions.h>
@@ -29,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
  the lifetime of its connection.
 
  Implementing this delegate is required when connecting to any Bluetooth connected
- reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.
+ reader, such as the Chipper 2X BT and the WisePad 3.
 
  The provided delegate must be retained by your application until the reader disconnects.
  */
@@ -162,17 +161,6 @@ NS_SWIFT_NAME(BluetoothReaderDelegate)
  @param reader      The originating reader.
  */
 - (void)readerDidReportLowBatteryWarning:(SCPReader *)reader NS_SWIFT_NAME(readerDidReportLowBatteryWarning(_:));
-
-/**
-  Optional method that is called when the reader has disconnected from the SDK and includes the
-  reason for the disconnect.
-
-  @note The `SCPTerminalDelegate`'s `terminal:didReportUnexpectedReaderDisconnect:` method will still be called.
-
-  @param reader      The originating reader.
-  @param reason      The reason for the disconnect. @see `SCPDisconnectReason`
- */
-- (void)reader:(SCPReader *)reader didDisconnect:(SCPDisconnectReason)reason NS_SWIFT_NAME(reader(_:didDisconnect:));
 
 @end
 

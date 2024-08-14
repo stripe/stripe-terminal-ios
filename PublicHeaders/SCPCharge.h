@@ -92,11 +92,6 @@ NS_SWIFT_NAME(Charge)
 @property (nonatomic, nullable, readonly) NSString *calculatedStatementDescriptor;
 
 /**
- 6 digit authorization code for this charge.
- */
-@property (nonatomic, nullable, readonly) NSString *authorizationCode;
-
-/**
  You cannot directly instantiate this class.
  */
 - (instancetype)init NS_UNAVAILABLE;

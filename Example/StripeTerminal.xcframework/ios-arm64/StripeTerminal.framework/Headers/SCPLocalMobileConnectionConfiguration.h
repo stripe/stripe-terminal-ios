@@ -11,9 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
-#import <StripeTerminal/SCPReconnectionDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -74,106 +72,64 @@ NS_SWIFT_NAME(LocalMobileConnectionConfiguration)
 @property (nonatomic, assign, readonly, getter=isReturnReadResultImmediatelyEnabled) BOOL returnReadResultImmediatelyEnabled;
 
 /**
- When set to true, the Terminal SDK  will attempt a local mobile auto-reconnection on any unexpected disconnect.
- You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
- Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
-
- When set to false, we will immediately surface any disconnection through TerminalDelegate.
-
- Defaults to false.
+ Initialize ConnectionConfiguration with a location ID.
+ @param locationId The ID of the location to be associated with the reader.
+ @return A new instance of the receiver configured with a location ID.
  */
-@property (nonatomic, assign, readonly, getter=isAutoReconnectOnUnexpectedDisconnect) BOOL autoReconnectOnUnexpectedDisconnect;
+- (instancetype)initWithLocationId:(NSString *)locationId;
 
 /**
- Contains callback methods for local mobile auto-reconnection.
+ Initialize a configuration with a location ID, custom merchant display name and 'on behalf of'
+   connected account ID.
+ @param locationId ID of the location to be associated with the reader.
+ @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
+   for the cardholder to present their card.
+ @param onBehalfOf Connected account id that the merchant is taking payments on behalf of.
+ @return A new instance of the receiver configured with a location ID, merchant
+   display name, and the 'on behalf of' connected account ID.
  */
-@property (nonatomic, weak, readonly, nullable) id<SCPReconnectionDelegate> autoReconnectionDelegate;
+- (instancetype)initWithLocationId:(NSString *)locationId
+               merchantDisplayName:(nullable NSString *)merchantDisplayName
+                        onBehalfOf:(nullable NSString *)onBehalfOf;
 
 /**
- Use `SCPLocalMobileConnectionConfigurationBuilder`
+ Initialize a configuration with a location ID, custom merchant display name 'on behalf of'
+   connected account ID and terms of service acceptance configuration.
+ @param locationId ID of the location to be associated with the reader.
+ @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
+   for the cardholder to present their card.
+ @param onBehalfOf Connected account id that the merchant is taking payments on behalf of.
+ @param tosAcceptancePermitted Determines how to handle the situation where merchant-specific
+   terms of service need to be presented in order to connect to a reader.
+ @returns A new instance of the receiver configured with a location ID, merchant
+   display name, 'on behalf of' connected account ID and terms of service acceptance configuration.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithLocationId:(NSString *)locationId
+               merchantDisplayName:(nullable NSString *)merchantDisplayName
+                        onBehalfOf:(nullable NSString *)onBehalfOf
+            tosAcceptancePermitted:(BOOL)tosAcceptancePermitted;
 
 /**
- Use `SCPLocalMobileConnectionConfigurationBuilder`
+ Initialize a configuration with a location ID, custom merchant display name, 'on behalf of'
+   connected account ID, terms of service acceptance configuration and defined behavior
+   in regards to when the card data should be returned.
+ @param locationId ID of the location to be associated with the reader.
+ @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
+   for the cardholder to present their card.
+ @param onBehalfOf Connected account id that the merchant is taking payments on behalf of.
+ @param tosAcceptancePermitted Determines how to handle the situation where merchant-specific
+   terms of service need to be presented in order to connect to a reader.
+ @param returnReadResultsImmediately When possible the card read results are returned as
+   early as possible, prior to the complete dismissal of card reader UI.
+ @returns A new instance of the receiver configured with a location ID, merchant
+   display name, 'on behalf of' connected account ID, terms of service acceptance configuration
+   and defined behavior in regards to when the card data should be returned.
  */
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- * A builder class for `SCPLocalMobileConnectionConfiguration`.
- */
-NS_SWIFT_NAME(LocalMobileConnectionConfigurationBuilder)
-@interface SCPLocalMobileConnectionConfigurationBuilder : SCPBuilder <SCPLocalMobileConnectionConfiguration *>
-
-/**
- * @param locationId ID of the location to be associated with the reader.
- * @see `SCPLocalMobileConnectionConfiguration.locationId`
- */
-- (instancetype)initWithLocationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
-
-/**
- * @param locationId ID of the location to be associated with the reader.
- * @note This is a required attribute of the connection configuration and cannot be nil or empty.
- * @see `SCPLocalMobileConnectionConfiguration.locationId`
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setLocationId:(NSString *)locationId;
-
-/**
- * @param onBehalfOf Connected account id that the merchant is taking payments on behalf of.
- * @see `SCPLocalMobileConnectionConfiguration.onBehalfOf`
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setOnBehalfOf:(nullable NSString *)onBehalfOf;
-
-/**
- * @param merchantDisplayName Cardholder facing merchant display name that will be used in the prompt
- *   for the cardholder to present their card.
- * @see `SCPLocalMobileConnectionConfiguration.merchantDisplayName`
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setMerchantDisplayName:(nullable NSString *)merchantDisplayName;
-
-/**
- * @param tosAcceptancePermitted Determines how to handle the situation where merchant-specific
- *   terms of service need to be presented in order to connect to a reader.
- * @note If not set, defaults to `YES`.
- * @see `SCPLocalMobileConnectionConfiguration.tosAcceptancePermitted`
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setTosAcceptancePermitted:(BOOL)tosAcceptancePermitted;
-
-/**
- * @param returnReadResultImmediatelyEnabled When possible the card read results are returned as
- *   early as possible, prior to the complete dismissal of card reader UI.
- * @note If not set, defaults to `YES`.
- * @see `SCPLocalMobileConnectionConfiguration.returnReadResultImmediatelyEnabled`
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setReturnReadResultImmediatelyEnabled:(BOOL)returnReadResultImmediatelyEnabled;
-
-/**
- When set to true, the Terminal SDK  will attempt a local mobile auto-reconnection on any unexpected disconnect.
- You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
- Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
-
- When set to false, we will immediately surface any disconnection through TerminalDelegate.
-
- Defaults to false.
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
-
-/**
- Contains callback methods for local mobile auto-reconnection.
- */
-- (SCPLocalMobileConnectionConfigurationBuilder *)setAutoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
-
-/**
- Use `initWithLocationId:`
- */
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- Use `initWithLocationId:`
- */
-+ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithLocationId:(NSString *)locationId
+               merchantDisplayName:(nullable NSString *)merchantDisplayName
+                        onBehalfOf:(nullable NSString *)onBehalfOf
+            tosAcceptancePermitted:(BOOL)tosAcceptancePermitted
+      returnReadResultsImmediately:(BOOL)returnReadResultsImmediately NS_DESIGNATED_INITIALIZER;
 
 @end
 

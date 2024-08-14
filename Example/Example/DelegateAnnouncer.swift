@@ -65,11 +65,11 @@ class TerminalDelegateAnnouncer: DelegateAnnouncer<TerminalDelegate>, TerminalDe
 }
 
 /**
- Allows the Example app to use a single persistent BluetoothReaderDelegate and UsbReaderDelegate for the life of the connection
- and still have the view controllers receive the BluetoothReaderDelegate and UsbReaderDelegate events.
+ Allows the Example app to use a single persistent BluetoothReaderDelegate for the life of the connection
+ and still have the view controllers receive the BluetoothReaderDelegate events.
  */
-class BluetoothOrUsbReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegate>, BluetoothReaderDelegate, UsbReaderDelegate {
-    static let shared = BluetoothOrUsbReaderDelegateAnnouncer()
+class BluetoothReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegate>, BluetoothReaderDelegate {
+    static let shared = BluetoothReaderDelegateAnnouncer()
 
     // MARK: - BluetoothReaderDelegate
     func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
@@ -125,12 +125,6 @@ class BluetoothOrUsbReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDe
             delegate.readerDidReportLowBatteryWarning?(reader)
         }
     }
-
-    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
-        announce { delegate in
-            delegate.reader?(reader, didDisconnect: reason)
-        }
-    }
 }
 
 /**
@@ -182,43 +176,21 @@ class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDel
 class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
     static let shared = ReconnectionDelegateAnnouncer()
 
-    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
+    func terminal(_ terminal: Terminal, didStartReaderReconnect cancelable: Cancelable) {
         announce { delegate in
-            delegate.reader?(reader, didStartReconnect: cancelable, disconnectReason: disconnectReason)
+            delegate.terminal(terminal, didStartReaderReconnect: cancelable)
         }
     }
 
-    func readerDidFailReconnect(_ reader: Reader) {
+    func terminalDidFailReaderReconnect(_ terminal: Terminal) {
         announce { delegate in
-            delegate.readerDidFailReconnect(reader)
+            delegate.terminalDidFailReaderReconnect(terminal)
         }
     }
 
-    func readerDidSucceedReconnect(_ reader: Reader) {
+    func terminalDidSucceedReaderReconnect(_ terminal: Terminal) {
         announce { delegate in
-            delegate.readerDidSucceedReconnect(reader)
-        }
-    }
-}
-
-class OfflineDelegateAnnouncer: DelegateAnnouncer<OfflineDelegate>, OfflineDelegate {
-    static let shared = OfflineDelegateAnnouncer()
-
-    func terminal(_ terminal: Terminal, didChange offlineStatus: OfflineStatus) {
-        announce { delegate in
-            delegate.terminal(terminal, didChange: offlineStatus)
-        }
-    }
-
-    func terminal(_ terminal: Terminal, didForwardPaymentIntent intent: PaymentIntent, error: Error?) {
-        announce { delegate in
-            delegate.terminal(terminal, didForwardPaymentIntent: intent, error: error)
-        }
-    }
-
-    func terminal(_ terminal: Terminal, didReportForwardingError error: Error) {
-        announce { delegate in
-            delegate.terminal(terminal, didReportForwardingError: error)
+            delegate.terminalDidSucceedReaderReconnect(terminal)
         }
     }
 }

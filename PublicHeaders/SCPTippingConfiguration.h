@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPBuilder.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -27,25 +25,21 @@ NS_SWIFT_NAME(TippingConfiguration)
 @property (nonatomic, assign) NSInteger eligibleAmount;
 
 /**
- Use `SCPTippingConfigurationBuilder`.
+ Initialize a `TippingConfiguration` instance.
+
+ @param eligibleAmount Amount eligible for tips.
+ */
+- (instancetype)initWithEligibleAmount:(NSInteger)eligibleAmount;
+
+/**
+ Use `initWithEligibleAmount:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Use `SCPTippingConfigurationBuilder`.
+ Use `initWithEligibleAmount:`
  */
 + (instancetype)new NS_UNAVAILABLE;
-
-@end
-
-/**
- A builder class for `SCPTippingConfiguration`.
- */
-NS_SWIFT_NAME(TippingConfigurationBuilder)
-@interface SCPTippingConfigurationBuilder : SCPBuilder <SCPTippingConfiguration *>
-
-/// Set the eligibleAmount property for the `SCPTippingConfiguration` object that will be built.
-- (instancetype)setEligibleAmount:(NSInteger)eligibleAmount;
 
 @end
 

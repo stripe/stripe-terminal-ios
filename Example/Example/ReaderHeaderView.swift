@@ -62,7 +62,11 @@ class ReaderHeaderView: UIView {
 
         stack.translatesAutoresizingMaskIntoConstraints = false
         let insets = UIEdgeInsets(top: 14, left: 16, bottom: 10, right: 16)
-        stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        if #available(iOS 11.0, *) {
+            stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
+        } else {
+            stack.anchorToSuperviewAnchors(withInsets: insets)
+        }
 
         bounds.size.height = 110
         let hardcodedImageViewHeight: CGFloat = 38
@@ -70,11 +74,11 @@ class ReaderHeaderView: UIView {
 
         updateContent()
 
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     deinit {
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
+        BluetoothReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
