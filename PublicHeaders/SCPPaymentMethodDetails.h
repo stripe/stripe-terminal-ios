@@ -17,6 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPCardPresentDetails;
+@class SCPWechatPayDetails;
 
 /**
  Details about a PaymentMethod at a specific time. ex: at time of transaction
@@ -49,6 +50,12 @@ NS_SWIFT_NAME(PaymentMethodDetails)
  this contains additional information.
  */
 @property (nonatomic, nullable, readonly) SCPCardPresentDetails *interacPresent;
+
+/**
+ If this is a Wechat pay payment method (ie `self.type == SCPPaymentMethodTypeWechatPay`),
+ this contains additional information.
+ */
+@property (nonatomic, nullable, readonly) SCPWechatPayDetails *wechatPay;
 
 /**
  You cannot directly instantiate this class.

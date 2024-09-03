@@ -319,31 +319,17 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             })),
         ]
 
-        if discoveryConfig.simulated {
-            return Section(
-                header: Section.Extremity.title("Select location"),
-                rows: commonRows + [
-                    Row(
-                        text: "Mock simulated reader location",
-                        accessory: .disclosureIndicator,
-                        cellClass: discoveryConfig.simulated ? DisabledCell.self : nil
-                    )
-                ],
-                footer: Section.Extremity.title("Simulated readers are always registered to the mock simulated location.")
-            )
-        } else {
-            return Section(
-                header: Section.Extremity.title("Connection Configuration"),
-                rows: commonRows + [
-                    Row(
-                        text: selectedLocationStub != nil ? selectedLocationStub?.displayName : "No location selected",
-                        selection: { [unowned self] in self.showLocationSelector() },
-                        accessory: .disclosureIndicator
-                    ),
-                ],
-                footer: Section.Extremity.title("Bluetooth readers must be registered to a location during the connection process. If you do not select a location, the reader will attempt to register to the same location it was registered to during the previous connection.")
-            )
-        }
+        return Section(
+            header: Section.Extremity.title("Connection Configuration"),
+            rows: commonRows + [
+                Row(
+                    text: selectedLocationStub != nil ? selectedLocationStub?.displayName : "No location selected",
+                    selection: { [unowned self] in self.showLocationSelector() },
+                    accessory: .disclosureIndicator
+                ),
+            ],
+            footer: Section.Extremity.title("Bluetooth readers must be registered to a location during the connection process. If you do not select a location, the reader will attempt to register to the same location it was registered to during the previous connection.")
+        )
     }
 
     internal func showLocationSelector() {

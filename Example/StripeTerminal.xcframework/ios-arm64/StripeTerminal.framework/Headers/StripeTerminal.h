@@ -48,6 +48,7 @@
 #import <StripeTerminal/SCPEmailInput.h>
 #import <StripeTerminal/SCPEmailResult.h>
 #import <StripeTerminal/SCPErrors.h>
+#import <StripeTerminal/SCPExternalUsbChannel.h>
 #import <StripeTerminal/SCPInput.h>
 #import <StripeTerminal/SCPInternetConnectionConfiguration.h>
 #import <StripeTerminal/SCPInternetDiscoveryConfiguration.h>
@@ -121,4 +122,5 @@
 #import <StripeTerminal/SCPUsbDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPUsbReaderDelegate.h>
 #import <StripeTerminal/SCPWallet.h>
+#import <StripeTerminal/SCPWechatPayDetails.h>
 

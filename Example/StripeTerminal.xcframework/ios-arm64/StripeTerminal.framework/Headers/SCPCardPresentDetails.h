@@ -154,6 +154,16 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, nullable, readonly) SCPWallet *wallet;
 
 /**
+ ID of the location that this transaction’s reader is assigned to.
+ */
+@property (nonatomic, nullable, readonly) NSString *location;
+
+/**
+ ID of the reader this transaction was made on.
+ */
+@property (nonatomic, nullable, readonly) NSString *reader;
+
+/**
  Issuer identification number of the card. (For internal use only and not typically available
  in standard API requests.)
  */

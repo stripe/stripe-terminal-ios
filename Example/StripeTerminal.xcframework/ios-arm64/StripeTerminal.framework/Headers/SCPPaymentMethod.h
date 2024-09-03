@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCardDetails, SCPCardPresentDetails;
+@class SCPCardDetails, SCPCardPresentDetails, SCPWechatPayDetails;
 
 /**
  PaymentMethod objects represent your customer's payment instruments.
@@ -59,6 +59,11 @@ NS_SWIFT_NAME(PaymentMethod)
  If this is an Interac_present PaymentMethod (ie `self.type == SCPPaymentMethodTypeInteracPresent`), this contains additional details.
  */
 @property (nonatomic, nullable, readonly) SCPCardPresentDetails *interacPresent;
+
+/**
+ If this is a wechat_pay PaymentMethod (ie `self.type == SCPPaymentMethodTypeWechatPay`), this contains additional details.
+ */
+@property (nonatomic, nullable, readonly) SCPWechatPayDetails *wechatPay;
 
 /**
  The Customer that this PaymentMethod is attached to, or nil.

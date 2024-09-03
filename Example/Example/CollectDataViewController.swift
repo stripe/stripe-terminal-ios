@@ -62,6 +62,8 @@ class CollectDataViewController: EventDisplayingViewController {
                         self?.complete()
                     })
                 }
+                #else
+                self?.complete()
                 #endif
             }
         })
