@@ -96,10 +96,9 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
     private let defaultAmount: UInt = 100
 
     convenience init(header: String? = nil, footer: String? = nil, placeholderText: String? = nil) {
-        self.init(text: "Amount", header: header, footer: footer, placeholderText: placeholderText)
+        self.init(text: "Amount", header: header, footer: footer, placeholderText: placeholderText, keyboardType: .numberPad)
         textField.text = String(defaultAmount)
         textField.delegate = self
-        textField.keyboardType = .numberPad
         numberFormatter.currencyCode = "usd"
         numberFormatter.numberStyle = .currency
     }
@@ -419,9 +418,10 @@ class TextFieldView: UIView {
         return label
     }()
 
-    init(text: String? = nil, header: String? = nil, footer: String? = nil, placeholderText: String? = nil) {
+    init(text: String? = nil, header: String? = nil, footer: String? = nil, placeholderText: String? = nil, keyboardType: UIKeyboardType = .default) {
         super.init(frame: .zero)
         buildTextView(header: header, footer: footer, placeholderText: placeholderText)
+        configureKeyboard(type: keyboardType)
     }
 
     private func buildTextView(header: String?, footer: String?, placeholderText: String?) {
@@ -446,6 +446,28 @@ class TextFieldView: UIView {
         stack.anchor(to: safeAreaLayoutGuide, withInsets: insets)
 
         textField.placeholder = placeholderText
+    }
+
+    private func configureKeyboard(type: UIKeyboardType) {
+        textField.keyboardType = type
+
+        // If numberPad, add a toolbar with button to dismiss the keyboard
+        if type == .numberPad {
+            let toolbar = UIToolbar()
+            toolbar.sizeToFit()
+
+            let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissKeyboard))
+
+            toolbar.items = [flexSpace, doneButton]
+
+            textField.inputAccessoryView = toolbar
+        }
+    }
+
+    @objc
+    private func dismissKeyboard() {
+        textField.resignFirstResponder()
     }
 
     required init?(coder aDecoder: NSCoder) {

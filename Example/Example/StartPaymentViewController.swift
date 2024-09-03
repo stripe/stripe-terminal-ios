@@ -30,6 +30,13 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var updatePaymentIntent = false
     private var requestDcc = false
     private var skipCapture = false
+    private var paymentMethodTypes: [String] = [
+        "card_present",
+        "card",
+        "interac_present",
+        "wechat_pay"
+    ]
+    private var selectedPaymentMethodTypes: [String] = ["card_present"]
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -47,20 +54,18 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var offlineBehavior: OfflineBehavior = .preferOnline
 
     private lazy var offlineTransactionLimitTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "10000")
+        let textField = TextFieldView(placeholderText: "10000", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
         textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
         return textField
     }()
 
     private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "50000")
+        let textField = TextFieldView(placeholderText: "50000", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
         textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
         return textField
     }()
 
@@ -73,10 +78,9 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }()
 
     private lazy var simulatedTipAmountTextField: AmountInputView = {
-        let textField = AmountInputView(placeholderText: "Simulated tip amount")
+        let textField = AmountInputView(placeholderText: "Simulated tip amount", keyboardType: .numberPad)
         textField.textField.text = nil
         textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
         return textField
     }()
 
@@ -90,11 +94,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }()
 
     private lazy var amountSurchargeTextField: TextFieldView = {
-        let textField = TextFieldView(placeholderText: "Amount Surcharge")
+        let textField = TextFieldView(placeholderText: "Amount Surcharge", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
         textField.textField.clearButtonMode = .whileEditing
-        textField.textField.keyboardType = .numberPad
         return textField
     }()
 
@@ -182,15 +185,10 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     internal func startPayment() {
         let captureMethod = self.automaticCaptureEnabled ? CaptureMethod.automatic : CaptureMethod.manual
-        var paymentMethodTypes = ["card_present"]
-
-        if self.interacPresentEnabled {
-            paymentMethodTypes.append("interac_present")
-        }
 
         let paymentParamsBuilder = PaymentIntentParametersBuilder(amount: amountView.amount,
                                                     currency: currencyView.currency)
-            .setPaymentMethodTypes(paymentMethodTypes)
+            .setPaymentMethodTypes(self.selectedPaymentMethodTypes)
             .setCaptureMethod(captureMethod)
             .setSetupFutureUsage(setupFutureUsage)
             .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
@@ -328,14 +326,29 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         }
     }
 
-    private func makePaymentMethodSection() -> Section {
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true
+    private func makePaymentMethodTypesSection() -> Section {
+        let paymentMethodTypesSection = Section(header: Section.Extremity.title("Payment Methods"), rows: paymentMethodTypes.map({ (key: String) in
+            return if key == "card_present" {
+                Row(text: "Enable \(key)", accessory: .none)
+            } else {
+                Row(text: "Enable \(key)", accessory: .switchToggle(value: self.selectedPaymentMethodTypes.contains(key), { [unowned self] _ in
+                    if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
+                        selectedPaymentMethodTypes.remove(at: index)
+                    } else {
+                        selectedPaymentMethodTypes.append(key)
+                    }
+                    self.updateContent()
+                }))
+            }
+        }))
+        return paymentMethodTypesSection
+    }
 
-        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [
-            Row(text: "Enable Interac Present", accessory: .switchToggle(value: self.interacPresentEnabled) { [unowned self] _ in
-                self.interacPresentEnabled.toggle()
-                self.updateContent()
-            }),
+    private func makePaymentMethodSection() -> Section {
+        // TERMINAL-34013: Simulated TTP reader has simulated set to false
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true || (Terminal.shared.connectedReader?.serialNumber == "APPLEBUILTINSIMULATOR-1")
+
+        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method Options"), rows: [
             Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
                 self.automaticCaptureEnabled.toggle()
                 self.updateContent()
@@ -516,6 +529,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeTippingSection(),
             self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
+            self.makePaymentMethodTypesSection(),
             self.makePaymentMethodSection(),
             self.makeRequestDccSection(),
             self.makeSurchargeNoticeSection(),

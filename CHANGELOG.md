@@ -7,6 +7,16 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.9.0 2024-09-03
+* Built with Xcode 15.2, Swift version 5.9.
+* Beta: WeChat Pay support for smart readers is now available in private beta.
+  * If you are interested in joining this beta, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* New: Adds support for [Interac refunds](https://docs.stripe.com/terminal/payments/regional?integration-country=CA#refund-an-interac-payment) on the Tap to Pay simulated reader.
+* Update: For mobile readers with [`auto reconnection`](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#handle-disconnects) enabled, the SDK now installs required updates upon reconnection after a [reboot](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#reboot-the-connected-reader). Your application will continue to receive notifications about updates via the [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html) and should handle updating its UI to inform the user of the update accordingly.
+* Update: Improved handling of [`SCPErrorReaderMissingEncryptionKeys`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys) error for mobile readers with auto-reconnection enabled. Previously, the SDK would disconnect from the reader without auto-reconnecting when this error occurred. Now, if auto-reconnection is enabled, the SDK will automatically reconnect and recover from this error.
+* Fix [#595](https://github.com/stripe/stripe-terminal-react-native/issues/595): Addresses the issue where backgrounding the app while the Tap to Pay PIN collection screen is displayed causes the SDK to become unresponsive until the app is relaunched.
+* Fix: Resolves a race condition that occurs when a card is inserted simultaneously as [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) is being canceled. Previously, this resulted in a [`SCPErrorReaderBusy`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorReaderBusy) error. Now, the collection will complete by returning a [`SCPErrorCanceled`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorCanceled) error instead.
+
 # 3.8.3 2024-08-12
 * Fix the root cause of the deadlocks, further reducing the risk of SDK crashes.
 
@@ -14,7 +24,7 @@ pod 'StripeTerminal', '~> 3.0'
 * Fix another path that could result in a logger deadlock, further reducing the risk of SDK crashes.
 
 # 3.8.1 2024-08-06
-* Fix a deadlock in the logger that can cause the SDK to crash.
+* Fix a deadlock in the logger that can cause the SDK to crash
 
 # 3.8.0 2024-07-31
 * Built with Xcode 15.2, Swift version 5.9.
@@ -25,7 +35,7 @@ pod 'StripeTerminal', '~> 3.0'
 
 # 3.7.0 2024-06-24
 * Built with Xcode 15.2, Swift version 5.9.
-* Beta: Surcharging is now available in private beta. 
+* Beta: Surcharging is now available in private beta.
   * added a `surchargeNotice` parameter to [`SCPCollectConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration.html) to display a surcharge notice on the payment collection screen.
   * added a `SCPSurcharge` field to the [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html) object.
   * added a [`SCPConfirmConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmConfiguration.html) class to allow per-transaction overrides for [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:).
@@ -33,7 +43,7 @@ pod 'StripeTerminal', '~> 3.0'
   * If you are interested in joining this beta, please email stripe-terminal-betas@stripe.com.
 * Beta: Added a `collectData` method to collect eligible magstripe data, such as gift cards.
   * If you are interested in joining this beta, please email stripe-terminal-betas@stripe.com.
-* Update: Added [`SCPSimulateReaderUpdateLowBatterySucceedConnect`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulateReaderUpdate.html#/c:@E@SCPSimulateReaderUpdate@SCPSimulateReaderUpdateLowBatterySucceedConnect) to simulate an error scenario where a required update fails on a mobile reader due to low battery, but the SDK still successfully connects to the reader. 
+* Update: Added [`SCPSimulateReaderUpdateLowBatterySucceedConnect`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPSimulateReaderUpdate.html#/c:@E@SCPSimulateReaderUpdate@SCPSimulateReaderUpdateLowBatterySucceedConnect) to simulate an error scenario where a required update fails on a mobile reader due to low battery, but the SDK still successfully connects to the reader.
   * see [Simulated reader updates](https://docs.stripe.com/terminal/references/testing?terminal-sdk-platform=ios#simulated-reader-updates) for details.
 * Update: if a mobile reader receives the [`SCPErrorReaderMissingEncryptionKeys`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys) error during payment collection, the SDK will disconnect from the reader. Note that auto reconnection will not work in this scenario. The error will automatically recover once the reader is reconnected.
 * Fix: Fixed a crash that occurred when canceling [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) after [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:) had already been called on the `PaymentIntent`.
@@ -56,7 +66,7 @@ pod 'StripeTerminal', '~> 3.0'
 * Update: Added [`SetupIntentParameters.paymentMethodTypes`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentParameters.html#/c:objc(cs)SCPSetupIntentParameters(py)paymentMethodTypes).
   - _Note for internet reader integrations, this feature requires [reader software version](https://stripe.com/docs/terminal/readers/bbpos-wisepos-e#reader-software-version) `2.22` or later to be installed on your internet reader._
 * Update: [`supportsReadersOfType`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)supportsReadersOfType:discoveryMethod:simulated:error:) now returns NO with error `SCPErrorInvalidDiscoveryConfiguration` if the device type and discovery method are incompatible.
-* Update: When a Bluetooth reader has an error installing a required update the SDK will allow connecting to the reader if the reader is running a recent version. The error installing the update will still be communicated in the [`reader:didFinishInstallingUpdate:error:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didFinishInstallingUpdate:error:) callback. The update will be available to be retried using [`installAvailableUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)installAvailableUpdate). If the update isn't installed with `installAvailableUpdate` the installation will be retried the next time connecting to the reader. 
+* Update: When a Bluetooth reader has an error installing a required update the SDK will allow connecting to the reader if the reader is running a recent version. The error installing the update will still be communicated in the [`reader:didFinishInstallingUpdate:error:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPBluetoothReaderDelegate.html#/c:objc(pl)SCPBluetoothReaderDelegate(im)reader:didFinishInstallingUpdate:error:) callback. The update will be available to be retried using [`installAvailableUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)installAvailableUpdate). If the update isn't installed with `installAvailableUpdate` the installation will be retried the next time connecting to the reader.
 * Fixes [#291](https://github.com/stripe/stripe-terminal-ios/issues/291): Fixes a bug where the cancelable returned by [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) was not responsive in certain conditions when a card was left in the reader or inserted before calling `collectPaymentMethod`.
 * Fixes a bug where `rebootReader` would return `SCPErrorUnexpectedSdkError` if called after the reader received a firmware update.
 
