@@ -7,6 +7,10 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 3.0'
 ```
+# 3.9.1 2024-09-05
+* Built with Xcode 15.2, Swift version 5.9.
+* Fix [#325](https://github.com/stripe/stripe-terminal-ios/issues/325): Corrects the status of `Terminal.shared.paymentStatus` and `Terminal.shared.connectionStatus` after [automatically reconnecting](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#handle-disconnects) to mobile readers during unexpected disconnects.
+
 # 3.9.0 2024-09-03
 * Built with Xcode 15.2, Swift version 5.9.
 * Beta: WeChat Pay support for smart readers is now available in private beta.

@@ -168,9 +168,22 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // pop if no reader is connected
-        guard Terminal.shared.connectedReader != nil else {
-            navigationController?.popViewController(animated: true)
+        // pop if things don't look right
+        let message: String? = {
+            if Terminal.shared.connectedReader == nil {
+                return "No reader connected"
+            } else if Terminal.shared.connectionStatus != .connected {
+                return "Terminal SDK is not in the connected state: \(Terminal.stringFromConnectionStatus(Terminal.shared.connectionStatus))"
+            } else if Terminal.shared.paymentStatus != .ready {
+                return "Terminal SDK is not ready for payment: \(Terminal.stringFromPaymentStatus(Terminal.shared.paymentStatus))"
+            } else {
+                return nil
+            }
+        }()
+        if let message {
+            self.presentAlert(title: "Unexpected State", message: message) { [unowned self] _ in
+                navigationController?.popViewController(animated: true)
+            }
             return
         }
     }
