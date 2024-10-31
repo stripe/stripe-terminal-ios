@@ -45,7 +45,6 @@ struct LogEvent: CustomStringConvertible, Event {
         case requestReaderInput = "delegate.didRequestReaderInput"
         case requestReaderDisplayMessage = "delegate.didRequestReaderDisplayMessage"
         case reportReaderEvent = "delegate.didReportReaderEvent"
-        case reportUnexpectedReaderDisconnect = "delegate.didReportUnexpectedReaderDisconnect"
         case attachPaymentMethod = "backend.attachPaymentMethod"
         case collectRefundPaymentMethod = "terminal.collectRefundPaymentMethod"
         case cancelCollectRefundPaymentMethod = "terminal.cancelCollectRefundPaymentMethod"
@@ -66,6 +65,9 @@ struct LogEvent: CustomStringConvertible, Event {
         case collectData = "terminal.collectData"
         case cancelCollectData = "terminal.cancelCollectData"
         case retrieveCollectedData = "terminal.retrieveCollectedData"
+        case cancelConfirmPaymentIntent = "terminal.cancelConfirmPaymentIntent"
+        case cancelConfirmSetupIntent = "terminal.cancelConfirmSetupIntent"
+        case cancelConfirmRefund = "terminal.cancelConfirmRefund"
     }
 
     enum AssociatedObject {
@@ -98,7 +100,6 @@ struct LogEvent: CustomStringConvertible, Event {
         switch method {
         case .requestReaderInput,
              .reportReaderEvent,
-             .reportUnexpectedReaderDisconnect,
              .requestReaderDisplayMessage:
             return result.description
         case .createPaymentIntent, .backendCreatePaymentIntent:
@@ -274,6 +275,27 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Retrieve Collected Data"
             case .succeeded: string = "Retrieved Collected Data"
             case .errored: string = "Retrieve Collected Data Failed"
+            case .message(let message): string = message
+            }
+        case .cancelConfirmPaymentIntent:
+            switch result {
+            case .started: string = "Cancel Confirm PaymentIntent"
+            case .succeeded: string = "Canceled Confirm PaymentIntent"
+            case .errored: string = "Cancel Confirm Payment Intent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelConfirmSetupIntent:
+            switch result {
+            case .started: string = "Cancel Confirm SetupIntent"
+            case .succeeded: string = "Canceled Confirm SetupIntent"
+            case .errored: string = "Cancel Confirm Setup Intent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelConfirmRefund:
+            switch result {
+            case .started: string = "Cancel Confirm Refund"
+            case .succeeded: string = "Canceled Confirm Refund"
+            case .errored: string = "Cancel Confirm Refund Failed"
             case .message(let message): string = message
             }
         }

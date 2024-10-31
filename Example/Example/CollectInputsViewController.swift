@@ -11,15 +11,12 @@ import Static
 import StripeTerminal
 
 class CollectInputsViewController: EventDisplayingViewController {
-    override var cancelLogMethod: LogEvent.Method {
-        return .cancelCollectInputs
-    }
-
     private let collectInputsParams: CollectInputsParameters
 
     init(collectInputsParams: CollectInputsParameters) {
         self.collectInputsParams = collectInputsParams
         super.init()
+        self.currentCancelLogMethod = .cancelCollectInputs
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -29,7 +29,7 @@ NS_SWIFT_NAME(OfflineDetails)
 /**
  Time that the payment was collected.
  */
-@property (nonatomic, nullable, readonly, strong) NSDate *collectedAt;
+@property (nonatomic, nullable, readonly, strong) NSDate *storedAt;
 
 /**
  Set to `YES` if the PaymentIntent needs to be uploaded. The payment intent can be optionally captured after it is uploaded.

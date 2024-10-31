@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.9.1 Docs
+          StripeTerminal 4.0.0 Docs
         </a>
         
       </p>
@@ -57,9 +57,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPDisconnectReason.html">SCPDisconnectReason</a>
@@ -133,10 +130,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPLocalMobileDiscoveryConfiguration">SCPLocalMobileDiscoveryConfiguration</a>
+                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPTapToPayDiscoveryConfiguration">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileDiscoveryConfigurationBuilder.html">SCPLocalMobileDiscoveryConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayDiscoveryConfigurationBuilder.html">SCPTapToPayDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
@@ -151,10 +148,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfigurationBuilder.html">SCPInternetConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfiguration.html">SCPTapToPayConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfigurationBuilder.html">SCPLocalMobileConnectionConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -198,10 +195,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPMobileReaderDelegate.html">SCPMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPTapToPayReaderDelegate.html">SCPTapToPayReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Reader.html#/c:objc(pl)SCPInternetReaderDelegate">SCPInternetReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -347,7 +350,7 @@
                 <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateDurationEstimate.html">SCPUpdateDurationEstimate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
@@ -497,6 +500,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPWechatPayDetails.html">SCPWechatPayDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPAllowRedisplay.html">SCPAllowRedisplay</a>
               </li>
             </ul>
           </li>
@@ -687,89 +693,6 @@ Stripe Terminal iOS SDK.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportUnexpectedReaderDisconnect:"></a>
-                    <a name="//apple_ref/objc/Method/-terminal:didReportUnexpectedReaderDisconnect:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportUnexpectedReaderDisconnect:">-terminal:<wbr>didReportUnexpectedReaderDisconnect:<wbr></a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The reader disconnected unexpectedly (that is, without your app explicitly
-calling <code>disconnectReader</code>).</p>
-
-<p>In your implementation of this method, you should notify your user that
-the reader disconnected. You may also want to call <code>discoverReaders</code> to begin
-scanning for readers. Your app can attempt to automatically reconnect to the
-disconnected reader, or display UI for your user to re-connect to a reader.</p>
-
-<p>You can trigger this call in your app by powering off the connected reader.</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    <p>When connected to a Bluetooth reader you can get more information about
-the disconnect by implementing the <code><a href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a></code>s
-<code>reader:didDisconnect:</code> method.</p>
-
-</div><div class="aside aside-see">
-    <p class="aside-title">See</p>
-    <p><a href="https://stripe.com/docs/terminal/readers/connecting">https://stripe.com/docs/terminal/readers/connecting</a></p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">terminal</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPTerminal.html">SCPTerminal</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">terminal</span>
-    <span class="nf">didReportUnexpectedReaderDisconnect</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPReader.html">SCPReader</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">reader</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminal</span><span class="p">(</span><span class="n">_</span> <span class="nv">terminal</span><span class="p">:</span> <span class="kt">Terminal</span><span class="p">,</span> <span class="n">didReportUnexpectedReaderDisconnect</span> <span class="nv">reader</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPReader.html">SCPReader</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>terminal</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The originating terminal.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>reader</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The previously connected reader.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(pl)SCPTerminalDelegate(im)terminal:didChangeConnectionStatus:"></a>
                     <a name="//apple_ref/objc/Method/-terminal:didChangeConnectionStatus:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(pl)SCPTerminalDelegate(im)terminal:didChangeConnectionStatus:">-terminal:<wbr>didChangeConnectionStatus:<wbr></a>
@@ -786,7 +709,7 @@ the disconnect by implementing the <code><a href="../Protocols/SCPBluetoothReade
 disconnects from your app, as it cannot be used to accurately distinguish
 between expected and unexpected disconnect events. To detect unexpect
 disconnects (e.g. to automatically notify your user), you should instead use
-the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalDelegate(im)terminal:didReportUnexpectedReaderDisconnect:">-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]</a></code> method.</p>
+the <code><a href="../Protocols/SCPReaderDelegate.html#/c:objc(pl)SCPReaderDelegate(im)reader:didDisconnect:">-[SCPReaderDelegate reader:didDisconnect:]</a></code> method.</p>
 
                       </div>
                       <div class="declaration">
@@ -909,8 +832,8 @@ the <code><a href="../Protocols/SCPTerminalDelegate.html#/c:objc(pl)SCPTerminalD
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-09-05)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-10-31)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

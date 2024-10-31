@@ -11,8 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <StripeTerminal/SCPAllowRedisplay.h>
 #import <StripeTerminal/SCPBlocks.h>
-#import <StripeTerminal/SCPBluetoothReaderDelegate.h>
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCollectConfiguration.h>
@@ -24,8 +24,9 @@
 #import <StripeTerminal/SCPDeviceType.h>
 #import <StripeTerminal/SCPDisconnectReason.h>
 #import <StripeTerminal/SCPDiscoveryMethod.h>
-#import <StripeTerminal/SCPLocalMobileReaderDelegate.h>
+#import <StripeTerminal/SCPInternetReaderDelegate.h>
 #import <StripeTerminal/SCPLogLevel.h>
+#import <StripeTerminal/SCPMobileReaderDelegate.h>
 #import <StripeTerminal/SCPNetworkStatus.h>
 #import <StripeTerminal/SCPOfflineDelegate.h>
 #import <StripeTerminal/SCPOfflineStatus.h>
@@ -38,22 +39,22 @@
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
+#import <StripeTerminal/SCPTapToPayReaderDelegate.h>
 #import <StripeTerminal/SCPUsbConnectionConfiguration.h>
-#import <StripeTerminal/SCPUsbReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"3.9.1";
+static NSString *const SCPSDKVersion = @"4.0.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
     SCPBluetoothConnectionConfiguration,
     SCPInternetConnectionConfiguration,
     SCPListLocationsParameters,
-    SCPLocalMobileConnectionConfiguration,
+    SCPTapToPayConnectionConfiguration,
     SCPPaymentIntentParameters;
 
 @protocol SCPConnectionTokenProvider
@@ -82,7 +83,7 @@ static NSString *const SCPSDKVersion = @"3.9.1";
  example application](https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift).
  */
 NS_SWIFT_NAME(Terminal)
-API_AVAILABLE(ios(13.0))
+API_AVAILABLE(ios(14.0))
 @interface SCPTerminal : NSObject
 
 #pragma mark Initializing and accessing the SCPTerminal singleton
@@ -204,7 +205,7 @@ API_AVAILABLE(ios(13.0))
 
 /**
  Use this method to determine whether the mobile device supports a given reader type
- using a particular discovery method. This is useful for the Local Mobile reader
+ using a particular discovery method. This is useful for the Tap To Pay reader
  discovery method where support will vary according to operating system
  and hardware capabilities.
  @param deviceType      Reader device type to determine support for.
@@ -231,10 +232,6 @@ API_AVAILABLE(ios(13.0))
  `SCPDiscoveryDelegate` to get notified of discovered readers and display
  discovery results to your user.
 
- You must call `connectBluetoothReader` or `connectInternetReader` while
- a discovery is taking place. You can only connect to a reader that was
- returned from the `SCPDiscoveryDelegate`'s `didUpdateDiscoveredReaders` method.
-
  The discovery process will stop on its own when the terminal successfully
  connects to a reader, if the command is canceled, or if a discovery error occurs.
 
@@ -249,34 +246,29 @@ API_AVAILABLE(ios(13.0))
                         completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(discoverReaders(_:delegate:completion:));
 
 /**
- Attempts to connect to the given Bluetooth reader with a given connection
- configuration.
+ Attempts to connect to the given reader with a given connection configuration.
 
- To connect to a Bluetooth reader, your app must register that reader to a
+ To connect to mobile readers, your app must register that reader to a
  [Location](https://stripe.com/docs/api/terminal/locations/object) upon connection.
- You should create a `SCPBluetoothConnectionConfiguration`
- at some point before connecting which specifies the location to which this
- reader belongs.
+ The location is specified in the connection configuration for the reader.
 
  Throughout the lifetime of the connection, the reader will communicate
- with your app via the `SCPBluetoothReaderDelegate` to announce transaction
- status, battery level, and software update information.
+ with your app via the `SCPReaderDelegate` to announce reader related events.
 
  If the connection succeeds, the completion block will be called with the
  connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
 
  If the connection fails, the completion block will be called with an error.
 
- The SDK must be actively discovering readers in order to connect to one.
- The discovery process will stop if this connection request succeeds, otherwise
- the SDK will continue discovering.
+ If the SDK is actively discovery when connect is called the SDK will complete the
+ discover command.
 
  When this method is called, the SDK uses a connection token and the given
  reader information to register the reader to your Stripe account. If the SDK
  does not already have a connection token, it will call the `fetchConnectionToken`
  method in your `SCPConnectionTokenProvider` implementation.
 
- If the reader's battery is critically low the connect call will fail with
+ If a mobile reader's battery is critically low the connect call will fail with
  `SCPErrorBluetoothDisconnected`. Plug your reader in to start charging and
  try again.
 
@@ -284,143 +276,13 @@ API_AVAILABLE(ios(13.0))
 
  @param reader          The reader to connect to. This should be a reader
  recently returned to the `didUpdateDiscoveredReaders:` method in the discovery delegate.
- @param delegate        The delegate used during the lifetime of the connection.
- See `SCPBluetoothReaderDelegate`.
  @param connectionConfig   The connection configuration for options while
- connecting to a reader. See `SCPBluetoothConnectionConfiguration` for more details.
+ connecting to a reader. See `SCPConnectionConfiguration` and its subclasses for more details.
  @param completion      The completion block called when the command completes.
  */
-- (void)connectBluetoothReader:(SCPReader *)reader
-                      delegate:(id<SCPBluetoothReaderDelegate>)delegate
-              connectionConfig:(SCPBluetoothConnectionConfiguration *)connectionConfig
-                    completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectBluetoothReader(_:delegate:connectionConfig:completion:));
-
-/**
- Attempts to connect to the given Internet reader with a given connection
- configuration.
-
- If the connect succeeds, the completion block will be called with the
- connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
-
- If the connect fails, the completion block will be called with an error.
-
- The SDK must be actively discovering readers in order to connect to one.
- The discovery process will stop if this connection request succeeds, otherwise
- the SDK will continue discovering.
-
- When this method is called, the SDK uses a connection token and the given
- reader information to create a reader session. If the SDK does not already
- have a connection token, it will call the `fetchConnectionToken method you
- defined to fetch one.
-
- If `connectionConfig` is set to `nil`, the SDK will resort to
- default connection behavior; see the `SCPInternetConnectionConfiguration`
- header documentation for more details.
-
- @see https://stripe.com/docs/terminal/readers/connecting
-
- @param reader          The reader to connect to. This should be a reader
- recently returned to the `didUpdateDiscoveredReaders:` method in the discovery delegate.
- @param connectionConfig   The connection configuration for options while
- connecting to a reader. See `SCPInternetConnectionConfiguration` for more details.
- @param completion      The completion block called when the command completes.
- */
-- (void)connectInternetReader:(SCPReader *)reader
-             connectionConfig:(nullable SCPInternetConnectionConfiguration *)connectionConfig
-                   completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectInternetReader(_:connectionConfig:completion:));
-
-/**
- Attempts to connect to the given Local Mobile reader with a given
- connection configuration.
-
- To connect to a Local Mobile reader, your app must register that reader to a
- [Location](https://stripe.com/docs/api/terminal/locations/object) upon connection.
- You should create a `SCPLocalMobileConnectionConfiguration`
-before connecting which specifies the location to which this
- reader belongs.
-
- Throughout the lifetime of the connection, the reader will communicate
- with your app via the `SCPLocalMobileReaderDelegate` as appropriate.
-
- If the connection succeeds, the completion block will be called with the
- connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
-
- If the connection fails, the completion block will be called with an error.
-
- The SDK must be actively discovering readers in order to connect to one.
- The discovery process will stop if this connection request succeeds, otherwise
- the SDK will continue discovering.
-
- When this method is called, the SDK uses a connection token and the given
- reader information to register the reader to your Stripe account. If the SDK
- does not already have a connection token, it will call the `fetchConnectionToken`
- method in your `SCPConnectionTokenProvider` implementation.
-
- Note that during connection, an update may occur to ensure that the
- local mobile reader has the most up to date software and configurations.
-
- @see https://stripe.com/docs/terminal/readers/connecting
-
- @param reader           The reader to connect to. This should be a reader
-                         recently returned to the `didUpdateDiscoveredReaders:` method in
-                         the discovery delegate.
- @param delegate         The delegate used during the lifetime of the connection.
-                         See `SCPLocalMobileReaderDelegate`.
- @param connectionConfig The connection configuration for options while
-                         connecting to a reader.
-                         See `SCPLocalMobileConnectionConfiguration` for more details.
- @param completion       The completion block called when the command completes.
- */
-- (void)connectLocalMobileReader:(SCPReader *)reader
-                        delegate:(id<SCPLocalMobileReaderDelegate>)delegate
-                connectionConfig:(SCPLocalMobileConnectionConfiguration *)connectionConfig
-                      completion:(SCPReaderCompletionBlock)completion
-    NS_SWIFT_NAME(connectLocalMobileReader(_:delegate:connectionConfig:completion:));
-
-#ifdef SCP_USB_ENABLED
-/**
- Attempts to connect to the given USB reader with a given connection
- configuration.
-
- To connect to a USB reader, your app must register that reader to a
- [Location](https://stripe.com/docs/api/terminal/locations/object) upon connection.
- You should create a `SCPUsbConnectionConfiguration`
- at some point before connecting which specifies the location to which this
- reader belongs.
-
- Throughout the lifetime of the connection, the reader will communicate
- with your app via the `SCPReaderDelegate` to announce transaction
- status, battery level, and software update information.
-
- If the connection succeeds, the completion block will be called with the
- connected reader, and `SCPTerminal.connectionStatus` will change to `.connected`.
-
- If the connection fails, the completion block will be called with an error.
-
- The SDK must be actively discovering readers in order to connect to one.
- The discovery process will stop if this connection request succeeds, otherwise
- the SDK will continue discovering.
-
- When this method is called, the SDK uses a connection token and the given
- reader information to register the reader to your Stripe account. If the SDK
- does not already have a connection token, it will call the `fetchConnectionToken`
- method in your `SCPConnectionTokenProvider` implementation.
-
- @see https://stripe.com/docs/terminal/readers/connecting
-
- @param reader          The reader to connect to. This should be a reader
- recently returned to the `didUpdateDiscoveredReaders:` method in the discovery delegate.
- @param delegate        The delegate used during the lifetime of the connection.
- See `SCPBluetoothReaderDelegate`.
- @param connectionConfig   The connection configuration for options while
- connecting to a reader. See `SCPBluetoothConnectionConfiguration` for more details.
- @param completion      The completion block called when the command completes.
- */
-- (void)connectUsbReader:(SCPReader *)reader
-                delegate:(id<SCPUsbReaderDelegate>)delegate
-        connectionConfig:(SCPUsbConnectionConfiguration *)connectionConfig
-              completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectUsbReader(_:delegate:connectionConfig:completion:));
-#endif // SCP_USB_ENABLED
+- (void)connectReader:(SCPReader *)reader
+     connectionConfig:(SCPConnectionConfiguration *)connectionConfig
+           completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectReader(_:connectionConfig:completion:));
 
 /**
  Retrieves a list of `SCPLocation` objects belonging to your merchant. You must specify
@@ -451,7 +313,7 @@ before connecting which specifies the location to which this
  locking.
 
  If an error occurs while installing the update (e.g. because the update was
- interrupted), the `SCPBluetoothReaderDelegate` will receive
+ interrupted), the `SCPMobileReaderDelegate` will receive
  `reader:didFinishInstallingUpdate:error:` with the error. If the update
  completed successfully, the same method will be called with `nil` error.
 
@@ -609,8 +471,8 @@ before connecting which specifies the location to which this
  @param paymentIntent   The PaymentIntent to confirm.
  @param completion      The completion block called when the confirm completes.
  */
-- (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
-                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(confirmPaymentIntent(_:completion:));
+- (nullable SCPCancelable *)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
+                                      completion:(SCPConfirmPaymentIntentCompletionBlock)completion NS_SWIFT_NAME(confirmPaymentIntent(_:completion:));
 
 /**
  Confirm a payment after collecting a payment method succeeds.
@@ -619,9 +481,9 @@ before connecting which specifies the location to which this
  @param confirmConfig   The ConfirmConfiguration object that contains settings for this call.
  @param completion      The completion block called when the confirm completes.
  */
-- (void)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
-               confirmConfig:(nullable SCPConfirmConfiguration *)confirmConfig
-                  completion:(SCPConfirmPaymentIntentCompletionBlock)completion;
+- (nullable SCPCancelable *)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
+                                   confirmConfig:(nullable SCPConfirmConfiguration *)confirmConfig
+                                      completion:(SCPConfirmPaymentIntentCompletionBlock)completion;
 
 /**
  Cancels an `SCPPaymentIntent`.
@@ -696,7 +558,7 @@ before connecting which specifies the location to which this
 
  If collecting a payment method succeeds, the completion block will be called
  with a SetupIntent with status `.requiresConfirmation`, indicating that you
- should call `confirmSetupIntent:customerConsentCollected:completion:` to
+ should call `confirmSetupIntent:completion:` to
  finish the payment.
 
  Note that if `collectSetupIntentPaymentMethod` is canceled, the completion
@@ -716,13 +578,13 @@ before connecting which specifies the location to which this
  The payment method will not be collected without the cardholder's consent.
 
  @param setupIntent     The SetupIntent to which payment method information is attached.
- @param customerConsentCollected    A boolean that should be set to true if you
+ @param allowRedisplay    A value that should be set to `always` or `limited` if you
  have successfully collected consent from the cardholder to save their payment information.
  @param completion      The completion block called when collection completes.
  */
 - (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
-                                   customerConsentCollected:(BOOL)customerConsentCollected
-                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:customerConsentCollected:completion:));
+                                             allowRedisplay:(SCPAllowRedisplay)allowRedisplay
+                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:allowRedisplay:completion:));
 
 /**
  Collects a payment method for the given `SCPSetupIntent`.
@@ -738,7 +600,7 @@ before connecting which specifies the location to which this
 
  If collecting a payment method succeeds, the completion block will be called
  with a SetupIntent with status `.requiresConfirmation`, indicating that you
- should call `confirmSetupIntent:customerConsentCollected:completion:` to
+ should call `confirmSetupIntent:completion:` to
  finish the payment.
 
  Note that if `collectSetupIntentPaymentMethod` is canceled, the completion
@@ -758,15 +620,15 @@ before connecting which specifies the location to which this
  The payment method will not be collected without the cardholder's consent.
 
  @param setupIntent     The SetupIntent to which payment method information is attached.
- @param customerConsentCollected    A boolean that should be set to true if you
+ @param allowRedisplay    A value that should be set to `always` or `limited` if you
  have successfully collected consent from the cardholder to save their payment information.
  @param setupConfig     An optional SCPSetupIntentConfiguration to configure per-setup overrides.
  @param completion      The completion block called when collection completes.
  */
 - (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
-                                   customerConsentCollected:(BOOL)customerConsentCollected
+                                             allowRedisplay:(SCPAllowRedisplay)allowRedisplay
                                                 setupConfig:(nullable SCPSetupIntentConfiguration *)setupConfig
-                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:customerConsentCollected:setupConfig:completion:));
+                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:allowRedisplay:setupConfig:completion:));
 
 /**
  Confirms a SetupIntent after the payment method has been successfully collected.
@@ -796,8 +658,8 @@ before connecting which specifies the location to which this
  @param setupIntent     The SetupIntent to confirm
  @param completion                  The completion block called when the confirmation completes
  */
-- (void)confirmSetupIntent:(SCPSetupIntent *)setupIntent
-                completion:(SCPConfirmSetupIntentCompletionBlock)completion NS_SWIFT_NAME(confirmSetupIntent(_:completion:));
+- (nullable SCPCancelable *)confirmSetupIntent:(SCPSetupIntent *)setupIntent
+                                    completion:(SCPConfirmSetupIntentCompletionBlock)completion NS_SWIFT_NAME(confirmSetupIntent(_:completion:));
 
 #pragma mark Card-present refunds
 
@@ -906,7 +768,7 @@ before connecting which specifies the location to which this
 
  @param completion  The completion block called when the command completes.
  */
-- (void)confirmRefund:(SCPConfirmRefundCompletionBlock)completion NS_SWIFT_NAME(confirmRefund(completion:));
+- (nullable SCPCancelable *)confirmRefund:(SCPConfirmRefundCompletionBlock)completion NS_SWIFT_NAME(confirmRefund(completion:));
 
 #pragma mark Offline mode
 
@@ -1081,6 +943,11 @@ before connecting which specifies the location to which this
  Returns an unlocalized string for the given offline behavior.
  */
 + (NSString *)stringFromOfflineBehavior:(SCPOfflineBehavior)behavior NS_SWIFT_NAME(stringFromOfflineBehavior(_:));
+
+/**
+ Returns an unlocalized string for the given payment method type.
+ */
++ (NSString *)stringFromPaymentMethodType:(SCPPaymentMethodType)paymentMethodType NS_SWIFT_NAME(stringFromPaymentMethodType(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

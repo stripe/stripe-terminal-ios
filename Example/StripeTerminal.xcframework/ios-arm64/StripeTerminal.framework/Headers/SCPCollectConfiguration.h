@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import <StripeTerminal/SCPAllowRedisplay.h>
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
 
@@ -77,6 +78,21 @@ NS_SWIFT_NAME(CollectConfiguration)
 @property (nonatomic, strong, nullable, readonly) NSString *surchargeNotice;
 
 /**
+ Obtain customer consent to save payment method details and set this field to reflect accordingly whether this payment method can be shown again to its customer in a checkout flow.
+
+ `allowRedisplay` must be set to `always` or `limited` if `setup_future_usage` is used
+
+ Defaults to `SCPAllowRedisplayUnspecified`
+ */
+@property (nonatomic, assign, readonly) SCPAllowRedisplay allowRedisplay;
+
+/**
+ Collect and process the payment as a Mail Order/Telephone Order payment on Stripe smart readers. Contact Stripe support to enable this feature on your account.
+ @see https://docs.stripe.com/terminal/features/mail-telephone-orders/overview
+ */
+@property (nonatomic, assign, readonly, getter=isMoto) BOOL moto;
+
+/**
  Use `SCPCollectConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -111,6 +127,12 @@ NS_SWIFT_NAME(CollectConfigurationBuilder)
 
 /// Set the surchargeNotice property for the `CollectConfiguration` object that will be built.
 - (SCPCollectConfigurationBuilder *)setSurchargeNotice:(nullable NSString *)surchargeNotice;
+
+/// Set the allowRedisplay property for the `CollectConfiguration` object that will be built.
+- (SCPCollectConfigurationBuilder *)setAllowRedisplay:(SCPAllowRedisplay)allowRedisplay;
+
+/// Set the moto property for the `CollectConfiguration` object that will be built.
+- (SCPCollectConfigurationBuilder *)setMoto:(BOOL)moto;
 
 @end
 

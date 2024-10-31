@@ -44,6 +44,11 @@ NS_SWIFT_NAME(InternetDiscoveryConfiguration)
  */
 @property (nonatomic, copy, nullable, readonly) NSString *locationId;
 
+/**
+ The timeout (in seconds) passed to the discover readers API network request.
+ */
+@property (nonatomic, assign, readonly) NSUInteger timeout;
+
 @end
 
 /**
@@ -63,6 +68,9 @@ NS_SWIFT_NAME(InternetDiscoveryConfigurationBuilder)
 
 /// Set the locationId property for the discovery configuration that will be built
 - (SCPInternetDiscoveryConfigurationBuilder *)setLocationId:(nullable NSString *)locationId;
+
+/// Set the timeout value for the discovery configuration that will be built
+- (SCPInternetDiscoveryConfigurationBuilder *)setTimeout:(NSUInteger)timeout;
 
 @end
 

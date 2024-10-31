@@ -52,10 +52,10 @@ class DiscoveryMethodViewController: TableViewController {
                     }, accessory: (method == .internet ? .checkmark : .none))
             ], footer: "Discovers readers that have been registered to your account via the Stripe API or Dashboard."),
             Section(header: "", rows: [
-                Row(text: DiscoveryMethod.localMobile.description, selection: { [unowned self] in
-                    self.onSelectedMethod(.localMobile)
+                Row(text: DiscoveryMethod.tapToPay.description, selection: { [unowned self] in
+                    self.onSelectedMethod(.tapToPay)
                     self.navigationController?.popViewController(animated: true)
-                }, accessory: (method == .localMobile ? .checkmark : .none))
+                }, accessory: (method == .tapToPay ? .checkmark : .none))
             ], footer: "Discovers readers local to this mobile device."),
             Section(header: "", rows: [
                 Row(text: DiscoveryMethod.usb.description, selection: { [unowned self] in

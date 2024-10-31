@@ -13,19 +13,18 @@ import StripeTerminal
 class SetupIntentViewController: EventDisplayingViewController {
     private let setupParams: SetupIntentParameters
     private let setupConfig: SetupIntentConfiguration
+    private let allowRedisplay: AllowRedisplay
 
-    init(setupParams: SetupIntentParameters, setupConfig: SetupIntentConfiguration) {
+    init(setupParams: SetupIntentParameters, setupConfig: SetupIntentConfiguration, allowRedisplay: AllowRedisplay) {
         self.setupParams = setupParams
         self.setupConfig = setupConfig
+        self.allowRedisplay = allowRedisplay
         super.init()
+        self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override var cancelLogMethod: LogEvent.Method {
-        return .cancelCollectSetupIntentPaymentMethod
     }
 
     override func viewDidLoad() {
@@ -61,7 +60,8 @@ class SetupIntentViewController: EventDisplayingViewController {
     private func collectSetupIntent(intent: SetupIntent) {
         var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
         self.events.append(collectEvent)
-        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, customerConsentCollected: true, setupConfig: self.setupConfig) { (collectedSetupIntent, collectError) in
+        self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
+        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, allowRedisplay: self.allowRedisplay, setupConfig: self.setupConfig) { (collectedSetupIntent, collectError) in
             if let error = collectError {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)
@@ -100,7 +100,8 @@ class SetupIntentViewController: EventDisplayingViewController {
     private func confirmSetupIntent(_ intent: SetupIntent) {
         var processEvent = LogEvent(method: .confirmSetupIntent)
         self.events.append(processEvent)
-        Terminal.shared.confirmSetupIntent(intent) { processedIntent, processError in
+        self.currentCancelLogMethod = .cancelConfirmPaymentIntent
+        self.cancelable = Terminal.shared.confirmSetupIntent(intent) { processedIntent, processError in
             if let error = processError {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)

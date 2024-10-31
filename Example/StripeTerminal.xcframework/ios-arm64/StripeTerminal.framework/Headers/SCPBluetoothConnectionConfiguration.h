@@ -13,18 +13,23 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
-#import <StripeTerminal/SCPReconnectionDelegate.h>
+#import <StripeTerminal/SCPMobileReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  This class lets you define Bluetooth reader connection options.
 
- An object of this class should get passed into `Terminal.shared.connectBluetoothReader()`.
+ An object of this class should get passed into `Terminal.shared.connectReader()`.
  */
 
 NS_SWIFT_NAME(BluetoothConnectionConfiguration)
 @interface SCPBluetoothConnectionConfiguration : SCPConnectionConfiguration
+
+/**
+ The MobileReaderDelegate to use for this connection to the reader.
+ */
+@property (nonatomic, weak, readonly) id<SCPMobileReaderDelegate> delegate;
 
 /**
  The ID of the [Location](https://stripe.com/docs/api/terminal/locations) which the reader should be registered to during connection.
@@ -42,19 +47,14 @@ NS_SWIFT_NAME(BluetoothConnectionConfiguration)
 
 /**
  When set to true, the Terminal SDK  will attempt a Bluetooth auto-reconnection on any unexpected disconnect.
- You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
- Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
+ Implement the `reader:didStartReconnect:` and related callbacks  for your application to respond accordingly to
+ reconnection attempts.
 
- When set to false, we will immediately surface any disconnection through TerminalDelegate.
+ When set to false, the SDK will immediately surface any disconnection through ReaderDelegate.
 
- Defaults to false.
+ Defaults to true.
  */
 @property (nonatomic, assign, readonly) BOOL autoReconnectOnUnexpectedDisconnect;
-
-/**
- Contains callback methods for Bluetooth auto-reconnection.
- */
-@property (nonatomic, weak, readonly, nullable) id<SCPReconnectionDelegate> autoReconnectionDelegate;
 
 /**
  Use `SCPBluetoothConnectionConfigurationBuilder`.
@@ -74,17 +74,14 @@ NS_SWIFT_NAME(BluetoothConnectionConfiguration)
 NS_SWIFT_NAME(BluetoothConnectionConfigurationBuilder)
 @interface SCPBluetoothConnectionConfigurationBuilder : SCPBuilder <SCPBluetoothConnectionConfiguration *>
 
-/// Create a `BluetoothConnectionConfiguration` with the provided locationId.
-- (instancetype)initWithLocationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
+/// Create a `BluetoothConnectionConfiguration` with the provided delegate and locationId.
+- (instancetype)initWithDelegate:(id<SCPMobileReaderDelegate>)delegate locationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
 
 /// Set the locationId property for the `BluetoothConnectionConfiguration` object that will be built.
 - (SCPBluetoothConnectionConfigurationBuilder *)setLocationId:(NSString *)locationId;
 
 /// Set the autoReconnectOnUnexpectedDisconnect property for the `BluetoothConnectionConfiguration` object that will be built.
 - (SCPBluetoothConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
-
-/// Set the autoReconnectionDelegate property for the `BluetoothConnectionConfiguration` object that will be built.
-- (SCPBluetoothConnectionConfigurationBuilder *)setAutoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
 
 /**
  Use `initWithLocationId:`

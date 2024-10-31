@@ -14,7 +14,7 @@ import Foundation
 extension Error {
     var domain: String { (self as NSError).domain }
     var code: Int { (self as NSError).code }
-    var userInfo: [String: String] {
+    var scp_userInfo: [String: String] {
         return Dictionary(uniqueKeysWithValues: (self as NSError).userInfo
             .filter {$0.key != "NSLocalizedDescription"}
             .map {($0.replacingOccurrences(of: domain, with: ""), "\($1)")}

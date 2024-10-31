@@ -135,6 +135,7 @@ class PaymentViewController: EventDisplayingViewController {
     private func collectPaymentMethod(intent: PaymentIntent) {
         var collectEvent = LogEvent(method: .collectPaymentMethod)
         self.events.append(collectEvent)
+        self.currentCancelLogMethod = .cancelCollectPaymentMethod
         self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) { intentWithPaymentMethod, attachError in
             let collectCancelable = self.cancelable
             self.cancelable = nil
@@ -210,7 +211,8 @@ class PaymentViewController: EventDisplayingViewController {
     private func confirmPaymentIntent(intent: PaymentIntent) {
         var processEvent = LogEvent(method: .confirmPaymentIntent)
         self.events.append(processEvent)
-        Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) { processedIntent, processError in
+        self.currentCancelLogMethod = .cancelConfirmPaymentIntent
+        self.cancelable = Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) { processedIntent, processError in
             if let error = processError {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)

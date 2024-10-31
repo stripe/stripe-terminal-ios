@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 3.9.1 Docs
+          StripeTerminal 4.0.0 Docs
         </a>
         
       </p>
@@ -55,9 +55,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPDisconnectReason.html">SCPDisconnectReason</a>
@@ -131,10 +128,10 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPLocalMobileDiscoveryConfiguration">SCPLocalMobileDiscoveryConfiguration</a>
+                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPTapToPayDiscoveryConfiguration">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPLocalMobileDiscoveryConfigurationBuilder.html">SCPLocalMobileDiscoveryConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfigurationBuilder.html">SCPTapToPayDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
@@ -149,10 +146,10 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetConnectionConfigurationBuilder.html">SCPInternetConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfiguration.html">SCPTapToPayConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPLocalMobileConnectionConfigurationBuilder.html">SCPLocalMobileConnectionConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -196,10 +193,16 @@
                 <a class="nav-group-task-link" href="Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+                <a class="nav-group-task-link" href="Protocols/SCPMobileReaderDelegate.html">SCPMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
+                <a class="nav-group-task-link" href="Protocols/SCPTapToPayReaderDelegate.html">SCPTapToPayReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader.html#/c:objc(pl)SCPInternetReaderDelegate">SCPInternetReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -345,7 +348,7 @@
                 <a class="nav-group-task-link" href="Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+                <a class="nav-group-task-link" href="Enums/SCPUpdateDurationEstimate.html">SCPUpdateDurationEstimate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
@@ -495,6 +498,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPWechatPayDetails.html">SCPWechatPayDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAllowRedisplay.html">SCPAllowRedisplay</a>
               </li>
             </ul>
           </li>
@@ -752,9 +758,9 @@ These properties are labeled with the reader or reader type to which they apply.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)SCPBluetoothReaderDelegate"></a>
-                    <a name="//apple_ref/objc/Protocol/SCPBluetoothReaderDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)SCPBluetoothReaderDelegate">SCPBluetoothReaderDelegate</a>
+                    <a name="/c:objc(pl)SCPMobileReaderDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPMobileReaderDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPMobileReaderDelegate">SCPMobileReaderDelegate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -770,18 +776,18 @@ reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.</p>
 
 <p>The provided delegate must be retained by your application until the reader disconnects.</p>
 
-                        <a href="Protocols/SCPBluetoothReaderDelegate.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/SCPMobileReaderDelegate.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPBluetoothReaderDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPMobileReaderDelegate</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">BluetoothReaderDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MobileReaderDelegate</span> <span class="p">:</span> <span class="kt">ReaderDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -791,9 +797,9 @@ reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)SCPLocalMobileReaderDelegate"></a>
-                    <a name="//apple_ref/objc/Protocol/SCPLocalMobileReaderDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)SCPLocalMobileReaderDelegate">SCPLocalMobileReaderDelegate</a>
+                    <a name="/c:objc(pl)SCPTapToPayReaderDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPTapToPayReaderDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPTapToPayReaderDelegate">SCPTapToPayReaderDelegate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -801,25 +807,96 @@ reader, such as the Stripe M2, BBPOS Chipper 2X BT, and the BBPOS WisePad 3.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Implement this protocol to handle a connected local mobile reader&rsquo;s events throughout
+                        <p>Implement this protocol to handle a connected tap to pay reader&rsquo;s events throughout
 the lifetime of its connection.</p>
 
-<p>Implementing this delegate is required when connecting to any Local Mobile reader.</p>
+<p>Implementing this delegate is required when connecting to any Tap To Pay reader.</p>
 
 <p>The provided delegate must be retained by your application until the reader disconnects.</p>
 
-                        <a href="Protocols/SCPLocalMobileReaderDelegate.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/SCPTapToPayReaderDelegate.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPLocalMobileReaderDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPTapToPayReaderDelegate</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">LocalMobileReaderDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">TapToPayReaderDelegate</span> <span class="p">:</span> <span class="kt">ReaderDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPInternetReaderDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPInternetReaderDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPInternetReaderDelegate">SCPInternetReaderDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement this protocol to handle a connected internet reader&rsquo;s events throughout
+the lifetime of its connection.</p>
+
+<p>The provided delegate must be retained by your application until the reader disconnects.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPInternetReaderDelegate</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">InternetReaderDelegate</span> <span class="p">:</span> <span class="kt">ReaderDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPReaderDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPReaderDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPReaderDelegate">SCPReaderDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is a base reader delegate protocol that all reader delegates inherit from.</p>
+
+<p>Don&rsquo;t implement this directly but instead implement the specific delegates needed for the reader types you&rsquo;ll use:
+SCPMobileReaderDelegate, SCPInternetReaderDelegate, or SCPTapToPayReaderDelegate</p>
+
+                        <a href="Protocols/SCPReaderDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPReaderDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ReaderDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -839,7 +916,7 @@ the lifetime of its connection.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The possible events from a connected reader. Used by <code>[SCPBluetoothReaderDelegate reader:didReportReaderEvent:info:]</code>.</p>
+                        <p>The possible events from a connected reader. Used by <code>[SCPMobileReaderDelegate reader:didReportReaderEvent:info:]</code>.</p>
 
                         <a href="Enums/SCPReaderEvent.html" class="slightly-smaller">See more</a>
                       </div>
@@ -873,7 +950,7 @@ the lifetime of its connection.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This OptionSet represents all of the input methods available to your user when
-the reader begins waiting for input. Used by <code>[SCPBluetoothReaderDelegate reader:didRequestReaderInput:]</code>.</p>
+the reader begins waiting for input. Used by <code>[SCPMobileReaderDelegate reader:didRequestReaderInput:]</code>.</p>
 
                         <a href="Enums/SCPReaderInputOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -906,7 +983,7 @@ the reader begins waiting for input. Used by <code>[SCPBluetoothReaderDelegate r
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The display messages that a reader may request be displayed by your app. Used by <code>[SCPBluetoothReaderDelegate reader:didRequestReaderDisplayMessage:]</code>.</p>
+                        <p>The display messages that a reader may request be displayed by your app. Used by <code>[SCPMobileReaderDelegate reader:didRequestReaderDisplayMessage:]</code>.</p>
 
                         <a href="Enums/SCPReaderDisplayMessage.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2462,7 +2539,7 @@ errors setting the values.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ReaderSettingsCompletionBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/SCPReaderSettings.html">SCPReaderSettings</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ReaderSettingsCompletionBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/SCPReaderSettings.html">SCPReaderSettings</a></span><span class="p">?,</span> <span class="p">(</span><span class="n">any</span> <span class="kt">Error</span><span class="p">)?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -2508,8 +2585,8 @@ errors setting the values.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-09-05)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-10-31)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

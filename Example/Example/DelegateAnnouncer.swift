@@ -45,12 +45,6 @@ class TerminalDelegateAnnouncer: DelegateAnnouncer<TerminalDelegate>, TerminalDe
     static let shared = TerminalDelegateAnnouncer()
 
     // MARK: - TerminalDelegate
-    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
-        announce { delegate in
-            delegate.terminal(terminal, didReportUnexpectedReaderDisconnect: reader)
-        }
-    }
-
     func terminal(_ terminal: Terminal, didChangePaymentStatus status: PaymentStatus) {
         announce { delegate in
             delegate.terminal?(terminal, didChangePaymentStatus: status)
@@ -64,14 +58,44 @@ class TerminalDelegateAnnouncer: DelegateAnnouncer<TerminalDelegate>, TerminalDe
     }
 }
 
-/**
- Allows the Example app to use a single persistent BluetoothReaderDelegate and UsbReaderDelegate for the life of the connection
- and still have the view controllers receive the BluetoothReaderDelegate and UsbReaderDelegate events.
- */
-class BluetoothOrUsbReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDelegate>, BluetoothReaderDelegate, UsbReaderDelegate {
-    static let shared = BluetoothOrUsbReaderDelegateAnnouncer()
+// MARK: ReaderDelegate
 
-    // MARK: - BluetoothReaderDelegate
+class ReaderDelegateAnnouncer<T: ReaderDelegate>: DelegateAnnouncer<T>, ReaderDelegate {
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        announce { delegate in
+            delegate.reader?(reader, didDisconnect: reason)
+        }
+    }
+
+    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
+        announce { delegate in
+            delegate.reader?(reader, didStartReconnect: cancelable, disconnectReason: disconnectReason)
+        }
+    }
+
+    func readerDidFailReconnect(_ reader: Reader) {
+        announce { delegate in
+            delegate.readerDidFailReconnect?(reader)
+        }
+    }
+
+    func readerDidSucceedReconnect(_ reader: Reader) {
+        announce { delegate in
+            delegate.readerDidSucceedReconnect?(reader)
+        }
+    }
+}
+
+// MARK: MobileReaderDelegate
+
+/**
+ Allows the Example app to use a single persistent MobileReaderDelegate for the life of the connection
+ and still have the view controllers receive the MobileReaderDelegate events.
+ */
+class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegate>, MobileReaderDelegate {
+    static let shared = MobileReaderDelegateAnnouncer()
+
+    // MARK: - MobileReaderDelegate
     func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
         announce { delegate in
             delegate.reader(reader, didReportAvailableUpdate: update)
@@ -125,80 +149,66 @@ class BluetoothOrUsbReaderDelegateAnnouncer: DelegateAnnouncer<BluetoothReaderDe
             delegate.readerDidReportLowBatteryWarning?(reader)
         }
     }
-
-    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
-        announce { delegate in
-            delegate.reader?(reader, didDisconnect: reason)
-        }
-    }
 }
+
+// MARK: - TapToPayReaderDelegate
 
 /**
- Allows the Example app to use a single persistent LocalMobileReaderDelegate for the life of the connection
- and still have the view controllers receive the LocalMobileReaderDelegate events.
+ Allows the Example app to use a single persistent TapToPayReaderDelegate for the life of the connection
+ and still have the view controllers receive the TapToPayReaderDelegate events.
  */
-class LocalMobileReaderDelegateAnnouncer: DelegateAnnouncer<LocalMobileReaderDelegate>, LocalMobileReaderDelegate {
-    static let shared = LocalMobileReaderDelegateAnnouncer()
+class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDelegate>, TapToPayReaderDelegate {
+    static let shared = TapToPayReaderDelegateAnnouncer()
 
-    // MARK: - LocalMobileReaderDelegate
+    // MARK: - TapToPayReaderDelegate
 
-    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
         announce { delegate in
-            delegate.localMobileReader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
+            delegate.tapToPayReader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
         }
     }
 
-    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         announce { delegate in
-            delegate.localMobileReader(reader, didReportReaderSoftwareUpdateProgress: progress)
+            delegate.tapToPayReader(reader, didReportReaderSoftwareUpdateProgress: progress)
         }
     }
 
-    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
         announce { delegate in
-            delegate.localMobileReader(reader, didFinishInstallingUpdate: update, error: error)
+            delegate.tapToPayReader(reader, didFinishInstallingUpdate: update, error: error)
         }
     }
 
-    func localMobileReaderDidAcceptTermsOfService(_ reader: Reader) {
+    func tapToPayReaderDidAcceptTermsOfService(_ reader: Reader) {
         announce { delegate in
-            delegate.localMobileReaderDidAcceptTermsOfService?(reader)
+            delegate.tapToPayReaderDidAcceptTermsOfService?(reader)
         }
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
         announce { delegate in
-            delegate.localMobileReader(reader, didRequestReaderInput: inputOptions)
+            delegate.tapToPayReader(reader, didRequestReaderInput: inputOptions)
         }
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         announce { delegate in
-            delegate.localMobileReader(reader, didRequestReaderDisplayMessage: displayMessage)
+            delegate.tapToPayReader(reader, didRequestReaderDisplayMessage: displayMessage)
         }
     }
 }
 
-class ReconnectionDelegateAnnouncer: DelegateAnnouncer<ReconnectionDelegate>, ReconnectionDelegate {
-    static let shared = ReconnectionDelegateAnnouncer()
+// MARK: - InternetReaderDelegate
 
-    func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
-        announce { delegate in
-            delegate.reader?(reader, didStartReconnect: cancelable, disconnectReason: disconnectReason)
-        }
-    }
+/**
+ Allows the Example app to use a single persistent InternetReaderDelegate for the life of the connection
+ and still have the view controllers receive the InternetReaderDelegate events.
+ */
+class InternetReaderDelegateAnnouncer: ReaderDelegateAnnouncer<InternetReaderDelegate>, InternetReaderDelegate {
+    static let shared = InternetReaderDelegateAnnouncer()
 
-    func readerDidFailReconnect(_ reader: Reader) {
-        announce { delegate in
-            delegate.readerDidFailReconnect(reader)
-        }
-    }
-
-    func readerDidSucceedReconnect(_ reader: Reader) {
-        announce { delegate in
-            delegate.readerDidSucceedReconnect(reader)
-        }
-    }
+    // All implementated in the ReaderDelegateAnnouncer
 }
 
 class OfflineDelegateAnnouncer: DelegateAnnouncer<OfflineDelegate>, OfflineDelegate {

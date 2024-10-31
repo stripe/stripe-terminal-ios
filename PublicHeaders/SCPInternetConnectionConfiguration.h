@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
+#import <StripeTerminal/SCPInternetReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(InternetConnectionConfiguration)
 @interface SCPInternetConnectionConfiguration : SCPConnectionConfiguration
+
+/**
+ The InternetReaderDelegate to use for this connection to the reader.
+ */
+@property (nonatomic, weak, readonly) id<SCPInternetReaderDelegate> delegate;
 
 /**
  When set to true, the connection will automatically error if the reader is already
@@ -68,11 +74,24 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
 NS_SWIFT_NAME(InternetConnectionConfigurationBuilder)
 @interface SCPInternetConnectionConfigurationBuilder : SCPBuilder <SCPInternetConnectionConfiguration *>
 
+/// Create an `InternetConnectionConfigurationBuilder` with the provided delegate.
+- (instancetype)initWithDelegate:(id<SCPInternetReaderDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+
 /// Set the `failIfInUse` property for the `SCPInternetConnectionConfiguration` object that will be built.
 - (SCPInternetConnectionConfigurationBuilder *)setFailIfInUse:(BOOL)failIfInUse;
 
 /// Set the `allowCustomerCancel` property for the `SCPInternetConnectionConfiguration` object that will be built.
 - (SCPInternetConnectionConfigurationBuilder *)setAllowCustomerCancel:(BOOL)allowCustomerCancel;
+
+/**
+ Use `initWithDelegate:`
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ Use `initWithDelegate:`
+ */
++ (instancetype)new NS_UNAVAILABLE;
 
 @end
 

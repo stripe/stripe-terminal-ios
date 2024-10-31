@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 3.9.1 Docs
+          StripeTerminal 4.0.0 Docs
         </a>
         
       </p>
@@ -57,9 +57,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPReconnectionDelegate.html">SCPReconnectionDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPDisconnectReason.html">SCPDisconnectReason</a>
@@ -133,10 +130,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPLocalMobileDiscoveryConfiguration">SCPLocalMobileDiscoveryConfiguration</a>
+                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPTapToPayDiscoveryConfiguration">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileDiscoveryConfigurationBuilder.html">SCPLocalMobileDiscoveryConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayDiscoveryConfigurationBuilder.html">SCPTapToPayDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
@@ -151,10 +148,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetConnectionConfigurationBuilder.html">SCPInternetConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfiguration.html">SCPLocalMobileConnectionConfiguration</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfiguration.html">SCPTapToPayConnectionConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPLocalMobileConnectionConfigurationBuilder.html">SCPLocalMobileConnectionConfigurationBuilder</a>
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -198,10 +195,16 @@
                 <a class="nav-group-task-link" href="../Enums/SCPDeviceType.html">SCPDeviceType</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPBluetoothReaderDelegate.html">SCPBluetoothReaderDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPMobileReaderDelegate.html">SCPMobileReaderDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/SCPLocalMobileReaderDelegate.html">SCPLocalMobileReaderDelegate</a>
+                <a class="nav-group-task-link" href="../Protocols/SCPTapToPayReaderDelegate.html">SCPTapToPayReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Reader.html#/c:objc(pl)SCPInternetReaderDelegate">SCPInternetReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPReaderEvent.html">SCPReaderEvent</a>
@@ -347,7 +350,7 @@
                 <a class="nav-group-task-link" href="../Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/SCPUpdateTimeEstimate.html">SCPUpdateTimeEstimate</a>
+                <a class="nav-group-task-link" href="../Enums/SCPUpdateDurationEstimate.html">SCPUpdateDurationEstimate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
@@ -497,6 +500,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPWechatPayDetails.html">SCPWechatPayDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPAllowRedisplay.html">SCPAllowRedisplay</a>
               </li>
             </ul>
           </li>
@@ -768,19 +774,19 @@ into <code>Terminal.shared.createPaymentIntent()</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The list of payment method types that this PaymentIntent is allowed to use.
-The default is value for this is [&ldquo;card_present&rdquo;].</p>
+The default is value for this is [<code>SCPPaymentMethodTypeCardPresent</code>].</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">paymentMethodTypes</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">paymentMethodTypes</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentMethodTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paymentMethodTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1218,6 +1224,8 @@ after the PaymentIntent is confirmed and any required actions from the user are 
 If no Customer was provided, the payment method can still be attached to a Customer after
 the transaction completes.</p>
 
+<p>During collection of this PaymentIntent, <code>allowRedisplay</code> must be set to <code>always</code> or <code>limited</code> if <code>setup_future_usage</code> is used</p>
+
 <p>Possible values:
 &ldquo;on_session&rdquo;: Use &ldquo;on_session&rdquo; if you intend to only reuse the payment method when your
 customer is present in your checkout flow.
@@ -1384,8 +1392,8 @@ customer is present in your checkout flow.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-09-05)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2024 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2024-10-31)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

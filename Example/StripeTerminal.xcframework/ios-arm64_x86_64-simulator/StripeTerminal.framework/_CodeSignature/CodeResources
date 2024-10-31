@@ -8,6 +8,10 @@
 		<data>
 		aLggrFZ4ORYonq30C543IRyaV40=
 		</data>
+		<key>Headers/SCPAllowRedisplay.h</key>
+		<data>
+		BQPhTsQFsTK056QxW14Kt+rypUU=
+		</data>
 		<key>Headers/SCPAmountDetails.h</key>
 		<data>
 		69i2m2zFYaG8u6aTZow4dDGYrpk=
@@ -22,15 +26,11 @@
 		</data>
 		<key>Headers/SCPBluetoothConnectionConfiguration.h</key>
 		<data>
-		a4zwJOpLsdkTW3cb7HO/oFKwY0w=
+		6sIO6tQr7oFDIb1LhLzkgdqk3c8=
 		</data>
 		<key>Headers/SCPBluetoothProximityDiscoveryConfiguration.h</key>
 		<data>
 		PdP5JZdHlhZAkTo4bn8ZjbWLCkg=
-		</data>
-		<key>Headers/SCPBluetoothReaderDelegate.h</key>
-		<data>
-		kuLVDvd6GpSadEKwNt2A6SJbIXk=
 		</data>
 		<key>Headers/SCPBluetoothScanDiscoveryConfiguration.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/SCPCardPresentParameters.h</key>
 		<data>
-		tO2QhCQYh4TV8pLNCeaL0ROnrzM=
+		XCOuUUVDfAPMB6nS1AoOoQ23cKs=
 		</data>
 		<key>Headers/SCPCart.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/SCPCollectConfiguration.h</key>
 		<data>
-		Ss3X2esiwUmKvH3flb3uBz+MoX4=
+		td/kIA5wevDwID30g3zVJvD4TKk=
 		</data>
 		<key>Headers/SCPCollectDataConfiguration.h</key>
 		<data>
@@ -110,11 +110,11 @@
 		</data>
 		<key>Headers/SCPConnectionConfiguration.h</key>
 		<data>
-		Rnbrnpqy3YjcaQWX7DAidoNnrsY=
+		JETzs2y63UicjM2fluu28nGnHzI=
 		</data>
 		<key>Headers/SCPConnectionStatus.h</key>
 		<data>
-		LV9B1nVK0IVDY38YpH/WbKRQN/4=
+		YDnZLP8MXqCygtJdY4WTn4r1jXQ=
 		</data>
 		<key>Headers/SCPConnectionTokenProvider.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Headers/SCPDeviceType.h</key>
 		<data>
-		jN4sNYF+OH3jOBVxrxLygUbLLSo=
+		HWaROpyz3RbJp4DKU704q8Blx3g=
 		</data>
 		<key>Headers/SCPDisconnectReason.h</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>Headers/SCPDiscoveryConfiguration.h</key>
 		<data>
-		7C/CRDGOpq8NXtWIQEwm0V567d8=
+		B60ncvZyVKcn/ktUS7J3Xrjtm8c=
 		</data>
 		<key>Headers/SCPDiscoveryDelegate.h</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>Headers/SCPDiscoveryMethod.h</key>
 		<data>
-		DTypTWd7xef0E9fYwfdvYIyPMrw=
+		s4r6zYIBJR8ix5ghd2CWzKF6H1Y=
 		</data>
 		<key>Headers/SCPEmailInput.h</key>
 		<data>
@@ -158,11 +158,11 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		pv1B/bdQx5cZBT1Tx5NX2f5wA3M=
+		NHHOX7GCHsZ1TufxTShSYw4JzQA=
 		</data>
 		<key>Headers/SCPExternalUsbChannel.h</key>
 		<data>
-		RDcdXbH3tbApfhA/LE/V4gCztMo=
+		0Yl28iupXDClkLvj1Nmrm2xrkH0=
 		</data>
 		<key>Headers/SCPInput.h</key>
 		<data>
@@ -170,11 +170,11 @@
 		</data>
 		<key>Headers/SCPInternetConnectionConfiguration.h</key>
 		<data>
-		AXmEING0IaDDBidnjOATPbgxTjc=
+		UOG79K60cjWwMCnVh1cGu1c7kuE=
 		</data>
 		<key>Headers/SCPInternetDiscoveryConfiguration.h</key>
 		<data>
-		NmKra+FtbcntQLMVPYoQshLBIi8=
+		rHIk3TTRjB45cN+6gKwlkQaj5yU=
 		</data>
 		<key>Headers/SCPInternetReaderDelegate.h</key>
 		<data>
@@ -188,18 +188,6 @@
 		<data>
 		LORPpsJWcctydk5vFmexSU13vQY=
 		</data>
-		<key>Headers/SCPLocalMobileConnectionConfiguration.h</key>
-		<data>
-		UbJ8ISTSTKjtYx+zeQ+r+0QINs8=
-		</data>
-		<key>Headers/SCPLocalMobileDiscoveryConfiguration.h</key>
-		<data>
-		v8fr7HCoByiwSuzUPeTRhcmiyjo=
-		</data>
-		<key>Headers/SCPLocalMobileReaderDelegate.h</key>
-		<data>
-		Wv6uo7IxOIlaGUDgspBr5mqx4eo=
-		</data>
 		<key>Headers/SCPLocation.h</key>
 		<data>
 		Bwc7GLLMNFvGpI2ETqE7Mo707q8=
@@ -211,6 +199,10 @@
 		<key>Headers/SCPLogLevel.h</key>
 		<data>
 		lIVOqizpiKlreMM5KjqNt5PqlgI=
+		</data>
+		<key>Headers/SCPMobileReaderDelegate.h</key>
+		<data>
+		DGdgELve4SbBMN++FRDCgwHzabo=
 		</data>
 		<key>Headers/SCPNetworkStatus.h</key>
 		<data>
@@ -238,11 +230,11 @@
 		</data>
 		<key>Headers/SCPOfflineDelegate.h</key>
 		<data>
-		5K1OArY9iIU4HMho/gghMX2s20E=
+		5OKgWKlTRXEgOF8ZvcHFFS3OG9I=
 		</data>
 		<key>Headers/SCPOfflineDetails.h</key>
 		<data>
-		hM7dwF5GaGYce/qqyG9Fa+wlzeg=
+		TlyjGAz8rd5Rj55wLzZ/oMvalP4=
 		</data>
 		<key>Headers/SCPOfflineStatus.h</key>
 		<data>
@@ -258,7 +250,7 @@
 		</data>
 		<key>Headers/SCPPaymentIntentParameters.h</key>
 		<data>
-		KzSqPYO+5eXVlc2L5fhTpJnH6jg=
+		u7nLreSJqF2EQDeS4Q0ppiz0wKw=
 		</data>
 		<key>Headers/SCPPaymentMethod.h</key>
 		<data>
@@ -294,7 +286,7 @@
 		</data>
 		<key>Headers/SCPReader.h</key>
 		<data>
-		SAwPZZGaR+TfIKOQ5FVCiN2cZpY=
+		LqUf+hg4ZAqGkYleX1u6r51HhMk=
 		</data>
 		<key>Headers/SCPReaderAccessibility.h</key>
 		<data>
@@ -306,19 +298,19 @@
 		</data>
 		<key>Headers/SCPReaderDelegate.h</key>
 		<data>
-		5EhkIML1vOMX06FL9+e1B8Fn7JQ=
+		lOoELuRZxfcuErWaq7nDWyNxdJc=
 		</data>
 		<key>Headers/SCPReaderDisplayMessage.h</key>
 		<data>
-		vSK1abZpDiZ00qqr0qpZzFQ/vJ0=
+		VzZVEeUCsV5UHiYHnAsG04Cz+eo=
 		</data>
 		<key>Headers/SCPReaderEvent.h</key>
 		<data>
-		hgr53gWN+CqoxadyrON318K7cmo=
+		WzS/u5Olz8iS/gkW/YsgB9kuJAQ=
 		</data>
 		<key>Headers/SCPReaderInputOptions.h</key>
 		<data>
-		lXTRt/njNwJRGvWWqPIheL/ZTr8=
+		JDkqC0G77eLfaYtmlmRuf6b69C4=
 		</data>
 		<key>Headers/SCPReaderNetworkStatus.h</key>
 		<data>
@@ -334,15 +326,11 @@
 		</data>
 		<key>Headers/SCPReaderSoftwareUpdate.h</key>
 		<data>
-		/aBeNrKLuxJwVNVt6sh/+hoC8HI=
+		lWlG0ecivymAkyMW/cIFvD+Zz04=
 		</data>
 		<key>Headers/SCPReceiptDetails.h</key>
 		<data>
 		EcM2yscVplLHsRzAvGb5WBlmvVM=
-		</data>
-		<key>Headers/SCPReconnectionDelegate.h</key>
-		<data>
-		qCTfU/MPQ0eNjka4Ga7eVkE/cLs=
 		</data>
 		<key>Headers/SCPRefund.h</key>
 		<data>
@@ -382,15 +370,15 @@
 		</data>
 		<key>Headers/SCPSetupIntent.h</key>
 		<data>
-		xevkhZpGuECxBbEzozNeIgEG21w=
+		IG8wxz5zdKjtK73SxGYPsJM1Nb4=
 		</data>
 		<key>Headers/SCPSetupIntentConfiguration.h</key>
 		<data>
-		/9nMtpx8eQVXdCa0GACSXPzhjKQ=
+		m2AcQeM2BgXvHEYT9WcgyGanlbE=
 		</data>
 		<key>Headers/SCPSetupIntentParameters.h</key>
 		<data>
-		IQu46CRKhFn4v9J7qKA1l7oZ69g=
+		UMudGQfoBTcK2JGGT3QzJEo2QW0=
 		</data>
 		<key>Headers/SCPSignatureInput.h</key>
 		<data>
@@ -402,7 +390,7 @@
 		</data>
 		<key>Headers/SCPSimulateReaderUpdate.h</key>
 		<data>
-		6o3E9EseFen2/Bi4UKS7TDQppkw=
+		deVFi7YFoQNxS/B7vVh0PnaqtzY=
 		</data>
 		<key>Headers/SCPSimulatedCard.h</key>
 		<data>
@@ -420,17 +408,29 @@
 		<data>
 		lk3KzSK4eQvQU8rfh+SGHX49FOs=
 		</data>
+		<key>Headers/SCPTapToPayConnectionConfiguration.h</key>
+		<data>
+		CXM2VDcrVCvzLH70vn5TW+B+m+M=
+		</data>
+		<key>Headers/SCPTapToPayDiscoveryConfiguration.h</key>
+		<data>
+		Wt4yhcDM5oRwJvFDwGr5cNxH1xE=
+		</data>
+		<key>Headers/SCPTapToPayReaderDelegate.h</key>
+		<data>
+		v3B14Uo/GfMgRq2H6qnr+kMdQYQ=
+		</data>
 		<key>Headers/SCPTerminal+SimultaneousReaderConnect.h</key>
 		<data>
-		CrkULRkiu/Uc45cPeleabLqpLzo=
+		owiSW8hwQxswbfmqPVtFDvCuPiQ=
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		L0DvsrkijPty3HSu+s49ijXMAz4=
+		IHmMJmlNhMxIG5jJnws4H8RXIqM=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
-		YxRN4dXQ9eaekZmp5/hEkOM/s3I=
+		+425ExHj4PQrKS11Kkr0+/+/VZ8=
 		</data>
 		<key>Headers/SCPTextInput.h</key>
 		<data>
@@ -454,15 +454,11 @@
 		</data>
 		<key>Headers/SCPUsbConnectionConfiguration.h</key>
 		<data>
-		aOlsiBzUFCinEmGXF9+FWA6ElDg=
+		ntp25Vl8/FUkA7/Wc+aDLOsUYcM=
 		</data>
 		<key>Headers/SCPUsbDiscoveryConfiguration.h</key>
 		<data>
 		2kZGxhnYDO+5ITK9+K04byGPxD0=
-		</data>
-		<key>Headers/SCPUsbReaderDelegate.h</key>
-		<data>
-		vWRhMEgzAyQ3ui7Rh2d3cwpvRGY=
 		</data>
 		<key>Headers/SCPWallet.h</key>
 		<data>
@@ -474,55 +470,55 @@
 		</data>
 		<key>Headers/StripeTerminal-Swift.h</key>
 		<data>
-		3Bak2icU2xEN/op4/WEs9y06218=
+		Wzc5YUBWvnskJDZBu6DlBA+DC+c=
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		qvyhe4loKekFsXht9E5GtYxHh1g=
+		6WJLnUQTa+YgSPJJ+OhKCNZqcgU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ex7U2DemZr3gTAw3GR41f+1w0Ek=
+		OwP7s+Kz4j9Kv7ESW5ZpZz6GUoU=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		QnTvQob7i5fD2LYYb8jq0ikfX+Y=
+		jcVzc3YbvXjs+Dbk7jrpVT1HLNs=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		MSS4QPs+u5E4NU4yjIfCjaN+E4c=
+		hegZ6cAtXkSpA0aRg8Q+FtcZDdI=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		mxeqlhR9lpHi4K1G3ErjUxkfWJs=
+		1LddhDCjQn5QOJ74o4x0SAjGHgI=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		MSS4QPs+u5E4NU4yjIfCjaN+E4c=
+		hegZ6cAtXkSpA0aRg8Q+FtcZDdI=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		aPKHWRETtP5Ul33G6nfHdMUrUr8=
+		vYkW/5Zp8sBz/FNkGZGWyPbAOFc=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		QnTvQob7i5fD2LYYb8jq0ikfX+Y=
+		jcVzc3YbvXjs+Dbk7jrpVT1HLNs=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		69FtFIc9lOws1BsEV1TdRw2HvSw=
+		WUuuuIwy1O+Ewy5qpMYF0WhDWTo=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		W91ZF2B8i2sOY7f4LRKUReswpQ0=
+		cw1MOv/jFdhdDNFIL6QztXa5HRo=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		69FtFIc9lOws1BsEV1TdRw2HvSw=
+		WUuuuIwy1O+Ewy5qpMYF0WhDWTo=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		fzIAA4eH7GREf7qkuw9IMM9EZwE=
+		jPdgTAworNAgzsbyNAt8u9Wqz+4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -540,6 +536,13 @@
 			<key>hash2</key>
 			<data>
 			wN/hvvNMSwQKxrfIkIQIue+TXC0hny8vwY8nTlqWz10=
+			</data>
+		</dict>
+		<key>Headers/SCPAllowRedisplay.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0WmkOVYhtOMYoRYi7XknAYA85A4gicFpvBAEWWUuDA0=
 			</data>
 		</dict>
 		<key>Headers/SCPAmountDetails.h</key>
@@ -567,7 +570,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PchQn596T2CLo6hwYRlJOjfME0Qv9cJvRxwZU4aPXmw=
+			VevuD8MUrVFEQiTYKq9JN6L/fyW3k9OoW12WK2tmaLM=
 			</data>
 		</dict>
 		<key>Headers/SCPBluetoothProximityDiscoveryConfiguration.h</key>
@@ -575,13 +578,6 @@
 			<key>hash2</key>
 			<data>
 			Ss/p009bTYCU7JenmXZEeIJRLsthkv403utpUoZIdoE=
-			</data>
-		</dict>
-		<key>Headers/SCPBluetoothReaderDelegate.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Ict3xg3utnWxmUKWbCV+hb7hyGKwjQymSJK9uPgjpbw=
 			</data>
 		</dict>
 		<key>Headers/SCPBluetoothScanDiscoveryConfiguration.h</key>
@@ -637,7 +633,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4/GN3zsJ9Ga5xtXulWVqHdSajtLLwgv87DBWYD3hekk=
+			mXsM52266igb6fn31Xvc5OMAzTIuuBJ/wuebYjKrBHE=
 			</data>
 		</dict>
 		<key>Headers/SCPCart.h</key>
@@ -658,7 +654,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dRSCoH3bhWqtcI2NDLojiVmIFQ/bepqiaY5Udz6o+Ik=
+			Te6IV/tvHtVZkkTRe5mirG30jL2wuQ0CRUsf1WQir1A=
 			</data>
 		</dict>
 		<key>Headers/SCPCollectDataConfiguration.h</key>
@@ -721,14 +717,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VE747ORKSuXkyfVeRbq63ncMndlvZFDgQfht0D/LPLQ=
+			AgH06wMbLAEzci8sPatvi/VHiumzuscV2R8WJx1j/F4=
 			</data>
 		</dict>
 		<key>Headers/SCPConnectionStatus.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZO4DWfObI7JatxzEVkvzcC0/0QplHXY+35NEzGi/CyI=
+			okslqycIA5ZBUH1V6AkP2QEAtvPHWpePVWOKsNKxQUs=
 			</data>
 		</dict>
 		<key>Headers/SCPConnectionTokenProvider.h</key>
@@ -756,7 +752,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iiRyD7jRwcamyLrj7CgtlvNDWVeRbElv0BFtL9Ay58w=
+			LZ1xvzsFRsBm0wVKnObTStp9Niywm90Tyms8tyGyFQo=
 			</data>
 		</dict>
 		<key>Headers/SCPDisconnectReason.h</key>
@@ -770,7 +766,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s2tQV/dL5lLfeZWBaVOw5bYOp53Oa/TvIVF2cHo7hUI=
+			t9k0b+kaS8fCQXMHJJt0A6BE1JiLReXHdAEFLzbBHsk=
 			</data>
 		</dict>
 		<key>Headers/SCPDiscoveryDelegate.h</key>
@@ -784,7 +780,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N7ysH1vUe8zh3R5JmOCsuHic2WCEZUOzSF3hk09ma80=
+			U32S33KDVYpoCeZ6ouO7OGYNHYqPlPoScbxUVtXoD4Y=
 			</data>
 		</dict>
 		<key>Headers/SCPEmailInput.h</key>
@@ -805,14 +801,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4qrbHiMcJXvq85XolJGVFMdzOz8FqxqgeDu8oJ/keqs=
+			godkYzhQw96OVKivkHlnkcG2FWySoeZflV7BXMQ2IRU=
 			</data>
 		</dict>
 		<key>Headers/SCPExternalUsbChannel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bGqCHgSJfDTW8VFMpkwOUdAh+Yswdk/WCCf9wZW85AY=
+			tvUQ6HCBO7UoAxT8EtpC/lnA3IcUqeUnFMkR5JqWOW8=
 			</data>
 		</dict>
 		<key>Headers/SCPInput.h</key>
@@ -826,14 +822,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qTlyfaAdF0fQefVcfM7xx/6/5KHu+izpnvcrBGWmo1c=
+			lLUYKU/HXI1ebnfgrSD/JZeWa2Pgtf1yhfOG1AoX9kg=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetDiscoveryConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NQQTjCLKlmGTzYNQ9DA55mwqfTVu2IOvZs/kJB8mdbU=
+			bnSFLy/Z3AbQTn4RC+hjqNF+uh6DZ4x3ZI+g/rgfTuo=
 			</data>
 		</dict>
 		<key>Headers/SCPInternetReaderDelegate.h</key>
@@ -857,27 +853,6 @@
 			Pp9y6YoJI40S4uArPof+jrcKaLXOYuy0zXtu+T+TCsI=
 			</data>
 		</dict>
-		<key>Headers/SCPLocalMobileConnectionConfiguration.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Hk95z/ORPXdmhG3K+Bv92GLV1R0AG4xoypbzqYyEN+Y=
-			</data>
-		</dict>
-		<key>Headers/SCPLocalMobileDiscoveryConfiguration.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			lFEB/ObHdW5cGhguB5ThJ90zQKbwG7bK2bQIJEutNbQ=
-			</data>
-		</dict>
-		<key>Headers/SCPLocalMobileReaderDelegate.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			kCCXoHfQ4Onq2wVS02o3E9ylyvW/N82ODlMzKX2S1Nw=
-			</data>
-		</dict>
 		<key>Headers/SCPLocation.h</key>
 		<dict>
 			<key>hash2</key>
@@ -897,6 +872,13 @@
 			<key>hash2</key>
 			<data>
 			c9oYngLHcSysRq0fjHt9Z+81E+90LvfkQbpspmg6KMo=
+			</data>
+		</dict>
+		<key>Headers/SCPMobileReaderDelegate.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IKEgk6HwkZaQP2hF+YfGgcStnIQufQ9OyrJWDxUrTaM=
 			</data>
 		</dict>
 		<key>Headers/SCPNetworkStatus.h</key>
@@ -945,14 +927,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ybDWw2tw0cZ22FlED4Y/oVW3IEc0s4gXPyLHgTt0DK8=
+			75YfIOr3wYjVjJ2KBXpdUnM9L/07b807rdmg537JxqI=
 			</data>
 		</dict>
 		<key>Headers/SCPOfflineDetails.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P7G/PFT1xCzRq7oEwmqI35PbsxDBEbSyR/gX8ZgmX0w=
+			iyvBDfHnSKTbpGcSPjCR7Oxd1aQ0U1Wbqn+Lg9DRPzw=
 			</data>
 		</dict>
 		<key>Headers/SCPOfflineStatus.h</key>
@@ -980,7 +962,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ETsEWR+SLPBVFpA6Gp+nZSBhP8ig1K6aFEsaNrgAP84=
+			hdQ5TZY2ztJcngcPDPYtalTL8LS+LA+Pjrgwfh3fAcc=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethod.h</key>
@@ -1043,7 +1025,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7sl12o2GbVrunpSjqNjsAfDAh0qUm8U3SrCmk4jm9ec=
+			KBZK4cpHwVKW84OtLjCwErHq4qJK/j7236kSL61mCQk=
 			</data>
 		</dict>
 		<key>Headers/SCPReaderAccessibility.h</key>
@@ -1064,28 +1046,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bTAh96ZQyYtNaTNS42xeRtkheWltUfaeLwBTjPHlqOI=
+			fJZeVsRKvnmHZ4aJTg8Ho/n579QJcOavhJDHMCTOAIg=
 			</data>
 		</dict>
 		<key>Headers/SCPReaderDisplayMessage.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			55BZz8AkiGa6TpQHVsLYJK3jmxWxQR9h8OdVgmW0v50=
+			gQymwrN5n7k/BrC4M4dbIbkcwSheD3EqK8he5KiUZro=
 			</data>
 		</dict>
 		<key>Headers/SCPReaderEvent.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZsRGBNZ2UPKhK3anQWam3NR5FZugqiJ2/0ut+3XOwoA=
+			K5a4PAxKZmtdXZqs6kIxPBneAPoRNYyTE7tmYeCT6rg=
 			</data>
 		</dict>
 		<key>Headers/SCPReaderInputOptions.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zy3TsY83/0Lug07suQ9BCtJ0Rg+h7phaW0Oj9Pc4Xi8=
+			5C10AQOdCdE31aF3G/TYaOd/qWR4IeDbKY+EOHPr+wo=
 			</data>
 		</dict>
 		<key>Headers/SCPReaderNetworkStatus.h</key>
@@ -1113,7 +1095,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			e76ako7or7/eYSexwARhp/04GUSxz6Kw2HYhmD9Fcmg=
+			myMsThFFhTVBUehU7icKjTTJ8J5Mn0OSiUWBcgjH3Vs=
 			</data>
 		</dict>
 		<key>Headers/SCPReceiptDetails.h</key>
@@ -1121,13 +1103,6 @@
 			<key>hash2</key>
 			<data>
 			umVsIe1ixjOd2hvoUNDbho+PP0EWDZrsPmGKNGJjKzc=
-			</data>
-		</dict>
-		<key>Headers/SCPReconnectionDelegate.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			nILSYzBHWHylsvWlk5m4alnYggZb7vPx9XeX+IGOQ3I=
 			</data>
 		</dict>
 		<key>Headers/SCPRefund.h</key>
@@ -1197,21 +1172,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x3+QZuNqVJq0lzx15lBQxoarXl6nPwGPvqZ+oRY8tJ4=
+			I9YB+s03xo5hxEpI8Ajmd1rJS3X2G/n8rrQWHW6ts+I=
 			</data>
 		</dict>
 		<key>Headers/SCPSetupIntentConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3QEhbuwj6o8PcveYWX0RZe19z1J/ZSCnmZHFmYJptiU=
+			8hs87p2wsGZG1EEYY79lO/XOuvYYRnAi4Cj6VUBRfxE=
 			</data>
 		</dict>
 		<key>Headers/SCPSetupIntentParameters.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9MPhMBLj2ygwGKqGIvwmPATZo7rRc2Wffo/A2LEkBsQ=
+			NRJ3afJo8RdVZ1+NwGBmK+AUsiX+ijLKXKDOggg3AHg=
 			</data>
 		</dict>
 		<key>Headers/SCPSignatureInput.h</key>
@@ -1232,7 +1207,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dVn5KGe15HOHtSG1rVETdAccBgnJPTZNpcrG4CSVAgg=
+			D64Se9h9AwAPQC+vAtMrP1nI11FFddOOmtu4Vh9FjJw=
 			</data>
 		</dict>
 		<key>Headers/SCPSimulatedCard.h</key>
@@ -1263,25 +1238,46 @@
 			adKbU/gmpr7yD6g9WrSPQKo5TX9z/7N3fc1wPeANMos=
 			</data>
 		</dict>
+		<key>Headers/SCPTapToPayConnectionConfiguration.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D87Nis7HALydggUHC80MVFaI4br8wh6g9ennG5VFcr8=
+			</data>
+		</dict>
+		<key>Headers/SCPTapToPayDiscoveryConfiguration.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aLshUCLCardh7Bcz4klaWo+16iNSmb9vKpEBt55owJo=
+			</data>
+		</dict>
+		<key>Headers/SCPTapToPayReaderDelegate.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			y8d6PbxvFGPZ0Y2II9OuAhk2oeiFeml2UH1dyTOO1lE=
+			</data>
+		</dict>
 		<key>Headers/SCPTerminal+SimultaneousReaderConnect.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QuMKBCrqItvmHhdQP6dbxDfCLzfO1gkcRhr2c2jQPhE=
+			4xwqELmZO0jUGr7Wn/k/9zfxF6RzrpzaVZQFHw5b8U4=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			V9IBdJ4mtmBO9XiI6nN3o/YhF4EdZJgPjnGqZQlMprg=
+			dcepRqTILJC/lPgrPzSUWsUSwt0JLB1RCw5ZdQQ6U4g=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X5wFAEVQBRrI9LX4b2xj7SNueY/Ulo/PBBcHGUXpgrA=
+			fnIoU/C+JOgwQ4d8vUGfsXvr0kNURLJlnvd3hqjxiCo=
 			</data>
 		</dict>
 		<key>Headers/SCPTextInput.h</key>
@@ -1323,7 +1319,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L8DgJY0K6Gmz7M0Jb4oNQ08uw3zgNM27CKnvRQpclSg=
+			7Y8a8w3dol8ytUzibbNsuhBNxqrwMqsW8loPTQEr7sI=
 			</data>
 		</dict>
 		<key>Headers/SCPUsbDiscoveryConfiguration.h</key>
@@ -1331,13 +1327,6 @@
 			<key>hash2</key>
 			<data>
 			4aTjhFh1a4GgL+Kbcin5fODrn5iPosJtiVoE1/T/68s=
-			</data>
-		</dict>
-		<key>Headers/SCPUsbReaderDelegate.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4PQbATLHG4gTZCIAG7w41k0eGpg4CgDIRjBL6k/AvE8=
 			</data>
 		</dict>
 		<key>Headers/SCPWallet.h</key>
@@ -1358,84 +1347,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ILjbWvPOhNS/fdgXlul0t24AOeyvwPeEAv0YuJBOD5M=
+			ZxMqGdWMEKV+bVj+sCL62JfaxoLl7BznqdYG9PTQDdI=
 			</data>
 		</dict>
 		<key>Headers/StripeTerminal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uLf3Lje+otKNSJMD5ep95j/IFZi+m7/U6gYdB3NnFDk=
+			SnTVAt6nCPgSBvHqLeKP+hE6xQ+Nu+5THti+s5vfoGU=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m4PH6BugBVbRIR+9E7fAWtVZ5iqpoOJyXdD3Zd3EG5c=
+			+Zg0BTf+/sJ5EkRFPxH6hs1J8UedsGfQlAX81ZVjd4M=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			efzYuBnHUEZeXpOQAXBNo0lGlzfbQBhhK1r9AqBND8E=
+			xgLV0KuwC2YOAp+/lTtDx+1Owaf82BZ4JM4wHKMIPTA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i9MAueeTqtxmob3yYKFopqyL+2QbZxEe0R+6FCPKRiE=
+			+nmpfGuofsyUrRmO2il4ESJuSwl6oZhI5W3W/Ll99CQ=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			efzYuBnHUEZeXpOQAXBNo0lGlzfbQBhhK1r9AqBND8E=
+			xgLV0KuwC2YOAp+/lTtDx+1Owaf82BZ4JM4wHKMIPTA=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0mwcB9Vyt6EzYoPCZzyetyPIH88Y5x5Pg3QDaNvr+lc=
+			tErV/n08sGuqUsvwLBAODUV5ApmxCKhZ4TMpo4P3yiE=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m4PH6BugBVbRIR+9E7fAWtVZ5iqpoOJyXdD3Zd3EG5c=
+			+Zg0BTf+/sJ5EkRFPxH6hs1J8UedsGfQlAX81ZVjd4M=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zXv0eTcOh9W9OL/+TrhaPzR2E0FNrKSgJ2qFM5vDdMg=
+			wFsdZOhcBZ7naqNkcxfJLudDqvDPTg4kktt47kHr4GM=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qPxCScgi0pYwaIuA97cEeeDkuAiRE38hK5vo0yrlISw=
+			XE+Jomb74GLd6G4AGp0AjiXBgIJ+clbTKW4ugCNLCX4=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zXv0eTcOh9W9OL/+TrhaPzR2E0FNrKSgJ2qFM5vDdMg=
+			wFsdZOhcBZ7naqNkcxfJLudDqvDPTg4kktt47kHr4GM=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hOTm3n/iCpKY/6veI/J9zRm4pjI7igooA7blK1OIHwY=
+			+5ELtRy2LK3rnhAkJuDfoQgZzyEwjqQGfthhDPcj4Ms=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

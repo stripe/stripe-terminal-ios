@@ -29,6 +29,20 @@ class ReaderViewController: TableViewController, CancelingViewController {
     private var pendingUpdate: ReaderSoftwareUpdate?
     private var reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader has disconnected", preferredStyle: .alert)
 
+    private lazy var discoveryTimeoutTextField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+        textField.translatesAutoresizingMaskIntoConstraints = true
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .numberPad
+        textField.clearButtonMode = .whileEditing
+        textField.placeholder = "0"
+        textField.textAlignment = .right
+        let timeout = ReaderViewController.readerConfiguration.discoveryTimeout
+        textField.text = timeout > 0 ? String(timeout) : nil
+        return textField
+    }()
+
     init() {
         super.init(style: .grouped)
         self.title = "Terminal"
@@ -41,8 +55,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
-        ReconnectionDelegateAnnouncer.shared.removeListener(self)
+        MobileReaderDelegateAnnouncer.shared.removeListener(self)
+        InternetReaderDelegateAnnouncer.shared.removeListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.removeListener(self)
         OfflineDelegateAnnouncer.shared.removeListener(self)
     }
 
@@ -53,8 +68,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
         headerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapReaderHeaderView)))
 
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
-        ReconnectionDelegateAnnouncer.shared.addListener(self)
+        MobileReaderDelegateAnnouncer.shared.addListener(self)
+        InternetReaderDelegateAnnouncer.shared.addListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.addListener(self)
         OfflineDelegateAnnouncer.shared.addListener(self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: OfflineUIHandler.shared.rightBarButtonItemView)
 
@@ -74,17 +90,28 @@ class ReaderViewController: TableViewController, CancelingViewController {
     internal func showDiscoverReaders() throws {
         let config: DiscoveryConfiguration = try {
             let simulated = ReaderViewController.readerConfiguration.simulated
+            // Cache the timeout value now that its being used
+            let timeout = UInt(discoveryTimeoutTextField.text ?? "0") ?? 0
+            ReaderViewController.readerConfiguration.discoveryTimeout = timeout
             switch ReaderViewController.readerConfiguration.discoveryMethod {
             case .bluetoothScan:
-                return try BluetoothScanDiscoveryConfigurationBuilder().setSimulated(simulated).build()
+                return try BluetoothScanDiscoveryConfigurationBuilder()
+                    .setSimulated(simulated)
+                    .setTimeout(timeout)
+                    .build()
             case .bluetoothProximity:
                 return try BluetoothProximityDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             case .internet:
-                return try InternetDiscoveryConfigurationBuilder().setSimulated(simulated).build()
-            case .localMobile:
-                return try LocalMobileDiscoveryConfigurationBuilder().setSimulated(simulated).build()
+                return try InternetDiscoveryConfigurationBuilder()
+                    .setSimulated(simulated)
+                    .setTimeout(timeout)
+                    .build()
+            case .tapToPay:
+                return try TapToPayDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             case .usb:
-                return try UsbDiscoveryConfigurationBuilder().setSimulated(simulated).build()
+                return try UsbDiscoveryConfigurationBuilder()
+                    .setTimeout(timeout)
+                    .setSimulated(simulated).build()
             @unknown default:
                 // This could happen if we introduced a new discovery method and the user downgrades to a
                 // version of the app that doesn't know about it.
@@ -253,7 +280,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 workflowRows.append(Row(text: "Reader settings", detailText: "View and change reader settings", selection: { [unowned self] in
                     self.showStartReaderSettings()
                 }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
-            case .appleBuiltIn:
+            case .tapToPay:
                 fallthrough
             @unknown default:
                 break
@@ -315,11 +342,13 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         }, accessory: .disclosureIndicator)
                 ]),
                 Section(header: "", rows: [
+                    [.bluetoothScan, .usb, .internet].contains(ReaderViewController.readerConfiguration.discoveryMethod) != true ? nil :
+                        Row(text: "Discovery Timeout", accessory: .view(discoveryTimeoutTextField), cellClass: Value1Cell.self),
                     Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) { enabled in
                         ReaderViewController.readerConfiguration.simulated = enabled
                         self.updateContent()
-                    })
-                ], footer: .title(footerTitle))
+                    }),
+                ].compactMap { $0 }, footer: .title(footerTitle))
             ].compactMap({ $0})
         }
     }
@@ -350,39 +379,10 @@ extension ReaderViewController: TerminalDelegate {
             pendingUpdate = nil
         }
     }
-
-    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
-        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)")
-        connectedReader = nil
-    }
 }
 
-// MARK: TerminalAndBluetoothReaderDelegate
-extension ReaderViewController: BluetoothReaderDelegate {
-    func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
-        pendingUpdate = update
-        updateContent()
-    }
-
-    func reader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
-        // Prevent idle lock while updates are installing
-        // Doing this in the root ReaderVC since it catches both required updates as well as optional updates.
-        UIApplication.shared.isIdleTimerDisabled = true
-    }
-
-    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
-    }
-
-    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
-        UIApplication.shared.isIdleTimerDisabled = false
-    }
-
-    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-    }
-
-    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
-    }
-
+// MARK: ReaderDelegate
+extension ReaderViewController: ReaderDelegate {
     func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
         // Ignore if user requested (no need to advertise that)
         if reason == .disconnectRequested {
@@ -391,10 +391,7 @@ extension ReaderViewController: BluetoothReaderDelegate {
         presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))")
         connectedReader = nil
     }
-}
 
-// MARK: ReconnectionDelegate
-extension ReaderViewController: ReconnectionDelegate {
     func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
         self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader \(reader.serialNumber) has disconnected: \(Terminal.stringFromDisconnectReason(disconnectReason))", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in cancelable.cancel { error in
@@ -418,12 +415,62 @@ extension ReaderViewController: ReconnectionDelegate {
             self.presentAlert(title: "Reader Disconnected", message: "Reader reconnection failed!")
         }
         connectedReader = nil
-    }
 
+    }
     func readerDidSucceedReconnect(_ reader: Reader) {
         self.reconnectionAlertController.dismiss(animated: true) {
             self.presentAlert(title: "Reconnected!", message: "We were able to reconnect to the reader.")
         }
+    }
+}
+
+// MARK: InternetReaderDelegate
+extension ReaderViewController: InternetReaderDelegate {
+    // ReaderDelegate above implements the common didDisconnect method.
+}
+
+// MARK: TerminalAndMobileReaderDelegate
+extension ReaderViewController: MobileReaderDelegate {
+    func reader(_ reader: Reader, didReportAvailableUpdate update: ReaderSoftwareUpdate) {
+        pendingUpdate = update
+        updateContent()
+    }
+
+    func reader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+        // Prevent idle lock while updates are installing
+        // Doing this in the root ReaderVC since it catches both required updates as well as optional updates.
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+
+    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    }
+
+    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+
+    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    }
+
+    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    }
+}
+
+// MARK: TapToPayReaderDelegate
+extension ReaderViewController: TapToPayReaderDelegate {
+    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    }
+
+    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    }
+
+    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    }
+
+    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    }
+
+    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
 }
 
@@ -463,13 +510,13 @@ extension ReaderViewController: OfflineDelegate {
     }
 }
 
-extension DeviceType: CustomStringConvertible {
+extension DeviceType: @retroactive CustomStringConvertible {
     public var description: String {
         return Terminal.stringFromDeviceType(self)
     }
 }
 
-extension DiscoveryMethod: CustomStringConvertible {
+extension DiscoveryMethod: @retroactive CustomStringConvertible {
     public var description: String {
         if self == .usb {
             return "USB (Private Beta)"

@@ -92,9 +92,9 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeStripeS700DevKit,
 
     /**
-     Apple Built-In reader.
+     Tap To Pay reader.
      */
-    SCPDeviceTypeAppleBuiltIn,
+    SCPDeviceTypeTapToPay,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

@@ -10,7 +10,7 @@ import UIKit
 import Static
 import StripeTerminal
 
-class EventDisplayingViewController: TableViewController, CancelableViewController {
+class EventDisplayingViewController: TableViewController, CancelableViewController, InternetReaderDelegate {
 
     private let headerView = ReaderHeaderView()
     private let logHeaderView = ActivityIndicatorHeaderView(title: "EVENT LOG")
@@ -20,9 +20,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
     /// Override this property with the log event that should be displayed when
     /// the test is cancelled.
-    var cancelLogMethod: LogEvent.Method {
-        return .cancelCollectPaymentMethod
-    }
+    var currentCancelLogMethod: LogEvent.Method = .cancelCollectPaymentMethod
 
     internal var cancelable: Cancelable? {
         didSet {
@@ -54,8 +52,9 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
-        LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
+        MobileReaderDelegateAnnouncer.shared.removeListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.removeListener(self)
+        InternetReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -74,8 +73,9 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
         navigationItem.rightBarButtonItem = doneButton
 
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
-        LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
+        MobileReaderDelegateAnnouncer.shared.addListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.addListener(self)
+        InternetReaderDelegateAnnouncer.shared.addListener(self)
 
         if completed || Terminal.shared.paymentStatus != .ready {
             return
@@ -124,7 +124,7 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
 
     @objc
     func cancelAction() {
-        var event = LogEvent(method: cancelLogMethod)
+        var event = LogEvent(method: currentCancelLogMethod)
         self.events.append(event)
         cancelable?.cancel { error in
             if let error = error {
@@ -138,13 +138,12 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     }
 }
 
-// MARK: TerminalDelegate
-extension EventDisplayingViewController: TerminalDelegate {
-    func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
-        headerView.connectionStatus = status
-    }
+extension EventDisplayingViewController {
+    func handleDisconnect(_ reader: Reader, reason: DisconnectReason) {
+        if reason == .disconnectRequested {
+            return
+        }
 
-    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
         let displayIdentifier = reader.label ?? reader.serialNumber
 
         var logEvent = LogEvent(method: .reportReaderEvent)
@@ -155,8 +154,19 @@ extension EventDisplayingViewController: TerminalDelegate {
     }
 }
 
-// MARK: BluetoothReaderDelegate
-extension EventDisplayingViewController: BluetoothReaderDelegate {
+// MARK: TerminalDelegate
+extension EventDisplayingViewController: TerminalDelegate {
+    func terminal(_ terminal: Terminal, didChangeConnectionStatus status: ConnectionStatus) {
+        headerView.connectionStatus = status
+    }
+}
+
+// MARK: MobileReaderDelegate
+extension EventDisplayingViewController: MobileReaderDelegate {
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        handleDisconnect(reader, reason: reason)
+    }
+
     func reader(_ reader: Reader, didReportReaderEvent event: ReaderEvent, info: [AnyHashable: Any]?) {
         var logEvent = LogEvent(method: .reportReaderEvent)
         logEvent.result = .message(Terminal.stringFromReaderEvent(event))
@@ -188,21 +198,21 @@ extension EventDisplayingViewController: BluetoothReaderDelegate {
     }
 }
 
-// MARK: LocalMobileReaderDelegate
-extension EventDisplayingViewController: LocalMobileReaderDelegate {
-    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+// MARK: TapToPayReaderDelegate
+extension EventDisplayingViewController: TapToPayReaderDelegate {
+    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
         // No-op.
     }
 
-    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         // No-op.
     }
 
-    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
         // No-op.
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
         self.events.append({
             var event = LogEvent(method: .requestReaderInput)
             event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
@@ -210,7 +220,7 @@ extension EventDisplayingViewController: LocalMobileReaderDelegate {
         }())
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         self.events.append({
             var event = LogEvent(method: .requestReaderDisplayMessage)
             event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))

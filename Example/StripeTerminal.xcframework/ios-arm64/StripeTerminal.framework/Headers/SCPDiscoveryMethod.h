@@ -30,8 +30,8 @@ typedef NS_ENUM(NSUInteger, SCPDiscoveryMethod) {
     /// @see `SCPInternetDiscoveryConfiguration`
     SCPDiscoveryMethodInternet,
 
-    /// @see `SCPLocalMobileDiscoveryConfiguration`
-    SCPDiscoveryMethodLocalMobile,
+    /// @see `SCPTapToPayDiscoveryConfiguration`
+    SCPDiscoveryMethodTapToPay,
 
 #ifdef SCP_USB_ENABLED
     /// @see `SCPUsbDiscoveryConfiguration`

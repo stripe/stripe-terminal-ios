@@ -70,11 +70,11 @@ class ReaderHeaderView: UIView {
 
         updateContent()
 
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
+        MobileReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     deinit {
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
+        MobileReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -84,8 +84,8 @@ class ReaderHeaderView: UIView {
     func updateContent() {
         func setUIForReader(_ reader: Reader) {
             titleLabel.text = {
-                if reader.deviceType == .appleBuiltIn {
-                    // Apple Built-In reader type has the entire readable name in the label.
+                if reader.deviceType == .tapToPay {
+                    // Tap To Pay reader type has the entire readable name in the label.
                     return reader.label
                 } else {
                     return "\(Terminal.stringFromDeviceType(reader.deviceType)) \(reader.label ?? reader.serialNumber)"
@@ -105,8 +105,8 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "wisepose")
             case .stripeS700, .stripeS700DevKit:
                 imageView.image = UIImage(named: "s700")
-            case .appleBuiltIn:
-                // TODO:KINGS-39: Add Apple Built-In Image Collateral to SDK.
+            case .tapToPay:
+                // TODO:KINGS-39: Add Tap To Pay Image Collateral to SDK.
                 imageView.image = nil
             @unknown default:
                 imageView.image = nil
@@ -119,6 +119,8 @@ class ReaderHeaderView: UIView {
             case .notConnected:
                 // handled above when connectedReader == nil
                 break
+            case .discovering:
+                subtitleStrings.append("Discovering")
             case .connecting:
                 subtitleStrings.append("Connecting")
             case .connected where connectedReader?.simulated ?? false:
@@ -156,7 +158,7 @@ class ReaderHeaderView: UIView {
     }
 }
 
-extension ReaderHeaderView: BluetoothReaderDelegate {
+extension ReaderHeaderView: MobileReaderDelegate {
     func reader(_ reader: Reader, didReportBatteryLevel batteryLevel: Float, status: BatteryStatus, isCharging: Bool) {
         updateContent()
     }

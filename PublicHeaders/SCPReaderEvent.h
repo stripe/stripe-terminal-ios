@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- The possible events from a connected reader. Used by `[SCPBluetoothReaderDelegate reader:didReportReaderEvent:info:]`.
+ The possible events from a connected reader. Used by `[SCPMobileReaderDelegate reader:didReportReaderEvent:info:]`.
  */
 typedef NS_ENUM(NSUInteger, SCPReaderEvent) {
     /**

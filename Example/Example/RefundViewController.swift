@@ -11,11 +11,6 @@ import Static
 import StripeTerminal
 
 class RefundViewController: EventDisplayingViewController {
-
-    override var cancelLogMethod: LogEvent.Method {
-        return .cancelCollectRefundPaymentMethod
-    }
-
     private let refundParameters: RefundParameters
     private let refundConfig: RefundConfiguration
 
@@ -23,6 +18,7 @@ class RefundViewController: EventDisplayingViewController {
         self.refundParameters = refundParams
         self.refundConfig = refundConfig
         super.init()
+        self.currentCancelLogMethod = .cancelCollectRefundPaymentMethod
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +31,7 @@ class RefundViewController: EventDisplayingViewController {
         // 1. collectRefundMethod
         var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
         self.events.append(collectEvent)
+        self.currentCancelLogMethod = .cancelCollectRefundPaymentMethod
         self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters, refundConfig: self.refundConfig) { [weak self] collectError in
             guard let self = self else { return }
 
@@ -50,7 +47,8 @@ class RefundViewController: EventDisplayingViewController {
                 // 2. process refund
                 var confirmEvent = LogEvent(method: .confirmRefund)
                 self.events.append(confirmEvent)
-                Terminal.shared.confirmRefund { [weak self] confirmedRefund, confirmError in
+                self.currentCancelLogMethod = .cancelConfirmRefund
+                self.cancelable = Terminal.shared.confirmRefund { [weak self] confirmedRefund, confirmError in
                     guard let self = self else { return }
 
                     if let error = confirmError {

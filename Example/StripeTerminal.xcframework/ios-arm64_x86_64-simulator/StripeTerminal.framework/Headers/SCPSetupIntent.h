@@ -94,7 +94,7 @@ NS_SWIFT_NAME(SetupIntent)
 /**
  The unique identifier for the intent.
  */
-@property (nonatomic, readonly) NSString *stripeId;
+@property (nonatomic, nullable, readonly) NSString *stripeId;
 
 /**
  When the intent was created.

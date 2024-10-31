@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  - `SCPBluetoothScanDiscoveryConfiguration`
  - `SCPBluetoothProximityDiscoveryConfiguration`
  - `SCPInternetDiscoveryConfiguration`
- - `SCPLocalMobileDiscoveryConfiguration`
+ - `SCPTapToPayDiscoveryConfiguration`
 
  Objects of those types get passed into the `Terminal.shared.discoverReaders()`
  method to control which devices get discovered, and how.

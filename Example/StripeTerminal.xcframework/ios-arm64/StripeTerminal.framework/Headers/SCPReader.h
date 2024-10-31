@@ -71,11 +71,11 @@ NS_SWIFT_NAME(Reader)
  specify the new location id in the `location` param.
  See https://stripe.com/docs/api/terminal/readers/create
 
- Bluetooth and Apple Built-In readers are designed to be more mobile and must be
+ Bluetooth and Tap To Pay readers are designed to be more mobile and must be
  registered to a location upon each connection. This field represents the last
  location that the reader was registered to. If the reader has not been used before,
  this field will be nil. If you associate the reader to a different location while calling
- `connectBluetoothReader`, this field will update to that new location's ID.
+ `connectReader`, this field will update to that new location's ID.
 
  @see https://stripe.com/docs/api/terminal/locations
  */
@@ -116,12 +116,12 @@ NS_SWIFT_NAME(Reader)
 /**
  The available update for this reader, or nil if no update is available.
  This update will also have been announced via
- `- [BluetoothReaderDelegate reader:didReportAvailableUpdate:]`
+ `- [MobileReaderDelegate reader:didReportAvailableUpdate:]`
 
  Install this update with `- [Terminal installAvailableUpdate]`
 
  calls to `installAvailableUpdate` when `availableUpdate` is nil will result
- in `- [BluetoothReaderDelegate reader:didFinishInstallingUpdate:error:]` called
+ in `- [MobileReaderDelegate reader:didFinishInstallingUpdate:error:]` called
  immediately with a nil update and nil error.
 
  (Bluetooth readers only.)

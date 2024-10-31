@@ -31,6 +31,12 @@ NS_SWIFT_NAME(SetupIntentConfiguration)
 @property (nonatomic, assign, readonly) BOOL enableCustomerCancellation;
 
 /**
+ Collect and process the SetupIntent as a Mail Order/Telephone Order payment on Stripe smart readers. Contact Stripe support to enable this feature on your account.
+ @see https://docs.stripe.com/terminal/features/mail-telephone-orders/overview
+ */
+@property (nonatomic, assign, readonly, getter=isMoto) BOOL moto;
+
+/**
  Use `SCPSetupIntentConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -50,6 +56,9 @@ NS_SWIFT_NAME(SetupIntentConfigurationBuilder)
 
 /// Set the enableCustomerCancellation property for the `SetupIntentConfiguration` object that will be built.
 - (SCPSetupIntentConfigurationBuilder *)setEnableCustomerCancellation:(BOOL)enableCustomerCancellation;
+
+/// Set the moto property for the `SetupIntentConfiguration` object that will be built.
+- (SCPSetupIntentConfigurationBuilder *)setMoto:(BOOL)moto;
 
 @end
 

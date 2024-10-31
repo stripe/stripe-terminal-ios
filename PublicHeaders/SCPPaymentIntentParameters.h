@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
+#import <StripeTerminal/SCPPaymentMethodType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,9 +51,9 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 
 /**
  The list of payment method types that this PaymentIntent is allowed to use.
- The default is value for this is ["card_present"].
+ The default is value for this is [`SCPPaymentMethodTypeCardPresent`].
  */
-@property (nonatomic, readonly) NSArray<NSString *> *paymentMethodTypes;
+@property (nonatomic, readonly) NSArray<NSNumber *> *paymentMethodTypes;
 
 /**
  The capture method that this PaymentIntent should use. Defaults to `SCPCaptureMethodManual`.
@@ -155,6 +156,8 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  If no Customer was provided, the payment method can still be attached to a Customer after
  the transaction completes.
 
+ During collection of this PaymentIntent, `allowRedisplay` must be set to `always` or `limited` if `setup_future_usage` is used
+
  Possible values:
  "on_session": Use "on_session" if you intend to only reuse the payment method when your
  customer is present in your checkout flow.
@@ -210,7 +213,7 @@ NS_SWIFT_NAME(PaymentIntentParametersBuilder)
 - (SCPPaymentIntentParametersBuilder *)setCurrency:(NSString *)currency;
 
 /// @see `SCPPaymentIntentParameters.paymentMethodTypes`
-- (SCPPaymentIntentParametersBuilder *)setPaymentMethodTypes:(NSArray<NSString *> *)paymentMethodTypes;
+- (SCPPaymentIntentParametersBuilder *)setPaymentMethodTypes:(NSArray<NSNumber *> *)paymentMethodTypes;
 
 /// @see `SCPPaymentIntentParameters.captureMethod`
 - (SCPPaymentIntentParametersBuilder *)setCaptureMethod:(SCPCaptureMethod)captureMethod;
