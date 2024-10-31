@@ -10,23 +10,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <StripeTerminal/SCPReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Base class for BluetoothConnectionConfiguration and
- InternetConnectionConfiguration.
+ Base class for all ConnectionConfiguration subclasses.
 
  Your app should use the subclasses depending on the reader
- type being connected to.
+ type and connection method being used.
  */
 NS_SWIFT_NAME(ConnectionConfiguration)
 @interface SCPConnectionConfiguration : NSObject
 
 /**
+ The ReaderDelegate for this connection. Must be set to the appropriate type using the subclasses builder.
+ */
+@property (nonatomic, readonly, weak) id<SCPReaderDelegate> delegate;
+
+/**
  You cannot directly instantiate this class.
 
- Use BluetoothConnectionConfiguration or
+ Use BluetoothConnectionConfiguration, TapToPayConnectionConfiguration, or
  InternetConnectionConfiguration depending on the reader
  you're connecting to.
  */
@@ -35,7 +40,7 @@ NS_SWIFT_NAME(ConnectionConfiguration)
 /**
  You cannot directly instantiate this class.
 
- Use BluetoothConnectionConfiguration or
+ Use BluetoothConnectionConfiguration, TapToPayConnectionConfiguration, or
  InternetConnectionConfiguration depending on the reader
  you're connecting to.
  */

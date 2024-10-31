@@ -5,8 +5,60 @@ of each release can be found in the [Support Lifecycle](SUPPORT.md).
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '~> 3.0'
+pod 'StripeTerminal', '~> 4.0'
 ```
+
+# 4.0.0 2024-10-31
+4.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide) for more details.
+
+* Built with Xcode 16.0, Swift version 6.0.
+* Update: Minimum deployment target updated from iOS 13.0 to iOS 14.0.
+
+### New Features
+* [Mail order / telephone order (MOTO)](https://docs.stripe.com/terminal/features/mail-telephone-orders/overview) payment support for smart readers.
+  - Contact Stripe support to enable this feature on your account.
+
+* Global [card saving after payment](https://docs.stripe.com/terminal/features/saving-cards/save-after-payment) support by updating customer consent capture. The following breaking changes are required:
+  - A valid `allowRedisplay` value is now required to be set in `collectConfiguration` when using `setupFutureUsage` for `SCPTerminal`'s `collectPaymentMethod`.
+  - Removed the `customerConsentCollected` parameter from `SCPTerminal`'s `collectSetupIntentPaymentMethod` and replaced it with `allowRedisplay`.
+
+## ⚠️ Breaking changes required
+
+### Reader discovery
+* New: Added a new enum value `discovering` to [`SCPConnectionStatus`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPConnectionStatus.html) to represent when discovery is running.
+* Update: Subsequent calls to `SCPTerminal`'s `discoverReaders:delegate:completion:` cancel all previously queued discovery operations. Only one discovery operation can run at any given time; all other discovery attempts will fail with `SCPErrorCanceledDueToIntegrationError`.
+* Update: Internet and Tap to Pay discovery will now call the [`discoverReaders`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:) completion block when the operation completes since these are not long running discovery operations.
+
+### Reader connection
+* Update: There is now a single [`connectReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)connectReader:delegate:connectionConfig:completion:) call used for all connection methods. This replaces the previous methods: `connectBluetoothReader`, `connectInternetReader`, and `connectLocalMobileReader`.
+  - For mobile readers and Tap to Pay readers, the `ReaderDelegate` has been removed from the `connectReader` method as a parameter, and moved into the `connectionConfig`, replacing `autoReconnectionDelegate`.  - For smart readers, the `InternetConnectionConfiguration` now also expects an `InternetReaderDelegate` to be passed in, which will alert your integration of reader disconnects.
+
+* Update: [Auto reconnect on unexpected disconnect](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#2.-automatically-attempt-reconnection) is now enabled by default for mobile and Tap to Pay readers.
+  * The `SCPReconnectionDelegate` has been removed and the methods have been moved to the common [`ReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPReaderDelegate.html).
+* Update: The method for handling reader disconnects has changed.
+  * Removed `terminal:didReportUnexpectedReaderDisconnect:` from the `SCPTerminalDelegate`. Use [`reader:didDisconnect:`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPReaderDelegate.html#/c:objc(pl)SCPReaderDelegate(im)reader:didDisconnect:) to be informed of reader disconnects.
+  * When auto-reconnect on unexpected disconnect is enabled, both [`-readerDidFailReconnect:`](https://stripe.dev/stripe-terminal-ios/docs/4.0.0/Protocols/SCPReaderDelegate.html#/c:objc(pl)SCPReaderDelegate(im)readerDidFailReconnect:) and [`reader:didDisconnect:`](https://stripe.dev/stripe-terminal-ios/docs/4.0.0/Protocols/SCPReaderDelegate.html#/c:objc(pl)SCPReaderDelegate(im)reader:didDisconnect:) methods will be called if the SDK fails to reconnect to the reader and it becomes disconnected.
+
+### Payment acceptance
+* New: Added a new enum value `SCPCardPresentCaptureMethodManual` to [`SCPCardPresentCaptureMethod`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPCardPresentCaptureMethod.html) for simplifying manual card capture without affecting automatic non-card payment capture.
+    * If you are interested in joining this private preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* Update: `SCPTerminal`'s `confirmPaymentIntent:completion`, `confirmSetupIntent:completion`, and `confirmRefund:completion` operations now return `SCPCancelable`'s that allow you to cancel the operation in certain scenarios.
+* Update: Calls to `SCPTerminal`'s `cancelPaymentIntent:completion` or `cancelSetupIntent:completion` will now cancel ongoing operations related to the specified intent.
+* Update: [`SCPOfflineDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPOfflineDelegate.html) now conforms to `NSObject`.
+* Update: `SCPPaymentIntentParameters` and `SCPSetupIntentParameters` now keep payment method types as values of the `SCPPaymentMethodType` enum rather than strings.
+* Update: [`SCPSetupIntent.stripeId`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html#/c:objc(cs)SCPSetupIntent(py)stripeId) is now `nullable` to be consistent with `SCPPaymentintent.stripeId`. The `SCPSetupIntent.stripeId` will continue to be present.
+
+### Renaming
+* Update: [`BluetoothReaderDelegate`](https://stripe.dev/stripe-terminal-ios/3.9.0/Protocols/SCPBluetoothReaderDelegate.html) has been renamed to [`MobileReaderDelegate`](https://stripe.dev/stripe-terminal-ios/Protocols/SCPMobileReaderDelegate.html).
+* Update: In `SCPReaderSoftwareUpdate`, renamed `estimatedUpdateTime` to `durationEstimate`.
+* Update: Renamed `SCPUpdateTimeEstimate` to `SCPUpdateDurationEstimate`.
+* Update: Renamed "local mobile" and "apple built in" to "Tap To Pay" in all SDK types, function names, and error codes to align with Stripe branding for this functionality.
+
+## Non-breaking changes
+* Update: The [`SCPInternetDiscoveryConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPInternetDiscoveryConfiguration.html) now supports an optional `timeout` value, specifying the timeout in seconds for the discover readers request. If the online discovery attempt fails, the operation will automatically fall back to offline discovery if [offline mode](https://docs.stripe.com/terminal/features/operate-offline/overview?reader-type=internet) is enabled.
+* Update: Improved accuracy of smart reader errors that are reported as `SCPError`.  Errors that were previously reported as a `SCPErrorGenericReaderError` are now mapped to a more specific `SCPError` type.
+
+
 # 3.9.1 2024-09-05
 * Built with Xcode 15.2, Swift version 5.9.
 * Fix [#325](https://github.com/stripe/stripe-terminal-ios/issues/325): Corrects the status of `Terminal.shared.paymentStatus` and `Terminal.shared.connectionStatus` after [automatically reconnecting](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=bluetooth#handle-disconnects) to mobile readers during unexpected disconnects.

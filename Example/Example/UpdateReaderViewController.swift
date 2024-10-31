@@ -59,8 +59,8 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         self.updateType = type
         super.init(style: .grouped)
         TerminalDelegateAnnouncer.shared.addListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.addListener(self)
-        LocalMobileReaderDelegateAnnouncer.shared.addListener(self)
+        MobileReaderDelegateAnnouncer.shared.addListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.addListener(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -69,8 +69,8 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
 
     deinit {
         TerminalDelegateAnnouncer.shared.removeListener(self)
-        BluetoothOrUsbReaderDelegateAnnouncer.shared.removeListener(self)
-        LocalMobileReaderDelegateAnnouncer.shared.removeListener(self)
+        MobileReaderDelegateAnnouncer.shared.removeListener(self)
+        TapToPayReaderDelegateAnnouncer.shared.removeListener(self)
     }
 
     override func viewDidLoad() {
@@ -101,8 +101,8 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
             guard let connectedReader = Terminal.shared.connectedReader else {
                 return "unknown"
             }
-            if connectedReader.deviceType == .appleBuiltIn {
-                // Device software version is unavailable on Apple Built-In readers.
+            if connectedReader.deviceType == .tapToPay {
+                // Device software version is unavailable on Tap To Pay readers.
                 return "current"
             }
             return connectedReader.deviceSoftwareVersion ?? "unknown"
@@ -198,7 +198,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         guard let update = update else {
             return ""
         }
-        let updateEstimate = ReaderSoftwareUpdate.string(from: update.estimatedUpdateTime)
+        let updateEstimate = ReaderSoftwareUpdate.string(from: update.durationEstimate)
         var components = [String]()
         if update.components.contains(.config) {
             components.append("Config")
@@ -229,8 +229,14 @@ extension UpdateReaderViewController: TerminalDelegate {
 
         headerView.connectionStatus = status
     }
+}
 
-    func terminal(_ terminal: Terminal, didReportUnexpectedReaderDisconnect reader: Reader) {
+extension UpdateReaderViewController: ReaderDelegate {
+    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
+        // Ignore if user requested (no need to advertise that)
+        if reason == .disconnectRequested {
+            return
+        }
         presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber)") { _ in
             self.dismiss(animated: true, completion: nil)
         }
@@ -238,8 +244,8 @@ extension UpdateReaderViewController: TerminalDelegate {
     }
 }
 
-// MARK: BluetoothReaderDelegate
-extension UpdateReaderViewController: BluetoothReaderDelegate {
+// MARK: MobileReaderDelegate
+extension UpdateReaderViewController: MobileReaderDelegate {
     func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         updateProgress = progress
         updateContent()
@@ -254,7 +260,7 @@ extension UpdateReaderViewController: BluetoothReaderDelegate {
 
     func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
         // Only present the error or show success if it was an available update. Required updates will also be
-        // receiving the `connectBluetoothReader` completion with success or error and that completion dismisses
+        // receiving the `connectReader` completion with success or error and that completion dismisses
         // this VC and presents any errors if needed.
         guard updateType == .available else {
             return
@@ -279,39 +285,32 @@ extension UpdateReaderViewController: BluetoothReaderDelegate {
 
     func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
-
-    func reader(_ reader: Reader, didDisconnect reason: DisconnectReason) {
-        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))") { [weak self] _ in
-            self?.dismiss(animated: true)
-        }
-        headerView.connectedReader = nil
-    }
 }
 
-// MARK: LocalMobileReaderDelegate
-extension UpdateReaderViewController: LocalMobileReaderDelegate {
-    func localMobileReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+// MARK: TapToPayReaderDelegate
+extension UpdateReaderViewController: TapToPayReaderDelegate {
+    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
         self.cancelable = cancelable
     }
 
-    func localMobileReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         self.updateProgress = progress
         self.updateContent()
     }
 
-    func localMobileReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
         // No-op.
     }
 
-    func localMobileReaderDidAcceptTermsOfService(_ reader: Reader) {
+    func tapToPayReaderDidAcceptTermsOfService(_ reader: Reader) {
         // No-op.
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
         // No-op.
     }
 
-    func localMobileReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         // No-op.
     }
 }

@@ -10,13 +10,14 @@ import Foundation
 import StripeTerminal
 import UIKit
 
-class OfflineUIHandler {
+class OfflineUIHandler: NSObject {
 
     static var shared = OfflineUIHandler()
     var successfulForwardCount = 0
     var failedForwardCount = 0
 
-    init() {
+    override init() {
+        super.init()
         OfflineDelegateAnnouncer.shared.addListener(self)
     }
 

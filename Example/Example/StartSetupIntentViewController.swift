@@ -13,7 +13,8 @@ import StripeTerminal
 class StartSetupIntentViewController: TableViewController {
     private let isSposReader: Bool
     private var enableCustomerCancellation: Bool = false
-
+    private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
+    private var moto = false
     private var startSection: Section?
 
     init(isSposReader: Bool) {
@@ -51,11 +52,13 @@ class StartSetupIntentViewController: TableViewController {
     internal func startSetupIntent() {
         do {
             let setupIntentParams = try SetupIntentParametersBuilder()
+                .setPaymentMethodTypes([PaymentMethodType.card, PaymentMethodType.cardPresent])
                 .build()
             let setupIntentConfig = try SetupIntentConfigurationBuilder()
                 .setEnableCustomerCancellation(enableCustomerCancellation)
+                .setMoto(moto)
                 .build()
-            let vc = SetupIntentViewController(setupParams: setupIntentParams, setupConfig: setupIntentConfig)
+            let vc = SetupIntentViewController(setupParams: setupIntentParams, setupConfig: setupIntentConfig, allowRedisplay: allowRedisplay)
             let navController = LargeTitleNavigationController(rootViewController: vc)
             self.present(navController, animated: true, completion: nil)
         } catch {
@@ -76,15 +79,29 @@ class StartSetupIntentViewController: TableViewController {
     }
 
     private func makeTransactionSection() -> Section? {
+        var rows = [
+            Row(text: "Allow Redisplay", accessory: .segmentedControl(
+                items: ["always", "limited", "unspecified"], selectedIndex: 0) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.allowRedisplay = AllowRedisplay.always
+                    case 1: self.allowRedisplay = AllowRedisplay.limited
+                    case 2: self.allowRedisplay = AllowRedisplay.unspecified
+                    default:
+                        fatalError("Unknown option selected")
+                    }
+                }
+            )
+        ]
         if self.isSposReader {
-            return Section(
-                header: "TRANSACTION FEATURES",
-                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                    self.enableCustomerCancellation.toggle()
-                    self.updateContent()
-                })])
-        } else {
-            return nil
+            rows.append(Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                self.enableCustomerCancellation.toggle()
+                self.updateContent()
+            }))
+            rows.append(Row(text: "Mail Order / Telephone Order", accessory: .switchToggle(value: moto, { [unowned self] _ in
+                self.moto.toggle()
+                self.updateContent()
+            })))
         }
+        return Section(header: "TRANSACTION_FEATURES", rows: rows)
     }
 }

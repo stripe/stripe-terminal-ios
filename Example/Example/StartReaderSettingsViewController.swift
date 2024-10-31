@@ -63,7 +63,7 @@ class StartReaderSettingsViewController: TableViewController {
             Row(text: "Domain", detailText: "\(error.domain)"),
             Row(text: "Code", detailText: "\(error.code)"),
             detailRow(text: "Description", detailText: "\(error.localizedDescription)"),
-        ] + error.userInfo.map {
+        ] + error.scp_userInfo.map {
             detailRow(text: "\($0)", detailText: "\($1)")
         }
     }

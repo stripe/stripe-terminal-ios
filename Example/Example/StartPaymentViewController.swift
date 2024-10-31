@@ -30,13 +30,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var updatePaymentIntent = false
     private var requestDcc = false
     private var skipCapture = false
-    private var paymentMethodTypes: [String] = [
-        "card_present",
-        "card",
-        "interac_present",
-        "wechat_pay"
+    private var paymentMethodTypes: [PaymentMethodType] = [
+        .cardPresent,
+        .card,
+        .interacPresent,
+        .wechatPay,
     ]
-    private var selectedPaymentMethodTypes: [String] = ["card_present"]
+    private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
+    private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
+    private var moto = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -61,7 +63,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
-    private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
+private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "50000", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
@@ -230,6 +232,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             .setEnableCustomerCancellation(self.enableCustomerCancellation)
             .setRequestDynamicCurrencyConversion(self.requestDcc)
             .setSurchargeNotice(surchargeNotice)
+            .setAllowRedisplay(self.allowRedisplay)
+            .setMoto(self.moto)
         let confirmConfigBuilder = ConfirmConfigurationBuilder()
 
         if let amountSurcharge = amountSurchargeTextField.textField.text {
@@ -340,11 +344,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }
 
     private func makePaymentMethodTypesSection() -> Section {
-        let paymentMethodTypesSection = Section(header: Section.Extremity.title("Payment Methods"), rows: paymentMethodTypes.map({ (key: String) in
-            return if key == "card_present" {
-                Row(text: "Enable \(key)", accessory: .none)
+        let paymentMethodTypesSection = Section(header: Section.Extremity.title("Payment Methods"), rows: paymentMethodTypes.map({ (key: PaymentMethodType) in
+            let label = Terminal.stringFromPaymentMethodType(key)
+            return if key == .cardPresent {
+                Row(text: "Enable \(label)", accessory: .none)
             } else {
-                Row(text: "Enable \(key)", accessory: .switchToggle(value: self.selectedPaymentMethodTypes.contains(key), { [unowned self] _ in
+                Row(text: "Enable \(label)", accessory: .switchToggle(value: self.selectedPaymentMethodTypes.contains(key), { [unowned self] _ in
                     if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
                         selectedPaymentMethodTypes.remove(at: index)
                     } else {
@@ -359,7 +364,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private func makePaymentMethodSection() -> Section {
         // TERMINAL-34013: Simulated TTP reader has simulated set to false
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true || (Terminal.shared.connectedReader?.serialNumber == "APPLEBUILTINSIMULATOR-1")
+        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true || (Terminal.shared.connectedReader?.serialNumber == "TAPTOPAYSIMULATOR-1")
 
         let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method Options"), rows: [
             Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
@@ -390,6 +395,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 self.skipCapture.toggle()
                 self.updateContent()
             }),
+            Row(text: "Mail Order / Telephone Order", accessory: .switchToggle(value: self.moto, { [unowned self] _ in
+                self.moto.toggle()
+                self.selectedPaymentMethodTypes.append(.card)
+                self.updateContent()
+            }))
         ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
 
         return paymentMethodSection
@@ -439,11 +449,12 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     /// Makes the "SETUP FUTURE USAGE" section.
     private func makeSetupFutureUsageSection() -> Section? {
-        let rows: [Row] = [
+        let sfuItems = ["default", "on_session", "off_session"]
+        let sfuRows: [Row] = [
             Row(text: "Value",
                 accessory: .segmentedControl(
-                    items: ["default", "on_session", "off_session"],
-                    selectedIndex: 0) { [unowned self] newIndex, _ in
+                    items: sfuItems,
+                    selectedIndex: sfuItems.firstIndex(of: self.setupFutureUsage ?? "") ?? 0) { [unowned self] newIndex, _ in
                         switch newIndex {
                         case 0: self.setupFutureUsage = nil
                         case 1: self.setupFutureUsage = "on_session"
@@ -451,11 +462,23 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                         default:
                             fatalError("Unknown option selected")
                         }
+                        updateContent()
                     }
                )
         ]
-
-        return Section(header: "SETUP FUTURE USAGE", rows: rows)
+        let allowRedisplayOptions = [AllowRedisplay.always, AllowRedisplay.limited, AllowRedisplay.unspecified]
+        let allowRedisplayItems = ["always", "limited", "unspecified"]
+        let allowRedisplayRows: [Row] = [
+            Row(text: "Allow Redisplay",
+                accessory: .segmentedControl(
+                    items: allowRedisplayItems,
+                    selectedIndex: allowRedisplayOptions.firstIndex(of: self.allowRedisplay) ?? 0) { [unowned self] newIndex, _ in
+                        self.allowRedisplay = allowRedisplayOptions[newIndex]
+                        updateContent()
+                    }
+               )
+            ]
+        return Section(header: "SETUP FUTURE USAGE", rows: self.setupFutureUsage?.isEmpty == false ? (sfuRows + allowRedisplayRows) : sfuRows)
     }
 
     func makeDestinationPaymentSection() -> Section {

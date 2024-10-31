@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
   name: "StripeTerminal",
     platforms: [
-      .iOS(.v13)
+      .iOS(.v14)
     ],
   products: [
     .library(
@@ -15,8 +15,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "StripeTerminal",
-      url: "https://github.com/stripe/stripe-terminal-ios/releases/download/3.9.1/StripeTerminal.xcframework.zip",
-      checksum: "db7e4ba71f6d4962e997acfae281af96252ab3d204c08c41560103061b9e1937"
+      url: "https://github.com/stripe/stripe-terminal-ios/releases/download/4.0.0/StripeTerminal.xcframework.zip",
+      checksum: "8dee58f77d017c7470f26d18a29907a511bf7b581304837181c11725478651c3"
     )
   ]
 )

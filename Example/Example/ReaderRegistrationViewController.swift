@@ -193,18 +193,17 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         self.readers = readers
 
         guard let readerId = readerId,
-            let reader = self.readers.filter({ (reader) -> Bool in
-                reader.stripeId == readerId
-            }).first else {
-                registrationInProgress = false
-                message = "Couldn't find newly registered reader."
-                print("Couldn't find newly registered reader (looking for \(self.readerId ?? "<unknown>")), but found: \(readers.map {$0.serialNumber})")
-                return
+              let reader = self.readers.filter({ (reader) -> Bool in reader.stripeId == readerId }).first,
+              let connectionConfig = try? InternetConnectionConfigurationBuilder(delegate: InternetReaderDelegateAnnouncer.shared).build() else {
+            registrationInProgress = false
+            message = "Couldn't find newly registered reader."
+            print("Couldn't find newly registered reader (looking for \(self.readerId ?? "<unknown>")), but found: \(readers.map {$0.serialNumber})")
+            return
         }
 
         self.setAllowedCancelMethods([])
         self.message = "Connecting..."
-        Terminal.shared.connectInternetReader(reader, connectionConfig: nil) { [unowned self] connectedReader, error in
+        Terminal.shared.connectReader(reader, connectionConfig: connectionConfig) { [unowned self] connectedReader, error in
             self.setAllowedCancelMethods(.all)
             if let error = error {
                 self.message = "Could not connect to reader."

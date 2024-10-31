@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBuilder.h>
+#import <StripeTerminal/SCPPaymentMethodType.h>
 #import <StripeTerminal/SCPSetupIntent.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -59,9 +60,9 @@ NS_SWIFT_NAME(SetupIntentParameters)
 
 /**
  The list of payment method types that this SetupIntent is allowed to use.
- The default is value for this is ["card_present"].
+ The default is value for this is [`SCPPaymentMethodTypeCardPresent`].
  */
-@property (nonatomic, readonly) NSArray<NSString *> *paymentMethodTypes;
+@property (nonatomic, readonly) NSArray<NSNumber *> *paymentMethodTypes;
 
 /**
  Use `SCPSetupIntentParametersBuilder`
@@ -102,7 +103,7 @@ NS_SWIFT_NAME(SetupIntentParametersBuilder)
 - (SCPSetupIntentParametersBuilder *)setOnBehalfOf:(nullable NSString *)onBehalfOf;
 
 /// @see SCPSetupIntentParameters.paymentMethodTypes
-- (SCPSetupIntentParametersBuilder *)setPaymentMethodTypes:(NSArray<NSString *> *)paymentMethodTypes;
+- (SCPSetupIntentParametersBuilder *)setPaymentMethodTypes:(NSArray<NSNumber *> *)paymentMethodTypes;
 
 @end
 

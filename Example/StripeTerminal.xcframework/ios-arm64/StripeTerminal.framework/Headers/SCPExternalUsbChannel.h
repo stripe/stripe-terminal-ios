@@ -12,8 +12,8 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBlocks.h>
+#import <StripeTerminal/SCPMobileReaderDelegate.h>
 #import <StripeTerminal/SCPUsbConnectionConfiguration.h>
-#import <StripeTerminal/SCPUsbReaderDelegate.h>
 
 #ifdef SCP_EXTERNAL_CHANNEL_ENABLED
 
@@ -82,12 +82,12 @@ typedef NS_ENUM(NSUInteger, SCPExternalUsbChannelDisconnectReason) {
 @interface SCPTerminal (ExternalUsbChannel)
 
 /**
- Connect to a reader over the provided external USB channel. Reuses the existing UsbReaderDelegate
+ Connect to a reader over the provided external USB channel. Reuses the existing MobileReaderDelegate
  and UsbConnectionConfiguration.
 
  The completion will be called with the SCPReader that has been connected to, or error.
 
- The SDK performs all the same actions as connectUsbReader:, including checking for and installing
+ The SDK performs all the same actions as connectReader:, including checking for and installing
  required updates.
 
  There is no need to call discoverReaders when using this channel.
@@ -97,9 +97,8 @@ typedef NS_ENUM(NSUInteger, SCPExternalUsbChannelDisconnectReason) {
  Private developer preview.
  */
 - (void)connectExternalUsbChannel:(id<SCPExternalUsbChannel>)externalChannel
-                         delegate:(id<SCPUsbReaderDelegate>)delegate
                  connectionConfig:(SCPUsbConnectionConfiguration *)connectionConfig
-                       completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectExternalUsbChannel(_:delegate:connectionConfig:completion:));
+                       completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(connectExternalUsbChannel(_:connectionConfig:completion:));
 
 @end
 

@@ -13,18 +13,22 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
-
-@protocol SCPReconnectionDelegate;
+#import <StripeTerminal/SCPMobileReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  This class lets you define USB reader connection options.
 
- An object of this class should get passed into `Terminal.shared.connectUsbReader()`.
+ An object of this class should get passed into `Terminal.shared.connectReader()`.
  */
 NS_SWIFT_NAME(UsbConnectionConfiguration)
 @interface SCPUsbConnectionConfiguration : SCPConnectionConfiguration
+
+/**
+ The MobileReaderDelegate to use for this connection to the reader.
+ */
+@property (nonatomic, weak, readonly) id<SCPMobileReaderDelegate> delegate;
 
 /**
  The ID of the [Location](https://stripe.com/docs/api/terminal/locations) which the reader should be registered to during connection.
@@ -42,19 +46,14 @@ NS_SWIFT_NAME(UsbConnectionConfiguration)
 
 /**
  When set to true, the Terminal SDK  will attempt a USB auto-reconnection on any unexpected disconnect.
- You must also set an `autoReconnectionDelegate` for your application to respond accordingly to reconnection attempts.
- Enabling `autoReconnectOnUnexpectedDisconnect` without providing an `autoReconnectionDelegate` will error with `SCPErrorReaderConnectionConfigurationInvalid`.
+ Implement the `reader:didStartReconnect:` and related callbacks  for your application to respond accordingly to
+ reconnection attempts.
 
- When set to false, we will immediately surface any disconnection through TerminalDelegate.
+ When set to false, the SDK will immediately surface any disconnection through ReaderDelegate.
 
- Defaults to false.
+ Defaults to true.
  */
 @property (nonatomic, assign, readonly) BOOL autoReconnectOnUnexpectedDisconnect;
-
-/**
- Contains callback methods for USB auto-reconnection.
- */
-@property (nonatomic, weak, readonly, nullable) id<SCPReconnectionDelegate> autoReconnectionDelegate;
 
 /**
  Use `SCPUsbConnectionConfigurationBuilder`.
@@ -74,17 +73,14 @@ NS_SWIFT_NAME(UsbConnectionConfiguration)
 NS_SWIFT_NAME(UsbConnectionConfigurationBuilder)
 @interface SCPUsbConnectionConfigurationBuilder : SCPBuilder <SCPUsbConnectionConfiguration *>
 
-/// Create a `UsbConnectionConfiguration` with the provided locationId.
-- (instancetype)initWithLocationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
+/// Create a `UsbConnectionConfiguration` with the provided delegate and locationId.
+- (instancetype)initWithDelegate:(id<SCPMobileReaderDelegate>)delegate locationId:(NSString *)locationId NS_DESIGNATED_INITIALIZER;
 
 /// Set the locationId property for the `UsbConnectionConfiguration` object that will be built.
 - (SCPUsbConnectionConfigurationBuilder *)setLocationId:(NSString *)locationId;
 
 /// Set the autoReconnectOnUnexpectedDisconnect property for the `UsbConnectionConfiguration` object that will be built.
 - (SCPUsbConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
-
-/// Set the autoReconnectionDelegate property for the `UsbConnectionConfiguration` object that will be built.
-- (SCPUsbConnectionConfigurationBuilder *)setAutoReconnectionDelegate:(nullable id<SCPReconnectionDelegate>)autoReconnectionDelegate;
 
 /**
  Use `initWithLocationId:`

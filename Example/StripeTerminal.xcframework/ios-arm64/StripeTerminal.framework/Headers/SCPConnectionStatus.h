@@ -23,13 +23,17 @@ typedef NS_ENUM(NSUInteger, SCPConnectionStatus) {
      */
     SCPConnectionStatusNotConnected,
     /**
-     The SDK is connected to a reader.
+     The SDK is discovering readers.
      */
-    SCPConnectionStatusConnected,
+    SCPConnectionStatusDiscovering,
     /**
      The SDK is currently connecting to a reader.
      */
     SCPConnectionStatusConnecting,
+    /**
+     The SDK is connected to a reader.
+     */
+    SCPConnectionStatusConnected,
 } NS_SWIFT_NAME(ConnectionStatus);
 
 NS_ASSUME_NONNULL_END

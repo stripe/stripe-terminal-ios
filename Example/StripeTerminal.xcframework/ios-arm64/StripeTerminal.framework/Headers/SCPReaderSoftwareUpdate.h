@@ -23,30 +23,30 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#reader-software-releases
  @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3#reader-software-releases
  */
-typedef NS_ENUM(NSUInteger, SCPUpdateTimeEstimate) {
+typedef NS_ENUM(NSUInteger, SCPUpdateDurationEstimate) {
     /**
      The update should take less than 1 minute to complete.
      */
-    SCPUpdateTimeEstimateLessThan1Minute,
+    SCPUpdateDurationEstimateLessThan1Minute,
     /**
      The update should take 1-2 minutes to complete.
      */
-    SCPUpdateTimeEstimate1To2Minutes,
+    SCPUpdateDurationEstimate1To2Minutes,
     /**
      The update should take 2-5 minutes to complete.
      */
-    SCPUpdateTimeEstimate2To5Minutes,
+    SCPUpdateDurationEstimate2To5Minutes,
     /**
      The update should take 5-15 minutes to complete.
      */
-    SCPUpdateTimeEstimate5To15Minutes,
+    SCPUpdateDurationEstimate5To15Minutes,
 } NS_SWIFT_NAME(UpdateTimeEstimate);
 
 /**
  A bitmask identifying what exact updates are contained within this update.
 
  Note that the time estimates documented here are for each individual piece. Updates
- will often contain multiple components together. Check the `estimatedUpdateTime` to
+ will often contain multiple components together. Check the `durationEstimate` to
  see how long the entire update process is expected to take for all components.
 
  @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#reader-software-releases
@@ -90,7 +90,7 @@ NS_SWIFT_NAME(ReaderSoftwareUpdate)
 /**
  The estimated amount of time for the update.
  */
-@property (nonatomic, readonly) SCPUpdateTimeEstimate estimatedUpdateTime;
+@property (nonatomic, readonly) SCPUpdateDurationEstimate durationEstimate;
 
 /**
  The target version for the update.
@@ -114,7 +114,7 @@ NS_SWIFT_NAME(ReaderSoftwareUpdate)
 /**
  Returns an unlocalized string for the given update time estimate.
  */
-+ (NSString *)stringFromUpdateTimeEstimate:(SCPUpdateTimeEstimate)estimate;
++ (NSString *)stringFromUpdateDurationEstimate:(SCPUpdateDurationEstimate)estimate;
 
 /**
  You cannot directly instantiate this class.

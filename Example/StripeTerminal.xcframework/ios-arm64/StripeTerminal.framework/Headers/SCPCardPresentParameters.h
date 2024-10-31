@@ -25,6 +25,12 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentCaptureMethod) {
      falling back to automatic based on the presented payment method.
      */
     SCPCardPresentCaptureMethodManualPreferred,
+
+    /**
+     Use manual if you intend to place the funds on hold and want to override the top-level `capture_method` value for this payment method.
+     Contact Stripe support to enable this feature on your account.
+     */
+    SCPCardPresentCaptureMethodManual,
 } NS_SWIFT_NAME(CardPresentCaptureMethod);
 
 /**

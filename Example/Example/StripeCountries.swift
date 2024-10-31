@@ -30,7 +30,8 @@ struct StripeCountries {
         "PT",
         "NO",
         "FI",
-        "CH"
+        "CH",
+        "CZ"
     ]
 
     static func countryName(forRegionCode code: String) -> String? {

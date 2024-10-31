@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  actions related to offline mode.
  */
 NS_SWIFT_NAME(OfflineDelegate)
-@protocol SCPOfflineDelegate
+@protocol SCPOfflineDelegate <NSObject>
 
 /**
  This method is called on the offline delegate when any of the underlying

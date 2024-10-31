@@ -34,6 +34,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Canceling a command failed because the command already completed.
      */
     SCPErrorCancelFailedAlreadyCompleted = 1010,
+
+    /**
+     Canceling a command failed because the command cannot currently be canceled.
+     */
+    SCPErrorCancelFailedUnavailable = 1011,
     /**
      No reader is connected. Connect to a reader before trying again.
      */
@@ -83,7 +88,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorInvalidClientSecret = 1560,
     /**
-     `discoverReaders` was called using an invalid SCPDiscoveryConfiguration.
+     `discoverReaders` was called using an invalid `SCPDiscoveryConfiguration`.
      Your app selected a discovery method that is either incompatible with the
      selected device type or attemped to use `simulated` or `locationId` with a
      reader which does not support `simulated` or `locationId`. Currently
@@ -94,6 +99,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      @see `SCPDiscoveryConfiguration` for valid configurations.
      */
     SCPErrorInvalidDiscoveryConfiguration = 1590,
+    /**
+     `connectReader` was called using an invalid `SCPConnectionConfiguration`.
+     Your app provided a connection configuration that is incompatible with the
+     selected reader.
+
+     @see `SCPConnectionConfiguration` for valid configurations.
+     */
+    SCPErrorInvalidConnectionConfiguration = 1591,
     /**
      `installUpdate` was passed an update that is for a different reader. Updates can only
      be installed on the reader that was connected when the update was announced.
@@ -135,7 +148,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorInvalidRequiredParameter = 1920,
 
     /**
-     The PaymentIntent uses `on_behalf_of` but the Connected Account ID was not set in SCPLocalMobileConnectionConfiguration:
+     The PaymentIntent uses `on_behalf_of` but the Connected Account ID was not set in SCPTapToPayConnectionConfiguration:
      https://stripe.com/docs/terminal/payments/connect-reader?terminal-sdk-platform=ios&reader-type=tap-to-pay#connect-reader
      */
     SCPErrorInvalidRequiredParameterOnBehalfOf = 1921,
@@ -211,6 +224,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      The provided location ID parameter was invalid.
      */
     SCPErrorInvalidLocationIdParameter = 1960,
+
+    /**
+     The operation was cancelled due to an integration error.
+     */
+    SCPErrorCanceledDueToIntegrationError = 1961,
 
 
     /**
@@ -400,11 +418,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      user signed in. Direct the user to sign into an appropriate iCloud account
      via iOS Settings and try again.
      */
-    SCPErrorAppleBuiltInReaderTOSAcceptanceRequiresiCloudSignIn = 2960,
+    SCPErrorTapToPayReaderTOSAcceptanceRequiresiCloudSignIn = 2960,
     /**
      The user cancelled reader-specific terms of service acceptance.
      */
-    SCPErrorAppleBuiltInReaderTOSAcceptanceCanceled = 2970,
+    SCPErrorTapToPayReaderTOSAcceptanceCanceled = 2970,
 
     /**
      A timeout occurred while processing a collect inputs operation.
@@ -534,37 +552,37 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderNotAccessibleInBackground = 3900,
     /**
-     Preparing the Apple Built-In reader to collect payments failed.
+     Preparing the Tap To Pay reader to collect payments failed.
      Try connecting again.
      */
-    SCPErrorAppleBuiltInReaderFailedToPrepare = 3910,
+    SCPErrorTapToPayReaderFailedToPrepare = 3910,
     /**
-     This device cannot be used to process using the Apple Built-In reader as it has been banned.
+     This device cannot be used to process using the Tap To Pay reader as it has been banned.
      */
-    SCPErrorAppleBuiltInReaderDeviceBanned = 3920,
+    SCPErrorTapToPayReaderDeviceBanned = 3920,
     /**
      The operation could not be completed because the reader-specific terms of service have
      not yet been accepted. Try connecting again.
      */
-    SCPErrorAppleBuiltInReaderTOSNotYetAccepted = 3930,
+    SCPErrorTapToPayReaderTOSNotYetAccepted = 3930,
     /**
      Failed to accept reader-specific terms of service using the signed-in Apple ID.
      Ensure the Apple ID is still active and in a good standing and try again.
      */
-    SCPErrorAppleBuiltInReaderTOSAcceptanceFailed = 3940,
+    SCPErrorTapToPayReaderTOSAcceptanceFailed = 3940,
     /**
-     This merchant account cannot be used with Apple Built-In reader as it has been blocked.
+     This merchant account cannot be used with Tap To Pay reader as it has been blocked.
      */
-    SCPErrorAppleBuiltInReaderMerchantBlocked = 3950,
+    SCPErrorTapToPayReaderMerchantBlocked = 3950,
     /**
-     This merchant account cannot be used with the Apple Built-In reader as it is invalid.
+     This merchant account cannot be used with the Tap To Pay reader as it is invalid.
      */
-    SCPErrorAppleBuiltInReaderInvalidMerchant = 3960,
+    SCPErrorTapToPayReaderInvalidMerchant = 3960,
 
     /**
      An error that indicates the linked Apple ID account has been deactivated by the merchant.
      */
-    SCPErrorAppleBuiltInReaderAccountDeactivated = 3970,
+    SCPErrorTapToPayReaderAccountDeactivated = 3970,
 
     /**
      The reader is missing encryption keys required for taking payments and has disconnected and rebooted.
@@ -608,6 +626,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorCollectInputsApplicationError = 5004,
 
+    /**
+     * A generic reader error is returned when a reader returns an error code that is not yet known to this version of
+     * the Terminal SDK. Please update to the newest SDK version to receive a specific error; or consult user info
+     * keys `SCPErrorKeyReaderMessage` and `SCPErrorKeyStripeAPIErrorCode` to get more details using
+     * your current SDK.
+     */
+    SCPErrorGenericReaderError = 5005,
+
     /*
      PAYMENT ERRORS
      */
@@ -626,6 +652,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      The cardholder must give consent in order for this operation to succeed.
      */
     SCPErrorCommandRequiresCardholderConsent = 6700,
+
+    /**
+     Customer consent is required to set allow redisplay to `ALWAYS` or `LIMITED` for this operation.
+     */
+    SCPErrorCommandInvalidAllowRedisplay = 6701,
+
     /**
      The refund failed. The customer’s bank or card issuer was unable to process
      it correctly (e.g., a closed bank account or a problem with the card)
@@ -726,9 +758,9 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      The current session has expired and the reader must be disconnected and
      reconnected. The SDK will attempt to auto-disconnect for you and you should
      instruct your user to reconnect it.
-     `-[SCPTerminalDelegate terminal:didReportUnexpectedReaderDisconnect:]`
+     `-[SCPReaderDelegate reader:didDisconnect:]`
      will be called if the SDK is able to successfully auto-disconnect. If it
-     does not successfully auto-disconnect (`didReportUnexpectedReaderDisconnect`
+     does not successfully auto-disconnect (`didDisconnect:`
      will not be called and `SCPTerminal.connectionStatus` will still be
      `SCPConnectionStatusConnected`) you can attempt again via
      `-[SCPTerminal disconnectReader:]` or you can instruct your user
@@ -848,17 +880,17 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIPaymentIntent;
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyReaderMessage;
 
 /**
- If an Apple Built-In reader fails to connect due to a device ban and the error
+ If an Tap To Pay reader fails to connect due to a device ban and the error
  has an associated ban expiry date, the `NSDate` will be returned
  under this key.
- @see SCPErrorAppleBuiltInReaderDeviceBanned
+ @see SCPErrorTapToPayReaderDeviceBanned
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyDeviceBannedUntilDate;
 
 /**
- If an Apple Built-In reader fails to prepare and includes an associated reason string,
+ If an Tap To Pay reader fails to prepare and includes an associated reason string,
  the associated `NSString` will be returned under this key.
- @see SCPErrorAppleBuiltInReaderFailedToPrepare
+ @see SCPErrorTapToPayReaderFailedToPrepare
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyPrepareFailedReason;
 
