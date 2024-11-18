@@ -108,10 +108,12 @@ class APIClient: NSObject, ConnectionTokenProvider {
         }
     }
 
-    func capturePaymentIntent(_ paymentIntentId: String, completion: @escaping ErrorCompletionBlock) {
+    func capturePaymentIntent(_ paymentIntentId: String, stripeAccount: String? = nil, additionalParams: [String: Any]? = nil, completion: @escaping ErrorCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("capture_payment_intent")
+        var params = additionalParams ?? [:]
+        params["payment_intent_id"] = paymentIntentId
         AF.request(url, method: .post,
-                          parameters: ["payment_intent_id": paymentIntentId])
+                   parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in
                 switch response.result {

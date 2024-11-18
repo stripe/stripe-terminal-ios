@@ -6119,6 +6119,26 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "SKC",
+        "printedName": "SKC",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "TapToPayReaderTransactionType",
         "printedName": "TapToPayReaderTransactionType",
@@ -7799,847 +7819,847 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3060,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3206,
       "length": 4,
       "value": "10.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3442,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 3469,
       "length": 11,
       "value": "\"💳\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3566,
       "length": 4,
       "value": "72.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 3848,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3939,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 3997,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4043,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4123,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4371,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 4462,
       "length": 4,
       "value": "72.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 4522,
       "length": 4,
       "value": "0.25"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4569,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4649,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 4921,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 5012,
       "length": 4,
       "value": "36.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "FloatLiteral",
       "offset": 5068,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5114,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "StringLiteral",
       "offset": 5190,
       "length": 11,
       "value": "\"Save Card\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5227,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockMetadataView.swift",
       "kind": "BooleanLiteral",
       "offset": 5456,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReader.swift",
       "kind": "BooleanLiteral",
       "offset": 4189,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 805,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 896,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 996,
       "length": 22,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1156,
       "length": 16,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1357,
       "length": 10,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1474,
       "length": 27,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1566,
       "length": 11,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1632,
       "length": 21,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1702,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1776,
       "length": 12,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1849,
       "length": 26,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 1932,
       "length": 22,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2047,
       "length": 8,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2114,
       "length": 16,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2208,
       "length": 18,
       "value": "14"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2327,
       "length": 13,
       "value": "15"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2454,
       "length": 14,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2557,
       "length": 12,
       "value": "17"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2662,
       "length": 12,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2721,
       "length": 16,
       "value": "19"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2847,
       "length": 10,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 2962,
       "length": 16,
       "value": "21"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3108,
       "length": 20,
       "value": "22"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3192,
       "length": 34,
       "value": "23"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3306,
       "length": 23,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3435,
       "length": 25,
       "value": "25"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3568,
       "length": 18,
       "value": "26"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3625,
       "length": 15,
       "value": "27"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3679,
       "length": 15,
       "value": "28"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3853,
       "length": 14,
       "value": "29"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 3974,
       "length": 23,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4067,
       "length": 28,
       "value": "31"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4183,
       "length": 18,
       "value": "32"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4297,
       "length": 15,
       "value": "33"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4422,
       "length": 20,
       "value": "34"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4574,
       "length": 18,
       "value": "35"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4665,
       "length": 25,
       "value": "36"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4753,
       "length": 32,
       "value": "37"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4857,
       "length": 17,
       "value": "38"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 4934,
       "length": 13,
       "value": "39"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5001,
       "length": 13,
       "value": "40"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5070,
       "length": 15,
       "value": "41"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5152,
       "length": 11,
       "value": "42"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5270,
       "length": 24,
       "value": "43"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5373,
       "length": 14,
       "value": "44"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5466,
       "length": 17,
       "value": "45"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5544,
       "length": 19,
       "value": "46"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5648,
       "length": 19,
       "value": "47"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5815,
       "length": 14,
       "value": "48"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5893,
       "length": 15,
       "value": "49"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 5985,
       "length": 15,
       "value": "50"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 6101,
       "length": 12,
       "value": "51"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "IntegerLiteral",
       "offset": 6205,
       "length": 13,
       "value": "52"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "StringLiteral",
       "offset": 10434,
       "length": 30,
       "value": "\"SCPTapToPayReaderErrorDomain\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "StringLiteral",
       "offset": 10593,
       "length": 39,
       "value": "\"SCPTapToPayReaderErrorUserInfoNameKey\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "StringLiteral",
       "offset": 10774,
       "length": 45,
       "value": "\"SCPTapToPayReaderErrorUserInfoReaderMessage\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "StringLiteral",
       "offset": 10979,
       "length": 53,
       "value": "\"SCPTapToPayReaderErrorUserInfoDeviceBannedUntilDate\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/NSError+SCPTapToPayReader.swift",
       "kind": "StringLiteral",
       "offset": 11194,
       "length": 51,
       "value": "\"SCPTapToPayReaderErrorUserInfoPrepareFailedReason\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 737,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 835,
       "length": 11,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 908,
       "length": 12,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 991,
       "length": 10,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1063,
       "length": 9,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1164,
       "length": 5,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1218,
       "length": 12,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1285,
       "length": 16,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1344,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 1404,
       "length": 17,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 2191,
       "length": 4,
       "value": "30.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 5820,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 5966,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 6286,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "StringLiteral",
       "offset": 6418,
       "length": 25,
       "value": "\"Tap to Simulate Payment\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6564,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6635,
       "length": 4,
       "value": "0.95"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6648,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6706,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6718,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6732,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6745,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 6787,
       "length": 3,
       "value": "4.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 6822,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7105,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7461,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "StringLiteral",
       "offset": 7591,
       "length": 10,
       "value": "\"✕\""
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7722,
       "length": 4,
       "value": "32.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7793,
       "length": 3,
       "value": "0.9"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7805,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7865,
       "length": 4,
       "value": "48.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7882,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 7943,
       "length": 4,
       "value": "48.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 7960,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "FloatLiteral",
       "offset": 8001,
       "length": 4,
       "value": "24.0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderMockViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 8037,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 454,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 502,
       "length": 8,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 557,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
+      "filePath": "\/Users\/nk\/stripe\/stripe-terminal-ios\/StripeTerminal\/SCPTapToPayReaderTransactionType.swift",
       "kind": "IntegerLiteral",
       "offset": 608,
       "length": 12,

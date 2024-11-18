@@ -7,6 +7,14 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
+# 4.1.0 2024-11-11
+* Built with Xcode 16.0 Swift version 6.0.
+* Update: Added field `dynamicCurrencyConversion` to [`SCPCardPresentDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentDetails.html).
+  * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* New: Affirm support for smart readers is now available in private preview.
+  * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* New: Added an `returnUrl` parameter to [`SCPConfirmConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmConfiguration.html) to specify desired return_url to redirect to upon completion of a Redirect Payment Method.
+
 
 # 4.0.0 2024-10-31
 4.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide) for more details.

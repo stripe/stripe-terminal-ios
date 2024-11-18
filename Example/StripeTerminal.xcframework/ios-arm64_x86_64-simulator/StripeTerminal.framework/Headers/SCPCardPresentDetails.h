@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardFundingType.h>
+#import <StripeTerminal/SCPDynamicCurrencyConversion.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPReadMethod.h>
 
@@ -115,8 +116,6 @@ NS_SWIFT_NAME(CardPresentDetails)
 
 /**
  EMV tag 5F2D. Preferred languages specified by the integrated circuit chip.
-
- Only available for interac_present payments.
  */
 @property (nonatomic, copy, nullable, readonly) NSArray<NSString *> *preferredLocales;
 
@@ -176,8 +175,13 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, copy, nullable, readonly) NSString *issuer;
 
 /**
- * A high-level description of the type of cards issued in this range. (For internal use only
- * and not typically available in standard API requests.)
+ The name of the card's issuing bank. (For internal use only and not typically available in
+ standard API requests.)
+ */
+@property (nonatomic, copy, nullable, readonly) SCPDynamicCurrencyConversion *dynamicCurrencyConversion;
+
+/**
+ Dynamic currency conversion details for this transaction.
  */
 @property (nonatomic, copy, nullable, readonly) NSString *stripeDescription;
 
