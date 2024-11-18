@@ -7,7 +7,7 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
-# 4.1.0 2024-11-11
+# 4.1.0 2024-11-18
 * Built with Xcode 16.0 Swift version 6.0.
 * Update: Added field `dynamicCurrencyConversion` to [`SCPCardPresentDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentDetails.html).
   * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
