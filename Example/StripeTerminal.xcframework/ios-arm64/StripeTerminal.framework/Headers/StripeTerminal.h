@@ -10,6 +10,7 @@
 //
 
 #import <StripeTerminal/SCPAddress.h>
+#import <StripeTerminal/SCPAffirmDetails.h>
 #import <StripeTerminal/SCPAllowRedisplay.h>
 #import <StripeTerminal/SCPAmountDetails.h>
 #import <StripeTerminal/SCPBatteryStatus.h>
@@ -45,6 +46,7 @@
 #import <StripeTerminal/SCPDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPDiscoveryDelegate.h>
 #import <StripeTerminal/SCPDiscoveryMethod.h>
+#import <StripeTerminal/SCPDynamicCurrencyConversion.h>
 #import <StripeTerminal/SCPEmailInput.h>
 #import <StripeTerminal/SCPEmailResult.h>
 #import <StripeTerminal/SCPErrors.h>

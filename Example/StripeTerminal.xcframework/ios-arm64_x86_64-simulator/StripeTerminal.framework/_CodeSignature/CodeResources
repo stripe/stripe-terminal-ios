@@ -8,6 +8,10 @@
 		<data>
 		aLggrFZ4ORYonq30C543IRyaV40=
 		</data>
+		<key>Headers/SCPAffirmDetails.h</key>
+		<data>
+		oEmaWJ8VrbTVgDsL7TyiKD4YOGA=
+		</data>
 		<key>Headers/SCPAllowRedisplay.h</key>
 		<data>
 		BQPhTsQFsTK056QxW14Kt+rypUU=
@@ -58,7 +62,7 @@
 		</data>
 		<key>Headers/SCPCardPresentDetails.h</key>
 		<data>
-		+Z52i6Kt4E2JDcwx3GE9Or+UqQ8=
+		1bYAk7A97OOePd1rPWwzwv5EzBc=
 		</data>
 		<key>Headers/SCPCardPresentParameters.h</key>
 		<data>
@@ -94,7 +98,7 @@
 		</data>
 		<key>Headers/SCPConfirmConfiguration.h</key>
 		<data>
-		PPpxsgtAqADq9aqyry6VyulSElE=
+		zHFicgiRNqzHmFgNenxJvxXlBM0=
 		</data>
 		<key>Headers/SCPConfirmPaymentIntentError.h</key>
 		<data>
@@ -147,6 +151,10 @@
 		<key>Headers/SCPDiscoveryMethod.h</key>
 		<data>
 		s4r6zYIBJR8ix5ghd2CWzKF6H1Y=
+		</data>
+		<key>Headers/SCPDynamicCurrencyConversion.h</key>
+		<data>
+		usErRTCzCbPusjQpQhKtkcAuFIw=
 		</data>
 		<key>Headers/SCPEmailInput.h</key>
 		<data>
@@ -254,11 +262,11 @@
 		</data>
 		<key>Headers/SCPPaymentMethod.h</key>
 		<data>
-		OXXPeli+V1XlLKJ6/8oa0lUgmlk=
+		VtGksOvjBOVVy/PFO5A2k3hUMC0=
 		</data>
 		<key>Headers/SCPPaymentMethodDetails.h</key>
 		<data>
-		JOQ9kcAV5qKeKoxwnPO5khHVHys=
+		ICznlHr1iz14F7XKjGSrBouy4J8=
 		</data>
 		<key>Headers/SCPPaymentMethodOptionsParameters.h</key>
 		<data>
@@ -266,7 +274,7 @@
 		</data>
 		<key>Headers/SCPPaymentMethodType.h</key>
 		<data>
-		vqUqUeZMl46h+/qwghjrsFLD8m0=
+		M867/qYDXLiVdhYDsA/vvi+GxNM=
 		</data>
 		<key>Headers/SCPPaymentStatus.h</key>
 		<data>
@@ -426,7 +434,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		IHmMJmlNhMxIG5jJnws4H8RXIqM=
+		2Ly/eZnjTVvymwoLNPrnpQp8Smo=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -474,15 +482,15 @@
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		6WJLnUQTa+YgSPJJ+OhKCNZqcgU=
+		ibDNXxDlJitqGIshHTeSufGMqoc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		OwP7s+Kz4j9Kv7ESW5ZpZz6GUoU=
+		yvnyrrclszxvxqjf4yY7ZDzNANw=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		jcVzc3YbvXjs+Dbk7jrpVT1HLNs=
+		uh9/F2YVKO2Y/vcpw/ExiqvCug0=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -502,7 +510,7 @@
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		jcVzc3YbvXjs+Dbk7jrpVT1HLNs=
+		uh9/F2YVKO2Y/vcpw/ExiqvCug0=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -536,6 +544,13 @@
 			<key>hash2</key>
 			<data>
 			wN/hvvNMSwQKxrfIkIQIue+TXC0hny8vwY8nTlqWz10=
+			</data>
+		</dict>
+		<key>Headers/SCPAffirmDetails.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zn9qZds7dJsyDeZ5RUvd9qw9xoH+kwoAwH/Gm+Xqtyk=
 			</data>
 		</dict>
 		<key>Headers/SCPAllowRedisplay.h</key>
@@ -626,7 +641,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NgVpxTsoO3LlRfMfHD/CWh+kaacpGF/NWFfL5pZHySo=
+			4a6+EFQzwjKO/bVrMBOA6dSsN6LmtMRKdR5/bf2v1Fo=
 			</data>
 		</dict>
 		<key>Headers/SCPCardPresentParameters.h</key>
@@ -689,7 +704,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4t78K7UUVWoPzKCEJhhSbDgy0za5SG3RUlN416oVco0=
+			Rar1wpkYPXtp046Qz5w39imTu5ZItc92PZPkdr+hRQA=
 			</data>
 		</dict>
 		<key>Headers/SCPConfirmPaymentIntentError.h</key>
@@ -781,6 +796,13 @@
 			<key>hash2</key>
 			<data>
 			U32S33KDVYpoCeZ6ouO7OGYNHYqPlPoScbxUVtXoD4Y=
+			</data>
+		</dict>
+		<key>Headers/SCPDynamicCurrencyConversion.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xPUFjS72sX/QZ9OkGODq/d6F8533gxngbW9fXMXv5eM=
 			</data>
 		</dict>
 		<key>Headers/SCPEmailInput.h</key>
@@ -969,14 +991,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u3uY83cnCoGvCVKo37TSPqNdpTMkCHnOaNBo/Y7cMi0=
+			6D8MieakSpAGQvFe5depZZu5+Z1wlAIL/VbmIg8hxG8=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethodDetails.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5/V/OC/CbVg+L4IAgiiNj5ZyBghxEDb2+fQsXmVktRU=
+			vwEkKPJG3ARSt7kJRuTWN+PkStEwuhIlTLzQvSvzIQo=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentMethodOptionsParameters.h</key>
@@ -990,7 +1012,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TE9nKHcVwHE88zogVB14vXb8GMUT/YnBWViwsGzPZUo=
+			huCvHN+6w301fh/LqaWKdGwC0N1Az0gX927dZKAWQXs=
 			</data>
 		</dict>
 		<key>Headers/SCPPaymentStatus.h</key>
@@ -1270,7 +1292,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dcepRqTILJC/lPgrPzSUWsUSwt0JLB1RCw5ZdQQ6U4g=
+			k4vMLnDcpu0hfLF7zzuMwAUaEU6e+EQUgZwICeNhxHM=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -1354,14 +1376,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SnTVAt6nCPgSBvHqLeKP+hE6xQ+Nu+5THti+s5vfoGU=
+			4uWDn6NRVoDZw3dHzsuravzMacBC+VItiJcfKZRQhYg=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+Zg0BTf+/sJ5EkRFPxH6hs1J8UedsGfQlAX81ZVjd4M=
+			wBlaFajdWlrIqGjWyQNLF5SLmhdAhTbu3cEflddvwWk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1396,7 +1418,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+Zg0BTf+/sJ5EkRFPxH6hs1J8UedsGfQlAX81ZVjd4M=
+			wBlaFajdWlrIqGjWyQNLF5SLmhdAhTbu3cEflddvwWk=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
