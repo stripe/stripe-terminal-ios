@@ -35,6 +35,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .card,
         .interacPresent,
         .wechatPay,
+        .affirm,
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
@@ -55,6 +56,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private var offlineBehavior: OfflineBehavior = .preferOnline
 
+    private var onReceiptTip: UInt = 0
+
     private lazy var offlineTransactionLimitTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "10000", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
@@ -71,8 +74,24 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         return textField
     }()
 
+    private lazy var tipFields: UIStackView = {
+        let textFields = UIStackView()
+        textFields.axis = .vertical
+        textFields.addArrangedSubview(tipEligibleAmountTextField)
+        textFields.addArrangedSubview(postAuthTipAmountTextField)
+        return textFields
+    }()
+
     private lazy var tipEligibleAmountTextField: AmountInputView = {
         let textField = AmountInputView(footer: "Must have on-reader tipping configured to have any effect.", placeholderText: "Tip-eligible amount")
+        textField.textField.text = nil
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .numbersAndPunctuation
+        return textField
+    }()
+
+    private lazy var postAuthTipAmountTextField: AmountInputView = {
+        let textField = AmountInputView(footer: "overcapture_supported must be true for the capture to succeed.", placeholderText: "Post-auth tip amount (overcapture)")
         textField.textField.text = nil
         textField.textField.clearButtonMode = .whileEditing
         textField.textField.keyboardType = .numbersAndPunctuation
@@ -97,6 +116,14 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
 
     private lazy var amountSurchargeTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "Amount Surcharge", keyboardType: .numberPad)
+        textField.textField.autocorrectionType = .no
+        textField.textField.autocapitalizationType = .none
+        textField.textField.clearButtonMode = .whileEditing
+        return textField
+    }()
+
+    private lazy var returnUrlTextField: TextFieldView = {
+        let textField = TextFieldView(placeholderText: "Return URL", keyboardType: .URL)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
         textField.textField.clearButtonMode = .whileEditing
@@ -134,6 +161,8 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
 
         surchargeNoticeTextField.textField.delegate = self
         amountSurchargeTextField.textField.delegate = self
+
+        returnUrlTextField.textField.delegate = self
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -242,6 +271,10 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             }
         }
 
+        if let returnUrl = returnUrlTextField.textField.text {
+            confirmConfigBuilder.setReturnUrl(returnUrl)
+        }
+
         do {
             if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
                 collectConfigBuilder.setTippingConfiguration(
@@ -249,6 +282,9 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
                         .setEligibleAmount(eligibleAmount)
                         .build()
                 )
+            }
+            if let onReceiptAmount = UInt(postAuthTipAmountTextField.textField.text ?? "0") {
+                onReceiptTip = onReceiptAmount
             }
             let collectConfig = try collectConfigBuilder.build()
             let confirmConfig = try confirmConfigBuilder.build()
@@ -261,7 +297,8 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
                 offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
                 offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000") ?? 50000,
                 offlineBehavior: self.offlineBehavior,
-                skipCapture: self.skipCapture
+                skipCapture: self.skipCapture,
+                onReceiptTip: self.onReceiptTip
             )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             navController.presentationController?.delegate = self
@@ -317,7 +354,7 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
                 self.skipTipping.toggle()
                 self.updateContent()
             })],
-            footer: .autoLayoutView(tipEligibleAmountTextField))
+            footer: .autoLayoutView(tipFields))
     }
 
     private func makeTransactionSection() -> Section? {
@@ -557,6 +594,12 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         return offlineTransactionLimitSection
     }
 
+    /// Makes the "Return URL" section.
+    private func makeReturnUrlSection() -> Section {
+        let returnUrlSection = Section(header: .title("Return URL"), rows: [], footer: .autoLayoutView(returnUrlTextField))
+        return returnUrlSection
+    }
+
     private func updateContent() {
 
         let sections: [Section?] = [
@@ -577,6 +620,7 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             self.makeOfflineStoredTransactionLimitSection(),
             self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
+            self.makeReturnUrlSection(),
             self.startSection
         ]
 

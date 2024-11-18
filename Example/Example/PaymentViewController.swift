@@ -20,6 +20,7 @@ class PaymentViewController: EventDisplayingViewController {
     private var offlineCreateConfig: CreateConfiguration?
     private let isSposReader: Bool
     private let skipCapture: Bool
+    private let onReceiptTip: UInt
 
     init(paymentParams: PaymentIntentParameters,
          collectConfig: CollectConfiguration,
@@ -30,7 +31,9 @@ class PaymentViewController: EventDisplayingViewController {
          offlineTransactionLimit: Int,
          offlineTotalTransactionLimit: Int,
          offlineBehavior: OfflineBehavior,
-         skipCapture: Bool) {
+         skipCapture: Bool,
+         onReceiptTip: UInt
+    ) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
         self.confirmConfig = confirmConfig
@@ -38,6 +41,7 @@ class PaymentViewController: EventDisplayingViewController {
         self.recollectAfterCardBrandDecline = recollectAfterCardBrandDecline
         self.isSposReader = isSposReader
         self.skipCapture = skipCapture
+        self.onReceiptTip = onReceiptTip
 
         var isOverOfflineTransactionLimit = paymentParams.amount >= offlineTransactionLimit
         if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.paymentAmountsByCurrency[paymentParams.currency]?.intValue {
@@ -306,7 +310,8 @@ class PaymentViewController: EventDisplayingViewController {
             // Online, capture intent.
             var captureEvent = LogEvent(method: .capturePaymentIntent)
             self.events.append(captureEvent)
-            AppDelegate.apiClient?.capturePaymentIntent(piID) { captureError in
+            let additionalParams = ["amount_to_capture": self.onReceiptTip + intent.amount]
+            AppDelegate.apiClient?.capturePaymentIntent(piID, additionalParams: additionalParams) { captureError in
                 if let error = captureError {
                     captureEvent.result = .errored
                     captureEvent.object = .error(error as NSError)

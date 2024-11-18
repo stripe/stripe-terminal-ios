@@ -40,6 +40,11 @@ typedef NS_ENUM(NSUInteger, SCPPaymentMethodType) {
     SCPPaymentMethodTypeWechatPay,
 
     /**
+     An Affirm payment method.
+     */
+    SCPPaymentMethodTypeAffirm,
+
+    /**
      An unknown type.
      */
     SCPPaymentMethodTypeUnknown,

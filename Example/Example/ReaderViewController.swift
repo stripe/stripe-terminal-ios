@@ -407,7 +407,7 @@ extension ReaderViewController: ReaderDelegate {
             }
         }}
         reconnectionAlertController.addAction(cancelAction)
-        present(reconnectionAlertController, animated: true, completion: nil)
+        topViewController()?.present(reconnectionAlertController, animated: true, completion: nil)
     }
 
     func readerDidFailReconnect(_ reader: Reader) {

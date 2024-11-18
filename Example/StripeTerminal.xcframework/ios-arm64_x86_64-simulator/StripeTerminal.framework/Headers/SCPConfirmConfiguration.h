@@ -33,6 +33,16 @@ NS_SWIFT_NAME(ConfirmConfiguration)
 @property (nonatomic, strong, nullable, readonly) NSNumber *amountSurcharge;
 
 /**
+ The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method’s app or site.
+ If you’d prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.
+
+ This parameter is only used for redirect-based payment methods.
+
+ Defaults to nil.
+ */
+@property (nonatomic, strong, nullable, readonly) NSString *returnUrl;
+
+/**
  Use `SCPConfirmConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -52,6 +62,9 @@ NS_SWIFT_NAME(ConfirmConfigurationBuilder)
 
 /// Set the amountSurcharge property for the `ConfirmConfiguration` object that will be built.
 - (SCPConfirmConfigurationBuilder *)setAmountSurcharge:(NSUInteger)amountSurcharge;
+
+/// Set the returnUrl property for the `ConfirmConfiguration` object that will be built.
+- (SCPConfirmConfigurationBuilder *)setReturnUrl:(NSString *)returnUrl;
 
 @end
 
