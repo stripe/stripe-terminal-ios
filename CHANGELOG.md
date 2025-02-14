@@ -7,6 +7,18 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
+
+# 4.2.0 2024-02-14
+* Built with Xcode 16.0 Swift version 6.0.
+* New: Added `collectionReason` to [`SCPSetupIntentConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentConfiguration.html).
+  * This field can only be changed for Tap To Pay readers. The default value is saveCard.
+* Added a new `Terminal.stringFromError` method to convert an `SCPError` to a non-localized string of the enum values name.
+* Update: updatePaymentIntent is now supported when offline mode is enabled. 
+* Update: Validation of location services has been added to Tap to Pay and mobile readers during [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:), [`collectSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectSetupIntentPaymentMethod:allowRedisplay:completion:), and [`collectRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectRefundPaymentMethod:completion:). This validation was already being enforced by [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:), [`confirmSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmSetupIntent:completion:), and [`confirmRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmRefund:), and is now extended to return the error earlier in the payment process.
+* Update: Added support for operating offline with simulated Bluetooth and Internet readers.
+* Fix: Resolved a rare deadlock crash during the Bluetooth scan discovery process.
+* Fix: Prevented a minor memory leak each time the SDK connects to a reader.
+
 # 4.1.0 2024-11-18
 * Built with Xcode 16.0 Swift version 6.0.
 * Update: Added field `dynamicCurrencyConversion` to [`SCPCardPresentDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentDetails.html).
@@ -14,7 +26,6 @@ pod 'StripeTerminal', '~> 4.0'
 * New: Affirm support for smart readers is now available in private preview.
   * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
 * New: Added an `returnUrl` parameter to [`SCPConfirmConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmConfiguration.html) to specify desired return_url to redirect to upon completion of a Redirect Payment Method.
-
 
 # 4.0.0 2024-10-31
 4.0.0 includes breaking changes in both symbols and behavior. See the [migration guide](https://stripe.com/docs/terminal/references/sdk-migration-guide) for more details.

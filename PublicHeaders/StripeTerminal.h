@@ -103,6 +103,7 @@
 #import <StripeTerminal/SCPSetupAttemptCardPresentDetails.h>
 #import <StripeTerminal/SCPSetupAttemptPaymentMethodDetails.h>
 #import <StripeTerminal/SCPSetupIntent.h>
+#import <StripeTerminal/SCPSetupIntentCollectionReason.h>
 #import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSetupIntentParameters.h>
 #import <StripeTerminal/SCPSignatureInput.h>

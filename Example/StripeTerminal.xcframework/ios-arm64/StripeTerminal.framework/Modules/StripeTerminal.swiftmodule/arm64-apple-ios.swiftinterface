@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name StripeTerminal
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -enable-bare-slash-regex -module-name StripeTerminal
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
+import OSLog
 import ProximityReader
 @_exported import StripeTerminal
 import Swift
@@ -141,6 +142,11 @@ extension Foundation.NSError {
   @objc func tapToPayReader(_ reader: any StripeTerminal.TapToPayReaderProtocol, didFailToCancelTransaction error: any Swift.Error)
   @objc func tapToPayReaderDidCompleteMockTransaction(_ reader: any StripeTerminal.TapToPayReaderProtocol)
 }
+extension Foundation.NSDictionary {
+  @objc dynamic public func scp_boxedBoolForKey(_ key: Swift.String) -> Foundation.NSNumber?
+  @objc dynamic public func scp_boolForKey(_ key: Swift.String, or defaultValue: Swift.Bool) -> Swift.Bool
+  @objc dynamic public func scp_numberForInt64Key(_ key: Swift.String) -> Foundation.NSNumber?
+}
 @objc(SCPTapToPayReaderTransactionEventCode) public enum TapToPayReaderTransactionEventCode : Swift.Int, Swift.Sendable, Swift.RawRepresentable {
   case unknown = 0
   case readyForTap
@@ -195,6 +201,7 @@ extension Foundation.NSError {
   case purchase
   case refund
   case verification
+  case saveCard
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

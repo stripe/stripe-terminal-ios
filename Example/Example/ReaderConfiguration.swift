@@ -22,6 +22,7 @@ struct ReaderConfiguration {
     #else
     var simulated = false
     #endif
+    var simulatorOfflineEnabled = false
 }
 
 extension ReaderConfiguration: Codable {
@@ -58,5 +59,5 @@ extension ReaderConfiguration: Codable {
     }
 }
 
-extension DeviceType: Codable { /* Nothing needed here */ }
-extension DiscoveryMethod: Codable { /* Nothing needed here */ }
+extension DeviceType: Codable { /* Nothing needed here */  }
+extension DiscoveryMethod: Codable { /* Nothing needed here */  }

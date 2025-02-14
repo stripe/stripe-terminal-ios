@@ -6,9 +6,9 @@
 //  Copyright © 2019 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartRefundViewController: TableViewController {
 
@@ -54,13 +54,22 @@ class StartRefundViewController: TableViewController {
             self.updateContent()
         }
         let headerString: String
-        headerString = "Refund a payment using a physical Interac test card. In-person refunds can only be processed if the payment method requires an in-person refund; if not, use the Stripe API."
+        headerString =
+            "Refund a payment using a physical Interac test card. In-person refunds can only be processed if the payment method requires an in-person refund; if not, use the Stripe API."
 
-        self.startSection = Section(header: Section.Extremity.title(self.amountView.amountString), rows: [
-            Row(text: "Collect refund", selection: { [unowned self] in
-                self.startRefund()
-            }, cellClass: ButtonCell.self),
-        ], footer: Section.Extremity.title(headerString))
+        self.startSection = Section(
+            header: Section.Extremity.title(self.amountView.amountString),
+            rows: [
+                Row(
+                    text: "Collect refund",
+                    selection: { [unowned self] in
+                        self.startRefund()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ],
+            footer: Section.Extremity.title(headerString)
+        )
 
         updateContent()
     }
@@ -77,13 +86,17 @@ class StartRefundViewController: TableViewController {
     internal func startRefund() {
         let refundParamsBuilder: RefundParametersBuilder
         if self.refundWithChargeId == true {
-            refundParamsBuilder = RefundParametersBuilder(chargeId: paymentOrChargeIdView.textField.text ?? "",
-                                                            amount: amountView.amount,
-                                                          currency: "cad")
+            refundParamsBuilder = RefundParametersBuilder(
+                chargeId: paymentOrChargeIdView.textField.text ?? "",
+                amount: amountView.amount,
+                currency: "cad"
+            )
         } else {
-            refundParamsBuilder = RefundParametersBuilder(paymentIntentId: paymentOrChargeIdView.textField.text ?? "",
-                                                                   amount: amountView.amount,
-                                                                 currency: "cad")
+            refundParamsBuilder = RefundParametersBuilder(
+                paymentIntentId: paymentOrChargeIdView.textField.text ?? "",
+                amount: amountView.amount,
+                currency: "cad"
+            )
         }
 
         if let refundApplicationFee = refundApplicationFee {
@@ -108,14 +121,23 @@ class StartRefundViewController: TableViewController {
     }
 
     private func updateContent() {
-        let amountSection = Section(header: "Amount", rows: [],
-                                    footer: Section.Extremity.autoLayoutView(amountView))
+        let amountSection = Section(
+            header: "Amount",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(amountView)
+        )
 
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true &&
-            [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(Terminal.shared.connectedReader?.deviceType)
+        let shouldShowTestCardPickerView =
+            Terminal.shared.connectedReader?.simulated == true
+            && [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(
+                Terminal.shared.connectedReader?.deviceType
+            )
 
-        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method"), rows: [],
-                                           footer: Section.Extremity.autoLayoutView(TestCardPickerView()))
+        let paymentMethodSection = Section(
+            header: Section.Extremity.title("Payment Method"),
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(TestCardPickerView())
+        )
 
         var sections: [Section] = [
             makeIdLabelSection(),
@@ -123,7 +145,7 @@ class StartRefundViewController: TableViewController {
             makeTransactionSection(),
             makeRefundApplicationFeeSection(),
             makeReverseTransferSection(),
-            shouldShowTestCardPickerView ? paymentMethodSection : nil
+            shouldShowTestCardPickerView ? paymentMethodSection : nil,
         ].compactMap { $0 }
 
         if let startSection = self.startSection {
@@ -141,33 +163,35 @@ class StartRefundViewController: TableViewController {
             selectedIndex = 1
         }
         let rows: [Row] = [
-            Row(text: "Value",
+            Row(
+                text: "Value",
                 accessory: .segmentedControl(
                     items: ["charge id", "payment intent id"],
-                    selectedIndex: selectedIndex) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.refundWithChargeId = true
-                        case 1: self.refundWithChargeId = false
-                        default:
-                            self.refundWithChargeId = true
-                        }
-                        // copy text from the payment/charge id view into a temp string
-                        let tempId: String = paymentOrChargeIdView.textField.text ?? ""
-                        if newIndex != selectedIndex {
-                            // when change to index occurs
-                            if self.refundWithChargeId {
-                                // update the payment or charge id view with the stored chargeid, and save the temp value to the
-                                paymentOrChargeIdView.textField.text = self.chargeId
-                                self.paymentIntentId = tempId
-                            } else {
-                                // update the payment or charge id view ith the stored payment id
-                                paymentOrChargeIdView.textField.text = self.paymentIntentId
-                                self.chargeId = tempId
-                            }
-                        }
-                        self.updateContent()
+                    selectedIndex: selectedIndex
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.refundWithChargeId = true
+                    case 1: self.refundWithChargeId = false
+                    default:
+                        self.refundWithChargeId = true
                     }
-               )
+                    // copy text from the payment/charge id view into a temp string
+                    let tempId: String = paymentOrChargeIdView.textField.text ?? ""
+                    if newIndex != selectedIndex {
+                        // when change to index occurs
+                        if self.refundWithChargeId {
+                            // update the payment or charge id view with the stored chargeid, and save the temp value to the
+                            paymentOrChargeIdView.textField.text = self.chargeId
+                            self.paymentIntentId = tempId
+                        } else {
+                            // update the payment or charge id view ith the stored payment id
+                            paymentOrChargeIdView.textField.text = self.paymentIntentId
+                            self.chargeId = tempId
+                        }
+                    }
+                    self.updateContent()
+                }
+            )
         ]
 
         return Section(header: "REFUND ID", rows: rows, footer: Section.Extremity.autoLayoutView(paymentOrChargeIdView))
@@ -177,10 +201,16 @@ class StartRefundViewController: TableViewController {
         if self.isSposReader {
             return Section(
                 header: "TRANSACTION FEATURES",
-                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                    self.enableCustomerCancellation.toggle()
-                    self.updateContent()
-                })])
+                rows: [
+                    Row(
+                        text: "Customer cancellation",
+                        accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                            self.enableCustomerCancellation.toggle()
+                            self.updateContent()
+                        }
+                    )
+                ]
+            )
         } else {
             return nil
         }
@@ -188,19 +218,21 @@ class StartRefundViewController: TableViewController {
 
     func makeRefundApplicationFeeSection() -> Section {
         let rows: [Row] = [
-            Row(text: "Value",
+            Row(
+                text: "Value",
                 accessory: .segmentedControl(
                     items: ["default", "true", "false"],
-                    selectedIndex: 0) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.refundApplicationFee = nil
-                        case 1: self.refundApplicationFee = true
-                        case 2: self.refundApplicationFee = false
-                        default:
-                            fatalError("Unknown option selected")
-                        }
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.refundApplicationFee = nil
+                    case 1: self.refundApplicationFee = true
+                    case 2: self.refundApplicationFee = false
+                    default:
+                        fatalError("Unknown option selected")
                     }
-               )
+                }
+            )
         ]
 
         return Section(header: "REFUND APPLICATION FEE", rows: rows)
@@ -208,19 +240,21 @@ class StartRefundViewController: TableViewController {
 
     func makeReverseTransferSection() -> Section {
         let rows: [Row] = [
-            Row(text: "Value",
+            Row(
+                text: "Value",
                 accessory: .segmentedControl(
                     items: ["default", "true", "false"],
-                    selectedIndex: 0) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.reverseTransfer = nil
-                        case 1: self.reverseTransfer = true
-                        case 2: self.reverseTransfer = false
-                        default:
-                            fatalError("Unknown option selected")
-                        }
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.reverseTransfer = nil
+                    case 1: self.reverseTransfer = true
+                    case 2: self.reverseTransfer = false
+                    default:
+                        fatalError("Unknown option selected")
                     }
-               )
+                }
+            )
         ]
 
         return Section(header: "REVERSE TRANSFER", rows: rows)

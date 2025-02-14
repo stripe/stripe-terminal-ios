@@ -6,9 +6,9 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartPaymentViewController: TableViewController, CancelingViewController {
 
@@ -50,7 +50,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }
 
     private let connectedAccountTextField = TextFieldView(
-        placeholderText: "Connected Stripe Account ID")
+        placeholderText: "Connected Stripe Account ID"
+    )
 
     private let applicationFeeAmountTextField = TextFieldView(placeholderText: "Application Fee Amount")
 
@@ -66,7 +67,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
-private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
+    private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "50000", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
@@ -83,7 +84,10 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     }()
 
     private lazy var tipEligibleAmountTextField: AmountInputView = {
-        let textField = AmountInputView(footer: "Must have on-reader tipping configured to have any effect.", placeholderText: "Tip-eligible amount")
+        let textField = AmountInputView(
+            footer: "Must have on-reader tipping configured to have any effect.",
+            placeholderText: "Tip-eligible amount"
+        )
         textField.textField.text = nil
         textField.textField.clearButtonMode = .whileEditing
         textField.textField.keyboardType = .numbersAndPunctuation
@@ -91,7 +95,10 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     }()
 
     private lazy var postAuthTipAmountTextField: AmountInputView = {
-        let textField = AmountInputView(footer: "overcapture_supported must be true for the capture to succeed.", placeholderText: "Post-auth tip amount (overcapture)")
+        let textField = AmountInputView(
+            footer: "overcapture_supported must be true for the capture to succeed.",
+            placeholderText: "Post-auth tip amount (overcapture)"
+        )
         textField.textField.text = nil
         textField.textField.clearButtonMode = .whileEditing
         textField.textField.keyboardType = .numbersAndPunctuation
@@ -143,6 +150,13 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         super.viewDidLoad()
         self.addKeyboardDisplayObservers()
 
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Collect",
+            style: .plain,
+            target: self,
+            action: #selector(startPayment)
+        )
+
         title = "Collect card payment"
 
         connectedAccountTextField.textField.autocorrectionType = .no
@@ -188,11 +202,19 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             }()
             headerString = "Collect a card payment using a physical Stripe test card and \(readerString)"
         }
-        self.startSection = Section(header: Section.Extremity.title(self.amountView.amountString), rows: [
-            Row(text: "Collect payment", selection: { [unowned self] in
-                self.startPayment()
-                }, cellClass: ButtonCell.self)
-        ], footer: Section.Extremity.title(headerString))
+        self.startSection = Section(
+            header: Section.Extremity.title(self.amountView.amountString),
+            rows: [
+                Row(
+                    text: "Collect payment",
+                    selection: { [unowned self] in
+                        self.startPayment()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ],
+            footer: Section.Extremity.title(headerString)
+        )
 
         updateContent()
     }
@@ -204,9 +226,11 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             if Terminal.shared.connectedReader == nil {
                 return "No reader connected"
             } else if Terminal.shared.connectionStatus != .connected {
-                return "Terminal SDK is not in the connected state: \(Terminal.stringFromConnectionStatus(Terminal.shared.connectionStatus))"
+                return
+                    "Terminal SDK is not in the connected state: \(Terminal.stringFromConnectionStatus(Terminal.shared.connectionStatus))"
             } else if Terminal.shared.paymentStatus != .ready {
-                return "Terminal SDK is not ready for payment: \(Terminal.stringFromPaymentStatus(Terminal.shared.paymentStatus))"
+                return
+                    "Terminal SDK is not ready for payment: \(Terminal.stringFromPaymentStatus(Terminal.shared.paymentStatus))"
             } else {
                 return nil
             }
@@ -227,16 +251,19 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
 
     // MARK: - Internal
 
+    @objc
     internal func startPayment() {
         let captureMethod = self.automaticCaptureEnabled ? CaptureMethod.automatic : CaptureMethod.manual
 
-        let paymentParamsBuilder = PaymentIntentParametersBuilder(amount: amountView.amount,
-                                                    currency: currencyView.currency)
-            .setPaymentMethodTypes(self.selectedPaymentMethodTypes)
-            .setCaptureMethod(captureMethod)
-            .setSetupFutureUsage(setupFutureUsage)
-            .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
-            .setMetadata([PaymentIntent.offlineIdMetadataKey: UUID().uuidString])
+        let paymentParamsBuilder = PaymentIntentParametersBuilder(
+            amount: amountView.amount,
+            currency: currencyView.currency
+        )
+        .setPaymentMethodTypes(self.selectedPaymentMethodTypes)
+        .setCaptureMethod(captureMethod)
+        .setSetupFutureUsage(setupFutureUsage)
+        .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
+        .setMetadata([PaymentIntent.offlineIdMetadataKey: UUID().uuidString])
 
         // Set up destination payment
         if !connectedAccountId.isEmpty {
@@ -288,14 +315,16 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             }
             let collectConfig = try collectConfigBuilder.build()
             let confirmConfig = try confirmConfigBuilder.build()
-            let vc = PaymentViewController(paymentParams: try paymentParamsBuilder.build(),
+            let vc = PaymentViewController(
+                paymentParams: try paymentParamsBuilder.build(),
                 collectConfig: collectConfig,
                 confirmConfig: confirmConfig,
                 declineCardBrand: declineCardBrand,
                 recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
                 isSposReader: self.isSposReader,
                 offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
-                offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000") ?? 50000,
+                offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000")
+                    ?? 50000,
                 offlineBehavior: self.offlineBehavior,
                 skipCapture: self.skipCapture,
                 onReceiptTip: self.onReceiptTip
@@ -327,7 +356,9 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         }
 
         do {
-            return try PaymentMethodOptionsParametersBuilder(cardPresentParameters: try cardPresentParamsBuilder.build()).build()
+            return try PaymentMethodOptionsParametersBuilder(
+                cardPresentParameters: try cardPresentParamsBuilder.build()
+            ).build()
         } catch {
             fatalError("Error building PaymentMethodOptionsParameters: \(error.localizedDescription)")
         }
@@ -337,34 +368,48 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         Section(
             header: "AMOUNT",
             rows: [],
-            footer: Section.Extremity.autoLayoutView(amountView))
+            footer: Section.Extremity.autoLayoutView(amountView)
+        )
     }
 
     private func makeCurrencySection() -> Section {
         Section(
             header: "CURRENCY",
             rows: [],
-            footer: Section.Extremity.autoLayoutView(currencyView))
+            footer: Section.Extremity.autoLayoutView(currencyView)
+        )
     }
 
     private func makeTippingSection() -> Section {
         Section(
             header: "TIPPING",
-            rows: [Row(text: "Skip Tipping", accessory: .switchToggle(value: self.skipTipping) { [unowned self] _ in
-                self.skipTipping.toggle()
-                self.updateContent()
-            })],
-            footer: .autoLayoutView(tipFields))
+            rows: [
+                Row(
+                    text: "Skip Tipping",
+                    accessory: .switchToggle(value: self.skipTipping) { [unowned self] _ in
+                        self.skipTipping.toggle()
+                        self.updateContent()
+                    }
+                )
+            ],
+            footer: .autoLayoutView(tipFields)
+        )
     }
 
     private func makeTransactionSection() -> Section? {
         if self.isSposReader {
             return Section(
                 header: "TRANSACTION FEATURES",
-                rows: [Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                    self.enableCustomerCancellation.toggle()
-                    self.updateContent()
-                })])
+                rows: [
+                    Row(
+                        text: "Customer cancellation",
+                        accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                            self.enableCustomerCancellation.toggle()
+                            self.updateContent()
+                        }
+                    )
+                ]
+            )
         } else {
             return nil
         }
@@ -374,70 +419,111 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
         if Terminal.shared.connectedReader?.simulated == true {
             return Section(
                 header: "SIMULATED TIP AMOUNT",
-                footer: .autoLayoutView(simulatedTipAmountTextField))
+                footer: .autoLayoutView(simulatedTipAmountTextField)
+            )
         } else {
             return nil
         }
     }
 
     private func makePaymentMethodTypesSection() -> Section {
-        let paymentMethodTypesSection = Section(header: Section.Extremity.title("Payment Methods"), rows: paymentMethodTypes.map({ (key: PaymentMethodType) in
-            let label = Terminal.stringFromPaymentMethodType(key)
-            return if key == .cardPresent {
-                Row(text: "Enable \(label)", accessory: .none)
-            } else {
-                Row(text: "Enable \(label)", accessory: .switchToggle(value: self.selectedPaymentMethodTypes.contains(key), { [unowned self] _ in
-                    if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
-                        selectedPaymentMethodTypes.remove(at: index)
-                    } else {
-                        selectedPaymentMethodTypes.append(key)
-                    }
-                    self.updateContent()
-                }))
-            }
-        }))
+        let paymentMethodTypesSection = Section(
+            header: Section.Extremity.title("Payment Methods"),
+            rows: paymentMethodTypes.map({ (key: PaymentMethodType) in
+                let label = Terminal.stringFromPaymentMethodType(key)
+                return if key == .cardPresent {
+                    Row(text: "Enable \(label)", accessory: .none)
+                } else {
+                    Row(
+                        text: "Enable \(label)",
+                        accessory: .switchToggle(
+                            value: self.selectedPaymentMethodTypes.contains(key),
+                            { [unowned self] _ in
+                                if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
+                                    selectedPaymentMethodTypes.remove(at: index)
+                                } else {
+                                    selectedPaymentMethodTypes.append(key)
+                                }
+                                self.updateContent()
+                            }
+                        )
+                    )
+                }
+            })
+        )
         return paymentMethodTypesSection
     }
 
     private func makePaymentMethodSection() -> Section {
         // TERMINAL-34013: Simulated TTP reader has simulated set to false
-        let shouldShowTestCardPickerView = Terminal.shared.connectedReader?.simulated == true || (Terminal.shared.connectedReader?.serialNumber == "TAPTOPAYSIMULATOR-1")
+        let shouldShowTestCardPickerView =
+            Terminal.shared.connectedReader?.simulated == true
+            || (Terminal.shared.connectedReader?.serialNumber == "TAPTOPAYSIMULATOR-1")
 
-        let paymentMethodSection = Section(header: Section.Extremity.title("Payment Method Options"), rows: [
-            Row(text: "Enable Automatic Capture", accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
-                self.automaticCaptureEnabled.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Enable Manual Preferred", accessory: .switchToggle(value: self.manualPreferredEnabled) { [unowned self] _ in
-                self.manualPreferredEnabled.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Requested Routing Priority",
-                detailText: requestedPriority ?? "None",
-                selection: { [unowned self] in
-                    self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
-                        self.requestedPriority = (picked == "None") ? nil : picked
+        let paymentMethodSection = Section(
+            header: Section.Extremity.title("Payment Method Options"),
+            rows: [
+                Row(
+                    text: "Enable Automatic Capture",
+                    accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
+                        self.automaticCaptureEnabled.toggle()
                         self.updateContent()
                     }
-            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
-            Row(text: "Request Extended Authorization", accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
-                self.requestExtendedAuthorization.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Request Incremental Authorization Support", accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
-                self.requestIncrementalAuthorizationSupport.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Skip Capture (if available)", accessory: .switchToggle(value: self.skipCapture) { [unowned self] _ in
-                self.skipCapture.toggle()
-                self.updateContent()
-            }),
-            Row(text: "Mail Order / Telephone Order", accessory: .switchToggle(value: self.moto, { [unowned self] _ in
-                self.moto.toggle()
-                self.selectedPaymentMethodTypes.append(.card)
-                self.updateContent()
-            }))
-        ], footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil)
+                ),
+                Row(
+                    text: "Enable Manual Preferred",
+                    accessory: .switchToggle(value: self.manualPreferredEnabled) { [unowned self] _ in
+                        self.manualPreferredEnabled.toggle()
+                        self.updateContent()
+                    }
+                ),
+                Row(
+                    text: "Requested Routing Priority",
+                    detailText: requestedPriority ?? "None",
+                    selection: { [unowned self] in
+                        self.presentValuePicker(options: ["Domestic", "International", "None"]) { picked in
+                            self.requestedPriority = (picked == "None") ? nil : picked
+                            self.updateContent()
+                        }
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: Value1Cell.self
+                ),
+                Row(
+                    text: "Request Extended Authorization",
+                    accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
+                        self.requestExtendedAuthorization.toggle()
+                        self.updateContent()
+                    }
+                ),
+                Row(
+                    text: "Request Incremental Authorization Support",
+                    accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
+                        self.requestIncrementalAuthorizationSupport.toggle()
+                        self.updateContent()
+                    }
+                ),
+                Row(
+                    text: "Skip Capture (if available)",
+                    accessory: .switchToggle(value: self.skipCapture) { [unowned self] _ in
+                        self.skipCapture.toggle()
+                        self.updateContent()
+                    }
+                ),
+                Row(
+                    text: "Mail Order / Telephone Order",
+                    accessory: .switchToggle(
+                        value: self.moto,
+                        { [unowned self] _ in
+                            self.moto.toggle()
+                            self.selectedPaymentMethodTypes.append(.card)
+                            self.updateContent()
+                        }
+                    )
+                ),
+            ],
+            footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil
+        )
 
         return paymentMethodSection
     }
@@ -445,39 +531,58 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     // Makes the UPDATE PAYMENT INTENT section
     private func makeUpdatePaymentIntentSection() -> Section? {
         let switchRow: [Row] = [
-            Row(text: "Update PaymentIntent", accessory: .switchToggle(value: self.updatePaymentIntent) { [unowned self] _ in
-                self.updatePaymentIntent.toggle()
-                self.updateContent()
-                self.declineCardBrand = nil
-                self.recollectAfterCardBrandDecline = false
-            })
+            Row(
+                text: "Update PaymentIntent",
+                accessory: .switchToggle(value: self.updatePaymentIntent) { [unowned self] _ in
+                    self.updatePaymentIntent.toggle()
+                    self.updateContent()
+                    self.declineCardBrand = nil
+                    self.recollectAfterCardBrandDecline = false
+                }
+            )
         ]
         let contentRows: [Row] = [
-            Row(text: "Decline Card Brand", detailText: {if let brand = declineCardBrand { return Terminal.stringFromCardBrand(brand) } else { return "None" }}(), selection: { [unowned self] in
-                let brands: [CardBrand] = [
-                    .visa,
-                    .amex,
-                    .masterCard,
-                    .discover,
-                    .JCB,
-                    .dinersClub,
-                    .interac,
-                    .unionPay,
-                    .eftposAu,
-                ]
-                self.presentValuePicker(options: ["None"] + brands.map { Terminal.stringFromCardBrand($0) }) { picked in
-                    self.declineCardBrand = nil
-                    for brand in brands where picked == Terminal.stringFromCardBrand(brand) {
-                        self.declineCardBrand = brand
-                        break
+            Row(
+                text: "Decline Card Brand",
+                detailText: {
+                    if let brand = declineCardBrand {
+                        return Terminal.stringFromCardBrand(brand)
+                    } else {
+                        return "None"
                     }
+                }(),
+                selection: { [unowned self] in
+                    let brands: [CardBrand] = [
+                        .visa,
+                        .amex,
+                        .masterCard,
+                        .discover,
+                        .JCB,
+                        .dinersClub,
+                        .interac,
+                        .unionPay,
+                        .eftposAu,
+                    ]
+                    self.presentValuePicker(options: ["None"] + brands.map { Terminal.stringFromCardBrand($0) }) {
+                        picked in
+                        self.declineCardBrand = nil
+                        for brand in brands where picked == Terminal.stringFromCardBrand(brand) {
+                            self.declineCardBrand = brand
+                            break
+                        }
+                        self.updateContent()
+                    }
+                },
+                accessory: .disclosureIndicator,
+                cellClass: Value1Cell.self
+            ),
+            Row(
+                text: "Recollect After Card Brand Decline",
+                accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
+                    recollectAfterCardBrandDecline.toggle()
                     self.updateContent()
                 }
-            }, accessory: .disclosureIndicator, cellClass: Value1Cell.self),
-            Row(text: "Recollect After Card Brand Decline", accessory: .switchToggle(value: recollectAfterCardBrandDecline) { [unowned self] _ in
-                recollectAfterCardBrandDecline.toggle()
-                self.updateContent()
-            }),
+            ),
         ]
         let rows = self.updatePaymentIntent ? (switchRow + contentRows) : switchRow
 
@@ -488,34 +593,41 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     private func makeSetupFutureUsageSection() -> Section? {
         let sfuItems = ["default", "on_session", "off_session"]
         let sfuRows: [Row] = [
-            Row(text: "Value",
+            Row(
+                text: "Value",
                 accessory: .segmentedControl(
                     items: sfuItems,
-                    selectedIndex: sfuItems.firstIndex(of: self.setupFutureUsage ?? "") ?? 0) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.setupFutureUsage = nil
-                        case 1: self.setupFutureUsage = "on_session"
-                        case 2: self.setupFutureUsage = "off_session"
-                        default:
-                            fatalError("Unknown option selected")
-                        }
-                        updateContent()
+                    selectedIndex: sfuItems.firstIndex(of: self.setupFutureUsage ?? "") ?? 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.setupFutureUsage = nil
+                    case 1: self.setupFutureUsage = "on_session"
+                    case 2: self.setupFutureUsage = "off_session"
+                    default:
+                        fatalError("Unknown option selected")
                     }
-               )
+                    updateContent()
+                }
+            )
         ]
         let allowRedisplayOptions = [AllowRedisplay.always, AllowRedisplay.limited, AllowRedisplay.unspecified]
         let allowRedisplayItems = ["always", "limited", "unspecified"]
         let allowRedisplayRows: [Row] = [
-            Row(text: "Allow Redisplay",
+            Row(
+                text: "Allow Redisplay",
                 accessory: .segmentedControl(
                     items: allowRedisplayItems,
-                    selectedIndex: allowRedisplayOptions.firstIndex(of: self.allowRedisplay) ?? 0) { [unowned self] newIndex, _ in
-                        self.allowRedisplay = allowRedisplayOptions[newIndex]
-                        updateContent()
-                    }
-               )
-            ]
-        return Section(header: "SETUP FUTURE USAGE", rows: self.setupFutureUsage?.isEmpty == false ? (sfuRows + allowRedisplayRows) : sfuRows)
+                    selectedIndex: allowRedisplayOptions.firstIndex(of: self.allowRedisplay) ?? 0
+                ) { [unowned self] newIndex, _ in
+                    self.allowRedisplay = allowRedisplayOptions[newIndex]
+                    updateContent()
+                }
+            )
+        ]
+        return Section(
+            header: "SETUP FUTURE USAGE",
+            rows: self.setupFutureUsage?.isEmpty == false ? (sfuRows + allowRedisplayRows) : sfuRows
+        )
     }
 
     func makeDestinationPaymentSection() -> Section {
@@ -540,29 +652,39 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     }
 
     private func makeOfflineTransactionLimitSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Offline Mode Transaction Limit"), rows: [], footer: .autoLayoutView(offlineTransactionLimitTextField))
+        let offlineTransactionLimitSection = Section(
+            header: .title("Offline Mode Transaction Limit"),
+            rows: [],
+            footer: .autoLayoutView(offlineTransactionLimitTextField)
+        )
         return offlineTransactionLimitSection
     }
 
     private func makeOfflineStoredTransactionLimitSection() -> Section {
-        let offlineStoredTransactionLimitSection = Section(header: .title("Offline Mode Stored Transaction Limit"), rows: [], footer: .autoLayoutView(offlineStoredTransactionLimitTextField))
+        let offlineStoredTransactionLimitSection = Section(
+            header: .title("Offline Mode Stored Transaction Limit"),
+            rows: [],
+            footer: .autoLayoutView(offlineStoredTransactionLimitTextField)
+        )
         return offlineStoredTransactionLimitSection
     }
 
     private func makeOfflineBehaviorSection() -> Section {
         let rows: [Row] = [
-            Row(accessory: .segmentedControl(
+            Row(
+                accessory: .segmentedControl(
                     items: ["prefer online", "require online", "force offline"],
-                    selectedIndex: 0) { [unowned self] newIndex, _ in
-                        switch newIndex {
-                        case 0: self.offlineBehavior = .preferOnline
-                        case 1: self.offlineBehavior = .requireOnline
-                        case 2: self.offlineBehavior = .forceOffline
-                        default:
-                            fatalError("Unknown option selected")
-                        }
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.offlineBehavior = .preferOnline
+                    case 1: self.offlineBehavior = .requireOnline
+                    case 2: self.offlineBehavior = .forceOffline
+                    default:
+                        fatalError("Unknown option selected")
                     }
-               )
+                }
+            )
         ]
 
         return Section(header: "OFFLINE BEHAVIOR", rows: rows)
@@ -571,32 +693,47 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
     /// Makes the "DCC" section.
     private func makeRequestDccSection() -> Section {
         let rows: [Row] = [
-            Row(text: "Dynamic Currency Conversion", accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
-                if !updatePaymentIntent {
-                    self.updatePaymentIntent.toggle()
+            Row(
+                text: "Dynamic Currency Conversion",
+                accessory: .switchToggle(value: self.requestDcc) { [unowned self] _ in
+                    if !updatePaymentIntent {
+                        self.updatePaymentIntent.toggle()
+                    }
+                    self.requestDcc.toggle()
+                    self.updateContent()
                 }
-                self.requestDcc.toggle()
-                self.updateContent()
-            })
+            )
         ]
         return Section(header: "Request Dynamic Currency Conversion", rows: rows)
     }
 
     /// Makes the "Surcharge notice" section.
     private func makeSurchargeNoticeSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Surcharge Notice"), rows: [], footer: .autoLayoutView(surchargeNoticeTextField))
+        let offlineTransactionLimitSection = Section(
+            header: .title("Surcharge Notice"),
+            rows: [],
+            footer: .autoLayoutView(surchargeNoticeTextField)
+        )
         return offlineTransactionLimitSection
     }
 
     /// Makes the "Amount Surcharge" section.
     private func makeAmountSurchargeSection() -> Section {
-        let offlineTransactionLimitSection = Section(header: .title("Amount Surcharge"), rows: [], footer: .autoLayoutView(amountSurchargeTextField))
+        let offlineTransactionLimitSection = Section(
+            header: .title("Amount Surcharge"),
+            rows: [],
+            footer: .autoLayoutView(amountSurchargeTextField)
+        )
         return offlineTransactionLimitSection
     }
 
     /// Makes the "Return URL" section.
     private func makeReturnUrlSection() -> Section {
-        let returnUrlSection = Section(header: .title("Return URL"), rows: [], footer: .autoLayoutView(returnUrlTextField))
+        let returnUrlSection = Section(
+            header: .title("Return URL"),
+            rows: [],
+            footer: .autoLayoutView(returnUrlTextField)
+        )
         return returnUrlSection
     }
 
@@ -621,13 +758,12 @@ private lazy var offlineStoredTransactionLimitTextField: TextFieldView = {
             self.makeOfflineBehaviorSection(),
             self.makeSetupFutureUsageSection(),
             self.makeReturnUrlSection(),
-            self.startSection
+            self.startSection,
         ]
 
         dataSource.sections = sections.compactMap { $0 }
     }
 }
-
 
 extension StartPaymentViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

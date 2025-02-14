@@ -6,8 +6,8 @@
 //  Copyright © 2017 Stripe. All rights reserved.
 //
 
-import UIKit
 import StripeTerminal
+import UIKit
 
 class RootViewController: LargeTitleNavigationController {
     init() {
@@ -29,15 +29,22 @@ class RootViewController: LargeTitleNavigationController {
         view.addSubview(viewToToast)
 
         viewToToast.alpha = 0.0
-        UIView.animate(withDuration: 0.25, animations: {
-            viewToToast.alpha = 1.0
-        })
+        UIView.animate(
+            withDuration: 0.25,
+            animations: {
+                viewToToast.alpha = 1.0
+            }
+        )
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
-            UIView.animate(withDuration: 0.25, animations: {
-                viewToToast.alpha = 0.0
-            }, completion: { _ in
-                viewToToast.removeFromSuperview()
-            })
+            UIView.animate(
+                withDuration: 0.25,
+                animations: {
+                    viewToToast.alpha = 0.0
+                },
+                completion: { _ in
+                    viewToToast.removeFromSuperview()
+                }
+            )
         }
     }
 }

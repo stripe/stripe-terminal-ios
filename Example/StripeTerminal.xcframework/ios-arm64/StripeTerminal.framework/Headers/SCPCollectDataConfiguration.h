@@ -25,6 +25,22 @@ NS_SWIFT_NAME(CollectDataConfiguration)
 /// The non-payment data type to read (eg. magstripe).
 @property (nonatomic, readonly, assign) SCPCollectDataType collectDataType;
 
+/**
+ Whether to show a cancel button in transaction UI on Stripe smart readers.
+
+ Defaults to NO.
+ */
+@property (nonatomic, assign, readonly) BOOL enableCustomerCancellation;
+
+/**
+ Use `SCPCollectDataConfigurationBuilder`.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+/**
+ Use `SCPCollectDataConfigurationBuilder`.
+ */
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**
@@ -35,6 +51,9 @@ NS_SWIFT_NAME(CollectDataConfigurationBuilder)
 
 /// Set the collectDataType property for the `CollectDataConfiguration` object that will be built.
 - (SCPCollectDataConfigurationBuilder *)setCollectDataType:(SCPCollectDataType)collectDataType;
+
+/// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
+- (SCPCollectDataConfigurationBuilder *)setEnableCustomerCancellation:(BOOL)enableCustomerCancellation;
 
 @end
 

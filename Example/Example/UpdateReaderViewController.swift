@@ -6,9 +6,9 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class UpdateReaderViewController: TableViewController, CancelableViewController {
     // This VC is used in two slightly different instances.
@@ -45,7 +45,11 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     }
 
     /// Initializer to use  when a required update has started installing to provide the cancelable for that update.
-    convenience init(updateBeingInstalled: ReaderSoftwareUpdate, cancelable: Cancelable?, updateInstalledCompletion: @escaping () -> Void) {
+    convenience init(
+        updateBeingInstalled: ReaderSoftwareUpdate,
+        cancelable: Cancelable?,
+        updateInstalledCompletion: @escaping () -> Void
+    ) {
         self.init(update: updateBeingInstalled, type: .required, updateInstalledCompletion: updateInstalledCompletion)
         self.cancelable = cancelable
         setAllowedCancelMethods(cancelable == nil ? [] : [.button])
@@ -80,7 +84,12 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneButton.isEnabled = false
         self.doneButton = doneButton
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
+        let cancelButton = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(cancelAction)
+        )
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
@@ -112,14 +121,16 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         let updateFooter: String
         let updateRow: Row
         if let progress = updateProgress {
-            let percent = Int(progress*100)
+            let percent = Int(progress * 100)
             var footerStrings = [
                 "Update progress: \(percent)%",
                 updateVersionText(),
-                "⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete."
+                "⚠️ The reader will temporarily become unresponsive. Do not leave this page, and keep the reader in range and powered on until the update is complete.",
             ]
             if updateType == .required {
-                footerStrings.append("⚠️ This update is required for this reader to be used. Canceling the update will cancel the connection to the reader.")
+                footerStrings.append(
+                    "⚠️ This update is required for this reader to be used. Canceling the update will cancel the connection to the reader."
+                )
             }
             updateFooter = footerStrings.joined(separator: "\n\n")
             updateRow = Row(text: "⏱ \(updateType == .required ? "Required update" : "Update") in progress")
@@ -129,9 +140,13 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         } else if update != nil {
             updateFooter = updateVersionText()
             updateButtonText = "Install update"
-            updateRow = Row(text: updateButtonText, selection: { [unowned self] in
-                self.installUpdate()
-                }, cellClass: ButtonCell.self)
+            updateRow = Row(
+                text: updateButtonText,
+                selection: { [unowned self] in
+                    self.installUpdate()
+                },
+                cellClass: ButtonCell.self
+            )
         } else {
             // The update has been installed
             updateRow = Row(text: "✅ Update Installed")
@@ -142,9 +157,12 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         var downArrow: Section.Extremity?
         var targetSection: Section?
         if update?.deviceSoftwareVersion != nil {
-            targetSection = Section(header: "Target Version", rows: [
-                Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
-            ])
+            targetSection = Section(
+                header: "Target Version",
+                rows: [
+                    Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
+                ]
+            )
 
             // Cram a nice down arrow in between the two versions to clarify what's being installed
             let imageView = UIImageView(image: UIImage(systemName: "arrow.down.circle.fill"))
@@ -158,11 +176,15 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
 
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-            Section(header: "Current Version", rows: [
-                Row(text: currentVersion, cellClass: Value1MultilineCell.self),
-            ], footer: downArrow),
+            Section(
+                header: "Current Version",
+                rows: [
+                    Row(text: currentVersion, cellClass: Value1MultilineCell.self)
+                ],
+                footer: downArrow
+            ),
             targetSection,
-            Section(header: "", rows: [updateRow], footer: Section.Extremity.title(updateFooter))
+            Section(header: "", rows: [updateRow], footer: Section.Extremity.title(updateFooter)),
         ].compactMap { $0 }
 
         // Prevent cancel to dismiss during a required update that doesn't have a cancelable
@@ -176,7 +198,9 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
             cancelable.cancel { error in
                 self.setAllowedCancelMethods(.all)
 
-                if self.updateType == .required && (error as NSError?)?.code == ErrorCode.cancelFailedAlreadyCompleted.rawValue {
+                if self.updateType == .required
+                    && (error as NSError?)?.code == ErrorCode.cancelFailedAlreadyCompleted.rawValue
+                {
                     // Required updates auto dismiss on success, so if the cancel failed because install finished
                     // so for now, drop the error and let the dismiss happen.
                     return
@@ -271,7 +295,10 @@ extension UpdateReaderViewController: MobileReaderDelegate {
         }
         self.updateProgress = nil
         if error == nil {
-            self.presentAlert(title: "Update successful", message: "The reader has been updated to \(update?.deviceSoftwareVersion ?? "no update available").")
+            self.presentAlert(
+                title: "Update successful",
+                message: "The reader has been updated to \(update?.deviceSoftwareVersion ?? "no update available")."
+            )
             self.doneButton?.isEnabled = true
             self.setAllowedCancelMethods([.swipe])
             self.update = nil
@@ -289,7 +316,11 @@ extension UpdateReaderViewController: MobileReaderDelegate {
 
 // MARK: TapToPayReaderDelegate
 extension UpdateReaderViewController: TapToPayReaderDelegate {
-    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    func tapToPayReader(
+        _ reader: Reader,
+        didStartInstallingUpdate update: ReaderSoftwareUpdate,
+        cancelable: Cancelable?
+    ) {
         self.cancelable = cancelable
     }
 

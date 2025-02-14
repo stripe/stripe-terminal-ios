@@ -6,8 +6,8 @@
 //  Copyright © 2017 Stripe. All rights reserved.
 //
 
-import UIKit
 import StripeTerminal
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // This can be used to set the location in the ConnectionConfiguration.
     var locationToRegisterTo: Location?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         guard let backendUrl = AppDelegate.backendUrl else {
             fatalError("You must provide a backend URL to run this app.")
         }

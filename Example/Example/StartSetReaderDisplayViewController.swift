@@ -6,9 +6,9 @@
 //  Copyright © 2020 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartSetReaderDisplayViewController: TableViewController {
 
@@ -19,10 +19,16 @@ class StartSetReaderDisplayViewController: TableViewController {
 
     private var lineItems = [CartLineItem]()
 
-    lazy var taxSection = Section(header: Section.Extremity.title("Tax: \(self.taxView.amountString)"), rows: [],
-                             footer: Section.Extremity.autoLayoutView(taxView))
-    lazy var totalSection = Section(header: Section.Extremity.title("Total: \(self.totalView.amountString)"), rows: [],
-                               footer: Section.Extremity.autoLayoutView(totalView))
+    lazy var taxSection = Section(
+        header: Section.Extremity.title("Tax: \(self.taxView.amountString)"),
+        rows: [],
+        footer: Section.Extremity.autoLayoutView(taxView)
+    )
+    lazy var totalSection = Section(
+        header: Section.Extremity.title("Total: \(self.totalView.amountString)"),
+        rows: [],
+        footer: Section.Extremity.autoLayoutView(totalView)
+    )
 
     convenience init() {
         self.init(style: .grouped)
@@ -50,13 +56,22 @@ class StartSetReaderDisplayViewController: TableViewController {
         }
 
         let footerString: String
-        footerString = "Send the cart to be displayed on the reader. This is not indicitive of what the user will be charged, only what will be displayed."
+        footerString =
+            "Send the cart to be displayed on the reader. This is not indicitive of what the user will be charged, only what will be displayed."
 
-        self.setReaderDisplaySection = Section(header: nil, rows: [
-            Row(text: "Set Reader Display", selection: { [unowned self] in
-                self.startSetReaderDisplay()
-            }, cellClass: ButtonCell.self),
-        ], footer: Section.Extremity.title(footerString))
+        self.setReaderDisplaySection = Section(
+            header: nil,
+            rows: [
+                Row(
+                    text: "Set Reader Display",
+                    selection: { [unowned self] in
+                        self.startSetReaderDisplay()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ],
+            footer: Section.Extremity.title(footerString)
+        )
 
         updateContent()
     }
@@ -86,7 +101,10 @@ class StartSetReaderDisplayViewController: TableViewController {
                 if let error = error {
                     self.presentAlert(error: error)
                 } else {
-                    self.presentAlert(title: "Set Reader Display", message: "Successfully updated the display with the specified cart")
+                    self.presentAlert(
+                        title: "Set Reader Display",
+                        message: "Successfully updated the display with the specified cart"
+                    )
                 }
             }
         } catch {
@@ -101,13 +119,20 @@ class StartSetReaderDisplayViewController: TableViewController {
             if let error = error {
                 self.presentAlert(error: error)
             } else {
-                self.presentAlert(title: "Clear Reader Display", message: "Successfully cleared the display back to the splash screen")
+                self.presentAlert(
+                    title: "Clear Reader Display",
+                    message: "Successfully cleared the display back to the splash screen"
+                )
             }
         }
     }
 
     internal func addLineItem() {
-        let alertController = UIAlertController(title: "Add New Line Item", message: "", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(
+            title: "Add New Line Item",
+            message: "",
+            preferredStyle: UIAlertController.Style.alert
+        )
         alertController.addTextField { (textField: UITextField) in
             textField.placeholder = "Display Name"
         }
@@ -120,28 +145,37 @@ class StartSetReaderDisplayViewController: TableViewController {
             textField.keyboardType = .numberPad
         }
 
-        let createAction = UIAlertAction(title: "Create", style: UIAlertAction.Style.default, handler: { [unowned self] _ in
-            guard let displayNameTextField = alertController.textFields?[0],
-                let priceTextField = alertController.textFields?[1],
-                let quantityTextField = alertController.textFields?[2],
-                let displayName = displayNameTextField.text,
-                let quantity = Int(quantityTextField.text ?? "0"),
-                let amount = Int(priceTextField.text ?? "0") else {
-                return
-            }
+        let createAction = UIAlertAction(
+            title: "Create",
+            style: UIAlertAction.Style.default,
+            handler: { [unowned self] _ in
+                guard let displayNameTextField = alertController.textFields?[0],
+                    let priceTextField = alertController.textFields?[1],
+                    let quantityTextField = alertController.textFields?[2],
+                    let displayName = displayNameTextField.text,
+                    let quantity = Int(quantityTextField.text ?? "0"),
+                    let amount = Int(priceTextField.text ?? "0")
+                else {
+                    return
+                }
 
-            do {
-                let lineItem = try CartLineItemBuilder(displayName: displayName)
-                    .setAmount(amount)
-                    .setQuantity(quantity)
-                    .build()
-                lineItems.append(lineItem)
-            } catch {
-                self.presentAlert(error: error)
+                do {
+                    let lineItem = try CartLineItemBuilder(displayName: displayName)
+                        .setAmount(amount)
+                        .setQuantity(quantity)
+                        .build()
+                    lineItems.append(lineItem)
+                } catch {
+                    self.presentAlert(error: error)
+                }
+                self.updateContent()
             }
-            self.updateContent()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) in })
+        )
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: UIAlertAction.Style.default,
+            handler: { (_: UIAlertAction!) in }
+        )
 
         alertController.addAction(cancelAction)
         alertController.addAction(createAction)
@@ -150,28 +184,62 @@ class StartSetReaderDisplayViewController: TableViewController {
     }
 
     private func updateContent() {
-        let currencySection = Section(header: "Currency", rows: [],
-                                      footer: Section.Extremity.autoLayoutView(currencyView))
+        let currencySection = Section(
+            header: "Currency",
+            rows: [],
+            footer: Section.Extremity.autoLayoutView(currencyView)
+        )
 
         var lineItemsRows: [Row] = []
         for lineItem in self.lineItems {
-            let row = Row(text: lineItem.displayName, detailText: "\(lineItem.amount) ×\(lineItem.quantity)", selection: .none, image: nil, accessory: .none, cellClass: SubtitleCell.self, context: nil, editActions: [.init(title: "Delete", style: .normal, backgroundColor: .systemRed, backgroundEffect: nil, selection: { [unowned self] (indexPath) in
-                self.lineItems.remove(at: indexPath.row)
-                self.updateContent()
-            })])
+            let row = Row(
+                text: lineItem.displayName,
+                detailText: "\(lineItem.amount) ×\(lineItem.quantity)",
+                selection: .none,
+                image: nil,
+                accessory: .none,
+                cellClass: SubtitleCell.self,
+                context: nil,
+                editActions: [
+                    .init(
+                        title: "Delete",
+                        style: .normal,
+                        backgroundColor: .systemRed,
+                        backgroundEffect: nil,
+                        selection: { [unowned self] (indexPath) in
+                            self.lineItems.remove(at: indexPath.row)
+                            self.updateContent()
+                        }
+                    )
+                ]
+            )
             lineItemsRows.append(row)
         }
 
-        lineItemsRows.append(Row(text: "+ Add Line Item", selection: { [unowned self] in
-            self.addLineItem()
-        }, cellClass: ButtonCell.self))
+        lineItemsRows.append(
+            Row(
+                text: "+ Add Line Item",
+                selection: { [unowned self] in
+                    self.addLineItem()
+                },
+                cellClass: ButtonCell.self
+            )
+        )
         let lineItemsSection = Section(header: "Line Items", rows: lineItemsRows)
 
-        let clearReaderDisplaySection = Section(header: nil, rows: [
-            Row(text: "Clear Reader Display", selection: { [unowned self] in
-                self.clearReaderDisplay()
-            }, cellClass: ButtonCell.self),
-        ], footer: nil)
+        let clearReaderDisplaySection = Section(
+            header: nil,
+            rows: [
+                Row(
+                    text: "Clear Reader Display",
+                    selection: { [unowned self] in
+                        self.clearReaderDisplay()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ],
+            footer: nil
+        )
 
         guard let setReaderDisplaySection = self.setReaderDisplaySection else {
             return
@@ -183,7 +251,7 @@ class StartSetReaderDisplayViewController: TableViewController {
             taxSection,
             totalSection,
             setReaderDisplaySection,
-            clearReaderDisplaySection
+            clearReaderDisplaySection,
         ]
 
         dataSource.sections = sections

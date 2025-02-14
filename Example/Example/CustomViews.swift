@@ -6,9 +6,9 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 open class RedButtonCell: ButtonCell {
     // MARK: - Initializers
@@ -78,7 +78,8 @@ open class LogEventCell: UITableViewCell, Cell {
 class AmountInputView: TextFieldView, UITextFieldDelegate {
     var amount: UInt {
         if let text = textField.text,
-            let amount = UInt(text) {
+            let amount = UInt(text)
+        {
             return amount
         }
         return 0
@@ -86,7 +87,7 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
     var amountString: String {
         var doubleAmount = Double(amount)
         if !StripeCurrencies.isNoDecimalCurrency(currency: self.numberFormatter.currencyCode) {
-            doubleAmount = Double(amount)/Double(100)
+            doubleAmount = Double(amount) / Double(100)
         }
         return numberFormatter.string(from: NSNumber(value: doubleAmount)) ?? ""
     }
@@ -96,16 +97,27 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
     private let defaultAmount: UInt = 100
 
     convenience init(header: String? = nil, footer: String? = nil, placeholderText: String? = nil) {
-        self.init(text: "Amount", header: header, footer: footer, placeholderText: placeholderText, keyboardType: .numberPad)
+        self.init(
+            text: "Amount",
+            header: header,
+            footer: footer,
+            placeholderText: placeholderText,
+            keyboardType: .numberPad
+        )
         textField.text = String(defaultAmount)
         textField.delegate = self
         numberFormatter.currencyCode = "usd"
         numberFormatter.numberStyle = .currency
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
         if let text = textField.text,
-            let textRange = Range(range, in: text) {
+            let textRange = Range(range, in: text)
+        {
             let newText = text.replacingCharacters(in: textRange, with: string)
             if newText.count < 9 {
                 textField.text = newText
@@ -195,7 +207,6 @@ class CurrencyInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
-
 class CountryInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSource {
 
     /// An uppercased  representation of the currently selected country code, e.g. "us"
@@ -265,18 +276,20 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .available,
         .none,
         .required,
+        .requiredForOffline,
         .lowBattery,
         .lowBatterySucceedConnect,
-        .random
+        .random,
     ]
 
     let updateTypeDescriptions: [SimulateReaderUpdate: String] = [
         .available: "Update Available",
         .none: "No Update",
         .required: "Update Required",
+        .requiredForOffline: "Update required for offline connection",
         .lowBattery: "Update required; reader has low battery",
         .lowBatterySucceedConnect: "Required update fails, reader connects",
-        .random: "Random"
+        .random: "Random",
     ]
 
     convenience init() {
@@ -288,7 +301,11 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
         textField.inputView = pickerView
-        pickerView.selectRow(updateTypesInDisplayOrder.firstIndex(of: initialSelectedReaderUpdate) ?? 0, inComponent: 0, animated: false)
+        pickerView.selectRow(
+            updateTypesInDisplayOrder.firstIndex(of: initialSelectedReaderUpdate) ?? 0,
+            inComponent: 0,
+            animated: false
+        )
     }
 
     func initialize() {
@@ -310,6 +327,7 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Terminal.shared.simulatorConfiguration.availableReaderUpdate = updateTypesInDisplayOrder[row]
         textField.text = updateTypeDescriptions[updateTypesInDisplayOrder[row]]
+        textField.resignFirstResponder()
     }
 }
 
@@ -346,7 +364,7 @@ class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
         .chargeDeclinedStolenCard,
         .chargeDeclinedExpiredCard,
         .chargeDeclinedProcessingError,
-        .refundFailed
+        .refundFailed,
     ]
 
     convenience init() {
@@ -383,7 +401,6 @@ class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
     }
 }
 
-
 class TextFieldView: UIView {
     lazy var textField: InsetTextField = {
         let textField = InsetTextField()
@@ -418,7 +435,13 @@ class TextFieldView: UIView {
         return label
     }()
 
-    init(text: String? = nil, header: String? = nil, footer: String? = nil, placeholderText: String? = nil, keyboardType: UIKeyboardType = .default) {
+    init(
+        text: String? = nil,
+        header: String? = nil,
+        footer: String? = nil,
+        placeholderText: String? = nil,
+        keyboardType: UIKeyboardType = .default
+    ) {
         super.init(frame: .zero)
         buildTextView(header: header, footer: footer, placeholderText: placeholderText)
         configureKeyboard(type: keyboardType)
@@ -431,11 +454,13 @@ class TextFieldView: UIView {
         headerLabel.text = header
         addSubview(footerLabel)
 
-        let stack = UIStackView(arrangedSubviews: [
-            header != nil ? headerLabel : nil,
-            textField,
-            footer != nil ? footerLabel : nil
-        ].compactMap { return $0 })
+        let stack = UIStackView(
+            arrangedSubviews: [
+                header != nil ? headerLabel : nil,
+                textField,
+                footer != nil ? footerLabel : nil,
+            ].compactMap { return $0 }
+        )
         stack.axis = .vertical
         stack.distribution = .equalSpacing
 
@@ -457,7 +482,12 @@ class TextFieldView: UIView {
             toolbar.sizeToFit()
 
             let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissKeyboard))
+            let doneButton = UIBarButtonItem(
+                title: "Done",
+                style: .done,
+                target: self,
+                action: #selector(dismissKeyboard)
+            )
 
             toolbar.items = [flexSpace, doneButton]
 
@@ -540,7 +570,11 @@ class LinkTextView: UIView {
         textView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor).isActive = true
         textView.setContentOffset(CGPoint.zero, animated: false)
 
-        textView.attributedText = LinkTextView.buildAttributedString(prefix: prefix, linkName: linkName, urlString: urlString)
+        textView.attributedText = LinkTextView.buildAttributedString(
+            prefix: prefix,
+            linkName: linkName,
+            urlString: urlString
+        )
         textView.sizeToFit()
         frame = CGRect(x: 0, y: 0, width: 0, height: textView.bounds.height)
     }
@@ -577,7 +611,7 @@ class ActivityIndicatorHeaderView: UIView {
         activityIndicator.setContentHuggingPriority(.required - 1, for: .horizontal)
         let stack = UIStackView(arrangedSubviews: [
             label,
-            activityIndicator
+            activityIndicator,
         ])
         stack.axis = .horizontal
         stack.distribution = .fill

@@ -42,6 +42,15 @@ typedef NS_ENUM(NSUInteger, SCPSimulateReaderUpdate) {
     SCPSimulateReaderUpdateRequired,
 
     /**
+     A required full reader software update exists and is necessary to connect
+     the reader while offline.
+     - When connecting offline, the connection will fail because the reader's
+     version is not allowed to connect.
+     - When connecting online, this reader will update and connect normally.
+     */
+    SCPSimulateReaderUpdateRequiredForOffline,
+
+    /**
      A required update exists.
      - When connecting to a Bluetooth reader, the connection will fail because
        the reader's battery is too low for an update to begin.

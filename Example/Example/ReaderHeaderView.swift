@@ -6,8 +6,8 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import StripeTerminal
+import UIKit
 
 class ReaderHeaderView: UIView {
 
@@ -27,8 +27,10 @@ class ReaderHeaderView: UIView {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let spacerLabel = UILabel()
-    private let titleFont = UIFont.systemFont(ofSize: UIFont.labelFontSize,
-                                              weight: UIFont.Weight.medium)
+    private let titleFont = UIFont.systemFont(
+        ofSize: UIFont.labelFontSize,
+        weight: UIFont.Weight.medium
+    )
     private let subtitleFont = UIFont.systemFont(ofSize: 14)
     private let titleColor = UIColor.darkText
     private let subtitleColor = UIColor.gray
@@ -53,7 +55,7 @@ class ReaderHeaderView: UIView {
             imageView,
             titleLabel,
             subtitleLabel,
-            spacerLabel
+            spacerLabel,
         ])
         stack.spacing = 5
         stack.axis = .vertical

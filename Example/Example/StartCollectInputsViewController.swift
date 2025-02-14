@@ -6,9 +6,9 @@
 //  Copyright © 2023 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartCollectInputsViewController: TableViewController {
 
@@ -40,7 +40,6 @@ class StartCollectInputsViewController: TableViewController {
                 .setSkipButtonText("skip form")
                 .setSubmitButtonText("submit signature")
                 .build()
-
 
             let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes")
                 .build()
@@ -89,7 +88,6 @@ class StartCollectInputsViewController: TableViewController {
                 .setSkipButtonText("Skip")
                 .setSubmitButtonText("Done")
                 .build()
-
 
             let collectInputsParams = try CollectInputsParametersBuilder(
                 inputs: [textInput, numericInput, emailInput, phoneInput]
@@ -146,21 +144,33 @@ class StartCollectInputsViewController: TableViewController {
     private func updateContent() {
         var sections = [Section]()
         let signatureAndSelectionForms = Section(rows: [
-            Row(text: "Signature and selection forms", selection: { [unowned self] in
-                self.startSignatureAndSelectionForms()
-            }, cellClass: ButtonCell.self),
+            Row(
+                text: "Signature and selection forms",
+                selection: { [unowned self] in
+                    self.startSignatureAndSelectionForms()
+                },
+                cellClass: ButtonCell.self
+            )
         ])
 
         let textNumericEmailPhoneForms = Section(rows: [
-            Row(text: "Phone, email, numeric, and text forms", selection: { [unowned self] in
-                self.startTextNumericEmailPhoneForms()
-            }, cellClass: ButtonCell.self),
+            Row(
+                text: "Phone, email, numeric, and text forms",
+                selection: { [unowned self] in
+                    self.startTextNumericEmailPhoneForms()
+                },
+                cellClass: ButtonCell.self
+            )
         ])
 
         let signatureAndSelectionFormsWithToggles = Section(rows: [
-            Row(text: "Signature and selection forms with toggles", selection: { [unowned self] in
-                self.startSignatureAndSelectionFormsWithToggles()
-            }, cellClass: ButtonCell.self),
+            Row(
+                text: "Signature and selection forms with toggles",
+                selection: { [unowned self] in
+                    self.startSignatureAndSelectionFormsWithToggles()
+                },
+                cellClass: ButtonCell.self
+            )
         ])
 
         sections.append(signatureAndSelectionForms)

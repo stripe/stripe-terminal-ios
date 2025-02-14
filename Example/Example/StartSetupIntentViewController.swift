@@ -6,19 +6,22 @@
 //  Copyright © 2023 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartSetupIntentViewController: TableViewController {
     private let isSposReader: Bool
+    private let isTtpReader: Bool
     private var enableCustomerCancellation: Bool = false
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
     private var moto = false
+    private var collectionReason: SetupIntentCollectionReason = SetupIntentCollectionReason.saveCard
     private var startSection: Section?
 
-    init(isSposReader: Bool) {
+    init(isSposReader: Bool, isTtpReader: Bool) {
         self.isSposReader = isSposReader
+        self.isTtpReader = isTtpReader
         super.init(style: .grouped)
     }
 
@@ -32,9 +35,13 @@ class StartSetupIntentViewController: TableViewController {
         title = "Collect SetupIntent"
 
         self.startSection = Section(rows: [
-            Row(text: "Collect SetupIntent", selection: { [unowned self] in
-                self.startSetupIntent()
-            }, cellClass: ButtonCell.self),
+            Row(
+                text: "Collect SetupIntent",
+                selection: { [unowned self] in
+                    self.startSetupIntent()
+                },
+                cellClass: ButtonCell.self
+            )
         ])
 
         updateContent()
@@ -57,8 +64,13 @@ class StartSetupIntentViewController: TableViewController {
             let setupIntentConfig = try SetupIntentConfigurationBuilder()
                 .setEnableCustomerCancellation(enableCustomerCancellation)
                 .setMoto(moto)
+                .setCollectionReason(collectionReason)
                 .build()
-            let vc = SetupIntentViewController(setupParams: setupIntentParams, setupConfig: setupIntentConfig, allowRedisplay: allowRedisplay)
+            let vc = SetupIntentViewController(
+                setupParams: setupIntentParams,
+                setupConfig: setupIntentConfig,
+                allowRedisplay: allowRedisplay
+            )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             self.present(navController, animated: true, completion: nil)
         } catch {
@@ -80,8 +92,12 @@ class StartSetupIntentViewController: TableViewController {
 
     private func makeTransactionSection() -> Section? {
         var rows = [
-            Row(text: "Allow Redisplay", accessory: .segmentedControl(
-                items: ["always", "limited", "unspecified"], selectedIndex: 0) { [unowned self] newIndex, _ in
+            Row(
+                text: "Allow Redisplay",
+                accessory: .segmentedControl(
+                    items: ["always", "limited", "unspecified"],
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
                     switch newIndex {
                     case 0: self.allowRedisplay = AllowRedisplay.always
                     case 1: self.allowRedisplay = AllowRedisplay.limited
@@ -93,14 +109,44 @@ class StartSetupIntentViewController: TableViewController {
             )
         ]
         if self.isSposReader {
-            rows.append(Row(text: "Customer cancellation", accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                self.enableCustomerCancellation.toggle()
-                self.updateContent()
-            }))
-            rows.append(Row(text: "Mail Order / Telephone Order", accessory: .switchToggle(value: moto, { [unowned self] _ in
-                self.moto.toggle()
-                self.updateContent()
-            })))
+            rows.append(
+                Row(
+                    text: "Customer cancellation",
+                    accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                        self.enableCustomerCancellation.toggle()
+                        self.updateContent()
+                    }
+                )
+            )
+            rows.append(
+                Row(
+                    text: "Mail Order / Telephone Order",
+                    accessory: .switchToggle(
+                        value: moto,
+                        { [unowned self] _ in
+                            self.moto.toggle()
+                            self.updateContent()
+                        }
+                    )
+                )
+            )
+        } else if isTtpReader {
+            rows.append(
+                Row(
+                    text: "Collection Reason",
+                    accessory: .segmentedControl(
+                        items: ["saveCard", "verification"],
+                        selectedIndex: 0
+                    ) { [unowned self] newIndex, _ in
+                        switch newIndex {
+                        case 0: self.collectionReason = SetupIntentCollectionReason.saveCard
+                        case 1: self.collectionReason = SetupIntentCollectionReason.verify
+                        default:
+                            fatalError("Unknown option selected")
+                        }
+                    }
+                )
+            )
         }
         return Section(header: "TRANSACTION_FEATURES", rows: rows)
     }

@@ -10,14 +10,15 @@ import UIKit
 
 extension UIViewController {
     func topViewController() -> UIViewController? {
-        guard let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .compactMap({$0 as? UIWindowScene})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first else {
+        guard
+            let keyWindow = UIApplication.shared.connectedScenes
+                .filter({ $0.activationState == .foregroundActive })
+                .compactMap({ $0 as? UIWindowScene })
+                .first?.windows
+                .filter({ $0.isKeyWindow }).first
+        else {
             return nil
         }
-
 
         guard var topViewController = keyWindow.rootViewController else {
             return nil

@@ -6,9 +6,9 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class ReaderViewController: TableViewController, CancelingViewController {
     internal var connectedReader: Reader? {
@@ -27,7 +27,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
     internal let headerView = ReaderHeaderView()
     /// Will be set during connect from the DiscoveryViewController if an update is reported
     private var pendingUpdate: ReaderSoftwareUpdate?
-    private var reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader has disconnected", preferredStyle: .alert)
+    private var reconnectionAlertController = UIAlertController(
+        title: "Reconnecting...",
+        message: "Reader has disconnected",
+        preferredStyle: .alert
+    )
 
     private lazy var discoveryTimeoutTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
@@ -76,6 +80,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
         ReaderViewController.readerConfiguration = ReaderConfiguration.loadFromUserDefaults()
 
+        self.connectedReader = Terminal.shared.connectedReader
+
         updateContent()
     }
 
@@ -89,6 +95,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     internal func showDiscoverReaders() throws {
         let config: DiscoveryConfiguration = try {
+            Terminal.shared.simulatorConfiguration.offlineEnabled =
+                ReaderViewController.readerConfiguration.simulatorOfflineEnabled
             let simulated = ReaderViewController.readerConfiguration.simulated
             // Cache the timeout value now that its being used
             let timeout = UInt(discoveryTimeoutTextField.text ?? "0") ?? 0
@@ -125,7 +133,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         discoveryVC.onConnectedToReader = { [weak discoveryVC] reader in
             self.onReaderConnectFrom(viewController: discoveryVC, reader: reader)
         }
-        discoveryVC.onCanceled = {[unowned self] in
+        discoveryVC.onCanceled = { [unowned self] in
             self.dismiss(animated: true, completion: nil)
         }
 
@@ -169,7 +177,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         Terminal.shared.rebootReader { error in
             if let error = error {
                 self.presentAlert(error: error)
-            } // else, the reader will have disconnected
+            }  // else, the reader will have disconnected
         }
     }
 
@@ -184,21 +192,30 @@ class ReaderViewController: TableViewController, CancelingViewController {
     }
 
     internal func showSetupIntent() {
-        let vc = StartSetupIntentViewController(isSposReader: isSposReader())
+        let vc = StartSetupIntentViewController(isSposReader: isSposReader(), isTtpReader: isTtpReader())
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     private func isSposReader() -> Bool {
-        let isSposReader = [DeviceType.stripeS700, DeviceType.stripeS700DevKit, DeviceType.wisePosE, DeviceType.wisePosEDevKit, DeviceType.etna].contains(Terminal.shared.connectedReader?.deviceType)
+        let isSposReader = [
+            DeviceType.stripeS700, DeviceType.stripeS700DevKit, DeviceType.wisePosE, DeviceType.wisePosEDevKit,
+            DeviceType.etna,
+        ].contains(Terminal.shared.connectedReader?.deviceType)
         return isSposReader
     }
 
+    private func isTtpReader() -> Bool {
+        return Terminal.shared.connectedReader?.deviceType == DeviceType.tapToPay
+    }
+
     internal func showUpdateReader(update: ReaderSoftwareUpdate) {
-        self.presentModalInNavigationController(UpdateReaderViewController(update: update) {[weak self] in
-            guard let self = self else { return }
-            self.pendingUpdate = nil
-            self.updateContent()
-        })
+        self.presentModalInNavigationController(
+            UpdateReaderViewController(update: update) { [weak self] in
+                guard let self = self else { return }
+                self.pendingUpdate = nil
+                self.updateContent()
+            }
+        )
     }
 
     internal func showDiscoveryMethods() {
@@ -236,50 +253,116 @@ class ReaderViewController: TableViewController, CancelingViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func getSimulatedReaderSection() -> Section? {
+        if ReaderViewController.readerConfiguration.simulated {
+            return Section(
+                header: "Simulated Reader Options",
+                rows: [
+                    Row(
+                        text: "Simulate Offline Mode",
+                        accessory: .switchToggle(
+                            value: ReaderViewController.readerConfiguration.simulatorOfflineEnabled
+                        ) { enabled in
+                            ReaderViewController.readerConfiguration.simulatorOfflineEnabled = enabled
+                            self.updateContent()
+                        }
+                    )
+                ].compactMap { $0 },
+                footer: Section.Extremity.autoLayoutView(ReaderUpdatePicker())
+            )
+        } else {
+            return nil
+        }
+    }
 
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
         let buildNameString = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "??"
         let buildNumberString = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) ?? "??"
-        let versions = "SDK Version: \(StripeTerminal.SCPSDKVersion) \nTest Flight Build: \(buildNameString) - \(buildNumberString)"
+        let versions =
+            "SDK Version: \(StripeTerminal.SCPSDKVersion) \nTest Flight Build: \(buildNameString) - \(buildNumberString)"
         if let connectedReader = self.connectedReader {
             var workflowRows = [
-                Row(text: "Collect card payment", detailText: "Collect a payment by reading a card", selection: { [unowned self] in
-                self.showStartPayment()
-            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self),
-                Row(text: "Store card via Setup Intents", detailText: "Create a SetupIntent for future payments.", selection: { [unowned self] in
-                self.showSetupIntent()
-            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
+                Row(
+                    text: "Collect card payment",
+                    detailText: "Collect a payment by reading a card",
+                    selection: { [unowned self] in
+                        self.showStartPayment()
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: SubtitleCell.self
+                ),
+                Row(
+                    text: "Store card via Setup Intents",
+                    detailText: "Create a SetupIntent for future payments.",
+                    selection: { [unowned self] in
+                        self.showSetupIntent()
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: SubtitleCell.self
+                ),
             ]
 
             workflowRows.append(
-                Row(text: "View stored offline payment logs", detailText: "View offline payment logs stored on this device.", selection: { [unowned self] in
-                    self.showOfflinePaymentLogs()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
+                Row(
+                    text: "View stored offline payment logs",
+                    detailText: "View offline payment logs stored on this device.",
+                    selection: { [unowned self] in
+                        self.showOfflinePaymentLogs()
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: SubtitleCell.self
+                )
             )
 
             var rebootRow: Row?
             let deviceType = connectedReader.deviceType
             switch deviceType {
             case .stripeM2, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
-                rebootRow = Row(text: "Reboot Reader", selection: { [unowned self] in
-                    self.rebootReader()
-                }, cellClass: ButtonCell.self)
+                rebootRow = Row(
+                    text: "Reboot Reader",
+                    selection: { [unowned self] in
+                        self.rebootReader()
+                    },
+                    cellClass: ButtonCell.self
+                )
 
                 if let pendingUpdate = pendingUpdate {
                     workflowRows.append(
-                        Row(text: "Update reader software", detailText: "Install an available software update for the reader.", selection: { [unowned self] in
-                            self.showUpdateReader(update: pendingUpdate)
-                            }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self)
+                        Row(
+                            text: "Update reader software",
+                            detailText: "Install an available software update for the reader.",
+                            selection: { [unowned self] in
+                                self.showUpdateReader(update: pendingUpdate)
+                            },
+                            accessory: .disclosureIndicator,
+                            cellClass: SubtitleCell.self
+                        )
                     )
                 }
             case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
-                workflowRows.append(Row(text: "Set reader display", detailText: "Display an itemized cart on the reader", selection: { [unowned self] in
-                    self.showStartSetReaderDisplay()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
-                workflowRows.append(Row(text: "Reader settings", detailText: "View and change reader settings", selection: { [unowned self] in
-                    self.showStartReaderSettings()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+                workflowRows.append(
+                    Row(
+                        text: "Set reader display",
+                        detailText: "Display an itemized cart on the reader",
+                        selection: { [unowned self] in
+                            self.showStartSetReaderDisplay()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
+                workflowRows.append(
+                    Row(
+                        text: "Reader settings",
+                        detailText: "View and change reader settings",
+                        selection: { [unowned self] in
+                            self.showStartReaderSettings()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
             case .tapToPay:
                 fallthrough
             @unknown default:
@@ -287,32 +370,65 @@ class ReaderViewController: TableViewController, CancelingViewController {
             }
 
             if deviceType != .chipper2X && deviceType != .stripeM2 {
-                workflowRows.append(Row(text: "In-Person refund", detailText: "Refund a charge made by an Interac debit card.", selection: { [unowned self] in
-                self.showStartRefund()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+                workflowRows.append(
+                    Row(
+                        text: "In-Person refund",
+                        detailText: "Refund a charge made by an Interac debit card.",
+                        selection: { [unowned self] in
+                            self.showStartRefund()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
             }
 
-            if deviceType == .wisePosE || deviceType == .wisePosEDevKit || deviceType == .stripeS700 || deviceType == .stripeS700DevKit {
-                workflowRows.append(Row(text: "Collect inputs", detailText: "Collect information with forms", selection: { [unowned self] in
-                self.showCollectInputs()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            if deviceType == .wisePosE || deviceType == .wisePosEDevKit || deviceType == .stripeS700
+                || deviceType == .stripeS700DevKit
+            {
+                workflowRows.append(
+                    Row(
+                        text: "Collect inputs",
+                        detailText: "Collect information with forms",
+                        selection: { [unowned self] in
+                            self.showCollectInputs()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
             }
 
-            if deviceType == .chipper2X || deviceType == .stripeM2 || deviceType == .chipper1X {
-                workflowRows.append(Row(text: "Collect data", detailText: "Collect non-payment data using the reader hardware.", selection: { [unowned self] in
-                    self.showCollectData()
-                }, accessory: .disclosureIndicator, cellClass: SubtitleCell.self))
+            if deviceType != .wisePad3 && deviceType != .verifoneP400 && deviceType != .tapToPay {
+                workflowRows.append(
+                    Row(
+                        text: "Collect data",
+                        detailText: "Collect non-payment data using the reader hardware.",
+                        selection: { [unowned self] in
+                            self.showCollectData()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
             }
 
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-                Section(header: rdrConnectionTitle, rows: [
-                    Row(text: "Disconnect", selection: { [unowned self] in
-                        self.disconnectFromReader()
-                        }, cellClass: RedButtonCell.self),
-                    rebootRow,
-                ].compactMap { $0 }),
-                Section(header: "COMMON WORKFLOWS", rows: workflowRows, footer: .title(versions))
+                Section(
+                    header: rdrConnectionTitle,
+                    rows: [
+                        Row(
+                            text: "Disconnect",
+                            selection: { [unowned self] in
+                                self.disconnectFromReader()
+                            },
+                            cellClass: RedButtonCell.self
+                        ),
+                        rebootRow,
+                    ].compactMap { $0 }
+                ),
+                Section(header: "COMMON WORKFLOWS", rows: workflowRows, footer: .title(versions)),
             ]
         } else {
             let footerTitle = """
@@ -324,32 +440,66 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 """
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-                Section(header: rdrConnectionTitle, rows: [
-                    Row(text: "Discover Readers", selection: { [unowned self] in
-                        do {
-                            try self.showDiscoverReaders()
-                        } catch {
-                            self.presentAlert(error: error)
-                        }
-                        }, cellClass: ButtonCell.self),
-                    Row(text: "Register Internet Reader", selection: { [unowned self] in
-                        self.showRegisterReader()
-                        }, cellClass: ButtonCell.self)
-                ]),
-                Section(header: "Discovery Method", rows: [
-                    Row(text: ReaderViewController.readerConfiguration.discoveryMethod.description, selection: { [unowned self] in
-                        self.showDiscoveryMethods()
-                        }, accessory: .disclosureIndicator)
-                ]),
-                Section(header: "", rows: [
-                    [.bluetoothScan, .usb, .internet].contains(ReaderViewController.readerConfiguration.discoveryMethod) != true ? nil :
-                        Row(text: "Discovery Timeout", accessory: .view(discoveryTimeoutTextField), cellClass: Value1Cell.self),
-                    Row(text: "Simulated", accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) { enabled in
-                        ReaderViewController.readerConfiguration.simulated = enabled
-                        self.updateContent()
-                    }),
-                ].compactMap { $0 }, footer: .title(footerTitle))
-            ].compactMap({ $0})
+                Section(
+                    header: rdrConnectionTitle,
+                    rows: [
+                        Row(
+                            text: "Discover Readers",
+                            selection: { [unowned self] in
+                                do {
+                                    try self.showDiscoverReaders()
+                                } catch {
+                                    self.presentAlert(error: error)
+                                }
+                            },
+                            cellClass: ButtonCell.self
+                        ),
+                        Row(
+                            text: "Register Internet Reader",
+                            selection: { [unowned self] in
+                                self.showRegisterReader()
+                            },
+                            cellClass: ButtonCell.self
+                        ),
+                    ]
+                ),
+                Section(
+                    header: "Discovery Method",
+                    rows: [
+                        Row(
+                            text: ReaderViewController.readerConfiguration.discoveryMethod.description,
+                            selection: { [unowned self] in
+                                self.showDiscoveryMethods()
+                            },
+                            accessory: .disclosureIndicator
+                        )
+                    ]
+                ),
+                Section(
+                    header: "",
+                    rows: [
+                        [.bluetoothScan, .usb, .internet].contains(
+                            ReaderViewController.readerConfiguration.discoveryMethod
+                        ) != true
+                            ? nil
+                            : Row(
+                                text: "Discovery Timeout",
+                                accessory: .view(discoveryTimeoutTextField),
+                                cellClass: Value1Cell.self
+                            ),
+                        Row(
+                            text: "Simulated",
+                            accessory: .switchToggle(value: ReaderViewController.readerConfiguration.simulated) {
+                                enabled in
+                                ReaderViewController.readerConfiguration.simulated = enabled
+                                self.updateContent()
+                            }
+                        ),
+                    ].compactMap { $0 }
+                ),
+                getSimulatedReaderSection(),
+                Section(footer: .title(footerTitle)),
+            ].compactMap { $0 }
         }
     }
 
@@ -388,24 +538,34 @@ extension ReaderViewController: ReaderDelegate {
         if reason == .disconnectRequested {
             return
         }
-        presentAlert(title: "Reader disconnected!", message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))")
+        presentAlert(
+            title: "Reader disconnected!",
+            message: "\(reader.serialNumber) disconnected with reason \(Terminal.stringFromDisconnectReason(reason))"
+        )
         connectedReader = nil
     }
 
     func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
-        self.reconnectionAlertController = UIAlertController(title: "Reconnecting...", message: "Reader \(reader.serialNumber) has disconnected: \(Terminal.stringFromDisconnectReason(disconnectReason))", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in cancelable.cancel { error in
-            // If terminalDidFailReaderReconnect did not present anything, present results of cancel and clear alert
-            if self.reconnectionAlertController.isBeingPresented {
-                self.reconnectionAlertController.dismiss(animated: true) {
-                    if let error = error {
-                        self.presentAlert(title: "Cancellation failed", message: error.localizedDescription)
-                    } else {
-                        self.presentAlert(title: "Cancelled", message: "Reconnection has been cancelled.")
+        self.reconnectionAlertController = UIAlertController(
+            title: "Reconnecting...",
+            message:
+                "Reader \(reader.serialNumber) has disconnected: \(Terminal.stringFromDisconnectReason(disconnectReason))",
+            preferredStyle: .alert
+        )
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
+            cancelable.cancel { error in
+                // If terminalDidFailReaderReconnect did not present anything, present results of cancel and clear alert
+                if self.reconnectionAlertController.isBeingPresented {
+                    self.reconnectionAlertController.dismiss(animated: true) {
+                        if let error = error {
+                            self.presentAlert(title: "Cancellation failed", message: error.localizedDescription)
+                        } else {
+                            self.presentAlert(title: "Cancelled", message: "Reconnection has been cancelled.")
+                        }
                     }
                 }
             }
-        }}
+        }
         reconnectionAlertController.addAction(cancelAction)
         topViewController()?.present(reconnectionAlertController, animated: true, completion: nil)
     }
@@ -458,7 +618,11 @@ extension ReaderViewController: MobileReaderDelegate {
 
 // MARK: TapToPayReaderDelegate
 extension ReaderViewController: TapToPayReaderDelegate {
-    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    func tapToPayReader(
+        _ reader: Reader,
+        didStartInstallingUpdate update: ReaderSoftwareUpdate,
+        cancelable: Cancelable?
+    ) {
     }
 
     func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
@@ -490,23 +654,40 @@ extension ReaderViewController: OfflineDelegate {
 
     func terminal(_ terminal: Terminal, didForwardPaymentIntent intent: PaymentIntent, error: Error?) {
         if let error = error {
-            OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Error forwarding offline payment intent \(intent.offlineId ?? intent.description) \(error.localizedDescription)", details: intent)
+            OfflinePaymentsLogViewController.writeLogToDisk(
+                "\(NSDate()) Error forwarding offline payment intent \(intent.offlineId ?? intent.description) \(error.localizedDescription)",
+                details: intent
+            )
             return
         }
-        OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Successfully forwarded offline payment intent \(intent.stripeId ?? "N/A") with offline id \(intent.offlineId ?? "nil offline id") status: \(Terminal.stringFromPaymentIntentStatus(intent.status))", details: intent)
+        OfflinePaymentsLogViewController.writeLogToDisk(
+            "\(NSDate()) Successfully forwarded offline payment intent \(intent.stripeId ?? "N/A") with offline id \(intent.offlineId ?? "nil offline id") status: \(Terminal.stringFromPaymentIntentStatus(intent.status))",
+            details: intent
+        )
         if intent.status == .requiresCapture, let id = intent.stripeId {
-            AppDelegate.apiClient?.capturePaymentIntent(id, completion: { error in
-                if let error = error {
-                    OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Error capturing offline payment intent for \(id): \(error.localizedDescription)", details: intent)
-                } else {
-                    OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Successfully captured offline payment intent for \(id): \(intent.amount)\(intent.currency)", details: intent)
+            AppDelegate.apiClient?.capturePaymentIntent(
+                id,
+                completion: { error in
+                    if let error = error {
+                        OfflinePaymentsLogViewController.writeLogToDisk(
+                            "\(NSDate()) Error capturing offline payment intent for \(id): \(error.localizedDescription)",
+                            details: intent
+                        )
+                    } else {
+                        OfflinePaymentsLogViewController.writeLogToDisk(
+                            "\(NSDate()) Successfully captured offline payment intent for \(id): \(intent.amount)\(intent.currency)",
+                            details: intent
+                        )
+                    }
                 }
-            })
+            )
         }
     }
 
     func terminal(_ terminal: Terminal, didReportForwardingError error: Error) {
-        OfflinePaymentsLogViewController.writeLogToDisk("\(NSDate()) Did report forwarding error: \(error.localizedDescription)")
+        OfflinePaymentsLogViewController.writeLogToDisk(
+            "\(NSDate()) Did report forwarding error: \(error.localizedDescription)"
+        )
     }
 }
 
@@ -523,4 +704,14 @@ extension DiscoveryMethod: @retroactive CustomStringConvertible {
         }
         return Terminal.stringFromDiscoveryMethod(self)
     }
+}
+
+// MARK: - Simulated Update Plan
+
+private func simulatedUpdateSection() -> Section {
+    return Section(
+        header: "Simulated Update Plan",
+        rows: [],
+        footer: Section.Extremity.autoLayoutView(ReaderUpdatePicker())
+    )
 }

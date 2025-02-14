@@ -19,11 +19,13 @@
 #import <StripeTerminal/SCPCollectDataConfiguration.h>
 #import <StripeTerminal/SCPCollectInputsParameters.h>
 #import <StripeTerminal/SCPConfirmConfiguration.h>
+#import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
 #import <StripeTerminal/SCPCreateConfiguration.h>
 #import <StripeTerminal/SCPDeviceType.h>
 #import <StripeTerminal/SCPDisconnectReason.h>
 #import <StripeTerminal/SCPDiscoveryMethod.h>
+#import <StripeTerminal/SCPErrors.h>
 #import <StripeTerminal/SCPInternetReaderDelegate.h>
 #import <StripeTerminal/SCPLogLevel.h>
 #import <StripeTerminal/SCPMobileReaderDelegate.h>
@@ -47,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"4.1.0";
+static NSString *const SCPSDKVersion = @"4.2.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -948,6 +950,11 @@ API_AVAILABLE(ios(14.0))
  Returns an unlocalized string for the given payment method type.
  */
 + (NSString *)stringFromPaymentMethodType:(SCPPaymentMethodType)paymentMethodType NS_SWIFT_NAME(stringFromPaymentMethodType(_:));
+
+/**
+ Returns an unlocalized string for the given error.
+ */
++ (NSString *)stringFromError:(SCPError)error NS_SWIFT_NAME(stringFromError(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

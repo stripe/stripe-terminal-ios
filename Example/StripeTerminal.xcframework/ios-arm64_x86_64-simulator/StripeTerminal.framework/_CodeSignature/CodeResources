@@ -82,7 +82,7 @@
 		</data>
 		<key>Headers/SCPCollectDataConfiguration.h</key>
 		<data>
-		A4bF8W8/1q510pvz6Tmnx7oRuMY=
+		FKZ/zX1yzEDPKeSyr5N9/+dbtYo=
 		</data>
 		<key>Headers/SCPCollectInputsParameters.h</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Headers/SCPCollectedData.h</key>
 		<data>
-		XbEJzVFxdQnihgxY/4Cu4DeLjH4=
+		zYXXjp3BRUozKjkbCOxflalxJ80=
 		</data>
 		<key>Headers/SCPConfirmConfiguration.h</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>Headers/SCPErrors.h</key>
 		<data>
-		NHHOX7GCHsZ1TufxTShSYw4JzQA=
+		qzSLyo+4kCbQ1fa+bPUYFEXV+dg=
 		</data>
 		<key>Headers/SCPExternalUsbChannel.h</key>
 		<data>
@@ -380,9 +380,13 @@
 		<data>
 		IG8wxz5zdKjtK73SxGYPsJM1Nb4=
 		</data>
+		<key>Headers/SCPSetupIntentCollectionReason.h</key>
+		<data>
+		+PFrGNIQMhy/oKi/LxtOnoz9DIw=
+		</data>
 		<key>Headers/SCPSetupIntentConfiguration.h</key>
 		<data>
-		m2AcQeM2BgXvHEYT9WcgyGanlbE=
+		m9txVnjvfg2MVMdob7iWsUtPv84=
 		</data>
 		<key>Headers/SCPSetupIntentParameters.h</key>
 		<data>
@@ -398,7 +402,7 @@
 		</data>
 		<key>Headers/SCPSimulateReaderUpdate.h</key>
 		<data>
-		deVFi7YFoQNxS/B7vVh0PnaqtzY=
+		U7z3U2FU+2mAdutvycroRsDroEs=
 		</data>
 		<key>Headers/SCPSimulatedCard.h</key>
 		<data>
@@ -410,7 +414,7 @@
 		</data>
 		<key>Headers/SCPSimulatorConfiguration.h</key>
 		<data>
-		14iz+ct3fPbktp7cJ1Tp0ksFL+M=
+		mKSaz2VIUFVcZr6uWAYvuCW9PK0=
 		</data>
 		<key>Headers/SCPSurcharge.h</key>
 		<data>
@@ -434,7 +438,7 @@
 		</data>
 		<key>Headers/SCPTerminal.h</key>
 		<data>
-		2Ly/eZnjTVvymwoLNPrnpQp8Smo=
+		Q71hl9s4GUpkhw3xeI0aKa4KRfo=
 		</data>
 		<key>Headers/SCPTerminalDelegate.h</key>
 		<data>
@@ -478,55 +482,55 @@
 		</data>
 		<key>Headers/StripeTerminal-Swift.h</key>
 		<data>
-		Wzc5YUBWvnskJDZBu6DlBA+DC+c=
+		T1pidvsS8FIUmp5IFCPumi/bssw=
 		</data>
 		<key>Headers/StripeTerminal.h</key>
 		<data>
-		ibDNXxDlJitqGIshHTeSufGMqoc=
+		ULeATYJj3sIFpzloWuIOyPn3nFY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yvnyrrclszxvxqjf4yY7ZDzNANw=
+		c7rLiiWSMe4bbN+Kf8WF1bgY8no=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		uh9/F2YVKO2Y/vcpw/ExiqvCug0=
+		0Ya1Q+DU0nURBxvS0xOx17MKXM4=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		hegZ6cAtXkSpA0aRg8Q+FtcZDdI=
+		yCTmOQ9oQJO8iSr/W4ixg5hllLQ=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1LddhDCjQn5QOJ74o4x0SAjGHgI=
+		6UhzHBuq5Eid0UG+ukO7nCh0H4I=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hegZ6cAtXkSpA0aRg8Q+FtcZDdI=
+		yCTmOQ9oQJO8iSr/W4ixg5hllLQ=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		vYkW/5Zp8sBz/FNkGZGWyPbAOFc=
+		IMUNpT3ovwrjGOOFtzt6XmDH0ME=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		uh9/F2YVKO2Y/vcpw/ExiqvCug0=
+		0Ya1Q+DU0nURBxvS0xOx17MKXM4=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		WUuuuIwy1O+Ewy5qpMYF0WhDWTo=
+		qRaqA8UAPg0sORJDJp2Rec1sRcQ=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cw1MOv/jFdhdDNFIL6QztXa5HRo=
+		DBhJ0U/ijjDAz2SAGAbQgyFyjn8=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		WUuuuIwy1O+Ewy5qpMYF0WhDWTo=
+		qRaqA8UAPg0sORJDJp2Rec1sRcQ=
 		</data>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jPdgTAworNAgzsbyNAt8u9Wqz+4=
+		Tef5tFY/B9p6H68dnPGyMSDEffQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -676,7 +680,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			02JMmug5oKZo6p3nljpN5C6Img8wDLQr8+SUXFo+qIU=
+			/VZEHQUoC9sMb4PV+dU1bplvL+iEhiD/zcLmDwYBAxg=
 			</data>
 		</dict>
 		<key>Headers/SCPCollectInputsParameters.h</key>
@@ -697,7 +701,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JBNInWv75b3K9BO7igEZ4mCah2R+RNVLQ/TvLsYxtFM=
+			o0FPI35Y8Vb9Vjn4htvVviVdhgYr6okBMgGOUv6Z478=
 			</data>
 		</dict>
 		<key>Headers/SCPConfirmConfiguration.h</key>
@@ -823,7 +827,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			godkYzhQw96OVKivkHlnkcG2FWySoeZflV7BXMQ2IRU=
+			h6u94xA+/ZnPoTZWl3eULTL1b+WhzkbHL7Wni9Dq32A=
 			</data>
 		</dict>
 		<key>Headers/SCPExternalUsbChannel.h</key>
@@ -1197,11 +1201,18 @@
 			I9YB+s03xo5hxEpI8Ajmd1rJS3X2G/n8rrQWHW6ts+I=
 			</data>
 		</dict>
+		<key>Headers/SCPSetupIntentCollectionReason.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oCBw4MzbKDAtstveokO1n2R86vWbOsClmugMXfWCwuY=
+			</data>
+		</dict>
 		<key>Headers/SCPSetupIntentConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8hs87p2wsGZG1EEYY79lO/XOuvYYRnAi4Cj6VUBRfxE=
+			D9KFjlDngHbe0Quuu916yZwSTyAw5XKV3Q5h4bIBkks=
 			</data>
 		</dict>
 		<key>Headers/SCPSetupIntentParameters.h</key>
@@ -1229,7 +1240,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D64Se9h9AwAPQC+vAtMrP1nI11FFddOOmtu4Vh9FjJw=
+			AKbwfhDwtPSNav6K3RdXr+MjjIct+VK5j8ZOdAAZtZc=
 			</data>
 		</dict>
 		<key>Headers/SCPSimulatedCard.h</key>
@@ -1250,7 +1261,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dQXH6QJdqEpKvnNyslcmSak4iLB0DHerpFklNj4qv/o=
+			t3c/N0jrY7ge+xSTW0ca1AnvONGdCMbywBzWQMrq9rA=
 			</data>
 		</dict>
 		<key>Headers/SCPSurcharge.h</key>
@@ -1292,7 +1303,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k4vMLnDcpu0hfLF7zzuMwAUaEU6e+EQUgZwICeNhxHM=
+			wn3eVOzyrx1ktprAlC0/LqkwjrlKjtRsQEnpzhqb0lI=
 			</data>
 		</dict>
 		<key>Headers/SCPTerminalDelegate.h</key>
@@ -1369,84 +1380,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZxMqGdWMEKV+bVj+sCL62JfaxoLl7BznqdYG9PTQDdI=
+			sH5jjw3Qsg4sPPYRjim3s+Vc8HRdJjb/QfiiTIFYN7Q=
 			</data>
 		</dict>
 		<key>Headers/StripeTerminal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4uWDn6NRVoDZw3dHzsuravzMacBC+VItiJcfKZRQhYg=
+			PphC+9RjBnum+YJvnAwu+xUlR2jfhLaC+kYtXW6sX8g=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wBlaFajdWlrIqGjWyQNLF5SLmhdAhTbu3cEflddvwWk=
+			Lm8zs8NS+7JnSL3k08v3j908hxhOL8NqYAosQIHMYQc=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xgLV0KuwC2YOAp+/lTtDx+1Owaf82BZ4JM4wHKMIPTA=
+			OOwCEQSDNOw1O6dZRd2hZDj2FDgvs9ray3adoiUUfV8=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+nmpfGuofsyUrRmO2il4ESJuSwl6oZhI5W3W/Ll99CQ=
+			36dSyHRa7gSrm0We4Z1e6vsY04a/AWIOnto2j/L+dec=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xgLV0KuwC2YOAp+/lTtDx+1Owaf82BZ4JM4wHKMIPTA=
+			OOwCEQSDNOw1O6dZRd2hZDj2FDgvs9ray3adoiUUfV8=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tErV/n08sGuqUsvwLBAODUV5ApmxCKhZ4TMpo4P3yiE=
+			bO0QeJZ4LDYi32md7Pg5y0cVm+h4qUjoM8aJudADRUo=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wBlaFajdWlrIqGjWyQNLF5SLmhdAhTbu3cEflddvwWk=
+			Lm8zs8NS+7JnSL3k08v3j908hxhOL8NqYAosQIHMYQc=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wFsdZOhcBZ7naqNkcxfJLudDqvDPTg4kktt47kHr4GM=
+			xXBXGIq5eNlQ2D8vg1dmWYrAbdnDRi0kjsCDQpaEgRs=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XE+Jomb74GLd6G4AGp0AjiXBgIJ+clbTKW4ugCNLCX4=
+			BYO0X/GKToAMbNrBr8xNv8bCUor0f9AuQaROrOTPj78=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wFsdZOhcBZ7naqNkcxfJLudDqvDPTg4kktt47kHr4GM=
+			xXBXGIq5eNlQ2D8vg1dmWYrAbdnDRi0kjsCDQpaEgRs=
 			</data>
 		</dict>
 		<key>Modules/StripeTerminal.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+5ELtRy2LK3rnhAkJuDfoQgZzyEwjqQGfthhDPcj4Ms=
+			KugTWSPMXM38FFYS+aytrZDRlFiyb63HrIK8bPSkNEg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

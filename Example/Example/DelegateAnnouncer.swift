@@ -162,7 +162,11 @@ class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDel
 
     // MARK: - TapToPayReaderDelegate
 
-    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    func tapToPayReader(
+        _ reader: Reader,
+        didStartInstallingUpdate update: ReaderSoftwareUpdate,
+        cancelable: Cancelable?
+    ) {
         announce { delegate in
             delegate.tapToPayReader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
         }
