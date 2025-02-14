@@ -6,9 +6,9 @@
 //  Copyright © 2021 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class SetupIntentViewController: EventDisplayingViewController {
     private let setupParams: SetupIntentParameters
@@ -43,25 +43,32 @@ class SetupIntentViewController: EventDisplayingViewController {
     private func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping SetupIntentCompletionBlock) {
         var createEvent = LogEvent(method: .createSetupIntent)
         self.events.append(createEvent)
-        Terminal.shared.createSetupIntent(params, completion: { (createdSetupIntent, createError) in
-            if let error = createError {
-                createEvent.result = .errored
-                createEvent.object = .error(error as NSError)
-                self.events.append(createEvent)
-            } else if let si = createdSetupIntent {
-                createEvent.result = .succeeded
-                createEvent.object = .setupIntent(si)
-                self.events.append(createEvent)
+        Terminal.shared.createSetupIntent(
+            params,
+            completion: { (createdSetupIntent, createError) in
+                if let error = createError {
+                    createEvent.result = .errored
+                    createEvent.object = .error(error as NSError)
+                    self.events.append(createEvent)
+                } else if let si = createdSetupIntent {
+                    createEvent.result = .succeeded
+                    createEvent.object = .setupIntent(si)
+                    self.events.append(createEvent)
+                }
+                completion(createdSetupIntent, createError)
             }
-            completion(createdSetupIntent, createError)
-        })
+        )
     }
 
     private func collectSetupIntent(intent: SetupIntent) {
         var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
         self.events.append(collectEvent)
         self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
-        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(intent, allowRedisplay: self.allowRedisplay, setupConfig: self.setupConfig) { (collectedSetupIntent, collectError) in
+        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(
+            intent,
+            allowRedisplay: self.allowRedisplay,
+            setupConfig: self.setupConfig
+        ) { (collectedSetupIntent, collectError) in
             if let error = collectError {
                 collectEvent.result = .errored
                 collectEvent.object = .error(error as NSError)

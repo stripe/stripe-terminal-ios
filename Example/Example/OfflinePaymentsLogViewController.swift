@@ -12,14 +12,15 @@ import StripeTerminal
 class OfflinePaymentsLogViewController: TableViewController {
 
     static let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    static let dictionaryURL = URL(fileURLWithPath: "offlineIntentsLog", relativeTo: directoryURL).appendingPathExtension("plist")
+    static let dictionaryURL = URL(fileURLWithPath: "offlineIntentsLog", relativeTo: directoryURL)
+        .appendingPathExtension("plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Offline Logs"
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearLogs)),
-            UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(exportLogs))
+            UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(exportLogs)),
         ]
         updateContent()
     }
@@ -32,7 +33,9 @@ class OfflinePaymentsLogViewController: TableViewController {
     private func updateContent() {
         do {
             let data = try Data(contentsOf: OfflinePaymentsLogViewController.dictionaryURL)
-            let offlineLogDictionary = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self], from: data) as! [String: String]
+            let offlineLogDictionary =
+                try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self], from: data)
+                as! [String: String]
             var rows = [Row]()
             let sortedKeys = offlineLogDictionary.keys.sorted(by: <)
             sortedKeys.forEach {
@@ -42,7 +45,10 @@ class OfflinePaymentsLogViewController: TableViewController {
         } catch {
             dataSource.sections = [
                 Section(rows: [
-                    Row(text: "Error accessing offline payment logs from disk (logs may be empty)", cellClass: Value1MultilineCell.self)
+                    Row(
+                        text: "Error accessing offline payment logs from disk (logs may be empty)",
+                        cellClass: Value1MultilineCell.self
+                    )
                 ])
             ]
         }
@@ -75,7 +81,10 @@ class OfflinePaymentsLogViewController: TableViewController {
 
     @objc
     func exportLogs() {
-        let activityController = UIActivityViewController(activityItems: [OfflinePaymentsLogViewController.dictionaryURL], applicationActivities: nil)
+        let activityController = UIActivityViewController(
+            activityItems: [OfflinePaymentsLogViewController.dictionaryURL],
+            applicationActivities: nil
+        )
         activityController.completionWithItemsHandler = { (_, _, _, error) in
             if let e = error {
                 self.presentAlert(error: e)
@@ -88,12 +97,15 @@ class OfflinePaymentsLogViewController: TableViewController {
         var offlineLogDictionary: NSDictionary = [:]
         do {
             let data = try Data(contentsOf: OfflinePaymentsLogViewController.dictionaryURL)
-            offlineLogDictionary = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self], from: data) as! NSDictionary
+            offlineLogDictionary =
+                try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self], from: data)
+                as! NSDictionary
             let mutableOfflineLogDictionary = NSMutableDictionary(dictionary: offlineLogDictionary)
             if let originalJSON = details?.originalJSON,
-               !originalJSON.isEmpty,
-               let data = try? JSONSerialization.data(withJSONObject: originalJSON, options: .prettyPrinted),
-               let jsonString = String(data: data, encoding: .utf8) {
+                !originalJSON.isEmpty,
+                let data = try? JSONSerialization.data(withJSONObject: originalJSON, options: .prettyPrinted),
+                let jsonString = String(data: data, encoding: .utf8)
+            {
                 mutableOfflineLogDictionary[logString] = jsonString
             } else {
                 mutableOfflineLogDictionary[logString] = ""
@@ -104,7 +116,10 @@ class OfflinePaymentsLogViewController: TableViewController {
             offlineLogDictionary = [logString: details?.description ?? ""]
         }
         do {
-            let newData = try NSKeyedArchiver.archivedData(withRootObject: offlineLogDictionary, requiringSecureCoding: true)
+            let newData = try NSKeyedArchiver.archivedData(
+                withRootObject: offlineLogDictionary,
+                requiringSecureCoding: true
+            )
             try newData.write(to: OfflinePaymentsLogViewController.dictionaryURL)
         } catch {
             print("‼️ Error archiving and writing data to offline payment logs to disk: \(error.localizedDescription)")

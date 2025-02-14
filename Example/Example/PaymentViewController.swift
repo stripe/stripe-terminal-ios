@@ -6,9 +6,9 @@
 //  Copyright © 2018 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class PaymentViewController: EventDisplayingViewController {
 
@@ -22,17 +22,18 @@ class PaymentViewController: EventDisplayingViewController {
     private let skipCapture: Bool
     private let onReceiptTip: UInt
 
-    init(paymentParams: PaymentIntentParameters,
-         collectConfig: CollectConfiguration,
-         confirmConfig: ConfirmConfiguration,
-         declineCardBrand: CardBrand?,
-         recollectAfterCardBrandDecline: Bool,
-         isSposReader: Bool,
-         offlineTransactionLimit: Int,
-         offlineTotalTransactionLimit: Int,
-         offlineBehavior: OfflineBehavior,
-         skipCapture: Bool,
-         onReceiptTip: UInt
+    init(
+        paymentParams: PaymentIntentParameters,
+        collectConfig: CollectConfiguration,
+        confirmConfig: ConfirmConfiguration,
+        declineCardBrand: CardBrand?,
+        recollectAfterCardBrandDecline: Bool,
+        isSposReader: Bool,
+        offlineTransactionLimit: Int,
+        offlineTotalTransactionLimit: Int,
+        offlineBehavior: OfflineBehavior,
+        skipCapture: Bool,
+        onReceiptTip: UInt
     ) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
@@ -44,8 +45,11 @@ class PaymentViewController: EventDisplayingViewController {
         self.onReceiptTip = onReceiptTip
 
         var isOverOfflineTransactionLimit = paymentParams.amount >= offlineTransactionLimit
-        if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.paymentAmountsByCurrency[paymentParams.currency]?.intValue {
-            isOverOfflineTransactionLimit = isOverOfflineTransactionLimit || (offlinePaymentTotalByCurrency >= offlineTotalTransactionLimit)
+        if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.paymentAmountsByCurrency[
+            paymentParams.currency
+        ]?.intValue {
+            isOverOfflineTransactionLimit =
+                isOverOfflineTransactionLimit || (offlinePaymentTotalByCurrency >= offlineTotalTransactionLimit)
         }
         let offlineBehaviorFromTransactionLimit: OfflineBehavior = {
             if isOverOfflineTransactionLimit {
@@ -55,7 +59,9 @@ class PaymentViewController: EventDisplayingViewController {
             }
         }()
         do {
-            self.offlineCreateConfig = try CreateConfigurationBuilder().setOfflineBehavior(offlineBehaviorFromTransactionLimit).build()
+            self.offlineCreateConfig = try CreateConfigurationBuilder().setOfflineBehavior(
+                offlineBehaviorFromTransactionLimit
+            ).build()
         } catch {
             fatalError("Invalid create configuration: \(error.localizedDescription)")
         }
@@ -81,7 +87,10 @@ class PaymentViewController: EventDisplayingViewController {
         }
     }
 
-    private func createPaymentIntent(_ parameters: PaymentIntentParameters, completion: @escaping PaymentIntentCompletionBlock) {
+    private func createPaymentIntent(
+        _ parameters: PaymentIntentParameters,
+        completion: @escaping PaymentIntentCompletionBlock
+    ) {
         if Terminal.shared.connectedReader?.deviceType == .verifoneP400 {
             // When using a Verifone P400, PaymentIntents must be created via your backend
             var createEvent = LogEvent(method: .backendCreatePaymentIntent)
@@ -140,7 +149,9 @@ class PaymentViewController: EventDisplayingViewController {
         var collectEvent = LogEvent(method: .collectPaymentMethod)
         self.events.append(collectEvent)
         self.currentCancelLogMethod = .cancelCollectPaymentMethod
-        self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) { intentWithPaymentMethod, attachError in
+        self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) {
+            intentWithPaymentMethod,
+            attachError in
             let collectCancelable = self.cancelable
             self.cancelable = nil
             if let error = attachError {
@@ -155,13 +166,16 @@ class PaymentViewController: EventDisplayingViewController {
             } else if let intent = intentWithPaymentMethod {
                 // Before proceeding check if the card brand provided matches the brand chosen to reject
                 if let declineCardBrand = self.declineCardBrand,
-                   let paymentMethod = intent.paymentMethod,
-                   let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
-                   details.brand == declineCardBrand {
+                    let paymentMethod = intent.paymentMethod,
+                    let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
+                    details.brand == declineCardBrand
+                {
                     collectEvent.result = .errored
-                    let error = NSError(domain: "com.stripe-terminal-ios.example",
-                                        code: 1000,
-                                        userInfo: [NSLocalizedDescriptionKey: "Integration rejected card due to card brand"])
+                    let error = NSError(
+                        domain: "com.stripe-terminal-ios.example",
+                        code: 1000,
+                        userInfo: [NSLocalizedDescriptionKey: "Integration rejected card due to card brand"]
+                    )
                     collectEvent.object = .error(error)
                     self.events.append(collectEvent)
                     if self.recollectAfterCardBrandDecline {
@@ -216,7 +230,9 @@ class PaymentViewController: EventDisplayingViewController {
         var processEvent = LogEvent(method: .confirmPaymentIntent)
         self.events.append(processEvent)
         self.currentCancelLogMethod = .cancelConfirmPaymentIntent
-        self.cancelable = Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) { processedIntent, processError in
+        self.cancelable = Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) {
+            processedIntent,
+            processError in
             if let error = processError {
                 processEvent.result = .errored
                 processEvent.object = .error(error as NSError)
@@ -247,7 +263,8 @@ class PaymentViewController: EventDisplayingViewController {
 
                     // Show a refund button if this was an Interac charge to make it easy to refund.
                     if let charge = intent.charges.first,
-                       charge.paymentMethodDetails?.interacPresent != nil {
+                        charge.paymentMethodDetails?.interacPresent != nil
+                    {
                         self.intentToRefund = intent
                         let refundButton: UIBarButtonItem
                         if #available(iOS 16.0, *) {
@@ -285,13 +302,19 @@ class PaymentViewController: EventDisplayingViewController {
     @objc
     private func refundButtonTapped() {
         guard let intent = intentToRefund,
-        let intentId = intentToRefund?.stripeId,
-        let charge = intent.charges.first else {
+            let intentId = intentToRefund?.stripeId,
+            let charge = intent.charges.first
+        else {
             fatalError("Intent or charge to refund was nil: \(intentToRefund?.description ?? "nil intent")")
         }
 
         self.navigationController?.pushViewController(
-            StartRefundViewController(isSposReader: self.isSposReader, chargeId: charge.stripeId, paymentIntentId: intentId, amount: intent.amount),
+            StartRefundViewController(
+                isSposReader: self.isSposReader,
+                chargeId: charge.stripeId,
+                paymentIntentId: intentId,
+                amount: intent.amount
+            ),
             animated: true
         )
     }

@@ -63,35 +63,37 @@ class StartReaderSettingsViewController: TableViewController {
             Row(text: "Domain", detailText: "\(error.domain)"),
             Row(text: "Code", detailText: "\(error.code)"),
             detailRow(text: "Description", detailText: "\(error.localizedDescription)"),
-        ] + error.scp_userInfo.map {
-            detailRow(text: "\($0)", detailText: "\($1)")
-        }
+        ]
+            + error.scp_userInfo.map {
+                detailRow(text: "\($0)", detailText: "\($1)")
+            }
     }
 
     private func updateContent() {
-        let sections: [Section?] = if let error = error {
-            [
-                Section(
-                    header: "Something went wrong",
-                    rows: renderError(error)
-                ),
-                Section(
-                    rows: [
-                        Row(
-                            text: "Try again",
-                            selection: { [unowned self] in
-                                self.retrieveReaderSettings()
-                            },
-                            cellClass: ButtonCell.self
-                        )
-                    ]
-                )
-            ]
-        } else {
-            [
-                makeAccessibilitySection(),
-            ]
-        }
+        let sections: [Section?] =
+            if let error = error {
+                [
+                    Section(
+                        header: "Something went wrong",
+                        rows: renderError(error)
+                    ),
+                    Section(
+                        rows: [
+                            Row(
+                                text: "Try again",
+                                selection: { [unowned self] in
+                                    self.retrieveReaderSettings()
+                                },
+                                cellClass: ButtonCell.self
+                            )
+                        ]
+                    ),
+                ]
+            } else {
+                [
+                    makeAccessibilitySection()
+                ]
+            }
 
         dataSource.sections = sections.compactMap { $0 }
     }
@@ -120,7 +122,7 @@ class StartReaderSettingsViewController: TableViewController {
                             self.setAccessibilitySettings()
                         },
                         cellClass: ButtonCell.self
-                    )
+                    ),
                 ]
             )
         } else {

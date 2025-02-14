@@ -634,6 +634,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorGenericReaderError = 5005,
 
+    /**
+     * An error occurred while processing a collect data operation.
+     */
+    SCPErrorCollectDataApplicationError = 5006,
+
     /*
      PAYMENT ERRORS
      */

@@ -42,16 +42,21 @@ enum Ifaddrs_h {
             // prefer ipv4 addresses over ipv6, ignore any others
             if isIPv4Address || (isIPv6Address && dontHaveAddressYet),
                 // stack overflow says wifi is always 'en0' on iOS
-                let ifa_name = interface.ifa_name, "en0" == String(cString: ifa_name) {
+                let ifa_name = interface.ifa_name, "en0" == String(cString: ifa_name)
+            {
 
                 // Return the address in numeric form, storing in hostname,
                 // and don't care about service name
                 var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                let returnValue = getnameinfo(interface.ifa_addr,
-                                              socklen_t(interface.ifa_addr.pointee.sa_len),
-                                              &hostname, socklen_t(hostname.count),
-                                              nil, 0,
-                                              NI_NUMERICHOST)
+                let returnValue = getnameinfo(
+                    interface.ifa_addr,
+                    socklen_t(interface.ifa_addr.pointee.sa_len),
+                    &hostname,
+                    socklen_t(hostname.count),
+                    nil,
+                    0,
+                    NI_NUMERICHOST
+                )
                 guard returnValue == 0 else { continue }
 
                 wifiIPAddress = String(cString: hostname)

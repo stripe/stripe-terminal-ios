@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
+#import <StripeTerminal/SCPSetupIntentCollectionReason.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,6 +38,13 @@ NS_SWIFT_NAME(SetupIntentConfiguration)
 @property (nonatomic, assign, readonly, getter=isMoto) BOOL moto;
 
 /**
+ The collection reason, applicable only for Tap to Pay devices.
+
+ Defaults to SCPSetupIntentCollectionReasonSaveCard
+ */
+@property (nonatomic, assign, readonly) SCPSetupIntentCollectionReason collectionReason;
+
+/**
  Use `SCPSetupIntentConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -59,6 +67,10 @@ NS_SWIFT_NAME(SetupIntentConfigurationBuilder)
 
 /// Set the moto property for the `SetupIntentConfiguration` object that will be built.
 - (SCPSetupIntentConfigurationBuilder *)setMoto:(BOOL)moto;
+
+/// Set the collection reason for the `SetupIntentConfiguration` object that will be built.
+/// Applicable only for Tap to Pay devices. The default value is `SCPSetupIntentCollectionReasonSaveCard`.
+- (SCPSetupIntentConfigurationBuilder *)setCollectionReason:(SCPSetupIntentCollectionReason)collectionReason;
 
 @end
 

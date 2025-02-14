@@ -6,9 +6,9 @@
 //  Copyright © 2017 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 protocol Event {
     var result: LogEvent.Result { get }
@@ -99,8 +99,8 @@ struct LogEvent: CustomStringConvertible, Event {
         }
         switch method {
         case .requestReaderInput,
-             .reportReaderEvent,
-             .requestReaderDisplayMessage:
+            .reportReaderEvent,
+            .requestReaderDisplayMessage:
             return result.description
         case .createPaymentIntent, .backendCreatePaymentIntent:
             switch result {
@@ -359,32 +359,32 @@ extension LogEvent.AssociatedObject {
             userInfoToPrint.removeValue(forKey: ErrorKey.stripeAPIPaymentIntent.rawValue)
 
             var output = """
-            Error Domain: \(error.domain)
-            Error Code: \(error.code)
-
-            """
-            if let requestError = error.requestError {
-                output += """
-                Request Error: \(requestError.localizedDescription)
+                Error Domain: \(error.domain)
+                Error Code: \(error.code)
 
                 """
+            if let requestError = error.requestError {
+                output += """
+                    Request Error: \(requestError.localizedDescription)
+
+                    """
             }
             if let declineCode = error.declineCode {
                 output += """
-                Decline Code: \(declineCode)
+                    Decline Code: \(declineCode)
 
-                """
+                    """
             }
             output += """
 
-            Error UserInfo: \(prettyPrint(json: userInfoToPrint))
+                Error UserInfo: \(prettyPrint(json: userInfoToPrint))
 
-            """
+                """
             if let intent = error.paymentIntent {
                 output += """
 
-                PaymentIntent: \(prettyPrint(json: intent.originalJSON))
-                """
+                    PaymentIntent: \(prettyPrint(json: intent.originalJSON))
+                    """
             }
 
             return output
@@ -393,7 +393,9 @@ extension LogEvent.AssociatedObject {
         case .json(let json):
             return prettyPrint(json: json)
         case .paymentIntent(let intent):
-            return !intent.originalJSON.isEmpty ? "\(prettyPrint(json: intent.originalJSON)) \nOFFLINE DETAILS:\n\(intent.offlineDetails.debugDescription)" : intent.debugDescription
+            return !intent.originalJSON.isEmpty
+                ? "\(prettyPrint(json: intent.originalJSON)) \nOFFLINE DETAILS:\n\(intent.offlineDetails.debugDescription)"
+                : intent.debugDescription
         case .paymentMethod(let paymentMethod):
             return prettyPrint(json: paymentMethod.originalJSON)
         case .refund(let refund):
@@ -427,8 +429,10 @@ extension LogEvent.AssociatedObject {
         }
 
         do {
-            let data = try JSONSerialization.data(withJSONObject: sanitizedJson,
-                                                  options: [.prettyPrinted, .sortedKeys])
+            let data = try JSONSerialization.data(
+                withJSONObject: sanitizedJson,
+                options: [.prettyPrinted, .sortedKeys]
+            )
             return String(data: data, encoding: .utf8) ?? sanitizedJson.description
         } catch _ {
             return json.description

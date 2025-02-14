@@ -46,7 +46,7 @@ class LabelOverlayView: UIView {
             // Center the label
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
         ])
     }
 }

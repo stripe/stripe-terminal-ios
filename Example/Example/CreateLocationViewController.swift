@@ -6,9 +6,9 @@
 //  Copyright © 2021 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class CreateLocationViewController: TableViewController, CancelableViewController {
 
@@ -66,7 +66,12 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
         title = "Create Location"
         self.addKeyboardDisplayObservers()
 
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissAction))
+        let cancelButton = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(dismissAction)
+        )
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
     }
@@ -147,21 +152,25 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
         submissionInProgress = true
         setAllowedCancelMethods([])
         self.message = (text: "Creating location...", color: UIColor.gray)
-        AppDelegate.apiClient?.createLocation(displayName: displayName, address: addressParam, completion: {[weak self] response, error in
-            // This should be practically impossible since the VC is uncancelable while this request is in-flight but to appease Swift,
-            // make sure CreateLocationVC hasn't been dismissed by the time this completion block is called.
-            guard let self = self else { return }
+        AppDelegate.apiClient?.createLocation(
+            displayName: displayName,
+            address: addressParam,
+            completion: { [weak self] response, error in
+                // This should be practically impossible since the VC is uncancelable while this request is in-flight but to appease Swift,
+                // make sure CreateLocationVC hasn't been dismissed by the time this completion block is called.
+                guard let self = self else { return }
 
-            if let error = error {
-                self.submissionInProgress = false
-                self.message = (text: "Could not create location.", color: UIColor.red)
-                self.setAllowedCancelMethods([.button, .swipe])
-                print(error)
-            } else if let location = response {
-                self.message = nil
-                self.onCreateLocation(location)
+                if let error = error {
+                    self.submissionInProgress = false
+                    self.message = (text: "Could not create location.", color: UIColor.red)
+                    self.setAllowedCancelMethods([.button, .swipe])
+                    print(error)
+                } else if let location = response {
+                    self.message = nil
+                    self.onCreateLocation(location)
+                }
             }
-        })
+        )
     }
 
     private func updateContent() {
@@ -170,19 +179,30 @@ class CreateLocationViewController: TableViewController, CancelableViewControlle
         messageView.text = message?.text
         messageView.textColor = message?.color
         messageView.sizeToFit()
-        let messageSection: Section? = (message != nil)
+        let messageSection: Section? =
+            (message != nil)
             ? Section(header: Section.Extremity.view(messageView))
             : nil
 
         let sections = [
             messageSection,
-            Section(header: "Display Name",
-                    footer: Section.Extremity.autoLayoutView(displayNameTextField)),
-            Section(header: "Address",
-                    footer: Section.Extremity.autoLayoutView(addressInputsView)),
-            submissionInProgress ? nil : Section(rows: [
-                Row(text: "Create Location", selection: { [unowned self] in self.formSubmit() }, cellClass: ButtonCell.self)
-            ])
+            Section(
+                header: "Display Name",
+                footer: Section.Extremity.autoLayoutView(displayNameTextField)
+            ),
+            Section(
+                header: "Address",
+                footer: Section.Extremity.autoLayoutView(addressInputsView)
+            ),
+            submissionInProgress
+                ? nil
+                : Section(rows: [
+                    Row(
+                        text: "Create Location",
+                        selection: { [unowned self] in self.formSubmit() },
+                        cellClass: ButtonCell.self
+                    )
+                ]),
         ].compactMap { return $0 }
 
         dataSource.sections = sections

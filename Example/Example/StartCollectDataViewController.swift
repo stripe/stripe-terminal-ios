@@ -6,11 +6,13 @@
 //  Copyright © 2024 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class StartCollectDataViewController: TableViewController {
+
+    private var enableCustomerCancellation = false
 
     convenience init() {
         self.init(style: .grouped)
@@ -33,9 +35,10 @@ class StartCollectDataViewController: TableViewController {
         }
     }
 
-    internal func startCollectMagstripeData() {
+    private func startCollectData(type: CollectDataType) {
         do {
-            let collectDataConfig = try CollectDataConfigurationBuilder().setCollectDataType(.magstripe).build()
+            let collectDataConfig = try CollectDataConfigurationBuilder().setCollectDataType(type)
+                .setEnableCustomerCancellation(enableCustomerCancellation).build()
             let viewController = CollectDataViewController(collectDataConfiguration: collectDataConfig)
             let navigationController = LargeTitleNavigationController(rootViewController: viewController)
             present(navigationController, animated: true)
@@ -47,9 +50,27 @@ class StartCollectDataViewController: TableViewController {
     private func updateContent() {
         var sections = [Section]()
         let dataCollectionForms = Section(rows: [
-            Row(text: "Collect magstripe data", selection: { [unowned self] in
-                startCollectMagstripeData()
-            }, cellClass: ButtonCell.self),
+            Row(
+                text: "Enable customer cancellation",
+                accessory: .switchToggle(value: enableCustomerCancellation) { [unowned self] _ in
+                    enableCustomerCancellation.toggle()
+                    updateContent()
+                }
+            ),
+            Row(
+                text: "Collect magstripe data",
+                selection: { [unowned self] in
+                    startCollectData(type: .magstripe)
+                },
+                cellClass: ButtonCell.self
+            ),
+            Row(
+                text: "Collect NFC UID",
+                selection: { [unowned self] in
+                    startCollectData(type: .nfcUid)
+                },
+                cellClass: ButtonCell.self
+            ),
         ])
 
         sections.append(dataCollectionForms)

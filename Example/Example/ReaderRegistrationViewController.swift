@@ -6,11 +6,13 @@
 //  Copyright © 2020 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
-class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, CancelableViewController, CancelingViewController {
+class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, CancelableViewController,
+    CancelingViewController
+{
 
     internal var cancelable: Cancelable?
     internal weak var cancelButton: UIBarButtonItem?
@@ -83,9 +85,10 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
 
         guard let registrationCode = registrationCodeTextField.textField.text,
             var label = readerLabelTextField.textField.text,
-            !registrationCode.isEmpty else {
-                message = "Please fill out the registration code."
-                return
+            !registrationCode.isEmpty
+        else {
+            message = "Please fill out the registration code."
+            return
         }
 
         guard let selectedLocationId = selectedLocationStub?.stripeId else {
@@ -100,7 +103,8 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         registrationInProgress = true
         setAllowedCancelMethods([])
         self.message = "Registering..."
-        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label, locationId: selectedLocationId) { [unowned self] response, error in
+        AppDelegate.apiClient?.registerReader(withCode: registrationCode, label: label, locationId: selectedLocationId)
+        { [unowned self] response, error in
             if let error = error {
                 self.registrationInProgress = false
                 self.setAllowedCancelMethods(.all)
@@ -154,15 +158,20 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
     }
 
     private func updateContent() {
-        let messageSection: Section? = (message != nil)
+        let messageSection: Section? =
+            (message != nil)
             ? Section(rows: [Row(text: message ?? "")])
             : nil
 
         let sections = [
-            Section(header: "Registration Code",
-                    footer: Section.Extremity.autoLayoutView(registrationCodeTextField)),
-            Section(header: "Label (optional)",
-                    footer: Section.Extremity.autoLayoutView(readerLabelTextField)),
+            Section(
+                header: "Registration Code",
+                footer: Section.Extremity.autoLayoutView(registrationCodeTextField)
+            ),
+            Section(
+                header: "Label (optional)",
+                footer: Section.Extremity.autoLayoutView(readerLabelTextField)
+            ),
             Section(
                 header: Section.Extremity.title("Location"),
                 rows: [
@@ -174,15 +183,20 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                 ]
             ),
             messageSection,
-            Section(rows: [
-                Row(text: "Register Reader",
-                    selection: { [unowned self] in
-                        self.formSubmit()
-                    },
-                    cellClass: ButtonCell.self
-                )
-            ], footer: "Internet-connected readers like the Verifone P400 must be registered to your account and associated to a location before they can be discovered.\n\nPress 0-7-1-3-9 on your reader to display a registration code.")
-            ].compactMap { return $0 }
+            Section(
+                rows: [
+                    Row(
+                        text: "Register Reader",
+                        selection: { [unowned self] in
+                            self.formSubmit()
+                        },
+                        cellClass: ButtonCell.self
+                    )
+                ],
+                footer:
+                    "Internet-connected readers like the Verifone P400 must be registered to your account and associated to a location before they can be discovered.\n\nPress 0-7-1-3-9 on your reader to display a registration code."
+            ),
+        ].compactMap { return $0 }
 
         dataSource.sections = sections
     }
@@ -193,17 +207,23 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
         self.readers = readers
 
         guard let readerId = readerId,
-              let reader = self.readers.filter({ (reader) -> Bool in reader.stripeId == readerId }).first,
-              let connectionConfig = try? InternetConnectionConfigurationBuilder(delegate: InternetReaderDelegateAnnouncer.shared).build() else {
+            let reader = self.readers.filter({ (reader) -> Bool in reader.stripeId == readerId }).first,
+            let connectionConfig = try? InternetConnectionConfigurationBuilder(
+                delegate: InternetReaderDelegateAnnouncer.shared
+            ).build()
+        else {
             registrationInProgress = false
             message = "Couldn't find newly registered reader."
-            print("Couldn't find newly registered reader (looking for \(self.readerId ?? "<unknown>")), but found: \(readers.map {$0.serialNumber})")
+            print(
+                "Couldn't find newly registered reader (looking for \(self.readerId ?? "<unknown>")), but found: \(readers.map {$0.serialNumber})"
+            )
             return
         }
 
         self.setAllowedCancelMethods([])
         self.message = "Connecting..."
-        Terminal.shared.connectReader(reader, connectionConfig: connectionConfig) { [unowned self] connectedReader, error in
+        Terminal.shared.connectReader(reader, connectionConfig: connectionConfig) {
+            [unowned self] connectedReader, error in
             self.setAllowedCancelMethods(.all)
             if let error = error {
                 self.message = "Could not connect to reader."

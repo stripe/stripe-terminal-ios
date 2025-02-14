@@ -37,11 +37,20 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         // Give the activity indicator header a white bg so it doesn't clash with the location rows when there are enough to need to scroll
         activityIndicatorHeader.backgroundColor = UIColor.white
 
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissAction))
+        let cancelButton = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(dismissAction)
+        )
         self.cancelButton = cancelButton
         navigationItem.leftBarButtonItem = cancelButton
 
-        let newLocationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showLocationCreationForm))
+        let newLocationButton = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(showLocationCreationForm)
+        )
         self.newLocationButton = newLocationButton
         navigationItem.rightBarButtonItem = newLocationButton
 
@@ -90,20 +99,21 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
             let parameters = try ListLocationsParametersBuilder().setLimit(100).setStartingAfter(startingAfter).build()
 
             self.fetchingLocations = true
-            Terminal.shared.listLocations(parameters: parameters) { [unowned self] (locations: [Location]?, hasMore: Bool, error: Error?) in
+            Terminal.shared.listLocations(parameters: parameters) {
+                [unowned self] (locations: [Location]?, hasMore: Bool, error: Error?) in
                 if let fetchLocationError = error {
                     self.locations = ReaderDiscoveryViewController.savedLocationStubs
                     self.presentAlert(error: fetchLocationError)
-            }
-            var locationStubSet = Set(ReaderDiscoveryViewController.savedLocationStubs)
-            if let unwrappedLocations = locations {
-                for location in unwrappedLocations {
-                    self.locations.append(location.toLocationStub())
-                    locationStubSet.insert(location.toLocationStub())
                 }
-                self.hasMore = hasMore
-            }
-            ReaderDiscoveryViewController.savedLocationStubs = Array(locationStubSet)
+                var locationStubSet = Set(ReaderDiscoveryViewController.savedLocationStubs)
+                if let unwrappedLocations = locations {
+                    for location in unwrappedLocations {
+                        self.locations.append(location.toLocationStub())
+                        locationStubSet.insert(location.toLocationStub())
+                    }
+                    self.hasMore = hasMore
+                }
+                ReaderDiscoveryViewController.savedLocationStubs = Array(locationStubSet)
 
                 self.activityIndicatorHeader.activityIndicator.stopAnimating()
                 self.fetchingLocations = false
@@ -152,7 +162,8 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
             detailText: location.stripeId,
             selection: { [unowned self] in
                 self.onSelectLocation(location)
-            }, cellClass: SubtitleCell.self
+            },
+            cellClass: SubtitleCell.self
         )
     }
 

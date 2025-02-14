@@ -6,9 +6,9 @@
 //  Copyright © 2020 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class EventDisplayingViewController: TableViewController, CancelableViewController, InternetReaderDelegate {
 
@@ -65,7 +65,12 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
         doneButton.isEnabled = false
         self.doneButton = doneButton
 
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
+        let cancelButton = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(cancelAction)
+        )
         self.cancelButton = cancelButton
 
         setAllowedCancelMethods([])
@@ -97,23 +102,28 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     private func updateContent() {
         dataSource.sections = [
             Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
-            Section(header: Section.Extremity.view(logHeaderView), rows: events.map { logEvent -> Row in
-                switch logEvent.result {
-                case .started:
-                    return Row(text: logEvent.method?.rawValue ?? "Unknown Event",
-                               cellClass: MethodStartCell.self)
-                default:
-                    return Row(
-                        text: logEvent.description,
-                        detailText: logEvent.method?.rawValue,
-                        selection: { [unowned self] in
-                            self.navigationController?.pushViewController(logEvent.viewController, animated: true)
-                        },
-                        accessory: .disclosureIndicator,
-                        cellClass: LogEventCell.self
-                    )
+            Section(
+                header: Section.Extremity.view(logHeaderView),
+                rows: events.map { logEvent -> Row in
+                    switch logEvent.result {
+                    case .started:
+                        return Row(
+                            text: logEvent.method?.rawValue ?? "Unknown Event",
+                            cellClass: MethodStartCell.self
+                        )
+                    default:
+                        return Row(
+                            text: logEvent.description,
+                            detailText: logEvent.method?.rawValue,
+                            selection: { [unowned self] in
+                                self.navigationController?.pushViewController(logEvent.viewController, animated: true)
+                            },
+                            accessory: .disclosureIndicator,
+                            cellClass: LogEventCell.self
+                        )
+                    }
                 }
-            })
+            ),
         ]
     }
 
@@ -200,7 +210,11 @@ extension EventDisplayingViewController: MobileReaderDelegate {
 
 // MARK: TapToPayReaderDelegate
 extension EventDisplayingViewController: TapToPayReaderDelegate {
-    func tapToPayReader(_ reader: Reader, didStartInstallingUpdate update: ReaderSoftwareUpdate, cancelable: Cancelable?) {
+    func tapToPayReader(
+        _ reader: Reader,
+        didStartInstallingUpdate update: ReaderSoftwareUpdate,
+        cancelable: Cancelable?
+    ) {
         // No-op.
     }
 
@@ -213,18 +227,22 @@ extension EventDisplayingViewController: TapToPayReaderDelegate {
     }
 
     func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-        self.events.append({
-            var event = LogEvent(method: .requestReaderInput)
-            event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
-            return event
-        }())
+        self.events.append(
+            {
+                var event = LogEvent(method: .requestReaderInput)
+                event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
+                return event
+            }()
+        )
     }
 
     func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
-        self.events.append({
-            var event = LogEvent(method: .requestReaderDisplayMessage)
-            event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
-            return event
-        }())
+        self.events.append(
+            {
+                var event = LogEvent(method: .requestReaderDisplayMessage)
+                event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
+                return event
+            }()
+        )
     }
 }

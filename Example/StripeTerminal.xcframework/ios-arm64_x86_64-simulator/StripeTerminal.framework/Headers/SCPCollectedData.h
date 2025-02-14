@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger, SCPCollectDataType) {
     SCPCollectDataTypeUnknown,
     /// Collect data using the magstripe interface.
     SCPCollectDataTypeMagstripe,
+    /// Collect an NFC UID using the NFC interface.
+    SCPCollectDataTypeNfcUid,
 } NS_SWIFT_NAME(CollectDataType);
 
 /**
@@ -43,6 +45,11 @@ NS_SWIFT_NAME(CollectedData)
  Whether or not the object exists in livemode.
  */
 @property (nonatomic, assign, readonly) BOOL livemode;
+
+/**
+ The NFC UID of the object, if it exists.
+ */
+@property (nonatomic, nullable, readonly, copy) NSString *nfcUid;
 
 /**
  You cannot directly instantiate `SCPCollectedData`. You should only use

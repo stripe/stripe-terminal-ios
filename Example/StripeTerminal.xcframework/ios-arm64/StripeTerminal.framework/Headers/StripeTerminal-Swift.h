@@ -305,6 +305,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 
 @class NSString;
+@class NSNumber;
+
+@interface NSDictionary<KeyType, ObjectType> (SWIFT_EXTENSION(StripeTerminal))
+- (NSNumber * _Nullable)scp_boxedBoolForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)scp_boolForKey:(NSString * _Nonnull)key or:(BOOL)defaultValue SWIFT_WARN_UNUSED_RESULT;
+- (NSNumber * _Nullable)scp_numberForInt64Key:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 
 @interface NSError (SWIFT_EXTENSION(StripeTerminal))
 /// Tap To Pay reader error domain.
@@ -381,6 +390,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Indicates that the receiver is in the Tap To Pay reader error domain.
 @property (nonatomic, readonly) BOOL scp_isTapToPayReaderError;
 @end
+
 
 
 
@@ -845,6 +855,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SCPTapToPayReaderTransactionType, "TapToPayR
   SCPTapToPayReaderTransactionTypeRefund = 2,
 /// Perform card verification.
   SCPTapToPayReaderTransactionTypeVerification = 3,
+/// Perform card saving
+  SCPTapToPayReaderTransactionTypeSaveCard = 4,
 };
 
 

@@ -29,19 +29,36 @@ extension UIViewController {
      Requests a value by presenting an action sheet with the given options.
      If "Cancel" is selected, `handler` will be called with nil.
      */
-    func presentValuePicker<T>(title: String? = nil, options: [T], from sourceView: UIView? = nil, handler: @escaping (T?) -> Void) where T: CustomStringConvertible {
+    func presentValuePicker<T>(
+        title: String? = nil,
+        options: [T],
+        from sourceView: UIView? = nil,
+        handler: @escaping (T?) -> Void
+    ) where T: CustomStringConvertible {
         guard canPresentViewController() else { return }
 
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: sourceView == nil ? .alert : .actionSheet)
+        let alertController = UIAlertController(
+            title: title,
+            message: nil,
+            preferredStyle: sourceView == nil ? .alert : .actionSheet
+        )
         for opt in options {
-            let action = UIAlertAction(title: opt.description, style: .default, handler: { _ in
-                handler(opt)
-            })
+            let action = UIAlertAction(
+                title: opt.description,
+                style: .default,
+                handler: { _ in
+                    handler(opt)
+                }
+            )
             alertController.addAction(action)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            handler(nil)
-        })
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: { _ in
+                handler(nil)
+            }
+        )
         alertController.addAction(cancelAction)
         alertController.popoverPresentationController?.sourceView = sourceView
         alertController.popoverPresentationController?.sourceRect = sourceView?.bounds ?? .zero

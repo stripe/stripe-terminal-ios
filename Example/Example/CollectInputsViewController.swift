@@ -6,9 +6,9 @@
 //  Copyright © 2023 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class CollectInputsViewController: EventDisplayingViewController {
     private let collectInputsParams: CollectInputsParameters

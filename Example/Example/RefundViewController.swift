@@ -6,9 +6,9 @@
 //  Copyright © 2020 Stripe. All rights reserved.
 //
 
-import UIKit
 import Static
 import StripeTerminal
+import UIKit
 
 class RefundViewController: EventDisplayingViewController {
     private let refundParameters: RefundParameters
@@ -32,7 +32,10 @@ class RefundViewController: EventDisplayingViewController {
         var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
         self.events.append(collectEvent)
         self.currentCancelLogMethod = .cancelCollectRefundPaymentMethod
-        self.cancelable = Terminal.shared.collectRefundPaymentMethod(self.refundParameters, refundConfig: self.refundConfig) { [weak self] collectError in
+        self.cancelable = Terminal.shared.collectRefundPaymentMethod(
+            self.refundParameters,
+            refundConfig: self.refundConfig
+        ) { [weak self] collectError in
             guard let self = self else { return }
 
             if let error = collectError {

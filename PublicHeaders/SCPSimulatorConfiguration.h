@@ -53,6 +53,11 @@ NS_SWIFT_NAME(SimulatorConfiguration)
 @property (nonatomic, readwrite, nullable) NSNumber *simulatedTipAmount;
 
 /**
+ Set this to simulate a Terminal configuration object with offline mode enabled.
+ */
+@property (nonatomic, readwrite) BOOL offlineEnabled;
+
+/**
  You cannot directly instantiate this class.
  Set exposed properties via `SCPTerminal.shared.simulatorConfiguration`
  */

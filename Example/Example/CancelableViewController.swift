@@ -6,8 +6,8 @@
 //  Copyright © 2020 Stripe. All rights reserved.
 //
 
-import UIKit
 import StripeTerminal
+import UIKit
 
 // Used to control whether swiping to dismiss is allowed independent of the state of the cancel button
 // Used in `CancelableViewController`s `setAllowedCancelMethods`.
@@ -17,8 +17,8 @@ import StripeTerminal
 struct CancelableMethods: OptionSet {
     let rawValue: Int
 
-    static let button   = CancelableMethods(rawValue: 1 << 0)
-    static let swipe    = CancelableMethods(rawValue: 1 << 1)
+    static let button = CancelableMethods(rawValue: 1 << 0)
+    static let swipe = CancelableMethods(rawValue: 1 << 1)
 
     static let all: CancelableMethods = [.swipe, .button]
 }
@@ -36,8 +36,9 @@ protocol CancelableViewController: UIViewController {
 extension CancelableViewController {
     func cancel(errorBlock: @escaping (Error) -> Void) {
         guard let cancelable = cancelable,
-            cancelable.completed == false else {
-                return
+            cancelable.completed == false
+        else {
+            return
         }
         // Dismissed without canceling, cancel it now to make sure we cleanup.
         cancelable.cancel({ error in
@@ -60,8 +61,9 @@ protocol CancelingViewController: UIAdaptivePresentationControllerDelegate {}
 extension CancelingViewController where Self: UIViewController {
     func performCancel(presentationController: UIPresentationController) {
         guard let presentedNavController = presentationController.presentedViewController as? UINavigationController,
-            let cancelableVC = presentedNavController.viewControllers.first as? CancelableViewController else {
-                return
+            let cancelableVC = presentedNavController.viewControllers.first as? CancelableViewController
+        else {
+            return
         }
 
         cancelableVC.cancel { [weak self] error in
