@@ -41,10 +41,10 @@ class StartCollectInputsViewController: TableViewController {
                 .setSubmitButtonText("submit signature")
                 .build()
 
-            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes")
+            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes", id: "yes_id")
                 .build()
 
-            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No")
+            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No", id: "no_id")
                 .build()
 
             let selectionInput = try SelectionInputBuilder(title: "Choose an option")
@@ -117,10 +117,10 @@ class StartCollectInputsViewController: TableViewController {
                 .setToggles([firstToggle, secondToggle])
                 .build()
 
-            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes")
+            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes", id: "yes_id")
                 .build()
 
-            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No")
+            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No", id: "no_id")
                 .build()
 
             let selectionInput = try SelectionInputBuilder(title: "Choose an option")

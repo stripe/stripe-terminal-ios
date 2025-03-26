@@ -8,6 +8,20 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
+# 4.3.0 2024-03-26
+* Built with Xcode 16.0 Swift version 6.0.
+* New: Added field `requestPartialAuthorization` to [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).
+  * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* New: Added field [`cardDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardDetails.html) to [`SCPPaymentMethodDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentMethodDetails.html).
+  * _Note for internet reader integrations, this feature requires [reader software version](https://stripe.com/docs/terminal/readers/bbpos-wisepos-e#reader-software-version) `2.31` or later to be installed on your internet reader._
+* Update: If the [`fetchConnectionToken`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPConnectionTokenProvider.html#/c:objc(pl)SCPConnectionTokenProvider(im)fetchConnectionToken:) completion block is called with an empty string for the token the SDK will fail the command with `SCPErrorConnectionTokenProviderCompletedWithNothing`.
+* Fix: Resolved an issue where the SDK could be left in an unexpected state if `discoverReaders` was called while an existing `discoverReaders` was already in progress.
+* Preview: [CollectInputs](https://stripe.com/docs/terminal/features/collect-inputs) now requires a unique `id` for each `SelectionButton`.
+  * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
+* Fix: Auto reconnect now reports [`SCPErrorBluetoothConnectTimedOut`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorBluetoothConnectTimedOut) if it times out reconnecting to a reader instead of [`SCPErrorCanceled`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorCanceled).
+* Fix: Auto reconnect will continue trying to reconnect while the app is in the background. When the app becomes active the reconnect timer will give another 60 seconds for reconnect to succeed before timing out.
+* Fix: Resolved an issue where the `allowRedisplay` parameter was not correctly applied when using `updatePaymentIntent` with [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:collectConfig:completion:)
+
 # 4.2.0 2024-02-14
 * Built with Xcode 16.0 Swift version 6.0.
 * New: Added `collectionReason` to [`SCPSetupIntentConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentConfiguration.html).

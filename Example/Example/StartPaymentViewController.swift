@@ -24,6 +24,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var requestedPriority: String?
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
+    private var requestPartialAuthorization: String?
     private var declineCardBrand: CardBrand?
     private var recollectAfterCardBrandDecline = false
     private let isSposReader: Bool
@@ -353,6 +354,13 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
         if requestedPriority == "International" {
             cardPresentParamsBuilder.setRequestedPriority(CardPresentRouting.international)
+        }
+
+        if requestPartialAuthorization == "if_available" {
+            cardPresentParamsBuilder.setRequestPartialAuthorization(CardPresentRequestPartialAuthorization.ifAvailable)
+        }
+        if requestPartialAuthorization == "never" {
+            cardPresentParamsBuilder.setRequestPartialAuthorization(CardPresentRequestPartialAuthorization.never)
         }
 
         do {
@@ -690,6 +698,27 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return Section(header: "OFFLINE BEHAVIOR", rows: rows)
     }
 
+    private func makeRequestPartialAuthorizationSection() -> Section {
+        let rows: [Row] = [
+            Row(
+                accessory: .segmentedControl(
+                    items: ["default", "if_available", "never"],
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.requestPartialAuthorization = nil
+                    case 1: self.requestPartialAuthorization = "if_available"
+                    case 2: self.requestPartialAuthorization = "never"
+                    default:
+                        fatalError("Unknown option selected")
+                    }
+                }
+            )
+        ]
+
+        return Section(header: "Partial Authorization", rows: rows)
+    }
+
     /// Makes the "DCC" section.
     private func makeRequestDccSection() -> Section {
         let rows: [Row] = [
@@ -747,6 +776,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodTypesSection(),
             self.makePaymentMethodSection(),
+            self.makeRequestPartialAuthorizationSection(),
             self.makeRequestDccSection(),
             self.makeSurchargeNoticeSection(),
             self.makeAmountSurchargeSection(),
