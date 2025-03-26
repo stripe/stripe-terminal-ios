@@ -152,6 +152,11 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) NSNumber *amountTip;
 
 /**
+ The originally specified request amount if the transaction was partially authorized
+*/
+@property (nonatomic, nullable, readonly) NSNumber *amountRequested;
+
+/**
  Extra information about a PaymentIntent. This will appear on your customer’s statement when
  this PaymentIntent succeeds in creating a charge.
  */

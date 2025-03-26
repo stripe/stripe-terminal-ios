@@ -49,6 +49,11 @@ NS_SWIFT_NAME(SelectionButton)
 @property (nonatomic, readonly) NSString *text;
 
 /**
+ Represents the unique identifier of the button
+ */
+@property (nonatomic, readonly) NSString *id;
+
+/**
  Use `SCPSelectionButtonBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -71,13 +76,17 @@ NS_SWIFT_NAME(SelectionButtonBuilder)
  title.
  */
 - (instancetype)initWithStyle:(SCPSelectionButtonStyle)style
-                         text:(NSString *)text NS_DESIGNATED_INITIALIZER;
+                         text:(NSString *)text
+                           id:(NSString *)id NS_DESIGNATED_INITIALIZER;
 
 /// @see `SCPSelectionButton.style`
 - (SCPSelectionButtonBuilder *)setStyle:(SCPSelectionButtonStyle)style;
 
 /// @see `SCPSelectionButton.text`
 - (SCPSelectionButtonBuilder *)setText:(NSString *)text;
+
+/// @see `SCPSelectionButton.id`
+- (SCPSelectionButtonBuilder *)setId:(NSString *)id;
 
 /**
  Use `initWithStyle`.

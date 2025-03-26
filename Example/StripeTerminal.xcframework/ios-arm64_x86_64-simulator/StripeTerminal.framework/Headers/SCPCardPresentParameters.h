@@ -48,6 +48,21 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentRouting) {
     SCPCardPresentRoutingInternational,
 } NS_SWIFT_NAME(CardPresentRouting);
 
+/**
+ Parameters for requesting partial authorization support on a transaction
+ */
+typedef NS_ENUM(NSUInteger, SCPCardPresentRequestPartialAuthorization) {
+    /**
+     Allow for partial authorization if it is available
+     */
+    SCPCardPresentRequestPartialAuthorizationIfAvailable,
+
+    /**
+     Never use partial authorization
+     */
+    SCPCardPresentRequestPartialAuthorizationNever,
+} NS_SWIFT_NAME(CardPresentRequestPartialAuthorization);
+
 @class SCPSurcharge;
 
 /**
@@ -86,6 +101,15 @@ NS_SWIFT_NAME(CardPresentParameters)
 @property (nonatomic, nullable, readonly) SCPSurcharge *surcharge;
 
 /**
+ `SCPCardPresentRequestPartialAuthorization` as a nullable NSNumber.
+
+ Allows the partial authorization of the transaction amount on a PaymentIntent.
+ This is useful for allowing customers to pay for a portion of a transaction using the available balance on a
+ payment method, even if the available balance is less than the full transaction amount.
+ */
+@property (nonatomic, strong, nullable, readonly) NSNumber *requestPartialAuthorization;
+
+/**
  Use `SCPCardPresentParametersBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -117,6 +141,9 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.surcharge`
 - (SCPCardPresentParametersBuilder *)setSurcharge:(nullable SCPSurcharge *)surcharge;
+
+/// @see `SCPCardPresentParameters.requestPartialAuthorization`
+- (SCPCardPresentParametersBuilder *)setRequestPartialAuthorization:(SCPCardPresentRequestPartialAuthorization)requestPartialAuthorization;
 
 @end
 

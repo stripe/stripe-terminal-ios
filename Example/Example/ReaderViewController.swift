@@ -571,15 +571,16 @@ extension ReaderViewController: ReaderDelegate {
     }
 
     func readerDidFailReconnect(_ reader: Reader) {
-        self.reconnectionAlertController.dismiss(animated: true) {
-            self.presentAlert(title: "Reader Disconnected", message: "Reader reconnection failed!")
+        self.reconnectionAlertController.dismiss(animated: true) { [unowned self] in
+            self.topViewController()?.presentAlert(title: "Reader Disconnected", message: "Reader reconnection failed!")
         }
         connectedReader = nil
-
     }
+
     func readerDidSucceedReconnect(_ reader: Reader) {
-        self.reconnectionAlertController.dismiss(animated: true) {
-            self.presentAlert(title: "Reconnected!", message: "We were able to reconnect to the reader.")
+        self.reconnectionAlertController.dismiss(animated: true) { [unowned self] in
+            self.topViewController()?
+                .presentAlert(title: "Reconnected!", message: "We were able to reconnect to the reader.")
         }
     }
 }

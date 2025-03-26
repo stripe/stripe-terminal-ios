@@ -16,6 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPCardDetails;
 @class SCPCardPresentDetails;
 @class SCPWechatPayDetails;
 @class SCPAffirmDetails;
@@ -39,6 +40,12 @@ NS_SWIFT_NAME(PaymentMethodDetails)
  property is also populated.
  */
 @property (nonatomic, readonly) SCPPaymentMethodType type;
+
+/**
+ If this is a card payment method (ie `self.type == SCPPaymentMethodTypeCard`),
+ this contains additional information.
+ */
+@property (nonatomic, nullable, readonly) SCPCardDetails *card;
 
 /**
  If this is a card present payment method (ie `self.type == SCPPaymentMethodTypeCardPresent`),

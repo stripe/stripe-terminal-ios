@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBlocks.h>
 #import <StripeTerminal/SCPMobileReaderDelegate.h>
+#import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPUsbConnectionConfiguration.h>
 
 #ifdef SCP_EXTERNAL_CHANNEL_ENABLED

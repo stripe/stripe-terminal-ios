@@ -24,9 +24,14 @@ NS_SWIFT_NAME(SelectionResult)
 @interface SCPSelectionResult : SCPCollectInputsResult
 
 /**
- Represents the selected button. This value is nil if the form was skipped.
+ Represents the selected button's text. This value is nil if the form was skipped.
  */
 @property (nonatomic, nullable, readonly) NSString *selection;
+
+/**
+ Represents the selected button's id. This value is nil if the form was skipped.
+ */
+@property (nonatomic, nullable, readonly) NSString *selectionId;
 
 /**
  Represents the collected toggles, a list of SCPToggleResult. The value is SCPToggleResultSkipped if a form is skipped.
