@@ -111,6 +111,7 @@
 #import <StripeTerminal/SCPSimulateReaderUpdate.h>
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCardType.h>
+#import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPSurcharge.h>
 #import <StripeTerminal/SCPTapToPayConnectionConfiguration.h>

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 4.3.0 Docs
+          StripeTerminal 4.4.0 Docs
         </a>
         
       </p>
@@ -180,6 +180,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPSimulatedCardType.html">SCPSimulatedCardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedCollectInputsResultSucceeded.html">SCPSimulatedCollectInputsResultSucceeded</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResultTimeout">SCPSimulatedCollectInputsResultTimeout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
               </li>
             </ul>
           </li>
@@ -1797,6 +1809,155 @@ to the card numbers for convenience.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSimulatedCollectInputsResult"></a>
+                    <a name="//apple_ref/objc/Class/SCPSimulatedCollectInputsResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simulated collect inputs result objects can be used with the shared
+<code><a href="Classes/SCPSimulatorConfiguration.html">SCPSimulatorConfiguration</a></code> to simulate different input collection results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSimulatedCollectInputsResult</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimulatedCollectInputsResult</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSimulatedCollectInputsResultSucceeded"></a>
+                    <a name="//apple_ref/objc/Class/SCPSimulatedCollectInputsResultSucceeded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSimulatedCollectInputsResultSucceeded">SCPSimulatedCollectInputsResultSucceeded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simulate a successful collect inputs</p>
+
+<p>Based on the input type, the SDK returns a predefined value. The predefined values are:</p>
+
+<ul>
+<li>selection -&gt; (value of first option)</li>
+<li>signature -&gt; (a valid SVG image string)</li>
+<li>email -&gt; &ldquo;<a href="mailto:someone@example.com">someone@example.com</a>&rdquo;</li>
+<li>phone -&gt; &ldquo;+15555551234&rdquo;</li>
+<li>text -&gt; &ldquo;Jane Doe&rdquo;</li>
+<li>numeric -&gt; &ldquo;2907981236&rdquo;</li>
+</ul>
+
+<p>If any toggles are specified, their default value is selected and returned.</p>
+
+                        <a href="Classes/SCPSimulatedCollectInputsResultSucceeded.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSimulatedCollectInputsResultSucceeded</span>
+    <span class="p">:</span> <span class="nc"><a href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimulatedCollectInputsResultSucceeded</span> <span class="p">:</span> <span class="kt">SimulatedCollectInputsResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSimulatedCollectInputsResultTimeout"></a>
+                    <a name="//apple_ref/objc/Class/SCPSimulatedCollectInputsResultTimeout" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSimulatedCollectInputsResultTimeout">SCPSimulatedCollectInputsResultTimeout</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simulate a collect inputs where collection times out</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSimulatedCollectInputsResultTimeout</span>
+    <span class="p">:</span> <span class="nc"><a href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimulatedCollectInputsResultTimeout</span> <span class="p">:</span> <span class="kt">SimulatedCollectInputsResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSimulatedCollectInputsSkipBehavior"></a>
+                    <a name="//apple_ref/objc/Enum/SCPSimulatedCollectInputsSkipBehavior" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSimulatedCollectInputsSkipBehavior">SCPSimulatedCollectInputsSkipBehavior</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The supported behaviors for simulating skipping inputs</p>
+
+                        <a href="Enums/SCPSimulatedCollectInputsSkipBehavior.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPSimulatedCollectInputsSkipBehavior</span> <span class="o">:</span> <span class="n">NSInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">SimulatedCollectInputsSkipBehavior</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1805,7 +1966,7 @@ to the card numbers for convenience.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-03-26)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-05-14)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

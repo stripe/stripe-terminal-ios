@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPSimulateReaderUpdate.h>
 #import <StripeTerminal/SCPSimulatedCard.h>
+#import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,6 +57,11 @@ NS_SWIFT_NAME(SimulatorConfiguration)
  Set this to simulate a Terminal configuration object with offline mode enabled.
  */
 @property (nonatomic, readwrite) BOOL offlineEnabled;
+
+/**
+ Sets the behavior for simulating input collection
+ */
+@property (nonatomic, readwrite, nullable) SCPSimulatedCollectInputsResult *simulatedCollectInputsResult;
 
 /**
  You cannot directly instantiate this class.

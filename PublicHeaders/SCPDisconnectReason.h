@@ -53,6 +53,23 @@ typedef NS_ENUM(NSUInteger, SCPDisconnectReason) {
      */
     SCPDisconnectReasonBluetoothDisabled,
 
+    /**
+     The mobile reader automatically powers down after 10 hours of inactivity when not charging,
+     to conserve battery life
+     */
+    SCPDisconnectReasonIdlePowerDown,
+
+    /**
+     The mobile reader has been disconnected due to the USB cable being physically disconnected. This may also occur
+     when the USB driver is disabled in the app settings.
+     */
+    SCPDisconnectReasonUsbDisconnected,
+
+    /**
+     The mobile reader’s Bluetooth signal has been lost, either because it is out of range, or due to wireless
+     interference.
+     */
+    SCPDisconnectReasonBluetoothSignalLost,
 } NS_SWIFT_NAME(DisconnectReason);
 
 NS_ASSUME_NONNULL_END

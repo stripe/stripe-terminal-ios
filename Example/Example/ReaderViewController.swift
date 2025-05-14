@@ -200,6 +200,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
         let isSposReader = [
             DeviceType.stripeS700, DeviceType.stripeS700DevKit, DeviceType.wisePosE, DeviceType.wisePosEDevKit,
             DeviceType.etna,
+            DeviceType.verifoneV660p,
+            DeviceType.verifoneM425,
+            DeviceType.verifoneM450,
+            DeviceType.verifoneP630,
+            DeviceType.verifoneUX700,
         ].contains(Terminal.shared.connectedReader?.deviceType)
         return isSposReader
     }
@@ -268,7 +273,17 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         }
                     )
                 ].compactMap { $0 },
-                footer: Section.Extremity.autoLayoutView(ReaderUpdatePicker())
+                footer: Section.Extremity.autoLayoutView(
+                    {
+                        let stackView = UIStackView(arrangedSubviews: [
+                            ReaderUpdatePicker(),
+                            CollectInputsResultPicker(),
+                        ])
+                        stackView.axis = .vertical
+                        stackView.spacing = 10
+                        return stackView
+                    }()
+                )
             )
         } else {
             return nil
@@ -340,7 +355,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     )
                 }
-            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
+            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit,
+                .verifoneV660p, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700:
                 workflowRows.append(
                     Row(
                         text: "Set reader display",
@@ -383,9 +399,10 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 )
             }
 
-            if deviceType == .wisePosE || deviceType == .wisePosEDevKit || deviceType == .stripeS700
-                || deviceType == .stripeS700DevKit
-            {
+            switch deviceType {
+            case .wisePosE, .wisePosEDevKit, .stripeS700, .stripeS700DevKit, .verifoneV660p, .verifoneM425,
+                .verifoneM450, .verifoneP630, .verifoneUX700:
+
                 workflowRows.append(
                     Row(
                         text: "Collect inputs",
@@ -397,6 +414,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         cellClass: SubtitleCell.self
                     )
                 )
+            default: break
             }
 
             if deviceType != .wisePad3 && deviceType != .verifoneP400 && deviceType != .tapToPay {

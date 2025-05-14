@@ -231,7 +231,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 self.presentLocationRequiredAlert()
                 return nil
             }
-        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
+        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit,
+            .verifoneV660p, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700:
             let connectionConfig = try InternetConnectionConfigurationBuilder(
                 delegate: InternetReaderDelegateAnnouncer.shared
             )
@@ -553,7 +554,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "verifone")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit:
+        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit,
+            .verifoneV660p, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700:
             image = UIImage(named: "wisepose")
         case .tapToPay:
             image = nil

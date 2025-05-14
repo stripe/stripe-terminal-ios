@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"4.3.0";
+static NSString *const SCPSDKVersion = @"4.4.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,

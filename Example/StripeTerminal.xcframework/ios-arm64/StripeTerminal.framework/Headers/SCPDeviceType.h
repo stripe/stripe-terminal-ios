@@ -92,6 +92,31 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeStripeS700DevKit,
 
     /**
+     Verifone V660p
+     */
+    SCPDeviceTypeVerifoneV660p,
+
+    /**
+     Verifone M425
+     */
+    SCPDeviceTypeVerifoneM425,
+
+    /**
+     Verifone M450
+     */
+    SCPDeviceTypeVerifoneM450,
+
+    /**
+     Verifone P630
+     */
+    SCPDeviceTypeVerifoneP630,
+
+    /**
+     Verifone UX700
+     */
+    SCPDeviceTypeVerifoneUX700,
+
+    /**
      Tap To Pay reader.
      */
     SCPDeviceTypeTapToPay,

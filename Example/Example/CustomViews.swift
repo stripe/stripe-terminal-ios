@@ -331,6 +331,107 @@ class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataS
     }
 }
 
+private enum SimulatedCollectInputsResultEnum {
+    case succeedSkipNone
+    case succeedSkipAll
+    case timeout
+}
+
+private func transformInputsResult(_ result: SimulatedCollectInputsResult?) -> SimulatedCollectInputsResultEnum {
+    guard let result = result else {
+        // Default value when input is nil
+        return .succeedSkipNone
+    }
+
+    switch result {
+    case let succeeded as SimulatedCollectInputsResultSucceeded:
+        switch succeeded.simulatedCollectInputsSkipBehavior {
+        case .none:
+            return .succeedSkipNone
+        case .all:
+            return .succeedSkipAll
+        @unknown default:
+            // Handle potential future cases
+            fatalError("Unknown SimulatedCollectInputsSkipBehavior")
+        }
+    case is SimulatedCollectInputsResultTimeout:
+        return .timeout
+    default:
+        // Handle unexpected result types
+        fatalError("Unexpected SimulatedCollectInputsResult type")
+    }
+}
+
+private func transformInputsResultEnum(from enum: SimulatedCollectInputsResultEnum) -> SimulatedCollectInputsResult {
+    switch `enum` {
+    case .succeedSkipNone:
+        return SimulatedCollectInputsResultSucceeded(simulatedCollectInputsSkipBehavior: .none)
+    case .succeedSkipAll:
+        return SimulatedCollectInputsResultSucceeded(simulatedCollectInputsSkipBehavior: .all)
+    case .timeout:
+        return SimulatedCollectInputsResultTimeout()
+    }
+}
+
+class CollectInputsResultPicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    let pickerView = UIPickerView(frame: CGRect.zero)
+
+    private let resultTypesInDisplayOrder: [SimulatedCollectInputsResultEnum] = [
+        .succeedSkipNone,
+        .succeedSkipAll,
+        .timeout,
+    ]
+
+    private let resultTypeDescriptions: [SimulatedCollectInputsResultEnum: String] = [
+        .succeedSkipNone: "Success without skipping",
+        .succeedSkipAll: "Success with skipping",
+        .timeout: "Timeout",
+    ]
+
+    convenience init() {
+        self.init(text: "")
+        let initialSelectedResultType = transformInputsResult(
+            Terminal.shared.simulatorConfiguration.simulatedCollectInputsResult
+        )
+        textField.text = resultTypeDescriptions[initialSelectedResultType]
+        textField.keyboardType = .alphabet
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.backgroundColor = UIColor.white
+        textField.inputView = pickerView
+        pickerView.selectRow(
+            resultTypesInDisplayOrder.firstIndex(of: initialSelectedResultType) ?? 0,
+            inComponent: 0,
+            animated: false
+        )
+    }
+
+    func initialize() {
+        textField.inputView = pickerView
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        resultTypesInDisplayOrder.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return resultTypeDescriptions[resultTypesInDisplayOrder[row]]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Terminal.shared.simulatorConfiguration.simulatedCollectInputsResult = transformInputsResultEnum(
+            from: resultTypesInDisplayOrder[row]
+        )
+        textField.text = resultTypeDescriptions[resultTypesInDisplayOrder[row]]
+        textField.resignFirstResponder()
+    }
+}
+
 class TestCardPickerView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSource {
 
     let pickerView = UIPickerView(frame: CGRect.zero)

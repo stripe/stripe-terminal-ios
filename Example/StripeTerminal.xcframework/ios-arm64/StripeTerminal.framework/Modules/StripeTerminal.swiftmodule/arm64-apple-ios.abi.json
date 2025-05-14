@@ -150,6 +150,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "SKC",
         "printedName": "SKC",
         "declKind": "Import",
@@ -4925,6 +4935,26 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "SKC",
         "printedName": "SKC",
         "declKind": "Import",
@@ -6735,106 +6765,6 @@
       },
       {
         "kind": "Import",
-        "name": "SCPInternals",
-        "printedName": "SCPInternals",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "SKC",
-        "printedName": "SKC",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -6975,756 +6905,6 @@
       },
       {
         "kind": "Import",
-        "name": "SKC",
-        "printedName": "SKC",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "SKC",
-        "printedName": "SKC",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "SKC",
-        "printedName": "SKC",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "SKC",
-        "printedName": "SKC",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "SCPInternals",
         "printedName": "SCPInternals",
         "declKind": "Import",
@@ -7735,12 +6915,12 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "SKC",
+        "printedName": "SKC",
         "declKind": "Import",
         "moduleName": "StripeTerminal",
         "declAttributes": [
-          "RawDocComment"
+          "AccessControl"
         ]
       },
       {
@@ -7845,12 +7025,12 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "SKC",
+        "printedName": "SKC",
         "declKind": "Import",
         "moduleName": "StripeTerminal",
         "declAttributes": [
-          "RawDocComment"
+          "AccessControl"
         ]
       },
       {
@@ -7895,32 +7075,12 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "SKC",
+        "printedName": "SKC",
         "declKind": "Import",
         "moduleName": "StripeTerminal",
         "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "StripeTerminal",
-        "declAttributes": [
-          "RawDocComment"
+          "AccessControl"
         ]
       },
       {
@@ -8281,6 +7441,246 @@
         "moduleName": "StripeTerminal",
         "declAttributes": [
           "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SKC",
+        "printedName": "SKC",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -8785,6 +8185,796 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SKC",
+        "printedName": "SKC",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SCPInternals",
+        "printedName": "SCPInternals",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "SCPInternals",
         "printedName": "SCPInternals",
         "declKind": "Import",
@@ -8801,6 +8991,16 @@
         "moduleName": "StripeTerminal",
         "declAttributes": [
           "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -9809,6 +10009,16 @@
         "moduleName": "StripeTerminal",
         "declAttributes": [
           "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -11137,6 +11347,16 @@
         "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "StripeTerminal"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StripeTerminal",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -14391,7 +14611,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBCellularContext.swift",
       "kind": "Dictionary",
-      "offset": 853,
+      "offset": 1122,
       "length": 3,
       "value": "[]"
     },
@@ -14485,6 +14705,20 @@
       "offset": 528,
       "length": 1,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBBaseConfigurationMetadata.swift",
+      "kind": "BooleanLiteral",
+      "offset": 601,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBBaseConfigurationMetadata.swift",
+      "kind": "Dictionary",
+      "offset": 664,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReader.swift",
@@ -14958,7 +15192,14 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentMethodDetails.swift",
       "kind": "Dictionary",
-      "offset": 789,
+      "offset": 826,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBCDMASignalStrength.swift",
+      "kind": "Dictionary",
+      "offset": 722,
       "length": 3,
       "value": "[]"
     },
@@ -15273,7 +15514,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBProxyHealthMetricPb.swift",
       "kind": "Dictionary",
-      "offset": 715,
+      "offset": 743,
       "length": 3,
       "value": "[]"
     },
@@ -15404,9 +15645,16 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentIntentNextActionThirdPartyHandleRedirectOrDisplayQrCodeQrCode.swift",
+      "kind": "Dictionary",
+      "offset": 779,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBRestPaymentMethod.swift",
       "kind": "Dictionary",
-      "offset": 998,
+      "offset": 1035,
       "length": 3,
       "value": "[]"
     },
@@ -15770,7 +16018,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentIntentNextAction.swift",
       "kind": "Dictionary",
-      "offset": 830,
+      "offset": 962,
       "length": 3,
       "value": "[]"
     },
@@ -16512,77 +16760,133 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6632,
+      "offset": 6585,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6688,
+      "offset": 6641,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6746,
+      "offset": 6699,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6787,
+      "offset": 6740,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6840,
+      "offset": 6793,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6895,
+      "offset": 6848,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 6947,
+      "offset": 6900,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 7003,
+      "offset": 6956,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 7062,
+      "offset": 7015,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 7119,
+      "offset": 7072,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7124,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7169,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7213,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7271,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7334,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7376,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7432,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7481,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderFeatureFlags.swift",
       "kind": "Dictionary",
-      "offset": 7182,
+      "offset": 7544,
       "length": 3,
       "value": "[]"
     },
@@ -16844,6 +17148,13 @@
       "offset": 1334,
       "length": 2,
       "value": "30"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBVersionInfoPbClientType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1367,
+      "length": 2,
+      "value": "31"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBEventData.swift",
@@ -17149,7 +17460,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentIntentExpandedMethod.swift",
       "kind": "Dictionary",
-      "offset": 1744,
+      "offset": 1788,
       "length": 3,
       "value": "[]"
     },
@@ -17588,6 +17899,13 @@
       "value": "3"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBMposScope.swift",
+      "kind": "Dictionary",
+      "offset": 573,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBSdkConfirmSetupIntentRequest.swift",
       "kind": "Dictionary",
       "offset": 735,
@@ -17731,6 +18049,13 @@
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBFormsDiscreteScope.swift",
       "kind": "Dictionary",
       "offset": 646,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBGSMSignalStrength.swift",
+      "kind": "Dictionary",
+      "offset": 620,
       "length": 3,
       "value": "[]"
     },
@@ -18379,6 +18704,13 @@
       "value": "17"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBDeviceAssetInfoAssetType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1015,
+      "length": 2,
+      "value": "18"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBLanguagePackAssetMetadata.swift",
       "kind": "Dictionary",
       "offset": 675,
@@ -18715,6 +19047,62 @@
       "value": "9"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 823,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 860,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 895,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 925,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 956,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1001,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1032,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventDisconnectReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1063,
+      "length": 2,
+      "value": "17"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPosConnectivityEventInitialConnectionStage.swift",
       "kind": "IntegerLiteral",
       "offset": 493,
@@ -18815,7 +19203,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBHealthHealthMetric.swift",
       "kind": "Dictionary",
-      "offset": 929,
+      "offset": 976,
       "length": 3,
       "value": "[]"
     },
@@ -18984,6 +19372,13 @@
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBCancelSetupIntentPaymentMethodResponse.swift",
       "kind": "Dictionary",
       "offset": 600,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBWCDMASignalStrength.swift",
+      "kind": "Dictionary",
+      "offset": 686,
       "length": 3,
       "value": "[]"
     },
@@ -19184,6 +19579,13 @@
       "value": "2"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentIntentNextActionThirdPartyHandleRedirectOrDisplayQrCode.swift",
+      "kind": "Dictionary",
+      "offset": 870,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBNetworkEventType.swift",
       "kind": "IntegerLiteral",
       "offset": 441,
@@ -19291,7 +19693,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBWrappedAddressPb.swift",
       "kind": "Dictionary",
-      "offset": 729,
+      "offset": 794,
       "length": 3,
       "value": "[]"
     },
@@ -19313,6 +19715,13 @@
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderScope.swift",
       "kind": "Dictionary",
       "offset": 745,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBDiskScope.swift",
+      "kind": "Dictionary",
+      "offset": 618,
       "length": 3,
       "value": "[]"
     },
@@ -19529,7 +19938,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBConnectivityDomain.swift",
       "kind": "Dictionary",
-      "offset": 635,
+      "offset": 671,
       "length": 3,
       "value": "[]"
     },
@@ -19753,7 +20162,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBSimulatedHardware.swift",
       "kind": "Dictionary",
-      "offset": 676,
+      "offset": 726,
       "length": 3,
       "value": "[]"
     },
@@ -20297,6 +20706,55 @@
       "value": "63"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3096,
+      "length": 2,
+      "value": "64"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3127,
+      "length": 2,
+      "value": "65"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3162,
+      "length": 2,
+      "value": "66"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3191,
+      "length": 2,
+      "value": "67"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3225,
+      "length": 2,
+      "value": "68"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3253,
+      "length": 2,
+      "value": "69"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBReaderErrorCode.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3286,
+      "length": 2,
+      "value": "70"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBRegionalAidOrder.swift",
       "kind": "Dictionary",
       "offset": 611,
@@ -20328,6 +20786,13 @@
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBUpdatesEndToEndScope.swift",
       "kind": "Dictionary",
       "offset": 596,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBGauge.swift",
+      "kind": "Dictionary",
+      "offset": 560,
       "length": 3,
       "value": "[]"
     },
@@ -20369,7 +20834,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPaymentcollectionDiscreteScope.swift",
       "kind": "Dictionary",
-      "offset": 1368,
+      "offset": 1432,
       "length": 3,
       "value": "[]"
     },
@@ -22007,7 +22472,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBObservabilityData.swift",
       "kind": "Dictionary",
-      "offset": 855,
+      "offset": 883,
       "length": 3,
       "value": "[]"
     },
@@ -22028,7 +22493,7 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBDeviceAssetVersionMetadata.swift",
       "kind": "Dictionary",
-      "offset": 1070,
+      "offset": 1143,
       "length": 3,
       "value": "[]"
     },
@@ -22162,6 +22627,125 @@
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBCancelPaymentIntentResponse.swift",
       "kind": "Dictionary",
       "offset": 696,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 505,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 534,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 559,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 588,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 621,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 648,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 680,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 716,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailureReason.swift",
+      "kind": "IntegerLiteral",
+      "offset": 747,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterRequestPrintContentOneBitPerPixelImageContent.swift",
+      "kind": "Dictionary",
+      "offset": 795,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterRequestPrintContent.swift",
+      "kind": "Dictionary",
+      "offset": 826,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintFailure.swift",
+      "kind": "Dictionary",
+      "offset": 693,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponse.swift",
+      "kind": "Dictionary",
+      "offset": 720,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterRequest.swift",
+      "kind": "Dictionary",
+      "offset": 641,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterRequest.swift",
+      "kind": "StringLiteral",
+      "offset": 671,
+      "length": 24,
+      "value": "\"printToEmbeddedPrinter\""
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterRequestPrintContentHtmlContent.swift",
+      "kind": "Dictionary",
+      "offset": 689,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBPrintToEmbeddedPrinterResponsePrintSuccess.swift",
+      "kind": "Dictionary",
+      "offset": 627,
       "length": 3,
       "value": "[]"
     },
@@ -22313,6 +22897,27 @@
       "value": "2"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBLogSystemDomain.swift",
+      "kind": "Dictionary",
+      "offset": 693,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBLogUploadScope.swift",
+      "kind": "Dictionary",
+      "offset": 580,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBDroppedLogsScope.swift",
+      "kind": "Dictionary",
+      "offset": 590,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/SCPTapToPayReaderTransactionEvent.swift",
       "kind": "IntegerLiteral",
       "offset": 737,
@@ -22383,6 +22988,13 @@
       "value": "9"
     },
     {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBDemoPay.swift",
+      "kind": "Dictionary",
+      "offset": 584,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBBbposKeyProfileMetadataKeyProfileP2PEType.swift",
       "kind": "IntegerLiteral",
       "offset": 491,
@@ -22427,14 +23039,14 @@
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBApiLocationPb.swift",
       "kind": "BooleanLiteral",
-      "offset": 846,
+      "offset": 1055,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBApiLocationPb.swift",
       "kind": "Dictionary",
-      "offset": 1189,
+      "offset": 1398,
       "length": 3,
       "value": "[]"
     },
@@ -23151,6 +23763,13 @@
       "offset": 8079,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/Libraries\/ProtoGenerated\/SCPPBLTESignalStrength.swift",
+      "kind": "Dictionary",
+      "offset": 642,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/bric\/stripe\/terminal\/main\/StripeTerminal\/ConsolePaymentCollectionLogger.swift",

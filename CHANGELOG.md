@@ -8,7 +8,20 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
-# 4.3.0 2024-03-26
+# 4.4.0 2025-05-14
+* Built with Xcode 16.0 Swift version 6.0.
+### New
+* Added simulated Internet reader support for collecting inputs. See the updated [`SCPSimulatorConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatorConfiguration.html) for usage.
+* Added `TapToPayInternalNetworkError` error code for network errors surfaced in Tap to Pay on iPhone and changed related errors from `InternalNetworkError` to `TapToPayInternalNetworkError`.
+* Added new mobile reader disconnect reasons: `bluetoothSignalLost`, `usbDisconnected`, and `idlePowerDown` to [`SCPDisconnectReason`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html).
+
+### Fixes
+* Fixed an issue where calling `collectPaymentMethod` when no reader was connected to the SDK falsely returned `SCPErrorFeatureNotAvailableWithConnectedReader`. This error is now correctly reported as `SCPErrorNotConnectedToReader`.
+* Fixed an issue where the auto-reconnect feature would attempt to reconnect after a reader disconnected due to critically low battery and then disconnect again. Auto-reconnect is no longer attempted in this scenario.
+* Fixed an issue where connection attempt to a reader incorrectly returned [`SCPErrorNotConnectedToInternet`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorNotConnectedToInternet) if fetching the connection token failed.  The correct error [`SCPErrorConnectionTokenProviderCompletedWithError`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithError) is now reported instead.
+* Fixed an issue where the WisePad 3 reader would remain on the processing screen for 30 seconds when a collectPaymentMethod request with [`updatePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectConfiguration.html#/c:objc(cs)SCPCollectConfiguration(py)updatePaymentIntent) applied fails. The reader now exits the processing screen immediately.
+
+# 4.3.0 2025-03-26
 * Built with Xcode 16.0 Swift version 6.0.
 * New: Added field `requestPartialAuthorization` to [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html).
   * If you are interested in joining this preview, please email [stripe-terminal-betas@stripe.com](mailto:stripe-terminal-betas@stripe.com).
@@ -22,7 +35,7 @@ pod 'StripeTerminal', '~> 4.0'
 * Fix: Auto reconnect will continue trying to reconnect while the app is in the background. When the app becomes active the reconnect timer will give another 60 seconds for reconnect to succeed before timing out.
 * Fix: Resolved an issue where the `allowRedisplay` parameter was not correctly applied when using `updatePaymentIntent` with [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:collectConfig:completion:)
 
-# 4.2.0 2024-02-14
+# 4.2.0 2025-02-14
 * Built with Xcode 16.0 Swift version 6.0.
 * New: Added `collectionReason` to [`SCPSetupIntentConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentConfiguration.html).
   * This field can only be changed for Tap To Pay readers. The default value is saveCard.
