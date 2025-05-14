@@ -439,24 +439,20 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             header: Section.Extremity.title("Payment Methods"),
             rows: paymentMethodTypes.map({ (key: PaymentMethodType) in
                 let label = Terminal.stringFromPaymentMethodType(key)
-                return if key == .cardPresent {
-                    Row(text: "Enable \(label)", accessory: .none)
-                } else {
-                    Row(
-                        text: "Enable \(label)",
-                        accessory: .switchToggle(
-                            value: self.selectedPaymentMethodTypes.contains(key),
-                            { [unowned self] _ in
-                                if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
-                                    selectedPaymentMethodTypes.remove(at: index)
-                                } else {
-                                    selectedPaymentMethodTypes.append(key)
-                                }
-                                self.updateContent()
+                return Row(
+                    text: "Enable \(label)",
+                    accessory: .switchToggle(
+                        value: self.selectedPaymentMethodTypes.contains(key),
+                        { [unowned self] _ in
+                            if let index = selectedPaymentMethodTypes.firstIndex(of: key) {
+                                selectedPaymentMethodTypes.remove(at: index)
+                            } else {
+                                selectedPaymentMethodTypes.append(key)
                             }
-                        )
+                            self.updateContent()
+                        }
                     )
-                }
+                )
             })
         )
         return paymentMethodTypesSection

@@ -595,6 +595,41 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorUsbDisconnected = 3990,
 
+    /**
+     * The printer is currently busy.
+     */
+    SCPErrorPrinterBusy = 4000,
+
+    /**
+     * The printer has a paper jam.
+     */
+    SCPErrorPrinterPaperJam = 4001,
+
+    /**
+     * The printer is out of paper.
+     */
+    SCPErrorPrinterOutOfPaper = 4002,
+
+    /**
+     * The printer's cover or head assembly is open.
+     */
+    SCPErrorPrinterCoverOpen = 4003,
+
+    /**
+     * The reader does not have a printer.
+     */
+    SCPErrorPrinterAbsent = 4004,
+
+    /**
+     * The reader has a printer but it is currently unavailable.
+     */
+    SCPErrorPrinterUnavailable = 4005,
+
+    /**
+     * Generic printer error. See error message for more details.
+     */
+    SCPErrorPrinterError = 4006,
+
     /*
      UNEXPECTED ERRORS
      */
@@ -743,6 +778,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Generic network error
      */
     SCPErrorInternalNetworkError = 9040,
+    /**
+     Tap to Pay network error
+     */
+    SCPErrorTapToPayInternalNetworkError = 9041,
     /**
      Your implementation of `-[SCPConnectionTokenProvider fetchConnectionToken:]`
      called the completion block with an error.

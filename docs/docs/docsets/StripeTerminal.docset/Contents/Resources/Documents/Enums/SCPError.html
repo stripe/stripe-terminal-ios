@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 4.3.0 Docs
+          StripeTerminal 4.4.0 Docs
         </a>
         
       </p>
@@ -182,6 +182,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPSimulatedCardType.html">SCPSimulatedCardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedCollectInputsResultSucceeded.html">SCPSimulatedCollectInputsResultSucceeded</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResultTimeout">SCPSimulatedCollectInputsResultTimeout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
               </li>
             </ul>
           </li>
@@ -4027,6 +4039,230 @@ Reconnect to the reader to attempt to re-install the keys. If the error persists
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterBusy"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterBusy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterBusy">SCPErrorPrinterBusy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The printer is currently busy.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterBusy</span> <span class="o">=</span> <span class="mi">4000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerBusy</span> <span class="o">=</span> <span class="mi">4000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterPaperJam"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterPaperJam" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterPaperJam">SCPErrorPrinterPaperJam</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The printer has a paper jam.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterPaperJam</span> <span class="o">=</span> <span class="mi">4001</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerPaperJam</span> <span class="o">=</span> <span class="mi">4001</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterOutOfPaper"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterOutOfPaper" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterOutOfPaper">SCPErrorPrinterOutOfPaper</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The printer is out of paper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterOutOfPaper</span> <span class="o">=</span> <span class="mi">4002</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerOutOfPaper</span> <span class="o">=</span> <span class="mi">4002</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterCoverOpen"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterCoverOpen" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterCoverOpen">SCPErrorPrinterCoverOpen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The printer&rsquo;s cover or head assembly is open.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterCoverOpen</span> <span class="o">=</span> <span class="mi">4003</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerCoverOpen</span> <span class="o">=</span> <span class="mi">4003</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterAbsent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterAbsent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterAbsent">SCPErrorPrinterAbsent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader does not have a printer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterAbsent</span> <span class="o">=</span> <span class="mi">4004</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerAbsent</span> <span class="o">=</span> <span class="mi">4004</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterUnavailable"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterUnavailable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterUnavailable">SCPErrorPrinterUnavailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reader has a printer but it is currently unavailable.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterUnavailable</span> <span class="o">=</span> <span class="mi">4005</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerUnavailable</span> <span class="o">=</span> <span class="mi">4005</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorPrinterError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorPrinterError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorPrinterError">SCPErrorPrinterError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic printer error. See error message for more details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorPrinterError</span> <span class="o">=</span> <span class="mi">4006</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printerError</span> <span class="o">=</span> <span class="mi">4006</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorUnexpectedSdkError"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorUnexpectedSdkError" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorUnexpectedSdkError">SCPErrorUnexpectedSdkError</a>
@@ -4822,6 +5058,38 @@ Retry the payment with another card.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorTapToPayInternalNetworkError"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTapToPayInternalNetworkError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTapToPayInternalNetworkError">SCPErrorTapToPayInternalNetworkError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tap to Pay network error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTapToPayInternalNetworkError</span> <span class="o">=</span> <span class="mi">9041</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tapToPayInternalNetworkError</span> <span class="o">=</span> <span class="mi">9041</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithError"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorConnectionTokenProviderCompletedWithError" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorConnectionTokenProviderCompletedWithError">SCPErrorConnectionTokenProviderCompletedWithError</a>
@@ -5051,7 +5319,7 @@ the functionality or retry with another value for <code><a href="../Enums/SCPOff
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-03-26)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-05-14)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

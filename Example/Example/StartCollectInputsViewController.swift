@@ -18,7 +18,7 @@ class StartCollectInputsViewController: TableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addKeyboardDisplayObservers()
+        addKeyboardDisplayObservers()
         title = "Collect Inputs"
 
         updateContent()
@@ -30,6 +30,31 @@ class StartCollectInputsViewController: TableViewController {
         guard Terminal.shared.connectedReader != nil else {
             navigationController?.popViewController(animated: true)
             return
+        }
+    }
+
+    internal func startSelectionForm() {
+        do {
+            let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes", id: "yes_id")
+                .build()
+
+            let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No", id: "no_id")
+                .build()
+
+            let selectionInput = try SelectionInputBuilder(title: "Choose an option")
+                .setStripeDescription("Were you happy with customer service?")
+                .setRequired(true)
+                .setSelectionButtons([firstSelectionButton, secondSelectionButton])
+                .build()
+
+            let collectInputsParams = try CollectInputsParametersBuilder(
+                inputs: [selectionInput]
+            ).build()
+            let vc = CollectInputsViewController(collectInputsParams: collectInputsParams)
+            let navController = LargeTitleNavigationController(rootViewController: vc)
+            present(navController, animated: true, completion: nil)
+        } catch {
+            presentAlert(error: error)
         }
     }
 
@@ -58,9 +83,9 @@ class StartCollectInputsViewController: TableViewController {
             ).build()
             let vc = CollectInputsViewController(collectInputsParams: collectInputsParams)
             let navController = LargeTitleNavigationController(rootViewController: vc)
-            self.present(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
         } catch {
-            self.presentAlert(error: error)
+            presentAlert(error: error)
         }
     }
 
@@ -94,9 +119,9 @@ class StartCollectInputsViewController: TableViewController {
             ).build()
             let vc = CollectInputsViewController(collectInputsParams: collectInputsParams)
             let navController = LargeTitleNavigationController(rootViewController: vc)
-            self.present(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
         } catch {
-            self.presentAlert(error: error)
+            presentAlert(error: error)
         }
     }
 
@@ -135,19 +160,28 @@ class StartCollectInputsViewController: TableViewController {
             ).build()
             let vc = CollectInputsViewController(collectInputsParams: collectInputsParams)
             let navController = LargeTitleNavigationController(rootViewController: vc)
-            self.present(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
         } catch {
-            self.presentAlert(error: error)
+            presentAlert(error: error)
         }
     }
 
     private func updateContent() {
         var sections = [Section]()
+        let selectionForm = Section(rows: [
+            Row(
+                text: "Selection form",
+                selection: { [unowned self] in
+                    startSelectionForm()
+                },
+                cellClass: ButtonCell.self
+            )
+        ])
         let signatureAndSelectionForms = Section(rows: [
             Row(
                 text: "Signature and selection forms",
                 selection: { [unowned self] in
-                    self.startSignatureAndSelectionForms()
+                    startSignatureAndSelectionForms()
                 },
                 cellClass: ButtonCell.self
             )
@@ -157,7 +191,7 @@ class StartCollectInputsViewController: TableViewController {
             Row(
                 text: "Phone, email, numeric, and text forms",
                 selection: { [unowned self] in
-                    self.startTextNumericEmailPhoneForms()
+                    startTextNumericEmailPhoneForms()
                 },
                 cellClass: ButtonCell.self
             )
@@ -167,12 +201,13 @@ class StartCollectInputsViewController: TableViewController {
             Row(
                 text: "Signature and selection forms with toggles",
                 selection: { [unowned self] in
-                    self.startSignatureAndSelectionFormsWithToggles()
+                    startSignatureAndSelectionFormsWithToggles()
                 },
                 cellClass: ButtonCell.self
             )
         ])
 
+        sections.append(selectionForm)
         sections.append(signatureAndSelectionForms)
         sections.append(textNumericEmailPhoneForms)
         sections.append(signatureAndSelectionFormsWithToggles)
