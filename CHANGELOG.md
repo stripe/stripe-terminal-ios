@@ -8,7 +8,7 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
-# 4.5.0 2025-XX-YY
+# 4.5.0 2025-06-10
 * Built with Xcode 16.0 Swift version 6.0.
 
 ### New
