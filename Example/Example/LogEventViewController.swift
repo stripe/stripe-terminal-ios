@@ -360,7 +360,7 @@ extension LogEvent.AssociatedObject {
 
             var output = """
                 Error Domain: \(error.domain)
-                Error Code: \(error.code)
+                Error Code: \(prettyPrintErrorCode(error))
 
                 """
             if let requestError = error.requestError {
@@ -389,7 +389,11 @@ extension LogEvent.AssociatedObject {
 
             return output
         case .error(let error):
-            return prettyPrint(json: error.userInfo)
+            return """
+                Error Domain: \(error.domain)
+                Error Code: \(prettyPrintErrorCode(error))
+                Error User Info: \(prettyPrint(json: error.userInfo))
+                """
         case .json(let json):
             return prettyPrint(json: json)
         case .paymentIntent(let intent):
@@ -436,6 +440,15 @@ extension LogEvent.AssociatedObject {
             return String(data: data, encoding: .utf8) ?? sanitizedJson.description
         } catch _ {
             return json.description
+        }
+    }
+
+    private func prettyPrintErrorCode(_ error: NSError) -> String {
+        if error.domain == StripeTerminal.ErrorDomain {
+            let errorCode = ErrorCode(_nsError: error)
+            return Terminal.stringFromError(errorCode.code)
+        } else {
+            return "\(error.code)"
         }
     }
 }

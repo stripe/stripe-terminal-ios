@@ -198,13 +198,16 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     private func isSposReader() -> Bool {
         let isSposReader = [
-            DeviceType.stripeS700, DeviceType.stripeS700DevKit, DeviceType.wisePosE, DeviceType.wisePosEDevKit,
             DeviceType.etna,
-            DeviceType.verifoneV660p,
+            DeviceType.stripeS700,
+            DeviceType.stripeS700DevKit,
             DeviceType.verifoneM425,
             DeviceType.verifoneM450,
             DeviceType.verifoneP630,
             DeviceType.verifoneUX700,
+            DeviceType.verifoneV660p,
+            DeviceType.wisePosE,
+            DeviceType.wisePosEDevKit,
         ].contains(Terminal.shared.connectedReader?.deviceType)
         return isSposReader
     }
@@ -400,8 +403,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
             }
 
             switch deviceType {
-            case .wisePosE, .wisePosEDevKit, .stripeS700, .stripeS700DevKit, .verifoneV660p, .verifoneM425,
-                .verifoneM450, .verifoneP630, .verifoneUX700:
+            case .etna, .stripeS700, .stripeS700DevKit, .verifoneM425, .verifoneM450, .verifoneP630,
+                .verifoneUX700, .verifoneV660p, .wisePosE, .wisePosEDevKit:
 
                 workflowRows.append(
                     Row(

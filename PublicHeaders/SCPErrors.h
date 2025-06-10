@@ -630,6 +630,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorPrinterError = 4006,
 
+    /**
+     * The reader cannot be connected to because it is already connected to a different device.
+     */
+    SCPErrorReaderConnectedToAnotherDevice = 4020,
+
     /*
      UNEXPECTED ERRORS
      */

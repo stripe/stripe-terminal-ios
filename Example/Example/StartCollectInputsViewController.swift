@@ -127,19 +127,15 @@ class StartCollectInputsViewController: TableViewController {
 
     internal func startSignatureAndSelectionFormsWithToggles() {
         do {
-            let firstToggle = try ToggleBuilder(defaultValue: .disabled)
-                .setTitle("Confirm you have read the TOS")
+            let signatureToggle = try ToggleBuilder(defaultValue: .enabled)
+                .setTitle("Sign up for emails")
+                .setStripeDescription("Promotions and coupons")
                 .build()
-
-            let secondToggle = try ToggleBuilder(defaultValue: .enabled)
-                .setStripeDescription("Sign up for emails")
-                .build()
-
             let signatureInput = try SignatureInputBuilder(title: "Please sign")
                 .setStripeDescription("Please sign if you agree to the terms and conditions")
                 .setSkipButtonText("skip form")
                 .setSubmitButtonText("submit signature")
-                .setToggles([firstToggle, secondToggle])
+                .setToggles([signatureToggle])
                 .build()
 
             let firstSelectionButton = try SelectionButtonBuilder(style: .primary, text: "Yes", id: "yes_id")
@@ -148,11 +144,14 @@ class StartCollectInputsViewController: TableViewController {
             let secondSelectionButton = try SelectionButtonBuilder(style: .secondary, text: "No", id: "no_id")
                 .build()
 
+            let selectionToggle = try ToggleBuilder(defaultValue: .disabled)
+                .setStripeDescription("Include fee")
+                .build()
             let selectionInput = try SelectionInputBuilder(title: "Choose an option")
                 .setStripeDescription("Were you happy with customer service?")
                 .setRequired(true)
                 .setSelectionButtons([firstSelectionButton, secondSelectionButton])
-                .setToggles([firstToggle, secondToggle])
+                .setToggles([selectionToggle])
                 .build()
 
             let collectInputsParams = try CollectInputsParametersBuilder(
