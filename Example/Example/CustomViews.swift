@@ -128,6 +128,9 @@ class AmountInputView: TextFieldView, UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.isEmpty == true {
+            return
+        }
         textField.text = String(amount)
     }
 }

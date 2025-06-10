@@ -8,6 +8,21 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
+# 4.5.0 2025-XX-YY
+* Built with Xcode 16.0 Swift version 6.0.
+
+### New
+* New: Added `cardholderVerificationMethod` to [`SCPReceiptDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReceiptDetails.html).
+  * See [`cardholder_verification_method`](https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-receipt-cardholder_verification_method) for the list of supported verification methods.
+
+## Update
+* iOS Location permission is no longer enforced when discovering readers, and will instead only be enforced when confirming payment intents.
+
+### Fixes
+* Fixed issue with issuing Interac refunds when `onBehalfOf` parameter is provided.
+* Fixed issue where [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html) fields were dropped.
+* Fixed issue where calling [`discoverReaders`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)discoverReaders:delegate:completion:) while a mobile reader is connected would cause the SDK to enter an unexpected state preventing subsequent [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) requests from responding.
+
 # 4.4.0 2025-05-14
 * Built with Xcode 16.0 Swift version 6.0.
 ### New

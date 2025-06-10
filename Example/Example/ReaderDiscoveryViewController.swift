@@ -121,12 +121,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 {
                     print("discoverReaders failed: \(error)")
                     self.presentAlert(error: error) { _ in
-                        // Don't dismiss if we found any readers and the error is scan timed out
-                        if self.readers.isEmpty || error.domain != StripeTerminal.ErrorDomain
-                            || error.code != StripeTerminal.ErrorCode.bluetoothScanTimedOut.rawValue
-                        {
-                            self.presentingViewController?.dismiss(animated: true, completion: nil)
-                        }
+                        self.presentingViewController?.dismiss(animated: true, completion: nil)
                     }
                 }
             }

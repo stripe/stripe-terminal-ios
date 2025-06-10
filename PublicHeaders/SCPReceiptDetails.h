@@ -64,6 +64,11 @@ NS_SWIFT_NAME(ReceiptDetails)
 @property (nonatomic, readonly) NSString *transactionStatusInformation;
 
 /**
+ CVM
+ */
+@property (nonatomic, readonly) NSString *cardholderVerificationMethod;
+
+/**
  You cannot directly instantiate this class.
  */
 - (instancetype)init NS_UNAVAILABLE;
