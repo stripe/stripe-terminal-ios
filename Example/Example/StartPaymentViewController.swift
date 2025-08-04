@@ -16,6 +16,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
     private var skipTipping = false
+    private var collectSurchargeConsent = false
     private var enableCustomerCancellation = false
     private var interacPresentEnabled = false
     private var automaticCaptureEnabled = false
@@ -37,6 +38,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .interacPresent,
         .wechatPay,
         .affirm,
+        .paynow,
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
@@ -122,6 +124,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return textField
     }()
 
+    private lazy var surchargeConsentTextField: TextFieldView = {
+        let textField = TextFieldView(placeholderText: "Surcharge Consent Notice")
+        textField.textField.autocorrectionType = .no
+        textField.textField.autocapitalizationType = .none
+        textField.textField.clearButtonMode = .whileEditing
+        textField.textField.keyboardType = .default
+        return textField
+    }()
+
     private lazy var amountSurchargeTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "Amount Surcharge", keyboardType: .numberPad)
         textField.textField.autocorrectionType = .no
@@ -175,6 +186,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         offlineStoredTransactionLimitTextField.textField.delegate = self
 
         surchargeNoticeTextField.textField.delegate = self
+        surchargeConsentTextField.textField.delegate = self
         amountSurchargeTextField.textField.delegate = self
 
         returnUrlTextField.textField.delegate = self
@@ -293,10 +305,20 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             .setMoto(self.moto)
         let confirmConfigBuilder = ConfirmConfigurationBuilder()
 
+        let surchargeConfigurationBuilder = SurchargeConfigurationBuilder()
+
         if let amountSurcharge = amountSurchargeTextField.textField.text {
             if let parsedAmount = UInt(amountSurcharge, radix: 10) {
-                confirmConfigBuilder.setAmountSurcharge(parsedAmount)
+                surchargeConfigurationBuilder.setAmount(parsedAmount)
             }
+        }
+
+        let surchargeConsentBuilder = SurchargeConsentBuilder()
+            .setCollection(collectSurchargeConsent ? .enabled : .disabled)
+        if let surchargeConsentNoticeText = surchargeConsentTextField.textField.text,
+            !surchargeConsentNoticeText.isEmpty
+        {
+            surchargeConsentBuilder.setNotice(surchargeConsentNoticeText)
         }
 
         if let returnUrl = returnUrlTextField.textField.text {
@@ -314,6 +336,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             if let onReceiptAmount = UInt(postAuthTipAmountTextField.textField.text ?? "0") {
                 onReceiptTip = onReceiptAmount
             }
+
+            surchargeConfigurationBuilder.setSurchargeConsent(try surchargeConsentBuilder.build())
+
+            confirmConfigBuilder.setSurchargeConfiguration(try surchargeConfigurationBuilder.build())
+
             let collectConfig = try collectConfigBuilder.build()
             let confirmConfig = try confirmConfigBuilder.build()
             let vc = PaymentViewController(
@@ -732,24 +759,43 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return Section(header: "Request Dynamic Currency Conversion", rows: rows)
     }
 
+    private func makeSurchargeConsentSection() -> Section {
+        Section(
+            header: "Surcharge Consent",
+            rows: [
+                Row(
+                    text: "Enable Surcharge Consent",
+                    accessory: .switchToggle(value: self.collectSurchargeConsent) { [unowned self] _ in
+                        self.collectSurchargeConsent.toggle()
+                        if !self.updatePaymentIntent {
+                            self.updatePaymentIntent.toggle()
+                        }
+                        self.updateContent()
+                    }
+                )
+            ],
+            footer: .autoLayoutView(surchargeConsentTextField)
+        )
+    }
+
     /// Makes the "Surcharge notice" section.
     private func makeSurchargeNoticeSection() -> Section {
-        let offlineTransactionLimitSection = Section(
+        let surchargeNoticeSection = Section(
             header: .title("Surcharge Notice"),
             rows: [],
             footer: .autoLayoutView(surchargeNoticeTextField)
         )
-        return offlineTransactionLimitSection
+        return surchargeNoticeSection
     }
 
     /// Makes the "Amount Surcharge" section.
     private func makeAmountSurchargeSection() -> Section {
-        let offlineTransactionLimitSection = Section(
+        let amountSurchargeSection = Section(
             header: .title("Amount Surcharge"),
             rows: [],
             footer: .autoLayoutView(amountSurchargeTextField)
         )
-        return offlineTransactionLimitSection
+        return amountSurchargeSection
     }
 
     /// Makes the "Return URL" section.
@@ -776,6 +822,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeRequestDccSection(),
             self.makeSurchargeNoticeSection(),
             self.makeAmountSurchargeSection(),
+            self.makeSurchargeConsentSection(),
             self.makeUpdatePaymentIntentSection(),
             self.makeDestinationPaymentSection(),
             self.makeApplicationFeeAmountSection(),

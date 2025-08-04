@@ -34,6 +34,7 @@
 #import <StripeTerminal/SCPOfflineStatus.h>
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
+#import <StripeTerminal/SCPPrintContent.h>
 #import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderSettingsParameters.h>
@@ -49,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"4.5.0";
+static NSString *const SCPSDKVersion = @"4.6.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -870,6 +871,15 @@ API_AVAILABLE(ios(14.0))
 - (nullable SCPCancelable *)collectData:(SCPCollectDataConfiguration *)collectDataConfiguration
                              completion:(SCPCollectedDataCompletionBlock)completion
     NS_SWIFT_NAME(collectData(_:completion:));
+
+/**
+ Prints the specified content to the connected reader's printer, if available.
+
+ @param content The content to print.
+ @param completion The completion block called when the command completes.
+ */
+- (void)print:(SCPPrintContent *)content completion:(SCPErrorCompletionBlock)completion
+    NS_SWIFT_NAME(print(_:completion:));
 
 /**
  Returns an unlocalized string for the given reader input options, e.g.

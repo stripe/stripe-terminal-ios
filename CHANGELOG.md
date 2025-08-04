@@ -7,6 +7,19 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
+# 4.6.0 2025-08-04
+* Built with Xcode 16.0 Swift version 6.0.
+
+### New
+* Improved error handling when device is tampered. Connecting to a tampered reader will now fail with the `SCPErrorReaderTampered` error code.
+* Preview: Added `ConfirmConfiguration.surcharge` and `SurchargeConfiguration` to configure surcharging on `confirmPaymentIntent`.
+  * If you are interested in joining the preview, please contact [Stripe support](https://support.stripe.com/).
+* Preview: Added a `print` method to enable printing images on the Verifone V660p reader.
+  * If you are interested in joining the preview, please contact [Stripe support](https://support.stripe.com/).
+
+### Updates
+* Preview: The `ConfirmConfiguration.amountSurcharge` field has been renamed to `ConfirmConfiguration.surcharge.amount`.
+  * If you are interested in joining this preview, please contact [Stripe support](https://support.stripe.com/).
 
 # 4.5.0 2025-06-10
 * Built with Xcode 16.0 Swift version 6.0.
@@ -15,7 +28,7 @@ pod 'StripeTerminal', '~> 4.0'
 * New: Added `cardholderVerificationMethod` to [`SCPReceiptDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReceiptDetails.html).
   * See [`cardholder_verification_method`](https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-receipt-cardholder_verification_method) for the list of supported verification methods.
 
-## Update
+### Updates
 * iOS Location permission is no longer enforced when discovering readers, and will instead only be enforced when confirming payment intents.
 
 ### Fixes

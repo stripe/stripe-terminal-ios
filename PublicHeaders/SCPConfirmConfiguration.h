@@ -13,7 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPJSONDecodable.h>
-
+#import <StripeTerminal/SCPSurchargeConfiguration.h>
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -24,23 +24,21 @@ NS_SWIFT_NAME(ConfirmConfiguration)
 @interface SCPConfirmConfiguration : NSObject <NSCopying>
 
 /**
- Apply a surcharge to a transaction
-
- `updatePaymentIntent` must be set to true for to surcharge on a payment method
-
- Defaults to nil.
- */
-@property (nonatomic, strong, nullable, readonly) NSNumber *amountSurcharge;
-
-/**
- The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method’s app or site.
- If you’d prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.
+ The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method's app or site.
+ If you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.
 
  This parameter is only used for redirect-based payment methods.
 
  Defaults to nil.
  */
 @property (nonatomic, strong, nullable, readonly) NSString *returnUrl;
+
+/**
+ Configuration for surcharge collection during payment confirmation.
+
+ Defaults to nil.
+ */
+@property (nonatomic, strong, nullable, readonly) SCPSurchargeConfiguration *surcharge;
 
 /**
  Use `SCPConfirmConfigurationBuilder`.
@@ -60,11 +58,11 @@ NS_SWIFT_NAME(ConfirmConfiguration)
 NS_SWIFT_NAME(ConfirmConfigurationBuilder)
 @interface SCPConfirmConfigurationBuilder : SCPBuilder <SCPConfirmConfiguration *>
 
-/// Set the amountSurcharge property for the `ConfirmConfiguration` object that will be built.
-- (SCPConfirmConfigurationBuilder *)setAmountSurcharge:(NSUInteger)amountSurcharge;
-
 /// Set the returnUrl property for the `ConfirmConfiguration` object that will be built.
 - (SCPConfirmConfigurationBuilder *)setReturnUrl:(NSString *)returnUrl;
+
+/// Set the surchargeConfiguration property for the `ConfirmConfiguration` object that will be built.
+- (SCPConfirmConfigurationBuilder *)setSurchargeConfiguration:(SCPSurchargeConfiguration *)surchargeConfiguration;
 
 @end
 

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 4.5.0 Docs
+          StripeTerminal 4.6.0 Docs
         </a>
         
       </p>
@@ -351,6 +351,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPrintContent.html">SCPPrintContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPrintContentBuilder.html">SCPPrintContentBuilder</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -458,6 +464,21 @@
                 <a class="nav-group-task-link" href="Classes/SCPConfirmConfigurationBuilder.html">SCPConfirmConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConfiguration.html">SCPSurchargeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConfigurationBuilder.html">SCPSurchargeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConsent.html">SCPSurchargeConsent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConsentBuilder.html">SCPSurchargeConsentBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSurchargeConsentCollection.html">SCPSurchargeConsentCollection</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPSetupIntentConfiguration.html">SCPSetupIntentConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -519,6 +540,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPAffirmDetails.html">SCPAffirmDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaynowDetails.html">SCPPaynowDetails</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPDynamicCurrencyConversion.html">SCPDynamicCurrencyConversion</a>
@@ -1773,6 +1797,177 @@ intent.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPSurchargeConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPSurchargeConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSurchargeConfiguration">SCPSurchargeConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SurchargeConfiguration</code> contains configuration information relevant to surcharge collection
+during payment confirmation.</p>
+
+                        <a href="Classes/SCPSurchargeConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSurchargeConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SurchargeConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSurchargeConfigurationBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPSurchargeConfigurationBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSurchargeConfigurationBuilder">SCPSurchargeConfigurationBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SurchargeConfigurationBuilder</code> is used to create a <code>SurchargeConfiguration</code> object.</p>
+
+                        <a href="Classes/SCPSurchargeConfigurationBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSurchargeConfigurationBuilder</span>
+    <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPSurchargeConfiguration.html">SCPSurchargeConfiguration</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SurchargeConfigurationBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">SurchargeConfiguration</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSurchargeConsent"></a>
+                    <a name="//apple_ref/objc/Class/SCPSurchargeConsent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSurchargeConsent">SCPSurchargeConsent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SurchargeConsent</code> contains configuration information for surcharge consent collection.</p>
+
+                        <a href="Classes/SCPSurchargeConsent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSurchargeConsent</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SurchargeConsent</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPSurchargeConsentBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPSurchargeConsentBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPSurchargeConsentBuilder">SCPSurchargeConsentBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SurchargeConsentBuilder</code> is used to create a <code>SurchargeConsent</code> object.</p>
+
+                        <a href="Classes/SCPSurchargeConsentBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPSurchargeConsentBuilder</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPSurchargeConsent.html">SCPSurchargeConsent</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SurchargeConsentBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">SurchargeConsent</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPSurchargeConsentCollection"></a>
+                    <a name="//apple_ref/objc/Enum/SCPSurchargeConsentCollection" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPSurchargeConsentCollection">SCPSurchargeConsentCollection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enum representing surcharge consent collection states.</p>
+
+                        <a href="Enums/SCPSurchargeConsentCollection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPSurchargeConsentCollection</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">SurchargeConsentCollection</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPSetupIntentConfiguration"></a>
                     <a name="//apple_ref/objc/Class/SCPSetupIntentConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPSetupIntentConfiguration">SCPSetupIntentConfiguration</a>
@@ -2512,6 +2707,45 @@ offline payments, we recommend using the intent.metadata with your own identifie
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPPaynowDetails"></a>
+                    <a name="//apple_ref/objc/Class/SCPPaynowDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaynowDetails">SCPPaynowDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains details about a user&rsquo;s paynow payment</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/api/payment_methods/object#payment_method_object-paynow">https://stripe.com/docs/api/payment_methods/object#payment_method_object-paynow</a>
+
+</div>
+
+                        <a href="Classes/SCPPaynowDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPPaynowDetails</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/SCPJSONDecodable.html">SCPJSONDecodable</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PaynowDetails</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">JSONDecodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPDynamicCurrencyConversion"></a>
                     <a name="//apple_ref/objc/Class/SCPDynamicCurrencyConversion" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPDynamicCurrencyConversion">SCPDynamicCurrencyConversion</a>
@@ -2556,7 +2790,7 @@ offline payments, we recommend using the intent.metadata with your own identifie
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-06-10)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-08-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

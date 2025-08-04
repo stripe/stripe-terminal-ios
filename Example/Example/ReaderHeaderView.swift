@@ -103,8 +103,8 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 imageView.image = UIImage(named: "wisepad")
-            case .wisePosE, .wisePosEDevKit, .etna, .verifoneV660p, .verifoneM425, .verifoneM450, .verifoneP630,
-                .verifoneUX700:
+            case .wisePosE, .wisePosEDevKit, .etna, .verifoneV660p, .verifoneV660pDevKit, .verifoneM425, .verifoneM450,
+                .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
                 imageView.image = UIImage(named: "wisepose")
             case .stripeS700, .stripeS700DevKit:
                 imageView.image = UIImage(named: "s700")

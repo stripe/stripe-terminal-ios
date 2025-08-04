@@ -68,6 +68,7 @@ struct LogEvent: CustomStringConvertible, Event {
         case cancelConfirmPaymentIntent = "terminal.cancelConfirmPaymentIntent"
         case cancelConfirmSetupIntent = "terminal.cancelConfirmSetupIntent"
         case cancelConfirmRefund = "terminal.cancelConfirmRefund"
+        case print = "terminal.print"
     }
 
     enum AssociatedObject {
@@ -296,6 +297,13 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Cancel Confirm Refund"
             case .succeeded: string = "Canceled Confirm Refund"
             case .errored: string = "Cancel Confirm Refund Failed"
+            case .message(let message): string = message
+            }
+        case .print:
+            switch result {
+            case .started: string = "Print Content"
+            case .succeeded: string = "Printing succeeded"
+            case .errored: string = "Printing failed"
             case .message(let message): string = message
             }
         }

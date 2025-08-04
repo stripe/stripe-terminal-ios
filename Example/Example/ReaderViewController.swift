@@ -205,7 +205,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
             DeviceType.verifoneM450,
             DeviceType.verifoneP630,
             DeviceType.verifoneUX700,
+            DeviceType.verifoneUX700DevKit,
             DeviceType.verifoneV660p,
+            DeviceType.verifoneV660pDevKit,
             DeviceType.wisePosE,
             DeviceType.wisePosEDevKit,
         ].contains(Terminal.shared.connectedReader?.deviceType)
@@ -258,6 +260,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
     internal func showCollectData() {
         let vc = StartCollectDataViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    internal func showPrintContent() {
+        let vc = StartPrintContentViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -358,8 +365,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     )
                 }
-            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit,
-                .verifoneV660p, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700:
+            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .verifoneV660p,
+                .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
                 workflowRows.append(
                     Row(
                         text: "Set reader display",
@@ -404,7 +411,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
 
             switch deviceType {
             case .etna, .stripeS700, .stripeS700DevKit, .verifoneM425, .verifoneM450, .verifoneP630,
-                .verifoneUX700, .verifoneV660p, .wisePosE, .wisePosEDevKit:
+                .verifoneUX700, .verifoneUX700DevKit, .verifoneV660p, .verifoneV660pDevKit, .wisePosE, .wisePosEDevKit:
 
                 workflowRows.append(
                     Row(
@@ -433,6 +440,18 @@ class ReaderViewController: TableViewController, CancelingViewController {
                     )
                 )
             }
+            // This will show regardless of what reader is connected to allow QA to test the "reader not supported" error case
+            workflowRows.append(
+                Row(
+                    text: "Print content",
+                    detailText: "Print content to the embedded printer, if available.",
+                    selection: { [unowned self] in
+                        self.showPrintContent()
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: SubtitleCell.self
+                )
+            )
 
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
