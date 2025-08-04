@@ -206,6 +206,31 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorSurchargingNotAvailable = 1943,
 
     /**
+     Surcharge Consent requires `amountSurcharge` to be set.
+     */
+    SCPErrorSurchargeConsentRequiresAmountSurcharge = 1944,
+
+    /**
+     Surcharge Consent Notice requires `amountSurcharge` and `collectConsent` to be set.
+     */
+    SCPErrorSurchargeConsentNoticeRequiresAmountSurchargeAndCollectConsent = 1945,
+
+    /**
+     Surcharge consent requires a supported reader type
+     */
+    SCPErrorSurchargeConsentRequestedForUnsupportedReader = 1946,
+
+    /**
+     Surcharge consent was declined by the cardholder.
+     */
+    SCPErrorSurchargeConsentDeclined = 1947,
+
+    /**
+     Surcharge consent timed out.
+     */
+    SCPErrorSurchargeConsentTimeout = 1948,
+
+    /**
      An invalid usage of `eligibleAmount` or `skipTipping` was passed into `collect`.
      */
     SCPErrorReaderTippingParameterInvalid = 1950,
@@ -635,6 +660,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderConnectedToAnotherDevice = 4020,
 
+    /**
+     * The reader has been tampered.
+     */
+    SCPErrorReaderTampered = 4100,
+
     /*
      UNEXPECTED ERRORS
      */
@@ -678,9 +708,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      * An error occurred while processing a collect data operation.
      */
     SCPErrorCollectDataApplicationError = 5006,
+    /**
+     * An error occurred while processing a display surcharge consent request.
+     */
+    SCPErrorDisplaySurchargeConsentApplicationError = 5007,
 
     /*
      PAYMENT ERRORS
+
      */
 
     /**
@@ -704,7 +739,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorCommandInvalidAllowRedisplay = 6701,
 
     /**
-     The refund failed. The customer’s bank or card issuer was unable to process
+     The refund failed. The customer's bank or card issuer was unable to process
      it correctly (e.g., a closed bank account or a problem with the card)
      */
     SCPErrorRefundFailed = 6800,
@@ -844,7 +879,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      the functionality or retry with another value for `SCPOfflineBehavior`.
      */
     SCPErrorOfflineBehaviorForceOfflineWithFeatureDisabled = 10107,
-
 } NS_SWIFT_NAME(ErrorCode);
 
 #pragma mark - UserInfo keys

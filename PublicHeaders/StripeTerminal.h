@@ -78,8 +78,10 @@
 #import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
+#import <StripeTerminal/SCPPaynowDetails.h>
 #import <StripeTerminal/SCPPhoneInput.h>
 #import <StripeTerminal/SCPPhoneResult.h>
+#import <StripeTerminal/SCPPrintContent.h>
 #import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReader.h>
 #import <StripeTerminal/SCPReaderAccessibility.h>
@@ -114,6 +116,7 @@
 #import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPSurcharge.h>
+#import <StripeTerminal/SCPSurchargeConfiguration.h>
 #import <StripeTerminal/SCPTapToPayConnectionConfiguration.h>
 #import <StripeTerminal/SCPTapToPayDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
