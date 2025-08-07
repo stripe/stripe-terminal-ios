@@ -7,6 +7,12 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
+# 4.6.1 2025-08-07
+* Built with Xcode 16.0 Swift version 6.0.
+
+### Fixes
+* Fixed issue with connecting to a reader for the first time while offline
+
 # 4.6.0 2025-08-04
 * Built with Xcode 16.0 Swift version 6.0.
 
