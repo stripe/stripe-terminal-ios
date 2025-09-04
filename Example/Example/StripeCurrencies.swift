@@ -29,12 +29,17 @@ struct StripeCurrencies {
         "GBP",
         "HKD",
         "MYR",
+        "MXN",
         "NOK",
         "NZD",
         "PLN",
         "SEK",
         "SGD",
         "JPY",
+        "AED",
+        "BGN",
+        "HUF",
+        "RON",
     ]
 
     static let all: [String] = [

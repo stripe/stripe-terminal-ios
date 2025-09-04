@@ -461,6 +461,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorUsbDiscoveryTimedOut = 2972,
 
+    /**
+     Offline payments unavailable while the iOS device is locked. Unlock to restore functionality.
+     */
+    SCPErrorOfflineEncryptionKeysUnavailable = 2973,
+
     /*
      READER ERRORS
      */
@@ -715,7 +720,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
 
     /*
      PAYMENT ERRORS
-
      */
 
     /**

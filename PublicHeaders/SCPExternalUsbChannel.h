@@ -62,6 +62,8 @@ typedef NS_ENUM(NSUInteger, SCPExternalUsbChannelDisconnectReason) {
 @property (nonatomic, readonly) NSUInteger vendorId;
 /// The productId of the connected reader
 @property (nonatomic, readonly) NSUInteger productId;
+/// The serial number of the connected reader
+@property (nonatomic, readonly) NSString *serialNumber;
 /// Packet size read from the reader when connecting
 @property (nonatomic, readonly) NSUInteger packetSize;
 /// How frequently to poll for reading data - will be filled in by Terminal SDK

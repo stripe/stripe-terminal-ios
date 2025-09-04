@@ -7,6 +7,17 @@ If you are using CocoaPods, update your Podfile:
 ```
 pod 'StripeTerminal', '~> 4.0'
 ```
+
+# 4.7.0 2025-09-04
+
+### New
+* Support for PayNow, a popular payment method in Singapore, is now available for Terminal smart readers in public preview.
+* Support for PayPay, a popular digital wallet in Japan, is now available for Terminal smart readers in private preview.
+	* If you are interested in joining this preview, please contact [Stripe support](https://support.stripe.com/).
+
+### Fixes
+* Fixes [#355](https://github.com/stripe/stripe-terminal-ios/issues/355): SDK will now correctly report `SCPErrorOfflineEncryptionKeysUnavailable` instead of `SCPErrorUnexpectedSdkError` when the iOS device is locked and the offline encryption keys are unavailable.
+
 # 4.6.1 2025-08-07
 * Built with Xcode 16.0 Swift version 6.0.
 
@@ -74,7 +85,7 @@ pod 'StripeTerminal', '~> 4.0'
 * New: Added `collectionReason` to [`SCPSetupIntentConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntentConfiguration.html).
   * This field can only be changed for Tap To Pay readers. The default value is saveCard.
 * Added a new `Terminal.stringFromError` method to convert an `SCPError` to a non-localized string of the enum values name.
-* Update: updatePaymentIntent is now supported when offline mode is enabled. 
+* Update: updatePaymentIntent is now supported when offline mode is enabled.
 * Update: Validation of location services has been added to Tap to Pay and mobile readers during [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:), [`collectSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectSetupIntentPaymentMethod:allowRedisplay:completion:), and [`collectRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectRefundPaymentMethod:completion:). This validation was already being enforced by [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:), [`confirmSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmSetupIntent:completion:), and [`confirmRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmRefund:), and is now extended to return the error earlier in the payment process.
 * Update: Added support for operating offline with simulated Bluetooth and Internet readers.
 * Fix: Resolved a rare deadlock crash during the Bluetooth scan discovery process.

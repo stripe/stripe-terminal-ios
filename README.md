@@ -1,6 +1,8 @@
 # Stripe Terminal iOS SDK
 
-Stripe Terminal enables you to build your own in-person checkout to accept payments in the physical world. Built on Stripe's payments network, Terminal helps you unify your online and offline payment channels. With the Stripe Terminal iOS SDK, you can connect to [pre-certified card readers](https://stripe.com/docs/terminal/designing-integration) from your iOS app and drive a customized in-store checkout flow. The Stripe Terminal iOS SDK is a proprietary, closed-source library maintained by Stripe, and the proprietary source code is Stripe's confidential information and is not made publicly available.
+Stripe Terminal enables you to build your own in-person checkout to accept payments in the physical world. Built on Stripe's payments network, Terminal helps you unify your online and offline payment channels. With the Stripe Terminal iOS SDK, you can connect to [pre-certified card readers](https://stripe.com/docs/terminal/designing-integration) from your iOS app and drive a customized in-store checkout flow. 
+
+The Stripe Terminal iOS SDK is a proprietary, closed-source library maintained by Stripe, and the proprietary source code is Stripe's confidential information and is not made publicly available.
 
 Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/ios) and [sample integration](https://stripe.com/docs/terminal/integration-builder), or browse the [SDK reference documentation](https://stripe.dev/stripe-terminal-ios/docs/index.html).
 
