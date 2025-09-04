@@ -8,11 +8,12 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
-# 4.7.0 XXXX-XX-XX
+# 4.7.0 2025-09-04
 
 ### New
-
-### Updates
+* Support for PayNow, a popular payment method in Singapore, is now available for Terminal smart readers in public preview.
+* Support for PayPay, a popular digital wallet in Japan, is now available for Terminal smart readers in private preview.
+	* If you are interested in joining this preview, please contact [Stripe support](https://support.stripe.com/).
 
 ### Fixes
 * Fixes [#355](https://github.com/stripe/stripe-terminal-ios/issues/355): SDK will now correctly report `SCPErrorOfflineEncryptionKeysUnavailable` instead of `SCPErrorUnexpectedSdkError` when the iOS device is locked and the offline encryption keys are unavailable.
