@@ -70,6 +70,11 @@ typedef NS_ENUM(NSUInteger, SCPDisconnectReason) {
      interference.
      */
     SCPDisconnectReasonBluetoothSignalLost,
+
+    /**
+     The mobile reader's Bluetooth pairing has been cleared. Forget the reader in iOS Settings.
+     */
+    SCPDisconnectReasonPeerRemovedPairingInformation,
 } NS_SWIFT_NAME(DisconnectReason);
 
 NS_ASSUME_NONNULL_END

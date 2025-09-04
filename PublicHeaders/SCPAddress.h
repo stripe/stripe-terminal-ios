@@ -59,6 +59,11 @@ NS_SWIFT_NAME(Address)
 @property (nonatomic, nullable, copy, readonly) NSString *state;
 
 /**
+ The town of the address (Japan only)
+ */
+@property (nonatomic, nullable, copy, readonly) NSString *town;
+
+/**
  You cannot directly instantiate this class.
  */
 - (instancetype)init NS_UNAVAILABLE;

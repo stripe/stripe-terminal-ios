@@ -45,9 +45,36 @@ NS_SWIFT_NAME(Location)
 @property (nonatomic, nullable, strong, readonly) SCPAddress *address;
 
 /**
+ The Kanji variation address of this Location (Japan only)
+ @see `SCPAddress`
+ */
+@property (nonatomic, nullable, strong, readonly) SCPAddress *addressKanji;
+
+/**
+ The Kana variation address of this Location (Japan only)
+ @see `SCPAddress`
+ */
+@property (nonatomic, nullable, strong, readonly) SCPAddress *addressKana;
+
+/**
  The display name of this Location
  */
 @property (nonatomic, nullable, copy, readonly) NSString *displayName;
+
+/**
+ The Kanji variation variation display name of this Location (Japan only)
+ */
+@property (nonatomic, nullable, copy, readonly) NSString *displayNameKanji;
+
+/**
+ The Kana variation display name of this Location (Japan only)
+ */
+@property (nonatomic, nullable, copy, readonly) NSString *displayNameKana;
+
+/**
+ The phone number of this Location
+ */
+@property (nonatomic, nullable, copy, readonly) NSString *phone;
 
 /**
  Whether this Location was created in livemode
