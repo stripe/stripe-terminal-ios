@@ -50,6 +50,11 @@ typedef NS_ENUM(NSUInteger, SCPPaymentMethodType) {
     SCPPaymentMethodTypePaynow,
 
     /**
+     A PayPay payment method.
+     */
+    SCPPaymentMethodTypePaypay,
+
+    /**
      An unknown type.
      */
     SCPPaymentMethodTypeUnknown,

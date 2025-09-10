@@ -8,6 +8,11 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
+# 4.7.1 2025-09-10
+
+### Fixes
+* Fixes [#364](https://github.com/stripe/stripe-terminal-ios/issues/364): Restores BBPOS Chipper 2X support.
+
 # 4.7.0 2025-09-04
 
 ### New
