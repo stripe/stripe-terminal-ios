@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCPWechatPayDetails;
 @class SCPAffirmDetails;
 @class SCPPaynowDetails;
+@class SCPPaypayDetails;
 
 /**
  Details about a PaymentMethod at a specific time. ex: at time of transaction
@@ -77,6 +78,12 @@ NS_SWIFT_NAME(PaymentMethodDetails)
  this contains additional information.
  */
 @property (nonatomic, nullable, readonly) SCPPaynowDetails *paynow;
+
+/**
+ If this is a PayPay payment method (ie `self.type == SCPPaymentMethodTypePaypay`),
+ this contains additional information.
+ */
+@property (nonatomic, nullable, readonly) SCPPaypayDetails *paypay;
 
 /**
  You cannot directly instantiate this class.

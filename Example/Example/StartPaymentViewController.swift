@@ -39,6 +39,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .wechatPay,
         .affirm,
         .paynow,
+        .paypay
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always

@@ -79,6 +79,7 @@
 #import <StripeTerminal/SCPPaymentMethodType.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
 #import <StripeTerminal/SCPPaynowDetails.h>
+#import <StripeTerminal/SCPPaypayDetails.h>
 #import <StripeTerminal/SCPPhoneInput.h>
 #import <StripeTerminal/SCPPhoneResult.h>
 #import <StripeTerminal/SCPPrintContent.h>
