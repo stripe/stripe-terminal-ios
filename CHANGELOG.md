@@ -8,6 +8,11 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
+# 4.7.2 2025-09-15
+
+### Fixes
+* Fixes an issue where `connectReader` for Tap to Pay on iPhone would incorrectly report success if an Apple-provided reader software upate was interrupted by the app moving to the background.
+
 # 4.7.1 2025-09-10
 
 ### Fixes
