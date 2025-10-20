@@ -8,6 +8,15 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 4.0'
 ```
 
+# 4.7.3 2025-10-20
+
+### New
+* Added support for S710 and S710 devkit readers.
+
+### Fixes
+* Fixes an issue where collecting magstripe data would error when connected to a smart reader.
+* Fixes an issue where collecting a payment after collecting NFC data would report a "device busy" error.
+
 # 4.7.2 2025-09-15
 
 ### Fixes

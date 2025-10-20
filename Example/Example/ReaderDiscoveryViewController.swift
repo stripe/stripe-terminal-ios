@@ -226,7 +226,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 self.presentLocationRequiredAlert()
                 return nil
             }
-        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .verifoneV660p,
+        case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
+            .verifoneV660p,
             .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
             let connectionConfig = try InternetConnectionConfigurationBuilder(
                 delegate: InternetReaderDelegateAnnouncer.shared
@@ -549,7 +550,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "verifone")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit,
+        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
             .verifoneV660p, .verifoneV660pDevKit, .verifoneUX700, .verifoneUX700DevKit,
             .verifoneM425, .verifoneM450, .verifoneP630:
             image = UIImage(named: "wisepose")
