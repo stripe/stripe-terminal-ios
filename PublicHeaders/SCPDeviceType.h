@@ -92,6 +92,16 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeStripeS700DevKit,
 
     /**
+     Stripe Reader S710.
+     */
+    SCPDeviceTypeStripeS710,
+
+    /**
+     Stripe Reader S710 DevKit.
+     */
+    SCPDeviceTypeStripeS710DevKit,
+
+    /**
      Verifone V660p
      */
     SCPDeviceTypeVerifoneV660p,

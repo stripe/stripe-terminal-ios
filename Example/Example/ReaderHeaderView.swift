@@ -106,7 +106,7 @@ class ReaderHeaderView: UIView {
             case .wisePosE, .wisePosEDevKit, .etna, .verifoneV660p, .verifoneV660pDevKit, .verifoneM425, .verifoneM450,
                 .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
                 imageView.image = UIImage(named: "wisepose")
-            case .stripeS700, .stripeS700DevKit:
+            case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
                 imageView.image = UIImage(named: "s700")
             case .tapToPay:
                 // TODO:KINGS-39: Add Tap To Pay Image Collateral to SDK.
