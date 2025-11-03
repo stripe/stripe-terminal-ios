@@ -60,13 +60,14 @@ pod 'StripeTerminal', '~> 5.0'
 * **Update:** [`SCPSimulatedCollectInputsResultSucceeded.simulatedCollectInputsSkipBehavior`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatedCollectInputsResultSucceeded.html#/c:objc(cs)SCPSimulatedCollectInputsResultSucceeded(py)simulatedCollectInputsSkipBehavior) is now readonly.
 * **Update:** As part of MOTO changes, `MotoConfiguration.skipCvv` has been renamed to [`MotoConfiguration.skipCvc`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPMotoConfiguration.html#/c:objc(cs)SCPMotoConfiguration(py)skipCvc).
 
-# 4.7.3 2025-XX-XX
+# 4.7.3 2025-10-20
 
 ### New
 * Added support for S710 and S710 devkit readers.
 
 ### Fixes
 * Fixes an issue where collecting magstripe data would error when connected to a smart reader.
+* Fixes an issue where collecting a payment after collecting NFC data would report a "device busy" error.
 
 # 4.7.2 2025-09-15
 
