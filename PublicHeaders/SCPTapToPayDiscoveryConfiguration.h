@@ -32,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(TapToPayDiscoveryConfiguration)
 @interface SCPTapToPayDiscoveryConfiguration : NSObject <SCPDiscoveryConfiguration>
 
+/// Use `SCPTapToPayDiscoveryConfigurationBuilder`.
+- (instancetype)init NS_UNAVAILABLE;
+
+/// Use `SCPTapToPayDiscoveryConfigurationBuilder`.
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**

@@ -10,22 +10,42 @@ import Static
 import StripeTerminal
 import UIKit
 
+enum CardBrandDeclineError: Error {
+    case shouldRetry(originalIntent: PaymentIntent)
+    case userCancelled(originalIntent: PaymentIntent)
+
+    var shouldRetry: Bool {
+        switch self {
+        case .shouldRetry: return true
+        case .userCancelled: return false
+        }
+    }
+
+    var originalIntent: PaymentIntent {
+        switch self {
+        case .shouldRetry(let intent), .userCancelled(let intent):
+            return intent
+        }
+    }
+}
+
 class PaymentViewController: EventDisplayingViewController {
 
     private let paymentParams: PaymentIntentParameters
-    private let collectConfig: CollectConfiguration
-    private let confirmConfig: ConfirmConfiguration
+    private let collectConfig: CollectPaymentIntentConfiguration
+    private let confirmConfig: ConfirmPaymentIntentConfiguration
     private let declineCardBrand: CardBrand?
     private let recollectAfterCardBrandDecline: Bool
     private var offlineCreateConfig: CreateConfiguration?
     private let isSposReader: Bool
     private let skipCapture: Bool
     private let onReceiptTip: UInt
+    private let useProcessPaymentIntent: Bool
 
     init(
         paymentParams: PaymentIntentParameters,
-        collectConfig: CollectConfiguration,
-        confirmConfig: ConfirmConfiguration,
+        collectConfig: CollectPaymentIntentConfiguration,
+        confirmConfig: ConfirmPaymentIntentConfiguration,
         declineCardBrand: CardBrand?,
         recollectAfterCardBrandDecline: Bool,
         isSposReader: Bool,
@@ -33,7 +53,8 @@ class PaymentViewController: EventDisplayingViewController {
         offlineTotalTransactionLimit: Int,
         offlineBehavior: OfflineBehavior,
         skipCapture: Bool,
-        onReceiptTip: UInt
+        onReceiptTip: UInt,
+        useProcessPaymentIntent: Bool
     ) {
         self.paymentParams = paymentParams
         self.collectConfig = collectConfig
@@ -43,6 +64,7 @@ class PaymentViewController: EventDisplayingViewController {
         self.isSposReader = isSposReader
         self.skipCapture = skipCapture
         self.onReceiptTip = onReceiptTip
+        self.useProcessPaymentIntent = useProcessPaymentIntent
 
         var isOverOfflineTransactionLimit = paymentParams.amount >= offlineTransactionLimit
         if let offlinePaymentTotalByCurrency = Terminal.shared.offlineStatus.sdk.paymentAmountsByCurrency[
@@ -76,234 +98,262 @@ class PaymentViewController: EventDisplayingViewController {
         super.viewDidLoad()
         self.addKeyboardDisplayObservers()
 
-        // 1. create PaymentIntent
-        createPaymentIntent(self.paymentParams) { intent, createError in
-            if createError != nil {
+        Task {
+            // No need to catch, as the createPI function will log the error if it fails. It only rethrows
+            // to allow us to bail out if needed.
+            do {
+                let intent = try await createPaymentIntent(self.paymentParams)
+                startPaymentFlow(intent)
+            } catch {
+                // create failed, nothing else to do. we're complete.
                 self.complete()
-            } else if let intent = intent {
-                // 2. collectPaymentMethod
-                self.collectPaymentMethod(intent: intent)
             }
         }
     }
 
-    private func createPaymentIntent(
-        _ parameters: PaymentIntentParameters,
-        completion: @escaping PaymentIntentCompletionBlock
-    ) {
-        if Terminal.shared.connectedReader?.deviceType == .verifoneP400 {
-            // When using a Verifone P400, PaymentIntents must be created via your backend
-            var createEvent = LogEvent(method: .backendCreatePaymentIntent)
-            self.events.append(createEvent)
+    private func startPaymentFlow(_ intent: PaymentIntent) {
+        task = Task {
+            do {
+                defer {
+                    self.task = nil
+                }
 
-            AppDelegate.apiClient?.createPaymentIntent(parameters) { (result) in
-                switch result {
-                case .failure(let error):
-                    createEvent.result = .errored
-                    createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
-                    completion(nil, error)
+                let finalIntent: PaymentIntent
+                if useProcessPaymentIntent {
+                    // Use processPaymentIntent (combined collect + confirm)
+                    finalIntent = try await processPaymentIntent(intent: intent)
+                } else {
+                    // Use traditional separate flow
+                    let collectedIntent = try await collectPaymentMethod(intent: intent)
+                    finalIntent = try await confirmPaymentIntent(intent: collectedIntent)
+                }
 
-                case .success(let clientSecret):
-                    createEvent.result = .succeeded
-                    createEvent.object = .object(clientSecret)
-                    self.events.append(createEvent)
+                // Handle capture if needed
+                if finalIntent.status == .requiresCapture && !self.skipCapture {
+                    try await self.capturePaymentIntent(intent: finalIntent)
+                }
 
-                    // and then retrieved w/Terminal SDK
-                    var retrieveEvent = LogEvent(method: .retrievePaymentIntent)
-                    self.events.append(retrieveEvent)
-                    Terminal.shared.retrievePaymentIntent(clientSecret: clientSecret) { (intent, error) in
-                        if let error = error {
-                            retrieveEvent.result = .errored
-                            retrieveEvent.object = .error(error as NSError)
-                            self.events.append(retrieveEvent)
-                        } else if let intent = intent {
-                            retrieveEvent.result = .succeeded
-                            retrieveEvent.object = .paymentIntent(intent)
-                            self.events.append(retrieveEvent)
+                // success path
+                self.complete()
+            } catch let error as CardBrandDeclineError {
+                // Handle card brand decline with task restart
+                if error.shouldRetry && recollectAfterCardBrandDecline {
+                    // Cancel current task and restart entire flow
+                    self.task?.cancel()
+                    self.task = nil
+                    self.startPaymentFlow(intent)  // Restart with fresh task
+                    // Intentionally not calling complete as we aren't done yet.
+                    return
+                } else {
+                    // Cancel the PaymentIntent and unconditionally call complete
+                    do {
+                        defer {
+                            self.complete()
                         }
-                        completion(intent, error)
+                        try await self.cancelPaymentIntent(intent: error.originalIntent)
+                    } catch {
+                        // no action needed, cancel will report the error
                     }
                 }
-            }
-        } else {
-            var createEvent = LogEvent(method: .createPaymentIntent)
-            self.events.append(createEvent)
-            Terminal.shared.createPaymentIntent(parameters, createConfig: offlineCreateConfig) { intent, error in
-                if let error = error {
-                    createEvent.result = .errored
-                    createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
-                } else if let intent = intent {
-                    createEvent.result = .succeeded
-                    createEvent.object = .paymentIntent(intent)
-                    self.events.append(createEvent)
-
-                }
-                completion(intent, error)
+            } catch {
+                // All other error logging handled in individual methods
+                // Complete in this error path.
+                self.complete()
             }
         }
     }
 
-    private func collectPaymentMethod(intent: PaymentIntent) {
+    private func createPaymentIntent(_ parameters: PaymentIntentParameters) async throws -> PaymentIntent {
+        var createEvent = LogEvent(method: .createPaymentIntent)
+        self.events.append(createEvent)
+
+        do {
+            let intent = try await Terminal.shared.createPaymentIntent(
+                parameters,
+                createConfig: offlineCreateConfig
+            )
+            createEvent.result = .succeeded
+            createEvent.object = .paymentIntent(intent)
+            self.events.append(createEvent)
+            return intent
+        } catch {
+            createEvent.result = .errored
+            createEvent.object = .error(error as NSError)
+            self.events.append(createEvent)
+            throw error
+        }
+    }
+
+    private func collectPaymentMethod(intent: PaymentIntent) async throws -> PaymentIntent {
         var collectEvent = LogEvent(method: .collectPaymentMethod)
         self.events.append(collectEvent)
-        self.currentCancelLogMethod = .cancelCollectPaymentMethod
-        self.cancelable = Terminal.shared.collectPaymentMethod(intent, collectConfig: self.collectConfig) {
-            intentWithPaymentMethod,
-            attachError in
-            let collectCancelable = self.cancelable
-            self.cancelable = nil
-            if let error = attachError {
-                collectEvent.result = .errored
-                collectEvent.object = .error(error as NSError)
-                self.events.append(collectEvent)
-                if (error as NSError).code == ErrorCode.canceled.rawValue {
-                    self.cancelPaymentIntent(intent: intent)
-                } else {
-                    self.complete()
-                }
-            } else if let intent = intentWithPaymentMethod {
-                // Before proceeding check if the card brand provided matches the brand chosen to reject
-                if let declineCardBrand = self.declineCardBrand,
-                    let paymentMethod = intent.paymentMethod,
-                    let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
-                    details.brand == declineCardBrand
-                {
-                    collectEvent.result = .errored
-                    let error = NSError(
-                        domain: "com.stripe-terminal-ios.example",
-                        code: 1000,
-                        userInfo: [NSLocalizedDescriptionKey: "Integration rejected card due to card brand"]
-                    )
-                    collectEvent.object = .error(error)
-                    self.events.append(collectEvent)
-                    if self.recollectAfterCardBrandDecline {
-                        // Start collect all over
-                        self.collectPaymentMethod(intent: intent)
-                    } else {
-                        // Cancel to ensure the reader resets back to its idle state
-                        collectCancelable?.cancel { cancelError in
-                            var cancelEvent = LogEvent(method: .cancelCollectPaymentMethod)
-                            if let error = cancelError {
-                                cancelEvent.result = .errored
-                                cancelEvent.object = .error(error as NSError)
-                            } else {
-                                cancelEvent.result = .succeeded
-                                cancelEvent.object = .paymentIntent(intent)
-                            }
-                            self.events.append(cancelEvent)
-                            self.cancelPaymentIntent(intent: intent)
-                        }
-                    }
-                    return
-                }
+        let collectedIntent: PaymentIntent
 
-                collectEvent.result = .succeeded
-                collectEvent.object = .paymentIntent(intent)
-                self.events.append(collectEvent)
+        do {
+            collectedIntent = try await Terminal.shared.collectPaymentMethod(
+                intent,
+                collectConfig: self.collectConfig
+            )
+        } catch {
+            await self.handlePaymentError(error, event: &collectEvent, originalIntent: intent)
+            throw error
+        }
 
-                // 3. confirm PaymentIntent
-                self.confirmPaymentIntent(intent: intent)
+        // Before proceeding check if the card brand provided matches the brand chosen to reject
+        // We do this outside of the above do/catch so we don't double log the exception
+        if let declineCardBrand = self.declineCardBrand,
+            let paymentMethod = collectedIntent.paymentMethod,
+            let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
+            details.brand == declineCardBrand
+        {
+            collectEvent.result = .errored
+            let error = NSError(
+                domain: "com.stripe-terminal-ios.example",
+                code: 1000,
+                userInfo: [NSLocalizedDescriptionKey: "Integration rejected card due to card brand"]
+            )
+            collectEvent.object = .error(error)
+            self.events.append(collectEvent)
+
+            if self.recollectAfterCardBrandDecline {
+                throw CardBrandDeclineError.shouldRetry(originalIntent: collectedIntent)
+            } else {
+                throw CardBrandDeclineError.userCancelled(originalIntent: collectedIntent)
             }
         }
+
+        collectEvent.result = .succeeded
+        collectEvent.object = .paymentIntent(collectedIntent)
+        self.events.append(collectEvent)
+        return collectedIntent
     }
 
-    private func cancelPaymentIntent(intent: PaymentIntent) {
+    private func cancelPaymentIntent(intent: PaymentIntent) async throws {
         var cancelEvent = LogEvent(method: .cancelPaymentIntent)
         self.events.append(cancelEvent)
-        Terminal.shared.cancelPaymentIntent(intent) { canceledPaymentIntent, cancelError in
-            if let error = cancelError {
-                cancelEvent.result = .errored
-                cancelEvent.object = .error(error as NSError)
-                self.events.append(cancelEvent)
-            } else if let intent = canceledPaymentIntent {
-                cancelEvent.result = .succeeded
-                cancelEvent.object = .paymentIntent(intent)
-                self.events.append(cancelEvent)
-            }
-            self.complete()
+
+        do {
+            let canceledIntent = try await Terminal.shared.cancelPaymentIntent(intent)
+            cancelEvent.result = .succeeded
+            cancelEvent.object = .paymentIntent(canceledIntent)
+            self.events.append(cancelEvent)
+        } catch {
+            cancelEvent.result = .errored
+            cancelEvent.object = .error(error as NSError)
+            self.events.append(cancelEvent)
+            throw error
         }
     }
 
-    private func confirmPaymentIntent(intent: PaymentIntent) {
-        var processEvent = LogEvent(method: .confirmPaymentIntent)
+    private func confirmPaymentIntent(intent: PaymentIntent) async throws -> PaymentIntent {
+        var confirmEvent = LogEvent(method: .confirmPaymentIntent)
+        self.events.append(confirmEvent)
+
+        do {
+            let confirmedIntent = try await Terminal.shared.confirmPaymentIntent(
+                intent,
+                confirmConfig: self.confirmConfig
+            )
+            self.handlePaymentSuccess(confirmedIntent, event: &confirmEvent)
+            return confirmedIntent
+        } catch {
+            await self.handlePaymentError(error, event: &confirmEvent, originalIntent: intent)
+            throw error
+        }
+    }
+
+    private func processPaymentIntent(intent: PaymentIntent) async throws -> PaymentIntent {
+        // Note: Card brand decline feature is not supported with processPaymentIntent
+        // as it combines collect and confirm into a single operation
+        var processEvent = LogEvent(method: .processPaymentIntent)
         self.events.append(processEvent)
-        self.currentCancelLogMethod = .cancelConfirmPaymentIntent
-        self.cancelable = Terminal.shared.confirmPaymentIntent(intent, confirmConfig: self.confirmConfig) {
-            processedIntent,
-            processError in
-            if let error = processError {
-                processEvent.result = .errored
-                processEvent.object = .error(error as NSError)
-                self.events.append(processEvent)
-                #if SCP_SHOWS_RECEIPTS
-                self.events.append(ReceiptEvent(refund: nil, paymentIntent: error.paymentIntent))
-                #endif
-                self.complete()
-            } else if let intent = processedIntent {
-                if intent.status == .succeeded || intent.status == .requiresCapture {
-                    processEvent.result = .succeeded
-                    processEvent.object = .paymentIntent(intent)
-                    self.events.append(processEvent)
-                    #if SCP_SHOWS_RECEIPTS
-                    self.events.append(ReceiptEvent(refund: nil, paymentIntent: intent))
-                    #endif
 
-                    if intent.status == .requiresCapture && !self.skipCapture {
-                        // 4. send to backend for capture
-                        self.capturePaymentIntent(intent: intent)
-                    } else {
-                        // If the paymentIntent returns from Stripe with a status of succeeded,
-                        // our integration doesn't need to capture the payment intent on the backend.
-                        // PaymentIntents will succeed directly after process if they were created with
-                        // a single-message payment method, like Interac in Canada.
-                        self.complete()
-                    }
-
-                    // Show a refund button if this was an Interac charge to make it easy to refund.
-                    if let charge = intent.charges.first,
-                        charge.paymentMethodDetails?.interacPresent != nil
-                    {
-                        self.intentToRefund = intent
-                        let refundButton: UIBarButtonItem
-                        if #available(iOS 16.0, *) {
-                            refundButton = UIBarButtonItem(
-                                title: nil,
-                                image: UIImage(systemName: "dollarsign.arrow.circlepath"),
-                                target: self,
-                                action: #selector(self.refundButtonTapped)
-                            )
-                        } else {
-                            refundButton = UIBarButtonItem(
-                                title: "Refund",
-                                style: .plain,
-                                target: self,
-                                action: #selector(self.refundButtonTapped)
-                            )
-                        }
-
-                        self.navigationItem.rightBarButtonItems = [self.doneButton, refundButton].compactMap({ $0 })
-                    }
-                } else {
-                    // The intent should be succeeded or requiresCapture.
-                    // This is unexpected, report it as an error
-                    processEvent.result = .errored
-                    processEvent.object = .paymentIntent(intent)
-                    self.events.append(processEvent)
-                    self.complete()
-                }
-            }
+        do {
+            let processedIntent = try await Terminal.shared.processPaymentIntent(
+                intent,
+                collectConfig: self.collectConfig,
+                confirmConfig: self.confirmConfig
+            )
+            self.handlePaymentSuccess(processedIntent, event: &processEvent)
+            return processedIntent
+        } catch {
+            await self.handlePaymentError(error, event: &processEvent, originalIntent: intent)
+            throw error
         }
     }
 
     private var intentToRefund: PaymentIntent?
 
+    // Helper to report the event as failed and cancel the intent if needed.
+    private func handlePaymentError(_ error: Error, event: inout LogEvent, originalIntent: PaymentIntent) async {
+        event.result = .errored
+        event.object = .error(error as NSError)
+        self.events.append(event)
+        #if SCP_SHOWS_RECEIPTS
+        if let error = error as? ConfirmPaymentIntentError,
+            let paymentIntent = error.paymentIntent
+        {
+            self.events.append(ReceiptEvent(paymentIntent: paymentIntent))
+        }
+        #endif
+
+        if (error as NSError).code == ErrorCode.canceled.rawValue {
+            do {
+                try await self.cancelPaymentIntent(intent: originalIntent)
+            } catch {
+                // cancel will handle its error and rethrow
+            }
+        }
+    }
+
+    private func handlePaymentSuccess(_ intent: PaymentIntent, event: inout LogEvent) {
+        if intent.status == .succeeded || intent.status == .requiresCapture {
+            event.result = .succeeded
+            event.object = .paymentIntent(intent)
+            self.events.append(event)
+            #if SCP_SHOWS_RECEIPTS
+            self.events.append(ReceiptEvent(paymentIntent: intent))
+            #endif
+
+            // Show a refund button if this was an Interac charge to make it easy to refund.
+            if let charge = intent.charges.first,
+                charge.paymentMethodDetails?.interacPresent != nil
+            {
+                self.intentToRefund = intent
+                let refundButton: UIBarButtonItem
+                if #available(iOS 16.0, *) {
+                    refundButton = UIBarButtonItem(
+                        title: nil,
+                        image: UIImage(systemName: "dollarsign.arrow.circlepath"),
+                        target: self,
+                        action: #selector(self.refundButtonTapped)
+                    )
+                } else {
+                    refundButton = UIBarButtonItem(
+                        title: "Refund",
+                        style: .plain,
+                        target: self,
+                        action: #selector(self.refundButtonTapped)
+                    )
+                }
+
+                self.navigationItem.rightBarButtonItems = [self.doneButton, refundButton].compactMap({ $0 })
+            }
+        } else {
+            // The intent should be succeeded or requiresCapture.
+            // This is unexpected, report it as an error
+            event.result = .errored
+            event.object = .paymentIntent(intent)
+            self.events.append(event)
+        }
+    }
+
     @objc
     private func refundButtonTapped() {
         guard let intent = intentToRefund,
-            let intentId = intentToRefund?.stripeId,
-            let charge = intent.charges.first
+            let intentId = intent.stripeId,
+            let charge = intent.charges.first,
+            let clientSecret = intent.clientSecret
         else {
             fatalError("Intent or charge to refund was nil: \(intentToRefund?.description ?? "nil intent")")
         }
@@ -313,6 +363,7 @@ class PaymentViewController: EventDisplayingViewController {
                 isSposReader: self.isSposReader,
                 chargeId: charge.stripeId,
                 paymentIntentId: intentId,
+                clientSecret: clientSecret,
                 amount: intent.amount
             ),
             animated: true
@@ -324,25 +375,29 @@ class PaymentViewController: EventDisplayingViewController {
         OfflinePaymentsLogViewController.writeLogToDisk(logString, details: intent)
     }
 
-    private func capturePaymentIntent(intent: PaymentIntent) {
+    private func capturePaymentIntent(intent: PaymentIntent) async throws {
         if let offlineDetails = intent.offlineDetails, offlineDetails.requiresUpload {
             // Offline intent, not capturing.
             self.writeOfflineIntentLogToDisk(intent)
-            self.complete()
         } else if let piID = intent.stripeId {
             // Online, capture intent.
             var captureEvent = LogEvent(method: .capturePaymentIntent)
             self.events.append(captureEvent)
             let additionalParams = ["amount_to_capture": self.onReceiptTip + intent.amount]
-            AppDelegate.apiClient?.capturePaymentIntent(piID, additionalParams: additionalParams) { captureError in
-                if let error = captureError {
-                    captureEvent.result = .errored
-                    captureEvent.object = .error(error as NSError)
-                } else {
-                    captureEvent.result = .succeeded
+
+            return try await withCheckedThrowingContinuation { continuation in
+                AppDelegate.apiClient?.capturePaymentIntent(piID, additionalParams: additionalParams) { captureError in
+                    if let error = captureError {
+                        captureEvent.result = .errored
+                        captureEvent.object = .error(error as NSError)
+                        self.events.append(captureEvent)
+                        continuation.resume(throwing: error)
+                    } else {
+                        captureEvent.result = .succeeded
+                        self.events.append(captureEvent)
+                        continuation.resume()
+                    }
                 }
-                self.events.append(captureEvent)
-                self.complete()
             }
         } else {
             fatalError("Bad payment intent state identified, this should not happen")

@@ -14,13 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /**
      To get started with this demo, you'll need to first deploy an instance of
      our provided example backend:
-
+    
      https://github.com/stripe/example-terminal-backend
-
+    
      After deploying your backend, replace nil on the line below with the URL
-     of your Heroku app.
-
-     static var backendUrl: String? = "https://your-app.herokuapp.com"
+     of your backend.
+    
+     static var backendUrl: String? = "https://your-app-backend.com"
      */
     static var backendUrl: String?
 
@@ -43,9 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let apiClient = APIClient()
         apiClient.baseURLString = backendUrl
-        Terminal.setTokenProvider(apiClient)
-        Terminal.shared.delegate = TerminalDelegateAnnouncer.shared
-        Terminal.shared.offlineDelegate = OfflineDelegateAnnouncer.shared
+        Terminal.initWithTokenProvider(
+            apiClient,
+            delegate: TerminalDelegateAnnouncer.shared,
+            offlineDelegate: OfflineDelegateAnnouncer.shared,
+            logLevel: .none
+        )
         AppDelegate.apiClient = apiClient
 
         // To log events from the SDK to the console:

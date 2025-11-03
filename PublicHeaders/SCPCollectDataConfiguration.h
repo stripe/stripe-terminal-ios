@@ -12,7 +12,7 @@
 #import <StripeTerminal/SCPCollectedData.h>
 
 #import <StripeTerminal/SCPBuilder.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
+#import <StripeTerminal/SCPCustomerCancellation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,11 +26,11 @@ NS_SWIFT_NAME(CollectDataConfiguration)
 @property (nonatomic, readonly, assign) SCPCollectDataType collectDataType;
 
 /**
- Whether to show a cancel button in transaction UI on Stripe smart readers.
+ Controls whether customer-initiated cancellation is enabled during data collection.
 
- Defaults to NO.
+ Defaults to SCPCustomerCancellationEnableIfAvailable.
  */
-@property (nonatomic, assign, readonly) BOOL enableCustomerCancellation;
+@property (nonatomic, assign, readonly) SCPCustomerCancellation customerCancellation;
 
 /**
  Use `SCPCollectDataConfigurationBuilder`.
@@ -52,8 +52,8 @@ NS_SWIFT_NAME(CollectDataConfigurationBuilder)
 /// Set the collectDataType property for the `CollectDataConfiguration` object that will be built.
 - (SCPCollectDataConfigurationBuilder *)setCollectDataType:(SCPCollectDataType)collectDataType;
 
-/// Set the enableCustomerCancellation property for the `CollectConfiguration` object that will be built.
-- (SCPCollectDataConfigurationBuilder *)setEnableCustomerCancellation:(BOOL)enableCustomerCancellation;
+/// Set the customerCancellation property for the `CollectConfiguration` object that will be built.
+- (SCPCollectDataConfigurationBuilder *)setCustomerCancellation:(SCPCustomerCancellation)customerCancellation;
 
 @end
 

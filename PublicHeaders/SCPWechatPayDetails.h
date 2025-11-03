@@ -10,7 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/payment_methods/object#payment_method_object-wechat_pay
  */
 NS_SWIFT_NAME(WechatPayDetails)
-@interface SCPWechatPayDetails : NSObject <SCPJSONDecodable>
+@interface SCPWechatPayDetails : NSObject
 
 /**
  ID of the location that this transaction’s reader is assigned to.

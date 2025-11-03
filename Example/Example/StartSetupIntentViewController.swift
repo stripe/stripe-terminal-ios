@@ -13,10 +13,12 @@ import UIKit
 class StartSetupIntentViewController: TableViewController {
     private let isSposReader: Bool
     private let isTtpReader: Bool
-    private var enableCustomerCancellation: Bool = false
+    private var enableCustomerCancellation: Bool = true
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
     private var moto = false
+    private var skipCvc = false
     private var collectionReason: SetupIntentCollectionReason = SetupIntentCollectionReason.saveCard
+    private var useProcessSetupIntent = false
     private var startSection: Section?
 
     init(isSposReader: Bool, isTtpReader: Bool) {
@@ -61,15 +63,22 @@ class StartSetupIntentViewController: TableViewController {
             let setupIntentParams = try SetupIntentParametersBuilder()
                 .setPaymentMethodTypes([PaymentMethodType.card, PaymentMethodType.cardPresent])
                 .build()
-            let setupIntentConfig = try SetupIntentConfigurationBuilder()
-                .setEnableCustomerCancellation(enableCustomerCancellation)
-                .setMoto(moto)
+            let setupIntentConfigBuilder = CollectSetupIntentConfigurationBuilder()
+                .setCustomerCancellation(enableCustomerCancellation ? .enableIfAvailable : .disableIfAvailable)
                 .setCollectionReason(collectionReason)
-                .build()
+            if moto {
+                setupIntentConfigBuilder.setMotoConfiguration(
+                    try MotoConfigurationBuilder()
+                        .setSkipCvc(skipCvc)
+                        .build()
+                )
+            }
+            let setupIntentConfig = try setupIntentConfigBuilder.build()
             let vc = SetupIntentViewController(
                 setupParams: setupIntentParams,
                 setupConfig: setupIntentConfig,
-                allowRedisplay: allowRedisplay
+                allowRedisplay: allowRedisplay,
+                useProcessSetupIntent: useProcessSetupIntent
             )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             self.present(navController, animated: true, completion: nil)
@@ -98,13 +107,7 @@ class StartSetupIntentViewController: TableViewController {
                     items: ["always", "limited", "unspecified"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
-                    switch newIndex {
-                    case 0: self.allowRedisplay = AllowRedisplay.always
-                    case 1: self.allowRedisplay = AllowRedisplay.limited
-                    case 2: self.allowRedisplay = AllowRedisplay.unspecified
-                    default:
-                        fatalError("Unknown option selected")
-                    }
+                    self.handleAllowRedisplaySelection(newIndex)
                 }
             )
         ]
@@ -124,12 +127,29 @@ class StartSetupIntentViewController: TableViewController {
                     accessory: .switchToggle(
                         value: moto,
                         { [unowned self] _ in
+                            if self.moto && self.skipCvc {
+                                self.skipCvc.toggle()  // turn skip CVC off it moto is turned off
+                            }
                             self.moto.toggle()
                             self.updateContent()
                         }
                     )
                 )
             )
+            if self.moto {
+                rows.append(
+                    Row(
+                        text: "Skip CVV for MO/TO",
+                        accessory: .switchToggle(
+                            value: skipCvc,
+                            { [unowned self] _ in
+                                self.skipCvc.toggle()
+                                self.updateContent()
+                            }
+                        )
+                    )
+                )
+            }
         } else if isTtpReader {
             rows.append(
                 Row(
@@ -148,6 +168,28 @@ class StartSetupIntentViewController: TableViewController {
                 )
             )
         }
+
+        // Add processSetupIntent toggle
+        rows.append(
+            Row(
+                text: "Use processSetupIntent",
+                accessory: .switchToggle(value: self.useProcessSetupIntent) { [unowned self] _ in
+                    self.useProcessSetupIntent.toggle()
+                    self.updateContent()
+                }
+            )
+        )
+
         return Section(header: "TRANSACTION_FEATURES", rows: rows)
+    }
+
+    private func handleAllowRedisplaySelection(_ newIndex: Int) {
+        switch newIndex {
+        case 0: self.allowRedisplay = AllowRedisplay.always
+        case 1: self.allowRedisplay = AllowRedisplay.limited
+        case 2: self.allowRedisplay = AllowRedisplay.unspecified
+        default:
+            fatalError("Unknown option selected")
+        }
     }
 }

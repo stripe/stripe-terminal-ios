@@ -38,6 +38,6 @@ typedef NS_ENUM(NSUInteger, SCPReadMethod) {
      Older standard for contactless payments that emulated a magnetic stripe read.
      */
     SCPReadMethodContactlessMagstripeMode = 91,
-};
+} NS_SWIFT_NAME(ReadMethod);
 
 NS_ASSUME_NONNULL_END

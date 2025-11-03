@@ -762,10 +762,6 @@ open class InsetTextField: UITextField {
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: inset)
     }
-
-    open override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: inset))
-    }
 }
 
 open class InsetLabel: UILabel {

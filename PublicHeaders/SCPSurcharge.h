@@ -11,15 +11,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  Contains details about the availability and maximum amount for surcharging on this PaymentIntent.
  */
 NS_SWIFT_NAME(Surcharge)
-@interface SCPSurcharge : NSObject <SCPJSONDecodable, NSCopying>
+@interface SCPSurcharge : NSObject <NSCopying>
 
 /// Surcharge availability
 @property (nonatomic, readonly) NSString *status;

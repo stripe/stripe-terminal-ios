@@ -221,8 +221,11 @@ class ReaderViewController: TableViewController, CancelingViewController {
     }
 
     internal func showUpdateReader(update: ReaderSoftwareUpdate) {
+        guard let reader = connectedReader else {
+            return
+        }
         self.presentModalInNavigationController(
-            UpdateReaderViewController(update: update) { [weak self] in
+            UpdateReaderViewController(reader: reader, update: update) { [weak self] in
                 guard let self = self else { return }
                 self.pendingUpdate = nil
                 self.updateContent()
@@ -367,7 +370,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     )
                 }
-            case .verifoneP400, .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
+            case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
                 .verifoneV660p,
                 .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
                 workflowRows.append(
@@ -431,7 +434,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             default: break
             }
 
-            if deviceType != .wisePad3 && deviceType != .verifoneP400 && deviceType != .tapToPay {
+            if deviceType != .wisePad3 && deviceType != .tapToPay {
                 workflowRows.append(
                     Row(
                         text: "Collect data",

@@ -9,7 +9,7 @@ Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/i
 > Upgrading from an older version of the SDK? See our [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) for guidance.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 14 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 15 and above.
 
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
@@ -34,7 +34,7 @@ In Xcode, select **File > Swift Packages > Add Package Dependency** and enter ht
 
 2. Add this line to your Podfile:
 ```
-pod 'StripeTerminal', '~> 4.0'
+pod 'StripeTerminal', '~> 5.0'
 ```
 
 3. Run the following command:
@@ -83,6 +83,7 @@ For your app to pass validation when submitting to the App Store, add the follow
 
 We maintain an archive of the API reference for the previous major version.
 
+- [4.7.3](https://stripe.dev/stripe-terminal-ios/4.7.3/index.html)
 - [3.9.0](https://stripe.dev/stripe-terminal-ios/3.9.0/index.html)
 - [2.23.0](https://stripe.dev/stripe-terminal-ios/2.23.0/index.html)
 

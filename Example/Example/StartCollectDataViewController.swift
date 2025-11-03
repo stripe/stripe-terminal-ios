@@ -12,7 +12,7 @@ import UIKit
 
 class StartCollectDataViewController: TableViewController {
 
-    private var enableCustomerCancellation = false
+    private var enableCustomerCancellation = true
 
     convenience init() {
         self.init(style: .grouped)
@@ -38,7 +38,7 @@ class StartCollectDataViewController: TableViewController {
     private func startCollectData(type: CollectDataType) {
         do {
             let collectDataConfig = try CollectDataConfigurationBuilder().setCollectDataType(type)
-                .setEnableCustomerCancellation(enableCustomerCancellation).build()
+                .setCustomerCancellation(enableCustomerCancellation ? .enableIfAvailable : .disableIfAvailable).build()
             let viewController = CollectDataViewController(collectDataConfiguration: collectDataConfig)
             let navigationController = LargeTitleNavigationController(rootViewController: viewController)
             present(navigationController, animated: true)

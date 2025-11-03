@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -21,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://docs.corp.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-dynamic_currency_conversion
  */
 NS_SWIFT_NAME(DynamicCurrencyConversion)
-@interface SCPDynamicCurrencyConversion : NSObject <SCPJSONDecodable, NSCopying>
+@interface SCPDynamicCurrencyConversion : NSObject <NSCopying>
 
 /**
  Exchange rate received by the cardholder, including markup.

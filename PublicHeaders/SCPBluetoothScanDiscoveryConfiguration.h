@@ -35,6 +35,12 @@ NS_SWIFT_NAME(BluetoothScanDiscoveryConfiguration)
  */
 @property (nonatomic, assign, readonly) NSUInteger timeout;
 
+/// Use `SCPBluetoothScanDiscoveryConfigurationBuilder`.
+- (instancetype)init NS_UNAVAILABLE;
+
+/// Use `SCPBluetoothScanDiscoveryConfigurationBuilder`.
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**

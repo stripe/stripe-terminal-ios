@@ -24,6 +24,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     }
     private let updateType: UpdateType
 
+    private let reader: Reader
     private let headerView = ReaderHeaderView()
     private weak var doneButton: UIBarButtonItem?
     internal weak var cancelButton: UIBarButtonItem?
@@ -39,25 +40,42 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
     }
 
     /// Initializer to use when an update is available and can optionally be installed
-    convenience init(update: ReaderSoftwareUpdate, updateInstalledCompletion: @escaping () -> Void) {
-        self.init(update: update, type: .available, updateInstalledCompletion: updateInstalledCompletion)
+    convenience init(reader: Reader, update: ReaderSoftwareUpdate, updateInstalledCompletion: @escaping () -> Void) {
+        self.init(
+            reader: reader,
+            update: update,
+            type: .available,
+            updateInstalledCompletion: updateInstalledCompletion
+        )
         self.title = "Update Reader"
     }
 
     /// Initializer to use  when a required update has started installing to provide the cancelable for that update.
     convenience init(
+        reader: Reader,
         updateBeingInstalled: ReaderSoftwareUpdate,
         cancelable: Cancelable?,
         updateInstalledCompletion: @escaping () -> Void
     ) {
-        self.init(update: updateBeingInstalled, type: .required, updateInstalledCompletion: updateInstalledCompletion)
+        self.init(
+            reader: reader,
+            update: updateBeingInstalled,
+            type: .required,
+            updateInstalledCompletion: updateInstalledCompletion
+        )
         self.cancelable = cancelable
         setAllowedCancelMethods(cancelable == nil ? [] : [.button])
         self.updateProgress = 0.0
         self.title = "Installing Update"
     }
 
-    private init(update: ReaderSoftwareUpdate, type: UpdateType, updateInstalledCompletion: @escaping () -> Void) {
+    private init(
+        reader: Reader,
+        update: ReaderSoftwareUpdate,
+        type: UpdateType,
+        updateInstalledCompletion: @escaping () -> Void
+    ) {
+        self.reader = reader
         self.update = update
         self.updateInstalledCompletion = updateInstalledCompletion
         self.updateType = type
@@ -94,7 +112,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
 
-        headerView.connectedReader = Terminal.shared.connectedReader
+        headerView.connectedReader = reader
         headerView.connectionStatus = Terminal.shared.connectionStatus
         updateContent()
     }
@@ -107,14 +125,11 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
 
     private func updateContent() {
         let currentVersion: String = {
-            guard let connectedReader = Terminal.shared.connectedReader else {
-                return "unknown"
-            }
-            if connectedReader.deviceType == .tapToPay {
+            if reader.deviceType == .tapToPay {
                 // Device software version is unavailable on Tap To Pay readers.
                 return "current"
             }
-            return connectedReader.deviceSoftwareVersion ?? "unknown"
+            return reader.deviceSoftwareVersion ?? "unknown"
         }()
 
         let updateButtonText: String

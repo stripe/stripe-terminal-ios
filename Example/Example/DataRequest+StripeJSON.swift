@@ -15,9 +15,10 @@ extension DataRequest {
      */
     @discardableResult
     public func stripeResponseJSON(
-        completionHandler: @escaping (
-            (result: Result<[String: AnyObject], Error>, afDataResponse: AFDataResponse<Data>)
-        ) -> Void
+        completionHandler:
+            @escaping (
+                (result: Result<[String: AnyObject], Error>, afDataResponse: AFDataResponse<Data>)
+            ) -> Void
     ) -> Self {
         response(
             queue: .main,

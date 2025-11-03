@@ -14,25 +14,42 @@ class StartRefundViewController: TableViewController {
 
     private var refundApplicationFee: Bool?
     private var reverseTransfer: Bool?
-    private var enableCustomerCancellation: Bool = false
+    private var enableCustomerCancellation: Bool = true
     private let isSposReader: Bool
     private var refundWithChargeId: Bool = true
     private var chargeId: String = ""
     private var paymentIntentId: String = ""
+    private var clientSecret: String = ""
 
     private let amountView = AmountInputView()
     private let paymentOrChargeIdView = TextFieldView(text: "text", footer: "")
+    private let clientSecretView = TextFieldView(text: "Client Secret", footer: "")
     private var startSection: Section?
 
-    init(isSposReader: Bool, chargeId: String = "", paymentIntentId: String = "", amount: UInt = 100) {
+    init(
+        isSposReader: Bool,
+        chargeId: String = "",
+        paymentIntentId: String = "",
+        clientSecret: String = "",
+        amount: UInt = 100
+    ) {
         self.isSposReader = isSposReader
         super.init(style: .grouped)
         self.chargeId = chargeId
         self.paymentIntentId = paymentIntentId
+        self.clientSecret = clientSecret
         amountView.numberFormatter.currencyCode = "CAD"
         amountView.textField.text = String(amount)
-        paymentOrChargeIdView.textField.text = chargeId
-        self.refundWithChargeId = true
+
+        // Prefill appropriate fields based on what's provided
+        if !paymentIntentId.isEmpty {
+            self.refundWithChargeId = false
+            paymentOrChargeIdView.textField.text = paymentIntentId
+            clientSecretView.textField.text = clientSecret
+        } else {
+            self.refundWithChargeId = true
+            paymentOrChargeIdView.textField.text = chargeId
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +65,11 @@ class StartRefundViewController: TableViewController {
         paymentOrChargeIdView.textField.autocapitalizationType = .none
         paymentOrChargeIdView.textField.delegate = self
         paymentOrChargeIdView.textField.clearButtonMode = .whileEditing
+
+        clientSecretView.textField.autocorrectionType = .no
+        clientSecretView.textField.autocapitalizationType = .none
+        clientSecretView.textField.delegate = self
+        clientSecretView.textField.clearButtonMode = .whileEditing
 
         amountView.onAmountUpdated = { [unowned self] amountString in
             self.startSection?.header = Section.Extremity.title(amountString)
@@ -94,6 +116,7 @@ class StartRefundViewController: TableViewController {
         } else {
             refundParamsBuilder = RefundParametersBuilder(
                 paymentIntentId: paymentOrChargeIdView.textField.text ?? "",
+                clientSecret: clientSecretView.textField.text ?? "",
                 amount: amountView.amount,
                 currency: "cad"
             )
@@ -109,10 +132,13 @@ class StartRefundViewController: TableViewController {
 
         do {
             let refundParams = try refundParamsBuilder.build()
-            let refundConfig = try RefundConfigurationBuilder()
-                .setEnableCustomerCancellation(enableCustomerCancellation)
+            let refundConfig = try CollectRefundConfigurationBuilder()
+                .setCustomerCancellation(enableCustomerCancellation ? .enableIfAvailable : .disableIfAvailable)
                 .build()
-            let vc = RefundViewController(refundParams: refundParams, refundConfig: refundConfig)
+            let vc = RefundViewController(
+                refundParams: refundParams,
+                refundConfig: refundConfig
+            )
             let navController = LargeTitleNavigationController(rootViewController: vc)
             self.present(navController, animated: true, completion: nil)
         } catch {
@@ -141,6 +167,7 @@ class StartRefundViewController: TableViewController {
 
         var sections: [Section] = [
             makeIdLabelSection(),
+            !refundWithChargeId ? makeClientSecretSection() : nil,
             amountSection,
             makeTransactionSection(),
             makeRefundApplicationFeeSection(),
@@ -177,15 +204,18 @@ class StartRefundViewController: TableViewController {
                     }
                     // copy text from the payment/charge id view into a temp string
                     let tempId: String = paymentOrChargeIdView.textField.text ?? ""
+                    let tempClientSecret: String = clientSecretView.textField.text ?? ""
                     if newIndex != selectedIndex {
                         // when change to index occurs
                         if self.refundWithChargeId {
                             // update the payment or charge id view with the stored chargeid, and save the temp value to the
                             paymentOrChargeIdView.textField.text = self.chargeId
                             self.paymentIntentId = tempId
+                            self.clientSecret = tempClientSecret
                         } else {
-                            // update the payment or charge id view ith the stored payment id
+                            // update the payment or charge id view with the stored payment id
                             paymentOrChargeIdView.textField.text = self.paymentIntentId
+                            clientSecretView.textField.text = self.clientSecret
                             self.chargeId = tempId
                         }
                     }
@@ -197,23 +227,26 @@ class StartRefundViewController: TableViewController {
         return Section(header: "REFUND ID", rows: rows, footer: Section.Extremity.autoLayoutView(paymentOrChargeIdView))
     }
 
+    func makeClientSecretSection() -> Section {
+        return Section(header: "CLIENT SECRET", rows: [], footer: Section.Extremity.autoLayoutView(clientSecretView))
+    }
+
     private func makeTransactionSection() -> Section? {
+        var rows: [Row] = []
+
         if self.isSposReader {
-            return Section(
-                header: "TRANSACTION FEATURES",
-                rows: [
-                    Row(
-                        text: "Customer cancellation",
-                        accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
-                            self.enableCustomerCancellation.toggle()
-                            self.updateContent()
-                        }
-                    )
-                ]
+            rows.append(
+                Row(
+                    text: "Customer cancellation",
+                    accessory: .switchToggle(value: self.enableCustomerCancellation) { [unowned self] _ in
+                        self.enableCustomerCancellation.toggle()
+                        self.updateContent()
+                    }
+                )
             )
-        } else {
-            return nil
         }
+
+        return Section(header: "TRANSACTION FEATURES", rows: rows)
     }
 
     func makeRefundApplicationFeeSection() -> Section {

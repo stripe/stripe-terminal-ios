@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -26,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see `SCPLocation`
  */
 NS_SWIFT_NAME(Address)
-@interface SCPAddress : NSObject <SCPJSONDecodable>
+@interface SCPAddress : NSObject
 
 /**
  The city name

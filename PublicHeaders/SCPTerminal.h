@@ -15,10 +15,12 @@
 #import <StripeTerminal/SCPBlocks.h>
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
-#import <StripeTerminal/SCPCollectConfiguration.h>
 #import <StripeTerminal/SCPCollectDataConfiguration.h>
 #import <StripeTerminal/SCPCollectInputsParameters.h>
-#import <StripeTerminal/SCPConfirmConfiguration.h>
+#import <StripeTerminal/SCPCollectPaymentIntentConfiguration.h>
+#import <StripeTerminal/SCPCollectRefundConfiguration.h>
+#import <StripeTerminal/SCPCollectSetupIntentConfiguration.h>
+#import <StripeTerminal/SCPConfirmPaymentIntentConfiguration.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
 #import <StripeTerminal/SCPCreateConfiguration.h>
@@ -38,9 +40,7 @@
 #import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderSettingsParameters.h>
-#import <StripeTerminal/SCPRefundConfiguration.h>
 #import <StripeTerminal/SCPRefundParameters.h>
-#import <StripeTerminal/SCPSetupIntentConfiguration.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
 #import <StripeTerminal/SCPUsbConnectionConfiguration.h>
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"4.7.3";
+static NSString *const SCPSDKVersion = @"5.0.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -68,9 +68,10 @@ static NSString *const SCPSDKVersion = @"4.7.3";
  connecting to a reader, creating payments, and saving card information for later
  use.
 
- Before accessing the singleton object using the `shared` property, you must set
- a ConnectionToken provider: an object that implements the `SCPConnectionTokenProvider`
- protocol. This object should authenticate with your backend, then fetch the [secret](https://stripe.com/docs/api/terminal/connection_tokens/object#terminal_connection_token_object-secret)
+ Before accessing the singleton object using the `shared` property, you must initialize
+ the SDK by calling `initWithTokenProvider:` with an object that implements the
+ `SCPConnectionTokenProvider` protocol. This object should authenticate with your backend,
+ then fetch the [secret](https://stripe.com/docs/api/terminal/connection_tokens/object#terminal_connection_token_object-secret)
  from a freshly minted [ConnectionToken](https://stripe.com/docs/api/terminal/connection_tokens).
 
  The SCPTerminal singleton can only be connected to one reader at a time, and
@@ -86,32 +87,53 @@ static NSString *const SCPSDKVersion = @"4.7.3";
  example application](https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift).
  */
 NS_SWIFT_NAME(Terminal)
-API_AVAILABLE(ios(14.0))
+API_AVAILABLE(ios(15.0))
 @interface SCPTerminal : NSObject
 
 #pragma mark Initializing and accessing the SCPTerminal singleton
 
 /**
- Sets the token provider for the shared (singleton) `SCPTerminal` instance.
+ Initializes the Terminal SDK with the provided token provider and full configuration.
 
- You must set a token provider before calling `shared` to initialize the
- Terminal singleton. We recommend calling `setTokenProvider:` in your
- AppDelegate's `application:didFinishLaunchingWithOptions:` method.
- Alternatively, you can wrap your call to `setTokenProvider:` with a
- `dispatch_once` in Objective-C, or use a static constructor in Swift.
+ This method configures the shared Terminal instance with the necessary token provider
+ and optional log level and delegate settings. You must call this method before
+ accessing the shared Terminal instance.
 
- Note that you may only set a token provider *before* requesting the shared
- Terminal instance for the first time. In order to switch accounts in your app,
- e.g. to switch between live and test Stripe API keys on your backend, refer
- to the documentation for the `clearCachedCredentials` method on the shared
- Terminal instance.
+ @param tokenProvider   The token provider for authentication with Stripe Terminal.
+ @param logLevel        The log level for the SDK.
+ @param delegate        The primary delegate for Terminal events.
+ @param offlineDelegate The offline delegate for offline-related events.
  */
-+ (void)setTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(setTokenProvider(_:));
++ (void)initWithTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider
+                     delegate:(nullable id<SCPTerminalDelegate>)delegate
+              offlineDelegate:(nullable id<SCPOfflineDelegate>)offlineDelegate
+                     logLevel:(SCPLogLevel)logLevel NS_SWIFT_NAME(initWithTokenProvider(_:delegate:offlineDelegate:logLevel:));
 
 /**
- Returns true if a token provider has been set, through `setTokenProvider:`
+ Initializes the Terminal SDK with the provided token provider and delegate.
+
+ This method configures the shared Terminal instance with the necessary token provider
+ and primary delegate. Log level defaults to SCPLogLevelNone and offline delegate defaults to nil.
+
+ @param tokenProvider   The token provider for authentication with Stripe Terminal.
+ @param delegate        The primary delegate for Terminal events.
  */
-+ (BOOL)hasTokenProvider;
++ (void)initWithTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider
+                     delegate:(nullable id<SCPTerminalDelegate>)delegate NS_SWIFT_NAME(initWithTokenProvider(_:delegate:));
+
+/**
+ Initializes the Terminal SDK with the provided token provider using default settings.
+
+ This convenience method initializes the Terminal SDK with SCPLogLevelNone and no delegates.
+
+ @param tokenProvider   The token provider for authentication with Stripe Terminal.
+ */
++ (void)initWithTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(initWithTokenProvider(_:));
+
+/**
+ Returns true if Terminal has been initialized by calling `initWithTokenProvider:`
+ */
++ (BOOL)isInitialized;
 
 /**
  Sets a block to listen for logs from the shared Terminal instance (optional).
@@ -131,7 +153,7 @@ API_AVAILABLE(ios(14.0))
  Returns the shared (singleton) Terminal instance.
 
  Before accessing the singleton for the first time, you must first call
- `setTokenProvider:`.
+ `initWithTokenProvider:`.
  */
 @property (class, nonatomic, readonly) SCPTerminal *shared;
 
@@ -185,11 +207,14 @@ API_AVAILABLE(ios(14.0))
  cached credentials. You can use this method to switch accounts in your app,
  e.g. to switch between live and test Stripe API keys on your backend.
 
+ @warning This method will fail if the terminal is currently connected to a reader.
+ You must disconnect from the reader before clearing cached credentials.
+
  In order to switch accounts in your app:
- - if a reader is connected, call `disconnectReader:`
+ - if a reader is connected, call `disconnectReader:` first
+ - call `clearCachedCredentials` to clear the current credentials
  - configure the `tokenProvider` object to return connection tokens for the new account.
  The `tokenProvider` is implemented by your code, and you can do this however you want.
- - call `clearCachedCredentials`
  - call `discoverReaders` and `connectReader` to connect to a reader. The `connect` call
  will request a new connection token from your backend server via the token provider.
 
@@ -201,8 +226,14 @@ API_AVAILABLE(ios(14.0))
  - Subsequent calls to `connect` will re-use the reader session if the SDK
  has successfully connected to the reader already. Otherwise, it will require a
  new connection token when you call `connect` again.
+
+ @param error Out parameter for any errors that occur. Will be set to
+              SCPErrorUnexpectedOperationError if called while connected to a reader.
+ @return YES if credentials were successfully cleared, NO if an error occurred.
+
+ @note In Swift, this method is refined to return a Result<Void, Error> type.
  */
-- (void)clearCachedCredentials NS_SWIFT_NAME(clearCachedCredentials());
+- (BOOL)clearCachedCredentials:(NSError **)error NS_REFINED_FOR_SWIFT;
 
 #pragma mark Reader discovery, connection, and updates
 
@@ -432,7 +463,7 @@ API_AVAILABLE(ios(14.0))
  @param completion          The completion block called when the command completes.
  */
 - (nullable SCPCancelable *)collectPaymentMethod:(SCPPaymentIntent *)paymentIntent
-                                   collectConfig:(nullable SCPCollectConfiguration *)collectConfig
+                                   collectConfig:(nullable SCPCollectPaymentIntentConfiguration *)collectConfig
                                       completion:(SCPPaymentIntentCompletionBlock)completion;
 
 /**
@@ -485,8 +516,26 @@ API_AVAILABLE(ios(14.0))
  @param completion      The completion block called when the confirm completes.
  */
 - (nullable SCPCancelable *)confirmPaymentIntent:(SCPPaymentIntent *)paymentIntent
-                                   confirmConfig:(nullable SCPConfirmConfiguration *)confirmConfig
+                                   confirmConfig:(nullable SCPConfirmPaymentIntentConfiguration *)confirmConfig
                                       completion:(SCPConfirmPaymentIntentCompletionBlock)completion;
+
+/**
+ Processes a payment by collecting a payment method and confirming the payment intent
+ in a single operation.
+
+ This method combines the functionality of `collectPaymentMethod` and `confirmPaymentIntent`
+ into a single call.
+
+ @param paymentIntent     The PaymentIntent to process.
+ @param collectConfig     The configuration for collecting the payment method.
+ @param confirmConfig     The configuration for confirming the payment intent.
+ @param completion        The completion block called when the payment completes.
+ @return                  A cancelable that can be used to cancel the payment process.
+ */
+- (nullable SCPCancelable *)processPaymentIntent:(SCPPaymentIntent *)paymentIntent
+                                   collectConfig:(nullable SCPCollectPaymentIntentConfiguration *)collectConfig
+                                   confirmConfig:(nullable SCPConfirmPaymentIntentConfiguration *)confirmConfig
+                                      completion:(SCPPaymentIntentCompletionBlock)completion;
 
 /**
  Cancels an `SCPPaymentIntent`.
@@ -625,12 +674,12 @@ API_AVAILABLE(ios(14.0))
  @param setupIntent     The SetupIntent to which payment method information is attached.
  @param allowRedisplay    A value that should be set to `always` or `limited` if you
  have successfully collected consent from the cardholder to save their payment information.
- @param setupConfig     An optional SCPSetupIntentConfiguration to configure per-setup overrides.
+ @param setupConfig     An optional SCPCollectSetupIntentConfiguration to configure per-setup overrides.
  @param completion      The completion block called when collection completes.
  */
 - (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
                                              allowRedisplay:(SCPAllowRedisplay)allowRedisplay
-                                                setupConfig:(nullable SCPSetupIntentConfiguration *)setupConfig
+                                                setupConfig:(nullable SCPCollectSetupIntentConfiguration *)setupConfig
                                                  completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:allowRedisplay:setupConfig:completion:));
 
 /**
@@ -664,6 +713,24 @@ API_AVAILABLE(ios(14.0))
 - (nullable SCPCancelable *)confirmSetupIntent:(SCPSetupIntent *)setupIntent
                                     completion:(SCPConfirmSetupIntentCompletionBlock)completion NS_SWIFT_NAME(confirmSetupIntent(_:completion:));
 
+/**
+ Processes a setup intent by collecting a payment method and confirming the setup intent
+ in a single operation.
+
+ This method combines the functionality of `collectSetupIntentPaymentMethod` and `confirmSetupIntent`
+ into a single call.
+
+ @param setupIntent       The SetupIntent to process.
+ @param allowRedisplay    Controls how this SetupIntent may be shown to the customer in the Stripe Dashboard.
+ @param collectConfig     The configuration for collecting the setup intent payment method.
+ @param completion        The completion block called when the setup intent completes.
+ @return                  A cancelable that can be used to cancel the setup intent process.
+ */
+- (nullable SCPCancelable *)processSetupIntent:(SCPSetupIntent *)setupIntent
+                                allowRedisplay:(SCPAllowRedisplay)allowRedisplay
+                                 collectConfig:(nullable SCPCollectSetupIntentConfiguration *)collectConfig
+                                    completion:(SCPSetupIntentCompletionBlock)completion;
+
 #pragma mark Card-present refunds
 
 /**
@@ -678,100 +745,47 @@ API_AVAILABLE(ios(14.0))
  For payment methods that don't require the cardholder be present, see
  https://stripe.com/docs/terminal/payments/refunds
 
- This method, along with `confirmRefund`, allow you to design an in-person refund
- flow into your app.
+ This method allows you to design an in-person refund flow into your app.
 
  If collecting a payment method fails, the completion block will be called with
- an error. After resolving the error, you may call `collectRefundPaymentMethod`
+ an error. After resolving the error, you may call `processRefund`
  again to either try the same card again, or try a different card.
 
  If collecting a payment method succeeds, the completion block will be called
  with an `nil` error. At that point, you can call `confirmRefund` to finish
  refunding the payment method.
-
- Calling any other SDK methods between `collectRefundPaymentMethod` and
- `confirmRefund` will result in undefined behavior.
-
- Note that if `collectRefundPaymentMethod` is canceled, the completion block
- will be called with a `Canceled` error.
-
- @see https://stripe.com/docs/terminal/canada#interac-refunds
-
- @param refundParams  The SCPRefundParameters object that describes how the
- refund will be created.
- @param completion  The completion block called when the command completes.
- */
-- (nullable SCPCancelable *)collectRefundPaymentMethod:(SCPRefundParameters *)refundParams
-                                            completion:(SCPErrorCompletionBlock)completion
-    NS_SWIFT_NAME(collectRefundPaymentMethod(_:completion:));
-
-/**
- Initiates an in-person refund with a given set of `SCPRefundParameters` by
- collecting the payment method that is to be refunded.
-
- Some payment methods, like Interac Debit payments, require that in-person payments
- also be refunded while the cardholder is present. The cardholder must present
- the Interac card to the card reader; these payments cannot be refunded via the
- dashboard or the API.
-
- For payment methods that don't require the cardholder be present, see
- https://stripe.com/docs/terminal/payments/refunds
-
- This method, along with `confirmRefund`, allow you to design an in-person refund
- flow into your app.
-
- If collecting a payment method fails, the completion block will be called with
- an error. After resolving the error, you may call `collectRefundPaymentMethod`
- again to either try the same card again, or try a different card.
-
- If collecting a payment method succeeds, the completion block will be called
- with an `nil` error. At that point, you can call `confirmRefund` to finish
- refunding the payment method.
-
- Calling any other SDK methods between `collectRefundPaymentMethod` and
- `confirmRefund` will result in undefined behavior.
-
- Note that if `collectRefundPaymentMethod` is canceled, the completion block
- will be called with a `Canceled` error.
-
- @see https://stripe.com/docs/terminal/canada#interac-refunds
-
- @param refundParams  The SCPRefundParameters object that describes how the
- refund will be created.
- @param refundConfig An optional SCPRefundConfiguration to configure per-refund overrides.
- @param completion  The completion block called when the command completes.
- */
-- (nullable SCPCancelable *)collectRefundPaymentMethod:(SCPRefundParameters *)refundParams
-                                          refundConfig:(nullable SCPRefundConfiguration *)refundConfig
-                                            completion:(SCPErrorCompletionBlock)completion
-    NS_SWIFT_NAME(collectRefundPaymentMethod(_:refundConfig:completion:));
-
-/**
- Confirms an in-person refund after the refund payment method has been collected.
 
  The completion block will either be called with the successful `SCPRefund` or
- with an `SCPConfirmRefundError`.
+ with an `NSError`. If the error is of type `SCPConfirmRefundError`.
 
- When `confirmRefund` fails, the SDK returns an error that either includes the
- failed `SCPRefund` or the `SCPRefundParameters` that led to a failure.
- Your app should inspect the `SCPConfirmRefundError` to decide how to proceed.
+ Note that if `processRefund` is canceled, the completion block will be called
+ with a `Canceled` error.
 
- 1. If the refund property is `nil`, the request to Stripe's servers timed
- out and the refund's status is unknown. We recommend that you retry
- `confirmRefund` with the original `SCPRefundParameters`.
+ When `processRefund` fails, the SDK returns an error that may include the
+ failed `SCPRefund` that led to a failure.
 
+ Your app should inspect the error. If its of type `SCPConfirmRefundError` it can be
+ inspected for additional details about the refund that led to the failure.
+
+ 1. If the error is a `SCPConfirmRefundError` and the refund property is `nil`, the request
+ to Stripe's servers timed out and the refund's status is unknown. We recommend that you retry
+ `processRefund` with the original `SCPRefundParameters`.
  2. If the `SCPConfirmRefundError` has a `failure_reason`, the refund was declined.
  We recommend that you take action based on the decline code you received.
 
- @note `collectRefundPaymentMethod:completion` and `confirmRefund` are only
- available for payment methods that require in-person refunds. For all other
- refunds, use the Stripe Dashboard or the Stripe API.
+ @note `processRefund` is  only available for payment methods that require in-person refunds.
+ For all other refunds, use the Stripe Dashboard or the Stripe API.
 
  @see https://stripe.com/docs/terminal/canada#interac-refunds
 
- @param completion  The completion block called when the command completes.
+ @param refundParams      The refund parameters.
+ @param collectConfig     The configuration for collecting the refund payment method.
+ @param completion        The completion block called when the refund completes.
+ @return                  A cancelable that can be used to cancel the refund process.
  */
-- (nullable SCPCancelable *)confirmRefund:(SCPConfirmRefundCompletionBlock)completion NS_SWIFT_NAME(confirmRefund(completion:));
+- (nullable SCPCancelable *)processRefund:(SCPRefundParameters *)refundParams
+                            collectConfig:(nullable SCPCollectRefundConfiguration *)collectConfig
+                               completion:(SCPConfirmRefundCompletionBlock)completion;
 
 #pragma mark Offline mode
 

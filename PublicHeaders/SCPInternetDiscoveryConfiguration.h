@@ -49,6 +49,12 @@ NS_SWIFT_NAME(InternetDiscoveryConfiguration)
  */
 @property (nonatomic, assign, readonly) NSUInteger timeout;
 
+/// Use `SCPInternetDiscoveryConfigurationBuilder`.
+- (instancetype)init NS_UNAVAILABLE;
+
+/// Use `SCPInternetDiscoveryConfigurationBuilder`.
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**

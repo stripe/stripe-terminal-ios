@@ -32,11 +32,6 @@ NS_SWIFT_NAME(CollectedData)
 @interface SCPCollectedData : NSObject
 
 /**
- Unique identifier for the object.
- */
-@property (nonatomic, nullable, readonly, copy) NSString *stripeId;
-
-/**
  Time at which the object was created.
  */
 @property (nonatomic, readonly) NSDate *created;
@@ -45,11 +40,6 @@ NS_SWIFT_NAME(CollectedData)
  Whether or not the object exists in livemode.
  */
 @property (nonatomic, assign, readonly) BOOL livemode;
-
-/**
- The NFC UID of the object, if it exists.
- */
-@property (nonatomic, nullable, readonly, copy) NSString *nfcUid;
 
 /**
  You cannot directly instantiate `SCPCollectedData`. You should only use

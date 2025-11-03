@@ -48,6 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(BluetoothProximityDiscoveryConfiguration)
 @interface SCPBluetoothProximityDiscoveryConfiguration : NSObject <SCPDiscoveryConfiguration>
 
+/// Use `SCPBluetoothProximityDiscoveryConfigurationBuilder`.
+- (instancetype)init NS_UNAVAILABLE;
+
+/// Use `SCPBluetoothProximityDiscoveryConfigurationBuilder`.
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**

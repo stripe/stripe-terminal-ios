@@ -11,14 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  If this payment is part of a card wallet, this contains the details of the card wallet.
  */
-@interface SCPWallet : NSObject <SCPJSONDecodable>
+@interface SCPWallet : NSObject
 
 /**
  The type of the card wallet.

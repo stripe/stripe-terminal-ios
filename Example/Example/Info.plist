@@ -49,7 +49,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>12.0</string>
 </dict>
 </plist>

@@ -24,7 +24,7 @@ NS_SWIFT_NAME(TippingConfiguration)
 /**
  The amount of the payment total eligible for tips.
  */
-@property (nonatomic, assign) NSInteger eligibleAmount;
+@property (nonatomic, readonly) NSInteger eligibleAmount;
 
 /**
  Use `SCPTippingConfigurationBuilder`.

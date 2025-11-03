@@ -8,8 +8,7 @@
 //  Use of this SDK is subject to the Stripe Terminal Terms:
 //  https://stripe.com/terminal/legal
 //
-
-#import <StripeTerminal/SCPJSONDecodable.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -62,7 +61,7 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
  @see https://stripe.com/docs/api#refunds
  */
 NS_SWIFT_NAME(Refund)
-@interface SCPRefund : NSObject <SCPJSONDecodable>
+@interface SCPRefund : NSObject
 
 /**
  The unique identifier for the refund.
@@ -77,7 +76,7 @@ NS_SWIFT_NAME(Refund)
 /**
  The ID of the charge that was refunded
  */
-@property (nonatomic, readonly) NSString *charge;
+@property (nonatomic, nullable, readonly) NSString *chargeId;
 
 /**
  When the refund object was created.
@@ -117,6 +116,41 @@ NS_SWIFT_NAME(Refund)
  If the refund failed, the reason for refund failure if known.
  */
 @property (nonatomic, nullable, readonly) NSString *failureReason;
+
+/**
+ Balance transaction that describes the impact of this refund on your account balance.
+ */
+@property (nonatomic, nullable, readonly) NSString *balanceTransaction;
+
+/**
+ An arbitrary string attached to the object. Often useful for displaying to users.
+ */
+@property (nonatomic, nullable, readonly) NSString *stripeDescription;
+
+/**
+ If the refund failed, this balance transaction describes the adjustment made to your account balance that reverses the initial balance transaction.
+ */
+@property (nonatomic, nullable, readonly) NSString *failureBalanceTransaction;
+
+/**
+ ID of the PaymentIntent that was refunded.
+ */
+@property (nonatomic, nullable, readonly) NSString *paymentIntentId;
+
+/**
+ This is the transaction number that appears on email receipts sent for this refund.
+ */
+@property (nonatomic, nullable, readonly) NSString *receiptNumber;
+
+/**
+ The transfer reversal that is associated with the refund. Only present if the charge came from another Stripe account.
+ */
+@property (nonatomic, nullable, readonly) NSString *sourceTransferReversal;
+
+/**
+ If the accompanying transfer was reversed, the transfer reversal object. Only applicable if the charge was created using the destination parameter.
+ */
+@property (nonatomic, nullable, readonly) NSString *transferReversal;
 
 /**
  You cannot directly instantiate this class.

@@ -101,15 +101,9 @@ class OfflinePaymentsLogViewController: TableViewController {
                 try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self], from: data)
                 as! NSDictionary
             let mutableOfflineLogDictionary = NSMutableDictionary(dictionary: offlineLogDictionary)
-            if let originalJSON = details?.originalJSON,
-                !originalJSON.isEmpty,
-                let data = try? JSONSerialization.data(withJSONObject: originalJSON, options: .prettyPrinted),
-                let jsonString = String(data: data, encoding: .utf8)
-            {
-                mutableOfflineLogDictionary[logString] = jsonString
-            } else {
-                mutableOfflineLogDictionary[logString] = ""
-            }
+            mutableOfflineLogDictionary[logString] = DebugPrintUtils.prettyPrint(
+                debugDescription: details.debugDescription
+            )
             offlineLogDictionary = mutableOfflineLogDictionary
         } catch {
             print("‼️ Error accessing offline payment logs from disk: \(error.localizedDescription)")

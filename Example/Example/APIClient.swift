@@ -235,7 +235,7 @@ class APIClient: NSObject, ConnectionTokenProvider {
     func createLocation(
         displayName: String,
         address: [String: String],
-        completion: @escaping (Location?, Error?) -> Void
+        completion: @escaping (LocationStub?, Error?) -> Void
     ) {
         let url = self.baseURL.appendingPathComponent("create_location")
         let parameters: Parameters = [
@@ -248,7 +248,10 @@ class APIClient: NSObject, ConnectionTokenProvider {
             .stripeResponseJSON { (result, _) in
                 switch result {
                 case .success(let json):
-                    if let location = Location.decodedObject(fromJSON: json) {
+                    if let stripeId = json["id"] as? String,
+                        let displayName = json["display_name"] as? String
+                    {
+                        let location = LocationStub(stripeId: stripeId, displayName: displayName)
                         completion(location, nil)
                     } else {
                         completion(

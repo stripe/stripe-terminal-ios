@@ -36,6 +36,12 @@ NS_SWIFT_NAME(UsbDiscoveryConfiguration)
  */
 @property (nonatomic, assign, readonly) NSUInteger timeout;
 
+/// Use `SCPUsbDiscoveryConfigurationBuilder`.
+- (instancetype)init NS_UNAVAILABLE;
+
+/// Use `SCPUsbDiscoveryConfigurationBuilder`.
++ (instancetype)new NS_UNAVAILABLE;
+
 @end
 
 /**

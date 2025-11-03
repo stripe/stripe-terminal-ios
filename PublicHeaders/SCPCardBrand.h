@@ -65,6 +65,16 @@ typedef NS_ENUM(NSInteger, SCPCardBrand) {
     SCPCardBrandEftposAu,
 
     /**
+     Cartes Bancaires card
+     */
+    SCPCardBrandCartesBancaires,
+
+    /**
+     Girocard card
+     */
+    SCPCardBrandGirocard,
+
+    /**
      An unknown card brand
      */
     SCPCardBrandUnknown,

@@ -17,7 +17,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var startSection: Section?
     private var skipTipping = false
     private var collectSurchargeConsent = false
-    private var enableCustomerCancellation = false
+    private var enableCustomerCancellation = true
     private var interacPresentEnabled = false
     private var automaticCaptureEnabled = false
     private var manualPreferredEnabled = false
@@ -39,11 +39,13 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .wechatPay,
         .affirm,
         .paynow,
-        .paypay
+        .paypay,
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
     private var moto = false
+    private var skipCvc = false
+    private var useProcessPaymentIntent = false
 
     private var connectedAccountId: String {
         connectedAccountTextField.textField.text ?? ""
@@ -267,6 +269,35 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     @objc
     internal func startPayment() {
+        do {
+            let paymentParamsBuilder = createPaymentParamsBuilder()
+            let (collectConfig, confirmConfig) = try createConfigurations()
+
+            let vc = PaymentViewController(
+                paymentParams: try paymentParamsBuilder.build(),
+                collectConfig: collectConfig,
+                confirmConfig: confirmConfig,
+                declineCardBrand: declineCardBrand,
+                recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
+                isSposReader: self.isSposReader,
+                offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
+                offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000")
+                    ?? 50000,
+                offlineBehavior: self.offlineBehavior,
+                skipCapture: self.skipCapture,
+                onReceiptTip: self.onReceiptTip,
+                useProcessPaymentIntent: self.useProcessPaymentIntent
+            )
+            let navController = LargeTitleNavigationController(rootViewController: vc)
+            navController.presentationController?.delegate = self
+            self.present(navController, animated: true, completion: nil)
+        } catch {
+            // Validation error generating the config.
+            self.presentAlert(error: error)
+        }
+    }
+
+    private func createPaymentParamsBuilder() -> PaymentIntentParametersBuilder {
         let captureMethod = self.automaticCaptureEnabled ? CaptureMethod.automatic : CaptureMethod.manual
 
         let paymentParamsBuilder = PaymentIntentParametersBuilder(
@@ -289,23 +320,59 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             paymentParamsBuilder.setApplicationFeeAmount(applicationFeeAmount)
         }
 
+        return paymentParamsBuilder
+    }
+
+    private func createConfigurations() throws -> (CollectPaymentIntentConfiguration, ConfirmPaymentIntentConfiguration)
+    {
         Terminal.shared.simulatorConfiguration.simulatedTipAmount = NSNumber(value: simulatedTipAmountTextField.amount)
 
+        let collectConfigBuilder = createCollectConfigBuilder()
+        let confirmConfigBuilder = createConfirmConfigBuilder()
+
+        try configureOptionalSettings(
+            collectConfigBuilder: collectConfigBuilder,
+            confirmConfigBuilder: confirmConfigBuilder
+        )
+
+        return (try collectConfigBuilder.build(), try confirmConfigBuilder.build())
+    }
+
+    private func createCollectConfigBuilder() -> CollectPaymentIntentConfigurationBuilder {
         let updatePaymentIntent = self.updatePaymentIntent || (self.declineCardBrand != nil)
         var surchargeNotice: String?
         if let text = surchargeNoticeTextField.textField.text, !text.isEmpty {
             surchargeNotice = text
         }
-        let collectConfigBuilder = CollectConfigurationBuilder()
+
+        return CollectPaymentIntentConfigurationBuilder()
             .setSkipTipping(self.skipTipping)
             .setUpdatePaymentIntent(updatePaymentIntent)
-            .setEnableCustomerCancellation(self.enableCustomerCancellation)
+            .setCustomerCancellation(self.enableCustomerCancellation ? .enableIfAvailable : .disableIfAvailable)
             .setRequestDynamicCurrencyConversion(self.requestDcc)
             .setSurchargeNotice(surchargeNotice)
             .setAllowRedisplay(self.allowRedisplay)
-            .setMoto(self.moto)
-        let confirmConfigBuilder = ConfirmConfigurationBuilder()
+    }
 
+    private func createConfirmConfigBuilder() -> ConfirmPaymentIntentConfigurationBuilder {
+        let confirmConfigBuilder = ConfirmPaymentIntentConfigurationBuilder()
+        let surchargeConfigurationBuilder = createSurchargeConfigurationBuilder()
+
+        if let returnUrl = returnUrlTextField.textField.text {
+            confirmConfigBuilder.setReturnUrl(returnUrl)
+        }
+
+        do {
+            confirmConfigBuilder.setSurchargeConfiguration(try surchargeConfigurationBuilder.build())
+        } catch {
+            // Validation error generating the config.
+            self.presentAlert(error: error)
+        }
+
+        return confirmConfigBuilder
+    }
+
+    private func createSurchargeConfigurationBuilder() -> SurchargeConfigurationBuilder {
         let surchargeConfigurationBuilder = SurchargeConfigurationBuilder()
 
         if let amountSurcharge = amountSurchargeTextField.textField.text {
@@ -322,48 +389,40 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             surchargeConsentBuilder.setNotice(surchargeConsentNoticeText)
         }
 
-        if let returnUrl = returnUrlTextField.textField.text {
-            confirmConfigBuilder.setReturnUrl(returnUrl)
-        }
-
         do {
-            if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
-                collectConfigBuilder.setTippingConfiguration(
-                    try TippingConfigurationBuilder()
-                        .setEligibleAmount(eligibleAmount)
-                        .build()
-                )
-            }
-            if let onReceiptAmount = UInt(postAuthTipAmountTextField.textField.text ?? "0") {
-                onReceiptTip = onReceiptAmount
-            }
-
             surchargeConfigurationBuilder.setSurchargeConsent(try surchargeConsentBuilder.build())
-
-            confirmConfigBuilder.setSurchargeConfiguration(try surchargeConfigurationBuilder.build())
-
-            let collectConfig = try collectConfigBuilder.build()
-            let confirmConfig = try confirmConfigBuilder.build()
-            let vc = PaymentViewController(
-                paymentParams: try paymentParamsBuilder.build(),
-                collectConfig: collectConfig,
-                confirmConfig: confirmConfig,
-                declineCardBrand: declineCardBrand,
-                recollectAfterCardBrandDecline: recollectAfterCardBrandDecline,
-                isSposReader: self.isSposReader,
-                offlineTransactionLimit: Int(offlineTransactionLimitTextField.textField.text ?? "10000") ?? 10000,
-                offlineTotalTransactionLimit: Int(offlineStoredTransactionLimitTextField.textField.text ?? "50000")
-                    ?? 50000,
-                offlineBehavior: self.offlineBehavior,
-                skipCapture: self.skipCapture,
-                onReceiptTip: self.onReceiptTip
-            )
-            let navController = LargeTitleNavigationController(rootViewController: vc)
-            navController.presentationController?.delegate = self
-            self.present(navController, animated: true, completion: nil)
         } catch {
             // Validation error generating the config.
             self.presentAlert(error: error)
+        }
+
+        return surchargeConfigurationBuilder
+    }
+
+    private func configureMotoSettings(for collectConfigBuilder: CollectPaymentIntentConfigurationBuilder) throws {
+        if self.moto {
+            collectConfigBuilder.setMotoConfiguration(
+                try MotoConfigurationBuilder()
+                    .setSkipCvc(self.skipCvc)
+                    .build()
+            )
+        }
+    }
+
+    private func configureOptionalSettings(
+        collectConfigBuilder: CollectPaymentIntentConfigurationBuilder,
+        confirmConfigBuilder: ConfirmPaymentIntentConfigurationBuilder
+    ) throws {
+        if let eligibleAmount = Int(tipEligibleAmountTextField.textField.text ?? "none") {
+            collectConfigBuilder.setTippingConfiguration(
+                try TippingConfigurationBuilder()
+                    .setEligibleAmount(eligibleAmount)
+                    .build()
+            )
+        }
+        try configureMotoSettings(for: collectConfigBuilder)
+        if let onReceiptAmount = UInt(postAuthTipAmountTextField.textField.text ?? "0") {
+            onReceiptTip = onReceiptAmount
         }
     }
 
@@ -547,13 +606,34 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                     accessory: .switchToggle(
                         value: self.moto,
                         { [unowned self] _ in
+                            if self.moto && self.skipCvc {
+                                self.skipCvc.toggle()  // turn skip CVC off it moto is turned off
+                            }
                             self.moto.toggle()
                             self.selectedPaymentMethodTypes.append(.card)
                             self.updateContent()
                         }
                     )
                 ),
-            ],
+                self.moto
+                    ? Row(
+                        text: "Skip CVV for MO/TO",
+                        accessory: .switchToggle(
+                            value: self.skipCvc,
+                            { [unowned self] _ in
+                                self.skipCvc.toggle()
+                                self.updateContent()
+                            }
+                        )
+                    ) : nil,
+                Row(
+                    text: "Use processPaymentIntent",
+                    accessory: .switchToggle(value: self.useProcessPaymentIntent) { [unowned self] _ in
+                        self.useProcessPaymentIntent.toggle()
+                        self.updateContent()
+                    }
+                ),
+            ].compactMap { $0 },  // removes skip CVV for MO/TO if moto isn't selected
             footer: shouldShowTestCardPickerView ? Section.Extremity.autoLayoutView(TestCardPickerView()) : nil
         )
 

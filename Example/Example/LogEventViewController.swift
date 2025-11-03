@@ -40,6 +40,8 @@ struct LogEvent: CustomStringConvertible, Event {
         case collectPaymentMethod = "terminal.collectPaymentMethod"
         case cancelCollectPaymentMethod = "terminal.cancelCollectPaymentMethod"
         case retrievePaymentIntent = "terminal.retrievePaymentIntent"
+        case processPaymentIntent = "terminal.processPaymentIntent"
+        case cancelProcessPaymentIntent = "terminal.cancelProcessPaymentIntent"
         case confirmPaymentIntent = "terminal.confirmPaymentIntent"
         case capturePaymentIntent = "backend.capturePaymentIntent"
         case requestReaderInput = "delegate.didRequestReaderInput"
@@ -49,12 +51,16 @@ struct LogEvent: CustomStringConvertible, Event {
         case collectRefundPaymentMethod = "terminal.collectRefundPaymentMethod"
         case cancelCollectRefundPaymentMethod = "terminal.cancelCollectRefundPaymentMethod"
         case confirmRefund = "terminal.confirmRefund"
+        case processRefund = "terminal.processRefund"
+        case cancelProcessRefund = "terminal.cancelProcessRefund"
         case setReaderDisplay = "terminal.setReaderDisplay"
         case clearReaderDisplay = "terminal.clearReaderDisplay"
         case createSetupIntent = "terminal.createSetupIntent"
         case collectSetupIntentPaymentMethod = "terminal.collectSetupIntentPaymentMethod"
         case cancelCollectSetupIntentPaymentMethod = "terminal.cancelCollectSetupIntentPaymentMethod"
         case confirmSetupIntent = "terminal.confirmSetupIntent"
+        case processSetupIntent = "terminal.processSetupIntent"
+        case cancelProcessSetupIntent = "terminal.cancelProcessSetupIntent"
         case backendCreateSetupIntent = "backend.createSetupIntent"
         case retrieveSetupIntent = "backend.retrieveSetupIntent"
         case captureSetupIntent = "backend.captureSetupIntent"
@@ -117,6 +123,13 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Collect PaymentMethod Failed"
             case .message(let message): string = message
             }
+        case .processPaymentIntent:
+            switch result {
+            case .started: string = "Process PaymentIntent"
+            case .succeeded: string = "Processed PaymentIntent"
+            case .errored: string = "Process PaymentIntent Failed"
+            case .message(let message): string = message
+            }
         case .confirmPaymentIntent:
             switch result {
             case .started: string = "Confirm Payment"
@@ -145,6 +158,13 @@ struct LogEvent: CustomStringConvertible, Event {
             case .errored: string = "Cancel Collect Payment Method Failed"
             case .message(let message): string = message
             }
+        case .cancelProcessPaymentIntent:
+            switch result {
+            case .started: string = "Cancel Process PaymentIntent"
+            case .succeeded: string = "Canceled Process PaymentIntent"
+            case .errored: string = "Cancel Process PaymentIntent Failed"
+            case .message(let message): string = message
+            }
         case .attachPaymentMethod:
             switch result {
             case .started: string = "Attach PaymentMethod"
@@ -164,6 +184,20 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Confirm Refund"
             case .succeeded: string = "Confirmed Refund"
             case .errored: string = "Confirm Refund Failed"
+            case .message(let message): string = message
+            }
+        case .processRefund:
+            switch result {
+            case .started: string = "Process Refund"
+            case .succeeded: string = "Processed Refund"
+            case .errored: string = "Process Refund Failed"
+            case .message(let message): string = message
+            }
+        case .cancelProcessRefund:
+            switch result {
+            case .started: string = "Cancel Process Refund"
+            case .succeeded: string = "Canceled Process Refund"
+            case .errored: string = "Cancel Process Refund Failed"
             case .message(let message): string = message
             }
         case .cancelCollectRefundPaymentMethod:
@@ -213,6 +247,20 @@ struct LogEvent: CustomStringConvertible, Event {
             case .started: string = "Confirm SetupIntent"
             case .succeeded: string = "Confirmed SetupIntent"
             case .errored: string = "Confirm SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .processSetupIntent:
+            switch result {
+            case .started: string = "Process SetupIntent"
+            case .succeeded: string = "Processed SetupIntent"
+            case .errored: string = "Process SetupIntent Failed"
+            case .message(let message): string = message
+            }
+        case .cancelProcessSetupIntent:
+            switch result {
+            case .started: string = "Cancel Process SetupIntent"
+            case .succeeded: string = "Canceled Process SetupIntent"
+            case .errored: string = "Cancel Process SetupIntent Failed"
             case .message(let message): string = message
             }
         case .retrieveSetupIntent:
@@ -391,7 +439,7 @@ extension LogEvent.AssociatedObject {
             if let intent = error.paymentIntent {
                 output += """
 
-                    PaymentIntent: \(prettyPrint(json: intent.originalJSON))
+                    PaymentIntent: \(DebugPrintUtils.prettyPrint(debugDescription: intent.debugDescription))
                     """
             }
 
@@ -405,21 +453,19 @@ extension LogEvent.AssociatedObject {
         case .json(let json):
             return prettyPrint(json: json)
         case .paymentIntent(let intent):
-            return !intent.originalJSON.isEmpty
-                ? "\(prettyPrint(json: intent.originalJSON)) \nOFFLINE DETAILS:\n\(intent.offlineDetails.debugDescription)"
-                : intent.debugDescription
+            return DebugPrintUtils.prettyPrint(debugDescription: intent.debugDescription)
         case .paymentMethod(let paymentMethod):
-            return prettyPrint(json: paymentMethod.originalJSON)
+            return DebugPrintUtils.prettyPrint(debugDescription: paymentMethod.debugDescription)
         case .refund(let refund):
-            return prettyPrint(json: refund.originalJSON)
+            return DebugPrintUtils.prettyPrint(debugDescription: refund.debugDescription)
         case .setupIntent(let setupIntent):
-            return prettyPrint(json: setupIntent.originalJSON)
+            return DebugPrintUtils.prettyPrint(debugDescription: setupIntent.debugDescription)
         case .collectInputs(let collectInputs):
-            return collectInputs.description
+            return DebugPrintUtils.prettyPrint(debugDescription: collectInputs.debugDescription)
         case .collectedData(let collectedData):
-            return collectedData.description
+            return DebugPrintUtils.prettyPrint(debugDescription: collectedData.debugDescription)
         case .object(let object):
-            return object.description
+            return DebugPrintUtils.prettyPrint(debugDescription: object.description)
         }
     }
 
@@ -432,8 +478,6 @@ extension LogEvent.AssociatedObject {
             for (key, value) in json {
                 if JSONSerialization.isValidJSONObject(value) {
                     sanitizedJson[key] = value
-                } else if let jsonable = value as? JSONDecodable {
-                    sanitizedJson[key] = jsonable.originalJSON
                 } else if let describable = value as? CustomStringConvertible {
                     sanitizedJson[key] = describable.description
                 }
