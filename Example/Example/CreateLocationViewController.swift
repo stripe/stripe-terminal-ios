@@ -12,7 +12,7 @@ import UIKit
 
 class CreateLocationViewController: TableViewController, CancelableViewController {
 
-    var onCreateLocation: (Location) -> Void = { _ in }
+    var onCreateLocation: (LocationStub) -> Void = { _ in }
     internal var cancelable: Cancelable?
     internal weak var cancelButton: UIBarButtonItem?
 

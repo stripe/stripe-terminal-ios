@@ -12,9 +12,9 @@ import UIKit
 
 class RefundViewController: EventDisplayingViewController {
     private let refundParameters: RefundParameters
-    private let refundConfig: RefundConfiguration
+    private let refundConfig: CollectRefundConfiguration
 
-    init(refundParams: RefundParameters, refundConfig: RefundConfiguration) {
+    init(refundParams: RefundParameters, refundConfig: CollectRefundConfiguration) {
         self.refundParameters = refundParams
         self.refundConfig = refundConfig
         super.init()
@@ -28,54 +28,64 @@ class RefundViewController: EventDisplayingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 1. collectRefundMethod
-        var collectEvent = LogEvent(method: .collectRefundPaymentMethod)
-        self.events.append(collectEvent)
-        self.currentCancelLogMethod = .cancelCollectRefundPaymentMethod
-        self.cancelable = Terminal.shared.collectRefundPaymentMethod(
-            self.refundParameters,
-            refundConfig: self.refundConfig
-        ) { [weak self] collectError in
-            guard let self = self else { return }
-
-            if let error = collectError {
-                collectEvent.result = .errored
-                collectEvent.object = .error(error as NSError)
-                self.events.append(collectEvent)
-                self.complete()
-            } else {
-                collectEvent.result = .succeeded
-                self.events.append(collectEvent)
-
-                // 2. process refund
-                var confirmEvent = LogEvent(method: .confirmRefund)
-                self.events.append(confirmEvent)
-                self.currentCancelLogMethod = .cancelConfirmRefund
-                self.cancelable = Terminal.shared.confirmRefund { [weak self] confirmedRefund, confirmError in
-                    guard let self = self else { return }
-
-                    if let error = confirmError {
-                        confirmEvent.result = .errored
-                        confirmEvent.object = .error(error as NSError)
-                        self.events.append(confirmEvent)
-                        #if SCP_SHOWS_RECEIPTS
-                        self.events.append(ReceiptEvent(refund: error.refund, paymentIntent: nil))
-                        #endif
-                        self.complete()
-                    } else if let refund = confirmedRefund, refund.status == .succeeded {
-                        confirmEvent.result = .succeeded
-                        confirmEvent.object = .refund(refund)
-                        self.events.append(confirmEvent)
-                        #if SCP_SHOWS_RECEIPTS
-                        self.events.append(ReceiptEvent(refund: refund, paymentIntent: nil))
-                        #endif
-                        self.complete()
-                    } else if confirmedRefund != nil {
-                        self.events.append(confirmEvent)
-                        self.complete()
-                    }
+        // This sets the EventDisplayingVC's task which then will cancel the task when requested.
+        task = Task {
+            do {
+                defer {
+                    self.task = nil
+                    self.complete()
                 }
+
+                _ = try await processRefund()
+            } catch {
+                // All error logging is handled in individual methods
             }
+        }
+    }
+
+    private func processRefund() async throws -> Refund {
+        var processEvent = LogEvent(method: .processRefund)
+        self.events.append(processEvent)
+
+        do {
+            let confirmedRefund = try await Terminal.shared.processRefund(
+                self.refundParameters,
+                collectConfig: self.refundConfig
+            )
+
+            self.handleRefundResult(confirmedRefund, event: &processEvent)
+            return confirmedRefund
+        } catch {
+            self.handleRefundError(error, event: &processEvent)
+            throw error
+        }
+    }
+
+    private func handleRefundError(_ error: Error, event: inout LogEvent) {
+        event.result = .errored
+        event.object = .error(error as NSError)
+        self.events.append(event)
+        #if SCP_SHOWS_RECEIPTS
+        if let error = error as? ConfirmRefundError,
+            let refund = error.refund
+        {
+            self.events.append(ReceiptEvent(refund: refund))
+        }
+        #endif
+    }
+
+    private func handleRefundResult(_ refund: Refund, event: inout LogEvent) {
+        if refund.status == .succeeded {
+            event.result = .succeeded
+            event.object = .refund(refund)
+            self.events.append(event)
+            #if SCP_SHOWS_RECEIPTS
+            self.events.append(ReceiptEvent(refund: refund))
+            #endif
+        } else {
+            event.result = .errored
+            event.object = .refund(refund)
+            self.events.append(event)
         }
     }
 }

@@ -83,7 +83,7 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
         let createLocationVC = CreateLocationViewController()
         createLocationVC.onCreateLocation = { [unowned createLocationVC, unowned self] location in
             createLocationVC.dismissAction()
-            self.locations.insert(location.toLocationStub(), at: 0)
+            self.locations.insert(location, at: 0)
             self.updateContent()
         }
         self.presentModalInNavigationController(createLocationVC)
@@ -151,10 +151,15 @@ class SelectLocationViewController: TableViewController, UITableViewDelegate, Ca
             }
         }
 
-        dataSource.sections = [
-            Section(header: Section.Extremity.view(activityIndicatorHeader), rows: rows)
-        ]
+        var sections: [Section] = []
+
+
+        let mainSection = Section(header: Section.Extremity.view(activityIndicatorHeader), rows: rows)
+        sections.append(mainSection)
+
+        dataSource.sections = sections
     }
+
 
     internal func row(for location: LocationStub) -> Row {
         return Row(

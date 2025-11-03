@@ -26,13 +26,6 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeChipper2X,
 
     /**
-     The Verifone P400 countertop reader.
-
-     @see https://stripe.com/docs/terminal/readers/verifone-p400
-     */
-    SCPDeviceTypeVerifoneP400,
-
-    /**
      The BBPOS WisePad 3 mobile reader.
 
      @see https://stripe.com/docs/terminal/readers/bbpos-wisepad3

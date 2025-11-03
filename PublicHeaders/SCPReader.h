@@ -13,7 +13,6 @@
 
 #import <StripeTerminal/SCPBatteryStatus.h>
 #import <StripeTerminal/SCPDeviceType.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPLocation.h>
 #import <StripeTerminal/SCPLocationStatus.h>
 #import <StripeTerminal/SCPReaderNetworkStatus.h>
@@ -32,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/terminal/readers
  */
 NS_SWIFT_NAME(Reader)
-@interface SCPReader : NSObject <SCPJSONDecodable>
+@interface SCPReader : NSObject
 
 /**
  You cannot directly instantiate this class.
@@ -104,6 +103,11 @@ NS_SWIFT_NAME(Reader)
  The reader's serial number.
  */
 @property (nonatomic, readonly) NSString *serialNumber;
+
+/**
+ Whether this reader was created in livemode.
+ */
+@property (nonatomic, readonly) BOOL livemode;
 
 /**
  The reader's current device software version, or `nil` if this information is

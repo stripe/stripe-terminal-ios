@@ -10,8 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <StripeTerminal/SCPJSONDecodable.h>
+#import <StripeTerminal/SCPSetupIntent.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/setup_attempts
  */
 NS_SWIFT_NAME(SetupAttempt)
-@interface SCPSetupAttempt : NSObject <SCPJSONDecodable>
+@interface SCPSetupAttempt : NSObject
 
 /**
  The ID of the Connect application that created the SetupIntent.
@@ -73,6 +72,16 @@ NS_SWIFT_NAME(SetupAttempt)
  The unique identifier for the SetupAttempt.
  */
 @property (nonatomic, readonly) NSString *stripeId;
+
+/**
+ Whether this SetupAttempt was created in live mode or test mode.
+ */
+@property (nonatomic, readonly) BOOL livemode;
+
+/**
+ The value of usage on the SetupIntent at the time of this confirmation.
+ */
+@property (nonatomic, readonly) SCPSetupIntentUsage usage;
 
 @end
 

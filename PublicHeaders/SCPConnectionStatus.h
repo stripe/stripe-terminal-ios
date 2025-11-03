@@ -34,6 +34,10 @@ typedef NS_ENUM(NSUInteger, SCPConnectionStatus) {
      The SDK is connected to a reader.
      */
     SCPConnectionStatusConnected,
+    /**
+     The SDK is reconnecting to a reader.
+     */
+    SCPConnectionStatusReconnecting,
 } NS_SWIFT_NAME(ConnectionStatus);
 
 NS_ASSUME_NONNULL_END

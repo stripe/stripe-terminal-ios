@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -17,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
  For more information, see the official Stripe docs: [Collect on-reader tips](https://stripe.com/docs/terminal/features/collecting-tips/on-reader)
  */
-@interface SCPTip : NSObject <SCPJSONDecodable, NSCopying>
+NS_SWIFT_NAME(Tip)
+@interface SCPTip : NSObject <NSCopying>
 
 /**
  Portion of the amount that corresponds to a tip

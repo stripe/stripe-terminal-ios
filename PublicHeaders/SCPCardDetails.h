@@ -13,9 +13,10 @@
 
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardFundingType.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class SCPGeneratedFrom;
 
 /**
  Contains details about a user's credit card.
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/payment_methods/object#payment_method_object-card
  */
 NS_SWIFT_NAME(CardDetails)
-@interface SCPCardDetails : NSObject <SCPJSONDecodable>
+@interface SCPCardDetails : NSObject
 
 /**
  The issuer of the card.
@@ -56,6 +57,11 @@ NS_SWIFT_NAME(CardDetails)
  The last four digits of the card.
  */
 @property (nonatomic, nullable, readonly) NSString *last4;
+
+/**
+ Details of the original PaymentMethod that created this object.
+ */
+@property (nonatomic, nullable, readonly) SCPGeneratedFrom *generatedFrom;
 
 /**
  You cannot directly instantiate this class.

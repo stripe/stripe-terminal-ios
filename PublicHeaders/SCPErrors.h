@@ -582,6 +582,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorReaderNotAccessibleInBackground = 3900,
     /**
+     The app went to background before a reader request completed.
+     */
+    SCPErrorTapToPayReaderRequestInterrupted = 3905,
+    /**
      Preparing the Tap To Pay reader to collect payments failed.
      Try connecting again.
      */
@@ -717,6 +721,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      * An error occurred while processing a display surcharge consent request.
      */
     SCPErrorDisplaySurchargeConsentApplicationError = 5007,
+    /**
+     * The Terminal operation shouldn't have been called at this time.
+     */
+    SCPErrorUnexpectedOperationError = 5008,
 
     /*
      PAYMENT ERRORS
@@ -732,6 +740,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      The reader declined the transaction. Try another card.
      */
     SCPErrorDeclinedByReader = 6500,
+
+    /**
+     The card is not supported by the current reader’s configuration.
+     */
+    SCPErrorCardNotSupported = 6510,
+
     /**
      The cardholder must give consent in order for this operation to succeed.
      */

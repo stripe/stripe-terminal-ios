@@ -12,7 +12,6 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBuilder.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -71,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentRequestPartialAuthorization) {
  @see https://stripe.com/docs/api/payment_intents/create#create_payment_intent-payment_method_options-card_present
  */
 NS_SWIFT_NAME(CardPresentParameters)
-@interface SCPCardPresentParameters : NSObject <SCPJSONDecodable, NSCopying>
+@interface SCPCardPresentParameters : NSObject <NSCopying>
 
 /**
  Using the extended authorizations feature, users in eligible categories can capture up to 31 days later, depending on the card brand.

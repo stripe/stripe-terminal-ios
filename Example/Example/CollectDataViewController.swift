@@ -32,23 +32,21 @@ class CollectDataViewController: EventDisplayingViewController {
     private func collectData(config: CollectDataConfiguration) {
         var collectDataEvent = LogEvent(method: .collectData)
         events.append(collectDataEvent)
-        cancelable = Terminal.shared.collectData(
-            config,
-            completion: { [weak self] collectedData, error in
-                if let error = error {
-                    collectDataEvent.result = .errored
-                    collectDataEvent.object = .error(error as NSError)
-                    self?.events.append(collectDataEvent)
-                    self?.complete()
-                } else if let data = collectedData {
-                    collectDataEvent.result = .succeeded
-                    collectDataEvent.object = .collectedData(data)
-                    self?.events.append(collectDataEvent)
 
+        task = Task {
+            do {
+                let collectedDataResult = try await Terminal.shared.collectData(collectDataConfig)
+
+                collectDataEvent.result = .succeeded
+
+                switch collectedDataResult {
+                case .magstripe(let magstripeData):
+                    collectDataEvent.object = .collectedData(magstripeData)
+                    events.append(collectDataEvent)
                     #if SCP_RETRIEVES_COLLECTED_DATA
-                    if let id = data.stripeId {
+                    if let id = magstripeData.stripeId {
                         var retrieveCollectedDataEvent = LogEvent(method: .retrieveCollectedData)
-                        self?.events.append(retrieveCollectedDataEvent)
+                        self.events.append(retrieveCollectedDataEvent)
                         AppDelegate.apiClient?.retrieveReaderCollectedData(
                             id: id,
                             completion: { json, error in
@@ -59,19 +57,25 @@ class CollectDataViewController: EventDisplayingViewController {
                                     retrieveCollectedDataEvent.result = .succeeded
                                     retrieveCollectedDataEvent.object = .json(json)
                                 }
-                                self?.events.append(retrieveCollectedDataEvent)
-                                self?.complete()
+                                self.events.append(retrieveCollectedDataEvent)
+                                self.complete()
                             }
                         )
-                    } else if data.nfcUid != nil {
-                        self?.complete()
                     }
                     #else
-                    self?.complete()
+                    self.complete()
                     #endif
+                case .nfcUid(let nfcUidData):
+                    collectDataEvent.object = .collectedData(nfcUidData)
+                    events.append(collectDataEvent)
+                    self.complete()
                 }
-
+            } catch {
+                collectDataEvent.result = .errored
+                collectDataEvent.object = .error(error as NSError)
+                events.append(collectDataEvent)
+                self.complete()
             }
-        )
+        }
     }
 }

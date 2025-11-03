@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -33,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  and only exists as a sub-object of another Stripe object.
  */
 NS_SWIFT_NAME(PaymentMethodDetails)
-@interface SCPPaymentMethodDetails : NSObject <SCPJSONDecodable>
+@interface SCPPaymentMethodDetails : NSObject
 
 /**
  The type of the PaymentMethod.  The corresponding, similarly named property

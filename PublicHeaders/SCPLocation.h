@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPAddress;
@@ -31,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/terminal/locations
  */
 NS_SWIFT_NAME(Location)
-@interface SCPLocation : NSObject <SCPJSONDecodable>
+@interface SCPLocation : NSObject
 
 /**
  The ID of the Location

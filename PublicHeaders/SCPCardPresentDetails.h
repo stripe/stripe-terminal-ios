@@ -14,7 +14,6 @@
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPDynamicCurrencyConversion.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPReadMethod.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -43,7 +42,7 @@ typedef NS_ENUM(NSUInteger, SCPIncrementalAuthorizationStatus) {
      This PaymentIntent is eligible for incremental authorizations.
      */
     SCPIncrementalAuthorizationStatusSupported,
-};
+} NS_SWIFT_NAME(IncrementalAuthorizationStatus);
 
 /**
  An object representing details from a transaction using a card_present
@@ -52,7 +51,7 @@ typedef NS_ENUM(NSUInteger, SCPIncrementalAuthorizationStatus) {
  @see https://stripe.com/docs/api/charges/object#charge_object-payment_method_details-card_present
  */
 NS_SWIFT_NAME(CardPresentDetails)
-@interface SCPCardPresentDetails : NSObject <SCPJSONDecodable>
+@interface SCPCardPresentDetails : NSObject
 
 /**
  The last 4 digits of the card.

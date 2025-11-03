@@ -22,12 +22,22 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     /// the test is cancelled.
     var currentCancelLogMethod: LogEvent.Method = .cancelCollectPaymentMethod
 
+    internal var task: Task<Void, Never>? {
+        didSet {
+            setAllowedCancelMethods(hasCancelableOperation ? .button : [])
+        }
+    }
+
     internal var cancelable: Cancelable? {
         didSet {
             // Only allow explicit button cancel (no swipe to dismiss) for users of EventDisablingVC which are
             // used for collecting payment methods and so may have some additional work to do to fully cancel.
-            setAllowedCancelMethods(cancelable != nil ? .button : [])
+            setAllowedCancelMethods(hasCancelableOperation ? .button : [])
         }
+    }
+
+    private var hasCancelableOperation: Bool {
+        return cancelable != nil || task != nil
     }
     var events: [Event] = [] {
         didSet {
@@ -136,14 +146,22 @@ class EventDisplayingViewController: TableViewController, CancelableViewControll
     func cancelAction() {
         var event = LogEvent(method: currentCancelLogMethod)
         self.events.append(event)
-        cancelable?.cancel { error in
-            if let error = error {
-                event.result = .errored
-                event.object = .error(error as NSError)
-            } else {
-                event.result = .succeeded
-            }
+
+        if let task = task {
+            task.cancel()
+            event.result = .succeeded
             self.events.append(event)
+            self.task = nil
+        } else if let cancelable = cancelable {
+            cancelable.cancel { error in
+                if let error = error {
+                    event.result = .errored
+                    event.object = .error(error as NSError)
+                } else {
+                    event.result = .succeeded
+                }
+                self.events.append(event)
+            }
         }
     }
 }

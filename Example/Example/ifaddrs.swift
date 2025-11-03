@@ -8,18 +8,16 @@
 
 import Foundation
 
-/**
- Namespace for Swift wrappers around ifaddrs.h functionality.
-
- Requires a bridging header with `#import "ifaddrs.h"`
- */
+/// Namespace for Swift wrappers around ifaddrs.h functionality.
+///
+/// Requires a bridging header with `#import "ifaddrs.h"`
 enum Ifaddrs_h {
     /**
      using `getifaddrs`, find the `en0` interface and return its IP address.
-
+    
      Adapted from code on StackOverflow, primarily:
      https://stackoverflow.com/a/30754194/1196205
-
+    
      - returns: Device's WIFI IP address.
      */
     static func getWifiIPAddress() -> String? {

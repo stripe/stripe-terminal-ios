@@ -43,7 +43,7 @@ NS_SWIFT_NAME(SimulatedCollectInputsResultSucceeded)
 /**
  The skip behavior to use while simulating a successful input collection.
  */
-@property (nonatomic, assign) SCPSimulatedCollectInputsSkipBehavior simulatedCollectInputsSkipBehavior;
+@property (nonatomic, readonly) SCPSimulatedCollectInputsSkipBehavior simulatedCollectInputsSkipBehavior;
 
 /**
  Initializes a new instance of the `SCPSimulatedCollectInputsResultSucceeded` class with the provided

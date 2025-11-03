@@ -13,7 +13,6 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPCardPresentParameters.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  * The `PaymentMethodOptionsParameters` contains options for PaymentMethod creation.
  */
 NS_SWIFT_NAME(PaymentMethodOptionsParameters)
-@interface SCPPaymentMethodOptionsParameters : NSObject <SCPJSONDecodable, NSCopying>
+@interface SCPPaymentMethodOptionsParameters : NSObject <NSCopying>
 
 /**
  Card-present-specific configuration for this PaymentMethod.

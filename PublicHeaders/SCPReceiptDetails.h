@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -21,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/api/charges/object#charge_object-payment_method_details-card_present-receipt
  */
 NS_SWIFT_NAME(ReceiptDetails)
-@interface SCPReceiptDetails : NSObject <SCPJSONDecodable, NSCopying>
+@interface SCPReceiptDetails : NSObject <NSCopying>
 
 /**
  The type of account being debited or credited

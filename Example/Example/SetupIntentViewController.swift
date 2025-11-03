@@ -12,13 +12,20 @@ import UIKit
 
 class SetupIntentViewController: EventDisplayingViewController {
     private let setupParams: SetupIntentParameters
-    private let setupConfig: SetupIntentConfiguration
+    private let setupConfig: CollectSetupIntentConfiguration
     private let allowRedisplay: AllowRedisplay
+    private let useProcessSetupIntent: Bool
 
-    init(setupParams: SetupIntentParameters, setupConfig: SetupIntentConfiguration, allowRedisplay: AllowRedisplay) {
+    init(
+        setupParams: SetupIntentParameters,
+        setupConfig: CollectSetupIntentConfiguration,
+        allowRedisplay: AllowRedisplay,
+        useProcessSetupIntent: Bool
+    ) {
         self.setupParams = setupParams
         self.setupConfig = setupConfig
         self.allowRedisplay = allowRedisplay
+        self.useProcessSetupIntent = useProcessSetupIntent
         super.init()
         self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
     }
@@ -30,103 +37,117 @@ class SetupIntentViewController: EventDisplayingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createSetupIntent(self.setupParams) { intent, createError in
-            if createError != nil {
-                self.complete()
-            } else if let intent = intent {
-                // 2. collectSetupIntent
-                self.collectSetupIntent(intent: intent)
+        // This sets the EventDisplayingVC's task which then will cancel the task when requested.
+        task = Task {
+            do {
+                defer {
+                    self.task = nil
+                    self.complete()
+                }
+
+                let intent = try await createSetupIntent(self.setupParams)
+
+                if useProcessSetupIntent {
+                    // Use processSetupIntent (combined collect + confirm)
+                    _ = try await processSetupIntent(intent: intent)
+                } else {
+                    // Use separate flow
+                    let collectedIntent = try await collectSetupIntent(intent: intent)
+                    _ = try await confirmSetupIntent(intent: collectedIntent)
+                }
+            } catch {
+                // All error logging is handled in individual methods
             }
         }
     }
 
-    private func createSetupIntent(_ params: SetupIntentParameters, completion: @escaping SetupIntentCompletionBlock) {
+    private func createSetupIntent(_ params: SetupIntentParameters) async throws -> SetupIntent {
         var createEvent = LogEvent(method: .createSetupIntent)
         self.events.append(createEvent)
-        Terminal.shared.createSetupIntent(
-            params,
-            completion: { (createdSetupIntent, createError) in
-                if let error = createError {
-                    createEvent.result = .errored
-                    createEvent.object = .error(error as NSError)
-                    self.events.append(createEvent)
-                } else if let si = createdSetupIntent {
-                    createEvent.result = .succeeded
-                    createEvent.object = .setupIntent(si)
-                    self.events.append(createEvent)
-                }
-                completion(createdSetupIntent, createError)
-            }
-        )
-    }
 
-    private func collectSetupIntent(intent: SetupIntent) {
-        var collectEvent = LogEvent(method: .collectSetupIntentPaymentMethod)
-        self.events.append(collectEvent)
-        self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
-        self.cancelable = Terminal.shared.collectSetupIntentPaymentMethod(
-            intent,
-            allowRedisplay: self.allowRedisplay,
-            setupConfig: self.setupConfig
-        ) { (collectedSetupIntent, collectError) in
-            if let error = collectError {
-                collectEvent.result = .errored
-                collectEvent.object = .error(error as NSError)
-                self.events.append(collectEvent)
-                if (error as NSError).code == ErrorCode.canceled.rawValue {
-                    self.cancelSetupIntent(intent: intent)
-                } else {
-                    self.complete()
-                }
-            } else if let intent = collectedSetupIntent {
-                collectEvent.result = .succeeded
-                collectEvent.object = .setupIntent(intent)
-                self.events.append(collectEvent)
-                self.confirmSetupIntent(intent)
-            }
+        do {
+            let createdSetupIntent = try await Terminal.shared.createSetupIntent(params)
+
+            createEvent.result = .succeeded
+            createEvent.object = .setupIntent(createdSetupIntent)
+            self.events.append(createEvent)
+
+            return createdSetupIntent
+        } catch {
+            createEvent.result = .errored
+            createEvent.object = .error(error as NSError)
+            self.events.append(createEvent)
+            throw error
         }
     }
 
-    private func cancelSetupIntent(intent: SetupIntent) {
-        var cancelEvent = LogEvent(method: .cancelSetupIntent)
-        self.events.append(cancelEvent)
-        Terminal.shared.cancelSetupIntent(intent) { canceledSetupIntent, cancelError in
-            if let error = cancelError {
-                cancelEvent.result = .errored
-                cancelEvent.object = .error(error as NSError)
-                self.events.append(cancelEvent)
-            } else if let intent = canceledSetupIntent {
-                cancelEvent.result = .succeeded
-                cancelEvent.object = .setupIntent(intent)
-                self.events.append(cancelEvent)
-            }
-            self.complete()
+    private func collectSetupIntent(intent: SetupIntent) async throws -> SetupIntent {
+        var event = LogEvent(method: .collectSetupIntentPaymentMethod)
+
+        do {
+            self.events.append(event)
+            let collectedSetupIntent = try await Terminal.shared.collectSetupIntentPaymentMethod(
+                intent,
+                allowRedisplay: self.allowRedisplay,
+                setupConfig: self.setupConfig
+            )
+            self.handleSetupResult(collectedSetupIntent, event: &event)
+            return collectedSetupIntent
+        } catch {
+            self.handleSetupResult(intent, event: &event)
+            throw error
         }
     }
 
-    private func confirmSetupIntent(_ intent: SetupIntent) {
-        var processEvent = LogEvent(method: .confirmSetupIntent)
+    private func confirmSetupIntent(intent: SetupIntent) async throws -> SetupIntent {
+        var confirmEvent = LogEvent(method: .confirmSetupIntent)
+
+        do {
+            self.events.append(confirmEvent)
+            let confirmedSetupIntent = try await Terminal.shared.confirmSetupIntent(intent)
+            self.handleSetupResult(confirmedSetupIntent, event: &confirmEvent)
+            return confirmedSetupIntent
+        } catch {
+            self.handleSetupError(error, event: &confirmEvent)
+            throw error
+        }
+    }
+
+    private func processSetupIntent(intent: SetupIntent) async throws -> SetupIntent {
+        var processEvent = LogEvent(method: .processSetupIntent)
         self.events.append(processEvent)
-        self.currentCancelLogMethod = .cancelConfirmPaymentIntent
-        self.cancelable = Terminal.shared.confirmSetupIntent(intent) { processedIntent, processError in
-            if let error = processError {
-                processEvent.result = .errored
-                processEvent.object = .error(error as NSError)
-                self.events.append(processEvent)
-                self.complete()
-            } else if let intent = processedIntent {
-                if intent.status == .succeeded {
-                    processEvent.result = .succeeded
-                    processEvent.object = .setupIntent(intent)
-                    self.events.append(processEvent)
-                    self.complete()
-                } else {
-                    processEvent.result = .errored
-                    processEvent.object = .setupIntent(intent)
-                    self.events.append(processEvent)
-                    self.complete()
-                }
-            }
+
+        do {
+            let processedSetupIntent = try await Terminal.shared.processSetupIntent(
+                intent,
+                allowRedisplay: self.allowRedisplay,
+                collectConfig: self.setupConfig
+            )
+
+            self.handleSetupResult(processedSetupIntent, event: &processEvent)
+
+            return processedSetupIntent
+        } catch {
+            self.handleSetupError(error, event: &processEvent)
+            throw error
+        }
+    }
+
+    private func handleSetupError(_ error: Error, event: inout LogEvent) {
+        event.result = .errored
+        event.object = .error(error as NSError)
+        self.events.append(event)
+    }
+
+    private func handleSetupResult(_ intent: SetupIntent, event: inout LogEvent) {
+        if intent.status == .succeeded || intent.status == .requiresConfirmation {
+            event.result = .succeeded
+            event.object = .setupIntent(intent)
+            self.events.append(event)
+        } else {
+            event.result = .errored
+            event.object = .setupIntent(intent)
+            self.events.append(event)
         }
     }
 }

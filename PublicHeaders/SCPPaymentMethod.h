@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/payments/payment-methods/saving#attach-method
  */
 NS_SWIFT_NAME(PaymentMethod)
-@interface SCPPaymentMethod : NSObject <SCPJSONDecodable>
+@interface SCPPaymentMethod : NSObject
 
 /**
  The unique identifier for the PaymentMethod
@@ -91,6 +90,11 @@ NS_SWIFT_NAME(PaymentMethod)
  @see https://stripe.com/docs/api#metadata
  */
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
+
+/**
+ Whether this PaymentMethod was created in live mode or test mode.
+ */
+@property (nonatomic, readonly) BOOL livemode;
 
 /**
  You cannot directly instantiate this class.

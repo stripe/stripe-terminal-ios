@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPJSONDecodable.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPTip;
@@ -17,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Contains details about items included in the [PaymentIntent] amount
  */
-@interface SCPAmountDetails : NSObject <SCPJSONDecodable, NSCopying>
+NS_SWIFT_NAME(AmountDetails)
+@interface SCPAmountDetails : NSObject <NSCopying>
 
 /// Details about the tip
 @property (nonatomic, nullable, readonly) SCPTip *tip;

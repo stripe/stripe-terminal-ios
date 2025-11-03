@@ -99,8 +99,6 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "stripe_m2")
             case .chipper1X, .chipper2X, .wiseCube:
                 imageView.image = UIImage(named: "chipper")
-            case .verifoneP400:
-                imageView.image = UIImage(named: "verifone")
             case .wisePad3:
                 imageView.image = UIImage(named: "wisepad")
             case .wisePosE, .wisePosEDevKit, .etna, .verifoneV660p, .verifoneV660pDevKit, .verifoneM425, .verifoneM450,
@@ -135,6 +133,8 @@ class ReaderHeaderView: UIView {
                 } else if let locationId = reader?.locationId, !locationId.isEmpty {
                     subtitleStrings.append(locationId)
                 }
+            case .reconnecting:
+                subtitleStrings.append("Reconnecting")
             @unknown default:
                 subtitleStrings.append("\(status)")
             }

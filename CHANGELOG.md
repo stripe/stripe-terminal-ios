@@ -5,8 +5,60 @@ of each release can be found in the [Support Lifecycle](SUPPORT.md).
 
 If you are using CocoaPods, update your Podfile:
 ```
-pod 'StripeTerminal', '~> 4.0'
+pod 'StripeTerminal', '~> 5.0'
 ```
+
+# 5.0.0 - 2025-11-03
+
+**Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.
+
+* _Built with Xcode 26.0, Swift version 6.2._
+* _Minimum iOS version requirement increased from 14.0 to 15.0._
+
+⚠️ **Breaking changes required**
+
+### New Features & Previews
+
+* **New:** Simplified payment integration - Added [`processPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processPaymentIntent:collectConfig:confirmConfig:completion:), [`processSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processSetupIntent:allowRedisplay:collectConfig:completion:), and [`processRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processRefund:collectConfig:completion:). These new methods combine the `collect` and `confirm` steps into a single operation.
+* **New:** Swift async variants - Added modern async versions for asynchronous Terminal methods, allowing to await results directly instead of using completion blocks. Operation cancellation is handled via Swift Task cancellation.
+* **New:** Added a `reconnecting` enum value to [`SCPConnectionStatus`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPConnectionStatus.html). This new status is used specifically when an auto-reconnect operation is in progress.
+* **Update:** During a connection attempt, the [`Terminal.connectedReader`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)connectedReader) property will now remain `nil` until the connection completes successfully. Previously, the property would be populated while the connection was still in progress.
+* **Preview: Collect non-payment data from NFC instruments and magnetic Stripe cards.** The SDK now returns new, specific subclasses for this data: [`SCPMagstripeCollectedData`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPMagstripeCollectedData.html) and [`SCPNfcUidCollectedData`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPNfcUidCollectedData.html).
+   * **Fix:** Resolved an issue where collecting magstripe data would cause an error on smart readers.
+   * To request access to this private preview, please email terminal-collect-data@stripe.com.
+* **Preview: Mail Order / Telephone Order (MOTO) Payments.** The `moto` boolean has been replaced by a dedicated [`SCPMotoConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPMotoConfiguration.html) object.
+  * To request access to this private preview, please contact [Stripe Support](https://support.stripe.com/).
+
+### Platform & Initialization
+* **Update:** `setTokenProvider` has been replaced with [`Terminal.initWithTokenProvider`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(cm)initWithTokenProvider:) method. You must call this method before using the `Terminal.shared` instance.
+* **Update:** Debug symbols (`dSYMs`) are no longer bundled with the XCFramework, reducing the overall framework size.
+* **Update:** The [`SCPCancelable`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCancelable.html) completion block is now guaranteed to be called after an operation completes. Every call to `cancel` will have its own completion block invoked when the cancellation is finished.
+* **Update:** [`clearCachedCredentials`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)clearCachedCredentials:) now requires that no reader is connected. The method has been updated to return a `Result` in Swift (or a `BOOL` with an `NSError` in Objective-C) to indicate success or failure.
+
+### Reader Discovery & Connection
+* **Update:** When the location permission status is undetermined, the SDK will now wait up to 2 minutes for the user to respond to the permission prompt before failing with [`SCPErrorLocationServicesDisabled`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorLocationServicesDisabled).
+* **Update:** `init` and `new` are no longer available for `DiscoveryConfiguration`. They must now be initialized using their associated builder.
+
+### Payment & Data Collection
+* **Update:** The [`paymentStatus`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)paymentStatus) logic has been refined for two-step payments. After [`collectPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectPaymentMethod:completion:) succeeds, the status will transition to `ready`. However, if you call [`confirmPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmPaymentIntent:completion:) immediately from within the collect completion block, the status will skip `ready` and go directly to `processing`.
+* **Update:** Customer cancellation is now enabled by default on readers that support it during payment, setup, refund, and data collection flows.
+  * This change is supported by a refactor of the [`customerCancellation`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCollectPaymentIntentConfiguration.html#/c:objc(cs)SCPCollectPaymentIntentConfiguration(py)customerCancellation) property, which has been changed from a `BOOL` to the new [`SCPCustomerCancellation`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPCustomerCancellation.html) enum. Cancellation can be disabled by setting the property to [`SCPCustomerCancellationDisableIfAvailable`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPCustomerCancellation.html#/c:@E@SCPCustomerCancellation@SCPCustomerCancellationDisableIfAvailable).
+* **Update:** Added the `clientSecret` property to [`SCPPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html) and [`SCPSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html).
+* **Update:** Added the `customer` property to [`SCPPaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentIntent.html).
+* **Update:** The `paymentMethodTypes` property on [`SCPSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html) is now an array of `NSNumber`s (representing [`SCPPaymentMethodType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPPaymentMethodType.html)) in Objective-C, and an array of [`PaymentMethodType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPPaymentMethodType.html) in Swift.
+* **Update:** Calls to collect will now wait for card removal instead of failing immediately with a [`CardLeftInReader`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorCardLeftInReader) error.
+* **Update:** Creating Interac refund parameters via [`SCPRefundParametersBuilder`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPRefundParametersBuilder.html) now requires the PaymentIntent's `clientSecret` to be passed in.
+
+### Deprecation
+* **Removed:** Support for the Stripe Reader P400 has been removed.
+* **Deprecated:** [`collectRefundPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)collectRefundPaymentMethod:completion:) and [`confirmRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)confirmRefund:) are now deprecated, and replaced by [`processRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)processRefund:collectConfig:completion:).
+* **Removed:** Removed `SCPJSONDecodable` from public headers. Use [`retrievePaymentIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)retrievePaymentIntent:completion:) and [`retrieveSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)retrieveSetupIntent:completion:) to get the latest instance of a resource.
+
+### Renaming & Refactoring
+* **Update:** The `charge` field on [`SCPRefund`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPRefund.html) has been renamed to [`chargeId`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPRefund.html#/c:objc(cs)SCPRefund(py)chargeId).
+* **Update:** [`SCPTippingConfiguration.eligibleAmount`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTippingConfiguration.html) is now readonly.
+* **Update:** [`SCPSimulatedCollectInputsResultSucceeded.simulatedCollectInputsSkipBehavior`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSimulatedCollectInputsResultSucceeded.html#/c:objc(cs)SCPSimulatedCollectInputsResultSucceeded(py)simulatedCollectInputsSkipBehavior) is now readonly.
+* **Update:** As part of MOTO changes, `MotoConfiguration.skipCvv` has been renamed to [`MotoConfiguration.skipCvc`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPMotoConfiguration.html#/c:objc(cs)SCPMotoConfiguration(py)skipCvc).
 
 # 4.7.3 2025-10-20
 

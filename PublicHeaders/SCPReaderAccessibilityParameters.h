@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 #import <StripeTerminal/SCPBuilder.h>
-#import <StripeTerminal/SCPJSONDecodable.h>
 #import <StripeTerminal/SCPReaderSettingsParameters.h>
 
 NS_ASSUME_NONNULL_BEGIN

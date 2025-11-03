@@ -30,6 +30,11 @@ NS_SWIFT_NAME(RefundParameters)
 @property (nonatomic, nullable, readonly) NSString *paymentIntentId;
 
 /**
+ The client secret for the PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly) NSString *clientSecret;
+
+/**
  The ID of the charge to be refunded.
  */
 @property (nonatomic, nullable, readonly) NSString *chargeId;
@@ -100,9 +105,11 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 @interface SCPRefundParametersBuilder : SCPBuilder <SCPRefundParameters *>
 
 /**
- Initializes `SCPRefundParametersBuilder` with the given payment intent, amount, and currency.
+ Initializes `SCPRefundParametersBuilder` with the given payment intent, client secret, amount, and currency.
 
  @param paymentIntentId    The ID of the PaymentIntent to be refunded.
+
+ @param clientSecret       The client secret for the PaymentIntent.
 
  @param amount      The amount to be refunded, provided in the currency's
  smallest unit.
@@ -111,6 +118,7 @@ NS_SWIFT_NAME(RefundParametersBuilder)
  with a different currency than the currency that was used to create the charge.
  */
 - (instancetype)initWithPaymentIntentId:(NSString *)paymentIntentId
+                           clientSecret:(NSString *)clientSecret
                                  amount:(NSUInteger)amount
                                currency:(NSString *)currency;
 
@@ -135,6 +143,9 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 /// @see SCPRefundParameters.paymentIntentId
 - (SCPRefundParametersBuilder *)setPaymentIntentId:(NSString *)paymentIntentId;
 
+/// @see SCPRefundParameters.clientSecret
+- (SCPRefundParametersBuilder *)setClientSecret:(NSString *)clientSecret;
+
 /// @see SCPRefundParameters.amount
 - (SCPRefundParametersBuilder *)setAmount:(NSUInteger)amount;
 
@@ -151,7 +162,7 @@ NS_SWIFT_NAME(RefundParametersBuilder)
 - (SCPRefundParametersBuilder *)setRefundApplicationFee:(BOOL)refundApplicationFee;
 
 /**
- Use `initWithChargeId:amount:currency:` or `initWithPaymentIntentId:amount:currency:`
+ Use `initWithChargeId:amount:currency:` or `initWithPaymentIntentId:clientSecret:amount:currency:`
  */
 - (instancetype)init NS_UNAVAILABLE;
 
