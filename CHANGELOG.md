@@ -20,7 +20,6 @@ pod 'StripeTerminal', '~> 5.0'
   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 
 # 5.0.0 2025-11-03
-* Built with Xcode 26.0 Swift version 6.2.
 
 **Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.
 
