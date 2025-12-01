@@ -26,7 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
     SCPSetupIntentParameters,
     SCPConfirmSetupIntentError,
     SCPReaderSettings,
-    SCPCollectedData;
+    SCPCollectedData,
+    SCPQrCodeDisplayData,
+    SCPPaymentOption;
 
 /**
  A block called with a connection token or an error from your backend.
@@ -166,5 +168,26 @@ typedef void (^SCPReaderSettingsCompletionBlock)(SCPReaderSettings *__nullable r
  @param error                         An error if one occurred, or nil.
  */
 typedef void (^SCPCollectedDataCompletionBlock)(SCPCollectedData *__nullable collectedData, NSError *__nullable error) NS_SWIFT_NAME(CollectedDataCompletionBlock);
+
+/**
+ A block called to indicate success or failure of QR code display.
+
+ Call this block with nil to indicate the QR code was successfully displayed,
+ or with an error to indicate that QR code display failed.
+
+ @param error       An error if QR code display failed, or nil if successful.
+ */
+typedef void (^SCPQrCodeDisplayCompletionBlock)(NSError *__nullable error) NS_SWIFT_NAME(QrCodeDisplayCompletionBlock);
+
+/**
+ A block called to provide the selected payment option or an error.
+
+ Call this block with a payment option to indicate successful selection,
+ or with an error to indicate that payment method selection failed or was cancelled.
+
+ @param paymentOption       The selected payment option, or nil if selection failed.
+ @param error               An error if payment method selection failed, or nil if successful.
+ */
+typedef void (^SCPPaymentMethodSelectionCompletionBlock)(SCPPaymentOption *__nullable paymentOption, NSError *__nullable error) NS_SWIFT_NAME(PaymentMethodSelectionCompletionBlock);
 
 NS_ASSUME_NONNULL_END

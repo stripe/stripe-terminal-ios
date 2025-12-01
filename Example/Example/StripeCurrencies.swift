@@ -40,6 +40,7 @@ struct StripeCurrencies {
         "BGN",
         "HUF",
         "RON",
+        "GIP",
     ]
 
     static let all: [String] = [

@@ -947,6 +947,13 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorCode;
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIErrorType;
 
 /**
+ The ID of the failed charge of card errors returned by the Stripe API.
+
+ @see https://docs.stripe.com/api/errors#errors-charge
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPICharge;
+
+/**
  The documentation URL for the error returned by the Stripe API.
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIDocUrl;

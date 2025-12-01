@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.0.0 Docs
+          StripeTerminal 5.1.0 Docs
         </a>
         
       </p>
@@ -131,6 +131,9 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -153,6 +156,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -580,6 +592,15 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPApiError.html">SCPApiError</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -683,6 +704,9 @@
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
               </li>
               <li class="nav-group-task">
@@ -737,6 +761,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1168,6 +1198,42 @@ connect calls, see <code>-[SCPTerminal connectReader:connectionConfig:cancelable
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPDiscoveryFilter"></a>
+                    <a name="//apple_ref/objc/Class/SCPDiscoveryFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPDiscoveryFilter">SCPDiscoveryFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SCPDiscoveryFilter</code> contains information used to single out a reader during the discovery process.
+When a filter is provided, only the reader matching the filter will be returned during discovery,
+and discovery will complete once the reader is found.</p>
+
+                        <a href="Classes/SCPDiscoveryFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPDiscoveryFilter</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DiscoveryFilter</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTapToPayDiscoveryConfiguration"></a>
                     <a name="//apple_ref/objc/Class/SCPTapToPayDiscoveryConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPTapToPayDiscoveryConfiguration">SCPTapToPayDiscoveryConfiguration</a>
@@ -1459,6 +1525,120 @@ reader-to-SDK connection session.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TapToPayConnectionConfigurationBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">TapToPayConnectionConfiguration</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPEasyConnectConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPEasyConnectConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPEasyConnectConfiguration">SCPEasyConnectConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Base class for all EasyConnectConfiguration subclasses.</p>
+
+<p>EasyConnectConfiguration simplifies discovering and connecting to a reader for user integrations.</p>
+
+<p>Your app should use the subclasses depending on the reader type being used:</p>
+
+<ul>
+<li><code><a href="Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a></code> for internet readers</li>
+<li><code><a href="Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a></code> for Tap to Pay readers</li>
+</ul>
+
+                        <a href="Classes/SCPEasyConnectConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPEasyConnectConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">EasyConnectConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPInternetEasyConnectConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPInternetEasyConnectConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPInternetEasyConnectConfiguration">SCPInternetEasyConnectConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>EasyConnectConfiguration for internet readers, which simplifies discovery and connecting to internet readers.</p>
+
+<p>Note: The discoveryConfiguration must include a DiscoveryFilter that will filter the discovery
+results to a single reader. Otherwise the easy connect process will fail if multiple readers are found.</p>
+
+                        <a href="Classes/SCPInternetEasyConnectConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPInternetEasyConnectConfiguration</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">InternetEasyConnectConfiguration</span> <span class="p">:</span> <span class="kt">EasyConnectConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTapToPayEasyConnectConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPTapToPayEasyConnectConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTapToPayEasyConnectConfiguration">SCPTapToPayEasyConnectConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configuration for EasyConnect connections to Tap to Pay readers.</p>
+
+                        <a href="Classes/SCPTapToPayEasyConnectConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPTapToPayEasyConnectConfiguration</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TapToPayEasyConnectConfiguration</span> <span class="p">:</span> <span class="kt">EasyConnectConfiguration</span></code></pre>
 
                         </div>
                       </div>
@@ -2025,7 +2205,7 @@ to the card numbers for convenience.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-11-03)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

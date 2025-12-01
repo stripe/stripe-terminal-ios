@@ -16,6 +16,8 @@ import StripeTerminal
 struct ReaderConfiguration {
     var discoveryMethod: DiscoveryMethod = .bluetoothScan
     var discoveryTimeout: UInt = 0
+    var discoveryFilterType: DiscoveryFilterType = .none
+    var discoveryFilterValue: String = ""
 
     #if targetEnvironment(simulator)
     var simulated = true
@@ -61,3 +63,4 @@ extension ReaderConfiguration: Codable {
 
 extension DeviceType: Codable { /* Nothing needed here */  }
 extension DiscoveryMethod: Codable { /* Nothing needed here */  }
+extension DiscoveryFilterType: Codable { /* Nothing needed here */  }

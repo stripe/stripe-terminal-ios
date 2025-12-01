@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPDiscoveryConfiguration.h>
+#import <StripeTerminal/SCPDiscoveryFilter.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,6 +50,13 @@ NS_SWIFT_NAME(InternetDiscoveryConfiguration)
  */
 @property (nonatomic, assign, readonly) NSUInteger timeout;
 
+/**
+ An optional filter to narrow down the discovered readers.
+ When a filter is provided, only the reader matching the filter will be returned during discovery,
+ and discovery will complete once the reader is found. Default is `[SCPDiscoveryFilter none]`.
+ */
+@property (nonatomic, strong, readonly) SCPDiscoveryFilter *discoveryFilter;
+
 /// Use `SCPInternetDiscoveryConfigurationBuilder`.
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -77,6 +85,9 @@ NS_SWIFT_NAME(InternetDiscoveryConfigurationBuilder)
 
 /// Set the timeout value for the discovery configuration that will be built
 - (SCPInternetDiscoveryConfigurationBuilder *)setTimeout:(NSUInteger)timeout;
+
+/// Set the discovery filter for the discovery configuration that will be built
+- (SCPInternetDiscoveryConfigurationBuilder *)setDiscoveryFilter:(SCPDiscoveryFilter *)discoveryFilter;
 
 @end
 

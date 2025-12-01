@@ -130,9 +130,29 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeVerifoneUX700DevKit,
 
     /**
+     Verifone VM100
+     */
+    SCPDeviceTypeVerifoneVM100,
+
+    /**
+     Verifone VP100
+     */
+    SCPDeviceTypeVerifoneVP100,
+
+    /**
      Tap To Pay reader.
      */
     SCPDeviceTypeTapToPay,
+
+    /**
+     Stripe Reader T600
+     */
+    SCPDeviceTypeStripeT600,
+
+    /**
+     Stripe Reader T600 DevKit
+     */
+    SCPDeviceTypeStripeT600DevKit,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBatteryStatus.h>
+#import <StripeTerminal/SCPBlocks.h>
 #import <StripeTerminal/SCPDisconnectReason.h>
 #import <StripeTerminal/SCPReaderDelegate.h>
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
@@ -21,6 +22,8 @@
 @class SCPReader;
 @class SCPReaderSoftwareUpdate;
 @class SCPCancelable;
+@class SCPPaymentIntent;
+@class SCPQrCodeDisplayData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -161,6 +164,36 @@ NS_SWIFT_NAME(MobileReaderDelegate)
  @param reader      The originating reader.
  */
 - (void)readerDidReportLowBatteryWarning:(SCPReader *)reader NS_SWIFT_NAME(readerDidReportLowBatteryWarning(_:));
+
+/**
+ This method is called when payment method selection is required during payment collection.
+ Payment collection will block until the completion block is invoked with either the selected
+ payment option or a failure.
+
+ @param reader                      The originating reader.
+ @param paymentIntent               The PaymentIntent being processed.
+ @param availablePaymentOptions     Array of available payment options for the customer to choose from.
+ @param completion                  The completion block to invoke with the selected payment option or failure.
+ */
+- (void)reader:(SCPReader *)reader
+    didRequestPaymentMethodSelection:(SCPPaymentIntent *)paymentIntent
+             availablePaymentOptions:(NSArray<SCPPaymentOption *> *)availablePaymentOptions
+                          completion:(SCPPaymentMethodSelectionCompletionBlock)completion NS_SWIFT_NAME(reader(_:didRequestPaymentMethodSelection:availablePaymentOptions:completion:));
+
+/**
+ This method is called when a QR code should be displayed to the user during payment processing.
+ Your app should display the QR code to the customer and call the completion block once the QR code
+ is successfully shown. Payment confirmation will block until the completion block is invoked.
+
+ @param reader              The originating reader.
+ @param paymentIntent       The PaymentIntent being processed.
+ @param qrData              The QrCodeDisplayData containing the QR code image URLs and expiration information.
+ @param completion          The completion block to invoke when the QR code is successfully displayed or fails.
+ */
+- (void)reader:(SCPReader *)reader
+    didRequestQrCodeDisplay:(SCPPaymentIntent *)paymentIntent
+                     qrData:(SCPQrCodeDisplayData *)qrData
+                 completion:(SCPQrCodeDisplayCompletionBlock)completion NS_SWIFT_NAME(reader(_:didRequestQrCodeDisplay:qrData:completion:));
 
 @end
 

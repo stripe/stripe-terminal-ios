@@ -79,11 +79,12 @@ For your app to pass validation when submitting to the App Store, add the follow
   - Key: `NSBluetoothAlwaysUsageDescription`
   - Value: "This app uses Bluetooth to connect to supported card readers."
 
-## Previous API References
+## Documentation
 
-We maintain an archive of the API reference for the previous major version.
-
-- [4.7.3](https://stripe.dev/stripe-terminal-ios/4.7.3/index.html)
-- [3.9.0](https://stripe.dev/stripe-terminal-ios/3.9.0/index.html)
-- [2.23.0](https://stripe.dev/stripe-terminal-ios/2.23.0/index.html)
+- [Getting Started](https://stripe.com/docs/terminal/sdk/ios)
+- [5.x API Reference](https://stripe.dev/stripe-terminal-ios/index.html)
+- [4.x API Reference](https://stripe.dev/stripe-terminal-ios/4.7.3/index.html)
+- [3.x API Reference](https://stripe.dev/stripe-terminal-ios/3.9.0/index.html)
+- [2.x API Reference](https://stripe.dev/stripe-terminal-ios/2.23.0/index.html)
+- [Support Lifecycle & Release Status](SUPPORT.md)
 
