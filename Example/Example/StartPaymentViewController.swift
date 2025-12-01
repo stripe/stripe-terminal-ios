@@ -146,6 +146,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
 
     private lazy var returnUrlTextField: TextFieldView = {
         let textField = TextFieldView(placeholderText: "Return URL", keyboardType: .URL)
+        textField.textField.text = "https://stripe.com/"  // Default return URL for redirect payment methods
         textField.textField.autocorrectionType = .no
         textField.textField.autocapitalizationType = .none
         textField.textField.clearButtonMode = .whileEditing
@@ -204,6 +205,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.startSection?.header = Section.Extremity.title(self.amountView.amountString)
             self.updateContent()
         }
+
+        currencyView.onCurrencyUpdated(currencyView.currency)
 
         let headerString: String
         if ReaderViewController.readerConfiguration.simulated {

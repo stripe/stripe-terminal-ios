@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.0.0 Docs
+          StripeTerminal 5.1.0 Docs
         </a>
         
       </p>
@@ -131,6 +131,9 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -153,6 +156,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -580,6 +592,15 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPApiError.html">SCPApiError</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -683,6 +704,9 @@
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
               </li>
               <li class="nav-group-task">
@@ -737,6 +761,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -3184,6 +3214,107 @@ offline payments, we recommend using the intent.metadata with your own identifie
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPPaymentOption"></a>
+                    <a name="//apple_ref/objc/Class/SCPPaymentOption" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPPaymentOption">SCPPaymentOption</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a payment option available during payment collection.</p>
+
+                        <a href="Classes/SCPPaymentOption.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPPaymentOption</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PaymentOption</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPQrCodeDisplayData"></a>
+                    <a name="//apple_ref/objc/Class/SCPQrCodeDisplayData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPQrCodeDisplayData">SCPQrCodeDisplayData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains data necessary for displaying a QR code during payment processing.</p>
+
+                        <a href="Classes/SCPQrCodeDisplayData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPQrCodeDisplayData</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">QrCodeDisplayData</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPPaymentOptionType"></a>
+                    <a name="//apple_ref/objc/Enum/SCPPaymentOptionType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPPaymentOptionType">SCPPaymentOptionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of payment option.</p>
+
+                        <a href="Enums/SCPPaymentOptionType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPPaymentOptionType</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">PaymentOptionType</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -3192,7 +3323,7 @@ offline payments, we recommend using the intent.metadata with your own identifie
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-11-03)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

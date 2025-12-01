@@ -149,6 +149,33 @@ class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegat
             delegate.readerDidReportLowBatteryWarning?(reader)
         }
     }
+
+    func reader(
+        _ reader: Reader,
+        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
+        availablePaymentOptions: [PaymentOption],
+        completion: @escaping PaymentMethodSelectionCompletionBlock
+    ) {
+        announce { delegate in
+            delegate.reader?(
+                reader,
+                didRequestPaymentMethodSelection: paymentIntent,
+                availablePaymentOptions: availablePaymentOptions,
+                completion: completion
+            )
+        }
+    }
+
+    func reader(
+        _ reader: Reader,
+        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
+        qrData: QrCodeDisplayData,
+        completion: @escaping QrCodeDisplayCompletionBlock
+    ) {
+        announce { delegate in
+            delegate.reader?(reader, didRequestQrCodeDisplay: paymentIntent, qrData: qrData, completion: completion)
+        }
+    }
 }
 
 // MARK: - TapToPayReaderDelegate

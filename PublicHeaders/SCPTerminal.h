@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.0.0";
+static NSString *const SCPSDKVersion = @"5.1.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -58,7 +58,8 @@ static NSString *const SCPSDKVersion = @"5.0.0";
     SCPInternetConnectionConfiguration,
     SCPListLocationsParameters,
     SCPTapToPayConnectionConfiguration,
-    SCPPaymentIntentParameters;
+    SCPPaymentIntentParameters,
+    SCPEasyConnectConfiguration;
 
 @protocol SCPConnectionTokenProvider
 , SCPTerminalDelegate, SCPDiscoveryDelegate, SCPDiscoveryConfiguration;
@@ -278,6 +279,26 @@ API_AVAILABLE(ios(15.0))
 - (SCPCancelable *)discoverReaders:(id<SCPDiscoveryConfiguration>)configuration
                           delegate:(id<SCPDiscoveryDelegate>)delegate
                         completion:(SCPErrorCompletionBlock)completion NS_SWIFT_NAME(discoverReaders(_:delegate:completion:));
+
+/**
+ Simplifies discovering and connecting to a reader by combining discoverReaders and connectReader
+ into a single operation.
+
+ This method will first discover readers using the provided `easyConnectConfiguration.discoveryConfiguration`,
+ validate that exactly one reader is found, and then automatically connect to that reader using the
+ provided `easyConnectConfiguration.connectionConfiguration`.
+
+ Note: The discoveryConfiguration must include a DiscoveryFilter that narrows results to a single reader.
+ If no readers are found or multiple readers are discovered, the operation will fail with an error.
+
+ The operation can be canceled at any point during discovery or connection.
+
+ @param easyConnectConfiguration  The configuration containing both discovery and connection settings.
+ @param completion                The completion block called with the connected reader or an error.
+ @return A cancelable object that can be used to cancel the operation.
+ */
+- (SCPCancelable *)easyConnect:(SCPEasyConnectConfiguration *)easyConnectConfiguration
+                    completion:(SCPReaderCompletionBlock)completion NS_SWIFT_NAME(easyConnect(_:completion:));
 
 /**
  Attempts to connect to the given reader with a given connection configuration.

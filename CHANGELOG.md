@@ -8,7 +8,18 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
-# 5.0.0 - 2025-11-03
+# 5.1.0 2025-12-01
+* Built with Xcode 26.0 Swift version 6.2.
+### New
+* **Streamlined Connection flow** - For Tap to Pay on iPhone and smart readers, you can now use `Terminal.easyConnect` which combines the discovery and connection steps into a single method call.
+* Internet reader discovery now supports filtering by reader ID or serial number. You can set the new `discoveryFilter` property on the `InternetDiscoveryConfiguration` to discover a specific reader.
+* Added mPOS support for QR-based non‑card payments. [`MobileReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPMobileReaderDelegate.html) has two new callbacks you must implement to enable this: 
+    * `reader:didRequestPaymentMethodSelection:availablePaymentOptions:completion` to allow your application to choose the payment method type the customer wants.
+    * `reader:didRequestQrCodeDisplay:qrData:completion:` to display the QR code.
+* Added simulated reader support for Mail Order / Telephone Order payments.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+
+# 5.0.0 2025-11-03
 
 **Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.
 

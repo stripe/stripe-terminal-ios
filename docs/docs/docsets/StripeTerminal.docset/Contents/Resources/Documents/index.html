@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.0.0 Docs
+          StripeTerminal 5.1.0 Docs
         </a>
         
       </p>
@@ -128,6 +128,9 @@
                 <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -150,6 +153,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -577,6 +589,15 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPApiError.html">SCPApiError</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -680,6 +701,9 @@
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
               </li>
               <li class="nav-group-task">
@@ -734,6 +758,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -844,14 +874,15 @@
 <li>Value: &ldquo;This app uses Bluetooth to connect to supported card readers.&rdquo;</li>
 </ul></li>
 </ul>
-<h2 id='previous-api-references' class='heading'>Previous API References</h2>
-
-<p>We maintain an archive of the API reference for the previous major version.</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
-<li><a href="https://stripe.dev/stripe-terminal-ios/4.7.3/index.html">4.7.3</a></li>
-<li><a href="https://stripe.dev/stripe-terminal-ios/3.9.0/index.html">3.9.0</a></li>
-<li><a href="https://stripe.dev/stripe-terminal-ios/2.23.0/index.html">2.23.0</a></li>
+<li><a href="https://stripe.com/docs/terminal/sdk/ios">Getting Started</a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/index.html">5.x API Reference</a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/4.7.3/index.html">4.x API Reference</a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/3.9.0/index.html">3.x API Reference</a></li>
+<li><a href="https://stripe.dev/stripe-terminal-ios/2.23.0/index.html">2.x API Reference</a></li>
+<li><a href="SUPPORT.md">Support Lifecycle &amp; Release Status</a></li>
 </ul>
 
           </div>
@@ -861,7 +892,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-11-03)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

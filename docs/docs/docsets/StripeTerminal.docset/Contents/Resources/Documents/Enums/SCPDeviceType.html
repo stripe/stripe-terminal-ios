@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.0.0 Docs
+          StripeTerminal 5.1.0 Docs
         </a>
         
       </p>
@@ -133,6 +133,9 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -155,6 +158,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -582,6 +594,15 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPApiError.html">SCPApiError</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -685,6 +706,9 @@
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
               </li>
               <li class="nav-group-task">
@@ -739,6 +763,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1315,6 +1345,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeVerifoneVM100"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeVerifoneVM100" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeVerifoneVM100">SCPDeviceTypeVerifoneVM100</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verifone VM100</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeVerifoneVM100</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVM100</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeVerifoneVP100"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeVerifoneVP100" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeVerifoneVP100">SCPDeviceTypeVerifoneVP100</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verifone VP100</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeVerifoneVP100</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVP100</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPDeviceType@SCPDeviceTypeTapToPay"></a>
                     <a name="//apple_ref/objc/Case/SCPDeviceTypeTapToPay" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeTapToPay">SCPDeviceTypeTapToPay</a>
@@ -1337,7 +1431,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tapToPay</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tapToPay</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeStripeT600"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeStripeT600" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeStripeT600">SCPDeviceTypeStripeT600</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stripe Reader T600</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeStripeT600</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeStripeT600DevKit"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeStripeT600DevKit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeStripeT600DevKit">SCPDeviceTypeStripeT600DevKit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stripe Reader T600 DevKit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeStripeT600DevKit</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600DevKit</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
 
                         </div>
                       </div>
@@ -1352,7 +1510,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-11-03)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

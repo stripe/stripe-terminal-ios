@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.0.0 Docs
+          StripeTerminal 5.1.0 Docs
         </a>
         
       </p>
@@ -133,6 +133,9 @@
                 <a class="nav-group-task-link" href="../Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -155,6 +158,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
@@ -582,6 +594,15 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPApiError.html">SCPApiError</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -685,6 +706,9 @@
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
               </li>
               <li class="nav-group-task">
@@ -739,6 +763,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1626,6 +1656,85 @@ connects to a reader, if the command is canceled, or if a discovery error occurs
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)easyConnect:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-easyConnect:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)easyConnect:completion:">-easyConnect:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simplifies discovering and connecting to a reader by combining discoverReaders and connectReader
+into a single operation.</p>
+
+<p>This method will first discover readers using the provided <code>easyConnectConfiguration.discoveryConfiguration</code>,
+validate that exactly one reader is found, and then automatically connect to that reader using the
+provided <code>easyConnectConfiguration.connectionConfiguration</code>.</p>
+
+<p>Note: The discoveryConfiguration must include a DiscoveryFilter that narrows results to a single reader.
+If no readers are found or multiple readers are discovered, the operation will fail with an error.</p>
+
+<p>The operation can be canceled at any point during discovery or connection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">easyConnect</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">easyConnectConfiguration</span>
+     <span class="nf">completion</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">easyConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">easyConnectConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ReaderCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>easyConnectConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The configuration containing both discovery and connection settings.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion block called with the connected reader or an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A cancelable object that can be used to cancel the operation.</p>
                       </div>
                     </section>
                   </div>
@@ -4999,7 +5108,7 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-11-03)</p>
+      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

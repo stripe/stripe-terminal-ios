@@ -102,10 +102,13 @@ class ReaderHeaderView: UIView {
             case .wisePad3:
                 imageView.image = UIImage(named: "wisepad")
             case .wisePosE, .wisePosEDevKit, .etna, .verifoneV660p, .verifoneV660pDevKit, .verifoneM425, .verifoneM450,
-                .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
+                .verifoneP630, .verifoneUX700, .verifoneUX700DevKit, .verifoneVM100, .verifoneVP100:
                 imageView.image = UIImage(named: "wisepose")
             case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
                 imageView.image = UIImage(named: "s700")
+            case .stripeT600, .stripeT600DevKit:
+                // Don't have the image for T600 yet, according to tickets desp use this as placeholader first
+                imageView.image = UIImage(named: "verifone")
             case .tapToPay:
                 // TODO:KINGS-39: Add Tap To Pay Image Collateral to SDK.
                 imageView.image = nil

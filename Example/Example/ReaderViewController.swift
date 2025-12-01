@@ -10,7 +10,21 @@ import Static
 import StripeTerminal
 import UIKit
 
+
 class ReaderViewController: TableViewController, CancelingViewController {
+    enum ReaderVCError: LocalizedError {
+        case unsupportedDiscoveryMethod
+        case noLocationsFound
+
+        var errorDescription: String? {
+            switch self {
+            case .unsupportedDiscoveryMethod:
+                return "Unsupported discovery method for quick connect"
+            case .noLocationsFound:
+                return "No locations found. Please create a location first."
+            }
+        }
+    }
     internal var connectedReader: Reader? {
         didSet {
             headerView.connectedReader = connectedReader
@@ -44,6 +58,18 @@ class ReaderViewController: TableViewController, CancelingViewController {
         textField.textAlignment = .right
         let timeout = ReaderViewController.readerConfiguration.discoveryTimeout
         textField.text = timeout > 0 ? String(timeout) : nil
+        return textField
+    }()
+
+    private lazy var discoveryFilterValueTextField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+        textField.translatesAutoresizingMaskIntoConstraints = true
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.clearButtonMode = .whileEditing
+        textField.textAlignment = .right
+        textField.text = ReaderViewController.readerConfiguration.discoveryFilterValue
+        textField.placeholder = ReaderViewController.readerConfiguration.discoveryFilterType.placeholder
         return textField
     }()
 
@@ -93,6 +119,24 @@ class ReaderViewController: TableViewController, CancelingViewController {
         self.present(navController, animated: true, completion: nil)
     }
 
+    private func buildDiscoveryFilter() -> DiscoveryFilter? {
+        let filterType = ReaderViewController.readerConfiguration.discoveryFilterType
+        let filterValue = ReaderViewController.readerConfiguration.discoveryFilterValue
+
+        guard filterType != .none, !filterValue.isEmpty else {
+            return nil
+        }
+
+        switch filterType {
+        case .bySerialNumber:
+            return DiscoveryFilter.bySerialNumber(filterValue)
+        case .byReaderId:
+            return DiscoveryFilter.byReaderId(filterValue)
+        case .none:
+            return nil
+        }
+    }
+
     internal func showDiscoverReaders() throws {
         let config: DiscoveryConfiguration = try {
             Terminal.shared.simulatorConfiguration.offlineEnabled =
@@ -101,6 +145,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
             // Cache the timeout value now that its being used
             let timeout = UInt(discoveryTimeoutTextField.text ?? "0") ?? 0
             ReaderViewController.readerConfiguration.discoveryTimeout = timeout
+            // Cache the filter values now that they're being used
+            ReaderViewController.readerConfiguration.discoveryFilterValue = discoveryFilterValueTextField.text ?? ""
             switch ReaderViewController.readerConfiguration.discoveryMethod {
             case .bluetoothScan:
                 return try BluetoothScanDiscoveryConfigurationBuilder()
@@ -110,10 +156,13 @@ class ReaderViewController: TableViewController, CancelingViewController {
             case .bluetoothProximity:
                 return try BluetoothProximityDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             case .internet:
-                return try InternetDiscoveryConfigurationBuilder()
+                let builder = InternetDiscoveryConfigurationBuilder()
                     .setSimulated(simulated)
                     .setTimeout(timeout)
-                    .build()
+                if let filter = buildDiscoveryFilter() {
+                    builder.setDiscoveryFilter(filter)
+                }
+                return try builder.build()
             case .tapToPay:
                 return try TapToPayDiscoveryConfigurationBuilder().setSimulated(simulated).build()
             case .usb:
@@ -208,10 +257,14 @@ class ReaderViewController: TableViewController, CancelingViewController {
             DeviceType.verifoneP630,
             DeviceType.verifoneUX700,
             DeviceType.verifoneUX700DevKit,
+            DeviceType.verifoneVM100,
+            DeviceType.verifoneVP100,
             DeviceType.verifoneV660p,
             DeviceType.verifoneV660pDevKit,
             DeviceType.wisePosE,
             DeviceType.wisePosEDevKit,
+            DeviceType.stripeT600,
+            DeviceType.stripeT600DevKit,
         ].contains(Terminal.shared.connectedReader?.deviceType)
         return isSposReader
     }
@@ -241,6 +294,69 @@ class ReaderViewController: TableViewController, CancelingViewController {
             self.updateContent()
         }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    internal func showDiscoveryFilterTypes() {
+        presentValuePicker(
+            title: "Filter Type",
+            options: DiscoveryFilterType.allCases,
+            from: nil
+        ) { [weak self] filterType in
+            guard let self = self, let filterType = filterType else { return }
+            guard ReaderViewController.readerConfiguration.discoveryFilterType != filterType else { return }
+
+            ReaderViewController.readerConfiguration.discoveryFilterType = filterType
+            self.discoveryFilterValueTextField.placeholder = filterType.placeholder
+            self.discoveryFilterValueTextField.text = ""
+            self.updateContent()
+        }
+    }
+
+    internal func performQuickConnect(_ discoveryMethod: DiscoveryMethod) async throws {
+        guard discoveryMethod == .tapToPay || discoveryMethod == .internet else {
+            throw ReaderVCError.unsupportedDiscoveryMethod
+        }
+        Terminal.shared.simulatorConfiguration.offlineEnabled =
+            ReaderViewController.readerConfiguration.simulatorOfflineEnabled
+        let simulated = ReaderViewController.readerConfiguration.simulated
+
+        let easyConnectConfig: EasyConnectConfiguration
+
+        if discoveryMethod == .tapToPay {
+            // For TapToPay, we need to fetch a location first (matching Android behavior)
+            let parameters = try ListLocationsParametersBuilder().setLimit(1).build()
+            let locations = try await Terminal.shared.listLocations(parameters: parameters).0
+            guard let location = locations.first else {
+                throw ReaderVCError.noLocationsFound
+            }
+
+            let discoveryConfig = try TapToPayDiscoveryConfigurationBuilder()
+                .setSimulated(simulated)
+                .build()
+            let connectionConfig = try TapToPayConnectionConfigurationBuilder(
+                delegate: self,
+                locationId: location.stripeId
+            ).build()
+            easyConnectConfig = TapToPayEasyConnectConfiguration(
+                discoveryConfiguration: discoveryConfig,
+                connectionConfiguration: connectionConfig
+            )
+        } else {
+            let builder = InternetDiscoveryConfigurationBuilder()
+                .setSimulated(simulated)
+            if let filter = buildDiscoveryFilter() {
+                builder.setDiscoveryFilter(filter)
+            }
+            let discoveryConfig = try builder.build()
+            let connectionConfig = try InternetConnectionConfigurationBuilder(delegate: self).build()
+            easyConnectConfig = InternetEasyConnectConfiguration(
+                discoveryConfiguration: discoveryConfig,
+                connectionConfiguration: connectionConfig
+            )
+        }
+
+        self.connectedReader = try await Terminal.shared.easyConnect(easyConnectConfig)
+        self.updateContent()
     }
 
     internal func showStartSetReaderDisplay() {
@@ -305,6 +421,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     internal func updateContent() {
         let rdrConnectionTitle = Section.Extremity.title("Reader Connection")
         let buildNameString = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "??"
@@ -372,7 +489,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 }
             case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
                 .verifoneV660p,
-                .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
+                .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
+                .verifoneVM100, .verifoneVP100,
+                .stripeT600, .stripeT600DevKit:
                 workflowRows.append(
                     Row(
                         text: "Set reader display",
@@ -418,8 +537,10 @@ class ReaderViewController: TableViewController, CancelingViewController {
             switch deviceType {
             case .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit, .verifoneM425, .verifoneM450,
                 .verifoneP630,
-                .verifoneUX700, .verifoneUX700DevKit, .verifoneV660p, .verifoneV660pDevKit, .wisePosE, .wisePosEDevKit:
-
+                .verifoneUX700, .verifoneUX700DevKit, .verifoneV660p, .verifoneV660pDevKit, .wisePosE,
+                .verifoneVM100, .verifoneVP100,
+                .wisePosEDevKit,
+                .stripeT600, .stripeT600DevKit:
                 workflowRows.append(
                     Row(
                         text: "Collect inputs",
@@ -460,6 +581,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 )
             )
 
+
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(
@@ -485,30 +607,47 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 taking payments.\n
                 \(versions)
                 """
+            let discoveryMethod = ReaderViewController.readerConfiguration.discoveryMethod
+            let connectionRows = [
+                Row(
+                    text: "Discover Readers",
+                    selection: { [unowned self] in
+                        do {
+                            try self.showDiscoverReaders()
+                        } catch {
+                            self.presentAlert(error: error)
+                        }
+                    },
+                    cellClass: ButtonCell.self
+                ),
+                discoveryMethod == .internet || discoveryMethod == .tapToPay
+                    ? Row(
+                        text: "Quick Connect",
+                        selection: { [unowned self] in
+                            Task {
+                                do {
+                                    try await self.performQuickConnect(discoveryMethod)
+                                } catch {
+                                    self.presentAlert(error: error)
+                                }
+                            }
+                        },
+                        cellClass: ButtonCell.self
+                    ) : nil,
+                Row(
+                    text: "Register Internet Reader",
+                    selection: { [unowned self] in
+                        self.showRegisterReader()
+                    },
+                    cellClass: ButtonCell.self
+                ),
+            ].compactMap { $0 }
+
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
                 Section(
                     header: rdrConnectionTitle,
-                    rows: [
-                        Row(
-                            text: "Discover Readers",
-                            selection: { [unowned self] in
-                                do {
-                                    try self.showDiscoverReaders()
-                                } catch {
-                                    self.presentAlert(error: error)
-                                }
-                            },
-                            cellClass: ButtonCell.self
-                        ),
-                        Row(
-                            text: "Register Internet Reader",
-                            selection: { [unowned self] in
-                                self.showRegisterReader()
-                            },
-                            cellClass: ButtonCell.self
-                        ),
-                    ]
+                    rows: connectionRows
                 ),
                 Section(
                     header: "Discovery Method",
@@ -522,6 +661,23 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     ]
                 ),
+                ReaderViewController.readerConfiguration.discoveryMethod == .internet
+                    ? Section(
+                        header: "Discovery Filter",
+                        rows: [
+                            Row(
+                                text: ReaderViewController.readerConfiguration.discoveryFilterType.description,
+                                selection: { [unowned self] in
+                                    self.showDiscoveryFilterTypes()
+                                },
+                                accessory: ReaderViewController.readerConfiguration.discoveryFilterType != .none
+                                    ? .view(
+                                        discoveryFilterValueTextField
+                                    ) : .disclosureIndicator,
+                            )
+                        ]
+                    )
+                    : nil,
                 Section(
                     header: "",
                     rows: [

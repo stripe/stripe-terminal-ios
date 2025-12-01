@@ -220,7 +220,9 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             }
         case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
             .verifoneV660p,
-            .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit:
+            .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
+            .verifoneVM100, .verifoneVP100,
+            .stripeT600, .stripeT600DevKit:
             let connectionConfig = try InternetConnectionConfigurationBuilder(
                 delegate: InternetReaderDelegateAnnouncer.shared
             )
@@ -531,10 +533,16 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "chipper")
         case .wisePad3:
             image = UIImage(named: "wisepad")
-        case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
+        case .wisePosE, .wisePosEDevKit, .etna,
             .verifoneV660p, .verifoneV660pDevKit, .verifoneUX700, .verifoneUX700DevKit,
+            .verifoneVM100, .verifoneVP100,
             .verifoneM425, .verifoneM450, .verifoneP630:
             image = UIImage(named: "wisepose")
+        case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
+            image = UIImage(named: "s700")
+        case .stripeT600, .stripeT600DevKit:
+            // Don't have the image for T600 yet, according to tickets desp use this as placeholader first
+            image = UIImage(named: "generic_reader")
         case .tapToPay:
             image = nil
         @unknown default:
