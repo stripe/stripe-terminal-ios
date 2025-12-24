@@ -8,6 +8,12 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.1.1 2025-12-24
+* Built with Xcode 26.0 Swift version 6.2.
+
+### Fixes
+* Fixes a crash that could occur during `disconnectReader` with internet readers.
+
 # 5.1.0 2025-12-01
 * Built with Xcode 26.0 Swift version 6.2.
 ### New
@@ -20,6 +26,7 @@ pod 'StripeTerminal', '~> 5.0'
   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 
 # 5.0.0 2025-11-03
+* Built with Xcode 26.0 Swift version 6.2.
 
 **Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.
 
@@ -78,7 +85,6 @@ pod 'StripeTerminal', '~> 5.0'
 
 ### Fixes
 * Fixes an issue where collecting magstripe data would error when connected to a smart reader.
-* Fixes an issue where collecting a payment after collecting NFC data would report a "device busy" error.
 
 # 4.7.2 2025-09-15
 
