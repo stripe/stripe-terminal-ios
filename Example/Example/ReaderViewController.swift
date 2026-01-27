@@ -230,6 +230,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
+
     internal func showStartPayment() {
         let vc = StartPaymentViewController(isSposReader: isSposReader())
         self.navigationController?.pushViewController(vc, animated: true)
@@ -334,7 +335,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 .setSimulated(simulated)
                 .build()
             let connectionConfig = try TapToPayConnectionConfigurationBuilder(
-                delegate: self,
+                delegate: TapToPayReaderDelegateAnnouncer.shared,
                 locationId: location.stripeId
             ).build()
             easyConnectConfig = TapToPayEasyConnectConfiguration(
@@ -348,7 +349,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 builder.setDiscoveryFilter(filter)
             }
             let discoveryConfig = try builder.build()
-            let connectionConfig = try InternetConnectionConfigurationBuilder(delegate: self).build()
+            let connectionConfig = try InternetConnectionConfigurationBuilder(
+                delegate: InternetReaderDelegateAnnouncer.shared
+            ).build()
             easyConnectConfig = InternetEasyConnectConfiguration(
                 discoveryConfiguration: discoveryConfig,
                 connectionConfiguration: connectionConfig
