@@ -64,6 +64,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorConfirmInvalidPaymentIntent = 1530,
     /**
+     `confirmSetupIntent` was called with an unknown or invalid SetupIntent.
+     You must confirm a SetupIntent immediately after collecting a payment method.
+     */
+    SCPErrorConfirmInvalidSetupIntent = 1531,
+    /**
      `collectPaymentMethod` or `confirmPaymentIntent` was called with a `nil` PaymentIntent.
      */
     SCPErrorNilPaymentIntent = 1540,
@@ -244,6 +249,16 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Surcharging was attempted while also using dynamic currency conversion.
      */
     SCPErrorSurchargeUnavailableWithDynamicCurrencyConversion = 1952,
+
+    /**
+     Surcharge notice is not currently available.
+    */
+    SCPErrorSurchargeNoticeNotAvailable = 1953,
+
+    /**
+     `amountSurcharge` was specified but `updatePaymentIntent` was not set to true during collectPaymentMethod.
+     */
+    SCPErrorAmountSurchargeRequiresUpdatePaymentIntent = 1954,
 
     /**
      The provided location ID parameter was invalid.
@@ -811,6 +826,11 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      Error reported when the card used is a known test card and the SDK is operating in livemode.
      */
     SCPErrorOfflineTestCardInLivemode = 6906,
+
+    /**
+     Error reported when `amountSurcharge` was passed while offline.
+     */
+    SCPErrorAmountSurchargeNotSupportedOffline = 6907,
 
     /*
      NETWORK ERRORS

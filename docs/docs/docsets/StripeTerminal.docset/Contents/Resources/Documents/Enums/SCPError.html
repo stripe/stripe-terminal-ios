@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.1.1 Docs
+          StripeTerminal 5.2.0 Docs
         </a>
         
       </p>
@@ -1022,6 +1022,39 @@ You must confirm a payment immediately after collecting a payment method.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">confirmInvalidPaymentIntent</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorConfirmInvalidSetupIntent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorConfirmInvalidSetupIntent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorConfirmInvalidSetupIntent">SCPErrorConfirmInvalidSetupIntent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>confirmSetupIntent</code> was called with an unknown or invalid SetupIntent.
+You must confirm a SetupIntent immediately after collecting a payment method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorConfirmInvalidSetupIntent</span> <span class="o">=</span> <span class="mi">1531</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">confirmInvalidSetupIntent</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2086,6 +2119,70 @@ and a CollectConfiguration with updatePaymentIntent set to false.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">surchargeUnavailableWithDynamicCurrencyConversion</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorSurchargeNoticeNotAvailable"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorSurchargeNoticeNotAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorSurchargeNoticeNotAvailable">SCPErrorSurchargeNoticeNotAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Surcharge notice is not currently available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSurchargeNoticeNotAvailable</span> <span class="o">=</span> <span class="mi">1953</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">surchargeNoticeNotAvailable</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorAmountSurchargeRequiresUpdatePaymentIntent"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAmountSurchargeRequiresUpdatePaymentIntent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAmountSurchargeRequiresUpdatePaymentIntent">SCPErrorAmountSurchargeRequiresUpdatePaymentIntent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>amountSurcharge</code> was specified but <code>updatePaymentIntent</code> was not set to true during collectPaymentMethod.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAmountSurchargeRequiresUpdatePaymentIntent</span> <span class="o">=</span> <span class="mi">1954</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">amountSurchargeRequiresUpdatePaymentIntent</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -5369,6 +5466,38 @@ Retry the payment with another card.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorAmountSurchargeNotSupportedOffline"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorAmountSurchargeNotSupportedOffline" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorAmountSurchargeNotSupportedOffline">SCPErrorAmountSurchargeNotSupportedOffline</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error reported when <code>amountSurcharge</code> was passed while offline.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorAmountSurchargeNotSupportedOffline</span> <span class="o">=</span> <span class="mi">6907</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">amountSurchargeNotSupportedOffline</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorNotConnectedToInternet"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorNotConnectedToInternet" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorNotConnectedToInternet">SCPErrorNotConnectedToInternet</a>
@@ -5790,7 +5919,7 @@ the functionality or retry with another value for <code><a href="../Enums/SCPOff
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2025-12-24)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-01-27)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

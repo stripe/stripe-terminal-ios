@@ -8,6 +8,25 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.2.0 2026-01-27
+### New
+* Added support for [tip-eligibility](https://docs.stripe.com/terminal/features/collecting-tips/on-reader#tip-eligible) on WisePad 3 devices, allowing configuration of the portion of a transaction amount on which tips are calculated.
+* Added `SCPErrorConfirmInvalidSetupIntent` error code to properly identify invalid SetupIntent confirmation attempts.
+* Added support for collecting surcharges on M2 devices.
+    * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+
+* Added Tap to Pay support for QR-based non‑card payments. [`TapToPayReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPTapToPayReaderDelegate.html) has two new callbacks you must implement to enable this:
+    * `tapToPayReader:didRequestPaymentMethodSelection:availablePaymentOptions:completion` to allow your application to choose the payment method type the customer wants.
+    * `tapToPayReader:didRequestQrCodeDisplay:qrData:completion:` to display the QR code.
+    * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+
+### Updates
+* When connecting to a Tap to Pay on iPhone reader, the SDK now validates device compatibility before making any API calls. Incompatible devices will return an error consistent with [`supportsReadersOfType`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)supportsReadersOfType:discoveryMethod:simulated:error:).
+* Improved Tap to Pay error handling on the `connectReader` function. If the app is backgrounded during an Apple proximity reader update, the connection failure is now returned when the app returns to the foreground, rather than being returned immediately.
+
+### Fixes
+* Fixes an issue where the Tap to Pay reader reconnection fails when the app comes to the foreground, caused by an internal race condition.
+
 # 5.1.1 2025-12-24
 * Built with Xcode 26.0 Swift version 6.2.
 
@@ -19,15 +38,15 @@ pod 'StripeTerminal', '~> 5.0'
 ### New
 * **Streamlined Connection flow** - For Tap to Pay on iPhone and smart readers, you can now use `Terminal.easyConnect` which combines the discovery and connection steps into a single method call.
 * Internet reader discovery now supports filtering by reader ID or serial number. You can set the new `discoveryFilter` property on the `InternetDiscoveryConfiguration` to discover a specific reader.
-* Added mPOS support for QR-based non‑card payments. [`MobileReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPMobileReaderDelegate.html) has two new callbacks you must implement to enable this: 
+* Added mPOS support for QR-based non‑card payments. [`MobileReaderDelegate`](https://stripe.dev/stripe-terminal-ios/docs/Protocols/SCPMobileReaderDelegate.html) has two new callbacks you must implement to enable this:
     * `reader:didRequestPaymentMethodSelection:availablePaymentOptions:completion` to allow your application to choose the payment method type the customer wants.
     * `reader:didRequestQrCodeDisplay:qrData:completion:` to display the QR code.
-* Added simulated reader support for Mail Order / Telephone Order payments.
-  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+    * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* [Mail order / telephone order (MOTO)](https://docs.stripe.com/terminal/features/mail-telephone-orders/overview) support is now generally available. 
+   * Added simulated reader support for Mail Order / Telephone Order payments.
+   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 
 # 5.0.0 2025-11-03
-* Built with Xcode 26.0 Swift version 6.2.
-
 **Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.
 
 * _Built with Xcode 26.0, Swift version 6.2._
@@ -85,6 +104,7 @@ pod 'StripeTerminal', '~> 5.0'
 
 ### Fixes
 * Fixes an issue where collecting magstripe data would error when connected to a smart reader.
+* Fixes an issue where collecting a payment after collecting NFC data would report a "device busy" error.
 
 # 4.7.2 2025-09-15
 

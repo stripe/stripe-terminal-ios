@@ -10,6 +10,7 @@ import Static
 import StripeTerminal
 import UIKit
 
+
 enum CardBrandDeclineError: Error {
     case shouldRetry(originalIntent: PaymentIntent)
     case userCancelled(originalIntent: PaymentIntent)
@@ -120,14 +121,14 @@ class PaymentViewController: EventDisplayingViewController {
                 }
 
                 let finalIntent: PaymentIntent
-                if useProcessPaymentIntent {
-                    // Use processPaymentIntent (combined collect + confirm)
-                    finalIntent = try await processPaymentIntent(intent: intent)
-                } else {
-                    // Use traditional separate flow
-                    let collectedIntent = try await collectPaymentMethod(intent: intent)
-                    finalIntent = try await confirmPaymentIntent(intent: collectedIntent)
-                }
+                    if useProcessPaymentIntent {
+                        // Use processPaymentIntent (combined collect + confirm)
+                        finalIntent = try await processPaymentIntent(intent: intent)
+                    } else {
+                        // Use traditional separate flow
+                        let collectedIntent = try await collectPaymentMethod(intent: intent)
+                        finalIntent = try await confirmPaymentIntent(intent: collectedIntent)
+                    }
 
                 // Handle capture if needed
                 if finalIntent.status == .requiresCapture && !self.skipCapture {
@@ -267,6 +268,7 @@ class PaymentViewController: EventDisplayingViewController {
             throw error
         }
     }
+
 
     private func processPaymentIntent(intent: PaymentIntent) async throws -> PaymentIntent {
         // Note: Card brand decline feature is not supported with processPaymentIntent
@@ -411,15 +413,14 @@ class PaymentViewController: EventDisplayingViewController {
     }
 }
 
-// MARK: - MobileReaderDelegate (MPOS QR Payments)
+// MARK: - Shared Payment Method Selection & QR Code Display
 
 extension PaymentViewController {
 
-    // MARK: Payment Method Selection
+    // MARK: Shared Implementation
 
-    func reader(
-        _ reader: Reader,
-        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
+    private func handlePaymentMethodSelection(
+        paymentIntent: PaymentIntent,
         availablePaymentOptions: [PaymentOption],
         completion: @escaping PaymentMethodSelectionCompletionBlock
     ) {
@@ -470,11 +471,8 @@ extension PaymentViewController {
         }
     }
 
-    // MARK: QR Code Display
-
-    func reader(
-        _ reader: Reader,
-        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
+    private func handleQrCodeDisplay(
+        paymentIntent: PaymentIntent,
         qrData: QrCodeDisplayData,
         completion: @escaping QrCodeDisplayCompletionBlock
     ) {
@@ -520,6 +518,68 @@ extension PaymentViewController {
     }
 }
 
+// MARK: - MobileReaderDelegate (MPOS QR Payments)
+
+extension PaymentViewController {
+
+    func reader(
+        _ reader: Reader,
+        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
+        availablePaymentOptions: [PaymentOption],
+        completion: @escaping PaymentMethodSelectionCompletionBlock
+    ) {
+        handlePaymentMethodSelection(
+            paymentIntent: paymentIntent,
+            availablePaymentOptions: availablePaymentOptions,
+            completion: completion
+        )
+    }
+
+    func reader(
+        _ reader: Reader,
+        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
+        qrData: QrCodeDisplayData,
+        completion: @escaping QrCodeDisplayCompletionBlock
+    ) {
+        handleQrCodeDisplay(
+            paymentIntent: paymentIntent,
+            qrData: qrData,
+            completion: completion
+        )
+    }
+}
+
+// MARK: - TapToPayReaderDelegate (QR Payments)
+
+extension PaymentViewController {
+
+    func tapToPayReader(
+        _ reader: Reader,
+        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
+        availablePaymentOptions: [PaymentOption],
+        completion: @escaping PaymentMethodSelectionCompletionBlock
+    ) {
+        handlePaymentMethodSelection(
+            paymentIntent: paymentIntent,
+            availablePaymentOptions: availablePaymentOptions,
+            completion: completion
+        )
+    }
+
+    func tapToPayReader(
+        _ reader: Reader,
+        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
+        qrData: QrCodeDisplayData,
+        completion: @escaping QrCodeDisplayCompletionBlock
+    ) {
+        handleQrCodeDisplay(
+            paymentIntent: paymentIntent,
+            qrData: qrData,
+            completion: completion
+        )
+    }
+}
+
 // MARK: - PaymentMethodType Display Name Helper
 extension PaymentMethodType {
     var displayName: String {
@@ -534,3 +594,4 @@ extension PaymentMethodType {
             .joined(separator: " ")
     }
 }
+

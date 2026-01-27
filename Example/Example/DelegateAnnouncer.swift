@@ -228,6 +228,38 @@ class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDel
             delegate.tapToPayReader(reader, didRequestReaderDisplayMessage: displayMessage)
         }
     }
+
+    func tapToPayReader(
+        _ reader: Reader,
+        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
+        availablePaymentOptions: [PaymentOption],
+        completion: @escaping (PaymentOption?, (any Error)?) -> Void
+    ) {
+        announce { delegate in
+            delegate.tapToPayReader?(
+                reader,
+                didRequestPaymentMethodSelection: paymentIntent,
+                availablePaymentOptions: availablePaymentOptions,
+                completion: completion
+            )
+        }
+    }
+
+    func tapToPayReader(
+        _ reader: Reader,
+        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
+        qrData: QrCodeDisplayData,
+        completion: @escaping QrCodeDisplayCompletionBlock
+    ) {
+        announce { delegate in
+            delegate.tapToPayReader?(
+                reader,
+                didRequestQrCodeDisplay: paymentIntent,
+                qrData: qrData,
+                completion: completion
+            )
+        }
+    }
 }
 
 // MARK: - InternetReaderDelegate
