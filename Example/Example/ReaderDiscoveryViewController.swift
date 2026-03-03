@@ -221,7 +221,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
             .verifoneV660p,
             .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
-            .verifoneVM100, .verifoneVP100,
+            .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
             .stripeT600, .stripeT600DevKit:
             let connectionConfig = try InternetConnectionConfigurationBuilder(
                 delegate: InternetReaderDelegateAnnouncer.shared
@@ -535,7 +535,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "wisepad")
         case .wisePosE, .wisePosEDevKit, .etna,
             .verifoneV660p, .verifoneV660pDevKit, .verifoneUX700, .verifoneUX700DevKit,
-            .verifoneVM100, .verifoneVP100,
+            .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
             .verifoneM425, .verifoneM450, .verifoneP630:
             image = UIImage(named: "wisepose")
         case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
@@ -549,9 +549,15 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = nil
         }
 
-        // prefer reader's label, fall back to serial number
+        // Show reader's label with serial number in parentheses, or just serial number if no label
+        let displayText: String
+        if let label = reader.label {
+            displayText = "\(label) (\(reader.serialNumber))"
+        } else {
+            displayText = reader.serialNumber
+        }
         return Row(
-            text: reader.label ?? reader.serialNumber,
+            text: displayText,
             detailText: details.joined(separator: " • "),
             selection: selection,
             image: image,
