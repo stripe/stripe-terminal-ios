@@ -259,7 +259,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             DeviceType.verifoneUX700,
             DeviceType.verifoneUX700DevKit,
             DeviceType.verifoneVM100,
-            DeviceType.verifoneVP100,
+            DeviceType.verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
             DeviceType.verifoneV660p,
             DeviceType.verifoneV660pDevKit,
             DeviceType.wisePosE,
@@ -493,7 +493,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
                 .verifoneV660p,
                 .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
-                .verifoneVM100, .verifoneVP100,
+                .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
                 .stripeT600, .stripeT600DevKit:
                 workflowRows.append(
                     Row(
@@ -541,7 +541,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             case .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit, .verifoneM425, .verifoneM450,
                 .verifoneP630,
                 .verifoneUX700, .verifoneUX700DevKit, .verifoneV660p, .verifoneV660pDevKit, .wisePosE,
-                .verifoneVM100, .verifoneVP100,
+                .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
                 .wisePosEDevKit,
                 .stripeT600, .stripeT600DevKit:
                 workflowRows.append(

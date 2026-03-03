@@ -8,6 +8,10 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.3.0 2026-03-03
+### Fixes
+* Fixes [#370](https://github.com/stripe/stripe-terminal-ios/issues/370): Fixed a race condition that could cause a crash when connecting to readers. 
+
 # 5.2.0 2026-01-27
 ### New
 * Added support for [tip-eligibility](https://docs.stripe.com/terminal/features/collecting-tips/on-reader#tip-eligible) on WisePad 3 devices, allowing configuration of the portion of a transaction amount on which tips are calculated.
@@ -42,9 +46,8 @@ pod 'StripeTerminal', '~> 5.0'
     * `reader:didRequestPaymentMethodSelection:availablePaymentOptions:completion` to allow your application to choose the payment method type the customer wants.
     * `reader:didRequestQrCodeDisplay:qrData:completion:` to display the QR code.
     * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
-* [Mail order / telephone order (MOTO)](https://docs.stripe.com/terminal/features/mail-telephone-orders/overview) support is now generally available. 
-   * Added simulated reader support for Mail Order / Telephone Order payments.
-   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* Added simulated reader support for Mail Order / Telephone Order payments.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 
 # 5.0.0 2025-11-03
 **Version 5.0.0 is a major update with significant breaking changes.** Please consult the [v5 Migration Guide](https://docs.stripe.com/terminal/references/sdk-migration-guide?terminal-sdk-platform=ios) for detailed instructions on updating your integration.

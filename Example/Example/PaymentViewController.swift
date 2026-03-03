@@ -43,6 +43,7 @@ class PaymentViewController: EventDisplayingViewController {
     private let onReceiptTip: UInt
     private let useProcessPaymentIntent: Bool
     private var qrModalNavigationController: UINavigationController?
+    private var paymentMethodSelectionAlert: UIAlertController?
 
     init(
         paymentParams: PaymentIntentParameters,
@@ -191,6 +192,11 @@ class PaymentViewController: EventDisplayingViewController {
         self.events.append(collectEvent)
         let collectedIntent: PaymentIntent
 
+        // Dismiss payment method selection alert when collect completes (success or error)
+        defer {
+            dismissPaymentMethodSelectionAlert()
+        }
+
         do {
             collectedIntent = try await Terminal.shared.collectPaymentMethod(
                 intent,
@@ -275,6 +281,11 @@ class PaymentViewController: EventDisplayingViewController {
         // as it combines collect and confirm into a single operation
         var processEvent = LogEvent(method: .processPaymentIntent)
         self.events.append(processEvent)
+
+        // Dismiss payment method selection alert when process completes (success or error)
+        defer {
+            dismissPaymentMethodSelectionAlert()
+        }
 
         do {
             let processedIntent = try await Terminal.shared.processPaymentIntent(
@@ -444,6 +455,8 @@ extension PaymentViewController {
 
                 alert.addAction(
                     UIAlertAction(title: title, style: .default) { _ in
+                        self.paymentMethodSelectionAlert = nil
+
                         // Log the selection
                         var event = LogEvent(method: .didRequestPaymentMethodSelection)
                         event.result = .succeeded
@@ -458,6 +471,7 @@ extension PaymentViewController {
 
             alert.addAction(
                 UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                    self.paymentMethodSelectionAlert = nil
                     let error = NSError(
                         domain: "com.stripe.example",
                         code: -1,
@@ -467,7 +481,19 @@ extension PaymentViewController {
                 }
             )
 
+            // Store reference so we can dismiss on timeout
+            self.paymentMethodSelectionAlert = alert
             self.present(alert, animated: true)
+        }
+    }
+
+    /// Dismiss the payment method selection alert if it's being presented
+    func dismissPaymentMethodSelectionAlert() {
+        DispatchQueue.main.async {
+            if let alert = self.paymentMethodSelectionAlert {
+                alert.dismiss(animated: true)
+                self.paymentMethodSelectionAlert = nil
+            }
         }
     }
 

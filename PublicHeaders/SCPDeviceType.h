@@ -140,6 +140,21 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeVerifoneVP100,
 
     /**
+     Verifone VL110
+     */
+    SCPDeviceTypeVerifoneVL110,
+
+    /**
+     Verifone VM110
+     */
+    SCPDeviceTypeVerifoneVM110,
+
+    /**
+     Verifone VP110
+     */
+    SCPDeviceTypeVerifoneVP110,
+
+    /**
      Tap To Pay reader.
      */
     SCPDeviceTypeTapToPay,
