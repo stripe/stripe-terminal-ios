@@ -155,7 +155,7 @@ class StartRefundViewController: TableViewController {
 
         let shouldShowTestCardPickerView =
             Terminal.shared.connectedReader?.simulated == true
-            && [DeviceType.stripeM2, DeviceType.chipper2X, DeviceType.wisePad3].contains(
+            && [DeviceType.stripeM2, DeviceType.stripeU200, DeviceType.chipper2X, DeviceType.wisePad3].contains(
                 Terminal.shared.connectedReader?.deviceType
             )
 

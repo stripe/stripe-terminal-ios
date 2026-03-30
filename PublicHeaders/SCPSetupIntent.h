@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPApiError;
 @class SCPSetupAttempt;
 @class SCPNextAction;
 @class SCPPaymentMethodOptionsParameters;
@@ -190,6 +191,16 @@ NS_SWIFT_NAME(SetupIntent)
  The client secret for this intent.
  */
 @property (nonatomic, nullable, readonly) NSString *clientSecret;
+
+/**
+ The error encountered in the previous SetupIntent confirmation.
+ */
+@property (nonatomic, nullable, readonly) SCPApiError *lastSetupError;
+
+/**
+ The ID of the most recent SetupAttempt for this SetupIntent.
+ */
+@property (nonatomic, nullable, readonly) NSString *latestAttemptId;
 
 /**
  You cannot directly instantiate this class. You should only use SetupIntents

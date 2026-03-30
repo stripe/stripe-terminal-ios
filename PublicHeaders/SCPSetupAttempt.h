@@ -14,6 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPApiError;
 @class SCPSetupAttemptPaymentMethodDetails;
 
 /**
@@ -82,6 +83,11 @@ NS_SWIFT_NAME(SetupAttempt)
  The value of usage on the SetupIntent at the time of this confirmation.
  */
 @property (nonatomic, readonly) SCPSetupIntentUsage usage;
+
+/**
+ The error encountered during this attempt to confirm the SetupIntent, if any.
+ */
+@property (nonatomic, nullable, readonly) SCPApiError *setupError;
 
 @end
 

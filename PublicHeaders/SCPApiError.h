@@ -61,6 +61,40 @@ NS_SWIFT_NAME(ApiError)
 @property (nonatomic, nullable, readonly) NSString *param;
 
 /**
+ A URL to the request log entry in your dashboard.
+
+ For ApiErrors returned from smart readers, a minimum version of 2.41 is
+ required for this field to be populated.
+ */
+@property (nonatomic, nullable, readonly) NSString *requestLogUrl;
+
+/**
+ For payments declined by the network, an alphanumeric code which indicates the reason the payment failed.
+
+ For ApiErrors returned from smart readers, a minimum version of 2.41 is
+ required for this field to be populated.
+ */
+@property (nonatomic, nullable, readonly) NSString *networkDeclineCode;
+
+/**
+ For card errors resulting from a card issuer decline, a short string indicating how to proceed with an error if they provide one.
+
+ For ApiErrors returned from smart readers, a minimum version of 2.41 is
+ required for this field to be populated.
+
+ @see https://docs.stripe.com/declines#retrying-issuer-declines
+ */
+@property (nonatomic, nullable, readonly) NSString *adviceCode;
+
+/**
+ For card errors resulting from a card issuer decline, a 2 digit code which indicates the advice given to merchant by the card network on how to proceed with an error.
+
+ For ApiErrors returned from smart readers, a minimum version of 2.41 is
+ required for this field to be populated.
+ */
+@property (nonatomic, nullable, readonly) NSString *networkAdviceCode;
+
+/**
  You cannot directly instantiate this class. You should only use ApiErrors
  that have been returned by other methods in our SDK.
  */

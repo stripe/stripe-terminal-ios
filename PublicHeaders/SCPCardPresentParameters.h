@@ -62,6 +62,36 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentRequestPartialAuthorization) {
     SCPCardPresentRequestPartialAuthorizationNever,
 } NS_SWIFT_NAME(CardPresentRequestPartialAuthorization);
 
+/**
+ Parameters for requesting multicapture support on a transaction.
+ */
+typedef NS_ENUM(NSUInteger, SCPCardPresentRequestMulticapture) {
+    /**
+     Allow multicapture if it is available.
+     */
+    SCPCardPresentRequestMulticaptureIfAvailable,
+
+    /**
+     Never use multicapture.
+     */
+    SCPCardPresentRequestMulticaptureNever,
+} NS_SWIFT_NAME(CardPresentRequestMulticapture);
+
+/**
+ Parameters for requesting reauthorization support on a transaction.
+ */
+typedef NS_ENUM(NSUInteger, SCPCardPresentRequestReauthorization) {
+    /**
+     Allow reauthorization if it is available.
+     */
+    SCPCardPresentRequestReauthorizationIfAvailable,
+
+    /**
+     Never use reauthorization.
+     */
+    SCPCardPresentRequestReauthorizationNever,
+} NS_SWIFT_NAME(CardPresentRequestReauthorization);
+
 @class SCPSurcharge;
 
 /**
@@ -109,6 +139,20 @@ NS_SWIFT_NAME(CardPresentParameters)
 @property (nonatomic, strong, nullable, readonly) NSNumber *requestPartialAuthorization;
 
 /**
+ `SCPCardPresentRequestMulticapture` as a nullable NSNumber.
+
+ Allows requesting multicapture support for this PaymentIntent.
+ */
+@property (nonatomic, strong, nullable, readonly) NSNumber *requestMulticapture;
+
+/**
+ `SCPCardPresentRequestReauthorization` as a nullable NSNumber.
+
+ Allows requesting reauthorization support for this PaymentIntent.
+ */
+@property (nonatomic, strong, nullable, readonly) NSNumber *requestReauthorization;
+
+/**
  Use `SCPCardPresentParametersBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -143,6 +187,12 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.requestPartialAuthorization`
 - (SCPCardPresentParametersBuilder *)setRequestPartialAuthorization:(SCPCardPresentRequestPartialAuthorization)requestPartialAuthorization;
+
+/// @see `SCPCardPresentParameters.requestMulticapture`
+- (SCPCardPresentParametersBuilder *)setRequestMulticapture:(SCPCardPresentRequestMulticapture)requestMulticapture;
+
+/// @see `SCPCardPresentParameters.requestReauthorization`
+- (SCPCardPresentParametersBuilder *)setRequestReauthorization:(SCPCardPresentRequestReauthorization)requestReauthorization;
 
 @end
 

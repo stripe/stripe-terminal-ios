@@ -40,6 +40,12 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
     SCPDeviceTypeStripeM2,
 
     /**
+     The Stripe Reader U200 mobile reader.
+     USB-powered (no battery).
+     */
+    SCPDeviceTypeStripeU200,
+
+    /**
      The BBPOS WisePOS E countertop reader.
 
      @see https://stripe.com/docs/terminal/readers/bbpos-wisepos-e
@@ -168,6 +174,16 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
      Stripe Reader T600 DevKit
      */
     SCPDeviceTypeStripeT600DevKit,
+
+    /**
+     Stripe Reader T610
+     */
+    SCPDeviceTypeStripeT610,
+
+    /**
+     Stripe Reader T610 DevKit
+     */
+    SCPDeviceTypeStripeT610DevKit,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

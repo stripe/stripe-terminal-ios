@@ -468,7 +468,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
             var rebootRow: Row?
             let deviceType = connectedReader.deviceType
             switch deviceType {
-            case .stripeM2, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
+            case .stripeM2, .stripeU200, .chipper1X, .chipper2X, .wisePad3, .wiseCube:
                 rebootRow = Row(
                     text: "Reboot Reader",
                     selection: { [unowned self] in
@@ -494,7 +494,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 .verifoneV660p,
                 .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
                 .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
-                .stripeT600, .stripeT600DevKit:
+                .stripeT600, .stripeT600DevKit, .stripeT610, .stripeT610DevKit:
                 workflowRows.append(
                     Row(
                         text: "Set reader display",
@@ -523,7 +523,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 break
             }
 
-            if deviceType != .chipper2X && deviceType != .stripeM2 {
+            if deviceType != .chipper2X && deviceType != .stripeM2 && deviceType != .stripeU200 {
                 workflowRows.append(
                     Row(
                         text: "In-Person refund",
@@ -543,7 +543,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 .verifoneUX700, .verifoneUX700DevKit, .verifoneV660p, .verifoneV660pDevKit, .wisePosE,
                 .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
                 .wisePosEDevKit,
-                .stripeT600, .stripeT600DevKit:
+                .stripeT600, .stripeT600DevKit, .stripeT610, .stripeT610DevKit:
                 workflowRows.append(
                     Row(
                         text: "Collect inputs",

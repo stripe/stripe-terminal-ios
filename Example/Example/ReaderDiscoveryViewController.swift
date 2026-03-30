@@ -194,7 +194,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
     // Returns the appropriate ReaderDelegate and ConnectionConfig for the provide reader being connected to
     func buildDelegateAndConnectionConfig(_ reader: Reader, failIfInUse: Bool) throws -> ConnectionConfiguration? {
         switch reader.deviceType {
-        case .chipper1X, .chipper2X, .stripeM2, .wisePad3, .wiseCube:
+        case .chipper1X, .chipper2X, .stripeM2, .stripeU200, .wisePad3, .wiseCube:
             let locationId = selectedLocationStub?.stripeId ?? reader.locationId
             if let presentLocationId = locationId {
                 let connectionConfig: ConnectionConfiguration
@@ -222,7 +222,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             .verifoneV660p,
             .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,
             .verifoneVM100, .verifoneVP100, .verifoneVL110, .verifoneVM110, .verifoneVP110,
-            .stripeT600, .stripeT600DevKit:
+            .stripeT600, .stripeT600DevKit, .stripeT610, .stripeT610DevKit:
             let connectionConfig = try InternetConnectionConfigurationBuilder(
                 delegate: InternetReaderDelegateAnnouncer.shared
             )
@@ -529,6 +529,8 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         switch reader.deviceType {
         case .stripeM2:
             image = UIImage(named: "stripe_m2")
+        case .stripeU200:
+            image = UIImage(named: "stripe_u200")
         case .chipper1X, .chipper2X, .wiseCube:
             image = UIImage(named: "chipper")
         case .wisePad3:
@@ -540,7 +542,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
             image = UIImage(named: "wisepose")
         case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
             image = UIImage(named: "s700")
-        case .stripeT600, .stripeT600DevKit:
+        case .stripeT600, .stripeT600DevKit, .stripeT610, .stripeT610DevKit:
             // Don't have the image for T600 yet, according to tickets desp use this as placeholader first
             image = UIImage(named: "generic_reader")
         case .tapToPay:

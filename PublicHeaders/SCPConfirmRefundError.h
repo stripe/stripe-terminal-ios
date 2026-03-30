@@ -15,6 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPApiError;
 @class SCPRefund;
 @class SCPRefundParameters;
 
@@ -39,6 +40,11 @@ NS_SWIFT_NAME(ConfirmRefundError)
  this property contains additional details about the error.
 */
 @property (nonatomic, nullable, readonly) NSError *requestError;
+
+/**
+ The API error containing detailed information about the failure.
+ */
+@property (nonatomic, nullable, readonly) SCPApiError *apiError;
 
 /**
  You cannot directly instantiate this class.

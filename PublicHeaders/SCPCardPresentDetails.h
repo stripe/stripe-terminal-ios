@@ -45,6 +45,46 @@ typedef NS_ENUM(NSUInteger, SCPIncrementalAuthorizationStatus) {
 } NS_SWIFT_NAME(IncrementalAuthorizationStatus);
 
 /**
+ Represents multicapture availability for a confirmed PaymentIntent.
+ */
+typedef NS_ENUM(NSUInteger, SCPMulticaptureStatus) {
+    /**
+     It is undetermined whether multicapture availability is known.
+     */
+    SCPMulticaptureStatusUnknown,
+
+    /**
+     This PaymentIntent is not eligible for multicapture.
+     */
+    SCPMulticaptureStatusUnavailable,
+
+    /**
+     This PaymentIntent is eligible for multicapture.
+     */
+    SCPMulticaptureStatusAvailable,
+} NS_SWIFT_NAME(MulticaptureStatus);
+
+/**
+ Represents reauthorization availability for a confirmed PaymentIntent.
+ */
+typedef NS_ENUM(NSUInteger, SCPReauthorizationStatus) {
+    /**
+     It is undetermined whether reauthorization availability is known.
+     */
+    SCPReauthorizationStatusUnknown,
+
+    /**
+     This PaymentIntent is not eligible for reauthorization.
+     */
+    SCPReauthorizationStatusUnavailable,
+
+    /**
+     This PaymentIntent is eligible for reauthorization.
+     */
+    SCPReauthorizationStatusAvailable,
+} NS_SWIFT_NAME(ReauthorizationStatus);
+
+/**
  An object representing details from a transaction using a card_present
  payment method.
 
@@ -140,6 +180,30 @@ NS_SWIFT_NAME(CardPresentDetails)
  * Note: This is only known if the PaymentIntent was confirmed.
  */
 @property (nonatomic, assign, readonly) SCPIncrementalAuthorizationStatus incrementalAuthorizationStatus;
+
+/**
+ * Whether this payment method is eligible for multicapture.
+ *
+ * Note: This is only known if the PaymentIntent was confirmed.
+ */
+@property (nonatomic, assign, readonly) SCPMulticaptureStatus multicaptureStatus;
+
+/**
+ * Whether this payment method is eligible for reauthorization.
+ *
+ * Note: This is only known if the PaymentIntent was confirmed.
+ */
+@property (nonatomic, assign, readonly) SCPReauthorizationStatus reauthorizationStatus;
+
+/**
+ * The date by which the payment must be captured.
+ */
+@property (nonatomic, nullable, readonly) NSDate *captureBefore;
+
+/**
+ * The date by which the payment must be reauthorized (if reauthorization is available).
+ */
+@property (nonatomic, nullable, readonly) NSDate *reauthorizeBefore;
 
 /**
  How the card was read in this transaction.

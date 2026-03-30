@@ -16,6 +16,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private let currencyView = CurrencyInputView()
     private var startSection: Section?
     private var skipTipping = false
+    private var skipDonation = false
     private var collectSurchargeConsent = false
     private var enableCustomerCancellation = true
     private var interacPresentEnabled = false
@@ -26,6 +27,8 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var requestExtendedAuthorization = false
     private var requestIncrementalAuthorizationSupport = false
     private var requestPartialAuthorization: String?
+    private var requestMulticapture: String?
+    private var requestReauthorization: CardPresentRequestReauthorization?
     private var declineCardBrand: CardBrand?
     private var recollectAfterCardBrandDecline = false
     private let isSposReader: Bool
@@ -355,6 +358,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             .setRequestDynamicCurrencyConversion(self.requestDcc)
             .setSurchargeNotice(surchargeNotice)
             .setAllowRedisplay(self.allowRedisplay)
+            .setSkipDonation(self.skipDonation)
     }
 
     private func createConfirmConfigBuilder() -> ConfirmPaymentIntentConfigurationBuilder {
@@ -452,6 +456,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         if requestPartialAuthorization == "never" {
             cardPresentParamsBuilder.setRequestPartialAuthorization(CardPresentRequestPartialAuthorization.never)
         }
+        if requestMulticapture == "if_available" {
+            cardPresentParamsBuilder.setRequestMulticapture(CardPresentRequestMulticapture.ifAvailable)
+        }
+        if requestMulticapture == "never" {
+            cardPresentParamsBuilder.setRequestMulticapture(CardPresentRequestMulticapture.never)
+        }
+        if let requestReauthorization {
+            cardPresentParamsBuilder.setRequestReauthorization(requestReauthorization)
+        }
 
         do {
             return try PaymentMethodOptionsParametersBuilder(
@@ -491,6 +504,21 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 )
             ],
             footer: .autoLayoutView(tipFields)
+        )
+    }
+
+    private func makeDonationSection() -> Section? {
+        return Section(
+            header: "DONATION",
+            rows: [
+                Row(
+                    text: "Skip Donation",
+                    accessory: .switchToggle(value: self.skipDonation) { [unowned self] _ in
+                        self.skipDonation.toggle()
+                        self.updateContent()
+                    }
+                )
+            ],
         )
     }
 
@@ -826,6 +854,48 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return Section(header: "Partial Authorization", rows: rows)
     }
 
+    private func makeRequestMulticaptureSection() -> Section {
+        let rows: [Row] = [
+            Row(
+                accessory: .segmentedControl(
+                    items: ["default", "if_available", "never"],
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.requestMulticapture = nil
+                    case 1: self.requestMulticapture = "if_available"
+                    case 2: self.requestMulticapture = "never"
+                    default:
+                        fatalError("Unknown option selected")
+                    }
+                }
+            )
+        ]
+
+        return Section(header: "Request Multicapture", rows: rows)
+    }
+
+    private func makeRequestReauthorizationSection() -> Section {
+        let rows: [Row] = [
+            Row(
+                accessory: .segmentedControl(
+                    items: ["default", "if_available", "never"],
+                    selectedIndex: 0
+                ) { [unowned self] newIndex, _ in
+                    switch newIndex {
+                    case 0: self.requestReauthorization = nil
+                    case 1: self.requestReauthorization = CardPresentRequestReauthorization.ifAvailable
+                    case 2: self.requestReauthorization = CardPresentRequestReauthorization.never
+                    default:
+                        fatalError("Unknown option selected")
+                    }
+                }
+            )
+        ]
+
+        return Section(header: "Request Reauthorization", rows: rows)
+    }
+
     /// Makes the "DCC" section.
     private func makeRequestDccSection() -> Section {
         let rows: [Row] = [
@@ -898,11 +968,14 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
             self.makeAmountSection(),
             self.makeCurrencySection(),
             self.makeTippingSection(),
+            self.makeDonationSection(),
             self.makeTransactionSection(),
             self.makeSimulatedTipAmountSection(),
             self.makePaymentMethodTypesSection(),
             self.makePaymentMethodSection(),
             self.makeRequestPartialAuthorizationSection(),
+            self.makeRequestMulticaptureSection(),
+            self.makeRequestReauthorizationSection(),
             self.makeRequestDccSection(),
             self.makeSurchargeNoticeSection(),
             self.makeAmountSurchargeSection(),
