@@ -15,6 +15,7 @@
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPCustomerCancellation.h>
 #import <StripeTerminal/SCPMotoConfiguration.h>
+#import <StripeTerminal/SCPPaymentOption.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -95,6 +96,13 @@ NS_SWIFT_NAME(CollectPaymentIntentConfiguration)
 @property (nonatomic, strong, nullable, readonly) SCPMotoConfiguration *motoConfiguration;
 
 /**
+ Skip launching the donations app for this transaction.
+
+ Defaults to NO.
+*/
+@property (nonatomic, assign, readonly) BOOL skipDonation;
+
+/**
  Use `SCPCollectPaymentIntentConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -135,6 +143,9 @@ NS_SWIFT_NAME(CollectPaymentIntentConfigurationBuilder)
 
 /// Set the motoConfiguration property for the `CollectPaymentIntentConfiguration` object that will be built.
 - (SCPCollectPaymentIntentConfigurationBuilder *)setMotoConfiguration:(nullable SCPMotoConfiguration *)motoConfiguration;
+
+/// Set the skipDonation property for the `CollectPaymentIntentConfiguration` object that will be built.
+- (SCPCollectPaymentIntentConfigurationBuilder *)setSkipDonation:(BOOL)skipDonation;
 
 @end
 

@@ -15,6 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPApiError;
 @class SCPSetupIntent;
 
 /**
@@ -39,6 +40,11 @@ NS_SWIFT_NAME(ConfirmSetupIntentError)
  property contains the decline code.
  */
 @property (nonatomic, nullable, readonly) NSString *declineCode;
+
+/**
+ The API error containing detailed information about the failure.
+ */
+@property (nonatomic, nullable, readonly) SCPApiError *apiError;
 
 /**
  You cannot directly instantiate this class.

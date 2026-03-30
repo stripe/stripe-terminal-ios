@@ -97,6 +97,8 @@ class ReaderHeaderView: UIView {
             switch reader.deviceType {
             case .stripeM2:
                 imageView.image = UIImage(named: "stripe_m2")
+            case .stripeU200:
+                imageView.image = UIImage(named: "stripe_u200")
             case .chipper1X, .chipper2X, .wiseCube:
                 imageView.image = UIImage(named: "chipper")
             case .wisePad3:
@@ -107,7 +109,7 @@ class ReaderHeaderView: UIView {
                 imageView.image = UIImage(named: "wisepose")
             case .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit:
                 imageView.image = UIImage(named: "s700")
-            case .stripeT600, .stripeT600DevKit:
+            case .stripeT600, .stripeT600DevKit, .stripeT610, .stripeT610DevKit:
                 // Don't have the image for T600 yet, according to tickets desp use this as placeholader first
                 imageView.image = UIImage(named: "verifone")
             case .tapToPay:

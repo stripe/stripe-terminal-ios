@@ -15,6 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPApiError;
 @class SCPPaymentIntent;
 
 /**
@@ -57,6 +58,13 @@ NS_SWIFT_NAME(ConfirmPaymentIntentError)
  property contains the decline code.
  */
 @property (nonatomic, nullable, readonly) NSString *declineCode;
+
+/**
+ The API error object containing detailed information about the error,
+ including requestLogUrl, networkDeclineCode, adviceCode, and networkAdviceCode.
+ Also accessible via userInfo[SCPErrorKeyStripeAPIError].
+ */
+@property (nonatomic, nullable, readonly) SCPApiError *apiError;
 
 /**
  You cannot directly instantiate this class.

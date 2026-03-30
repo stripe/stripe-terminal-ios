@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.3.0 Docs
+          StripeTerminal 5.4.0 Docs
         </a>
         
       </p>
@@ -433,6 +433,12 @@
                 <a class="nav-group-task-link" href="../Enums/SCPCardPresentRequestPartialAuthorization.html">SCPCardPresentRequestPartialAuthorization</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardPresentRequestMulticapture.html">SCPCardPresentRequestMulticapture</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPCardPresentRequestReauthorization.html">SCPCardPresentRequestReauthorization</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
               </li>
               <li class="nav-group-task">
@@ -545,6 +551,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPMulticaptureStatus.html">SCPMulticaptureStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPReauthorizationStatus.html">SCPReauthorizationStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPMotoConfiguration.html">SCPMotoConfiguration</a>
@@ -686,6 +698,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyPrepareFailedReason">SCPErrorKeyPrepareFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIError">SCPErrorKeyStripeAPIError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
@@ -919,6 +934,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeStripeU200"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeStripeU200" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeStripeU200">SCPDeviceTypeStripeU200</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Stripe Reader U200 mobile reader.
+USB-powered (no battery).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeStripeU200</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeU200</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPDeviceType@SCPDeviceTypeWisePosE"></a>
                     <a name="//apple_ref/objc/Case/SCPDeviceTypeWisePosE" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeWisePosE">SCPDeviceTypeWisePosE</a>
@@ -946,7 +994,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wisePosE</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wisePosE</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -983,7 +1031,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wisePosEDevKit</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wisePosEDevKit</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -1015,7 +1063,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS700</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS700</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -1047,7 +1095,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS700DevKit</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS700DevKit</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -1079,7 +1127,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS710</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS710</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -1111,7 +1159,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS710DevKit</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeS710DevKit</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -1143,7 +1191,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneV660p</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneV660p</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
 
                         </div>
                       </div>
@@ -1175,7 +1223,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneV660pDevKit</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneV660pDevKit</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
 
                         </div>
                       </div>
@@ -1207,7 +1255,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneM425</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneM425</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
 
                         </div>
                       </div>
@@ -1239,7 +1287,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneM450</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneM450</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
 
                         </div>
                       </div>
@@ -1271,7 +1319,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneP630</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneP630</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
 
                         </div>
                       </div>
@@ -1303,7 +1351,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneUX700</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneUX700</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
 
                         </div>
                       </div>
@@ -1335,7 +1383,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneUX700DevKit</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneUX700DevKit</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
 
                         </div>
                       </div>
@@ -1367,7 +1415,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVM100</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVM100</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
 
                         </div>
                       </div>
@@ -1399,7 +1447,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVP100</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVP100</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
 
                         </div>
                       </div>
@@ -1431,7 +1479,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVL110</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVL110</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
 
                         </div>
                       </div>
@@ -1463,7 +1511,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVM110</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVM110</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
 
                         </div>
                       </div>
@@ -1495,7 +1543,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVP110</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verifoneVP110</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
 
                         </div>
                       </div>
@@ -1527,7 +1575,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tapToPay</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tapToPay</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
 
                         </div>
                       </div>
@@ -1559,7 +1607,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
 
                         </div>
                       </div>
@@ -1591,7 +1639,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600DevKit</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT600DevKit</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeStripeT610"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeStripeT610" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeStripeT610">SCPDeviceTypeStripeT610</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stripe Reader T610</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeStripeT610</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT610</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDeviceType@SCPDeviceTypeStripeT610DevKit"></a>
+                    <a name="//apple_ref/objc/Case/SCPDeviceTypeStripeT610DevKit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDeviceType@SCPDeviceTypeStripeT610DevKit">SCPDeviceTypeStripeT610DevKit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stripe Reader T610 DevKit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPDeviceTypeStripeT610DevKit</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">stripeT610DevKit</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
 
                         </div>
                       </div>
@@ -1606,7 +1718,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-03-03)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-03-30)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

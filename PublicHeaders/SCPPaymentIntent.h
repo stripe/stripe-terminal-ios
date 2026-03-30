@@ -55,6 +55,10 @@ typedef NS_ENUM(NSUInteger, SCPPaymentIntentStatus) {
      The PaymentIntent succeeded.
      */
     SCPPaymentIntentStatusSucceeded,
+    /**
+     The PaymentIntent authorization has expired and requires reauthorization.
+     */
+    SCPPaymentIntentStatusRequiresReauthorization,
 } NS_SWIFT_NAME(PaymentIntentStatus);
 
 /**

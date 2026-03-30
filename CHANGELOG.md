@@ -8,6 +8,30 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.4.0 2026-03-30
+### New
+* Preview: Terminal Donations - Added support to skip donations flow per transaction by adding a `skipDonation` parameter to the `SCPCollectPaymentIntentConfiguration` model.
+  * To request access to this private preview, please contact [Stripe Support](https://support.stripe.com/).
+* Preview: Multi Capture - Added `requestMulticapture` to [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html) for requesting multicapture support when creating card-present PaymentIntents.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* Preview: Reauthorizations - Added support to authorize a `PaymentIntent` again after its capture window has lapsed. 
+  * Added `requestReauthorization` to `SCPCardPresentParameters` for requesting reauthorization support when creating card-present PaymentIntents.
+  * Added `reauthorizationStatus` and `reauthorizeBefore` response fields to `SCPCardPresentDetails`.
+  * Added `SCPPaymentIntentStatusRequiresReauthorization` to `SCPPaymentIntentStatus`.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* Added the `captureBefore` response field to `SCPCardPresentDetails`.
+  * Previously only available via the server-side API.
+
+
+### Updates
+* [`SCPApiError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPApiError.html) now exposes `requestLogUrl`, `adviceCode`, `networkAdviceCode`, and `networkDeclineCode` to provide more details about Stripe API errors.
+* [`SCPSetupIntent.lastSetupError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html#/c:objc(cs)SCPSetupIntent(py)lastSetupError) and [`SCPSetupAttempt.setupError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupAttempt.html#/c:objc(cs)SCPSetupAttempt(py)setupError) now expose `requestLogUrl`, `adviceCode`, `networkAdviceCode`, and `networkDeclineCode` via [`SCPApiError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPApiError.html).
+* [`SCPConfirmPaymentIntentError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmPaymentIntentError.html), [`SCPConfirmSetupIntentError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmSetupIntentError.html), and [`SCPConfirmRefundError`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPConfirmRefundError.html) now expose an `apiError` property, which is also available via `userInfo[SCPErrorKeyStripeAPIError]`.
+
+### Fixes
+* Fixes [#377](https://github.com/stripe/stripe-terminal-ios/issues/377): Fixed a crash caused by delegate callbacks and completion handlers being dispatched on background threads when using Swift concurrency.
+* Fixed a crash that could occur during reader discovery.
+
 # 5.3.0 2026-03-03
 ### Fixes
 * Fixes [#370](https://github.com/stripe/stripe-terminal-ios/issues/370): Fixed a race condition that could cause a crash when connecting to readers. 

@@ -1022,4 +1022,10 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyDeviceBannedUntilDate;
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyPrepareFailedReason;
 
+/**
+ An SCPApiError from the Stripe API containing detailed error information
+ including requestLogUrl, networkDeclineCode, adviceCode, and networkAdviceCode.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIError;
+
 NS_ASSUME_NONNULL_END
