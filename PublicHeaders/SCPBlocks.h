@@ -60,7 +60,7 @@ typedef void (^SCPPaymentMethodCompletionBlock)(SCPPaymentMethod *__nullable pay
 /**
  A block called with an optional error.
 
- @param error       The error, or nil if no error occured.
+ @param error       The error, or nil if no error occurred.
  */
 typedef void (^SCPErrorCompletionBlock)(NSError *__nullable error)
     NS_SWIFT_NAME(ErrorCompletionBlock);
