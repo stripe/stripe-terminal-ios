@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCPAffirmDetails;
 @class SCPPaynowDetails;
 @class SCPPaypayDetails;
+@class SCPKlarnaDetails;
 
 /**
  Details about a PaymentMethod at a specific time. ex: at time of transaction
@@ -83,6 +84,12 @@ NS_SWIFT_NAME(PaymentMethodDetails)
  this contains additional information.
  */
 @property (nonatomic, nullable, readonly) SCPPaypayDetails *paypay;
+
+/**
+ If this is a Klarna payment method (ie `self.type == SCPPaymentMethodTypeKlarna`),
+ this contains additional information.
+ */
+@property (nonatomic, nullable, readonly) SCPKlarnaDetails *klarna;
 
 /**
  You cannot directly instantiate this class.

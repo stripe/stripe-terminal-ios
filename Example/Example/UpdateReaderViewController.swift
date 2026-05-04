@@ -173,7 +173,7 @@ class UpdateReaderViewController: TableViewController, CancelableViewController 
         var targetSection: Section?
         if update?.deviceSoftwareVersion != nil {
             targetSection = Section(
-                header: "Target Version",
+                header: .title("Target Version" + (update?.isTestUpdate == true ? " (Test Update)" : "")),
                 rows: [
                     Row(text: update?.deviceSoftwareVersion, cellClass: Value1MultilineCell.self)
                 ]

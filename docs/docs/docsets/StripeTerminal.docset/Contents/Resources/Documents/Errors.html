@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.4.0 Docs
+          StripeTerminal 5.5.0 Docs
         </a>
         
       </p>
@@ -191,6 +191,12 @@
                 <a class="nav-group-task-link" href="Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTestReaderUpdate.html">SCPTestReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPTestReaderUpdateType.html">SCPTestReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
               </li>
               <li class="nav-group-task">
@@ -207,6 +213,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedOfflineModeConfigurationBuilder.html">SCPSimulatedOfflineModeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulatedOfflineMode.html">SCPSimulatedOfflineMode</a>
               </li>
             </ul>
           </li>
@@ -536,7 +551,10 @@
                 <a class="nav-group-task-link" href="Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SCPSurcharge.html">SCPSurcharge</a>
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeDetails.html">SCPSurchargeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSurchargeStatus.html">SCPSurchargeStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -576,6 +594,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPAffirmDetails.html">SCPAffirmDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPKlarnaDetails.html">SCPKlarnaDetails</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPPaynowDetails.html">SCPPaynowDetails</a>
@@ -730,6 +751,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyOfflineDeclineReason">SCPErrorKeyOfflineDeclineReason</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyTapToPayReaderErrorName">SCPErrorKeyTapToPayReaderErrorName</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -782,6 +806,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPTTPAccountLinkCompletionBlock">SCPTTPAccountLinkCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1476,6 +1503,39 @@ are <code>lost_or_stolen_card</code>, <code>expired_or_canceled_card</code>, or 
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@SCPErrorKeyTapToPayReaderErrorName"></a>
+                    <a name="//apple_ref/objc/Constant/SCPErrorKeyTapToPayReaderErrorName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@SCPErrorKeyTapToPayReaderErrorName">SCPErrorKeyTapToPayReaderErrorName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This error message comes from the Tap to Pay reader. You probably shouldn&rsquo;t show this
+to your users, but may want to inspect it yourself.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a></span> <span class="n">_Nonnull</span> <span class="n">SCPErrorKeyTapToPayReaderErrorName</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">tapToPayReaderErrorName</span><span class="p">:</span> <span class="kt">ErrorKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1484,7 +1544,7 @@ are <code>lost_or_stolen_card</code>, <code>expired_or_canceled_card</code>, or 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-03-30)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-05-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

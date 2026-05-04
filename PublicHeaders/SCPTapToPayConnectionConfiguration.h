@@ -17,6 +17,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPTestReaderUpdate;
+
 /**
  This class lets you set options that define tap to pay reader behavior throughout a given
  reader-to-SDK connection session.
@@ -90,6 +92,19 @@ NS_SWIFT_NAME(TapToPayConnectionConfiguration)
 @property (nonatomic, assign, readonly, getter=isAutoReconnectOnUnexpectedDisconnect) BOOL autoReconnectOnUnexpectedDisconnect;
 
 /**
+ When set, the SDK will perform or announce a reader software update during connection
+ in test mode. Connect will fail with `SCPErrorInvalidConnectionConfiguration` if this
+ is used when connecting to a live-mode reader.
+
+ Only `available`, `required`, and `random` types are supported for Tap to Pay readers.
+ Setting `requiredOffline`, `lowBattery`, or `lowBatterySucceedConnect` will result in
+ an error when building this configuration.
+
+ Defaults to nil (no update).
+ */
+@property (nonatomic, strong, readonly, nullable) SCPTestReaderUpdate *testReaderUpdate;
+
+/**
  Use `SCPTapToPayConnectionConfigurationBuilder`
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -160,6 +175,12 @@ NS_SWIFT_NAME(TapToPayConnectionConfigurationBuilder)
  Defaults to true.
  */
 - (SCPTapToPayConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/**
+ * @param testReaderUpdate The test-mode reader update behavior to apply during connect.
+ * @see `SCPTapToPayConnectionConfiguration.testReaderUpdate`
+ */
+- (SCPTapToPayConnectionConfigurationBuilder *)setTestReaderUpdate:(nullable SCPTestReaderUpdate *)testReaderUpdate;
 
 /**
  Use `initWithLocationId:`

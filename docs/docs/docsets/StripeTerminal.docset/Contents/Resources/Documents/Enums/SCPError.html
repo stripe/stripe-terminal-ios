@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.4.0 Docs
+          StripeTerminal 5.5.0 Docs
         </a>
         
       </p>
@@ -193,6 +193,12 @@
                 <a class="nav-group-task-link" href="../Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTestReaderUpdate.html">SCPTestReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPTestReaderUpdateType.html">SCPTestReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
               </li>
               <li class="nav-group-task">
@@ -209,6 +215,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedOfflineModeConfigurationBuilder.html">SCPSimulatedOfflineModeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulatedOfflineMode.html">SCPSimulatedOfflineMode</a>
               </li>
             </ul>
           </li>
@@ -538,7 +553,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPSurcharge.html">SCPSurcharge</a>
+                <a class="nav-group-task-link" href="../Classes/SCPSurchargeDetails.html">SCPSurchargeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSurchargeStatus.html">SCPSurchargeStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -578,6 +596,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPAffirmDetails.html">SCPAffirmDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPKlarnaDetails.html">SCPKlarnaDetails</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPPaynowDetails.html">SCPPaynowDetails</a>
@@ -732,6 +753,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyOfflineDeclineReason">SCPErrorKeyOfflineDeclineReason</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyTapToPayReaderErrorName">SCPErrorKeyTapToPayReaderErrorName</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -784,6 +808,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPTTPAccountLinkCompletionBlock">SCPTTPAccountLinkCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -4397,6 +4424,138 @@ Ensure the Apple ID is still active and in a good standing and try again.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeNotAllowed"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTapToPayReaderOfflineModeNotAllowed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeNotAllowed">SCPErrorTapToPayReaderOfflineModeNotAllowed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Tap to Pay offline mode session could not be created.
+Go online and reconnect the app to the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTapToPayReaderOfflineModeNotAllowed</span> <span class="o">=</span> <span class="mi">3971</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">tapToPayReaderOfflineModeNotAllowed</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeSessionExpired"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTapToPayReaderOfflineModeSessionExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeSessionExpired">SCPErrorTapToPayReaderOfflineModeSessionExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current Tap to Pay offline mode session has expired and can&rsquo;t execute additional reads.
+Go online and reconnect the app to the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTapToPayReaderOfflineModeSessionExpired</span> <span class="o">=</span> <span class="mi">3972</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">tapToPayReaderOfflineModeSessionExpired</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeSessionInvalidated"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTapToPayReaderOfflineModeSessionInvalidated" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeSessionInvalidated">SCPErrorTapToPayReaderOfflineModeSessionInvalidated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current Tap to Pay offline mode session was invalidated and can&rsquo;t execute additional reads.
+Go online and reconnect the app to the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTapToPayReaderOfflineModeSessionInvalidated</span> <span class="o">=</span> <span class="mi">3973</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">tapToPayReaderOfflineModeSessionInvalidated</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged">SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current Tap to Pay offline mode session has payments from a different token issuer.
+Go online and reconnect the app to the reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged</span> <span class="o">=</span> <span class="mi">3974</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">tapToPayReaderOfflineModeTokenIssuerChanged</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorReaderMissingEncryptionKeys" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorReaderMissingEncryptionKeys">SCPErrorReaderMissingEncryptionKeys</a>
@@ -5513,6 +5672,71 @@ Retry the payment with another card.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@SCPError@SCPErrorSimulatedOfflineModeNotAvailableInLivemode"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorSimulatedOfflineModeNotAvailableInLivemode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorSimulatedOfflineModeNotAvailableInLivemode">SCPErrorSimulatedOfflineModeNotAvailableInLivemode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simulated offline mode is not available when connected to a livemode reader.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSimulatedOfflineModeNotAvailableInLivemode</span> <span class="o">=</span> <span class="mi">6908</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">simulatedOfflineModeNotAvailableInLivemode</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPError@SCPErrorSimulatedOfflineModeNotAvailableForAccount"></a>
+                    <a name="//apple_ref/objc/Case/SCPErrorSimulatedOfflineModeNotAvailableForAccount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPError@SCPErrorSimulatedOfflineModeNotAvailableForAccount">SCPErrorSimulatedOfflineModeNotAvailableForAccount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simulated offline mode is not available for this account. Contact Stripe
+to request access.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">SCPErrorSimulatedOfflineModeNotAvailableForAccount</span> <span class="o">=</span> <span class="mi">6909</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">simulatedOfflineModeNotAvailableForAccount</span><span class="p">:</span> <span class="kt">ErrorCode</span><span class="o">.</span><span class="kt">Code</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@SCPError@SCPErrorNotConnectedToInternet"></a>
                     <a name="//apple_ref/objc/Case/SCPErrorNotConnectedToInternet" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@SCPError@SCPErrorNotConnectedToInternet">SCPErrorNotConnectedToInternet</a>
@@ -5934,7 +6158,7 @@ the functionality or retry with another value for <code><a href="../Enums/SCPOff
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-03-30)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-05-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

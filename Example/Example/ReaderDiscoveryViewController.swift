@@ -13,6 +13,8 @@ import UIKit
 class ReaderDiscoveryViewController: TableViewController, CancelableViewController, CancelingViewController {
     private var selectedLocationStub: LocationStub?
     private var autoReconnectOnUnexpectedDisconnect: Bool = true
+    private var selectedTestReaderUpdateType: TestReaderUpdateSelection = .none
+    private var selectedTestReaderUpdateComponents: UpdateComponent = [.config]
     var onCanceled: () -> Void = {}
     var onConnectedToReader: (Reader) -> Void = { _ in }
     private let discoveryConfig: DiscoveryConfiguration
@@ -45,6 +47,9 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
 
     init(discoveryConfig: DiscoveryConfiguration) {
         self.discoveryConfig = discoveryConfig
+        if discoveryConfig.simulated {
+            self.selectedTestReaderUpdateType = .random
+        }
         super.init(style: .grouped)
         self.title = "Discovery"
         TerminalDelegateAnnouncer.shared.addListener(self)
@@ -204,6 +209,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                         locationId: presentLocationId
                     )
                     .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
+                    .setTestReaderUpdate(buildTestReaderUpdate())
                     .build()
                 } else {
                     connectionConfig = try BluetoothConnectionConfigurationBuilder(
@@ -211,6 +217,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                         locationId: presentLocationId
                     )
                     .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
+                    .setTestReaderUpdate(buildTestReaderUpdate())
                     .build()
                 }
                 return connectionConfig
@@ -241,6 +248,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 .setMerchantDisplayName(nil)  // use the location name
                 .setOnBehalfOf(useOBO ? onBehalfOfTextField.textField.text : nil)
                 .setAutoReconnectOnUnexpectedDisconnect(self.autoReconnectOnUnexpectedDisconnect)
+                .setTestReaderUpdate(buildTestReaderUpdate())
                 .build()
                 return connectionConfig
             } else {
@@ -331,10 +339,142 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
         )
     }
 
+    private var supportsConnectionConfigTestUpdate: Bool {
+        switch discoveryConfig.discoveryMethod {
+        case .bluetoothScan, .bluetoothProximity, .usb:
+            return true
+        case .tapToPay:
+            return discoveryConfig.simulated
+        case .internet:
+            return false
+        @unknown default:
+            return false
+        }
+    }
+
+    private var isTapToPayTestUpdateConfiguration: Bool {
+        return discoveryConfig.discoveryMethod == .tapToPay && discoveryConfig.simulated
+    }
+
+    private var isMobileTestUpdateConfiguration: Bool {
+        return discoveryConfig.discoveryMethod == .bluetoothScan
+            || discoveryConfig.discoveryMethod == .bluetoothProximity
+            || discoveryConfig.discoveryMethod == .usb
+    }
+
+    private func componentLabel(_ component: UpdateComponent) -> String {
+        switch component {
+        case .incremental:
+            return "Incremental"
+        case .firmware:
+            return "Firmware"
+        case .config:
+            return "Config"
+        case .keys:
+            return "Keys"
+        default:
+            return "Unknown"
+        }
+    }
+
+    private func buildTestReaderUpdateSummary() -> String {
+        if isTapToPayTestUpdateConfiguration {
+            switch selectedTestReaderUpdateType {
+            case .required:
+                return "Required (Incremental)"
+            case .random:
+                return "Random"
+            default:
+                return "None"
+            }
+        }
+
+        guard isMobileTestUpdateConfiguration else {
+            return "None"
+        }
+
+        guard selectedTestReaderUpdateType != .none else {
+            return "None"
+        }
+
+        if selectedTestReaderUpdateType == .random
+            || selectedTestReaderUpdateType == .lowBattery
+            || selectedTestReaderUpdateType == .lowBatterySucceedConnect
+        {
+            return selectedTestReaderUpdateType.description
+        }
+
+        let componentsInDisplayOrder: [UpdateComponent] = [.incremental, .firmware, .config, .keys]
+        let selectedComponentLabels =
+            componentsInDisplayOrder
+            .filter({ selectedTestReaderUpdateComponents.contains($0) })
+            .map(componentLabel)
+        if selectedComponentLabels.isEmpty {
+            return "\(selectedTestReaderUpdateType.description) (No components)"
+        }
+        return "\(selectedTestReaderUpdateType.description) (\(selectedComponentLabels.joined(separator: ", ")))"
+    }
+
+    private func buildTestReaderUpdate() -> TestReaderUpdate? {
+        guard supportsConnectionConfigTestUpdate, selectedTestReaderUpdateType != .none else {
+            return nil
+        }
+
+        // TTP only supports required (with incremental) and random.
+        if isTapToPayTestUpdateConfiguration {
+            return selectedTestReaderUpdateType == .required ? .required([.incremental]) : .random()
+        }
+
+        switch selectedTestReaderUpdateType {
+        case .random:
+            return .random()
+        case .available, .required, .requiredOffline:
+            return buildComponentTestReaderUpdate()
+        case .lowBattery:
+            return .lowBattery()
+        case .lowBatterySucceedConnect:
+            return .lowBatterySucceedConnect()
+        case .none:
+            return nil
+        }
+    }
+
+    private func buildComponentTestReaderUpdate() -> TestReaderUpdate? {
+        guard !selectedTestReaderUpdateComponents.isEmpty else {
+            return nil
+        }
+
+        switch selectedTestReaderUpdateType {
+        case .available:
+            return .available(selectedTestReaderUpdateComponents)
+        case .required:
+            return .required(selectedTestReaderUpdateComponents)
+        case .requiredOffline:
+            return .requiredOffline(selectedTestReaderUpdateComponents)
+        default:
+            return nil
+        }
+    }
+
+    private func showTestReaderUpdateConfiguration() {
+        let configVC = TestReaderUpdateConfigViewController(
+            isTapToPayMode: isTapToPayTestUpdateConfiguration,
+            initialSelection: selectedTestReaderUpdateType,
+            initialComponents: selectedTestReaderUpdateComponents
+        )
+        configVC.onSave = { [weak self] selection, components in
+            guard let self = self else { return }
+            self.selectedTestReaderUpdateType = selection
+            self.selectedTestReaderUpdateComponents = components
+            self.updateContent()
+        }
+        navigationController?.pushViewController(configVC, animated: true)
+    }
+
     // MARK: - Location Selection UI
 
     private func mobileReaderConnectionConfigurationSection() -> Section {
-        let commonRows = [
+        var commonRows = [
             Row(
                 text: "Enable Auto-Reconnect",
                 accessory: .switchToggle(
@@ -351,6 +491,20 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 accessory: .disclosureIndicator
             ),
         ]
+
+        if supportsConnectionConfigTestUpdate {
+            commonRows.append(
+                Row(
+                    text: "Test Reader Update",
+                    detailText: buildTestReaderUpdateSummary(),
+                    selection: { [unowned self] in
+                        self.showTestReaderUpdateConfiguration()
+                    },
+                    accessory: .disclosureIndicator,
+                    cellClass: SubtitleCell.self
+                )
+            )
+        }
         return Section(
             header: Section.Extremity.title("Connection Configuration"),
             rows: commonRows,

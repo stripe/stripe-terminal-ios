@@ -271,69 +271,6 @@ class CountryInputView: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSou
     }
 }
 
-class ReaderUpdatePicker: TextFieldView, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    let pickerView = UIPickerView(frame: CGRect.zero)
-
-    let updateTypesInDisplayOrder: [SimulateReaderUpdate] = [
-        .available,
-        .none,
-        .required,
-        .requiredForOffline,
-        .lowBattery,
-        .lowBatterySucceedConnect,
-        .random,
-    ]
-
-    let updateTypeDescriptions: [SimulateReaderUpdate: String] = [
-        .available: "Update Available",
-        .none: "No Update",
-        .required: "Update Required",
-        .requiredForOffline: "Update required for offline connection",
-        .lowBattery: "Update required; reader has low battery",
-        .lowBatterySucceedConnect: "Required update fails, reader connects",
-        .random: "Random",
-    ]
-
-    convenience init() {
-        self.init(text: "")
-        let initialSelectedReaderUpdate = Terminal.shared.simulatorConfiguration.availableReaderUpdate
-        textField.text = updateTypeDescriptions[initialSelectedReaderUpdate]
-        textField.keyboardType = .alphabet
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        pickerView.backgroundColor = UIColor.white
-        textField.inputView = pickerView
-        pickerView.selectRow(
-            updateTypesInDisplayOrder.firstIndex(of: initialSelectedReaderUpdate) ?? 0,
-            inComponent: 0,
-            animated: false
-        )
-    }
-
-    func initialize() {
-        textField.inputView = pickerView
-    }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        updateTypesInDisplayOrder.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return updateTypeDescriptions[updateTypesInDisplayOrder[row]]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        Terminal.shared.simulatorConfiguration.availableReaderUpdate = updateTypesInDisplayOrder[row]
-        textField.text = updateTypeDescriptions[updateTypesInDisplayOrder[row]]
-        textField.resignFirstResponder()
-    }
-}
-
 private enum SimulatedCollectInputsResultEnum {
     case succeedSkipNone
     case succeedSkipAll

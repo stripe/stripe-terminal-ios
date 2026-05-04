@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCardDetails, SCPCardPresentDetails, SCPWechatPayDetails, SCPAffirmDetails, SCPPaynowDetails, SCPPaypayDetails;
+@class SCPCardDetails, SCPCardPresentDetails, SCPWechatPayDetails, SCPAffirmDetails, SCPPaynowDetails, SCPPaypayDetails, SCPKlarnaDetails;
 
 /**
  PaymentMethod objects represent your customer's payment instruments.
@@ -78,6 +78,11 @@ NS_SWIFT_NAME(PaymentMethod)
  If this is a PayPay PaymentMethod (ie `self.type == SCPPaymentMethodTypePaypay`), this contains additional details.
  */
 @property (nonatomic, nullable, readonly) SCPPaypayDetails *paypay;
+
+/**
+ If this is a Klarna PaymentMethod (ie `self.type == SCPPaymentMethodTypeKlarna`), this contains additional details.
+ */
+@property (nonatomic, nullable, readonly) SCPKlarnaDetails *klarna;
 
 /**
  The Customer that this PaymentMethod is attached to, or nil.

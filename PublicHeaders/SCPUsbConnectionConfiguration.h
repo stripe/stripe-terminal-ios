@@ -17,6 +17,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPTestReaderUpdate;
+
 /**
  This class lets you define USB reader connection options.
 
@@ -56,6 +58,15 @@ NS_SWIFT_NAME(UsbConnectionConfiguration)
 @property (nonatomic, assign, readonly) BOOL autoReconnectOnUnexpectedDisconnect;
 
 /**
+ When set, the SDK will perform or announce a reader software update during connection
+ in test mode. Connect will fail with `SCPErrorInvalidConnectionConfiguration` if this
+ is used when connecting to a live-mode reader.
+
+ Defaults to nil (no update).
+ */
+@property (nonatomic, strong, readonly, nullable) SCPTestReaderUpdate *testReaderUpdate;
+
+/**
  Use `SCPUsbConnectionConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -81,6 +92,9 @@ NS_SWIFT_NAME(UsbConnectionConfigurationBuilder)
 
 /// Set the autoReconnectOnUnexpectedDisconnect property for the `UsbConnectionConfiguration` object that will be built.
 - (SCPUsbConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/// Set the testReaderUpdate property for the `UsbConnectionConfiguration` object that will be built.
+- (SCPUsbConnectionConfigurationBuilder *)setTestReaderUpdate:(nullable SCPTestReaderUpdate *)testReaderUpdate;
 
 /**
  Use `initWithLocationId:`

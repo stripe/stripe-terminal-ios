@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPTip;
+@class SCPTip, SCPSurchargeDetails;
 
 /**
  Contains details about items included in the [PaymentIntent] amount
@@ -20,6 +20,9 @@ NS_SWIFT_NAME(AmountDetails)
 
 /// Details about the tip
 @property (nonatomic, nullable, readonly) SCPTip *tip;
+
+/// Details about the surcharge
+@property (nonatomic, nullable, readonly) SCPSurchargeDetails *surcharge;
 
 /**
  You cannot directly instantiate `SCPAmountDetails`.

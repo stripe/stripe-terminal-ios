@@ -1,5 +1,5 @@
 //
-//  StartCheckoutViewController.swift
+//  StartPaymentComponentViewController.swift
 //  Example
 //
 //  Created by Martin Mroz on 9/6/25.

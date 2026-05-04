@@ -43,6 +43,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .affirm,
         .paynow,
         .paypay,
+        .klarna,
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
