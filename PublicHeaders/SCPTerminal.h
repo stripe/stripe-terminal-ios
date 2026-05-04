@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.4.0";
+static NSString *const SCPSDKVersion = @"5.5.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -197,6 +197,30 @@ API_AVAILABLE(ios(15.0))
  @see SCPSimulatorConfiguration
  */
 @property (nonatomic, readonly) SCPSimulatorConfiguration *simulatorConfiguration;
+
+/**
+ Sets the simulated offline mode configuration, controlling how the SDK and
+ connected reader behave in simulation. Stores the configuration and, if a
+ reader is currently connected, immediately sends the reader offline mode to
+ the reader.
+
+ @note For testing only. Calling this method while connected to a livemode
+ reader returns a `SCPErrorSimulatedOfflineModeNotAvailableInLivemode` error.
+
+ @param configuration The `SCPSimulatedOfflineModeConfiguration` to apply.
+ @param error Set to a `SCPError` if the call fails (e.g. connected to a
+ livemode reader). Pass `nil` to ignore errors.
+ */
+- (BOOL)setSimulatedOfflineModeConfiguration:(SCPSimulatedOfflineModeConfiguration *)configuration
+                                       error:(NSError **)error;
+
+/**
+ The current simulated offline mode configuration for the SDK and connected
+ reader. Updated via `setSimulatedOfflineModeConfiguration:error:`.
+
+ @see SCPSimulatedOfflineModeConfiguration
+ */
+@property (nonatomic, readonly) SCPSimulatedOfflineModeConfiguration *simulatedOfflineModeConfiguration;
 
 /**
  The Terminal instance's current payment status.
@@ -350,6 +374,22 @@ API_AVAILABLE(ios(15.0))
  */
 - (void)listLocations:(nullable SCPListLocationsParameters *)parameters
            completion:(SCPLocationsCompletionBlock)completion NS_SWIFT_NAME(listLocations(parameters:completion:));
+
+/**
+ Checks if the merchant has accepted Apple's Tap to Pay Terms of Service.
+
+ This method works independently of reader connection state and does not
+ trigger device activation. It requires Terminal to be initialized with a
+ valid connection token provider.
+
+ @param onBehalfOf  (optional) Connected account ID for Stripe Connect platforms.
+                    Pass nil to check the account that owns the API key.
+ @param completion  Called with the account linking status. If error is non-nil,
+                    ignore the isLinked value.
+ */
+- (void)isTapToPayAccountLinked:(nullable NSString *)onBehalfOf
+                     completion:(SCPTTPAccountLinkCompletionBlock)completion
+    API_AVAILABLE(ios(16.4))NS_SWIFT_NAME(isTapToPayAccountLinked(_:completion:));
 
 /**
  Installs the available update for the connected reader.
@@ -990,6 +1030,11 @@ API_AVAILABLE(ios(15.0))
  Returns an unlocalized string for the given offline behavior.
  */
 + (NSString *)stringFromOfflineBehavior:(SCPOfflineBehavior)behavior NS_SWIFT_NAME(stringFromOfflineBehavior(_:));
+
+/**
+ Returns an unlocalized string for the given simulated offline mode, e.g. "Offline Immediate"
+ */
++ (NSString *)stringFromSimulatedOfflineMode:(SCPSimulatedOfflineMode)mode NS_SWIFT_NAME(stringFromSimulatedOfflineMode(_:));
 
 /**
  Returns an unlocalized string for the given payment method type.

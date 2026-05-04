@@ -8,13 +8,39 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.5.0 2026-05-04
+### New
+* Preview: Surcharging - Refactored the surcharge API surface.
+  * Added new `SCPSurchargeDetails` class with `amount`, `maximumAmount`, and `status` on `SCPAmountDetails.surcharge`.
+  * **Breaking:** `SCPSurcharge` class (under `SCPCardPresentParameters`) has been removed. Use `SCPSurchargeDetails` for `maximumAmount` and `status`. `status` is now a `SCPSurchargeStatus` enum instead of `NSString`.
+  * **Breaking:** `SCPPaymentIntent.amountSurcharge` (top-level) has been removed. Use `SCPAmountDetails.surcharge.amount` instead.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* Tap to Pay: Added method [`isTapToPayAccountLinked`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)isTapToPayAccountLinkedWithCompletion:), which checks if the current Stripe account has a linked Tap to Pay on iPhone account that has accepted the Apple Tap to Pay Terms of Service.
+* Added simulated offline mode support for testing [offline payment flows](https://docs.stripe.com/terminal/features/operate-offline/overview) without a physical network disruption. The simulation capability is currently in preview.
+  * Added `simulatedOfflineModeConfiguration` property and `setSimulatedOfflineModeConfiguration:error:` method to `SCPTerminal`.
+  * Added `SCPSimulatedOfflineModeConfiguration` and `SCPSimulatedOfflineModeConfigurationBuilder` to configure SDK and reader offline behavior independently.
+  * Added `SCPSimulatedOfflineMode` enum with values: `disabled`, `offlineImmediate`, `offlineTimeout`, and `offlineIntermittent`.
+  * Returns `SCPErrorSimulatedOfflineModeNotAvailableForAccount` if you do not have access, and `SCPErrorSimulatedOfflineModeNotAvailableInLivemode` if connected to a livemode reader.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+* Added support for [simulating software update scenarios](https://docs.stripe.com/terminal/references/testing#simulated-reader-updates) on physical mobile readers in test mode.
+  * Added [`SCPTestReaderUpdate`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTestReaderUpdate.html) and [`SCPTestReaderUpdateType`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPTestReaderUpdateType.html) with scenarios: available, required, required-for-offline, and low battery.
+  * Set `testReaderUpdate` on [`SCPBluetoothConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPBluetoothConnectionConfiguration.html) or [`SCPUsbConnectionConfiguration`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPUsbConnectionConfiguration.html) before connecting.
+  * `SCPSimulatorConfiguration.availableReaderUpdate` is deprecated in favor of this new per-connection API.
+
+### Updates
+* When offline mode is enabled, the SDK now falls back to offline processing faster when the device can't reach Stripe. Previously, the SDK waited up to 15 seconds before falling back. Now, timeouts are optimized per request type, reducing wait times for common operations like payment creation.
+* Tap to Pay: Generic or unknown errors from the Tap to Pay on iPhone reader will now return [`SCPErrorGenericReaderError`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPError.html#/c:@E@SCPError@SCPErrorGenericReaderError) instead of `SCPErrorUnexpectedSdkError`.
+
+### Fixes
+* Fixes [#374](https://github.com/stripe/stripe-terminal-ios/issues/374): Fixed a race condition that could cause a crash during mobile reader discovery over Bluetooth.
+
 # 5.4.0 2026-03-30
 ### New
 * Preview: Terminal Donations - Added support to skip donations flow per transaction by adding a `skipDonation` parameter to the `SCPCollectPaymentIntentConfiguration` model.
   * To request access to this private preview, please contact [Stripe Support](https://support.stripe.com/).
 * Preview: Multi Capture - Added `requestMulticapture` to [`SCPCardPresentParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPCardPresentParameters.html) for requesting multicapture support when creating card-present PaymentIntents.
   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
-* Preview: Reauthorizations - Added support to authorize a `PaymentIntent` again after its capture window has lapsed. 
+* Preview: Reauthorizations - Added support to authorize a `PaymentIntent` again after its capture window has lapsed.
   * Added `requestReauthorization` to `SCPCardPresentParameters` for requesting reauthorization support when creating card-present PaymentIntents.
   * Added `reauthorizationStatus` and `reauthorizeBefore` response fields to `SCPCardPresentDetails`.
   * Added `SCPPaymentIntentStatusRequiresReauthorization` to `SCPPaymentIntentStatus`.
@@ -34,7 +60,7 @@ pod 'StripeTerminal', '~> 5.0'
 
 # 5.3.0 2026-03-03
 ### Fixes
-* Fixes [#370](https://github.com/stripe/stripe-terminal-ios/issues/370): Fixed a race condition that could cause a crash when connecting to readers. 
+* Fixes [#370](https://github.com/stripe/stripe-terminal-ios/issues/370): Fixed a race condition that could cause a crash when connecting to readers.
 
 # 5.2.0 2026-01-27
 ### New

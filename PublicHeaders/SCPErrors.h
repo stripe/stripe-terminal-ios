@@ -634,6 +634,30 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorTapToPayReaderAccountDeactivated = 3970,
 
     /**
+     A Tap to Pay offline mode session could not be created.
+     Go online and reconnect the app to the reader.
+     */
+    SCPErrorTapToPayReaderOfflineModeNotAllowed = 3971,
+
+    /**
+     The current Tap to Pay offline mode session has expired and can't execute additional reads.
+     Go online and reconnect the app to the reader.
+     */
+    SCPErrorTapToPayReaderOfflineModeSessionExpired = 3972,
+
+    /**
+     The current Tap to Pay offline mode session was invalidated and can't execute additional reads.
+     Go online and reconnect the app to the reader.
+     */
+    SCPErrorTapToPayReaderOfflineModeSessionInvalidated = 3973,
+
+    /**
+     The current Tap to Pay offline mode session has payments from a different token issuer.
+     Go online and reconnect the app to the reader.
+     */
+    SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged = 3974,
+
+    /**
      The reader is missing encryption keys required for taking payments and has disconnected and rebooted.
      Reconnect to the reader to attempt to re-install the keys. If the error persists, contact support.
      */
@@ -832,6 +856,17 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorAmountSurchargeNotSupportedOffline = 6907,
 
+    /**
+     Simulated offline mode is not available when connected to a livemode reader.
+     */
+    SCPErrorSimulatedOfflineModeNotAvailableInLivemode = 6908,
+
+    /**
+     Simulated offline mode is not available for this account. Contact Stripe
+     to request access.
+     */
+    SCPErrorSimulatedOfflineModeNotAvailableForAccount = 6909,
+
     /*
      NETWORK ERRORS
      */
@@ -1000,6 +1035,12 @@ FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyHttpStatusCode;
  the `SCPPaymentIntent` will be returned under this key.
  */
 FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyStripeAPIPaymentIntent;
+
+/**
+ This error message comes from the Tap to Pay reader. You probably shouldn't show this
+ to your users, but may want to inspect it yourself.
+ */
+FOUNDATION_EXPORT SCPErrorKey SCPErrorKeyTapToPayReaderErrorName;
 
 /**
  This error message comes from the reader. You probably shouldn't show this

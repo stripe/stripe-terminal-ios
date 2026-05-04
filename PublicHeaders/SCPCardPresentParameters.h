@@ -92,8 +92,6 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentRequestReauthorization) {
     SCPCardPresentRequestReauthorizationNever,
 } NS_SWIFT_NAME(CardPresentRequestReauthorization);
 
-@class SCPSurcharge;
-
 /**
  Parameters that will be applied to the card present PaymentIntent.
 
@@ -123,11 +121,6 @@ NS_SWIFT_NAME(CardPresentParameters)
  `SCPCardPresentRouting` as a nullable NSNumber.
  */
 @property (nonatomic, strong, nullable, readonly) NSNumber *requestedPriority;
-
-/**
- Details about the availability and maximum amount for surcharging on this PaymentIntent.
- */
-@property (nonatomic, nullable, readonly) SCPSurcharge *surcharge;
 
 /**
  `SCPCardPresentRequestPartialAuthorization` as a nullable NSNumber.
@@ -181,9 +174,6 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.requestedPriority`
 - (SCPCardPresentParametersBuilder *)setRequestedPriority:(SCPCardPresentRouting)requestedPriority;
-
-/// @see `SCPCardPresentParameters.surcharge`
-- (SCPCardPresentParametersBuilder *)setSurcharge:(nullable SCPSurcharge *)surcharge;
 
 /// @see `SCPCardPresentParameters.requestPartialAuthorization`
 - (SCPCardPresentParametersBuilder *)setRequestPartialAuthorization:(SCPCardPresentRequestPartialAuthorization)requestPartialAuthorization;

@@ -104,11 +104,6 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) NSNumber *amountRequested;
 
 /**
- Surcharge amount to apply on top of the purchase amount.
- */
-@property (nonatomic, nullable, readonly) NSNumber *amountSurcharge;
-
-/**
  Indicates how much the user intends to tip in addition to the amount by at confirmation time.
  This is only non-null in the `PaymentIntent` instance returned during collect when using
  `updatePaymentIntent` set to true in the `CollectConfiguration`.

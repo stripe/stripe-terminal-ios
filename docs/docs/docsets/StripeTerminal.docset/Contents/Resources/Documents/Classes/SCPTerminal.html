@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.4.0 Docs
+          StripeTerminal 5.5.0 Docs
         </a>
         
       </p>
@@ -193,6 +193,12 @@
                 <a class="nav-group-task-link" href="../Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPTestReaderUpdate.html">SCPTestReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPTestReaderUpdateType.html">SCPTestReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
               </li>
               <li class="nav-group-task">
@@ -209,6 +215,15 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPSimulatedOfflineModeConfigurationBuilder.html">SCPSimulatedOfflineModeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSimulatedOfflineMode.html">SCPSimulatedOfflineMode</a>
               </li>
             </ul>
           </li>
@@ -538,7 +553,10 @@
                 <a class="nav-group-task-link" href="../Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SCPSurcharge.html">SCPSurcharge</a>
+                <a class="nav-group-task-link" href="../Classes/SCPSurchargeDetails.html">SCPSurchargeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPSurchargeStatus.html">SCPSurchargeStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
@@ -578,6 +596,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPAffirmDetails.html">SCPAffirmDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPKlarnaDetails.html">SCPKlarnaDetails</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPPaynowDetails.html">SCPPaynowDetails</a>
@@ -732,6 +753,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyOfflineDeclineReason">SCPErrorKeyOfflineDeclineReason</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Errors.html#/c:@SCPErrorKeyTapToPayReaderErrorName">SCPErrorKeyTapToPayReaderErrorName</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -784,6 +808,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Blocks.html#/c:SCPBlocks.h@T@SCPTTPAccountLinkCompletionBlock">SCPTTPAccountLinkCompletionBlock</a>
               </li>
             </ul>
           </li>
@@ -1362,6 +1389,120 @@ to set the configuration settings, set the readwrite properties on
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)setSimulatedOfflineModeConfiguration:error:"></a>
+                    <a name="//apple_ref/objc/Method/-setSimulatedOfflineModeConfiguration:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)setSimulatedOfflineModeConfiguration:error:">-setSimulatedOfflineModeConfiguration:<wbr>error:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the simulated offline mode configuration, controlling how the SDK and
+connected reader behave in simulation. Stores the configuration and, if a
+reader is currently connected, immediately sends the reader offline mode to
+the reader.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>For testing only. Calling this method while connected to a livemode
+reader returns a <code>SCPErrorSimulatedOfflineModeNotAvailableInLivemode</code> error.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">setSimulatedOfflineModeConfiguration</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span>
+                                       <span class="nf">error</span><span class="p">:</span>
+                                           <span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setSimulatedOfflineModeConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">SimulatedOfflineModeConfiguration</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a></code> to apply.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set to a <code><a href="../Enums/SCPError.html">SCPError</a></code> if the call fails (e.g. connected to a
+livemode reader). Pass <code>nil</code> to ignore errors.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(py)simulatedOfflineModeConfiguration"></a>
+                    <a name="//apple_ref/objc/Property/simulatedOfflineModeConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(py)simulatedOfflineModeConfiguration">simulatedOfflineModeConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current simulated offline mode configuration for the SDK and connected
+reader. Updated via <code>setSimulatedOfflineModeConfiguration:error:</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    SCPSimulatedOfflineModeConfiguration
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">simulatedOfflineModeConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">simulatedOfflineModeConfiguration</span><span class="p">:</span> <span class="kt">SimulatedOfflineModeConfiguration</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(py)paymentStatus"></a>
                     <a name="//apple_ref/objc/Property/paymentStatus" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPTerminal(py)paymentStatus">paymentStatus</a>
@@ -1923,6 +2064,77 @@ the ID of one of these locations to register the reader to while connecting to a
                               <td>
                                 <div>
                                   <p>The completion block called when the command completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(im)isTapToPayAccountLinked:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-isTapToPayAccountLinked:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(im)isTapToPayAccountLinked:completion:">-isTapToPayAccountLinked:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checks if the merchant has accepted Apple&rsquo;s Tap to Pay Terms of Service.</p>
+
+<p>This method works independently of reader connection state and does not
+trigger device activation. It requires Terminal to be initialized with a
+valid connection token provider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">isTapToPayAccountLinked</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">onBehalfOf</span>
+                     <span class="nf">completion</span><span class="p">:</span>
+                         <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Blocks.html#/c:SCPBlocks.h@T@SCPTTPAccountLinkCompletionBlock">SCPTTPAccountLinkCompletionBlock</a></span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isTapToPayAccountLinked</span><span class="p">(</span><span class="n">_</span> <span class="nv">onBehalfOf</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">NSNumber</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onBehalfOf</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(optional) Connected account ID for Stripe Connect platforms.
+               Pass nil to check the account that owns the API key.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called with the account linking status. If error is non-nil,
+               ignore the isLinked value.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4677,6 +4889,39 @@ Currently available on mobile readers that support magstripe.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromSimulatedOfflineMode:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromSimulatedOfflineMode:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromSimulatedOfflineMode:">+stringFromSimulatedOfflineMode:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given simulated offline mode, e.g. &ldquo;Offline Immediate&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromSimulatedOfflineMode</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPSimulatedOfflineMode.html">SCPSimulatedOfflineMode</a></span><span class="p">)</span><span class="nv">mode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromSimulatedOfflineMode</span><span class="p">(</span><span class="n">_</span> <span class="nv">mode</span><span class="p">:</span> <span class="kt">SimulatedOfflineMode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(cm)stringFromPaymentMethodType:"></a>
                     <a name="//apple_ref/objc/Method/+stringFromPaymentMethodType:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromPaymentMethodType:">+stringFromPaymentMethodType:<wbr></a>
@@ -5123,7 +5368,7 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-03-30)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-05-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

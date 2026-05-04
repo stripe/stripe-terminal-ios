@@ -60,7 +60,7 @@ typedef void (^SCPPaymentMethodCompletionBlock)(SCPPaymentMethod *__nullable pay
 /**
  A block called with an optional error.
 
- @param error       The error, or nil if no error occured.
+ @param error       The error, or nil if no error occurred.
  */
 typedef void (^SCPErrorCompletionBlock)(NSError *__nullable error)
     NS_SWIFT_NAME(ErrorCompletionBlock);
@@ -189,5 +189,14 @@ typedef void (^SCPQrCodeDisplayCompletionBlock)(NSError *__nullable error) NS_SW
  @param error               An error if payment method selection failed, or nil if successful.
  */
 typedef void (^SCPPaymentMethodSelectionCompletionBlock)(SCPPaymentOption *__nullable paymentOption, NSError *__nullable error) NS_SWIFT_NAME(PaymentMethodSelectionCompletionBlock);
+
+/**
+ A block called with a NSNumber-wrapped boolean result or an error.
+
+ @param isLinked  NSNumber wrapping a BOOL indicating account linking status, or nil if an error occurred.
+ @param error     An error if one occurred, or nil.
+ */
+typedef void (^SCPTTPAccountLinkCompletionBlock)(NSNumber *_Nullable isLinked, NSError *_Nullable error)
+    NS_SWIFT_NAME(TTPAccountLinkCompletionBlock);
 
 NS_ASSUME_NONNULL_END

@@ -17,6 +17,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPTestReaderUpdate;
+
 /**
  This class lets you define Bluetooth reader connection options.
 
@@ -57,6 +59,15 @@ NS_SWIFT_NAME(BluetoothConnectionConfiguration)
 @property (nonatomic, assign, readonly) BOOL autoReconnectOnUnexpectedDisconnect;
 
 /**
+ When set, the SDK will perform or announce a reader software update during connection
+ in test mode. Connect will fail with `SCPErrorInvalidConnectionConfiguration` if this
+ is used when connecting to a live-mode reader.
+
+ Defaults to nil (no update).
+ */
+@property (nonatomic, strong, readonly, nullable) SCPTestReaderUpdate *testReaderUpdate;
+
+/**
  Use `SCPBluetoothConnectionConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -82,6 +93,9 @@ NS_SWIFT_NAME(BluetoothConnectionConfigurationBuilder)
 
 /// Set the autoReconnectOnUnexpectedDisconnect property for the `BluetoothConnectionConfiguration` object that will be built.
 - (SCPBluetoothConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/// Set the testReaderUpdate property for the `BluetoothConnectionConfiguration` object that will be built.
+- (SCPBluetoothConnectionConfigurationBuilder *)setTestReaderUpdate:(nullable SCPTestReaderUpdate *)testReaderUpdate;
 
 /**
  Use `initWithLocationId:`

@@ -76,7 +76,6 @@ class ReaderViewController: TableViewController, CancelingViewController {
     init() {
         super.init(style: .grouped)
         self.title = "Terminal"
-        Terminal.shared.simulatorConfiguration.availableReaderUpdate = .random
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -392,6 +391,15 @@ class ReaderViewController: TableViewController, CancelingViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    internal func showTapToPayAccountLinked() {
+        if #available(iOS 16.4, *) {
+            let vc = TapToPayAccountLinkedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            presentAlert(title: "Unsupported", message: "isTapToPayAccountLinked requires iOS 16.4 or later.")
+        }
+    }
+
     internal func getSimulatedReaderSection() -> Section? {
         if ReaderViewController.readerConfiguration.simulated {
             return Section(
@@ -410,8 +418,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 footer: Section.Extremity.autoLayoutView(
                     {
                         let stackView = UIStackView(arrangedSubviews: [
-                            ReaderUpdatePicker(),
-                            CollectInputsResultPicker(),
+                            CollectInputsResultPicker()
                         ])
                         stackView.axis = .vertical
                         stackView.spacing = 10
@@ -584,6 +591,20 @@ class ReaderViewController: TableViewController, CancelingViewController {
                 )
             )
 
+            if deviceType == .tapToPay {
+                workflowRows.append(
+                    Row(
+                        text: "Check Tap to Pay account linked",
+                        detailText: "Check if the merchant has accepted Apple's Tap to Pay TOS.",
+                        selection: { [unowned self] in
+                            self.showTapToPayAccountLinked()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
+            }
+
 
             dataSource.sections = [
                 Section(header: "", rows: [], footer: Section.Extremity.view(headerView)),
@@ -664,6 +685,21 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     ]
                 ),
+                discoveryMethod == .tapToPay
+                    ? Section(
+                        header: "Tap to Pay",
+                        rows: [
+                            Row(
+                                text: "Check Account Linked",
+                                selection: { [unowned self] in
+                                    let vc = StartTapToPayAccountLinkedViewController()
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                },
+                                accessory: .disclosureIndicator
+                            )
+                        ]
+                    )
+                    : nil,
                 ReaderViewController.readerConfiguration.discoveryMethod == .internet
                     ? Section(
                         header: "Discovery Filter",
@@ -913,12 +949,3 @@ extension DiscoveryMethod: @retroactive CustomStringConvertible {
     }
 }
 
-// MARK: - Simulated Update Plan
-
-private func simulatedUpdateSection() -> Section {
-    return Section(
-        header: "Simulated Update Plan",
-        rows: [],
-        footer: Section.Extremity.autoLayoutView(ReaderUpdatePicker())
-    )
-}

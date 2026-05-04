@@ -63,6 +63,7 @@
 #import <StripeTerminal/SCPInternetDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPInternetEasyConnectConfiguration.h>
 #import <StripeTerminal/SCPInternetReaderDelegate.h>
+#import <StripeTerminal/SCPKlarnaDetails.h>
 #import <StripeTerminal/SCPListLocationsParameters.h>
 #import <StripeTerminal/SCPLocation.h>
 #import <StripeTerminal/SCPLocationStatus.h>
@@ -127,15 +128,18 @@
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCardType.h>
 #import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
+#import <StripeTerminal/SCPSimulatedOfflineMode.h>
+#import <StripeTerminal/SCPSimulatedOfflineModeConfiguration.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
-#import <StripeTerminal/SCPSurcharge.h>
 #import <StripeTerminal/SCPSurchargeConfiguration.h>
+#import <StripeTerminal/SCPSurchargeDetails.h>
 #import <StripeTerminal/SCPTapToPayConnectionConfiguration.h>
 #import <StripeTerminal/SCPTapToPayDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPTapToPayEasyConnectConfiguration.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
 #import <StripeTerminal/SCPTerminal.h>
 #import <StripeTerminal/SCPTerminalDelegate.h>
+#import <StripeTerminal/SCPTestReaderUpdate.h>
 #import <StripeTerminal/SCPTextInput.h>
 #import <StripeTerminal/SCPTextResult.h>
 #import <StripeTerminal/SCPTip.h>
