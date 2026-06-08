@@ -30,6 +30,12 @@ typedef NS_ENUM(NSUInteger, SCPCardPresentCaptureMethod) {
      Contact Stripe support to enable this feature on your account.
      */
     SCPCardPresentCaptureMethodManual,
+
+    /**
+     Stripe captures funds after a specified delay. Use `captureDelayDays` on `SCPCardPresentParameters`
+     to set the number of days before automatic capture.
+     */
+    SCPCardPresentCaptureMethodAutomaticDelayed,
 } NS_SWIFT_NAME(CardPresentCaptureMethod);
 
 /**
@@ -146,6 +152,12 @@ NS_SWIFT_NAME(CardPresentParameters)
 @property (nonatomic, strong, nullable, readonly) NSNumber *requestReauthorization;
 
 /**
+ The number of days before funds are automatically captured when using the
+ `SCPCardPresentCaptureMethodAutomaticDelayed` capture method.
+ */
+@property (nonatomic, strong, nullable, readonly) NSNumber *captureDelayDays;
+
+/**
  Use `SCPCardPresentParametersBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -183,6 +195,9 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.requestReauthorization`
 - (SCPCardPresentParametersBuilder *)setRequestReauthorization:(SCPCardPresentRequestReauthorization)requestReauthorization;
+
+/// @see `SCPCardPresentParameters.captureDelayDays`
+- (SCPCardPresentParametersBuilder *)setCaptureDelayDays:(NSInteger)captureDelayDays;
 
 @end
 

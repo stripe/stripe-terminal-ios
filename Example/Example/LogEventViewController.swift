@@ -443,6 +443,14 @@ extension LogEvent.AssociatedObject {
 
                     """
             }
+            if let apiError = error.userInfo[ErrorKey.stripeAPIError.rawValue] as? ApiError,
+               let localizationResult = apiError.localizationResult {
+                output += """
+                    Locale Requested: \(localizationResult.requestedLocale)
+                    Locale Resolved: \(localizationResult.resolvedLocale)
+
+                    """
+            }
             output += """
 
                 Error UserInfo: \(prettyPrint(json: userInfoToPrint))
@@ -457,11 +465,23 @@ extension LogEvent.AssociatedObject {
 
             return output
         case .error(let error):
-            return """
+            var output = """
                 Error Domain: \(error.domain)
                 Error Code: \(prettyPrintErrorCode(error))
+
+                """
+            if let apiError = error.userInfo[ErrorKey.stripeAPIError.rawValue] as? ApiError,
+               let localizationResult = apiError.localizationResult {
+                output += """
+                    Locale Requested: \(localizationResult.requestedLocale)
+                    Locale Resolved: \(localizationResult.resolvedLocale)
+
+                    """
+            }
+            output += """
                 Error User Info: \(prettyPrint(json: error.userInfo))
                 """
+            return output
         case .json(let json):
             return prettyPrint(json: json)
         case .paymentIntent(let intent):

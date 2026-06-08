@@ -65,6 +65,8 @@
 #import <StripeTerminal/SCPInternetReaderDelegate.h>
 #import <StripeTerminal/SCPKlarnaDetails.h>
 #import <StripeTerminal/SCPListLocationsParameters.h>
+#import <StripeTerminal/SCPLocaleConfig.h>
+#import <StripeTerminal/SCPLocalizationResult.h>
 #import <StripeTerminal/SCPLocation.h>
 #import <StripeTerminal/SCPLocationStatus.h>
 #import <StripeTerminal/SCPLogLevel.h>

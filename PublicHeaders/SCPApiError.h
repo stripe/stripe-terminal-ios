@@ -11,6 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SCPLocalizationResult;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -51,7 +53,12 @@ NS_SWIFT_NAME(ApiError)
 @property (nonatomic, nullable, readonly) NSString *docUrl;
 
 /**
- A human-readable message providing more details about the error. For card errors, these messages can be shown to your users.
+ A human-readable message providing more details about the error. For card
+ errors (`type` == `card_error`), these messages can be shown to your users.
+
+ When an `SCPLocaleConfig` is set, this message may be returned in a non-English
+ locale. Inspect `localizationResult` to determine the locale of the message. Avoid
+ relying on message content for application logic, since the content may change.
  */
 @property (nonatomic, nullable, readonly) NSString *message;
 
@@ -93,6 +100,15 @@ NS_SWIFT_NAME(ApiError)
  required for this field to be populated.
  */
 @property (nonatomic, nullable, readonly) NSString *networkAdviceCode;
+
+/**
+ Reports the outcome of localizing `message`.
+
+ This is nil when:
+ - The `SCPApiError` was constructed locally by the SDK rather than from a server response.
+ - The `SCPApiError` came from a smart reader running a version below 2.43.
+ */
+@property (nonatomic, strong, nullable, readonly) SCPLocalizationResult *localizationResult;
 
 /**
  You cannot directly instantiate this class. You should only use ApiErrors

@@ -34,6 +34,19 @@ struct StripeCountries {
         "CZ",
         "JP",
         "MX",
+        "BG",
+        "HR",
+        "CY",
+        "EE",
+        "GI",
+        "HU",
+        "LV",
+        "LI",
+        "LT",
+        "MT",
+        "RO",
+        "SK",
+        "SI",
     ]
 
     static func countryName(forRegionCode code: String) -> String? {
