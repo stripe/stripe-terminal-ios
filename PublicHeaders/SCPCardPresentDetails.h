@@ -65,6 +65,28 @@ typedef NS_ENUM(NSUInteger, SCPMulticaptureStatus) {
 } NS_SWIFT_NAME(MulticaptureStatus);
 
 /**
+ Represents overcapture support for a confirmed PaymentIntent.
+
+ @see https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-overcapture_supported
+ */
+typedef NS_ENUM(NSUInteger, SCPOvercaptureStatus) {
+    /**
+     It is undetermined whether overcapture is supported for this transaction.
+     */
+    SCPOvercaptureStatusUnknown,
+
+    /**
+     Overcapture is not supported for this transaction.
+     */
+    SCPOvercaptureStatusNotSupported,
+
+    /**
+     Overcapture is supported for this transaction.
+     */
+    SCPOvercaptureStatusSupported,
+} NS_SWIFT_NAME(OvercaptureStatus);
+
+/**
  Represents reauthorization availability for a confirmed PaymentIntent.
  */
 typedef NS_ENUM(NSUInteger, SCPReauthorizationStatus) {
@@ -194,6 +216,13 @@ NS_SWIFT_NAME(CardPresentDetails)
  * Note: This is only known if the PaymentIntent was confirmed.
  */
 @property (nonatomic, assign, readonly) SCPReauthorizationStatus reauthorizationStatus;
+
+/**
+ * Whether this payment method supports overcapture.
+ *
+ * Note: This is only known if the PaymentIntent was confirmed.
+ */
+@property (nonatomic, assign, readonly) SCPOvercaptureStatus overcaptureStatus;
 
 /**
  * The date by which the payment must be captured.

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.5.0 Docs
+          StripeTerminal 5.6.0 Docs
         </a>
         
       </p>
@@ -97,6 +97,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPNfcUidCollectedData.html">SCPNfcUidCollectedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocaleConfig.html">SCPLocaleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPHardcodedLocaleConfigBuilder.html">SCPHardcodedLocaleConfigBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocalizationResult.html">SCPLocalizationResult</a>
               </li>
             </ul>
           </li>
@@ -441,6 +453,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPOvercaptureStatus.html">SCPOvercaptureStatus</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPCardPresentRequestPartialAuthorization.html">SCPCardPresentRequestPartialAuthorization</a>
@@ -1156,7 +1171,7 @@ actions related to offline mode.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">_Nonnull</span> <span class="n">SCPSDKVersion</span> <span class="o">=</span> <span class="s">@"5.5.0"</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">_Nonnull</span> <span class="n">SCPSDKVersion</span> <span class="o">=</span> <span class="s">@"5.6.0"</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1438,6 +1453,193 @@ actions related to offline mode.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPLocaleConfig"></a>
+                    <a name="//apple_ref/objc/Class/SCPLocaleConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocaleConfig">SCPLocaleConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configures localization of API error messages returned through
+<code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>.</p>
+
+<p>API errors surfaced through <code>NSError</code>&lsquo;s
+<code><a href="Errors.html#/c:@SCPErrorKeyStripeAPIError">SCPErrorKeyStripeAPIError</a></code> will have their <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>
+translated to the resolved locale.</p>
+
+<p>For smart readers, reader software version 2.43 or later is required for localization.</p>
+
+<p>Note: The scope of localization may expand in future SDK releases.
+For example, <code>NSError.localizedDescription</code> and other SDK-originated
+strings may also be localized. Integrations should avoid relying on
+error message content for application logic. Use error codes such as
+<code><a href="Enums/SCPError.html">SCPError</a></code> and <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)code">SCPApiError.code</a></code> instead.</p>
+
+                        <a href="Classes/SCPLocaleConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPLocaleConfig</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LocaleConfig</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Hardcoded%20locale"></a>
+                <a name="//apple_ref/objc/Section/Hardcoded locale" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Hardcoded%20locale"></a>
+                  <h3 class="section-name"><span>Hardcoded locale</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPHardcodedLocaleConfig"></a>
+                    <a name="//apple_ref/objc/Class/SCPHardcodedLocaleConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPHardcodedLocaleConfig">SCPHardcodedLocaleConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Localizes API error messages to a fixed locale tag.</p>
+
+<p>The locale tag must conform to the format <code>language[-script][-region]</code> where:</p>
+
+<ul>
+<li><code>language</code> is a 2-3 letter ISO 639 code (e.g., &ldquo;en&rdquo;, &ldquo;fil&rdquo;)</li>
+<li><code>script</code> (optional) is only &ldquo;Hans&rdquo; or &ldquo;Hant&rdquo;</li>
+<li><code>region</code> (optional) is a 2-letter ISO 3166-1 alpha-2 code (e.g., &ldquo;US&rdquo;) or a
+3-digit UN M.49 code (e.g., &ldquo;419&rdquo;)</li>
+</ul>
+
+<p>If the locale is not supported by Stripe&rsquo;s localization infrastructure,
+error messages will fall back to English (<code>en-US</code>).</p>
+
+                        <a href="Classes/SCPHardcodedLocaleConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPHardcodedLocaleConfig</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPLocaleConfig.html">SCPLocaleConfig</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">HardcodedLocaleConfig</span> <span class="p">:</span> <span class="kt">LocaleConfig</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPHardcodedLocaleConfigBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPHardcodedLocaleConfigBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPHardcodedLocaleConfigBuilder">SCPHardcodedLocaleConfigBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A builder class for <code><a href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a></code>. The locale tag is validated
+by <code>build:</code>.</p>
+
+                        <a href="Classes/SCPHardcodedLocaleConfigBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPHardcodedLocaleConfigBuilder</span>
+    <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">HardcodedLocaleConfigBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">HardcodedLocaleConfig</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPLocalizationResult"></a>
+                    <a name="//apple_ref/objc/Class/SCPLocalizationResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocalizationResult">SCPLocalizationResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reports the outcome of localizing an <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>.</p>
+
+<ul>
+<li><code>requestedLocale</code> reflects the locale the SDK sent in the
+<code>Accept-Language</code> request header.</li>
+<li><code>resolvedLocale</code> reflects the locale the message was localized to,
+taken from the <code>Content-Language</code> response header (defaults to <code>en-US</code>
+if the header is absent).</li>
+</ul>
+
+<p>The two may differ when the requested locale is not supported — in that
+case, the server falls back to <code>en-US</code>.</p>
+
+                        <a href="Classes/SCPLocalizationResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPLocalizationResult</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LocalizationResult</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1446,7 +1648,7 @@ actions related to offline mode.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-05-04)</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-06-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

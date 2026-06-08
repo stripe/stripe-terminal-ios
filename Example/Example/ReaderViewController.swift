@@ -8,6 +8,7 @@
 
 import Static
 import StripeTerminal
+import SwiftUI
 import UIKit
 
 
@@ -41,11 +42,8 @@ class ReaderViewController: TableViewController, CancelingViewController {
     internal let headerView = ReaderHeaderView()
     /// Will be set during connect from the DiscoveryViewController if an update is reported
     private var pendingUpdate: ReaderSoftwareUpdate?
-    private var reconnectionAlertController = UIAlertController(
-        title: "Reconnecting...",
-        message: "Reader has disconnected",
-        preferredStyle: .alert
-    )
+    private var reconnectionModel = ReconnectionModel()
+    private var reconnectionHostingController: UIHostingController<ReconnectionView>?
 
     private lazy var discoveryTimeoutTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
@@ -400,7 +398,7 @@ class ReaderViewController: TableViewController, CancelingViewController {
         }
     }
 
-    internal func getSimulatedReaderSection() -> Section? {
+    internal func getSimulatedReaderSection() -> Static.Section? {
         if ReaderViewController.readerConfiguration.simulated {
             return Section(
                 header: "Simulated Reader Options",
@@ -788,41 +786,43 @@ extension ReaderViewController: ReaderDelegate {
     }
 
     func reader(_ reader: Reader, didStartReconnect cancelable: Cancelable, disconnectReason: DisconnectReason) {
-        self.reconnectionAlertController = UIAlertController(
-            title: "Reconnecting...",
-            message:
-                "Reader \(reader.serialNumber) has disconnected: \(Terminal.stringFromDisconnectReason(disconnectReason))",
-            preferredStyle: .alert
-        )
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
+        let reason = Terminal.stringFromDisconnectReason(disconnectReason)
+        reconnectionModel.state = .reconnecting(serialNumber: reader.serialNumber, reason: reason)
+        reconnectionModel.onCancel = {
             cancelable.cancel { error in
-                // If terminalDidFailReaderReconnect did not present anything, present results of cancel and clear alert
-                if self.reconnectionAlertController.isBeingPresented {
-                    self.reconnectionAlertController.dismiss(animated: true) {
-                        if let error = error {
-                            self.presentAlert(title: "Cancellation failed", message: error.localizedDescription)
-                        } else {
-                            self.presentAlert(title: "Cancelled", message: "Reconnection has been cancelled.")
-                        }
-                    }
+                if let error = error {
+                    self.presentAlert(title: "Cancellation failed", message: error.localizedDescription)
                 }
+                // readerDidFailReconnect will handle the UI transition
             }
         }
-        reconnectionAlertController.addAction(cancelAction)
-        topViewController()?.present(reconnectionAlertController, animated: true, completion: nil)
+        reconnectionModel.onDismiss = { [weak self] in
+            self?.dismissReconnectionView()
+        }
+
+        // Only present once — subsequent didStartReconnect calls (retries) just update state.
+        if reconnectionHostingController == nil {
+            let hostingVC = UIHostingController(rootView: ReconnectionView(model: reconnectionModel))
+            hostingVC.modalPresentationStyle = .overFullScreen
+            hostingVC.modalTransitionStyle = .crossDissolve
+            hostingVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            reconnectionHostingController = hostingVC
+            topViewController()?.present(hostingVC, animated: true)
+        }
     }
 
     func readerDidFailReconnect(_ reader: Reader) {
-        self.reconnectionAlertController.dismiss(animated: true) { [unowned self] in
-            self.topViewController()?.presentAlert(title: "Reader Disconnected", message: "Reader reconnection failed!")
-        }
+        reconnectionModel.state = .failed
         connectedReader = nil
     }
 
     func readerDidSucceedReconnect(_ reader: Reader) {
-        self.reconnectionAlertController.dismiss(animated: true) { [unowned self] in
-            self.topViewController()?
-                .presentAlert(title: "Reconnected!", message: "We were able to reconnect to the reader.")
+        reconnectionModel.state = .succeeded
+    }
+
+    private func dismissReconnectionView() {
+        reconnectionHostingController?.dismiss(animated: true) {
+            self.reconnectionHostingController = nil
         }
     }
 }

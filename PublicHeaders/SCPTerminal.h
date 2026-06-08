@@ -29,6 +29,7 @@
 #import <StripeTerminal/SCPDiscoveryMethod.h>
 #import <StripeTerminal/SCPErrors.h>
 #import <StripeTerminal/SCPInternetReaderDelegate.h>
+#import <StripeTerminal/SCPLocaleConfig.h>
 #import <StripeTerminal/SCPLogLevel.h>
 #import <StripeTerminal/SCPMobileReaderDelegate.h>
 #import <StripeTerminal/SCPNetworkStatus.h>
@@ -50,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.5.0";
+static NSString *const SCPSDKVersion = @"5.6.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -130,6 +131,24 @@ API_AVAILABLE(ios(15.0))
  @param tokenProvider   The token provider for authentication with Stripe Terminal.
  */
 + (void)initWithTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider NS_SWIFT_NAME(initWithTokenProvider(_:));
+
+/**
+ Initializes the Terminal SDK with the provided token provider, delegates,
+ log level, and locale config.
+
+ @param tokenProvider   The token provider for authentication with Stripe Terminal.
+ @param delegate        The primary delegate for Terminal events.
+ @param offlineDelegate The offline delegate for offline-related events.
+ @param logLevel        The log level for the SDK.
+ @param localeConfig Configures localization of API error
+ messages returned through `SCPApiError.message`.
+ */
++ (void)initWithTokenProvider:(id<SCPConnectionTokenProvider>)tokenProvider
+                     delegate:(nullable id<SCPTerminalDelegate>)delegate
+              offlineDelegate:(nullable id<SCPOfflineDelegate>)offlineDelegate
+                     logLevel:(SCPLogLevel)logLevel
+                 localeConfig:(nullable SCPLocaleConfig *)localeConfig
+    NS_SWIFT_NAME(initWithTokenProvider(_:delegate:offlineDelegate:logLevel:localeConfig:));
 
 /**
  Returns true if Terminal has been initialized by calling `initWithTokenProvider:`

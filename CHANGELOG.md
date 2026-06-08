@@ -8,6 +8,17 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.6.0 2026-06-08
+### New
+* Added `SCPCardPresentDetails.overcaptureStatus` to indicate whether overcapture is supported for a card present transaction. Fixes [#386](https://github.com/stripe/stripe-terminal-ios/issues/386).
+  * _Note for internet reader integrations, this feature requires reader software version `2.43` or later to be installed on your internet reader._
+* Added [`SCPLocaleConfig`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPLocaleConfig.html) parameter to `Terminal.initWithTokenProvider` to configure localization of API error messages. Pass `LocaleConfig.cardLanguagePreferenceIfAvailable` to localize messages to the cardholder's preferred language when available (falling back to the device locale), or `HardcodedLocaleConfig` for a fixed locale.
+
+### Fixes
+* Fixes [#378](https://github.com/stripe/stripe-terminal-ios/issues/378): Fixed a crash caused by a race condition during internal logging operations.
+* Preview: Surcharging - Fixed an issue where `SCPSurchargeDetails.amount` was not included in the amount charged, also causing an incorrect `maximumAmount` calculation.
+* Fixes a race condition in where the reader state could be mutated after a disconnect, leaving the SDK permanently stuck in the Connected state.
+
 # 5.5.0 2026-05-04
 ### New
 * Preview: Surcharging - Refactored the surcharge API surface.
