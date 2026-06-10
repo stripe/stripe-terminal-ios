@@ -1,49 +1,57 @@
 # Release & Support Lifecycle
 
-## Major Release Dates
-Major releases will be made approximately once per year. During a major
-release, breaking changes to the API may occur, and any deprecated APIs
-will be removed. At this time, support for readers that have reached the
-end of their support will also be removed from the SDK.
+## Release Schedule
+We release a new major version of the Terminal mobile SDK annually. Major
+versions may include breaking changes. Minor versions are released
+approximately monthly and include bug fixes and new features for the latest
+major version only.
 
-## Minor Release Dates
-Minor releases will be made approximately once per month. Minor releases
-will not contain breaking changes and will be safe to update without changes
-to Terminal’s functionality.
+## Support Lifecycle
+Each Terminal mobile SDK major version follows a three-phase lifecycle from
+the date of its General Availability (GA) release:
 
-These minor releases may include bug fixes as well as new features to the
-SDK. Only the latest major version will receive minor updates containing
-new features.
+- **Active development** (1 year): Full support including new features, bug fixes, and security patches.
+- **Maintenance** (1 year): Critical bug fixes and security or compliance patches only. No new feature development.
+- **Deprecated** (1 year): No patches or support. The SDK may continue to function, but you should upgrade to a supported version as soon as possible.
 
-## Maintenance Schedule
-Each major release of the SDK will be supported for approximately two years
-after its initial release. Only the latest major release will receive minor
-release updates according to the minor release schedule.
+## End-of-Life Enforcement
+At the end of the Deprecated phase, SDK versions will be blocked from
+connecting to Terminal readers. Integrations using blocked SDK versions
+will not be able to discover readers, connect to readers, or process
+payments. You must upgrade to a supported SDK version before the hard
+block date to avoid interruption to your payment processing.
 
-After a new major release is made, each release will continue to receive
-bugfix/patch support only when necessary and until its specified End-of-Life
-support date (EOL).
+## Support and Enforcement Schedule
 
-## End of Life (EOL)
-When a release reaches its specified bugfix/patch support date, it will
-no longer receive support fixes necessary to keep Terminal functional.
-While the SDK may continue to work past this date, users should upgrade
-their SDK as soon as possible to avoid any interruption in functionality.
+| Release         | GA Date         | Patch Support Until | Status                            | Hard Block Date |
+|-----------------|-----------------|---------------------|-----------------------------------|-----------------|
+| Versions 1.x.x | October, 2019   | January, 2024       | Deprecated                        | January, 2027   |
+| Versions 2.x.x | June, 2021      | October, 2024       | Deprecated                        | January, 2027   |
+| Versions 3.x.x | September, 2023 | October, 2025       | Deprecated                        | January, 2027   |
+| Versions 4.x.x | October, 2024   | October, 2026       | Maintenance                       | October, 2027   |
+| Versions 5.x.x | October, 2025   | October, 2027       | Active development                | October, 2028   |
 
-## Release Status
+V1–V3 entered the Deprecated phase before this policy was formalized. The
+January 2027 hard block date provides additional transition time.
 
-| Release          | GA Date           | Patch Support Until |
-|------------------|-------------------|---------------------|
-| Versions 1.x.x   | October, 2019     | January, 2024       |
-| Versions 2.x.x   | June, 2021        | October, 2024       |
-| Versions 3.x.x   | September, 2023   | October, 2025       |
-| Versions 4.x.x   | October, 2024     | October, 2026       |
-| Versions 5.x.x   | October, 2025     | October, 2027       |
+## Minimum Supported Version
+After each hard block date, the minimum SDK version required to connect to
+Stripe will be updated:
 
-## Tap-to-Pay Support
+- After January 2027: minimum SDK V4.0.0 (V5+ recommended)
+- After October 2027: minimum SDK V5.0.0
+- After October 2028: minimum SDK V6.0.0 (or later)
 
-Tap-to-Pay functionality within Terminal may have additional constraints
-that require upgrades to your SDK in advance of the timeline described within
-this document. Additionally, support for minimum OS versions may be changed
-for Tap-to-Pay functionality outside of the SDK. These changes will be
-communicated directly to you if they occur.
+## Upgrade Resources
+- [Migration guide](https://docs.stripe.com/terminal/references/sdk-migration-guide)
+- [SDK versioning and support policy](https://docs.stripe.com/terminal/references/sdk-versioning)
+- [Changelog](https://github.com/stripe/stripe-terminal-ios/blob/master/CHANGELOG.md)
+
+## Additional Notes
+Tap to Pay functionality within Terminal may have additional constraints
+that require upgrades to your SDK in advance of the timeline described in
+this document. For more information, see the
+[Tap to Pay security guidance](https://docs.stripe.com/terminal/references/ttpa-security-guidance).
+
+This policy applies to all current and future Terminal mobile SDK major
+versions (iOS, Android, and React Native).
