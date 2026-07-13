@@ -8,10 +8,21 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.7.0 2026-07-13
+### New
+* Preview: Surcharging - Added support for collecting surcharges on Tap to Pay on iPhone readers.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
+
+### Fixes
+* Fixed an issue where a mobile reader disconnect due to critically low battery was incorrectly reported as a [`SCPDisconnectReasonDisconnectRequested`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonDisconnectRequested) instead of [`SCPDisconnectReasonCriticallyLowBattery`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonCriticallyLowBattery).
+
 # 5.6.0 2026-06-08
 ### New
+* Tap to Pay: Added support for [offline mode](https://docs.stripe.com/terminal/features/operate-offline/overview), allowing payments to be accepted when the device loses network connectivity and automatically forwarded to Stripe when connectivity is restored. This feature is currently in private preview.
+  * Added `SCPErrorTapToPayReaderOfflineModeNotAllowed`, `SCPErrorTapToPayReaderOfflineModeSessionExpired`, `SCPErrorTapToPayReaderOfflineModeSessionInvalidated`, and `SCPErrorTapToPayReaderOfflineModeTokenIssuerChanged` error codes for offline mode session failures.
+  * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 * Added `SCPCardPresentDetails.overcaptureStatus` to indicate whether overcapture is supported for a card present transaction. Fixes [#386](https://github.com/stripe/stripe-terminal-ios/issues/386).
-  * _Note for internet reader integrations, this feature requires reader software version `2.43` or later to be installed on your internet reader._
+  * Note for smart reader integrations, this feature requires reader software version `2.43` or later to be installed on your smart reader.
 * Added [`SCPLocaleConfig`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPLocaleConfig.html) parameter to `Terminal.initWithTokenProvider` to configure localization of API error messages. Pass `LocaleConfig.cardLanguagePreferenceIfAvailable` to localize messages to the cardholder's preferred language when available (falling back to the device locale), or `HardcodedLocaleConfig` for a fixed locale.
 
 ### Fixes
@@ -25,6 +36,7 @@ pod 'StripeTerminal', '~> 5.0'
   * Added new `SCPSurchargeDetails` class with `amount`, `maximumAmount`, and `status` on `SCPAmountDetails.surcharge`.
   * **Breaking:** `SCPSurcharge` class (under `SCPCardPresentParameters`) has been removed. Use `SCPSurchargeDetails` for `maximumAmount` and `status`. `status` is now a `SCPSurchargeStatus` enum instead of `NSString`.
   * **Breaking:** `SCPPaymentIntent.amountSurcharge` (top-level) has been removed. Use `SCPAmountDetails.surcharge.amount` instead.
+  * _Note for internet reader integrations, this feature requires reader software version `2.42` or later to be installed on your internet reader._
   * To request access to this feature, please contact [Stripe Support](https://support.stripe.com/).
 * Tap to Pay: Added method [`isTapToPayAccountLinked`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(im)isTapToPayAccountLinkedWithCompletion:), which checks if the current Stripe account has a linked Tap to Pay on iPhone account that has accepted the Apple Tap to Pay Terms of Service.
 * Added simulated offline mode support for testing [offline payment flows](https://docs.stripe.com/terminal/features/operate-offline/overview) without a physical network disruption. The simulation capability is currently in preview.

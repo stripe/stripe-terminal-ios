@@ -37,7 +37,6 @@ struct StripeCurrencies {
         "SGD",
         "JPY",
         "AED",
-        "BGN",
         "HUF",
         "RON",
         "GIP",
