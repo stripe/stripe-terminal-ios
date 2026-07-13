@@ -16,7 +16,7 @@ let package = Package(
     .binaryTarget(
       name: "StripeTerminal",
       url: "https://github.com/stripe/stripe-terminal-ios/releases/download/5.7.0/StripeTerminal.xcframework.zip",
-      checksum: "ec06892aeff7eef02cf357be9cd3a3d3077dbb038a72f577c5c69586cb526a38"
+      checksum: "2335ca022c842bf73a6e098df653934805df36b82335fcb7a6a5798b11c79ffb"
     )
   ]
 )
