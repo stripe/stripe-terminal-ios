@@ -443,14 +443,7 @@ extension LogEvent.AssociatedObject {
 
                     """
             }
-            if let apiError = error.userInfo[ErrorKey.stripeAPIError.rawValue] as? ApiError,
-               let localizationResult = apiError.localizationResult {
-                output += """
-                    Locale Requested: \(localizationResult.requestedLocale)
-                    Locale Resolved: \(localizationResult.resolvedLocale)
-
-                    """
-            }
+            output += localeFieldsString(from: error)
             output += """
 
                 Error UserInfo: \(prettyPrint(json: userInfoToPrint))
@@ -470,14 +463,7 @@ extension LogEvent.AssociatedObject {
                 Error Code: \(prettyPrintErrorCode(error))
 
                 """
-            if let apiError = error.userInfo[ErrorKey.stripeAPIError.rawValue] as? ApiError,
-               let localizationResult = apiError.localizationResult {
-                output += """
-                    Locale Requested: \(localizationResult.requestedLocale)
-                    Locale Resolved: \(localizationResult.resolvedLocale)
-
-                    """
-            }
+            output += localeFieldsString(from: error)
             output += """
                 Error User Info: \(prettyPrint(json: error.userInfo))
                 """
@@ -525,6 +511,18 @@ extension LogEvent.AssociatedObject {
         } catch _ {
             return json.description
         }
+    }
+
+    private func localeFieldsString(from error: NSError) -> String {
+        guard let apiError = error.userInfo[ErrorKey.stripeAPIError.rawValue] as? ApiError else {
+            return ""
+        }
+        let localization = apiError.localizationResult
+        return """
+            Locale Requested: \(localization?.requestedLocale ?? "null")
+            Locale Resolved: \(localization?.resolvedLocale ?? "null")
+
+            """
     }
 
     private func prettyPrintErrorCode(_ error: NSError) -> String {

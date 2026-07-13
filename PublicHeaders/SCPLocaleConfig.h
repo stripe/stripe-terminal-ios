@@ -42,7 +42,7 @@ NS_SWIFT_NAME(LocaleConfig)
  During a transaction, if the card provides a language preference and the
  connected reader supports extracting it, that language is used. Card language
  preference extraction is supported on smart readers (contact transactions,
- v2.43+) and Tap to Pay on iPhone. Mobile readers (Bluetooth/USB) always
+ v2.43+). Tap to Pay on iPhone and mobile readers (Bluetooth/USB) always
  fall back to the device locale.
 
  Use this option when you want error messages to automatically follow the

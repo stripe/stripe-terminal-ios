@@ -44,6 +44,7 @@
 #import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
+#import <StripeTerminal/SCPTestReaderUpdate.h>
 #import <StripeTerminal/SCPUsbConnectionConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -51,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.6.0";
+static NSString *const SCPSDKVersion = @"5.7.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -1064,6 +1065,16 @@ API_AVAILABLE(ios(15.0))
  Returns an unlocalized string for the given error.
  */
 + (NSString *)stringFromError:(SCPError)error NS_SWIFT_NAME(stringFromError(_:));
+
+/**
+ Returns an unlocalized string for the given test reader update type, e.g. "required"
+ */
++ (NSString *)stringFromTestReaderUpdateType:(SCPTestReaderUpdateType)updateType NS_SWIFT_NAME(stringFromTestReaderUpdateType(_:));
+
+/**
+ Returns an unlocalized string for the given update components bitmask, e.g. "incremental,config"
+ */
++ (NSString *)stringFromUpdateComponents:(SCPUpdateComponent)components NS_SWIFT_NAME(stringFromUpdateComponents(_:));
 
 /**
  Use `initWithConfiguration:tokenProvider:delegate:`

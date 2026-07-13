@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.6.0 Docs
+          StripeTerminal 5.7.0 Docs
         </a>
         
       </p>
@@ -1887,7 +1887,7 @@ connects to a reader, if the command is canceled, or if a discovery error occurs
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">discoverReaders</span><span class="p">(</span><span class="n">_</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kd">any</span> <span class="kt"><a href="../Protocols/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kd">any</span> <span class="kt"><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">discoverReaders</span><span class="p">(</span><span class="n">_</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kd">any</span> <span class="kt">DiscoveryConfiguration</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kd">any</span> <span class="kt"><a href="../Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ErrorCompletionBlock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SCPCancelable.html">SCPCancelable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5108,6 +5108,71 @@ Currently available on mobile readers that support magstripe.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromTestReaderUpdateType:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromTestReaderUpdateType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromTestReaderUpdateType:">+stringFromTestReaderUpdateType:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given test reader update type, e.g. &ldquo;required&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromTestReaderUpdateType</span><span class="p">:</span>
+    <span class="p">(</span><span class="n"><a href="../Enums/SCPTestReaderUpdateType.html">SCPTestReaderUpdateType</a></span><span class="p">)</span><span class="nv">updateType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromTestReaderUpdateType</span><span class="p">(</span><span class="n">_</span> <span class="nv">updateType</span><span class="p">:</span> <span class="kt">TestReaderUpdateType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal(cm)stringFromUpdateComponents:"></a>
+                    <a name="//apple_ref/objc/Method/+stringFromUpdateComponents:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal(cm)stringFromUpdateComponents:">+stringFromUpdateComponents:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an unlocalized string for the given update components bitmask, e.g. &ldquo;incremental,config&rdquo;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringFromUpdateComponents</span><span class="p">:(</span><span class="n"><a href="../Enums/SCPUpdateComponent.html">SCPUpdateComponent</a></span><span class="p">)</span><span class="nv">components</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">stringFromUpdateComponents</span><span class="p">(</span><span class="n">_</span> <span class="nv">components</span><span class="p">:</span> <span class="kt">UpdateComponent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPTerminal(im)init"></a>
                     <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)SCPTerminal(im)init">-init</a>
@@ -5489,8 +5554,8 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-06-08)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-07-13)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

@@ -483,6 +483,8 @@ extension PaymentViewController {
 
             // Store reference so we can dismiss on timeout
             self.paymentMethodSelectionAlert = alert
+            alert.popoverPresentationController?.sourceView = self.view
+            alert.popoverPresentationController?.permittedArrowDirections = []
             self.present(alert, animated: true)
         }
     }
