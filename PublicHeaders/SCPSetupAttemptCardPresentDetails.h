@@ -13,6 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCPPaymentMethod;
+
 /**
  An object representing details from a transaction using a card_present
  payment method.
@@ -31,6 +33,14 @@ NS_SWIFT_NAME(SetupAttemptCardPresentDetails)
  The Authorization Response Cryptogram (ARPC) from the issuer.
  */
 @property (nonatomic, readonly) NSString *emvAuthData;
+
+/**
+ The full PaymentMethod object for the generated card, if the API returned
+ the expanded object. Contains card details such as brand, last4, and expiry.
+
+ @see https://stripe.com/docs/terminal/features/saving-cards/overview
+ */
+@property (nonatomic, nullable, readonly) SCPPaymentMethod *generatedCardExpanded;
 
 /**
  You cannot directly instantiate this class.

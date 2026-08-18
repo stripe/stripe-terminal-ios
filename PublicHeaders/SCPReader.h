@@ -185,6 +185,16 @@ NS_SWIFT_NAME(Reader)
  */
 @property (nonatomic, nullable, readonly) NSString *label;
 
+/**
+ The AADE terminal identifier used for Greek e-invoicing.
+
+ This is the terminal ID (TID) that must be included in the AADE mark data payload.
+ It is constructed as `{deviceType}_{serialNumber}`.
+
+ Returns `nil` if the device type or serial number is not available.
+ */
+@property (nonatomic, nullable, readonly) NSString *aadeTerminalId;
+
 @end
 
 NS_ASSUME_NONNULL_END

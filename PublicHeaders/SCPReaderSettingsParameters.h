@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  You do not implement this protocol but instead use one of the existing SDK classes that conforms to this protocol:
  - `SCPReaderAccessibilityParameters`
+ - `SCPBuzzerVolumeParameters`
  */
 NS_SWIFT_NAME(ReaderSettingsParameters)
 @protocol SCPReaderSettingsParameters <NSObject>

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          StripeTerminal 5.7.0 Docs
+          StripeTerminal 5.8.0 Docs
         </a>
         
       </p>
@@ -396,6 +396,18 @@
                 <a class="nav-group-task-link" href="../Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPBuzzerVolume.html">SCPBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPReaderBuzzerVolume.html">SCPReaderBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPBuzzerVolumeLevel.html">SCPBuzzerVolumeLevel</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SCPPrintContent.html">SCPPrintContent</a>
               </li>
               <li class="nav-group-task">
@@ -650,6 +662,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAadeData.html">SCPAadeData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SCPAadeDataBuilder.html">SCPAadeDataBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPAadeMode.html">SCPAadeMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SCPAadeUnboundPosReason.html">SCPAadeUnboundPosReason</a>
               </li>
             </ul>
           </li>
@@ -1263,8 +1287,10 @@ are subject to change, and provided for informational and debugging purposes
 only. You should not depend on them for behavior in your app. Also note that
 the block you provide may be called from any thread.</p>
 
-<p>To print internal logs from the SDK to the console, you can set <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)logLevel">logLevel</a></code> to
-<code>SCPLogLevelVerbose</code> on the Terminal instance.</p>
+<p>To print internal logs from the SDK to the console, you can set <code><a href="../Classes/SCPTerminal.html#/c:objc(cs)SCPTerminal(py)logLevel">logLevel</a></code> on
+the Terminal instance. Use <code>SCPLogLevelVerbose</code> for all logs, or a less-verbose
+level (<code>SCPLogLevelError</code>, <code>SCPLogLevelWarning</code>, <code>SCPLogLevelInfo</code>) to print only
+logs at that severity and above.</p>
 
                       </div>
                       <div class="declaration">
@@ -4250,6 +4276,21 @@ actually charged. Tax and total are also not automatically calculated and must b
                       <div class="abstract">
                         <p>Configures settings on the connected reader.</p>
 
+<p>Pass an <code><a href="../Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a></code> instance to adjust the reader&rsquo;s buzzer
+(beep) volume. The completion block receives the updated <code><a href="../Classes/SCPReaderSettings.html">SCPReaderSettings</a></code>
+on success, or an error on failure.</p>
+
+<p>Possible errors:</p>
+
+<ul>
+<li><code>SCPErrorFeatureNotAvailableWithConnectedReader</code> — the connected reader
+does not support the requested setting.</li>
+<li><code>SCPErrorInvalidRequiredParameter</code> — a Custom buzzer volume was outside
+the valid range <code>1...maxVolume</code>.</li>
+<li><code>SCPErrorUnexpectedSdkError</code> — the reader rejected the change, was busy,
+or timed out.</li>
+</ul>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -4277,7 +4318,8 @@ actually charged. Tax and total are also not automatically calculated and must b
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Reader.html#/c:objc(pl)SCPReaderSettingsParameters">SCPReaderSettingsParameters</a></code> instance with the values to set on the reader.</p>
+                                  <p>The <code><a href="../Reader.html#/c:objc(pl)SCPReaderSettingsParameters">SCPReaderSettingsParameters</a></code> instance with the values to
+set on the reader.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4289,7 +4331,8 @@ actually charged. Tax and total are also not automatically calculated and must b
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a></code> to be called when the operation completes.</p>
+                                  <p>The <code><a href="../Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a></code> to be called when
+the operation completes.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4312,7 +4355,8 @@ actually charged. Tax and total are also not automatically calculated and must b
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the current settings from the connected reader.</p>
+                        <p>Retrieves the current settings from the connected reader, including
+accessibility and buzzer volume state.</p>
 
                       </div>
                       <div class="declaration">
@@ -4341,7 +4385,8 @@ actually charged. Tax and total are also not automatically calculated and must b
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a></code> to be called when the operation completes.</p>
+                                  <p>The <code><a href="../Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a></code> to be called when
+the operation completes.</p>
                                 </div>
                               </td>
                             </tr>
@@ -5554,8 +5599,8 @@ refunds, use the Stripe Dashboard or the Stripe API.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-07-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-08-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

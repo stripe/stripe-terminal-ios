@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.7.0 Docs
+          StripeTerminal 5.8.0 Docs
         </a>
         
       </p>
@@ -394,6 +394,18 @@
                 <a class="nav-group-task-link" href="Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolume.html">SCPBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderBuzzerVolume.html">SCPReaderBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPBuzzerVolumeLevel.html">SCPBuzzerVolumeLevel</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPPrintContent.html">SCPPrintContent</a>
               </li>
               <li class="nav-group-task">
@@ -648,6 +660,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeData.html">SCPAadeData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeDataBuilder.html">SCPAadeDataBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeMode.html">SCPAadeMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeUnboundPosReason.html">SCPAadeUnboundPosReason</a>
               </li>
             </ul>
           </li>
@@ -3615,6 +3639,150 @@ availability, and maximum allowed amount.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPAadeData"></a>
+                    <a name="//apple_ref/objc/Class/SCPAadeData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPAadeData">SCPAadeData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>AADE (Greek tax authority) e-invoicing data required for card-present transactions in Greece.</p>
+
+<p>Greek Governor&rsquo;s Decision A.1155/2023 mandates that all Greek POS systems integrate with an
+AADE-certified e-invoicing provider. At the time of payment, the merchant&rsquo;s e-invoicing provider
+generates a cryptographic signature (MARK) over the transaction data which must be attached to
+the PaymentIntent.</p>
+
+<p>Use <code><a href="Classes/SCPAadeDataBuilder.html">SCPAadeDataBuilder</a></code> to create an instance.</p>
+
+                        <a href="Classes/SCPAadeData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPAadeData</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AadeData</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPAadeDataBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPAadeDataBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPAadeDataBuilder">SCPAadeDataBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builder for <code><a href="Classes/SCPAadeData.html">SCPAadeData</a></code>.</p>
+
+                        <a href="Classes/SCPAadeDataBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPAadeDataBuilder</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPAadeData.html">SCPAadeData</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AadeDataBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">AadeData</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPAadeMode"></a>
+                    <a name="//apple_ref/objc/Enum/SCPAadeMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPAadeMode">SCPAadeMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The mode of the AADE e-invoicing integration.</p>
+
+<p>Greek Governor&rsquo;s Decision A.1155/2023 mandates that all Greek POS systems integrate with an
+AADE-certified e-invoicing provider for every in-person transaction.</p>
+
+                        <a href="Enums/SCPAadeMode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPAadeMode</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AadeMode</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPAadeUnboundPosReason"></a>
+                    <a name="//apple_ref/objc/Enum/SCPAadeUnboundPosReason" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPAadeUnboundPosReason">SCPAadeUnboundPosReason</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reason the POS system is operating in autonomous (unbound) mode.</p>
+
+                        <a href="Enums/SCPAadeUnboundPosReason.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPAadeUnboundPosReason</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AadeUnboundPosReason</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -3623,8 +3791,8 @@ availability, and maximum allowed amount.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-07-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-08-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

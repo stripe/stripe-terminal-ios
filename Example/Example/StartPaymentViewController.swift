@@ -739,7 +739,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let sfuRows: [Row] = [
             Row(
                 text: "Value",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: sfuItems,
                     selectedIndex: sfuItems.firstIndex(of: self.setupFutureUsage ?? "") ?? 0
                 ) { [unowned self] newIndex, _ in
@@ -759,7 +759,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let allowRedisplayRows: [Row] = [
             Row(
                 text: "Allow Redisplay",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: allowRedisplayItems,
                     selectedIndex: allowRedisplayOptions.firstIndex(of: self.allowRedisplay) ?? 0
                 ) { [unowned self] newIndex, _ in
@@ -816,7 +816,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private func makeOfflineBehaviorSection() -> Section {
         let rows: [Row] = [
             Row(
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["prefer online", "require online", "force offline"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
@@ -837,7 +837,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private func makeRequestPartialAuthorizationSection() -> Section {
         let rows: [Row] = [
             Row(
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["default", "if_available", "never"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
@@ -858,7 +858,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private func makeRequestMulticaptureSection() -> Section {
         let rows: [Row] = [
             Row(
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["default", "if_available", "never"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
@@ -879,7 +879,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private func makeRequestReauthorizationSection() -> Section {
         let rows: [Row] = [
             Row(
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["default", "if_available", "never"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in

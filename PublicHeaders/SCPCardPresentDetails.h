@@ -278,6 +278,12 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, copy, nullable, readonly) NSString *stripeDescription;
 
 /**
+ Unique reference number associated with the authorization of a transaction.
+ Used by processors to identify transactions in their systems.
+ */
+@property (nonatomic, copy, nullable, readonly) NSString *retrievalReferenceNumber;
+
+/**
  You cannot directly instantiate this class.
  */
 - (instancetype)init NS_UNAVAILABLE;

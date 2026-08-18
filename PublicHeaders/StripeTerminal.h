@@ -9,6 +9,7 @@
 //  https://stripe.com/terminal/legal
 //
 
+#import <StripeTerminal/SCPAadeData.h>
 #import <StripeTerminal/SCPAddress.h>
 #import <StripeTerminal/SCPAffirmDetails.h>
 #import <StripeTerminal/SCPAllowRedisplay.h>
@@ -20,6 +21,8 @@
 #import <StripeTerminal/SCPBluetoothProximityDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPBluetoothScanDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPBuilder.h>
+#import <StripeTerminal/SCPBuzzerVolume.h>
+#import <StripeTerminal/SCPBuzzerVolumeParameters.h>
 #import <StripeTerminal/SCPCancelable.h>
 #import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardDetails.h>
@@ -103,6 +106,7 @@
 #import <StripeTerminal/SCPReader.h>
 #import <StripeTerminal/SCPReaderAccessibility.h>
 #import <StripeTerminal/SCPReaderAccessibilityParameters.h>
+#import <StripeTerminal/SCPReaderBuzzerVolume.h>
 #import <StripeTerminal/SCPReaderDelegate.h>
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderEvent.h>

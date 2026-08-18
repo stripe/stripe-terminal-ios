@@ -704,6 +704,12 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorPrinterError = 4006,
 
     /**
+     * The reader's battery is too low to complete this printer operation.
+     * Charge the reader before trying again.
+     */
+    SCPErrorPrinterLowBattery = 4007,
+
+    /**
      * The reader cannot be connected to because it is already connected to a different device.
      */
     SCPErrorReaderConnectedToAnotherDevice = 4020,
