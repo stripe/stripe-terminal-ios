@@ -14,6 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPApiError;
+@class SCPPaymentMethod;
 @class SCPSetupAttempt;
 @class SCPNextAction;
 @class SCPPaymentMethodOptionsParameters;
@@ -145,6 +146,11 @@ NS_SWIFT_NAME(SetupIntent)
  ID of the payment method used with this SetupIntent.
  */
 @property (nonatomic, nullable, readonly) NSString *paymentMethod;
+
+/**
+ The full PaymentMethod object used with this SetupIntent, when expanded.
+ */
+@property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethodExpanded;
 
 /**
  Whether this SetupIntent was created in live mode or test mode.

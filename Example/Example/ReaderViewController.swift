@@ -495,6 +495,18 @@ class ReaderViewController: TableViewController, CancelingViewController {
                         )
                     )
                 }
+
+                workflowRows.append(
+                    Row(
+                        text: "Reader settings",
+                        detailText: "View and change reader settings",
+                        selection: { [unowned self] in
+                            self.showStartReaderSettings()
+                        },
+                        accessory: .disclosureIndicator,
+                        cellClass: SubtitleCell.self
+                    )
+                )
             case .wisePosE, .wisePosEDevKit, .etna, .stripeS700, .stripeS700DevKit, .stripeS710, .stripeS710DevKit,
                 .verifoneV660p,
                 .verifoneV660pDevKit, .verifoneM425, .verifoneM450, .verifoneP630, .verifoneUX700, .verifoneUX700DevKit,

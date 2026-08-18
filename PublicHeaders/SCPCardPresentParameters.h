@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import <StripeTerminal/SCPAadeData.h>
 #import <StripeTerminal/SCPBuilder.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -158,6 +159,16 @@ NS_SWIFT_NAME(CardPresentParameters)
 @property (nonatomic, strong, nullable, readonly) NSNumber *captureDelayDays;
 
 /**
+ AADE e-invoicing data required for card-present transactions in Greece.
+
+ Greek Governor's Decision A.1155/2023 mandates that all Greek POS systems integrate with an
+ AADE-certified e-invoicing provider for every in-person transaction.
+
+ @see SCPAadeData
+ */
+@property (nonatomic, nullable, readonly) SCPAadeData *aadeData;
+
+/**
  Use `SCPCardPresentParametersBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -198,6 +209,9 @@ NS_SWIFT_NAME(CardPresentParametersBuilder)
 
 /// @see `SCPCardPresentParameters.captureDelayDays`
 - (SCPCardPresentParametersBuilder *)setCaptureDelayDays:(NSInteger)captureDelayDays;
+
+/// @see `SCPCardPresentParameters.aadeData`
+- (SCPCardPresentParametersBuilder *)setAadeData:(SCPAadeData *)aadeData;
 
 @end
 

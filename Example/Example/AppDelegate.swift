@@ -14,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /**
      To get started with this demo, you'll need to first deploy an instance of
      our provided example backend:
-    
+
      https://github.com/stripe/example-terminal-backend
-    
+
      After deploying your backend, replace nil on the line below with the URL
      of your backend.
-    
+
      static var backendUrl: String? = "https://your-app-backend.com"
      */
     static var backendUrl: String?

@@ -192,7 +192,7 @@ class StartRefundViewController: TableViewController {
         let rows: [Row] = [
             Row(
                 text: "Value",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["charge id", "payment intent id"],
                     selectedIndex: selectedIndex
                 ) { [unowned self] newIndex, _ in
@@ -253,7 +253,7 @@ class StartRefundViewController: TableViewController {
         let rows: [Row] = [
             Row(
                 text: "Value",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["default", "true", "false"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
@@ -275,7 +275,7 @@ class StartRefundViewController: TableViewController {
         let rows: [Row] = [
             Row(
                 text: "Value",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["default", "true", "false"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in

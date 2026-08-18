@@ -8,6 +8,23 @@ If you are using CocoaPods, update your Podfile:
 pod 'StripeTerminal', '~> 5.0'
 ```
 
+# 5.8.0 2026-08-18
+### New
+* Added support for reading and setting the buzzer volume on supported readers.
+  * Read the current volume from [`SCPReaderSettings.buzzerVolume`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReaderSettings.html#/c:objc(cs)SCPReaderSettings(py)buzzerVolume) via `retrieveReaderSettings:`. [`SCPReaderBuzzerVolume`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPReaderBuzzerVolume.html) reports the current and maximum volume.
+  * Set the volume by calling `setReaderSettings:completion:` with [`SCPBuzzerVolumeParameters`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPBuzzerVolumeParameters.html), using `init(level:)` for `Low` or `High`, or `init(volume:)` for a custom volume in the range `1...maxVolume`.
+  * On a connected reader that does not support buzzer volume control, the volume is reported as unavailable and `setReaderSettings:` fails.
+* Added [`generatedCardExpanded`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupAttemptCardPresentDetails.html#/c:objc(cs)SCPSetupAttemptCardPresentDetails(py)generatedCardExpanded) property to [`SCPSetupAttemptCardPresentDetails`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupAttemptCardPresentDetails.html), exposing the full [`SCPPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentMethod.html) object when saving a card via `SetupIntent`. Fixes [#392](https://github.com/stripe/stripe-terminal-ios/issues/392).
+* Added [`paymentMethodExpanded`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html#/c:objc(cs)SCPSetupIntent(py)paymentMethodExpanded) property to [`SCPSetupIntent`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPSetupIntent.html), exposing the full [`SCPPaymentMethod`](https://stripe.dev/stripe-terminal-ios/docs/Classes/SCPPaymentMethod.html) object attached to the `SetupIntent`.
+* Added `SCPLogLevelError`, `SCPLogLevelWarning`, and `SCPLogLevelInfo` to [`SCPLogLevel`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPLogLevel.html), matching the granularity available in the Android SDK. Setting a level now prints logs at that severity and above, rather than all-or-nothing.
+* Added `SCPErrorPrinterLowBattery` error code. This error is returned when the reader's battery is too low to complete a print operation.
+* Added [`SCPDeviceTypeUnknown`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDeviceType.html) (`DeviceType.unknown`). A reader whose `device_type` this version of the SDK does not recognize is now surfaced with this device type instead of being omitted, mirroring the Android SDK. The SDK exposes no known capabilities for a reader of this type.
+
+### Fixes
+* Fixed inaccurate [`SCPDisconnectReason`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html) values reported for mobile readers connecting over Bluetooth, such as the Stripe Reader M2. A Bluetooth signal loss corroborated by the OS as an out-of-range link timeout is now reported as [`SCPDisconnectReasonBluetoothSignalLost`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonBluetoothSignalLost), selecting "Forget this device" in iOS Settings is now reported as [`SCPDisconnectReasonPeerRemovedPairingInformation`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonPeerRemovedPairingInformation), and an unexpected internal disconnect is no longer misreported as [`SCPDisconnectReasonDisconnectRequested`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonDisconnectRequested). Fixes [#391](https://github.com/stripe/stripe-terminal-ios/issues/391).
+* Fixed a crash during Tap to Pay on iPhone `collectPaymentMethod` when the connected reader or reader account ID was unexpectedly unavailable. Fixes [#395](https://github.com/stripe/stripe-terminal-ios/issues/395).
+
+
 # 5.7.0 2026-07-13
 ### New
 * Preview: Surcharging - Added support for collecting surcharges on Tap to Pay on iPhone readers.

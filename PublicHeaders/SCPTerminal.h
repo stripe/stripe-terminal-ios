@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.7.0";
+static NSString *const SCPSDKVersion = @"5.8.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
@@ -165,8 +165,10 @@ API_AVAILABLE(ios(15.0))
  only. You should not depend on them for behavior in your app. Also note that
  the block you provide may be called from any thread.
 
- To print internal logs from the SDK to the console, you can set `logLevel` to
- `SCPLogLevelVerbose` on the Terminal instance.
+ To print internal logs from the SDK to the console, you can set `logLevel` on
+ the Terminal instance. Use `SCPLogLevelVerbose` for all logs, or a less-verbose
+ level (`SCPLogLevelError`, `SCPLogLevelWarning`, `SCPLogLevelInfo`) to print only
+ logs at that severity and above.
  */
 + (void)setLogListener:(SCPLogListenerBlock)listener;
 
@@ -928,17 +930,33 @@ API_AVAILABLE(ios(15.0))
 /**
  Configures settings on the connected reader.
 
- @param params The `SCPReaderSettingsParameters` instance with the values to set on the reader.
- @param completion The `SCPReaderSettingsCompletionBlock` to be called when the operation completes.
+ Pass an `SCPBuzzerVolumeParameters` instance to adjust the reader's buzzer
+ (beep) volume. The completion block receives the updated `SCPReaderSettings`
+ on success, or an error on failure.
+
+ @param params The `SCPReaderSettingsParameters` instance with the values to
+ set on the reader.
+ @param completion The `SCPReaderSettingsCompletionBlock` to be called when
+ the operation completes.
+
+ Possible errors:
+ - `SCPErrorFeatureNotAvailableWithConnectedReader` — the connected reader
+   does not support the requested setting.
+ - `SCPErrorInvalidRequiredParameter` — a Custom buzzer volume was outside
+   the valid range `1...maxVolume`.
+ - `SCPErrorUnexpectedSdkError` — the reader rejected the change, was busy,
+   or timed out.
  */
 - (void)setReaderSettings:(id<SCPReaderSettingsParameters>)params
                completion:(SCPReaderSettingsCompletionBlock)completion
     NS_SWIFT_NAME(setReaderSettings(_:completion:));
 
 /**
- Retrieves the current settings from the connected reader.
+ Retrieves the current settings from the connected reader, including
+ accessibility and buzzer volume state.
 
- @param completion The `SCPReaderSettingsCompletionBlock` to be called when the operation completes.
+ @param completion The `SCPReaderSettingsCompletionBlock` to be called when
+ the operation completes.
  */
 - (void)retrieveReaderSettings:(SCPReaderSettingsCompletionBlock)completion
     NS_SWIFT_NAME(retrieveReaderSettings(_:));

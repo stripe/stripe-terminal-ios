@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          StripeTerminal 5.7.0 Docs
+          StripeTerminal 5.8.0 Docs
         </a>
         
       </p>
@@ -394,6 +394,18 @@
                 <a class="nav-group-task-link" href="Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolume.html">SCPBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderBuzzerVolume.html">SCPReaderBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPBuzzerVolumeLevel.html">SCPBuzzerVolumeLevel</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SCPPrintContent.html">SCPPrintContent</a>
               </li>
               <li class="nav-group-task">
@@ -648,6 +660,18 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeData.html">SCPAadeData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeDataBuilder.html">SCPAadeDataBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeMode.html">SCPAadeMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeUnboundPosReason.html">SCPAadeUnboundPosReason</a>
               </li>
             </ul>
           </li>
@@ -2510,6 +2534,7 @@ displayed reflect what the customer is actually charged.</p>
 
 <ul>
 <li><code><a href="Classes/SCPReaderAccessibilityParameters.html">SCPReaderAccessibilityParameters</a></code></li>
+<li><code><a href="Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a></code></li>
 </ul>
 
                       </div>
@@ -2748,6 +2773,157 @@ errors setting the values.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SCPBuzzerVolume"></a>
+                    <a name="//apple_ref/objc/Class/SCPBuzzerVolume" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBuzzerVolume">SCPBuzzerVolume</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The buzzer (beep) volume state of a reader that supports buzzer volume control.</p>
+
+<p>Obtain this via <code><a href="Classes/SCPReaderBuzzerVolume.html#/c:objc(cs)SCPReaderBuzzerVolume(py)volume">SCPReaderBuzzerVolume.volume</a></code> after calling
+<code>[SCPTerminal retrieveReaderSettings:]</code>.</p>
+
+                        <a href="Classes/SCPBuzzerVolume.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPBuzzerVolume</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BuzzerVolume</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPReaderBuzzerVolume"></a>
+                    <a name="//apple_ref/objc/Class/SCPReaderBuzzerVolume" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPReaderBuzzerVolume">SCPReaderBuzzerVolume</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The result of a buzzer volume retrieval, as returned by
+<code><a href="Classes/SCPReaderSettings.html#/c:objc(cs)SCPReaderSettings(py)buzzerVolume">SCPReaderSettings.buzzerVolume</a></code> after <code>[SCPTerminal retrieveReaderSettings:]</code>.</p>
+
+<p>When the connected reader supports buzzer volume control, <code>volume</code> is non-nil
+and <code>error</code> is <code>nil</code>. When the reader does not support buzzer volume control,
+<code>error</code> is non-nil and <code>volume</code> is <code>nil</code>.</p>
+
+                        <a href="Classes/SCPReaderBuzzerVolume.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPReaderBuzzerVolume</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ReaderBuzzerVolume</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBuzzerVolumeParameters"></a>
+                    <a name="//apple_ref/objc/Class/SCPBuzzerVolumeParameters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBuzzerVolumeParameters">SCPBuzzerVolumeParameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parameters for setting the buzzer (beep) volume on a reader via
+<code>[SCPTerminal setReaderSettings:completion:]</code>.</p>
+
+<p>Use <code>initWithLevel:</code> for <code>Low</code> or <code>High</code>, or <code>initWithVolume:</code> for a
+specific custom volume in the range <code>1...maxVolume</code>.</p>
+
+<p>Passing these parameters to a reader that does not support buzzer volume
+control returns <code>SCPErrorFeatureNotAvailableWithConnectedReader</code>.</p>
+
+                        <a href="Classes/SCPBuzzerVolumeParameters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPBuzzerVolumeParameters</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Reader.html#/c:objc(pl)SCPReaderSettingsParameters">SCPReaderSettingsParameters</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BuzzerVolumeParameters</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">ReaderSettingsParameters</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPBuzzerVolumeLevel"></a>
+                    <a name="//apple_ref/objc/Enum/SCPBuzzerVolumeLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPBuzzerVolumeLevel">SCPBuzzerVolumeLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The buzzer (beep) volume level to apply to a reader via
+<code>[SCPTerminal setReaderSettings:completion:]</code> with <code><a href="Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a></code>.</p>
+
+                        <a href="Enums/SCPBuzzerVolumeLevel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPBuzzerVolumeLevel</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">BuzzerVolumeLevel</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SCPPrintContent"></a>
                     <a name="//apple_ref/objc/Class/SCPPrintContent" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SCPPrintContent">SCPPrintContent</a>
@@ -2821,8 +2997,8 @@ errors setting the values.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-07-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-08-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

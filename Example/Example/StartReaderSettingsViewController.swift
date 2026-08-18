@@ -9,6 +9,18 @@
 import Foundation
 import Static
 import StripeTerminal
+import UIKit
+
+extension BuzzerVolumeLevel: @retroactive CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .low: return "Low"
+        case .high: return "High"
+        case .custom: return "Custom"
+        @unknown default: return "Unknown"
+        }
+    }
+}
 
 class StartReaderSettingsViewController: TableViewController {
     enum ReaderSettingsError: Error {
@@ -18,6 +30,8 @@ class StartReaderSettingsViewController: TableViewController {
     private var error: Error?
     private var readerSettings: ReaderSettings?
     private var textToSpeechSpeakers: Bool = false
+    private var buzzerVolumeLevel: BuzzerVolumeLevel = .low
+    private var customVolume: Int = 1
 
     convenience init() {
         self.init(style: .grouped)
@@ -33,6 +47,17 @@ class StartReaderSettingsViewController: TableViewController {
         error = nil
         self.readerSettings = readerSettings
         textToSpeechSpeakers = readerSettings.accessibility.textToSpeechStatus == .speakers
+
+        if let volume = readerSettings.buzzerVolume.volume {
+            if volume.currentVolume == 1 {
+                buzzerVolumeLevel = .low
+            } else if volume.currentVolume == volume.maxVolume {
+                buzzerVolumeLevel = .high
+            } else {
+                buzzerVolumeLevel = .custom
+                customVolume = volume.currentVolume
+            }
+        }
     }
 
     private func updateState(withError error: Error) {
@@ -70,6 +95,18 @@ class StartReaderSettingsViewController: TableViewController {
     }
 
     private func updateContent() {
+        let tryAgainSection = Section(
+            rows: [
+                Row(
+                    text: "Try again",
+                    selection: { [unowned self] in
+                        self.retrieveReaderSettings()
+                    },
+                    cellClass: ButtonCell.self
+                )
+            ]
+        )
+
         let sections: [Section?] =
             if let error = error {
                 [
@@ -77,21 +114,13 @@ class StartReaderSettingsViewController: TableViewController {
                         header: "Something went wrong",
                         rows: renderError(error)
                     ),
-                    Section(
-                        rows: [
-                            Row(
-                                text: "Try again",
-                                selection: { [unowned self] in
-                                    self.retrieveReaderSettings()
-                                },
-                                cellClass: ButtonCell.self
-                            )
-                        ]
-                    ),
+                    tryAgainSection,
                 ]
             } else {
                 [
-                    makeAccessibilitySection()
+                    makeAccessibilitySection(),
+                    makeBuzzerVolumeSection(),
+                    tryAgainSection,
                 ]
             }
 
@@ -127,6 +156,115 @@ class StartReaderSettingsViewController: TableViewController {
             )
         } else {
             return nil
+        }
+    }
+
+    private func makeBuzzerVolumeSection() -> Section? {
+        guard let readerSettings = readerSettings else { return nil }
+        guard let volume = readerSettings.buzzerVolume.volume else { return nil }
+
+        var rows: [Row] = [
+            Row(text: "Current volume", detailText: "\(volume.currentVolume) / \(volume.maxVolume)"),
+            Row(
+                text: "Volume level",
+                detailText: buzzerVolumeLevel.description,
+                selection: { [unowned self] in
+                    self.presentValuePicker(
+                        title: "Select volume level",
+                        options: [BuzzerVolumeLevel.low, .high, .custom]
+                    ) { [weak self] selected in
+                        guard let self, let selected else { return }
+                        if selected == .custom {
+                            self.presentCustomVolumeEntry(maxVolume: volume.maxVolume)
+                        } else {
+                            self.buzzerVolumeLevel = selected
+                            self.updateContent()
+                        }
+                    }
+                },
+                accessory: .disclosureIndicator
+            ),
+        ]
+
+        if buzzerVolumeLevel == .custom {
+            rows.append(
+                Row(
+                    text: "Custom volume",
+                    detailText: "\(customVolume)",
+                    selection: { [unowned self] in
+                        self.presentCustomVolumeEntry(maxVolume: volume.maxVolume)
+                    },
+                    accessory: .disclosureIndicator
+                )
+            )
+        }
+
+        rows.append(
+            Row(
+                text: "Save buzzer volume",
+                selection: { [unowned self] in
+                    self.setBuzzerVolume()
+                },
+                cellClass: ButtonCell.self
+            )
+        )
+
+        return Section(header: "Buzzer volume", rows: rows)
+    }
+
+    private func presentCustomVolumeEntry(maxVolume: Int) {
+        let alert = UIAlertController(
+            title: "Custom volume",
+            message: "Enter a value from 1 to \(maxVolume)",
+            preferredStyle: .alert
+        )
+        alert.addTextField { field in
+            field.keyboardType = .numberPad
+            field.placeholder = "1–\(maxVolume)"
+            if self.buzzerVolumeLevel == .custom {
+                field.text = "\(self.customVolume)"
+            }
+        }
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default) { [weak self, weak alert] _ in
+                guard let self,
+                    let text = alert?.textFields?.first?.text,
+                    let value = Int(text)
+                else { return }
+                self.customVolume = value
+                self.buzzerVolumeLevel = .custom
+                self.updateContent()
+            }
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+
+    private func setBuzzerVolume() {
+        let params: BuzzerVolumeParameters
+        switch buzzerVolumeLevel {
+        case .low:
+            params = BuzzerVolumeParameters(level: .low)
+        case .high:
+            params = BuzzerVolumeParameters(level: .high)
+        case .custom:
+            params = BuzzerVolumeParameters(volume: customVolume)
+        @unknown default:
+            return
+        }
+        Terminal.shared.setReaderSettings(params) { [weak self] readerSettings, error in
+            guard let self else { return }
+            if let error {
+                self.presentAlert(error: error)
+            } else if let readerSettings {
+                self.updateState(withSettings: readerSettings)
+                self.updateContent()
+                let current = readerSettings.buzzerVolume.volume?.currentVolume
+                self.presentAlert(
+                    title: "Buzzer volume updated",
+                    message: current.map { "Volume set to \($0)" } ?? "Done"
+                )
+            }
         }
     }
 

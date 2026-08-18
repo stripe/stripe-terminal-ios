@@ -40,3 +40,21 @@ extension TableViewController {
         tableView.contentInset = .zero
     }
 }
+
+extension Row.Accessory {
+    /// A segmented control whose visible selection persists across cell reuse.
+    ///
+    /// The built-in `.segmentedControl` accessory builds a fresh control from its initial
+    /// `selectedIndex` every time a cell is configured, so scrolling a row off-screen and
+    /// back resets the visible selection to the default even though the underlying value is
+    /// unchanged (TERMINAL-56817). Wrapping a single retained `SegmentedControlAccessory` in
+    /// `.view` keeps the same control instance across reconfiguration, preserving the user's
+    /// selection.
+    static func persistentSegmentedControl(
+        items: [Any],
+        selectedIndex: Int,
+        _ valueChange: @escaping SegmentedControlValueChange
+    ) -> Row.Accessory {
+        .view(SegmentedControlAccessory(items: items, selectedIndex: selectedIndex, valueChange: valueChange))
+    }
+}

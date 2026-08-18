@@ -103,7 +103,7 @@ class StartSetupIntentViewController: TableViewController {
         var rows = [
             Row(
                 text: "Allow Redisplay",
-                accessory: .segmentedControl(
+                accessory: .persistentSegmentedControl(
                     items: ["always", "limited", "unspecified"],
                     selectedIndex: 0
                 ) { [unowned self] newIndex, _ in
@@ -154,7 +154,7 @@ class StartSetupIntentViewController: TableViewController {
             rows.append(
                 Row(
                     text: "Collection Reason",
-                    accessory: .segmentedControl(
+                    accessory: .persistentSegmentedControl(
                         items: ["saveCard", "verification"],
                         selectedIndex: 0
                     ) { [unowned self] newIndex, _ in

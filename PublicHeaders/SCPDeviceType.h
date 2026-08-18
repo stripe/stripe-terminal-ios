@@ -184,6 +184,11 @@ typedef NS_ENUM(NSUInteger, SCPDeviceType) {
      Stripe Reader T610 DevKit
      */
     SCPDeviceTypeStripeT610DevKit,
+
+    /**
+     * Unknown device type.
+     */
+    SCPDeviceTypeUnknown,
 } NS_SWIFT_NAME(DeviceType);
 
 NS_ASSUME_NONNULL_END

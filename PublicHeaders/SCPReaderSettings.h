@@ -10,6 +10,7 @@
 //
 
 #import <StripeTerminal/SCPReaderAccessibility.h>
+#import <StripeTerminal/SCPReaderBuzzerVolume.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,14 @@ NS_SWIFT_NAME(ReaderSettings)
  Accessibility status of the reader.
  */
 @property (nonatomic, readonly) SCPReaderAccessibility *accessibility;
+
+/**
+ The buzzer (beep) volume result for this reader.
+
+ `buzzerVolume.volume` is non-nil when the reader supports buzzer volume
+ control. `buzzerVolume.error` is non-nil when the reader does not support it.
+ */
+@property (nonatomic, readonly) SCPReaderBuzzerVolume *buzzerVolume;
 
 /**
  You cannot directly instantiate this class.
