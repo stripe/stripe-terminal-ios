@@ -19,7 +19,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- This is a base reader delegate protocol that all reader delegates inherit from.
+ This is the base reader delegate protocol that all reader delegates inherit from.
 
  Don't implement this directly but instead implement the specific delegates needed for the reader types you'll use:
  SCPMobileReaderDelegate, SCPInternetReaderDelegate, or SCPTapToPayReaderDelegate

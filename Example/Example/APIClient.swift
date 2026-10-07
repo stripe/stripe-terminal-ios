@@ -81,6 +81,14 @@ class APIClient: NSObject, ConnectionTokenProvider {
             cardPresent["request_incremental_authorization_support"] = String(requestIncrementalAuth)
         }
 
+        if let installments = params.paymentMethodOptionsParameters.cardPresentParameters.installments {
+            var installmentsParams: Parameters = [:]
+            if let enabled = installments.enabled {
+                installmentsParams["enabled"] = enabled.boolValue
+            }
+            cardPresent["installments"] = installmentsParams
+        }
+
         AF.request(
             url,
             method: .post,

@@ -13,6 +13,7 @@
 
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
+#import <StripeTerminal/SCPReaderPaymentInteractionDelegate.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -30,6 +31,11 @@ NS_SWIFT_NAME(TapToPayConnectionConfiguration)
  The TapToPayReaderDelegate to use for this connection to the reader.
  */
 @property (nonatomic, weak, readonly) id<SCPTapToPayReaderDelegate> delegate;
+
+/**
+ The ReaderPaymentInteractionDelegate to use for payment interactions during this reader connection.
+ */
+@property (nonatomic, weak, readonly, nullable) id<SCPReaderPaymentInteractionDelegate> readerPaymentInteractionDelegate;
 
 /**
  The ID of the [Location](https://stripe.com/docs/api/terminal/locations) which the reader should be
@@ -175,6 +181,9 @@ NS_SWIFT_NAME(TapToPayConnectionConfigurationBuilder)
  Defaults to true.
  */
 - (SCPTapToPayConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/// Set the ReaderPaymentInteractionDelegate to use for payment interactions during this reader connection.
+- (SCPTapToPayConnectionConfigurationBuilder *)setReaderPaymentInteractionDelegate:(nullable id<SCPReaderPaymentInteractionDelegate>)readerPaymentInteractionDelegate;
 
 /**
  * @param testReaderUpdate The test-mode reader update behavior to apply during connect.

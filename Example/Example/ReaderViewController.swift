@@ -334,7 +334,9 @@ class ReaderViewController: TableViewController, CancelingViewController {
             let connectionConfig = try TapToPayConnectionConfigurationBuilder(
                 delegate: TapToPayReaderDelegateAnnouncer.shared,
                 locationId: location.stripeId
-            ).build()
+            )
+            .setReaderPaymentInteractionDelegate(TapToPayReaderDelegateAnnouncer.shared)
+            .build()
             easyConnectConfig = TapToPayEasyConnectConfiguration(
                 discoveryConfiguration: discoveryConfig,
                 connectionConfiguration: connectionConfig
@@ -872,26 +874,7 @@ extension ReaderViewController: MobileReaderDelegate {
 }
 
 // MARK: TapToPayReaderDelegate
-extension ReaderViewController: TapToPayReaderDelegate {
-    func tapToPayReader(
-        _ reader: Reader,
-        didStartInstallingUpdate update: ReaderSoftwareUpdate,
-        cancelable: Cancelable?
-    ) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
-    }
-}
+extension ReaderViewController: TapToPayReaderDelegate {}
 
 extension ReaderViewController: OfflineDelegate {
     func terminal(_ terminal: Terminal, didChange offlineStatus: OfflineStatus) {

@@ -137,7 +137,6 @@ NS_SWIFT_NAME(Reader)
  If the reader does not have a battery, or the battery level is unknown, this
  value is `nil`.
 
- (Bluetooth readers only.)
  */
 @property (atomic, nullable, readonly) NSNumber *batteryLevel;
 

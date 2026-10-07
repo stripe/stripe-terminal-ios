@@ -1,10 +1,10 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
   name: "StripeTerminal",
     platforms: [
-      .iOS(.v15)
+      .iOS(.v16)
     ],
   products: [
     .library(
@@ -15,8 +15,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "StripeTerminal",
-      url: "https://github.com/stripe/stripe-terminal-ios/releases/download/5.8.0/StripeTerminal.xcframework.zip",
-      checksum: "92c65013c4d92ce9dcba2310a0103651756bb65eeca409324ec54ed9896da4f7"
+      url: "https://github.com/stripe/stripe-terminal-ios/releases/download/6.0.0/StripeTerminal.xcframework.zip",
+      checksum: "90f370b39edee8a45ab50c512d6c054e7d6d3304931a7aeef80916ea97010129"
     )
   ]
 )

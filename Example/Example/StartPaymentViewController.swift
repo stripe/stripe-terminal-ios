@@ -20,16 +20,23 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     private var collectSurchargeConsent = false
     private var enableCustomerCancellation = true
     private var interacPresentEnabled = false
-    private var automaticCaptureEnabled = false
+    private var captureMethod = CaptureMethod.automaticAsync
+    private var requiresManualCapture: Bool {
+        requestExtendedAuthorization || requestIncrementalAuthorizationSupport
+    }
+    private var effectiveCaptureMethod: CaptureMethod {
+        requiresManualCapture ? .manual : captureMethod
+    }
     private var manualPreferredEnabled = false
     private var setupFutureUsage: String?
     private var requestedPriority: String?
     private var requestExtendedAuthorization = false
+    private var requestInstallments = false
     private var requestIncrementalAuthorizationSupport = false
     private var requestPartialAuthorization: String?
     private var requestMulticapture: String?
     private var requestReauthorization: CardPresentRequestReauthorization?
-    private var declineCardBrand: CardBrand?
+    private var declineCardBrand: String?
     private var recollectAfterCardBrandDecline = false
     private let isSposReader: Bool
     private var updatePaymentIntent = false
@@ -44,6 +51,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         .paynow,
         .paypay,
         .klarna,
+        .swish,
     ]
     private var selectedPaymentMethodTypes: [PaymentMethodType] = [.cardPresent]
     private var allowRedisplay: AllowRedisplay = AllowRedisplay.always
@@ -305,14 +313,15 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
     }
 
     private func createPaymentParamsBuilder() -> PaymentIntentParametersBuilder {
-        let captureMethod = self.automaticCaptureEnabled ? CaptureMethod.automatic : CaptureMethod.manual
+        let onReceiptTipRequested = (UInt(postAuthTipAmountTextField.textField.text ?? "0") ?? 0) > 0
+        let effectiveCaptureMethod = onReceiptTipRequested ? CaptureMethod.manual : self.effectiveCaptureMethod
 
         let paymentParamsBuilder = PaymentIntentParametersBuilder(
             amount: amountView.amount,
             currency: currencyView.currency
         )
         .setPaymentMethodTypes(self.selectedPaymentMethodTypes)
-        .setCaptureMethod(captureMethod)
+        .setCaptureMethod(effectiveCaptureMethod)
         .setSetupFutureUsage(setupFutureUsage)
         .setPaymentMethodOptionsParameters(makePaymentMethodOptionsParameters())
         .setMetadata([PaymentIntent.offlineIdMetadataKey: UUID().uuidString])
@@ -468,6 +477,11 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         }
 
         do {
+            if requestInstallments {
+                cardPresentParamsBuilder.setInstallments(
+                    try InstallmentsParametersBuilder().setEnabled(true).build()
+                )
+            }
             return try PaymentMethodOptionsParametersBuilder(
                 cardPresentParameters: try cardPresentParamsBuilder.build()
             ).build()
@@ -586,13 +600,7 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         let paymentMethodSection = Section(
             header: Section.Extremity.title("Payment Method Options"),
             rows: [
-                Row(
-                    text: "Enable Automatic Capture",
-                    accessory: .switchToggle(value: self.automaticCaptureEnabled) { [unowned self] _ in
-                        self.automaticCaptureEnabled.toggle()
-                        self.updateContent()
-                    }
-                ),
+                makeCaptureMethodRow(),
                 Row(
                     text: "Enable Manual Preferred",
                     accessory: .switchToggle(value: self.manualPreferredEnabled) { [unowned self] _ in
@@ -615,14 +623,29 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 Row(
                     text: "Request Extended Authorization",
                     accessory: .switchToggle(value: self.requestExtendedAuthorization) { [unowned self] _ in
+                        let wasManualCaptureRequired = self.requiresManualCapture
                         self.requestExtendedAuthorization.toggle()
+                        if !wasManualCaptureRequired && self.requiresManualCapture {
+                            self.showManualCaptureToast()
+                        }
+                        self.updateContent()
+                    }
+                ),
+                Row(
+                    text: "Enable Installments",
+                    accessory: .switchToggle(value: self.requestInstallments) { [unowned self] _ in
+                        self.requestInstallments.toggle()
                         self.updateContent()
                     }
                 ),
                 Row(
                     text: "Request Incremental Authorization Support",
                     accessory: .switchToggle(value: self.requestIncrementalAuthorizationSupport) { [unowned self] _ in
+                        let wasManualCaptureRequired = self.requiresManualCapture
                         self.requestIncrementalAuthorizationSupport.toggle()
+                        if !wasManualCaptureRequired && self.requiresManualCapture {
+                            self.showManualCaptureToast()
+                        }
                         self.updateContent()
                     }
                 ),
@@ -672,6 +695,44 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
         return paymentMethodSection
     }
 
+    private func makeCaptureMethodRow() -> Row {
+        if requiresManualCapture {
+            return Row(
+                text: "Capture Method",
+                detailText: effectiveCaptureMethod.toString(),
+                accessory: .none,
+                cellClass: Value1Cell.self
+            )
+        }
+
+        return Row(
+            text: "Capture Method",
+            detailText: effectiveCaptureMethod.toString(),
+            selection: { [unowned self] in
+                self.presentValuePicker(options: ["automatic_async", "automatic", "manual"]) { picked in
+                    switch picked {
+                    case "automatic_async": self.captureMethod = .automaticAsync
+                    case "automatic": self.captureMethod = .automatic
+                    case "manual": self.captureMethod = .manual
+                    default: break
+                    }
+                    self.updateContent()
+                }
+            },
+            accessory: .disclosureIndicator,
+            cellClass: Value1Cell.self
+        )
+    }
+
+    private func showManualCaptureToast() {
+        guard let rootViewController = UIApplication.shared.rootViewController as? RootViewController else { return }
+        rootViewController.toastView(
+            viewToToast: LabelOverlayView(
+                labelText: "Manual capture is required for extended or incremental authorization."
+            )
+        )
+    }
+
     // Makes the UPDATE PAYMENT INTENT section
     private func makeUpdatePaymentIntentSection() -> Section? {
         let switchRow: [Row] = [
@@ -690,27 +751,27 @@ class StartPaymentViewController: TableViewController, CancelingViewController {
                 text: "Decline Card Brand",
                 detailText: {
                     if let brand = declineCardBrand {
-                        return Terminal.stringFromCardBrand(brand)
+                        return brand
                     } else {
                         return "None"
                     }
                 }(),
                 selection: { [unowned self] in
-                    let brands: [CardBrand] = [
-                        .visa,
-                        .amex,
-                        .masterCard,
-                        .discover,
-                        .JCB,
-                        .dinersClub,
-                        .interac,
-                        .unionPay,
-                        .eftposAu,
+                    let brands = [
+                        "visa",
+                        "amex",
+                        "mastercard",
+                        "discover",
+                        "jcb",
+                        "diners",
+                        "interac",
+                        "unionpay",
+                        "eftpos_au",
                     ]
-                    self.presentValuePicker(options: ["None"] + brands.map { Terminal.stringFromCardBrand($0) }) {
+                    self.presentValuePicker(options: ["None"] + brands) {
                         picked in
                         self.declineCardBrand = nil
-                        for brand in brands where picked == Terminal.stringFromCardBrand(brand) {
+                        for brand in brands where picked == brand {
                             self.declineCardBrand = brand
                             break
                         }

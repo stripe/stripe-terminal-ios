@@ -17,11 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCPApiError;
 @class SCPRefund;
-@class SCPRefundParameters;
 
 /**
- An error from `-[SCPTerminal confirmRefund:completion:]`.
+ An error from `confirmRefund` or `processRefund`.
 
+ @see https://docs.stripe.com/api/refunds
  @see https://stripe.com/docs/terminal/canada#interac-refunds
  */
 NS_SWIFT_NAME(ConfirmRefundError)

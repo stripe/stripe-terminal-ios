@@ -8,6 +8,7 @@
 
 import Static
 import StripeTerminal
+import UIKit
 
 class OfflinePaymentsLogViewController: TableViewController {
 

@@ -9,45 +9,24 @@ Get started with our [integration guides](https://stripe.com/docs/terminal/sdk/i
 > Upgrading from an older version of the SDK? See our [migration guide](https://stripe.com/docs/terminal/sdk-migration-guide) for guidance.
 
 ## Requirements
-The Stripe Terminal iOS SDK is compatible with apps supporting iOS 15 and above.
+The Stripe Terminal iOS SDK is compatible with apps supporting iOS 16 and above.
 
 ## Try the example app
 The iOS SDK includes an open-source example app, which you can use to familiarize yourself with the SDK and reader before starting your own integration.
 
 To build the example app from source, you'll need to:
 
-1. Navigate to the `Example` folder, and open `Example.xcworkspace` (make sure to open the **`.xcworkspace`** and not the `.xcodeproj`).
+1. Navigate to the `Example` folder, and open `Example.xcodeproj`.
 2. Navigate to our [example backend](https://github.com/stripe/example-terminal-backend) and click the button to deploy it on Heroku.
 3. In `AppDelegate.swift`, set the URL of the Heroku app you just deployed.
 3. Build and run the app. The SDK comes with a simple reader simulator, so you can get started without any physical hardware.
 
 ## Installation
-We support CocoaPods and Swift Package Manager. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
+We support Swift Package Manager. If you prefer to install the library manually, please use the latest version from our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page.
 
 ### Swift Package Manager
 
-In Xcode, select **File > Swift Packages > Add Package Dependency** and enter https://github.com/stripe/stripe-terminal-ios
-
-### CocoaPods
-
-1. If you haven't already, install the latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-
-2. Add this line to your Podfile:
-```
-pod 'StripeTerminal', '~> 5.0'
-```
-
-3. Run the following command:
-```
-pod install
-```
-
-From now on, don't forget to use the `*.xcworkspace` file to open your project in Xcode, instead of the `.xcodeproj` file.
-
-In the future, to update to the latest compatible version of the SDK, just run:
-```
-pod update StripeTerminal
-```
+In Xcode, select **File > Swift Packages > Add Package Dependency** and enter https://github.com/stripe/stripe-terminal-ios-spm
 
 ### Manual
 1. Navigate to our [releases](https://github.com/stripe/stripe-terminal-ios/releases) page, download StripeTerminal.xcframework.zip, and unzip it.

@@ -114,6 +114,11 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, nullable, readonly) NSNumber *amountTip;
 
 /**
+ ID of the Connect application that created the PaymentIntent, if any.
+ */
+@property (nonatomic, nullable, readonly) NSString *application;
+
+/**
  The amount of the application fee (if any) for the resulting payment.
  */
 @property (nonatomic, nullable, readonly) NSNumber *applicationFeeAmount;
@@ -134,9 +139,14 @@ NS_SWIFT_NAME(PaymentIntent)
 @property (nonatomic, readonly) SCPCaptureMethod captureMethod;
 
 /**
- Charges that were created by this PaymentIntent, if any.
+ The most recent Charge created by this PaymentIntent, when expanded by the API.
  */
-@property (nonatomic, readonly) NSArray<SCPCharge *> *charges;
+@property (nonatomic, nullable, readonly) SCPCharge *latestCharge;
+
+/**
+ ID of the most recent Charge created by this PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly) NSString *latestChargeId;
 
 /**
  The client secret for this intent.
@@ -231,6 +241,11 @@ NS_SWIFT_NAME(PaymentIntent)
  Email address that the receipt for the resulting payment will be sent to.
  */
 @property (nonatomic, nullable, readonly) NSString *receiptEmail;
+
+/**
+ ID of the review associated with this PaymentIntent, if any.
+ */
+@property (nonatomic, nullable, readonly) NSString *review;
 
 /**
  Indicates that you intend to make future payments with this PaymentIntent's payment method.

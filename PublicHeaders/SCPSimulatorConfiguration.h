@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPSimulateReaderUpdate.h>
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
 #import <StripeTerminal/SCPSimulatedOfflineModeConfiguration.h>
@@ -29,15 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 NS_SWIFT_NAME(SimulatorConfiguration)
 @interface SCPSimulatorConfiguration : NSObject
-
-/**
- Set this to different values of the `SCPSimulateReaderUpdate` enum to
- test your integration with different reader software update scenarios.
-
- @note This is only valid for simulated Bluetooth readers.
- */
-@property (nonatomic, assign) SCPSimulateReaderUpdate availableReaderUpdate
-    __attribute__((deprecated("Use the testReaderUpdate property on BluetoothConnectionConfiguration, UsbConnectionConfiguration, or TapToPayConnectionConfiguration instead.")));
 
 /**
  Create a SCPSimulatedCard and set it on the shared configuration object to

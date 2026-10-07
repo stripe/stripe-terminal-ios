@@ -106,15 +106,15 @@ class StartRefundViewController: TableViewController {
     }
 
     internal func startRefund() {
-        let refundParamsBuilder: RefundParametersBuilder
+        let refundParamsBuilder: ProcessRefundParametersBuilder
         if self.refundWithChargeId == true {
-            refundParamsBuilder = RefundParametersBuilder(
+            refundParamsBuilder = ProcessRefundParametersBuilder(
                 chargeId: paymentOrChargeIdView.textField.text ?? "",
                 amount: amountView.amount,
                 currency: "cad"
             )
         } else {
-            refundParamsBuilder = RefundParametersBuilder(
+            refundParamsBuilder = ProcessRefundParametersBuilder(
                 paymentIntentId: paymentOrChargeIdView.textField.text ?? "",
                 clientSecret: clientSecretView.textField.text ?? "",
                 amount: amountView.amount,

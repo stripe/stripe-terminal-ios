@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPCardDetails, SCPCardPresentDetails, SCPWechatPayDetails, SCPAffirmDetails, SCPPaynowDetails, SCPPaypayDetails, SCPKlarnaDetails;
+@class SCPCardDetails, SCPPaymentMethodCardPresentDetails, SCPWechatPayDetails, SCPAffirmDetails, SCPPaynowDetails, SCPPaypayDetails, SCPKlarnaDetails, SCPSwishDetails;
 
 /**
  PaymentMethod objects represent your customer's payment instruments.
@@ -52,12 +52,12 @@ NS_SWIFT_NAME(PaymentMethod)
 /**
  If this is a card_present PaymentMethod (ie `self.type == SCPPaymentMethodTypeCardPresent`), this contains additional details.
  */
-@property (nonatomic, nullable, readonly) SCPCardPresentDetails *cardPresent;
+@property (nonatomic, nullable, readonly) SCPPaymentMethodCardPresentDetails *cardPresent;
 
 /**
  If this is an Interac_present PaymentMethod (ie `self.type == SCPPaymentMethodTypeInteracPresent`), this contains additional details.
  */
-@property (nonatomic, nullable, readonly) SCPCardPresentDetails *interacPresent;
+@property (nonatomic, nullable, readonly) SCPPaymentMethodCardPresentDetails *interacPresent;
 
 /**
  If this is a wechat_pay PaymentMethod (ie `self.type == SCPPaymentMethodTypeWechatPay`), this contains additional details.
@@ -83,6 +83,11 @@ NS_SWIFT_NAME(PaymentMethod)
  If this is a Klarna PaymentMethod (ie `self.type == SCPPaymentMethodTypeKlarna`), this contains additional details.
  */
 @property (nonatomic, nullable, readonly) SCPKlarnaDetails *klarna;
+
+/**
+ If this is a Swish PaymentMethod (ie `self.type == SCPPaymentMethodTypeSwish`), this contains additional details.
+ */
+@property (nonatomic, nullable, readonly) SCPSwishDetails *swish;
 
 /**
  The Customer that this PaymentMethod is attached to, or nil.

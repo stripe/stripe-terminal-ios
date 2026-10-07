@@ -12,18 +12,11 @@
 #import <Foundation/Foundation.h>
 
 #import <StripeTerminal/SCPBatteryStatus.h>
-#import <StripeTerminal/SCPBlocks.h>
-#import <StripeTerminal/SCPDisconnectReason.h>
-#import <StripeTerminal/SCPReaderDelegate.h>
-#import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderEvent.h>
-#import <StripeTerminal/SCPReaderInputOptions.h>
+#import <StripeTerminal/SCPReaderInteractionDelegate.h>
 
 @class SCPReader;
 @class SCPReaderSoftwareUpdate;
-@class SCPCancelable;
-@class SCPPaymentIntent;
-@class SCPQrCodeDisplayData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,12 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
  The provided delegate must be retained by your application until the reader disconnects.
  */
 NS_SWIFT_NAME(MobileReaderDelegate)
-@protocol SCPMobileReaderDelegate <SCPReaderDelegate>
+@protocol SCPMobileReaderDelegate <SCPReaderInteractionDelegate>
 
 /**
- The SDK is reporting that an update is available for the reader.
- This update should be installed at the earliest convenience via
- `-[SCPTerminal installUpdate:]`
+ The SDK is reporting a deferred software update that is available for the
+ Mobile Reader. This callback is only used for Mobile Reader updates that an
+ integration can install later by calling `-[SCPTerminal installUpdate:]`.
+
+ Tap to Pay readers don't report available optional updates. Mandatory Tap to
+ Pay configuration installation during connection is reported through the
+ installation lifecycle callbacks on `SCPReaderInteractionDelegate`.
 
  Check the `SCPReaderSoftwareUpdate.requiredAt` field to see when this update
  will be a required update. Required updates are installed immediately upon connection.
@@ -57,83 +54,6 @@ NS_SWIFT_NAME(MobileReaderDelegate)
  @param update      An `SCPReaderSoftwareUpdate` object representing the update to be installed.
  */
 - (void)reader:(SCPReader *)reader didReportAvailableUpdate:(SCPReaderSoftwareUpdate *)update;
-
-/**
- The SDK is reporting that the reader has started installing a software update.
-
- There are two scenarios when a reader's software update can be installed. Some
- updates must be installed immediately, and may be being installed automatically
- during `connectReader:`. Other updates can be delayed, and will be installed
- when your integration calls `installAvailableUpdate`.
-
- Required updates will only start installing during `connectReader:`. Once your app's
- `connectReader:` completion is called, `didStartInstallingUpdate:` will only fire
- from requests to install via `installUpdate:`.
-
- Note that required updates are critical for the reader to have the
- correct configuration and prevent receiving `SCPErrorUnsupportedReaderVersion`.
- Updates that aren't yet required are reported by `reader:didReportUpdateAvailable:`.
-
- @see https://stripe.com/docs/terminal/readers/bbpos-chipper2xbt#updating-reader-software
-
- @param reader      The originating reader.
- @param update      The `SCPReaderSoftwareUpdate` with an `durationEstimate` that
- can be used to communicate how long the update is expected to take.
- @param cancelable  This cancelable is provided to cancel the
- installation if needed. Canceling a required update will result in a failed
- connect with error `SCPErrorUnsupportedReaderVersion`. Incremental only updates will
- have a nil cancelable because these updates can not be canceled.
- */
-- (void)reader:(SCPReader *)reader didStartInstallingUpdate:(SCPReaderSoftwareUpdate *)update cancelable:(nullable SCPCancelable *)cancelable;
-
-/**
- The reader reported progress on a software update.
-
- @param reader              The originating reader.
- @param progress            An estimate of the progress of the software update
- (in the range [0, 1]).
- */
-- (void)reader:(SCPReader *)reader didReportReaderSoftwareUpdateProgress:(float)progress NS_SWIFT_NAME(reader(_:didReportReaderSoftwareUpdateProgress:));
-
-/**
- The reader is reporting that an installation has finished. If the install was
- successful, error will be nil.
-
- @param reader      The originating reader.
- @param update      The update that was being installed, if any. Calls to `installAvailableUpdate`
-                    when no update is available will still report didFinishInstallingUpdate, but with
-                    a nil update.
- @param error       If the installed failed, this will describe the error preventing install.
- */
-- (void)reader:(SCPReader *)reader didFinishInstallingUpdate:(nullable SCPReaderSoftwareUpdate *)update error:(nullable NSError *)error NS_SWIFT_NAME(reader(_:didFinishInstallingUpdate:error:));
-
-/**
- This method is called when the reader begins waiting for input. Your app
- should prompt the customer to present a payment method using one of the given input
- options. If the reader emits a prompt, the `didRequestReaderDisplayMessage` method
- will be called.
-
- Use `- [SCPTerminal stringFromReaderInputOptions]` to get a user facing string for the input
- options.
-
- @param reader            The originating reader.
- @param inputOptions      The armed input options on the reader.
- */
-- (void)reader:(SCPReader *)reader didRequestReaderInput:(SCPReaderInputOptions)inputOptions NS_SWIFT_NAME(reader(_:didRequestReaderInput:));
-
-/**
- This method is called to request that a prompt be displayed in your app.
- For example, if the prompt is `SwipeCard`, your app should instruct the
- user to present the card again by swiping it.
-
- Use `- [SCPTerminal stringFromReaderDisplayMessage]` to get a user facing string for the prompt.
-
- @see SCPReaderDisplayMessage
-
- @param reader              The originating reader.
- @param displayMessage      The message to display to the user.
- */
-- (void)reader:(SCPReader *)reader didRequestReaderDisplayMessage:(SCPReaderDisplayMessage)displayMessage NS_SWIFT_NAME(reader(_:didRequestReaderDisplayMessage:));
 
 @optional
 
@@ -164,36 +84,6 @@ NS_SWIFT_NAME(MobileReaderDelegate)
  @param reader      The originating reader.
  */
 - (void)readerDidReportLowBatteryWarning:(SCPReader *)reader NS_SWIFT_NAME(readerDidReportLowBatteryWarning(_:));
-
-/**
- This method is called when payment method selection is required during payment collection.
- Payment collection will block until the completion block is invoked with either the selected
- payment option or a failure.
-
- @param reader                      The originating reader.
- @param paymentIntent               The PaymentIntent being processed.
- @param availablePaymentOptions     Array of available payment options for the customer to choose from.
- @param completion                  The completion block to invoke with the selected payment option or failure.
- */
-- (void)reader:(SCPReader *)reader
-    didRequestPaymentMethodSelection:(SCPPaymentIntent *)paymentIntent
-             availablePaymentOptions:(NSArray<SCPPaymentOption *> *)availablePaymentOptions
-                          completion:(SCPPaymentMethodSelectionCompletionBlock)completion NS_SWIFT_NAME(reader(_:didRequestPaymentMethodSelection:availablePaymentOptions:completion:));
-
-/**
- This method is called when a QR code should be displayed to the user during payment processing.
- Your app should display the QR code to the customer and call the completion block once the QR code
- is successfully shown. Payment confirmation will block until the completion block is invoked.
-
- @param reader              The originating reader.
- @param paymentIntent       The PaymentIntent being processed.
- @param qrData              The QrCodeDisplayData containing the QR code image URLs and expiration information.
- @param completion          The completion block to invoke when the QR code is successfully displayed or fails.
- */
-- (void)reader:(SCPReader *)reader
-    didRequestQrCodeDisplay:(SCPPaymentIntent *)paymentIntent
-                     qrData:(SCPQrCodeDisplayData *)qrData
-                 completion:(SCPQrCodeDisplayCompletionBlock)completion NS_SWIFT_NAME(reader(_:didRequestQrCodeDisplay:qrData:completion:));
 
 @end
 

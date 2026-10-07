@@ -143,14 +143,14 @@ NS_SWIFT_NAME(SetupIntent)
 @property (nonatomic, nullable, readonly) SCPNextAction *nextAction;
 
 /**
- ID of the payment method used with this SetupIntent.
- */
-@property (nonatomic, nullable, readonly) NSString *paymentMethod;
-
-/**
  The full PaymentMethod object used with this SetupIntent, when expanded.
  */
-@property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethodExpanded;
+@property (nonatomic, nullable, readonly) SCPPaymentMethod *paymentMethod;
+
+/**
+ ID of the payment method used with this SetupIntent.
+ */
+@property (nonatomic, copy, nullable, readonly) NSString *paymentMethodId;
 
 /**
  Whether this SetupIntent was created in live mode or test mode.

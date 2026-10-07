@@ -50,9 +50,7 @@ extension OfflineUIHandler: OfflineDelegate {
             failedForwardCount += 1
 
             // Show the error right away (these may stack)
-            if let rootViewController =
-                ((UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? RootViewController)
-            {
+            if let rootViewController = UIApplication.shared.rootViewController as? RootViewController {
                 let labelOverlayView = LabelOverlayView(
                     labelText:
                         "⚠️ Error forwarding payment \(intent.offlineId ?? intent.description)\n\(error.localizedDescription)"
@@ -71,8 +69,7 @@ extension OfflineUIHandler: OfflineDelegate {
 
     func terminal(_ terminal: Terminal, didReportForwardingError error: Error) {
         guard
-            let rootViewController =
-                ((UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? RootViewController)
+            let rootViewController = UIApplication.shared.rootViewController as? RootViewController
         else { return }
         let labelOverlayView = LabelOverlayView(
             labelText: "⚠️ Error forwarding: \(error.localizedDescription)"
@@ -82,8 +79,7 @@ extension OfflineUIHandler: OfflineDelegate {
 
     func reportForwardCountsAndReset() {
         guard
-            let rootViewController = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController
-                as? RootViewController,
+            let rootViewController = UIApplication.shared.rootViewController as? RootViewController,
             failedForwardCount > 0 || successfulForwardCount > 0
         else {
             return

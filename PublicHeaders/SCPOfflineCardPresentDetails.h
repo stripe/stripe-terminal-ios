@@ -11,9 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPCardBrand.h>
-#import <StripeTerminal/SCPReadMethod.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPReceiptDetails;
@@ -28,7 +25,7 @@ NS_SWIFT_NAME(OfflineCardPresentDetails)
  The issuer of the card. In some cases, the brand may not be available until
  the PaymentIntent is forwarded to Stripe.
  */
-@property (nonatomic, readonly, assign) SCPCardBrand brand;
+@property (nonatomic, readonly, copy) NSString *brand;
 
 /**
  Two-digit number representing the card’s expiration month.
@@ -48,9 +45,10 @@ NS_SWIFT_NAME(OfflineCardPresentDetails)
 @property (nonatomic, nullable, readonly) NSString *last4;
 
 /**
- How the card was read in this transaction.
+ How the card was read in this transaction, using the canonical Stripe API
+ value (for example, `contact_emv` or `contactless_emv`).
  */
-@property (nonatomic, readonly, assign) SCPReadMethod readMethod;
+@property (nonatomic, readonly, copy) NSString *readMethod;
 
 /**
  The cardholder name as read from the card, in ISO 7813 format. May include

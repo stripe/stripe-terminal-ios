@@ -13,7 +13,6 @@
 
 #import <StripeTerminal/SCPAllowRedisplay.h>
 #import <StripeTerminal/SCPBlocks.h>
-#import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCart.h>
 #import <StripeTerminal/SCPCollectDataConfiguration.h>
 #import <StripeTerminal/SCPCollectInputsParameters.h>
@@ -38,10 +37,9 @@
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
 #import <StripeTerminal/SCPPaymentStatus.h>
 #import <StripeTerminal/SCPPrintContent.h>
-#import <StripeTerminal/SCPReadMethod.h>
+#import <StripeTerminal/SCPProcessRefundParameters.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderSettingsParameters.h>
-#import <StripeTerminal/SCPRefundParameters.h>
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPTapToPayReaderDelegate.h>
 #import <StripeTerminal/SCPTestReaderUpdate.h>
@@ -52,11 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const SCPSDKVersion = @"5.8.0";
+static NSString *const SCPSDKVersion = @"6.0.0";
 
 @class SCPCancelable,
     SCPCreateConfiguration,
     SCPBluetoothConnectionConfiguration,
+    SCPConfirmRefundParameters,
     SCPInternetConnectionConfiguration,
     SCPListLocationsParameters,
     SCPTapToPayConnectionConfiguration,
@@ -90,7 +89,7 @@ static NSString *const SCPSDKVersion = @"5.8.0";
  example application](https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift).
  */
 NS_SWIFT_NAME(Terminal)
-API_AVAILABLE(ios(15.0))
+API_AVAILABLE(ios(16.0))
 @interface SCPTerminal : NSObject
 
 #pragma mark Initializing and accessing the SCPTerminal singleton
@@ -707,63 +706,18 @@ API_AVAILABLE(ios(15.0))
  normally takes a `mandate_data` hash that lets you specify details about the
  customer's consent. The Stripe Terminal SDK will fill in the `mandate_data`
  hash with relevant information, but in order for it to do so, you must specify
- whether you have gathered consent from the cardholder to collect their payment
- information in this method's second parameter.
+ whether you have gathered consent from the cardholder using the configuration's
+ `allowRedisplay` property.
 
  The payment method will not be collected without the cardholder's consent.
 
  @param setupIntent     The SetupIntent to which payment method information is attached.
- @param allowRedisplay    A value that should be set to `always` or `limited` if you
- have successfully collected consent from the cardholder to save their payment information.
+ @param setupConfig     The configuration for collecting the setup intent payment method.
  @param completion      The completion block called when collection completes.
  */
 - (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
-                                             allowRedisplay:(SCPAllowRedisplay)allowRedisplay
-                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:allowRedisplay:completion:));
-
-/**
- Collects a payment method for the given `SCPSetupIntent`.
-
- This method does not update the SetupIntent API object. All updates are local
- to the SDK and only persisted in memory. You must confirm the SetupIntent to
- create a PaymentMethod API object and (optionally) attach that PaymentMethod
- to a customer.
-
- If collecting a payment method fails, the completion block will be called with
- an error. After resolving the error, you may call `collectSetupIntentPaymentMethod`
- again to either try the same card again, or try a different card.
-
- If collecting a payment method succeeds, the completion block will be called
- with a SetupIntent with status `.requiresConfirmation`, indicating that you
- should call `confirmSetupIntent:completion:` to
- finish the payment.
-
- Note that if `collectSetupIntentPaymentMethod` is canceled, the completion
- block will be called with a `Canceled` error.
-
- Collecting cardholder consent
- -----------------------------
-
- Card networks require that you collect consent from the customer before saving
- and reusing their card information. The SetupIntent confirmation API method
- normally takes a `mandate_data` hash that lets you specify details about the
- customer's consent. The Stripe Terminal SDK will fill in the `mandate_data`
- hash with relevant information, but in order for it to do so, you must specify
- whether you have gathered consent from the cardholder to collect their payment
- information in this method's second parameter.
-
- The payment method will not be collected without the cardholder's consent.
-
- @param setupIntent     The SetupIntent to which payment method information is attached.
- @param allowRedisplay    A value that should be set to `always` or `limited` if you
- have successfully collected consent from the cardholder to save their payment information.
- @param setupConfig     An optional SCPCollectSetupIntentConfiguration to configure per-setup overrides.
- @param completion      The completion block called when collection completes.
- */
-- (nullable SCPCancelable *)collectSetupIntentPaymentMethod:(SCPSetupIntent *)setupIntent
-                                             allowRedisplay:(SCPAllowRedisplay)allowRedisplay
-                                                setupConfig:(nullable SCPCollectSetupIntentConfiguration *)setupConfig
-                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:allowRedisplay:setupConfig:completion:));
+                                                setupConfig:(SCPCollectSetupIntentConfiguration *)setupConfig
+                                                 completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(collectSetupIntentPaymentMethod(_:setupConfig:completion:));
 
 /**
  Confirms a SetupIntent after the payment method has been successfully collected.
@@ -804,20 +758,41 @@ API_AVAILABLE(ios(15.0))
  into a single call.
 
  @param setupIntent       The SetupIntent to process.
- @param allowRedisplay    Controls how this SetupIntent may be shown to the customer in the Stripe Dashboard.
  @param collectConfig     The configuration for collecting the setup intent payment method.
  @param completion        The completion block called when the setup intent completes.
  @return                  A cancelable that can be used to cancel the setup intent process.
  */
 - (nullable SCPCancelable *)processSetupIntent:(SCPSetupIntent *)setupIntent
-                                allowRedisplay:(SCPAllowRedisplay)allowRedisplay
-                                 collectConfig:(nullable SCPCollectSetupIntentConfiguration *)collectConfig
-                                    completion:(SCPSetupIntentCompletionBlock)completion;
+                                 collectConfig:(SCPCollectSetupIntentConfiguration *)collectConfig
+                                    completion:(SCPSetupIntentCompletionBlock)completion NS_SWIFT_NAME(processSetupIntent(_:collectConfig:completion:));
 
-#pragma mark Card-present refunds
+#pragma mark Refunds
 
 /**
- Initiates an in-person refund with a given set of `SCPRefundParameters` by
+ Creates a Refund for a PaymentIntent without collecting a payment method.
+
+ The connected reader is used to authenticate the request, but this method does
+ not display reader UI or ask the cardholder to present a payment method.
+
+ If `amount` is omitted from `SCPConfirmRefundParameters`, the entire remaining
+ refundable amount is refunded.
+
+ Wait for the completion before retrying. If the completion returns an error
+ without a Refund, the request may have an unknown outcome and should be
+ reconciled with your backend before another Refund is created.
+
+ @note This feature is in private preview and is subject to change.
+
+ @see https://docs.stripe.com/api/refunds/create
+
+ @param refundParams      The refund parameters.
+ @param completion        The completion block called when the request completes.
+ */
+- (void)confirmRefund:(SCPConfirmRefundParameters *)refundParams
+           completion:(SCPConfirmRefundCompletionBlock)completion NS_SWIFT_NAME(confirmRefund(_:completion:));
+
+/**
+ Initiates an in-person refund with a given set of `SCPProcessRefundParameters` by
  collecting the payment method that is to be refunded.
 
  Some payment methods, like Interac Debit payments, require that in-person payments
@@ -834,10 +809,6 @@ API_AVAILABLE(ios(15.0))
  an error. After resolving the error, you may call `processRefund`
  again to either try the same card again, or try a different card.
 
- If collecting a payment method succeeds, the completion block will be called
- with an `nil` error. At that point, you can call `confirmRefund` to finish
- refunding the payment method.
-
  The completion block will either be called with the successful `SCPRefund` or
  with an `NSError`. If the error is of type `SCPConfirmRefundError`.
 
@@ -852,7 +823,7 @@ API_AVAILABLE(ios(15.0))
 
  1. If the error is a `SCPConfirmRefundError` and the refund property is `nil`, the request
  to Stripe's servers timed out and the refund's status is unknown. We recommend that you retry
- `processRefund` with the original `SCPRefundParameters`.
+ `processRefund` with the original `SCPProcessRefundParameters`.
  2. If the `SCPConfirmRefundError` has a `failure_reason`, the refund was declined.
  We recommend that you take action based on the decline code you received.
 
@@ -866,7 +837,7 @@ API_AVAILABLE(ios(15.0))
  @param completion        The completion block called when the refund completes.
  @return                  A cancelable that can be used to cancel the refund process.
  */
-- (nullable SCPCancelable *)processRefund:(SCPRefundParameters *)refundParams
+- (nullable SCPCancelable *)processRefund:(SCPProcessRefundParameters *)refundParams
                             collectConfig:(nullable SCPCollectRefundConfiguration *)collectConfig
                                completion:(SCPConfirmRefundCompletionBlock)completion;
 
@@ -1035,11 +1006,6 @@ API_AVAILABLE(ios(15.0))
 + (NSString *)stringFromDiscoveryMethod:(SCPDiscoveryMethod)method NS_SWIFT_NAME(stringFromDiscoveryMethod(_:));
 
 /**
- Returns an unlocalized string for the given card brand.
- */
-+ (NSString *)stringFromCardBrand:(SCPCardBrand)cardBrand NS_SWIFT_NAME(stringFromCardBrand(_:));
-
-/**
  Returns an unlocalized string for the given payment intent status.
  */
 + (NSString *)stringFromPaymentIntentStatus:(SCPPaymentIntentStatus)paymentIntentStatus NS_SWIFT_NAME(stringFromPaymentIntentStatus(_:));
@@ -1048,11 +1014,6 @@ API_AVAILABLE(ios(15.0))
  Returns an unlocalized string for the given capture method.
  */
 + (NSString *)stringFromCaptureMethod:(SCPCaptureMethod)captureMethod NS_SWIFT_NAME(stringFromCaptureMethod(_:));
-
-/**
- Returns an unlocalized string for the given read method.
- */
-+ (NSString *)stringFromReadMethod:(SCPReadMethod)method NS_SWIFT_NAME(stringFromReadMethod(_:));
 
 /**
  Returns an unlocalized string for the given network status, e.g. "Online"

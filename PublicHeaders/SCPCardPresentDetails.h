@@ -11,14 +11,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPCardBrand.h>
-#import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPDynamicCurrencyConversion.h>
-#import <StripeTerminal/SCPReadMethod.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SCPReceiptDetails, SCPNetworks;
+@class SCPReceiptDetails;
 @class SCPWallet;
 
 /**
@@ -137,14 +134,15 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, nullable, readonly) NSString *cardholderName;
 
 /**
- The card's funding type.
+ The card's funding type as returned by the Stripe API. Will be nil if
+ funding type information is not available.
  */
-@property (nonatomic, readonly) SCPCardFundingType funding;
+@property (nonatomic, nullable, copy, readonly) NSString *funding;
 
 /**
- The issuing brand of the card.
+ The issuing brand of the card as returned by the Stripe API.
  */
-@property (nonatomic, readonly) SCPCardBrand brand;
+@property (nonatomic, copy, readonly) NSString *brand;
 
 /**
  ID of a `card` PaymentMethod that may be attached to a Customer for future
@@ -181,20 +179,11 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, copy, nullable, readonly) NSArray<NSString *> *preferredLocales;
 
 /**
- Contains information about card networks that can be used to process the payment.
-
- Only available after collectPaymentMethod when using updatePaymentIntent on the CollectConfiguration.
- */
-@property (nonatomic, copy, nullable, readonly) SCPNetworks *networks;
-
-/**
  Identifies which network this charge was processed on.
-
- Contains SCPCardBrand represented as a nullable NSNumber.
 
  Only available after confirming the PaymentIntent.
  */
-@property (nonatomic, copy, nullable, readonly) NSNumber *network;
+@property (nonatomic, copy, nullable, readonly) NSString *network;
 
 /**
  * Whether this payment method is eligible for incremental authorizations.
@@ -235,9 +224,10 @@ NS_SWIFT_NAME(CardPresentDetails)
 @property (nonatomic, nullable, readonly) NSDate *reauthorizeBefore;
 
 /**
- How the card was read in this transaction.
+ How the card was read in this transaction, using the value returned by the
+ Stripe API (for example, `contact_emv` or `contactless_emv`).
  */
-@property (nonatomic, readonly, assign) SCPReadMethod readMethod;
+@property (nonatomic, readonly, copy) NSString *readMethod;
 
 /**
  If this payment is from a card wallet, this contains the details of the card wallet.
@@ -282,6 +272,13 @@ NS_SWIFT_NAME(CardPresentDetails)
  Used by processors to identify transactions in their systems.
  */
 @property (nonatomic, copy, nullable, readonly) NSString *retrievalReferenceNumber;
+
+/**
+ A unique identifier assigned by the card network to the underlying payment
+ account. This value can identify the same account across a physical card and
+ its wallet tokens.
+ */
+@property (nonatomic, copy, nullable, readonly) NSString *paymentAccountReference;
 
 /**
  You cannot directly instantiate this class.

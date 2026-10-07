@@ -24,9 +24,7 @@
 #import <StripeTerminal/SCPBuzzerVolume.h>
 #import <StripeTerminal/SCPBuzzerVolumeParameters.h>
 #import <StripeTerminal/SCPCancelable.h>
-#import <StripeTerminal/SCPCardBrand.h>
 #import <StripeTerminal/SCPCardDetails.h>
-#import <StripeTerminal/SCPCardFundingType.h>
 #import <StripeTerminal/SCPCardPresentDetails.h>
 #import <StripeTerminal/SCPCardPresentParameters.h>
 #import <StripeTerminal/SCPCart.h>
@@ -41,6 +39,7 @@
 #import <StripeTerminal/SCPConfirmPaymentIntentConfiguration.h>
 #import <StripeTerminal/SCPConfirmPaymentIntentError.h>
 #import <StripeTerminal/SCPConfirmRefundError.h>
+#import <StripeTerminal/SCPConfirmRefundParameters.h>
 #import <StripeTerminal/SCPConfirmSetupIntentError.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPConnectionStatus.h>
@@ -62,6 +61,7 @@
 #import <StripeTerminal/SCPExternalUsbChannel.h>
 #import <StripeTerminal/SCPGeneratedFrom.h>
 #import <StripeTerminal/SCPInput.h>
+#import <StripeTerminal/SCPInstallmentsParameters.h>
 #import <StripeTerminal/SCPInternetConnectionConfiguration.h>
 #import <StripeTerminal/SCPInternetDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPInternetEasyConnectConfiguration.h>
@@ -90,7 +90,9 @@
 #import <StripeTerminal/SCPOfflineStatusDetails.h>
 #import <StripeTerminal/SCPPaymentIntent.h>
 #import <StripeTerminal/SCPPaymentIntentParameters.h>
+#import <StripeTerminal/SCPPaymentInteraction.h>
 #import <StripeTerminal/SCPPaymentMethod.h>
+#import <StripeTerminal/SCPPaymentMethodCardPresentDetails.h>
 #import <StripeTerminal/SCPPaymentMethodDetails.h>
 #import <StripeTerminal/SCPPaymentMethodOptionsParameters.h>
 #import <StripeTerminal/SCPPaymentMethodType.h>
@@ -101,8 +103,8 @@
 #import <StripeTerminal/SCPPhoneInput.h>
 #import <StripeTerminal/SCPPhoneResult.h>
 #import <StripeTerminal/SCPPrintContent.h>
+#import <StripeTerminal/SCPProcessRefundParameters.h>
 #import <StripeTerminal/SCPQrCodeDisplayData.h>
-#import <StripeTerminal/SCPReadMethod.h>
 #import <StripeTerminal/SCPReader.h>
 #import <StripeTerminal/SCPReaderAccessibility.h>
 #import <StripeTerminal/SCPReaderAccessibilityParameters.h>
@@ -111,14 +113,17 @@
 #import <StripeTerminal/SCPReaderDisplayMessage.h>
 #import <StripeTerminal/SCPReaderEvent.h>
 #import <StripeTerminal/SCPReaderInputOptions.h>
+#import <StripeTerminal/SCPReaderInteractionDelegate.h>
 #import <StripeTerminal/SCPReaderNetworkStatus.h>
+#import <StripeTerminal/SCPReaderPaymentInteractionDelegate.h>
 #import <StripeTerminal/SCPReaderSettings.h>
 #import <StripeTerminal/SCPReaderSettingsParameters.h>
 #import <StripeTerminal/SCPReaderSoftwareUpdate.h>
 #import <StripeTerminal/SCPReceiptDetails.h>
 #import <StripeTerminal/SCPRedirectToUrl.h>
 #import <StripeTerminal/SCPRefund.h>
-#import <StripeTerminal/SCPRefundParameters.h>
+#import <StripeTerminal/SCPRefundNextAction.h>
+#import <StripeTerminal/SCPRefundReason.h>
 #import <StripeTerminal/SCPSelectionButton.h>
 #import <StripeTerminal/SCPSelectionInput.h>
 #import <StripeTerminal/SCPSelectionResult.h>
@@ -130,7 +135,6 @@
 #import <StripeTerminal/SCPSetupIntentParameters.h>
 #import <StripeTerminal/SCPSignatureInput.h>
 #import <StripeTerminal/SCPSignatureResult.h>
-#import <StripeTerminal/SCPSimulateReaderUpdate.h>
 #import <StripeTerminal/SCPSimulatedCard.h>
 #import <StripeTerminal/SCPSimulatedCardType.h>
 #import <StripeTerminal/SCPSimulatedCollectInputsResult.h>
@@ -139,6 +143,7 @@
 #import <StripeTerminal/SCPSimulatorConfiguration.h>
 #import <StripeTerminal/SCPSurchargeConfiguration.h>
 #import <StripeTerminal/SCPSurchargeDetails.h>
+#import <StripeTerminal/SCPSwishDetails.h>
 #import <StripeTerminal/SCPTapToPayConnectionConfiguration.h>
 #import <StripeTerminal/SCPTapToPayDiscoveryConfiguration.h>
 #import <StripeTerminal/SCPTapToPayEasyConnectConfiguration.h>

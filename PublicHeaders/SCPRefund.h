@@ -36,10 +36,20 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
     /**
      Unknown refund state.
      */
-    SCPRefundStatusUnknown
+    SCPRefundStatusUnknown,
+
+    /**
+     The refund was canceled.
+     */
+    SCPRefundStatusCanceled,
+
+    /**
+     The refund requires an additional action to continue processing.
+     */
+    SCPRefundStatusRequiresAction,
 } NS_SWIFT_NAME(RefundStatus);
 
-@class SCPPaymentMethodDetails;
+@class SCPPaymentMethodDetails, SCPRefundNextAction;
 
 /**
  An object representing a Stripe refund.
@@ -51,12 +61,9 @@ typedef NS_ENUM(NSUInteger, SCPRefundStatus) {
 
  @see https://stripe.com/docs/terminal/canada#interac-refunds
 
- The `collectRefundPaymentMethod:completion` and `confirmRefund` SDK methods
- allow you to build an in-person refund interface into your app.
-
- The refund SDK methods and the `SCPRefund` class are only available for
- payment methods that require in-person refunds, such as Interac Debit. For
- all other refunds, use the Stripe Dashboard or the Stripe API.
+ The SDK returns this object for both in-person refunds and Refunds created
+ without collecting a payment method. Use `processRefund` for payment methods
+ that require in-person collection.
 
  @see https://stripe.com/docs/api#refunds
  */
@@ -64,9 +71,9 @@ NS_SWIFT_NAME(Refund)
 @interface SCPRefund : NSObject
 
 /**
- The unique identifier for the refund.
+ The unique identifier for the Refund, if one has been assigned by Stripe.
  */
-@property (nonatomic, readonly) NSString *stripeId;
+@property (nonatomic, nullable, readonly) NSString *stripeId;
 
 /**
  The amount that was refunded.
@@ -106,6 +113,12 @@ NS_SWIFT_NAME(Refund)
  The status of the refund.
  */
 @property (nonatomic, readonly) SCPRefundStatus status;
+
+/**
+ The action required to continue processing the Refund when its status is
+ `SCPRefundStatusRequiresAction`.
+ */
+@property (nonatomic, nullable, readonly) SCPRefundNextAction *nextAction;
 
 /**
  The payment method details associated with the refund.

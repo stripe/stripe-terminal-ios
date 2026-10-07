@@ -22,10 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  All available networks for the card.
-
- Contains SCPCardBrand's represented as NSNumber.
  */
-@property (nonatomic, copy, readonly, nullable) NSArray<NSNumber *> *available;
+@property (nonatomic, copy, readonly, nullable) NSArray<NSString *> *available;
+
+/**
+ The preferred network for the card, if one was selected.
+ */
+@property (nonatomic, copy, readonly, nullable) NSString *preferred;
 
 /**
  You cannot directly instantiate this class.

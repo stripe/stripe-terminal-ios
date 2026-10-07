@@ -83,7 +83,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorNilRefundPaymentMethod = 1550,
     /**
-     The RefundParameters object has invalid values. The Charge ID (ch_123abc) or PaymentIntent ID (pi_123abc)
+     The ProcessRefundParameters object has invalid values. The Charge ID (ch_123abc) or PaymentIntent ID (pi_123abc)
      can be found on the `PaymentIntent` object, which you should get from
      your backend. You must have only one of a charge or payment intent ID set.
      */
@@ -287,9 +287,14 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
 
     /**
-     The command was canceled by your app.
+     The operation was canceled.
      */
     SCPErrorCanceled = 2020,
+
+    /**
+     The operation was cancelled on the reader.
+     */
+    SCPErrorCanceledByReader = 2021,
 
     /**
      Access to location services is currently disabled. This may be because:
@@ -704,10 +709,10 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
     SCPErrorPrinterError = 4006,
 
     /**
-     * The reader's battery is too low to complete this printer operation.
-     * Charge the reader before trying again.
+     * The requested reader operation failed because the reader's battery is too low.
+     * Charge the reader before retrying the operation.
      */
-    SCPErrorPrinterLowBattery = 4007,
+    SCPErrorReaderBatteryLow = 4007,
 
     /**
      * The reader cannot be connected to because it is already connected to a different device.
@@ -867,12 +872,6 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      */
     SCPErrorSimulatedOfflineModeNotAvailableInLivemode = 6908,
 
-    /**
-     Simulated offline mode is not available for this account. Contact Stripe
-     to request access.
-     */
-    SCPErrorSimulatedOfflineModeNotAvailableForAccount = 6909,
-
     /*
      NETWORK ERRORS
      */
@@ -939,7 +938,7 @@ typedef NS_ERROR_ENUM(SCPErrorDomain, SCPError){
      * `-[SCPTerminal collectRefundMethod:parameters]` if connected to an Internet reader
      * `-[SCPTerminal confirmRefund:completion]`
      * `-[SCPTerminal createSetupIntent:completion:]`
-     * `-[SCPTerminal collectSetupIntentPaymentMethod:customerConsentCollected:completion:]` if connected to an Internet reader
+     * `-[SCPTerminal collectSetupIntentPaymentMethod:setupConfig:completion:]` if connected to an Internet reader
      * `-[SCPTerminal confirmSetupIntent:completion:]`
      * `-[SCPTerminal cancelSetupIntent:completion:]`
      * `-[SCPTerminal collectInputs:completion:]`
