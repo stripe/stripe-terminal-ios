@@ -63,7 +63,7 @@ class StartSetupIntentViewController: TableViewController {
             let setupIntentParams = try SetupIntentParametersBuilder()
                 .setPaymentMethodTypes([PaymentMethodType.card, PaymentMethodType.cardPresent])
                 .build()
-            let setupIntentConfigBuilder = CollectSetupIntentConfigurationBuilder()
+            let setupIntentConfigBuilder = CollectSetupIntentConfigurationBuilder(allowRedisplay: allowRedisplay)
                 .setCustomerCancellation(enableCustomerCancellation ? .enableIfAvailable : .disableIfAvailable)
                 .setCollectionReason(collectionReason)
             if moto {
@@ -77,7 +77,6 @@ class StartSetupIntentViewController: TableViewController {
             let vc = SetupIntentViewController(
                 setupParams: setupIntentParams,
                 setupConfig: setupIntentConfig,
-                allowRedisplay: allowRedisplay,
                 useProcessSetupIntent: useProcessSetupIntent
             )
             let navController = LargeTitleNavigationController(rootViewController: vc)

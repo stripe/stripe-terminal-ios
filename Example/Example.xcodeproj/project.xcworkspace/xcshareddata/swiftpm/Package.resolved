@@ -1,0 +1,24 @@
+{
+  "originHash" : "d56f8d6cd3f08c199f9df49c9cec5abeaec80b7eb6d908a934bf7ffa8a4f4aa3",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "7595cbcf59809f9977c5f6378500de2ad73b7ddb",
+        "version" : "5.12.0"
+      }
+    },
+    {
+      "identity" : "static",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/venmo/Static.git",
+      "state" : {
+        "revision" : "622a6804d39515600ead16e6259cb5d5e50f40df",
+        "version" : "4.1.0"
+      }
+    }
+  ],
+  "version" : 3
+}

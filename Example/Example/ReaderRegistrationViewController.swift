@@ -108,7 +108,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
             if let error = error {
                 self.registrationInProgress = false
                 self.setAllowedCancelMethods(.all)
-                self.message = "Could not register reader."
+                self.message = "Could not register reader. \(error.localizedDescription)"
                 print(error)
             } else if let response = response {
                 self.readerId = response["id"] as? String
@@ -122,7 +122,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
                         if let error = error {
                             self.registrationInProgress = false
                             self.setAllowedCancelMethods(.all)
-                            self.message = "Could not discover readers."
+                            self.message = "Could not discover readers. \(error.localizedDescription)"
                             print(error)
                         }
                     }
@@ -160,7 +160,9 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
     private func updateContent() {
         let messageSection: Section? =
             (message != nil)
-            ? Section(rows: [Row(text: message ?? "")])
+            // Errors surfaced here can be long (e.g. the Wifi-mismatch guidance for a
+            // connection timeout), so the row has to wrap rather than truncate.
+            ? Section(rows: [Row(text: message ?? "", cellClass: Value1MultilineCell.self)])
             : nil
 
         let sections = [
@@ -226,7 +228,7 @@ class ReaderRegistrationViewController: TableViewController, DiscoveryDelegate, 
             [unowned self] connectedReader, error in
             self.setAllowedCancelMethods(.all)
             if let error = error {
-                self.message = "Could not connect to reader."
+                self.message = "Could not connect to reader. \(error.localizedDescription)"
                 print(readers, error)
             } else if let connectedReader = connectedReader {
                 self.onConnectedToReader(connectedReader)

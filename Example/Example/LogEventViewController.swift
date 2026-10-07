@@ -49,6 +49,7 @@ struct LogEvent: CustomStringConvertible, Event {
         case reportReaderEvent = "delegate.didReportReaderEvent"
         case didRequestPaymentMethodSelection = "delegate.didRequestPaymentMethodSelection"
         case didRequestQrCodeDisplay = "delegate.didRequestQrCodeDisplay"
+        case tapToPayReaderDidAcceptTermsOfService = "delegate.tapToPayReaderDidAcceptTermsOfService"
         case attachPaymentMethod = "backend.attachPaymentMethod"
         case collectRefundPaymentMethod = "terminal.collectRefundPaymentMethod"
         case cancelCollectRefundPaymentMethod = "terminal.cancelCollectRefundPaymentMethod"
@@ -112,7 +113,8 @@ struct LogEvent: CustomStringConvertible, Event {
             .reportReaderEvent,
             .requestReaderDisplayMessage,
             .didRequestPaymentMethodSelection,
-            .didRequestQrCodeDisplay:
+            .didRequestQrCodeDisplay,
+            .tapToPayReaderDidAcceptTermsOfService:
             return result.description
         case .createPaymentIntent, .backendCreatePaymentIntent:
             switch result {

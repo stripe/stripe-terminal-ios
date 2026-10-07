@@ -28,6 +28,12 @@ typedef NS_ENUM(NSUInteger, SCPCaptureMethod) {
 
     /// Stripe automatically captures funds when the customer authorizes the payment.
     SCPCaptureMethodAutomatic,
+
+    /// Stripe asynchronously captures funds when the customer authorizes the payment.
+    /// Recommended over `SCPCaptureMethodAutomatic` due to improved latency.
+    ///
+    /// @see https://docs.stripe.com/payments/payment-intents/asynchronous-capture
+    SCPCaptureMethodAutomaticAsync,
 } NS_SWIFT_NAME(CaptureMethod);
 
 /**
@@ -56,7 +62,7 @@ NS_SWIFT_NAME(PaymentIntentParameters)
 @property (nonatomic, readonly) NSArray<NSNumber *> *paymentMethodTypes;
 
 /**
- The capture method that this PaymentIntent should use. Defaults to `SCPCaptureMethodManual`.
+ The capture method that this PaymentIntent should use. Defaults to `SCPCaptureMethodAutomaticAsync`.
  */
 @property (nonatomic, readonly) SCPCaptureMethod captureMethod;
 
@@ -181,11 +187,6 @@ NS_SWIFT_NAME(PaymentIntentParameters)
  Use `SCPPaymentIntentParametersBuilder`
  */
 + (instancetype)new NS_UNAVAILABLE;
-
-/**
- Use stripeDescription for the string attached to the object.
- */
-@property (nonatomic, copy, readonly) NSString *description DEPRECATED_MSG_ATTRIBUTE("Did you mean to use stripeDescription?");
 
 @end
 

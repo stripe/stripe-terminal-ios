@@ -45,18 +45,6 @@ NS_SWIFT_NAME(InternetConnectionConfiguration)
 @property (nonatomic, readonly) BOOL failIfInUse;
 
 /**
- If set to true, the customer will be able to press the red X button on the
- Verifone P400 to cancel a `collectPaymentMethod`, `collectReusableCard`, or
- `collectRefundPaymentMethod` command.
-
- The property defaults to `NO` if not set.
-
- @note This behavior is part of a private beta. Setting this property will have
- no effect if you are not part of the allowCustomerCancel beta program.
- */
-@property (nonatomic, readonly) BOOL allowCustomerCancel;
-
-/**
  Use `SCPInternetConnectionConfigurationBuilder`.
  */
 - (instancetype)init NS_UNAVAILABLE;
@@ -79,9 +67,6 @@ NS_SWIFT_NAME(InternetConnectionConfigurationBuilder)
 
 /// Set the `failIfInUse` property for the `SCPInternetConnectionConfiguration` object that will be built.
 - (SCPInternetConnectionConfigurationBuilder *)setFailIfInUse:(BOOL)failIfInUse;
-
-/// Set the `allowCustomerCancel` property for the `SCPInternetConnectionConfiguration` object that will be built.
-- (SCPInternetConnectionConfigurationBuilder *)setAllowCustomerCancel:(BOOL)allowCustomerCancel;
 
 /**
  Use `initWithDelegate:`

@@ -331,32 +331,7 @@ extension UpdateReaderViewController: MobileReaderDelegate {
 
 // MARK: TapToPayReaderDelegate
 extension UpdateReaderViewController: TapToPayReaderDelegate {
-    func tapToPayReader(
-        _ reader: Reader,
-        didStartInstallingUpdate update: ReaderSoftwareUpdate,
-        cancelable: Cancelable?
-    ) {
-        self.cancelable = cancelable
-    }
-
-    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
-        self.updateProgress = progress
-        self.updateContent()
-    }
-
-    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
-        // No-op.
-    }
-
     func tapToPayReaderDidAcceptTermsOfService(_ reader: Reader) {
-        // No-op.
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-        // No-op.
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         // No-op.
     }
 }

@@ -11,10 +11,10 @@ import StripeTerminal
 import UIKit
 
 class RefundViewController: EventDisplayingViewController {
-    private let refundParameters: RefundParameters
+    private let refundParameters: ProcessRefundParameters
     private let refundConfig: CollectRefundConfiguration
 
-    init(refundParams: RefundParameters, refundConfig: CollectRefundConfiguration) {
+    init(refundParams: ProcessRefundParameters, refundConfig: CollectRefundConfiguration) {
         self.refundParameters = refundParams
         self.refundConfig = refundConfig
         super.init()

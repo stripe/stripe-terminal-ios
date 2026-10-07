@@ -60,6 +60,11 @@ typedef NS_ENUM(NSUInteger, SCPPaymentMethodType) {
     SCPPaymentMethodTypeKlarna,
 
     /**
+     A Swish payment method.
+     */
+    SCPPaymentMethodTypeSwish,
+
+    /**
      An unknown type.
      */
     SCPPaymentMethodTypeUnknown,

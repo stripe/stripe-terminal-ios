@@ -14,6 +14,7 @@
 #import <StripeTerminal/SCPBuilder.h>
 #import <StripeTerminal/SCPConnectionConfiguration.h>
 #import <StripeTerminal/SCPMobileReaderDelegate.h>
+#import <StripeTerminal/SCPReaderPaymentInteractionDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,11 @@ NS_SWIFT_NAME(UsbConnectionConfiguration)
  The MobileReaderDelegate to use for this connection to the reader.
  */
 @property (nonatomic, weak, readonly) id<SCPMobileReaderDelegate> delegate;
+
+/**
+ The ReaderPaymentInteractionDelegate to use for payment interactions during this reader connection.
+ */
+@property (nonatomic, weak, readonly, nullable) id<SCPReaderPaymentInteractionDelegate> readerPaymentInteractionDelegate;
 
 /**
  The ID of the [Location](https://stripe.com/docs/api/terminal/locations) which the reader should be registered to during connection.
@@ -92,6 +98,9 @@ NS_SWIFT_NAME(UsbConnectionConfigurationBuilder)
 
 /// Set the autoReconnectOnUnexpectedDisconnect property for the `UsbConnectionConfiguration` object that will be built.
 - (SCPUsbConnectionConfigurationBuilder *)setAutoReconnectOnUnexpectedDisconnect:(BOOL)autoReconnectOnUnexpectedDisconnect;
+
+/// Set the ReaderPaymentInteractionDelegate to use for payment interactions during this reader connection.
+- (SCPUsbConnectionConfigurationBuilder *)setReaderPaymentInteractionDelegate:(nullable id<SCPReaderPaymentInteractionDelegate>)readerPaymentInteractionDelegate;
 
 /// Set the testReaderUpdate property for the `UsbConnectionConfiguration` object that will be built.
 - (SCPUsbConnectionConfigurationBuilder *)setTestReaderUpdate:(nullable SCPTestReaderUpdate *)testReaderUpdate;

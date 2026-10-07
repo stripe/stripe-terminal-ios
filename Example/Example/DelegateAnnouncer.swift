@@ -92,7 +92,9 @@ class ReaderDelegateAnnouncer<T: ReaderDelegate>: DelegateAnnouncer<T>, ReaderDe
  Allows the Example app to use a single persistent MobileReaderDelegate for the life of the connection
  and still have the view controllers receive the MobileReaderDelegate events.
  */
-class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegate>, MobileReaderDelegate {
+class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegate>, MobileReaderDelegate,
+    ReaderPaymentInteractionDelegate
+{
     static let shared = MobileReaderDelegateAnnouncer()
 
     // MARK: - MobileReaderDelegate
@@ -150,30 +152,11 @@ class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegat
         }
     }
 
-    func reader(
-        _ reader: Reader,
-        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
-        availablePaymentOptions: [PaymentOption],
-        completion: @escaping PaymentMethodSelectionCompletionBlock
-    ) {
-        announce { delegate in
-            delegate.reader?(
-                reader,
-                didRequestPaymentMethodSelection: paymentIntent,
-                availablePaymentOptions: availablePaymentOptions,
-                completion: completion
-            )
-        }
-    }
+    // MARK: - ReaderPaymentInteractionDelegate
 
-    func reader(
-        _ reader: Reader,
-        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
-        qrData: QrCodeDisplayData,
-        completion: @escaping QrCodeDisplayCompletionBlock
-    ) {
+    func reader(_ reader: Reader, didRequestInteraction interaction: PaymentInteraction) {
         announce { delegate in
-            delegate.reader?(reader, didRequestQrCodeDisplay: paymentIntent, qrData: qrData, completion: completion)
+            (delegate as? ReaderPaymentInteractionDelegate)?.reader(reader, didRequestInteraction: interaction)
         }
     }
 }
@@ -184,30 +167,32 @@ class MobileReaderDelegateAnnouncer: ReaderDelegateAnnouncer<MobileReaderDelegat
  Allows the Example app to use a single persistent TapToPayReaderDelegate for the life of the connection
  and still have the view controllers receive the TapToPayReaderDelegate events.
  */
-class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDelegate>, TapToPayReaderDelegate {
+class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDelegate>, TapToPayReaderDelegate,
+    ReaderPaymentInteractionDelegate
+{
     static let shared = TapToPayReaderDelegateAnnouncer()
 
     // MARK: - TapToPayReaderDelegate
 
-    func tapToPayReader(
+    func reader(
         _ reader: Reader,
         didStartInstallingUpdate update: ReaderSoftwareUpdate,
         cancelable: Cancelable?
     ) {
         announce { delegate in
-            delegate.tapToPayReader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
+            delegate.reader(reader, didStartInstallingUpdate: update, cancelable: cancelable)
         }
     }
 
-    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
+    func reader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
         announce { delegate in
-            delegate.tapToPayReader(reader, didReportReaderSoftwareUpdateProgress: progress)
+            delegate.reader(reader, didReportReaderSoftwareUpdateProgress: progress)
         }
     }
 
-    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
+    func reader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
         announce { delegate in
-            delegate.tapToPayReader(reader, didFinishInstallingUpdate: update, error: error)
+            delegate.reader(reader, didFinishInstallingUpdate: update, error: error)
         }
     }
 
@@ -217,47 +202,23 @@ class TapToPayReaderDelegateAnnouncer: ReaderDelegateAnnouncer<TapToPayReaderDel
         }
     }
 
-    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
+    func reader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
         announce { delegate in
-            delegate.tapToPayReader(reader, didRequestReaderInput: inputOptions)
+            delegate.reader(reader, didRequestReaderInput: inputOptions)
         }
     }
 
-    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
+    func reader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
         announce { delegate in
-            delegate.tapToPayReader(reader, didRequestReaderDisplayMessage: displayMessage)
+            delegate.reader(reader, didRequestReaderDisplayMessage: displayMessage)
         }
     }
 
-    func tapToPayReader(
-        _ reader: Reader,
-        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
-        availablePaymentOptions: [PaymentOption],
-        completion: @escaping (PaymentOption?, (any Error)?) -> Void
-    ) {
-        announce { delegate in
-            delegate.tapToPayReader?(
-                reader,
-                didRequestPaymentMethodSelection: paymentIntent,
-                availablePaymentOptions: availablePaymentOptions,
-                completion: completion
-            )
-        }
-    }
+    // MARK: - ReaderPaymentInteractionDelegate
 
-    func tapToPayReader(
-        _ reader: Reader,
-        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
-        qrData: QrCodeDisplayData,
-        completion: @escaping QrCodeDisplayCompletionBlock
-    ) {
+    func reader(_ reader: Reader, didRequestInteraction interaction: PaymentInteraction) {
         announce { delegate in
-            delegate.tapToPayReader?(
-                reader,
-                didRequestQrCodeDisplay: paymentIntent,
-                qrData: qrData,
-                completion: completion
-            )
+            (delegate as? ReaderPaymentInteractionDelegate)?.reader(reader, didRequestInteraction: interaction)
         }
     }
 }

@@ -36,7 +36,7 @@
 		395970602A8D85830015F0F3 /* LocationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959705F2A8D85830015F0F3 /* LocationStub.swift */; };
 		50225C402B4DACB300757FC6 /* StartReaderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C3F2B4DACB300757FC6 /* StartReaderSettingsViewController.swift */; };
 		50225C5E2B508DFB00757FC6 /* Error+StripeTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50225C5D2B508DFB00757FC6 /* Error+StripeTerminal.swift */; };
-		51FC371DB809DFDC5FCD9F2B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4933ECE362A611954D8CB1 /* Pods_Example.framework */; };
+		5E5C4594BFFF42A6A1652623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FC2AB8DF3440D9DE1D565 /* SceneDelegate.swift */; };
 		5F83704D2F857BF600C712FA /* StartTapToPayAccountLinkedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83704B2F857BF600C712FA /* StartTapToPayAccountLinkedViewController.swift */; };
 		5F83704E2F857BF600C712FA /* TapToPayAccountLinkedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83704C2F857BF600C712FA /* TapToPayAccountLinkedViewController.swift */; };
 		6F8BE0922177B403009511E5 /* DiscoveryMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */; };
@@ -47,6 +47,8 @@
 		AA568CD12A9D413900B9605C /* StartSetupIntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA568CD02A9D413900B9605C /* StartSetupIntentViewController.swift */; };
 		B3C24C6C23285BF6003271BD /* ifaddrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C24C6B23285BF6003271BD /* ifaddrs.swift */; };
 		B893718CB56E42C690818379 /* ReconnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE2C08B56E42C69081B893 /* ReconnectionView.swift */; };
+		BB0E7276AC7DFD931A4B1AE7 /* Static in Frameworks */ = {isa = PBXBuildFile; productRef = 1ECD55AC8B6BC3020B9BB862 /* Static */; };
+		BEBFEFD3B61AC5B3F8A191DE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2201AC19A8454B708697AFFA /* Alamofire */; };
 		C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C151C7A521605B6200FC206F /* UpdateReaderViewController.swift */; };
 		C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F77B214A18C00078BD07 /* StripeCurrencies.swift */; };
 		C16651B721963C51006EFACF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16651B621963C51006EFACF /* APIClient.swift */; };
@@ -63,6 +65,7 @@
 		C1DE30D721438E9900A3026F /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D121438E9800A3026F /* UIViewController+UIAlertController.swift */; };
 		C1DE30D821438E9900A3026F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE30D221438E9800A3026F /* UIView+Layout.swift */; };
 		C1F78BDB2144F0830094BE37 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F78BDA2144F0830094BE37 /* CustomViews.swift */; };
+		EBED240A598FF4F745A1BF31 /* StripeTerminal in Frameworks */ = {isa = PBXBuildFile; productRef = 81440338BC7D816FDD35E703 /* StripeTerminal */; };
 		ECF98A142E0F0DAA003807FA /* StartPrintContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF98A132E0F0DAA003807FA /* StartPrintContentViewController.swift */; };
 		ECF98A162E0F0DF7003807FA /* PrintContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF98A152E0F0DF7003807FA /* PrintContentViewController.swift */; };
 		F0A100212233445566778899 /* TestReaderUpdateConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A100112233445566778899 /* TestReaderUpdateConfigurationViewController.swift */; };
@@ -96,8 +99,8 @@
 		02DA8E3924532E4900235921 /* DelegateAnnouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateAnnouncer.swift; sourceTree = "<group>"; };
 		02EE99D62CC2B5450016B51D /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
 		199A008C245A2D6F00E89BE9 /* TableViewController+StripeTerminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+StripeTerminal.swift"; sourceTree = "<group>"; };
-		1D4933ECE362A611954D8CB1 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F65BFFE2AF44F4000043452 /* CollectInputsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectInputsViewController.swift; sourceTree = "<group>"; };
+		224FC2AB8DF3440D9DE1D565 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		241B90F8249027DE0083C908 /* ReaderRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderRegistrationViewController.swift; sourceTree = "<group>"; };
 		2446E3EE25AF499B00FB4510 /* SetupIntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIntentViewController.swift; sourceTree = "<group>"; };
 		248EAA0624427FD500DDB433 /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
@@ -117,8 +120,6 @@
 		5F83704B2F857BF600C712FA /* StartTapToPayAccountLinkedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTapToPayAccountLinkedViewController.swift; sourceTree = "<group>"; };
 		5F83704C2F857BF600C712FA /* TapToPayAccountLinkedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToPayAccountLinkedViewController.swift; sourceTree = "<group>"; };
 		6F8BE0912177B403009511E5 /* DiscoveryMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMethodViewController.swift; sourceTree = "<group>"; };
-		7EC730D36CFD482F6C937389 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		95943A200402D89F3AC8C320 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		A63E8430260D073B006CB90C /* CreateLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8434260D0A0D006CB90C /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A63E8456260D23C9006CB90C /* StripeCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCountries.swift; sourceTree = "<group>"; };
@@ -156,30 +157,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51FC371DB809DFDC5FCD9F2B /* Pods_Example.framework in Frameworks */,
+				BEBFEFD3B61AC5B3F8A191DE /* Alamofire in Frameworks */,
+				BB0E7276AC7DFD931A4B1AE7 /* Static in Frameworks */,
+				EBED240A598FF4F745A1BF31 /* StripeTerminal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		871C7945DA386247E2E79C6F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7EC730D36CFD482F6C937389 /* Pods-Example.debug.xcconfig */,
-				95943A200402D89F3AC8C320 /* Pods-Example.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C16F40942094F07B009CE87C = {
 			isa = PBXGroup;
 			children = (
 				C16F409F2094F07B009CE87C /* Example */,
+				EE087B524FD387212EBE036B /* Frameworks */,
 				C16F409E2094F07B009CE87C /* Products */,
-				871C7945DA386247E2E79C6F /* Pods */,
-				E3F74E52728B6969A6B72C39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +189,7 @@
 				FEEDFACECAFEBEEF00000002 /* QrCodeViewController.swift */,
 				C16651B621963C51006EFACF /* APIClient.swift */,
 				C16F40A02094F07B009CE87C /* AppDelegate.swift */,
+				224FC2AB8DF3440D9DE1D565 /* SceneDelegate.swift */,
 				C16F40A72094F07C009CE87C /* Assets.xcassets */,
 				02370F5C244C94D00056D896 /* CancelableViewController.swift */,
 				3936853D28860BDE0026A906 /* CaptureMethod+String.swift */,
@@ -260,10 +253,9 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		E3F74E52728B6969A6B72C39 /* Frameworks */ = {
+		EE087B524FD387212EBE036B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1D4933ECE362A611954D8CB1 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,12 +267,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C16F40AF2094F07C009CE87C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				E38B4EEF5AAF5A946250F609 /* [CP] Check Pods Manifest.lock */,
 				C16F40992094F07B009CE87C /* Sources */,
 				C16F409B2094F07B009CE87C /* Resources */,
 				0DE2ACED4D7F3843500B5F14 /* Frameworks */,
 				02A6BF5524CB1C3D0054ADFF /* CopyFiles */,
-				226BA01F7699A2606DAA41AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,7 +278,9 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				3BC2BD9F8DD136D6C385C24B /* StripeTerminal */,
+				2201AC19A8454B708697AFFA /* Alamofire */,
+				1ECD55AC8B6BC3020B9BB862 /* Static */,
+				81440338BC7D816FDD35E703 /* StripeTerminal */,
 			);
 			productName = Example;
 			productReference = C16F409D2094F07B009CE87C /* Example.app */;
@@ -322,7 +314,9 @@
 			);
 			mainGroup = C16F40942094F07B009CE87C;
 			packageReferences = (
-				3B0453223549CA94F3E583BC /* XCLocalSwiftPackageReference ".." */,
+				8D22516DEC0D57DC43B4FBBE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BEA714C24EFC8CE90388AD26 /* XCRemoteSwiftPackageReference "Static" */,
+				243CBA8164803EFB32ED366F /* XCRemoteSwiftPackageReference "stripe-terminal-ios-spm" */,
 			);
 			productRefGroup = C16F409E2094F07B009CE87C /* Products */;
 			projectDirPath = "";
@@ -345,51 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		226BA01F7699A2606DAA41AA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Static/Static.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Static.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E38B4EEF5AAF5A946250F609 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C16F40992094F07B009CE87C /* Sources */ = {
@@ -427,6 +376,7 @@
 				C152F77C214A18C00078BD07 /* StripeCurrencies.swift in Sources */,
 				2446E3EF25AF499B00FB4510 /* SetupIntentViewController.swift in Sources */,
 				C16F40A12094F07B009CE87C /* AppDelegate.swift in Sources */,
+				5E5C4594BFFF42A6A1652623 /* SceneDelegate.swift in Sources */,
 				F0A100212233445566778899 /* TestReaderUpdateConfigurationViewController.swift in Sources */,
 				C151C7A621605B6200FC206F /* UpdateReaderViewController.swift in Sources */,
 				248EAA0724427FD500DDB433 /* RefundViewController.swift in Sources */,
@@ -530,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
@@ -586,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SAMPLE_CODE_DISAMBIGUATOR = "$(DEVELOPMENT_TEAM)";
 				SDKROOT = iphoneos;
@@ -598,7 +548,6 @@
 		};
 		C16F40B02094F07C009CE87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EC730D36CFD482F6C937389 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -610,12 +559,11 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"COCOAPODS=1",
 					"SCP_USB_ENABLED=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +579,6 @@
 		};
 		C16F40B12094F07C009CE87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95943A200402D89F3AC8C320 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -643,12 +590,11 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"COCOAPODS=1",
 					"SCP_USB_ENABLED=1",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,17 +631,47 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		3B0453223549CA94F3E583BC /* XCLocalSwiftPackageReference ".." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../;
+/* Begin XCRemoteSwiftPackageReference section */
+		243CBA8164803EFB32ED366F /* XCRemoteSwiftPackageReference "stripe-terminal-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-terminal-ios-spm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.0.0;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+		8D22516DEC0D57DC43B4FBBE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		BEA714C24EFC8CE90388AD26 /* XCRemoteSwiftPackageReference "Static" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/venmo/Static.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3BC2BD9F8DD136D6C385C24B /* StripeTerminal */ = {
+		1ECD55AC8B6BC3020B9BB862 /* Static */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B0453223549CA94F3E583BC /* XCLocalSwiftPackageReference ".." */;
+			package = BEA714C24EFC8CE90388AD26 /* XCRemoteSwiftPackageReference "Static" */;
+			productName = Static;
+		};
+		2201AC19A8454B708697AFFA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D22516DEC0D57DC43B4FBBE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		81440338BC7D816FDD35E703 /* StripeTerminal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 243CBA8164803EFB32ED366F /* XCRemoteSwiftPackageReference "stripe-terminal-ios-spm" */;
 			productName = StripeTerminal;
 		};
 /* End XCSwiftPackageProductDependency section */

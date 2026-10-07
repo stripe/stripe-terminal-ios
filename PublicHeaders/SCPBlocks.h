@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
     SCPReader,
     SCPLocation,
     SCPPaymentIntent,
-    SCPRefundParameters,
+    SCPProcessRefundParameters,
     SCPRefund,
     SCPSetupIntent,
     SCPSetupIntentParameters,

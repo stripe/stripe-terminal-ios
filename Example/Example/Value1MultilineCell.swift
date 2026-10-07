@@ -7,6 +7,7 @@
 //
 
 import Static
+import UIKit
 
 /**
  Same as Static.Value1Cell, but supports wrapping in the text label if needed.

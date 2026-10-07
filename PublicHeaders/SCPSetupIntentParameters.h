@@ -74,11 +74,6 @@ NS_SWIFT_NAME(SetupIntentParameters)
  */
 + (instancetype)new NS_UNAVAILABLE;
 
-/**
- Use stripeDescription for the string attached to the object.
-*/
-@property (nonatomic, copy, readonly) NSString *description DEPRECATED_MSG_ATTRIBUTE("Did you mean to use stripeDescription?");
-
 @end
 
 /**

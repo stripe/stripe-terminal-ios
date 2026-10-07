@@ -13,18 +13,15 @@ import UIKit
 class SetupIntentViewController: EventDisplayingViewController {
     private let setupParams: SetupIntentParameters
     private let setupConfig: CollectSetupIntentConfiguration
-    private let allowRedisplay: AllowRedisplay
     private let useProcessSetupIntent: Bool
 
     init(
         setupParams: SetupIntentParameters,
         setupConfig: CollectSetupIntentConfiguration,
-        allowRedisplay: AllowRedisplay,
         useProcessSetupIntent: Bool
     ) {
         self.setupParams = setupParams
         self.setupConfig = setupConfig
-        self.allowRedisplay = allowRedisplay
         self.useProcessSetupIntent = useProcessSetupIntent
         super.init()
         self.currentCancelLogMethod = .cancelCollectSetupIntentPaymentMethod
@@ -88,7 +85,6 @@ class SetupIntentViewController: EventDisplayingViewController {
             self.events.append(event)
             let collectedSetupIntent = try await Terminal.shared.collectSetupIntentPaymentMethod(
                 intent,
-                allowRedisplay: self.allowRedisplay,
                 setupConfig: self.setupConfig
             )
             self.handleSetupResult(collectedSetupIntent, event: &event)
@@ -120,7 +116,6 @@ class SetupIntentViewController: EventDisplayingViewController {
         do {
             let processedSetupIntent = try await Terminal.shared.processSetupIntent(
                 intent,
-                allowRedisplay: self.allowRedisplay,
                 collectConfig: self.setupConfig
             )
 

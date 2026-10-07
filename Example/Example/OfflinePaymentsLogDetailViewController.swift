@@ -7,6 +7,7 @@
 //
 
 import Static
+import UIKit
 
 class OfflinePaymentsLogDetailViewController: TableViewController {
 

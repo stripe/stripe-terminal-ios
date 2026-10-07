@@ -11,9 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StripeTerminal/SCPCardBrand.h>
-#import <StripeTerminal/SCPCardFundingType.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCPGeneratedFrom;
@@ -27,9 +24,9 @@ NS_SWIFT_NAME(CardDetails)
 @interface SCPCardDetails : NSObject
 
 /**
- The issuer of the card.
+ The issuer of the card as returned by the Stripe API.
  */
-@property (nonatomic, readonly) SCPCardBrand brand;
+@property (nonatomic, copy, readonly) NSString *brand;
 
 /**
  Two-letter ISO code representing the country of the card.
@@ -49,9 +46,10 @@ NS_SWIFT_NAME(CardDetails)
 @property (nonatomic, readonly) NSInteger expYear;
 
 /**
- Card funding type. Ex: credit, debit, etc.
+ Card funding type as returned by the Stripe API. Will be nil if funding type
+ information is not available.
  */
-@property (nonatomic, readonly) SCPCardFundingType funding;
+@property (nonatomic, nullable, copy, readonly) NSString *funding;
 
 /**
  The last four digits of the card.

@@ -17,16 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
      https://github.com/stripe/example-terminal-backend
 
-     After deploying your backend, replace nil on the line below with the URL
-     of your backend.
+     After deploying your backend, update the URL on the line below with the URL of your backend.
 
      static var backendUrl: String? = "https://your-app-backend.com"
      */
     static var backendUrl: String?
 
     static var apiClient: APIClient?
-
-    var window: UIWindow?
 
     public let defaultCurrency = "USD"
 
@@ -53,11 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // To log events from the SDK to the console:
         // Terminal.shared.logLevel = .verbose
-
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = RootViewController()
-        window.makeKeyAndVisible()
-        self.window = window
 
         return true
     }

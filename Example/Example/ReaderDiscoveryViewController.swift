@@ -208,6 +208,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                         delegate: MobileReaderDelegateAnnouncer.shared,
                         locationId: presentLocationId
                     )
+                    .setReaderPaymentInteractionDelegate(MobileReaderDelegateAnnouncer.shared)
                     .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
                     .setTestReaderUpdate(buildTestReaderUpdate())
                     .build()
@@ -216,6 +217,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                         delegate: MobileReaderDelegateAnnouncer.shared,
                         locationId: presentLocationId
                     )
+                    .setReaderPaymentInteractionDelegate(MobileReaderDelegateAnnouncer.shared)
                     .setAutoReconnectOnUnexpectedDisconnect(autoReconnectOnUnexpectedDisconnect)
                     .setTestReaderUpdate(buildTestReaderUpdate())
                     .build()
@@ -234,7 +236,6 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                 delegate: InternetReaderDelegateAnnouncer.shared
             )
             .setFailIfInUse(failIfInUse)
-            .setAllowCustomerCancel(true)
             .build()
             return connectionConfig
         case .tapToPay:
@@ -245,6 +246,7 @@ class ReaderDiscoveryViewController: TableViewController, CancelableViewControll
                     delegate: TapToPayReaderDelegateAnnouncer.shared,
                     locationId: presentLocationId
                 )
+                .setReaderPaymentInteractionDelegate(TapToPayReaderDelegateAnnouncer.shared)
                 .setMerchantDisplayName(nil)  // use the location name
                 .setOnBehalfOf(useOBO ? onBehalfOfTextField.textField.text : nil)
                 .setAutoReconnectOnUnexpectedDisconnect(self.autoReconnectOnUnexpectedDisconnect)
@@ -788,37 +790,7 @@ extension ReaderDiscoveryViewController: MobileReaderDelegate {
 
 // MARK: - TapToPayReaderDelegate
 extension ReaderDiscoveryViewController: TapToPayReaderDelegate {
-    func tapToPayReader(
-        _ reader: Reader,
-        didStartInstallingUpdate update: ReaderSoftwareUpdate,
-        cancelable: Cancelable?
-    ) {
-        updateReaderVC = UpdateReaderViewController(
-            reader: reader,
-            updateBeingInstalled: update,
-            cancelable: cancelable,
-            updateInstalledCompletion: { [unowned self] in
-                self.updateReaderVC?.dismiss(animated: true, completion: nil)
-            }
-        )
-        if let vc = updateReaderVC {
-            self.present(LargeTitleNavigationController(rootViewController: vc), animated: true, completion: nil)
-        }
-    }
-
-    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
-    }
-
     func tapToPayReaderDidAcceptTermsOfService(_ reader: Reader) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
     }
 
     // MARK: - Helper Methods

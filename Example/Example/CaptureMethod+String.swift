@@ -15,6 +15,8 @@ extension CaptureMethod {
             return "automatic"
         case .manual:
             return "manual"
+        case .automaticAsync:
+            return "automatic_async"
         @unknown default:
             fatalError()
         }

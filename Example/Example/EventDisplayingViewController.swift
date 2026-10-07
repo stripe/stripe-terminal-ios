@@ -228,39 +228,9 @@ extension EventDisplayingViewController: MobileReaderDelegate {
 
 // MARK: TapToPayReaderDelegate
 extension EventDisplayingViewController: TapToPayReaderDelegate {
-    func tapToPayReader(
-        _ reader: Reader,
-        didStartInstallingUpdate update: ReaderSoftwareUpdate,
-        cancelable: Cancelable?
-    ) {
-        // No-op.
-    }
-
-    func tapToPayReader(_ reader: Reader, didReportReaderSoftwareUpdateProgress progress: Float) {
-        // No-op.
-    }
-
-    func tapToPayReader(_ reader: Reader, didFinishInstallingUpdate update: ReaderSoftwareUpdate?, error: Error?) {
-        // No-op.
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderInput inputOptions: ReaderInputOptions = []) {
-        self.events.append(
-            {
-                var event = LogEvent(method: .requestReaderInput)
-                event.result = .message(Terminal.stringFromReaderInputOptions(inputOptions))
-                return event
-            }()
-        )
-    }
-
-    func tapToPayReader(_ reader: Reader, didRequestReaderDisplayMessage displayMessage: ReaderDisplayMessage) {
-        self.events.append(
-            {
-                var event = LogEvent(method: .requestReaderDisplayMessage)
-                event.result = .message(Terminal.stringFromReaderDisplayMessage(displayMessage))
-                return event
-            }()
-        )
+    func tapToPayReaderDidAcceptTermsOfService(_ reader: Reader) {
+        var event = LogEvent(method: .tapToPayReaderDidAcceptTermsOfService)
+        event.result = .succeeded
+        self.events.append(event)
     }
 }

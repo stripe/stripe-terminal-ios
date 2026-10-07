@@ -35,7 +35,7 @@ class PaymentViewController: EventDisplayingViewController {
     private let paymentParams: PaymentIntentParameters
     private let collectConfig: CollectPaymentIntentConfiguration
     private let confirmConfig: ConfirmPaymentIntentConfiguration
-    private let declineCardBrand: CardBrand?
+    private let declineCardBrand: String?
     private let recollectAfterCardBrandDecline: Bool
     private var offlineCreateConfig: CreateConfiguration?
     private let isSposReader: Bool
@@ -49,7 +49,7 @@ class PaymentViewController: EventDisplayingViewController {
         paymentParams: PaymentIntentParameters,
         collectConfig: CollectPaymentIntentConfiguration,
         confirmConfig: ConfirmPaymentIntentConfiguration,
-        declineCardBrand: CardBrand?,
+        declineCardBrand: String?,
         recollectAfterCardBrandDecline: Bool,
         isSposReader: Bool,
         offlineTransactionLimit: Int,
@@ -212,7 +212,7 @@ class PaymentViewController: EventDisplayingViewController {
         if let declineCardBrand = self.declineCardBrand,
             let paymentMethod = collectedIntent.paymentMethod,
             let details = paymentMethod.cardPresent ?? paymentMethod.interacPresent,
-            details.brand == declineCardBrand
+            details.brand.caseInsensitiveCompare(declineCardBrand) == .orderedSame
         {
             collectEvent.result = .errored
             let error = NSError(
@@ -335,7 +335,7 @@ class PaymentViewController: EventDisplayingViewController {
             #endif
 
             // Show a refund button if this was an Interac charge to make it easy to refund.
-            if let charge = intent.charges.first,
+            if let charge = intent.latestCharge,
                 charge.paymentMethodDetails?.interacPresent != nil
             {
                 self.intentToRefund = intent
@@ -371,7 +371,7 @@ class PaymentViewController: EventDisplayingViewController {
     private func refundButtonTapped() {
         guard let intent = intentToRefund,
             let intentId = intent.stripeId,
-            let charge = intent.charges.first,
+            let charge = intent.latestCharge,
             let clientSecret = intent.clientSecret
         else {
             fatalError("Intent or charge to refund was nil: \(intentToRefund?.description ?? "nil intent")")
@@ -546,65 +546,23 @@ extension PaymentViewController {
     }
 }
 
-// MARK: - MobileReaderDelegate (MPOS QR Payments)
+// MARK: - ReaderPaymentInteractionDelegate
 
-extension PaymentViewController {
-
-    func reader(
-        _ reader: Reader,
-        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
-        availablePaymentOptions: [PaymentOption],
-        completion: @escaping PaymentMethodSelectionCompletionBlock
-    ) {
-        handlePaymentMethodSelection(
-            paymentIntent: paymentIntent,
-            availablePaymentOptions: availablePaymentOptions,
-            completion: completion
-        )
-    }
-
-    func reader(
-        _ reader: Reader,
-        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
-        qrData: QrCodeDisplayData,
-        completion: @escaping QrCodeDisplayCompletionBlock
-    ) {
-        handleQrCodeDisplay(
-            paymentIntent: paymentIntent,
-            qrData: qrData,
-            completion: completion
-        )
-    }
-}
-
-// MARK: - TapToPayReaderDelegate (QR Payments)
-
-extension PaymentViewController {
-
-    func tapToPayReader(
-        _ reader: Reader,
-        didRequestPaymentMethodSelection paymentIntent: PaymentIntent,
-        availablePaymentOptions: [PaymentOption],
-        completion: @escaping PaymentMethodSelectionCompletionBlock
-    ) {
-        handlePaymentMethodSelection(
-            paymentIntent: paymentIntent,
-            availablePaymentOptions: availablePaymentOptions,
-            completion: completion
-        )
-    }
-
-    func tapToPayReader(
-        _ reader: Reader,
-        didRequestQrCodeDisplay paymentIntent: PaymentIntent,
-        qrData: QrCodeDisplayData,
-        completion: @escaping QrCodeDisplayCompletionBlock
-    ) {
-        handleQrCodeDisplay(
-            paymentIntent: paymentIntent,
-            qrData: qrData,
-            completion: completion
-        )
+extension PaymentViewController: ReaderPaymentInteractionDelegate {
+    func reader(_ reader: Reader, didRequestInteraction interaction: PaymentInteraction) {
+        if let interaction = interaction as? PaymentMethodSelectionInteraction {
+            handlePaymentMethodSelection(
+                paymentIntent: interaction.paymentIntent,
+                availablePaymentOptions: interaction.availableOptions,
+                completion: interaction.complete(paymentOption:error:)
+            )
+        } else if let interaction = interaction as? QrCodeDisplayInteraction {
+            handleQrCodeDisplay(
+                paymentIntent: interaction.paymentIntent,
+                qrData: interaction.qrData,
+                completion: interaction.complete(error:)
+            )
+        }
     }
 }
 
