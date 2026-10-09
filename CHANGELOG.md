@@ -83,6 +83,11 @@ To get 6.0.0, future releases, or patches to your current version, switch your i
 * Fixed automatic reconnect to report [`SCPDisconnectReasonPeerRemovedPairingInformation`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonPeerRemovedPairingInformation) when a peer-removal error refines an initially unknown disconnect reason.
 
 
+# 5.8.1 2026-10-08
+### Fixes
+* Fixed an issue where offline PaymentIntents dropped merchant-supplied creation parameters, causing Tap to Pay on iPhone collection to fail for destination charges using `onBehalfOf`.
+
+
 # 5.8.0 2026-08-18
 ### New
 * Added support for reading and setting the buzzer volume on supported readers.
