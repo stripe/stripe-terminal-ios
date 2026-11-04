@@ -81,6 +81,7 @@ To get 6.0.0, future releases, or patches to your current version, switch your i
 
 ### Fixes
 * Fixed automatic reconnect to report [`SCPDisconnectReasonPeerRemovedPairingInformation`](https://stripe.dev/stripe-terminal-ios/docs/Enums/SCPDisconnectReason.html#/c:@E@SCPDisconnectReason@SCPDisconnectReasonPeerRemovedPairingInformation) when a peer-removal error refines an initially unknown disconnect reason.
+* Fixed an issue where `allowRedisplay` was not propagated for offline payments using `setupFutureUsage`, preventing a reusable `generated_card` payment method from being created when the payments were forwarded.
 
 
 # 5.8.0 2026-08-18
