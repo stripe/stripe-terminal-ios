@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Terminal  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Section/Terminal" class="dashAnchor"></a>
+
+    <a title="Terminal  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          StripeTerminal 5.8.1 Docs
+        </a>
+        
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">StripeTerminal</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      Terminal  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Terminal.html">Terminal</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTerminal.html">SCPTerminal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPTerminalDelegate.html">SCPTerminalDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPDisconnectReason.html">SCPDisconnectReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPOfflineDelegate.html">SCPOfflineDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPOfflineStatus.html">SCPOfflineStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPLogLevel.html">SCPLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCancelable.html">SCPCancelable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Terminal.html#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPNetworkStatus.html">SCPNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuilder.html">SCPBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectDataConfiguration.html">SCPCollectDataConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectDataConfigurationBuilder.html">SCPCollectDataConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCollectDataType.html">SCPCollectDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectedData.html">SCPCollectedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPMagstripeCollectedData.html">SCPMagstripeCollectedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNfcUidCollectedData.html">SCPNfcUidCollectedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocaleConfig.html">SCPLocaleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPHardcodedLocaleConfigBuilder.html">SCPHardcodedLocaleConfigBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocalizationResult.html">SCPLocalizationResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Reader%20Discovery%20%26%20Connection.html">Reader Discovery &amp; Connection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPDiscoveryMethod.html">SCPDiscoveryMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPDiscoveryDelegate.html">SCPDiscoveryDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPDiscoveryConfiguration.html">SCPDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothScanDiscoveryConfiguration.html">SCPBluetoothScanDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothScanDiscoveryConfigurationBuilder.html">SCPBluetoothScanDiscoveryConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothProximityDiscoveryConfiguration.html">SCPBluetoothProximityDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothProximityDiscoveryConfigurationBuilder.html">SCPBluetoothProximityDiscoveryConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfiguration.html">SCPInternetDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetDiscoveryConfigurationBuilder.html">SCPInternetDiscoveryConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDiscoveryFilter.html">SCPDiscoveryFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfiguration.html">SCPTapToPayDiscoveryConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayDiscoveryConfigurationBuilder.html">SCPTapToPayDiscoveryConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothConnectionConfiguration.html">SCPBluetoothConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBluetoothConnectionConfigurationBuilder.html">SCPBluetoothConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetConnectionConfiguration.html">SCPInternetConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetConnectionConfigurationBuilder.html">SCPInternetConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfiguration.html">SCPTapToPayConnectionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayConnectionConfigurationBuilder.html">SCPTapToPayConnectionConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEasyConnectConfiguration.html">SCPEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInternetEasyConnectConfiguration.html">SCPInternetEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTapToPayEasyConnectConfiguration.html">SCPTapToPayEasyConnectConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPConnectionStatus.html">SCPConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPListLocationsParameters.html">SCPListLocationsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPListLocationsParametersBuilder.html">SCPListLocationsParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPLocation.html">SCPLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPLocationStatus.html">SCPLocationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAddress.html">SCPAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatorConfiguration.html">SCPSimulatorConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulateReaderUpdate.html">SCPSimulateReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTestReaderUpdate.html">SCPTestReaderUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPTestReaderUpdateType.html">SCPTestReaderUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedCard.html">SCPSimulatedCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulatedCardType.html">SCPSimulatedCardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResult">SCPSimulatedCollectInputsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedCollectInputsResultSucceeded.html">SCPSimulatedCollectInputsResultSucceeded</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader%20Discovery%20%26%20Connection.html#/c:objc(cs)SCPSimulatedCollectInputsResultTimeout">SCPSimulatedCollectInputsResultTimeout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulatedCollectInputsSkipBehavior.html">SCPSimulatedCollectInputsSkipBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedOfflineModeConfiguration.html">SCPSimulatedOfflineModeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSimulatedOfflineModeConfigurationBuilder.html">SCPSimulatedOfflineModeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSimulatedOfflineMode.html">SCPSimulatedOfflineMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Reader.html">Reader</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReader.html">SCPReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPDeviceType.html">SCPDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPMobileReaderDelegate.html">SCPMobileReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPTapToPayReaderDelegate.html">SCPTapToPayReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader.html#/c:objc(pl)SCPInternetReaderDelegate">SCPInternetReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/SCPReaderDelegate.html">SCPReaderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderEvent.html">SCPReaderEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderInputOptions.html">SCPReaderInputOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderDisplayMessage.html">SCPReaderDisplayMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderNetworkStatus.html">SCPReaderNetworkStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPBatteryStatus.html">SCPBatteryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCart.html">SCPCart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCartBuilder.html">SCPCartBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCartLineItem.html">SCPCartLineItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCartLineItemBuilder.html">SCPCartLineItemBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectInputsParameters.html">SCPCollectInputsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectInputsParametersBuilder.html">SCPCollectInputsParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPInput.html">SCPInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSignatureInput.html">SCPSignatureInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSignatureInputBuilder.html">SCPSignatureInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSelectionButton.html">SCPSelectionButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSelectionButtonBuilder.html">SCPSelectionButtonBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSelectionButtonStyle.html">SCPSelectionButtonStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSelectionInput.html">SCPSelectionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSelectionInputBuilder.html">SCPSelectionInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPhoneInput.html">SCPPhoneInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPhoneInputBuilder.html">SCPPhoneInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEmailInput.html">SCPEmailInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEmailInputBuilder.html">SCPEmailInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNumericInput.html">SCPNumericInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNumericInputBuilder.html">SCPNumericInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTextInput.html">SCPTextInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTextInputBuilder.html">SCPTextInputBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectInputsResult.html">SCPCollectInputsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSignatureResult.html">SCPSignatureResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSelectionResult.html">SCPSelectionResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPhoneResult.html">SCPPhoneResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPEmailResult.html">SCPEmailResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNumericResult.html">SCPNumericResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTextResult.html">SCPTextResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPToggle.html">SCPToggle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPToggleValue.html">SCPToggleValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPToggleResult.html">SCPToggleResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPToggleBuilder.html">SCPToggleBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderSettings.html">SCPReaderSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader.html#/c:objc(pl)SCPReaderSettingsParameters">SCPReaderSettingsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderAccessibility.html">SCPReaderAccessibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReaderTextToSpeechStatus.html">SCPReaderTextToSpeechStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderAccessibilityParameters.html">SCPReaderAccessibilityParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderAccessibilityParametersBuilder.html">SCPReaderAccessibilityParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Reader.html#/c:SCPBlocks.h@T@SCPReaderSettingsCompletionBlock">SCPReaderSettingsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolume.html">SCPBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderBuzzerVolume.html">SCPReaderBuzzerVolume</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPBuzzerVolumeParameters.html">SCPBuzzerVolumeParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPBuzzerVolumeLevel.html">SCPBuzzerVolumeLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPrintContent.html">SCPPrintContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPrintContentBuilder.html">SCPPrintContentBuilder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Reader%20Updates.html">Reader Updates</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReaderSoftwareUpdate.html">SCPReaderSoftwareUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPUpdateDurationEstimate.html">SCPUpdateDurationEstimate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPUpdateComponent.html">SCPUpdateComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Payment.html">Payment</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentIntent.html">SCPPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentIntentParameters.html">SCPPaymentIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentIntentParametersBuilder.html">SCPPaymentIntentParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentIntentStatus.html">SCPPaymentIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentStatus.html">SCPPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAmountDetails.html">SCPAmountDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTip.html">SCPTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardPresentParameters.html">SCPCardPresentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardPresentParametersBuilder.html">SCPCardPresentParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentCaptureMethod.html">SCPCardPresentCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentRouting.html">SCPCardPresentRouting</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardPresentDetails.html">SCPCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPOvercaptureStatus.html">SCPOvercaptureStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentRequestPartialAuthorization.html">SCPCardPresentRequestPartialAuthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentRequestMulticapture.html">SCPCardPresentRequestMulticapture</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardPresentRequestReauthorization.html">SCPCardPresentRequestReauthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPReceiptDetails.html">SCPReceiptDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConfirmPaymentIntentError.html">SCPConfirmPaymentIntentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardBrand.html">SCPCardBrand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCardFundingType.html">SCPCardFundingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCharge.html">SCPCharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPChargeStatus.html">SCPChargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodDetails.html">SCPPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCardDetails.html">SCPCardDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethod.html">SCPPaymentMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentMethodType.html">SCPPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodOptionsParameters.html">SCPPaymentMethodOptionsParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentMethodOptionsParametersBuilder.html">SCPPaymentMethodOptionsParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectPaymentIntentConfiguration.html">SCPCollectPaymentIntentConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectPaymentIntentConfigurationBuilder.html">SCPCollectPaymentIntentConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConfirmPaymentIntentConfiguration.html">SCPConfirmPaymentIntentConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConfirmPaymentIntentConfigurationBuilder.html">SCPConfirmPaymentIntentConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConfiguration.html">SCPSurchargeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConfigurationBuilder.html">SCPSurchargeConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConsent.html">SCPSurchargeConsent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeConsentBuilder.html">SCPSurchargeConsentBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSurchargeConsentCollection.html">SCPSurchargeConsentCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectSetupIntentConfiguration.html">SCPCollectSetupIntentConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectSetupIntentConfigurationBuilder.html">SCPCollectSetupIntentConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectRefundConfiguration.html">SCPCollectRefundConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCollectRefundConfigurationBuilder.html">SCPCollectRefundConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCustomerCancellation.html">SCPCustomerCancellation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPCaptureMethod.html">SCPCaptureMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCreateConfiguration.html">SCPCreateConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPCreateConfigurationBuilder.html">SCPCreateConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPOfflineBehavior.html">SCPOfflineBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPOfflineCardPresentDetails.html">SCPOfflineCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPOfflineDetails.html">SCPOfflineDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPOfflineStatusDetails.html">SCPOfflineStatusDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSurchargeDetails.html">SCPSurchargeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSurchargeStatus.html">SCPSurchargeStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTippingConfiguration.html">SCPTippingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPTippingConfigurationBuilder.html">SCPTippingConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNetworks.html">SCPNetworks</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPIncrementalAuthorizationStatus.html">SCPIncrementalAuthorizationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPMulticaptureStatus.html">SCPMulticaptureStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReauthorizationStatus.html">SCPReauthorizationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPMotoConfiguration.html">SCPMotoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPMotoConfigurationBuilder.html">SCPMotoConfigurationBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPReadMethod.html">SCPReadMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPWallet.html">SCPWallet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPWechatPayDetails.html">SCPWechatPayDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAllowRedisplay.html">SCPAllowRedisplay</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAffirmDetails.html">SCPAffirmDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPKlarnaDetails.html">SCPKlarnaDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaynowDetails.html">SCPPaynowDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaypayDetails.html">SCPPaypayDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPDynamicCurrencyConversion.html">SCPDynamicCurrencyConversion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPNextAction.html">SCPNextAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPWechatPayDisplayQrCode.html">SCPWechatPayDisplayQrCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRedirectToUrl.html">SCPRedirectToUrl</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPUseStripeSdk.html">SCPUseStripeSdk</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPGeneratedFrom.html">SCPGeneratedFrom</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPApiError.html">SCPApiError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPPaymentOption.html">SCPPaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPQrCodeDisplayData.html">SCPQrCodeDisplayData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPPaymentOptionType.html">SCPPaymentOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeData.html">SCPAadeData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPAadeDataBuilder.html">SCPAadeDataBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeMode.html">SCPAadeMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPAadeUnboundPosReason.html">SCPAadeUnboundPosReason</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Card-Present%20Refunds.html">Card-Present Refunds</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefund.html">SCPRefund</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefundParameters.html">SCPRefundParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPRefundParametersBuilder.html">SCPRefundParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConfirmRefundError.html">SCPConfirmRefundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPRefundStatus.html">SCPRefundStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Saving%20Cards.html">Saving Cards</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupIntent.html">SCPSetupIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSetupIntentCollectionReason.html">SCPSetupIntentCollectionReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupIntentParameters.html">SCPSetupIntentParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupIntentParametersBuilder.html">SCPSetupIntentParametersBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSetupIntentStatus.html">SCPSetupIntentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPSetupIntentUsage.html">SCPSetupIntentUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupAttempt.html">SCPSetupAttempt</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupAttemptPaymentMethodDetails.html">SCPSetupAttemptPaymentMethodDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPSetupAttemptCardPresentDetails.html">SCPSetupAttemptCardPresentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SCPConfirmSetupIntentError.html">SCPConfirmSetupIntentError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Errors.html">Errors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/SCPError.html">SCPError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorDomain">SCPErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:SCPErrors.h@T@SCPErrorKey">SCPErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyMessage">SCPErrorKeyMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyHttpStatusCode">SCPErrorKeyHttpStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyReaderMessage">SCPErrorKeyReaderMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyDeviceBannedUntilDate">SCPErrorKeyDeviceBannedUntilDate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyPrepareFailedReason">SCPErrorKeyPrepareFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIError">SCPErrorKeyStripeAPIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIRequestId">SCPErrorKeyStripeAPIRequestId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDeclineCode">SCPErrorKeyStripeAPIDeclineCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorCode">SCPErrorKeyStripeAPIErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorParameter">SCPErrorKeyStripeAPIErrorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIErrorType">SCPErrorKeyStripeAPIErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIPaymentIntent">SCPErrorKeyStripeAPIPaymentIntent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPICharge">SCPErrorKeyStripeAPICharge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIDocUrl">SCPErrorKeyStripeAPIDocUrl</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyStripeAPIFailureReason">SCPErrorKeyStripeAPIFailureReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyOfflineDeclineReason">SCPErrorKeyOfflineDeclineReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Errors.html#/c:@SCPErrorKeyTapToPayReaderErrorName">SCPErrorKeyTapToPayReaderErrorName</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Blocks.html">Blocks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConnectionTokenCompletionBlock">SCPConnectionTokenCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPErrorCompletionBlock">SCPErrorCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPLogListenerBlock">SCPLogListenerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentIntentCompletionBlock">SCPPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodCompletionBlock">SCPPaymentMethodCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConfirmPaymentIntentCompletionBlock">SCPConfirmPaymentIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPReaderCompletionBlock">SCPReaderCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConfirmRefundCompletionBlock">SCPConfirmRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPConfirmSetupIntentCompletionBlock">SCPConfirmSetupIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPLocationsCompletionBlock">SCPLocationsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPRefundCompletionBlock">SCPRefundCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPSetupIntentCompletionBlock">SCPSetupIntentCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCollectInputsCompletionBlock">SCPCollectInputsCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPCollectedDataCompletionBlock">SCPCollectedDataCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPPaymentMethodSelectionCompletionBlock">SCPPaymentMethodSelectionCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPQrCodeDisplayCompletionBlock">SCPQrCodeDisplayCompletionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Blocks.html#/c:SCPBlocks.h@T@SCPTTPAccountLinkCompletionBlock">SCPTTPAccountLinkCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>Terminal</h1>
+            
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPTerminal"></a>
+                    <a name="//apple_ref/objc/Class/SCPTerminal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPTerminal">SCPTerminal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>SCPTerminal</code> singleton object exposes an interface for discovering readers,
+connecting to a reader, creating payments, and saving card information for later
+use.</p>
+
+<p>Before accessing the singleton object using the <code>shared</code> property, you must initialize
+the SDK by calling <code>initWithTokenProvider:</code> with an object that implements the
+<code><a href="Protocols/SCPConnectionTokenProvider.html">SCPConnectionTokenProvider</a></code> protocol. This object should authenticate with your backend,
+then fetch the <a href="https://stripe.com/docs/api/terminal/connection_tokens/object#terminal_connection_token_object-secret">secret</a>
+from a freshly minted <a href="https://stripe.com/docs/api/terminal/connection_tokens">ConnectionToken</a>.</p>
+
+<p>The SCPTerminal singleton can only be connected to one reader at a time, and
+can only perform one operation at a time. As a general rule, make sure the
+completion handler of one operation has been called before calling another
+operation from within your app.</p>
+
+<p>The Stripe Terminal SDK sends updates to your app by using the delegate pattern.
+You may want multiple views in your app to respond to these delegate calls.
+We recommend creating a central delegate announcer which broadcasts all delegate
+calls to views and ViewControllers that register themselves with that announcer.
+We have an example implementation of a TerminalDelegateAnnouncer as <a href="https://github.com/stripe/stripe-terminal-ios/blob/master/Example/Example/TerminalDelegateAnnouncer.swift">part of our
+example application</a>.</p>
+
+                        <a href="Classes/SCPTerminal.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPTerminal</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Terminal</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPConnectionTokenProvider"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPConnectionTokenProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPConnectionTokenProvider">SCPConnectionTokenProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Before integrating the SDK, you should create an endpoint on your backend
+server that creates a new connection token via the Stripe Terminal API. The
+connection token is used by the SDK to connect to a reader.</p>
+
+<p>An overview of the lifecycle of a connection token:</p>
+
+<ul>
+<li>When Stripe Terminal is initialized, the SDK attempts to proactively request
+an connection token from your backend server.</li>
+<li>The SDK uses the connection to connect to a reader.</li>
+<li>Subsequent calls to connect require a new connection token. If you disconnect
+from a reader, and then call connect again, the SDK will need a new connection
+token from your backend server.</li>
+</ul>
+
+<p>We suggest making your application&rsquo;s API client conform to this protocol.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <a href="https://stripe.com/docs/terminal/sdk/ios#connection-token">https://stripe.com/docs/terminal/sdk/ios#connection-token</a>
+
+</div>
+
+                        <a href="Protocols/SCPConnectionTokenProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPConnectionTokenProvider</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ConnectionTokenProvider</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPTerminalDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPTerminalDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPTerminalDelegate">SCPTerminalDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement this protocol to handle connection and payment updates from the
+Stripe Terminal iOS SDK.</p>
+
+                        <a href="Protocols/SCPTerminalDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPTerminalDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">TerminalDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPDisconnectReason"></a>
+                    <a name="//apple_ref/objc/Enum/SCPDisconnectReason" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPDisconnectReason">SCPDisconnectReason</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Possible reasons for Bluetooth reader disconnects.</p>
+
+                        <a href="Enums/SCPDisconnectReason.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPDisconnectReason</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">DisconnectReason</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SCPOfflineDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/SCPOfflineDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SCPOfflineDelegate">SCPOfflineDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement this protocol to handle callbacks when the SDK is performing
+actions related to offline mode.</p>
+
+                        <a href="Protocols/SCPOfflineDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SCPOfflineDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">OfflineDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPOfflineStatus"></a>
+                    <a name="//apple_ref/objc/Class/SCPOfflineStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPOfflineStatus">SCPOfflineStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides offline status details for the connected reader and the SDK.</p>
+
+                        <a href="Classes/SCPOfflineStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPOfflineStatus</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">OfflineStatus</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPLogLevel"></a>
+                    <a name="//apple_ref/objc/Enum/SCPLogLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPLogLevel">SCPLogLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The various log levels for the SDK.</p>
+
+<p>Setting a given level prints log messages of that severity and all more-severe
+messages (for example, <code>SCPLogLevelWarning</code> prints warnings and errors). This
+mirrors the severities available in the Android SDK&rsquo;s <code>LogLevel</code>.</p>
+
+<p>Raw values are assigned explicitly and must remain stable across releases:
+<code>SCPLogLevelNone</code> and <code>SCPLogLevelVerbose</code> keep their original values for
+backwards compatibility, and newer levels are appended. Severity is defined by
+the SDK, not by the raw value ordering — do not infer one from the other.</p>
+
+                        <a href="Enums/SCPLogLevel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPLogLevel</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">LogLevel</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCancelable"></a>
+                    <a name="//apple_ref/objc/Class/SCPCancelable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCancelable">SCPCancelable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An object representing an action that can be canceled.</p>
+
+                        <a href="Classes/SCPCancelable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPCancelable</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Cancelable</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:SCPTerminal.h@SCPSDKVersion"></a>
+                    <a name="//apple_ref/objc/Constant/SCPSDKVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:SCPTerminal.h@SCPSDKVersion">SCPSDKVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current version of this library.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">_Nonnull</span> <span class="n">SCPSDKVersion</span> <span class="o">=</span> <span class="s">@"5.8.1"</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">SCPSDKVersion</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPNetworkStatus"></a>
+                    <a name="//apple_ref/objc/Enum/SCPNetworkStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPNetworkStatus">SCPNetworkStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible network connection statuses for the SDK.</p>
+
+                        <a href="Enums/SCPNetworkStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPNetworkStatus</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">NetworkStatus</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPBuilder">SCPBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Base class for all builders. Defines the <code>build</code> method that all builders must implement.</p>
+
+                        <a href="Classes/SCPBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SCPBuilder</span><span class="o">&lt;</span><span class="n">__covariant</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SCPBuilder</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">NSObject</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCollectDataConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/SCPCollectDataConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCollectDataConfiguration">SCPCollectDataConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains configuration information relevant to collecting non-payment data.</p>
+
+                        <a href="Classes/SCPCollectDataConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPCollectDataConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CollectDataConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCollectDataConfigurationBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPCollectDataConfigurationBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCollectDataConfigurationBuilder">SCPCollectDataConfigurationBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>CollectDataConfigurationBuilder</code> is used to create a <code>CollectDataConfiguration</code> object.</p>
+
+                        <a href="Classes/SCPCollectDataConfigurationBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPCollectDataConfigurationBuilder</span>
+    <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPCollectDataConfiguration.html">SCPCollectDataConfiguration</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CollectDataConfigurationBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">CollectDataConfiguration</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@SCPCollectDataType"></a>
+                    <a name="//apple_ref/objc/Enum/SCPCollectDataType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@SCPCollectDataType">SCPCollectDataType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of data to collect.</p>
+
+                        <a href="Enums/SCPCollectDataType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">SCPCollectDataType</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CollectDataType</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPCollectedData"></a>
+                    <a name="//apple_ref/objc/Class/SCPCollectedData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPCollectedData">SCPCollectedData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents non-payment data collected using <code>collectData</code>.</p>
+
+                        <a href="Classes/SCPCollectedData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPCollectedData</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CollectedData</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPMagstripeCollectedData"></a>
+                    <a name="//apple_ref/objc/Class/SCPMagstripeCollectedData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPMagstripeCollectedData">SCPMagstripeCollectedData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents non-payment data collected using <code>collectData</code> with the magstripe interface.</p>
+
+                        <a href="Classes/SCPMagstripeCollectedData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPMagstripeCollectedData</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPCollectedData.html">SCPCollectedData</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MagstripeCollectedData</span> <span class="p">:</span> <span class="kt">CollectedData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPNfcUidCollectedData"></a>
+                    <a name="//apple_ref/objc/Class/SCPNfcUidCollectedData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPNfcUidCollectedData">SCPNfcUidCollectedData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents non-payment data collected using <code>collectData</code> with the NFC interface.</p>
+
+                        <a href="Classes/SCPNfcUidCollectedData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPNfcUidCollectedData</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPCollectedData.html">SCPCollectedData</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NfcUidCollectedData</span> <span class="p">:</span> <span class="kt">CollectedData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPLocaleConfig"></a>
+                    <a name="//apple_ref/objc/Class/SCPLocaleConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocaleConfig">SCPLocaleConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configures localization of API error messages returned through
+<code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>.</p>
+
+<p>API errors surfaced through <code>NSError</code>&lsquo;s
+<code><a href="Errors.html#/c:@SCPErrorKeyStripeAPIError">SCPErrorKeyStripeAPIError</a></code> will have their <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>
+translated to the resolved locale.</p>
+
+<p>For smart readers, reader software version 2.43 or later is required for localization.</p>
+
+<p>Note: The scope of localization may expand in future SDK releases.
+For example, <code>NSError.localizedDescription</code> and other SDK-originated
+strings may also be localized. Integrations should avoid relying on
+error message content for application logic. Use error codes such as
+<code><a href="Enums/SCPError.html">SCPError</a></code> and <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)code">SCPApiError.code</a></code> instead.</p>
+
+                        <a href="Classes/SCPLocaleConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPLocaleConfig</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LocaleConfig</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Hardcoded%20locale"></a>
+                <a name="//apple_ref/objc/Section/Hardcoded locale" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Hardcoded%20locale"></a>
+                  <h3 class="section-name"><span>Hardcoded locale</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPHardcodedLocaleConfig"></a>
+                    <a name="//apple_ref/objc/Class/SCPHardcodedLocaleConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPHardcodedLocaleConfig">SCPHardcodedLocaleConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Localizes API error messages to a fixed locale tag.</p>
+
+<p>The locale tag must conform to the format <code>language[-script][-region]</code> where:</p>
+
+<ul>
+<li><code>language</code> is a 2-3 letter ISO 639 code (e.g., &ldquo;en&rdquo;, &ldquo;fil&rdquo;)</li>
+<li><code>script</code> (optional) is only &ldquo;Hans&rdquo; or &ldquo;Hant&rdquo;</li>
+<li><code>region</code> (optional) is a 2-letter ISO 3166-1 alpha-2 code (e.g., &ldquo;US&rdquo;) or a
+3-digit UN M.49 code (e.g., &ldquo;419&rdquo;)</li>
+</ul>
+
+<p>If the locale is not supported by Stripe&rsquo;s localization infrastructure,
+error messages will fall back to English (<code>en-US</code>).</p>
+
+                        <a href="Classes/SCPHardcodedLocaleConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPHardcodedLocaleConfig</span> <span class="p">:</span> <span class="nc"><a href="Classes/SCPLocaleConfig.html">SCPLocaleConfig</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">HardcodedLocaleConfig</span> <span class="p">:</span> <span class="kt">LocaleConfig</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPHardcodedLocaleConfigBuilder"></a>
+                    <a name="//apple_ref/objc/Class/SCPHardcodedLocaleConfigBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPHardcodedLocaleConfigBuilder">SCPHardcodedLocaleConfigBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A builder class for <code><a href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a></code>. The locale tag is validated
+by <code>build:</code>.</p>
+
+                        <a href="Classes/SCPHardcodedLocaleConfigBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPHardcodedLocaleConfigBuilder</span>
+    <span class="p">:</span> <span class="nc"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span> <span class="o">&lt;</span><span class="n"><a href="Classes/SCPHardcodedLocaleConfig.html">SCPHardcodedLocaleConfig</a></span> <span class="o">*&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">HardcodedLocaleConfigBuilder</span> <span class="p">:</span> <span class="kt"><a href="Classes/SCPBuilder.html">SCPBuilder</a></span><span class="o">&lt;</span><span class="kt">HardcodedLocaleConfig</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SCPLocalizationResult"></a>
+                    <a name="//apple_ref/objc/Class/SCPLocalizationResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SCPLocalizationResult">SCPLocalizationResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reports the outcome of localizing an <code><a href="Classes/SCPApiError.html#/c:objc(cs)SCPApiError(py)message">SCPApiError.message</a></code>.</p>
+
+<ul>
+<li><code>requestedLocale</code> reflects the locale the SDK sent in the
+<code>Accept-Language</code> request header.</li>
+<li><code>resolvedLocale</code> reflects the locale the message was localized to,
+taken from the <code>Content-Language</code> response header (defaults to <code>en-US</code>
+if the header is absent).</li>
+</ul>
+
+<p>The two may differ when the requested locale is not supported — in that
+case, the server falls back to <code>en-US</code>.</p>
+
+                        <a href="Classes/SCPLocalizationResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">SCPLocalizationResult</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LocalizationResult</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2026 <a class="link" href="https://stripe.com" target="_blank" rel="external noopener">Stripe</a>. All rights reserved. (Last updated: 2026-10-08)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>

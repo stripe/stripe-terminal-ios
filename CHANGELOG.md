@@ -84,6 +84,11 @@ To get 6.0.0, future releases, or patches to your current version, switch your i
 * Fixed an issue where `allowRedisplay` was not propagated for offline payments using `setupFutureUsage`, preventing a reusable `generated_card` payment method from being created when the payments were forwarded.
 
 
+# 5.8.1 2026-10-08
+### Fixes
+* Fixed an issue where offline PaymentIntents dropped merchant-supplied creation parameters, causing Tap to Pay on iPhone collection to fail for destination charges using `onBehalfOf`.
+
+
 # 5.8.0 2026-08-18
 ### New
 * Added support for reading and setting the buzzer volume on supported readers.
